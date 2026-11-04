@@ -1,0 +1,31 @@
+{
+  "kind": "user-resume-after-external-drive-disconnect",
+  "status": "restart_preparation",
+  "recorded_utc": "2026-11-04T02:57:49.806524+00:00",
+  "authorization": "resume",
+  "head": "73e3789ee3ebb0dd32da85b322e81672d89c33c5",
+  "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+  "mounted_volume": "/Volumes/Expansion",
+  "device": "/dev/disk5s1",
+  "no_active_model_job": true,
+  "interruption": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-first-spatial-user-interruption.json",
+    "sha256": "f8a1d09e05ee4c24bb39ccea64032347042e8e3c4d005351d47029c917110bda",
+    "bytes": 1914
+  },
+  "accepted_execution": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-final-score-completion.json",
+    "sha256": "8f9163b53c07c264ef59d651bf4860b04333b70a61ec4a19abc7bd4fecfa1953",
+    "bytes": 12198
+  },
+  "accepted_selection": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-execution-selection-completion.json",
+    "sha256": "5551ca020b6dc3984cad44fff48b63d4a823c1e7935efbe1243e23224414cade",
+    "bytes": 2671
+  },
+  "small_input_manifest_checks": "prepared63/coaches102/first-score372/final-score40e/selection588 exact; interrupted log00c7 and exit130 preserved; canonical first-state output absent",
+  "restart": "same first-year objective/inputs and canonical output; fresh resume-01 log/start/finish/exit/pid/pin records; focused command/helper review before launch",
+  "completed_execution_recomputed": false,
+  "composition_released": false,
+  "activation": false
+}

@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "scope": "source AST/argv plus scratch run records and STUB inspect only; no actual source, fit, state, array, strict-reader or numerical calls",
+  "original_cli_argv_and_input_pins_exact": true,
+  "raw_inspect_ast_unchanged": true,
+  "solver_unchanged": true,
+  "fresh_receipt_refusal": true,
+  "command_sha256": "35cc8c55aac6b2de8fa557a29b8a35ae52a4bd3ce83d6c22c8c095e8516a397f",
+  "helper_sha256": "05dd24009a1efc13daf64487d0745ec6b3307bfe24fa3d3431b87a4ba9968051",
+  "controls": [
+    {
+      "native_exit": 0,
+      "readback_exit": 0,
+      "canonical_output": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-resume-bindings-x6rfhbpr/0/20212022",
+      "run_stem": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-resume-bindings-x6rfhbpr/0/20212022-resume-01",
+      "original_records_unchanged": 7
+    },
+    {
+      "native_exit": 3,
+      "readback_exit": 1,
+      "canonical_output": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-resume-bindings-x6rfhbpr/3/20212022",
+      "run_stem": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-resume-bindings-x6rfhbpr/3/20212022-resume-01",
+      "original_records_unchanged": 7
+    }
+  ],
+  "scratch": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-resume-bindings-x6rfhbpr"
+}

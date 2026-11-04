@@ -581,3 +581,10 @@ composition is prepared, not released or launched. first-spatial `20212022` rema
 accepted execution remains complete: twenty baseline heads, four probes, five scores and four propagations; selection `58837631` and all expensive original/failed artifacts remain preserved. current source, reviewed commands and local preparation remain saved. the independent spatial audit holds all external calls with no temporary job active. compatible composition has not launched.
 
 [the disconnect record](receipts/external-drive-user-disconnect.json) records no listed open volume files and successful non-forced `diskutil eject /Volumes/Expansion`, exit 0, `Disk /Volumes/Expansion ejected`. the drive is safe to unplug. work is paused. after reconnection and explicit resume, retain all interrupted evidence and arrange fresh guarded log/receipt paths for the first spatial annual; repeat no accepted execution work. actual first-spatial saved-state audit, remaining chain/probes, composition/publication, real source-to-screen acceptance and final cleanup remain assigned. no activation occurs.
+
+
+## user resume after drive reconnection
+
+[the resume record](receipts/user-resume-after-disconnect.json) follows the explicit user instruction. expansion is mounted and no model job is active. small prepared/coach/first-score/final-score/selection manifests retain `63bd2861` / `102bca4c` / `37263bfc` / `40e23b35` / `58837631`; interrupted log `00c7e370` and exit 130 remain exact. the first-state output directory is still absent. no accepted execution work is repeated.
+
+the restart keeps canonical spatial output `real/spatial/20212022` and all numerical inputs/controls, with fresh `20212022-resume-01` log/pid/pin/exit records and matching saved-metadata readback. focused scratch controls and independent command review precede launch. the original interruption remains user-directed, not a numerical failure. the complete first annual triple/resource measurement is still required before successors or heavy composition. no acquisition or activation is assigned.

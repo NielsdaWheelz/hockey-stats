@@ -10,6 +10,8 @@ from time import perf_counter
 
 CAMPAIGN=Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01')
 OUTPUT=CAMPAIGN/'real/spatial/20212022'
+RUN_STEM=CAMPAIGN/'real/spatial/20212022-resume-01'
+METADATA_RECEIPT=Path(str(RUN_STEM)+'-saved-metadata-acceptance.json')
 ANALYSIS='fc716257eb118d1a091472cde4b214e8bca1f753'
 SOLVER=dict(maxiter=10000,ftol=1e-15,gtol=1e-6,maxcor=10)
 HEADS=('volume','shape','quality')
@@ -85,7 +87,7 @@ def inspect_first_year(path, *, purpose, prepared_sha256, coaches_sha256, valued
 
 
 def main():
-    began=perf_counter();stem=OUTPUT
+    began=perf_counter();stem=RUN_STEM
     exit_code=int(Path(str(stem)+'-exit.txt').read_text())
     start=Path(str(stem)+'-start.txt').read_text().strip()
     finish=Path(str(stem)+'-finish.txt').read_text().strip()
@@ -105,12 +107,12 @@ def main():
     timing=re.findall(r'([\d.]+) real\s+([\d.]+) user\s+([\d.]+) sys',log)
     rss=re.findall(r'(\d+)\s+maximum resident set size',log)
     footprint=re.findall(r'(\d+)\s+peak memory footprint',log)
-    report.update(recorded_utc=datetime.now(timezone.utc).isoformat(),launch=dict(exit=exit_code,start=start,finish=finish,
+    report.update(recorded_utc=datetime.now(timezone.utc).isoformat(),launch=dict(exit=exit_code,start=start,finish=finish,run_stem=str(stem),
         head=Path(str(stem)+'-launch-head.txt').read_text().strip(),analysis_tree=ANALYSIS),
         whole_command=dict(timing=None if not timing else dict(zip(('wall_seconds','user_seconds','system_seconds'),map(float,timing[-1]))),
             maximum_resident_bytes=None if not rss else int(rss[-1]),peak_memory_footprint_bytes=None if not footprint else int(footprint[-1])),
         metadata_readback_wall_seconds=perf_counter()-began)
-    destination=CAMPAIGN/'real/spatial-20212022-saved-metadata-acceptance.json'
+    destination=METADATA_RECEIPT
     with destination.open('x') as stream:json.dump(report,stream,indent=2,allow_nan=False);stream.write('\n')
     print(json.dumps(dict(status=report['status'],receipt=str(destination))))
     return 0 if report['eligible_as_predecessor'] else 1

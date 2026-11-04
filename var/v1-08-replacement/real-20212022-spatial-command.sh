@@ -1,5 +1,6 @@
 #!/bin/zsh
-# first replacement real spatial annual only; root releases this standalone command.
+# restart the interrupted first replacement real spatial annual; root releases this command.
+# retain canonical output and preserve all original interrupted run records; new records use resume-01.
 # preserve the original spatial objective/controls. no predecessor or final probes in 20212022.
 # run serially after the final execution score exits; measure this complete annual before successors.
 set -eu
@@ -13,7 +14,8 @@ spatial_coaches=/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/c
 spatial_campaign=/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01
 spatial_valued=$spatial_campaign/real/scores/20212022
 spatial_root=$spatial_campaign/real/spatial/20212022
-for spatial_path in "$spatial_root" "$spatial_root.log" "$spatial_root-start.txt" "$spatial_root-finish.txt" "$spatial_root-exit.txt" "$spatial_root-shell.pid" "$spatial_root-launch-head.txt" "$spatial_root-launch-analysis-tree.txt" "$spatial_root-launch-analysis-status.txt" "$spatial_root-launch-command-sha256.txt" "$spatial_root-launch-inputs-sha256.txt" "$spatial_root-launch-acceptance-sha256.txt" "$spatial_root-launch-spatial-recipe.txt"; do
+spatial_run=$spatial_campaign/real/spatial/20212022-resume-01
+for spatial_path in "$spatial_root" "$spatial_run.log" "$spatial_run-start.txt" "$spatial_run-finish.txt" "$spatial_run-exit.txt" "$spatial_run-shell.pid" "$spatial_run-launch-head.txt" "$spatial_run-launch-analysis-tree.txt" "$spatial_run-launch-analysis-status.txt" "$spatial_run-launch-command-sha256.txt" "$spatial_run-launch-inputs-sha256.txt" "$spatial_run-launch-acceptance-sha256.txt" "$spatial_run-launch-spatial-recipe.txt" "$spatial_run-saved-metadata-acceptance.json"; do
   if [ -e "$spatial_path" ]; then
     print -u2 "occupied path: $spatial_path; command not launched"
     exit 1
@@ -36,19 +38,19 @@ spatial_pin docs/research/spatial-v1-08/fixture-source-to-screen-final.md b4f09f
 [ "$(git rev-parse HEAD)" = "$spatial_head" ]
 mkdir -p "$spatial_campaign/real/spatial"
 set -C
-print -r -- $$ > "$spatial_root-shell.pid"
-date -u +%Y-%m-%dT%H:%M:%SZ > "$spatial_root-start.txt"
-print -r -- "$spatial_head" > "$spatial_root-launch-head.txt"
-git rev-parse HEAD:analysis > "$spatial_root-launch-analysis-tree.txt"
-git status --porcelain --untracked-files=all -- analysis > "$spatial_root-launch-analysis-status.txt"
-shasum -a256 "$spatial_command_path" > "$spatial_root-launch-command-sha256.txt"
-print -r -- "$spatial_recipe" > "$spatial_root-launch-spatial-recipe.txt"
-shasum -a256 "$spatial_prepared/manifest.json" "$spatial_coaches" "$spatial_valued/manifest.json" "$spatial_campaign/real/execution/20212022/manifest.json" > "$spatial_root-launch-inputs-sha256.txt"
-shasum -a256 docs/research/spatial-v1-08/receipts/replacement-real-score-20212022-completion.json docs/research/spatial-v1-08/fixture-source-to-screen-final.md > "$spatial_root-launch-acceptance-sha256.txt"
+print -r -- $$ > "$spatial_run-shell.pid"
+date -u +%Y-%m-%dT%H:%M:%SZ > "$spatial_run-start.txt"
+print -r -- "$spatial_head" > "$spatial_run-launch-head.txt"
+git rev-parse HEAD:analysis > "$spatial_run-launch-analysis-tree.txt"
+git status --porcelain --untracked-files=all -- analysis > "$spatial_run-launch-analysis-status.txt"
+shasum -a256 "$spatial_command_path" > "$spatial_run-launch-command-sha256.txt"
+print -r -- "$spatial_recipe" > "$spatial_run-launch-spatial-recipe.txt"
+shasum -a256 "$spatial_prepared/manifest.json" "$spatial_coaches" "$spatial_valued/manifest.json" "$spatial_campaign/real/execution/20212022/manifest.json" > "$spatial_run-launch-inputs-sha256.txt"
+shasum -a256 docs/research/spatial-v1-08/receipts/replacement-real-score-20212022-completion.json docs/research/spatial-v1-08/fixture-source-to-screen-final.md > "$spatial_run-launch-acceptance-sha256.txt"
 set +e
-/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python -m hockey_stats.analysis_cli fit --family spatial --prepared "$spatial_prepared" --coaches "$spatial_coaches" --valued "$spatial_valued" --season 20212022 --out "$spatial_root" > "$spatial_root.log" 2>&1
+/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python -m hockey_stats.analysis_cli fit --family spatial --prepared "$spatial_prepared" --coaches "$spatial_coaches" --valued "$spatial_valued" --season 20212022 --out "$spatial_root" > "$spatial_run.log" 2>&1
 spatial_status=$?
 set -e
-print -r -- "$spatial_status" > "$spatial_root-exit.txt"
-date -u +%Y-%m-%dT%H:%M:%SZ > "$spatial_root-finish.txt"
+print -r -- "$spatial_status" > "$spatial_run-exit.txt"
+date -u +%Y-%m-%dT%H:%M:%SZ > "$spatial_run-finish.txt"
 exit "$spatial_status"

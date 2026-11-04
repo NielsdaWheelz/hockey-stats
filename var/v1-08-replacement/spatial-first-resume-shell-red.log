@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-first-shell-check.py", line 60, in <module>
+    assert actual.returncode==expected,(mode,actual.stderr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('pass', 'occupied path: /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-first-shell-qawhq9n0/pass/campaign/real/spatial/20212022.log; command not launched\n')

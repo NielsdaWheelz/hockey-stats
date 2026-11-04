@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "scope": "tiny pure numerical arrays and synthetic key collections only; no fixture/real artifact, source, model or optimizer call",
+  "old_fixture_audit_sha256": "da16ddd8d1e272c10d5f23ad9cdfc785760819c856dab06740911cde27a4922e",
+  "audit_sha256": "6ebe300de7821343a3533c147871043a814e41617240358ca5674229ba581483",
+  "digest_cases": [
+    "c_float",
+    "f_float",
+    "noncontiguous",
+    "negative_stride",
+    "scalar",
+    "empty_c",
+    "empty_f",
+    "empty_noncontiguous",
+    "integer",
+    "endian_noncontiguous",
+    "float32_f",
+    "bool",
+    "complex_noncontiguous",
+    "signed_zero_special_bits",
+    "multi_buffer_noncontiguous",
+    "multi_buffer_f"
+  ],
+  "digest_order_and_dtype_shape_bytes_exact": true,
+  "no_whole_array_tobytes": true,
+  "maximum_noncontiguous_buffer_bytes": 524288,
+  "coverage_groups_separate_games_and_empty_cases": true,
+  "coverage_refusals": [
+    "time_segment",
+    "event_only_segment",
+    "retained_known_lost_event"
+  ],
+  "csr_membership_one_view_per_row": true,
+  "adjustment_oracle_refusals": [
+    "mislabeled_zero",
+    "positive_unavailable",
+    "swapped_identity",
+    "duplicate_identity",
+    "zero_nonzero_array"
+  ],
+  "adjustment_oracle_uses_derived_exposure": true,
+  "all_other_functions_ast_identical": true,
+  "numerical_reference_projection_allocation_statements_ast_identical": true
+}

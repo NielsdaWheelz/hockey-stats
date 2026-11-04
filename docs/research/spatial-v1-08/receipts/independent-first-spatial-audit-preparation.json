@@ -1,0 +1,98 @@
+{
+  "kind": "independent-first-spatial-audit-preparation",
+  "status": "pure_correction_controls_passed; actual_real_data_held",
+  "supersedes": {
+    "path": "docs/research/spatial-v1-08/receipts/independent-first-spatial-audit-fixture-sanity.json",
+    "sha256": "c533ec9d4e2c815d59f9e9a00dfefcfad05223da866a5a51e28b43d55ff29cce"
+  },
+  "audit": {
+    "path": "var/v1-08-replacement/independent_first_spatial_audit.py",
+    "sha256": "6ebe300de7821343a3533c147871043a814e41617240358ca5674229ba581483"
+  },
+  "protocol": {
+    "path": "docs/research/spatial-v1-08/reviews/real-first-spatial-audit-protocol.md",
+    "sha256": "cb23a28470bbd8e0eeba82f35e5fa165d800e5f133489fd063cd12e1147177b8"
+  },
+  "prior_fixture_math_proof": {
+    "audit": {
+      "path": "var/v1-08-replacement/independent_first_spatial_audit_fixture_version.py",
+      "sha256": "da16ddd8d1e272c10d5f23ad9cdfc785760819c856dab06740911cde27a4922e"
+    },
+    "protocol": {
+      "path": "var/v1-08-replacement/real-first-spatial-audit-protocol-fixture-version.md",
+      "sha256": "c08d7af15535e933afaa5d1a8e4de146d40ff1f27c9b7121d99da27c8545735f"
+    },
+    "control_receipt": {
+      "path": "docs/research/spatial-v1-08/receipts/independent-first-spatial-audit-fixture-sanity.json",
+      "sha256": "c533ec9d4e2c815d59f9e9a00dfefcfad05223da866a5a51e28b43d55ff29cce"
+    },
+    "control_log": {
+      "path": "var/v1-08-replacement/independent-first-spatial-fixture-control.log",
+      "sha256": "fd1654ea12aef68463b69e059c7c17d93815a76f84a12f096e24ee1605a5ca84"
+    },
+    "statement": "the one saved first-year fixture run is unchanged; no numerical fixture repeat for this correction"
+  },
+  "focused_control_source": {
+    "path": "var/v1-08-replacement/check_independent_first_spatial_scale.py",
+    "sha256": "7c4dabd7e89c85e64b17903467f8a4c8c8dcb1f6c9a423b1ecb70722912c2628"
+  },
+  "focused_control": {
+    "path": "var/v1-08-replacement/independent-first-spatial-scale-control.json",
+    "sha256": "eeaef2e4cf8dec5c7aff7405e978462ffe7eb1da2484b891198b2eef1aea978a"
+  },
+  "result": {
+    "status": "passed",
+    "scope": "tiny pure numerical arrays and synthetic key collections only; no fixture/real artifact, source, model or optimizer call",
+    "old_fixture_audit_sha256": "da16ddd8d1e272c10d5f23ad9cdfc785760819c856dab06740911cde27a4922e",
+    "audit_sha256": "6ebe300de7821343a3533c147871043a814e41617240358ca5674229ba581483",
+    "digest_cases": [
+      "c_float",
+      "f_float",
+      "noncontiguous",
+      "negative_stride",
+      "scalar",
+      "empty_c",
+      "empty_f",
+      "empty_noncontiguous",
+      "integer",
+      "endian_noncontiguous",
+      "float32_f",
+      "bool",
+      "complex_noncontiguous",
+      "signed_zero_special_bits",
+      "multi_buffer_noncontiguous",
+      "multi_buffer_f"
+    ],
+    "digest_order_and_dtype_shape_bytes_exact": true,
+    "no_whole_array_tobytes": true,
+    "maximum_noncontiguous_buffer_bytes": 524288,
+    "coverage_groups_separate_games_and_empty_cases": true,
+    "coverage_refusals": [
+      "time_segment",
+      "event_only_segment",
+      "retained_known_lost_event"
+    ],
+    "csr_membership_one_view_per_row": true,
+    "adjustment_oracle_refusals": [
+      "mislabeled_zero",
+      "positive_unavailable",
+      "swapped_identity",
+      "duplicate_identity",
+      "zero_nonzero_array"
+    ],
+    "adjustment_oracle_uses_derived_exposure": true,
+    "all_other_functions_ast_identical": true,
+    "numerical_reference_projection_allocation_statements_ast_identical": true
+  },
+  "unchanged": "independent objective/full-gradient, target probability arithmetic, rate/reference, standardized projection and actual-allocation statements are ast-identical to fixture-tested da16 source",
+  "actual_calls": {
+    "real_spatial": 0,
+    "fixture_data_for_correction": 0,
+    "production_reader": 0,
+    "production_evaluator": 0,
+    "source_pass": 0,
+    "fit": 0,
+    "probe": 0
+  },
+  "limits": "a current real-data release still requires root post-exit/canonical-validation/metadata-adapter signal; original full gradients are not saved; no new stationarity gate"
+}

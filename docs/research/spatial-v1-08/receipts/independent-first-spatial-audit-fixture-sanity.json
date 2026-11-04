@@ -1,0 +1,140 @@
+{
+  "kind": "independent-first-spatial-audit-fixture-sanity",
+  "status": "passed",
+  "actual_real_data_released": false,
+  "audit": {
+    "path": "var/v1-08-replacement/independent_first_spatial_audit.py",
+    "sha256": "da16ddd8d1e272c10d5f23ad9cdfc785760819c856dab06740911cde27a4922e"
+  },
+  "control": {
+    "path": "var/v1-08-replacement/check_independent_first_spatial_fixture.py",
+    "sha256": "ea9c99fe737a2b5728024b7c7cfc4886e2aa9d4685514f9dd84f1d42879097d9"
+  },
+  "protocol": {
+    "path": "docs/research/spatial-v1-08/reviews/real-first-spatial-audit-protocol.md",
+    "sha256": "c08d7af15535e933afaa5d1a8e4de146d40ff1f27c9b7121d99da27c8545735f"
+  },
+  "fixture_manifest_sha256": "91ccca92782e4c156cb6ebe55952b6ded7c20d865ce4efcc323267b674d11465",
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/independent-first-spatial-audit-01",
+  "report_sha256": "3a7765f2d48ade94617008f399b76a5ac2ccbb6029e4d9a25fbae2b8a4267b1c",
+  "control_log": {
+    "path": "var/v1-08-replacement/independent-first-spatial-fixture-control.log",
+    "sha256": "fd1654ea12aef68463b69e059c7c17d93815a76f84a12f096e24ee1605a5ca84"
+  },
+  "design": {
+    "time_rows": 12962,
+    "event_rows": 632,
+    "origin_rows": 83162,
+    "columns": 1331,
+    "actor_columns": 981,
+    "context_columns": 350,
+    "physical_hours": 5.7908333333333335,
+    "directed_hours": 11.581666666666667,
+    "neutral_chance_mass": 30.796760550405924,
+    "roster_players": 224,
+    "base_excluded_segments": 9,
+    "added_excluded_segments": 18,
+    "known_lost_physical_hours": 0.13027777777777777,
+    "known_lost_events": 27,
+    "unassigned_gap_game_ids": []
+  },
+  "target_boundary": {
+    "status": "passed",
+    "scope": "all retained native cells/weights/targets joined to the saved 5v5 pre-outcome neutral panel; no source/evaluator",
+    "valued_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022/manifest.json",
+      "sha256": "78e029e06cfb50ebdc247117faeb3849459e291be2267c250a9c15858dac7d60",
+      "season": "20212022",
+      "purpose": "fixture"
+    },
+    "events": 632,
+    "observed_origin_events": 506,
+    "blocked_origin_events": 126,
+    "origin_rows": 83162,
+    "maximum_native_probability_difference": 0.0,
+    "maximum_integrated_mass_difference": 8.326672684688674e-17,
+    "rounding_contract": "existing execution log-mass near comparison; five primitive probability terms per native cell, origin count for integrated mass"
+  },
+  "heads": {
+    "volume": {
+      "component_absolute_differences": {
+        "likelihood": 4.547473508864641e-13,
+        "penalty": 1.4210854715202004e-14,
+        "total": 4.547473508864641e-13
+      },
+      "recomputed_gradient_inf_norm": 2.2235668047709822e-05,
+      "recorded_gradient_inf_norm": 2.2235668047709822e-05,
+      "gradient_norm_difference": 0.0
+    },
+    "shape": {
+      "component_absolute_differences": {
+        "likelihood": 0.0,
+        "penalty": 5.684341886080802e-14,
+        "total": 0.0
+      },
+      "recomputed_gradient_inf_norm": 2.1280738042250835e-05,
+      "recorded_gradient_inf_norm": 2.12807380375879e-05,
+      "gradient_norm_difference": 4.6629367034256575e-15
+    },
+    "quality": {
+      "component_absolute_differences": {
+        "likelihood": 0.0,
+        "penalty": 6.106226635438361e-16,
+        "total": 0.0
+      },
+      "recomputed_gradient_inf_norm": 5.117051444722409e-06,
+      "recorded_gradient_inf_norm": 5.117051444722409e-06,
+      "gradient_norm_difference": 0.0
+    }
+  },
+  "standardized_projections": {
+    "players": 224,
+    "roles": 2,
+    "maximum_native_difference": 1.5543122344752192e-15,
+    "maximum_scalar_difference": 1.3500311979441904e-13
+  },
+  "actual_context_examples": [
+    {
+      "player_id": "8473422",
+      "role": "offense",
+      "selection": "smallest positive included seconds, then player id",
+      "directed_rows": 54,
+      "included_seconds": 260.0,
+      "maximum_native_difference": 1.7208456881689926e-15,
+      "maximum_scalar_difference": 7.105427357601002e-15
+    },
+    {
+      "player_id": "8473422",
+      "role": "defense",
+      "selection": "smallest positive included seconds, then player id",
+      "directed_rows": 54,
+      "included_seconds": 260.0,
+      "maximum_native_difference": 7.91033905045424e-16,
+      "maximum_scalar_difference": 7.105427357601002e-15
+    }
+  ],
+  "no_exposure_adjustment_rows": 0,
+  "audit_resources": {
+    "wall_seconds": 1.3236722920555621,
+    "peak_resident_bytes": 264716288
+  },
+  "calls": {
+    "independent_objectives": {
+      "volume": 1,
+      "shape": 1,
+      "quality": 1
+    },
+    "production_evaluator": 0,
+    "production_reader": 0,
+    "native_fit": 0,
+    "source_pass": 0,
+    "probes": 0
+  },
+  "limits": [
+    "one independent F/fullG at each saved endpoint; full original gradients are not saved, so only components and recorded norm can be compared",
+    "no stronger gradient convergence gate or final-year numerical resolution claim",
+    "actual-context reconstruction covers the two declared low-time role examples, not all players",
+    "all retained target rows joined to saved valued numeric evidence; no original source extraction repeated"
+  ],
+  "scope": "one existing saved first-year fixture sanity run; no fixture chain replay or actual real spatial access; original fitted coefficients and source inputs are not copied"
+}

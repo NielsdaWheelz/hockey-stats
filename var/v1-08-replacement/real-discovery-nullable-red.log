@@ -1,0 +1,27 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+'object' !== 'number'
+
+    at checkRaw (eval at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check-real-discovery-nullable.ts:2:1640), <anonymous>:8:12)
+    at assert (/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check-real-discovery-nullable.ts:18:1)
+    at Object.<anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check-real-discovery-nullable.ts:22:166)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object.transformer (/Users/nnandal/Documents/code/hockey-stats-v1-08/app/node_modules/tsx/dist/register-B1c7OH6V.cjs:22:2188)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at loadCJSModuleWithModuleLoad (node:internal/modules/esm/translators:372:15)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:244:9) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'object',
+  expected: 'number',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.21.0

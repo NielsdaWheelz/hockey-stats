@@ -1,0 +1,99 @@
+--- var/v1-08-product/discovery-api-check.ts
++++ var/v1-08-replacement/real-discovery-api-check.ts
+@@ -1,12 +1,14 @@
+-// temporary actual-league -> public discovery-consumer check; no gui claim.
++// held current-campaign real discovery-consumer check; no browser or export claim.
+ import assert from 'node:assert/strict';
+ import { readFileSync } from 'node:fs';
+ import { createHash } from 'node:crypto';
+ import { performance } from 'node:perf_hooks';
+ import { discoveryPreset, composeDiscoveryRows, filterDiscoveryRows, sortDiscoveryRows } from '../../app/src/web/analysis-discovery.ts';
+ import { readDiscovery, readPeerSettings } from '../../app/src/web/explorer.ts';
+-const root='/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results';
+-const manifestBytes=readFileSync(root+'/manifest.json');assert.equal(createHash('sha256').update(manifestBytes).digest('hex'),'a8d2f4baecb9c0c711f08b2a4674b6cdd2d13fd09202e991b888d73561e5d2ff');const manifest=JSON.parse(manifestBytes.toString('utf8'));
++const root='/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results';
++const expectedManifestSha='WITHHELD_ACCEPTED_REAL_COMBINED_MANIFEST_SHA256';
++const expectedPublicationId='WITHHELD_ACCEPTED_REAL_PUBLICATION_ID';
++const caseIds=['WITHHELD_ACCEPTED_REAL_REGULAR_PLAYER_ID','WITHHELD_ACCEPTED_REAL_SECOND_PLAYER_ID'];
+ const fields=['offense_attempts_per60','offense_xg_per60','offense_attempts_relative_percent','offense_xg_relative_percent','defense_attempts_per60','defense_xg_per60','defense_attempts_relative_percent','defense_xg_relative_percent'];
+ const metricIds=fields.map(field=>'spatial.5v5.'+field);const preset=discoveryPreset('spatial','5v5');
+ assert.deepEqual(preset.columns.map(c=>c.id),['minutes',...metricIds]);
+@@ -14,41 +16,59 @@
+ const discovery=readDiscovery(new URLSearchParams(),preset.columns.map(c=>c.id),preset.defaultSort).discovery;assert.equal(discovery.min,0);
+ const ids=(rows:readonly any[])=>rows.map(r=>r.person.player_id).sort();
+ function savedRows(member:any){const raw=readFileSync(root+'/'+member.path);assert.equal(createHash('sha256').update(raw).digest('hex'),member.sha256);return raw.toString('utf8').trim().split('\n').map(line=>JSON.parse(line));}
+-function checkRaw(rows:any[],saved:Map<string,any>){
++function checkRaw(rows:any[],saved:Map<string,any>,methods:Map<string,any>){
+  assert.deepEqual(ids(rows),[...saved.keys()].sort());
+- for(const row of rows)for(const field of fields){const cell=row.cells['spatial.5v5.'+field],expected=saved.get(row.person.player_id);assert.equal(cell.kind,'metric');assert.equal(typeof expected[field].value,'number');assert.ok(cell.value===expected[field].value,`saved spatial value ${row.person.player_id}/${field}`);assert.ok(cell.row.datum.value===expected[field].value);assert.deepEqual(cell.row.datum.support,expected.support);assert.equal(cell.row.datum.methods[0].method_id,expected.method_id);}
++ for(const row of rows)for(const field of fields){
++  const cell=row.cells['spatial.5v5.'+field],expected=saved.get(row.person.player_id),estimate=expected[field],datum=cell.row.datum;
++  assert.equal(cell.kind,'metric');assert.equal(cell.value,estimate.value,`saved spatial value ${row.person.player_id}/${field}`);assert.equal(datum.value,estimate.value);
++  assert.deepEqual(datum.original,estimate);assert.equal(datum.status,estimate.value===null?'unavailable':'provided');assert.equal(datum.reason,estimate.unavailable_reason);assert.deepEqual(datum.support,expected.support);
++  const methodIds=[...new Set([expected.method_id,...(estimate.reason_detail?.evidence??[]).filter((r:any)=>r.kind==='method').map((r:any)=>r.id)])];
++  assert.deepEqual(datum.methods,methodIds.map(id=>{assert.ok(methods.has(id));return methods.get(id);}));
++ }
+ }
++
+ async function main(){
+- const start=performance.now(),receipts:any[]=[];const people=savedRows(manifest.catalogs.people);let substitutions=0,guard=false;
++ assert.ok(typeof expectedManifestSha==='string'&&/^[a-f0-9]{64}$/.test(expectedManifestSha)&&typeof expectedPublicationId==='string'&&expectedPublicationId.length>0&&!expectedPublicationId.includes('WITHHELD')&&caseIds.length===2&&new Set(caseIds).size===2&&caseIds.every(id=>/^\d+$/.test(id)),'real manifest/publication/case pins withheld; no file or HTTP access');
++ const start=performance.now(),receipts:any[]=[];
++ const manifestBytes=readFileSync(root+'/manifest.json');assert.equal(createHash('sha256').update(manifestBytes).digest('hex'),expectedManifestSha);const manifest=JSON.parse(manifestBytes.toString('utf8'));assert.equal(manifest.purpose,'real');
++ const people=savedRows(manifest.catalogs.people),methods=new Map<string,any>(savedRows(manifest.catalogs.methods).map((row:any)=>[row.method_id,row]));let substitutions=0,guard=false;
+  for(const season of ['20232024','20242025','20252026']){
+-  const requestStart=performance.now(),response=await fetch(`http://127.0.0.1:3398/api/league?season=${season}&kind=skater&family=overview`),raw=await response.text();assert.equal(response.status,200);const api=JSON.parse(raw);assert.equal(api.publication.publication_id,'e7428c18-c105-4a51-bc57-af8d47899aae');assert.equal(api.kind,'skater');assert.equal(api.family,'overview');
++  const requestStart=performance.now(),response=await fetch(`http://127.0.0.1:3399/api/league?season=${season}&kind=skater&family=overview`),raw=await response.text();assert.equal(response.status,200);const api=JSON.parse(raw);assert.equal(api.publication.publication_id,expectedPublicationId);assert.equal(api.publication.purpose,'real');assert.equal(api.kind,'skater');assert.equal(api.family,'overview');
+   const family=manifest.families.find((r:any)=>r.season===season&&r.family==='spatial');assert.equal(family.availability,'provided');
+   const saved=new Map<string,any>(savedRows(family.tables.skater_spatial).filter((r:any)=>r.strength==='5v5').map((r:any)=>{assert.equal(r.result.availability,'provided');return [r.player_id,r.result.data]}));
+   const rawPeople=new Map<string,any>(people.filter((p:any)=>p.season===season&&p.kind==='skater').map((p:any)=>[p.player_id,p]));assert.deepEqual(api.players.map((r:any)=>r.person.player_id).sort(),[...saved.keys()].sort());
+-  const observed=new Map<string,any>();for(const row of api.players){const pid=row.person.player_id;assert.equal(row.result.availability,'provided');assert.equal(row.result.data.spatial.five_on_five.availability,'provided');for(const field of ['display_name','reported_position','teams'])assert.deepEqual(row.person[field],rawPeople.get(pid)[field]);const envelope=row.result.data.observed;observed.set(pid,envelope.availability==='provided'?envelope.data:null);}
+-  const rows=composeDiscoveryRows(api,api,preset.columns,defaults),zeroRows=composeDiscoveryRows(api,api,preset.columns,{...defaults,peerMin:0});checkRaw(rows,saved);checkRaw(zeroRows,saved);
++  const observed=new Map<string,any>();for(const row of api.players){const pid=row.person.player_id;assert.equal(row.result.availability,'provided');assert.equal(row.result.data.spatial.five_on_five.availability,'provided');assert.deepEqual(row.result.data.spatial.five_on_five.data,saved.get(pid));for(const field of ['display_name','reported_position','teams'])assert.deepEqual(row.person[field],rawPeople.get(pid)[field]);const envelope=row.result.data.observed;observed.set(pid,envelope.availability==='provided'?envelope.data:null);}
++  const apiBefore=JSON.stringify(api);
++  const rows=composeDiscoveryRows(api,api,preset.columns,defaults),zeroRows=composeDiscoveryRows(api,api,preset.columns,{...defaults,peerMin:0});checkRaw(rows,saved,methods);checkRaw(zeroRows,saved,methods);
++  const rowOrderBeforeFilters=rows.map(r=>r.person.player_id);
+   const visible=filterDiscoveryRows(rows,discovery);assert.equal(visible.rows.length,rows.length);assert.equal(visible.unknownTimeExcluded,0);
+   const filters:any[]=[];
+   const checkFilter=(change:any,expected:string[])=>{const selection={...discovery,...change},actual=filterDiscoveryRows(rows,selection);assert.deepEqual(ids(actual.rows),[...expected].sort());for(const row of actual.rows)assert.equal(row.cells[metricIds[0]].row.standing.cutoffMinutes,300);filters.push({selection:change,rows:actual.rows.length,unknownTimeExcluded:actual.unknownTimeExcluded});return actual;};
+-  for(const [q,pid] of [['tyler toffoli','8475726'],['DOUGIE HAMILTON','8476462']]){assert.ok(rawPeople.has(pid));checkFilter({q},[pid]);}
++  for(const [index,pid] of caseIds.entries()){assert.ok(rawPeople.has(pid),'accepted discovery case absent');const name=rawPeople.get(pid).display_name;assert.equal(typeof name,'string');checkFilter({q:index===0?name.toLowerCase():name.toUpperCase()},[pid]);}
+   checkFilter({q:'zz-no-matching-player'},[]);
+   checkFilter({position:'d'},[...rawPeople.values()].filter(p=>p.reported_position==='D').map(p=>p.player_id));
+   checkFilter({position:'f'},[...rawPeople.values()].filter(p=>['C','L','R','F'].includes(p.reported_position)).map(p=>p.player_id));
+-  checkFilter({q:'dougie hamilton',position:'f'},[]);
+-  const team=rawPeople.get('8476462').teams[0].id;checkFilter({team},[...rawPeople.values()].filter(p=>p.teams.some((t:any)=>t.id===team)).map(p=>p.player_id));checkFilter({q:'dougie hamilton',position:'d',team},['8476462']);
+-  const toffoliSeconds=observed.get('8475726')?.metrics.included_seconds??null;assert.equal(typeof toffoliSeconds,'number');
+-  for(const min of new Set([1,Math.floor(toffoliSeconds/60),Math.floor(toffoliSeconds/60)+1,300])){const expected=[...rawPeople.keys()].filter(pid=>min===0||observed.get(pid)!==null&&observed.get(pid).metrics.included_seconds>=min*60);const actual=checkFilter({min},expected);assert.equal(actual.unknownTimeExcluded,min===0?0:[...rawPeople.keys()].filter(pid=>observed.get(pid)===null).length);}
++  const focal=rawPeople.get(caseIds[0]!),position=focal.reported_position==='D'?'d':'f',name=focal.display_name.toLowerCase();
++  checkFilter({q:name,position:position==='d'?'f':'d'},[]);
++  const team=focal.teams[0]?.id;assert.ok(team);checkFilter({team},[...rawPeople.values()].filter(p=>p.teams.some((t:any)=>t.id===team)).map(p=>p.player_id));checkFilter({q:name,position,team},[focal.player_id]);
++  const observedSeconds=(pid:string)=>observed.get(pid)?.metrics.included_seconds??null,seconds=observedSeconds(focal.player_id);
++  const cutoffs=new Set([0,1,300,...(seconds===null?[]:[Math.floor(seconds/60),Math.floor(seconds/60)+1])]);
++  for(const min of cutoffs){const expected=[...rawPeople.keys()].filter(pid=>min===0||observedSeconds(pid)!==null&&observedSeconds(pid)>=min*60);const actual=checkFilter({min},expected);assert.equal(actual.unknownTimeExcluded,min===0?0:[...rawPeople.keys()].filter(pid=>observedSeconds(pid)===null).length);}
+   let rankedDefault=0,rankedAtZero=0,priorOnlyZero=0;
+-  for(const row of rows){assert.equal(row.cells.minutes.value,observed.get(row.person.player_id)?.metrics.included_seconds??null);const supported=saved.get(row.person.player_id).support,knownPosition=['C','L','R','F','D'].includes(row.person.reported_position),zero=zeroRows.find(r=>r.person.player_id===row.person.player_id)!;for(const metric of metricIds){const standing=row.cells[metric].row.standing,z=zero.cells[metric].row.standing;assert.equal(standing.cutoffMinutes,300);assert.equal(z.cutoffMinutes,0);if(standing.kind==='ranked')rankedDefault++;if(z.kind==='ranked')rankedAtZero++;if(knownPosition){assert.equal(standing.kind==='ranked',supported.included_seconds!==null&&supported.included_seconds>=18000);assert.equal(z.kind==='ranked',supported.included_seconds!==null&&supported.included_seconds>0);if(supported.included_seconds===0)assert.equal(z.reason,'no exposure');}}
+-   if(supported.prior_only&&supported.included_seconds===0){priorOnlyZero++;for(const metric of metricIds){assert.equal(typeof zero.cells[metric].value,'number');assert.notEqual(zero.cells[metric].row.standing.kind,'ranked');}}
++  for(const row of rows){assert.equal(row.cells.minutes.value,observedSeconds(row.person.player_id));const supported=saved.get(row.person.player_id).support,knownPosition=['C','L','R','F','D'].includes(row.person.reported_position),zero=zeroRows.find(r=>r.person.player_id===row.person.player_id)!;
++   for(const field of fields){const metric='spatial.5v5.'+field,value=saved.get(row.person.player_id)[field].value,standing=row.cells[metric].row.standing,z=zero.cells[metric].row.standing;assert.equal(standing.cutoffMinutes,300);assert.equal(z.cutoffMinutes,0);if(standing.kind==='ranked')rankedDefault++;if(z.kind==='ranked')rankedAtZero++;
++    if(knownPosition){assert.equal(standing.kind==='ranked',value!==null&&supported.included_seconds!==null&&supported.included_seconds>=18000);assert.equal(z.kind==='ranked',value!==null&&supported.included_seconds!==null&&supported.included_seconds>0);if(value!==null&&supported.included_seconds===0)assert.equal(z.reason,'no exposure');}
++   }
++   if(supported.prior_only&&supported.included_seconds===0){priorOnlyZero++;for(const metric of metricIds)assert.notEqual(zero.cells[metric].row.standing.kind,'ranked');}
+   }
+-  const originalOrder=rows.map(r=>r.person.player_id),orderBefore=ids(rows);for(const field of fields)for(const dir of ['asc','desc'] as const){const metric='spatial.5v5.'+field;assert.equal(new Set(rows.map(r=>r.cells[metric].semanticKey)).size,1);const sorted=sortDiscoveryRows(rows,metric as any,dir);assert.deepEqual(ids(sorted),orderBefore);assert.deepEqual(sorted.map(r=>r.cells[metric].value),[...saved.values()].map(r=>r[field].value).sort((a,b)=>dir==='asc'?a-b:b-a));}assert.deepEqual(rows.map(r=>r.person.player_id),originalOrder);
+-  // this actual observed rate differs from the fitted spatial contrast, so the oracle discriminates substitution.
+-  const observedRate=observed.get('8475726')?.metrics.for_per60;if(observedRate!==null&&observedRate!==undefined){const metric=metricIds[0];assert.notEqual(observedRate,saved.get('8475726').offense_attempts_per60.value);substitutions++;if(!guard){const bad=rows.map(r=>r.person.player_id==='8475726'?{...r,cells:{...r.cells,[metric]:{...r.cells[metric],value:observedRate}}}:r);assert.throws(()=>checkRaw(bad,saved),/saved spatial value/);guard=true;}}
+-  const focalPlayers=['8475726','8476462'].map(pid=>{const row=zeroRows.find(r=>r.person.player_id===pid)!,support=saved.get(pid).support,standing=row.cells['spatial.5v5.defense_xg_per60'].row.standing;if(season==='20252026'){assert.equal(support.prior_only,true);assert.equal(support.included_seconds,0);assert.notEqual(row.cells['spatial.5v5.defense_xg_per60'].value,0);assert.notEqual(standing.kind,'ranked');}return {player_id:pid,display_name:row.person.display_name,observed_seconds:observed.get(pid)?.metrics.included_seconds??null,spatial_seconds:support.included_seconds,prior_only:support.prior_only,offense_xg:row.cells['spatial.5v5.offense_xg_per60'].value,defense_xg:row.cells['spatial.5v5.defense_xg_per60'].value,standing_cutoff0:standing};});
++  const originalOrder=rows.map(r=>r.person.player_id),orderBefore=ids(rows);for(const field of fields)for(const dir of ['asc','desc'] as const){const metric='spatial.5v5.'+field;assert.equal(new Set(rows.map(r=>r.cells[metric].semanticKey)).size,1);const sorted=sortDiscoveryRows(rows,metric as any,dir);assert.deepEqual(ids(sorted),orderBefore);assert.deepEqual(sorted.map(r=>r.cells[metric].value),[...[...saved.values()].map(r=>r[field].value).filter(v=>v!==null).sort((a,b)=>dir==='asc'?a-b:b-a),...[...saved.values()].filter(r=>r[field].value===null).map(()=>null)]);}assert.deepEqual(rows.map(r=>r.person.player_id),originalOrder);
++  // retain a discriminating actual observed-rate substitution, without fixture player assumptions.
++  for(const row of rows){const pid=row.person.player_id,observedRate=observed.get(pid)?.metrics.for_per60;if(typeof observedRate==='number'&&observedRate!==saved.get(pid).offense_attempts_per60.value){substitutions++;if(!guard){const metric=metricIds[0]!,bad=rows.map(r=>r.person.player_id===pid?{...r,cells:{...r.cells,[metric]:{...r.cells[metric],value:observedRate}}}:r);assert.throws(()=>checkRaw(bad,saved,methods),/saved spatial value/);guard=true;}}}
++  const focalPlayers=caseIds.map(pid=>{const row=zeroRows.find(r=>r.person.player_id===pid)!,support=saved.get(pid).support;return {player_id:pid,display_name:row.person.display_name,observed_seconds:observedSeconds(pid),spatial_seconds:support.included_seconds,prior_only:support.prior_only,offense_xg:row.cells['spatial.5v5.offense_xg_per60'].value,defense_xg:row.cells['spatial.5v5.defense_xg_per60'].value,standing_cutoff0:row.cells['spatial.5v5.defense_xg_per60'].row.standing};});
++  assert.equal(JSON.stringify(api),apiBefore);assert.deepEqual(rows.map(r=>r.person.player_id),rowOrderBeforeFilters);
+   receipts.push({season,players:rows.length,selected_metric_values:rows.length*8,api_bytes:Buffer.byteLength(raw),year_wall_milliseconds:performance.now()-requestStart,filters,numeric_sort_orders:16,ranked_metric_cells_default300:rankedDefault,ranked_metric_cells_cutoff0:rankedAtZero,zero_time_prior_only_players:priorOnlyZero,focal_players:focalPlayers,minute_filter_owner:'actual overview observed.metrics.included_seconds',percentile_qualification_owner:'saved spatial Support.included_seconds'});
+  }
+- assert.ok(guard&&substitutions>0);const final=receipts[2];assert.ok(final.zero_time_prior_only_players>0);
+- console.log(JSON.stringify({status:'passed',purpose:'fixture',publication_id:'e7428c18-c105-4a51-bc57-af8d47899aae',api_family:'overview with provided spatial.five_on_five',saved_results_manifest_sha256:'a8d2f4baecb9c0c711f08b2a4674b6cdd2d13fd09202e991b888d73561e5d2ff',consumer_input_order_preserved:true,default_peer_minutes:300,default_discovery_minutes:0,adversarial_guard:'substituted actual observed on-ice rate rejected against saved spatial row',wall_milliseconds:performance.now()-start,scope:'three actual league responses through existing public discovery composition/filter/sort/selectors; saved spatial rows and actual observed minute metadata are independent expectations; no gui/download/layout/real-state claim',receipts}));
++ assert.ok(guard&&substitutions>0);
++ console.log(JSON.stringify({status:'passed',purpose:'real',publication_id:expectedPublicationId,api_family:'overview with provided spatial.five_on_five',saved_results_manifest_sha256:expectedManifestSha,case_ids:caseIds,consumer_input_order_preserved:true,default_peer_minutes:300,default_discovery_minutes:0,adversarial_guard:'substituted actual observed on-ice rate rejected against saved spatial row',wall_milliseconds:performance.now()-start,scope:'three actual league responses through existing public discovery composition/filter/sort/selectors; saved spatial rows and actual observed minute metadata are independent expectations; no gui/download/layout claim; real scalar/API consumer scope only',receipts}));
+ }
+ main().catch(error=>{console.error(error);process.exitCode=1;});

@@ -1,0 +1,128 @@
+{
+  "kind": "real-final-spatial-root-release",
+  "status": "released_for_one_ordinary_final_annual_and_three_prescribed_continuations",
+  "recorded_at_utc": "2026-11-05T20:12:59.815466+00:00",
+  "season": "20252026",
+  "analysis_tree": "38ec706cb505ea3d9936518dd119869e7695200b",
+  "analysis_clean": true,
+  "recipe_sha256": "04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b",
+  "command": {
+    "path": "var/v1-08-replacement/real-20252026-spatial-command.sh",
+    "sha256": "4d7774fdb0148cf75a57f1e65d46af99dac24e78b47641a0551622da8767ebf8",
+    "bytes": 4500
+  },
+  "review": {
+    "path": "docs/research/spatial-v1-08/reviews/real-final-spatial-final-command-review.md",
+    "sha256": "39deb70a1fe069838545fda036e11be729bf986c9c846adf7dc28ab4503bdcb2",
+    "bytes": 1952
+  },
+  "preparation": {
+    "path": "var/v1-08-replacement/real-final-spatial-final-pin-preparation.json",
+    "sha256": "2ab074d37ee117b878f54a120242558bd9c8ad073d3cb25d8f1d49f49072faa5",
+    "bytes": 6783
+  },
+  "accepted_previous": {
+    "path": "docs/research/spatial-v1-08/receipts/real-fourth-spatial-completion.json",
+    "sha256": "ff9885a3634fb3d75801308bddfc295f66f96beadf4ce2dddc5c3beba198929f",
+    "bytes": 15484
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/manifest.json",
+    "sha256": "74f35a1c9599335279954170693f7d3add11302bc83611fe14a368322870e6eb",
+    "bytes": 355907
+  },
+  "inputs": {
+    "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "coaches_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+    "valued_sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+    "execution_state_path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01/20252026",
+    "execution_state_sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276"
+  },
+  "fresh_paths_checked": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026.log",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-start.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-finish.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-exit.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-shell.pid",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-head.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-analysis-tree.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-analysis-status.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-command-sha256.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-inputs-sha256.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-acceptance-sha256.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-spatial-recipe.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-saved-metadata-acceptance.json",
+      "exists": false
+    }
+  ],
+  "numerical_policy": {
+    "ordinary": {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06,
+      "maxcor": 10
+    },
+    "continuation": {
+      "maxiter": 10000,
+      "ftol": 1e-16,
+      "gtol": 1e-07,
+      "maxcor": 10
+    },
+    "native_function_and_line_search_controls": "unchanged",
+    "continuations": 3,
+    "reselection": false,
+    "budgets": "unchanged 1e-5 probability, 1e-4 per-hour scalar/native-map l1, 1e-3 goals per prospective 1000-minute term",
+    "frozen_keys": "existing source saves deterministic rows and requirements before the first continuation"
+  },
+  "scope": "one chronological ordinary final annual; source rebuild, three baseline heads, full projection/canonical output and exactly three existing conditional final-head continuations; one heavy job at a time; preserve all earlier/failed artifacts; no activation",
+  "failure_boundary": "preserve a failed or unavailable result and return for a responsible decision; no tolerance change, automatic retry, extra continuation or successor campaign; no promotion of an incomplete endpoint",
+  "after_exit": "one small metadata check, bounded independent saved history/probe bindings and root acceptance before combined selection/composition/publication",
+  "frozen_until_native_and_saved_checks_finish": [
+    "analysis/",
+    "var/v1-08-replacement/real-20252026-spatial-command.sh",
+    "var/v1-08-replacement/write_spatial_saved_run_receipt.py",
+    "var/v1-08-replacement/independent_spatial_history_audit.py",
+    "var/v1-08-replacement/independent_first_spatial_audit.py"
+  ]
+}

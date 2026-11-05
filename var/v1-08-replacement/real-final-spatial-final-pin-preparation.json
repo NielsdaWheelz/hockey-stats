@@ -1,0 +1,152 @@
+{
+  "kind": "real-final-spatial-final-pin-preparation",
+  "status": "source_pin_filled_actual_launch_held",
+  "active_command": {
+    "path": "var/v1-08-replacement/real-20252026-spatial-command.sh",
+    "sha256": "4d7774fdb0148cf75a57f1e65d46af99dac24e78b47641a0551622da8767ebf8",
+    "bytes": 4500
+  },
+  "immutable_held_command": {
+    "path": "var/v1-08-replacement/real-20252026-spatial-command.sh.held",
+    "sha256": "8a0624c6cfbde149df9644e06f98016652bf2c388197d1338354dfbd8c6239e4",
+    "bytes": 4486
+  },
+  "analysis_tree": "38ec706cb505ea3d9936518dd119869e7695200b",
+  "accepted_fourth_annual": {
+    "path": "docs/research/spatial-v1-08/receipts/real-fourth-spatial-completion.json",
+    "sha256": "ff9885a3634fb3d75801308bddfc295f66f96beadf4ce2dddc5c3beba198929f",
+    "bytes": 15484
+  },
+  "accepted_predecessor": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/manifest.json",
+    "sha256": "74f35a1c9599335279954170693f7d3add11302bc83611fe14a368322870e6eb",
+    "bytes": 355907
+  },
+  "accepted_predecessor_evidence": {
+    "metadata": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025-saved-metadata-acceptance.json",
+      "sha256": "b7dc46504507b7612cf4f3aee72973d7bb6222a3c8154acd31e0c07ddd35e370",
+      "bytes": 382358
+    },
+    "history_report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20242025-01/audit.json",
+      "sha256": "aa557293a7db2ef4021e8b67835b40c4a15db84aa4f3bea2c7cb1668ba2a2c14",
+      "bytes": 11554
+    },
+    "history_review": {
+      "path": "docs/research/spatial-v1-08/reviews/real-spatial-history-20242025-01-saved-review.md",
+      "sha256": "2a5196365c1d9672ac597090a2d4c6e8094e5fc6ab74c732d6665f477c13c414",
+      "bytes": 5695
+    },
+    "history_checked_facts": {
+      "path": "docs/research/spatial-v1-08/receipts/real-spatial-history-20242025-01-checked-facts.json",
+      "sha256": "2479f19551d96ea3be8eab5112ce97b18903a47023ba9103ee64994ac794dac9",
+      "bytes": 18138
+    },
+    "binding_review": {
+      "path": "docs/research/spatial-v1-08/reviews/real-fourth-spatial-saved-binding-review.md",
+      "sha256": "9a394e58025b4ad512dbe6048f4c0f4e41f2d9fdca23e068b6be96e231297f6c",
+      "bytes": 2647
+    }
+  },
+  "exact_delta": {
+    "marker": "WITHHELD_ACCEPTED_SPATIAL_20242025_MANIFEST_SHA256",
+    "value": "74f35a1c9599335279954170693f7d3add11302bc83611fe14a368322870e6eb",
+    "replacements": 1,
+    "other_body_comment_or_argv_changes": 0,
+    "inverse_byte_proof": "sole concrete predecessor literal replaced by original marker restores exact immutable held8a06 bytes and sha256",
+    "syntax": "zsh -n passed",
+    "ordinary_argv_and_controls": "byte unchanged; current source38ec, valued40e23, assembled execution59e343, previous2024 canonical, recipe04a9, existing automatic final3probe path and fourteen guard/run-record paths",
+    "unchanged_controls_not_repeated": true
+  },
+  "fresh_future_paths_stat_only": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026.log",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-start.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-finish.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-exit.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-shell.pid",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-head.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-analysis-tree.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-analysis-status.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-command-sha256.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-inputs-sha256.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-acceptance-sha256.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-launch-spatial-recipe.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-saved-metadata-acceptance.json",
+      "exists": false
+    }
+  ],
+  "protected_unchanged": [
+    {
+      "path": "var/v1-08-replacement/independent_spatial_history_audit.py",
+      "sha256": "e4f08448d08893ef3b2405397bdd5d328312ad81805ff19bc60787988fc471d2",
+      "bytes": 20734
+    },
+    {
+      "path": "var/v1-08-replacement/independent_first_spatial_audit.py",
+      "sha256": "6ebe300de7821343a3533c147871043a814e41617240358ca5674229ba581483",
+      "bytes": 30408
+    },
+    {
+      "path": "var/v1-08-replacement/write_spatial_saved_run_receipt.py",
+      "sha256": "6de8aca4ba17f685ed5a3686eb67c5cbb39f635f24f9fd9c0dfad6f789239ca4",
+      "bytes": 9935
+    },
+    {
+      "path": "var/v1-08-replacement/real-20242025-spatial-command.sh",
+      "sha256": "563b6db3b1672d5725fe3673bc9ec91b55a2cd0038695ff55988578c01d2cdd8",
+      "bytes": 4488
+    }
+  ],
+  "checks_scope": "local source/root acceptance/local review and facts hashes only; future paths stat only; external metadata/history refs inherit accepted root binding without payload reopening",
+  "actual_calls": {
+    "native_launch": 0,
+    "model": 0,
+    "source": 0,
+    "production_reader": 0,
+    "array_or_projection_payload": 0,
+    "probe": 0
+  },
+  "release": "independent final literal command review then root commit/recheck/release; no commit or launch by author"
+}

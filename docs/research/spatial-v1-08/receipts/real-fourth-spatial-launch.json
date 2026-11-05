@@ -1,0 +1,99 @@
+{
+  "kind": "real-fourth-spatial-launch",
+  "status": "ordinary_annual_running_unaccepted",
+  "recorded_at_utc": "2026-11-05T14:42:15.481825+00:00",
+  "launch_start": "2026-11-05T14:41:23Z",
+  "season": "20242025",
+  "native_session": 74882,
+  "pids": {
+    "shell": 94490,
+    "time": 94550,
+    "python": 94551
+  },
+  "launch_head": "9d26879200f2d467b6176c01352bde176d3ef241",
+  "analysis_tree": "38ec706cb505ea3d9936518dd119869e7695200b",
+  "analysis_clean": true,
+  "release": {
+    "path": "docs/research/spatial-v1-08/receipts/real-fourth-spatial-release.json",
+    "sha256": "4d2a68915a526d6db82a7d40c02aa8ffbec4b67754135515c24499c4c7d97906",
+    "bytes": 5174
+  },
+  "command": {
+    "path": "var/v1-08-replacement/real-20242025-spatial-command.sh",
+    "sha256": "563b6db3b1672d5725fe3673bc9ec91b55a2cd0038695ff55988578c01d2cdd8",
+    "bytes": 4488
+  },
+  "review": {
+    "path": "docs/research/spatial-v1-08/reviews/real-fourth-spatial-final-command-review.md",
+    "sha256": "2571de706bb75b2f0095a6661f75e6b27f8ffb57d1614d5429b97ae521b5e3c8",
+    "bytes": 1701
+  },
+  "accepted_previous": {
+    "path": "docs/research/spatial-v1-08/receipts/real-third-spatial-completion.json",
+    "sha256": "16aca290c2e4d7ec08536e05006f95b8e025e63a7194de3b69d9c9f743fe61d7",
+    "bytes": 15014
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/manifest.json",
+    "sha256": "42bfbab911efc9a58904b5273a09545d617fd7c29a2be67203bbc55b236eff25"
+  },
+  "run_records": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025-shell.pid",
+      "sha256": "abac708afabc7990162910d65558facc92089967622bf501e57c300d84bf5b71",
+      "bytes": 6
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025-start.txt",
+      "sha256": "b47e3d168a75ea78410d55522e8275e6168df77ee55e10c4005eb4520beaee62",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025-launch-head.txt",
+      "sha256": "c72ef422c35dc6d59267664974574dbb18dcf5e1b88e77941adff3abaddc9178",
+      "bytes": 41
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025-launch-analysis-tree.txt",
+      "sha256": "ac38a1f01806256e5500eda2fcff73743fe7cc1b60e73c4887513c07bd8458d1",
+      "bytes": 41
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025-launch-analysis-status.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025-launch-command-sha256.txt",
+      "sha256": "304c15d8e47684972b1ea83c21f66b3d9edf16edd7acce58a0bfcfb3ba287e6d",
+      "bytes": 170
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025-launch-inputs-sha256.txt",
+      "sha256": "ce78c23f9dcf592d840ec8dcef39ff11bdc94f45a00bfd5a1c646ea751855d55",
+      "bytes": 836
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025-launch-acceptance-sha256.txt",
+      "sha256": "9d1e63d6d4569c18e47efe8109f1297b97403a85dea428d0c694a6a5dd72d2ab",
+      "bytes": 279
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025-launch-spatial-recipe.txt",
+      "sha256": "738580638a1c0d553b74c8266df56efc7e7e0f927bc395a14a3e324d03683069",
+      "bytes": 65
+    }
+  ],
+  "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025.log",
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025",
+  "exit_pending": true,
+  "frozen": [
+    "analysis/",
+    "active command",
+    "write_spatial_saved_run_receipt.py",
+    "independent_spatial_history_audit.py",
+    "independent_first_spatial_audit.py"
+  ],
+  "scope": "one ordinary chronological real annual with three baseline heads and all-player/actual-context projections; no final-year probe, retry, activation or upstream model work",
+  "next": "true native exit/canonical readback, one reviewed saved metadata receipt, one separately released independent history audit, then root acceptance"
+}

@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "generated_only": true,
+  "arithmetic": "signed cancellation vs l1, qbar/intercept/shape discrimination, c-order zero tie",
+  "refused": [
+    "shape",
+    "inventory",
+    "nonfinite",
+    "locator",
+    "coordinate",
+    "row_identity",
+    "row_order",
+    "requirement",
+    "limit",
+    "failure_status",
+    "signed_l1_confusion",
+    "zero_first_location",
+    "head_identity",
+    "prior_input",
+    "conditional_profile",
+    "age_packing",
+    "solver_control",
+    "objective_closure",
+    "baseline_input",
+    "baseline_member",
+    "baseline_metadata_digest",
+    "baseline_coefficients_digest"
+  ],
+  "threshold_owners": [
+    "saved",
+    "independent"
+  ],
+  "actual_reads_or_model_calls": 0
+}

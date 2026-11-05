@@ -6,6 +6,7 @@ import json
 import math
 from pathlib import Path
 import re
+import shutil
 from time import perf_counter
 
 import numpy as np
@@ -347,6 +348,43 @@ def validate_head(metadata, arrays, design):
     solver=metadata['solver'];require(type(solver) is dict and solver['converged'] is True,'failed solver presented as complete')
     require(solver['options'] in (RECIPE['solver'],RECIPE['continuation']) and solver['raw_gradient_inf_norm']>=0,'invalid spatial solver controls/gradient')
     require(metadata['objective']['total']==metadata['objective']['likelihood']+metadata['objective']['penalty'],'spatial objective accounting differs')
+
+
+def read_completed_spatial_heads(source, design, incoming, expected_files):
+    """read pinned ordinary components against the rebuilt design and accepted history."""
+    source=Path(source).resolve();names=[f'heads/{head}{suffix}' for head in HEADS for suffix in ('.json','.npz')]
+    require(type(expected_files) is dict and set(expected_files)==set(names),'completed spatial head inventory differs')
+    require(set(incoming)==set(HEADS),'completed spatial incoming heads differ')
+    heads,arrays,files={},{},[]
+    for head in HEADS:
+        for suffix in ('.json','.npz'):
+            name=f'heads/{head}{suffix}';digest(expected_files[name]);member=identity(source/name)
+            require(member['sha256']==expected_files[name],'completed spatial head digest differs');files.append(member)
+        metadata=read_json(source/f'heads/{head}.json')
+        size=len(design.columns)*{'volume':1,'shape':40,'quality':41}[head]+(8 if head=='volume' else 0)
+        values=_read_arrays(source/f'heads/{head}.npz',{'coefficients':dict(shape=[size],dtype=np.dtype('float64').str)})
+        validate_head(metadata,values,design)
+        require(metadata['head']==head and metadata['status']=='complete' and metadata['solver']['options']==RECIPE['solver']
+                and metadata['solver']['maxfun']==15000 and metadata['solver']['maxls']==20,'completed spatial head is not an ordinary successful fit')
+        expected=annual_priors(design,head,incoming[head])
+        require([{k:v for k,v in row.items() if k!='prior_mean'} for row in metadata['priors']]==expected,
+                'completed spatial priors differ from accepted predecessor')
+        prior_keys={(row['block'],row['id'],row['subblock']) for row in expected if row['current_season_information']}
+        old={(row['block'],row['id'],row['subblock']):row for row in incoming[head]}
+        ledger={(row['block'],row['id'],row['subblock']):row for row in metadata['ledger']}
+        require(set(ledger)==set(old)|prior_keys and all(ledger[key]==value for key,value in old.items() if key not in prior_keys),
+                'completed spatial older/absent anchors differ from accepted predecessor')
+        heads[head]=metadata;arrays[head]=values
+    return heads,arrays,files
+
+
+def copy_completed_spatial_heads(source, output, files):
+    folder=Path(output)/'heads';folder.mkdir()
+    for member in files:
+        original=Path(member['path']);require(original.parent==Path(source)/'heads','completed spatial source locator differs')
+        destination=folder/original.name
+        with original.open('rb') as src,destination.open('xb') as dst:shutil.copyfileobj(src,dst)
+        require(identity(destination)['sha256']==member['sha256'],'copied spatial head bytes differ')
 
 
 def write_spatial_head(output, metadata, arrays):

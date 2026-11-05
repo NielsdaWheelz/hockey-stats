@@ -277,6 +277,17 @@ def _complete_prior_only(flat, design, head, priors):
     return np.r_[beta.ravel(), age] if head == 'volume' else beta.ravel()
 
 
+def _head_work(design, head):
+    work = None
+    if head == 'volume':
+        representatives,exposure = _volume_groups(design)
+        unchanged=len(representatives)==design.X_time.shape[0]
+        work={'volume':(design.X_time if unchanged else design.X_time[representatives],
+                        design.context_time if unchanged else design.context_time[representatives],exposure),
+              'volume_event_sum':_adjoint(design,np.ones((design.X_event.shape[0],1)),'event')}
+    return work
+
+
 def fit_head(design, head, incoming, *, initial=None, tightened=False):
     began = perf_counter()
     priors = annual_priors(design, head, incoming)
@@ -294,13 +305,7 @@ def fit_head(design, head, incoming, *, initial=None, tightened=False):
     if reason:
         metadata['resources'] = dict(wall_seconds=perf_counter()-began, peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
         return metadata, {}
-    work = None
-    if head == 'volume':
-        representatives,exposure = _volume_groups(design)
-        unchanged=len(representatives)==design.X_time.shape[0]
-        work={'volume':(design.X_time if unchanged else design.X_time[representatives],
-                        design.context_time if unchanged else design.context_time[representatives],exposure),
-              'volume_event_sum':_adjoint(design,np.ones((design.X_event.shape[0],1)),'event')}
+    work = _head_work(design, head)
     options = CONTINUATION if tightened else SOLVER
     trace = []
     def objective(flat):
@@ -681,10 +686,8 @@ def project_spatial(state, design=None, *, actual_context=True):
     return SpatialProjections(rows,{'rates':maps,'adjustments':adjustment_maps},adjustments,support,reference,diagnostics)
 
 
-def fit_spatial(design, previous_state, output, *, final_year=False):
-    """fit one annual family and preserve it before any numerical continuation."""
-    from .spatial_state import SpatialState, write_spatial_state, validate_design
-    began=perf_counter()
+def _annual_design(design, previous_state):
+    from .spatial_state import validate_design
     if previous_state is not None:
         require(previous_state.manifest['purpose']==design.purpose and all(previous_state.heads[h]['status']=='complete' for h in HEADS),
                 'incomplete or mismatched spatial predecessor')
@@ -696,6 +699,27 @@ def fit_spatial(design, previous_state, output, *, final_year=False):
     elif design.purpose=='real':
         require(design.season=='20212022','real spatial chain must begin in 20212022')
     validate_design(design)
+    return design
+
+
+def _finish_spatial_annual(design, previous_state, output, heads, arrays, resources):
+    from .spatial_state import SpatialState, write_spatial_state
+    manifest=dict(schema_version=1,kind='spatial_state',purpose=design.purpose,season=design.season,
+                  recipe_id='experimental-v1',recipe=RECIPE,design_identity=design.transforms['design_sha256'],
+                  implementation=implementation(),prepared=design.prepared,coaches=design.coaches,valued=design.valued,
+                  previous=None if previous_state is None else dict(identity(previous_state.path/'manifest.json'),
+                      season=previous_state.manifest['season'],purpose=design.purpose,usage='annual'),
+                  basis_identity=design.basis_identity,training_cutoff=design.training_cutoff,heads=[],files=[],
+                  resources=resources)
+    state=SpatialState(output,manifest,design,heads,arrays,[],{},[],[],{})
+    projections=project_spatial(state)
+    return write_spatial_state(state,projections)
+
+
+def fit_spatial(design, previous_state, output, *, final_year=False):
+    """fit one annual family and preserve it before any numerical continuation."""
+    began=perf_counter()
+    design=_annual_design(design,previous_state)
     output=Path(output).resolve()
     require(not output.exists(),'spatial output already exists')
     if design.purpose=='real':
@@ -708,21 +732,53 @@ def fit_spatial(design, previous_state, output, *, final_year=False):
         # preserve each completed expensive head even if a later head fails.
         from .spatial_state import write_spatial_head
         write_spatial_head(output,heads[head],arrays[head])
-    manifest=dict(schema_version=1,kind='spatial_state',purpose=design.purpose,season=design.season,
-                  recipe_id='experimental-v1',recipe=RECIPE,design_identity=design.transforms['design_sha256'],
-                  implementation=implementation(),prepared=design.prepared,coaches=design.coaches,valued=design.valued,
-                  previous=None if previous_state is None else dict(identity(previous_state.path/'manifest.json'),
-                      season=previous_state.manifest['season'],purpose=design.purpose,usage='annual'),
-                  basis_identity=design.basis_identity,training_cutoff=design.training_cutoff,heads=[],files=[],
-                  resources=dict(design=design.resources,fit_wall_seconds=perf_counter()-began,
-                                 peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss))
-    state=SpatialState(output,manifest,design,heads,arrays,[],{},[],[],{})
-    projections=project_spatial(state)
-    baseline=write_spatial_state(state,projections)
+    baseline=_finish_spatial_annual(design,previous_state,output,heads,arrays,
+        dict(design=design.resources,fit_wall_seconds=perf_counter()-began,
+             peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss))
     if ((design.purpose=='real' and design.season=='20252026') or final_year) and all(heads[h]['status']=='complete' for h in HEADS):
         from .spatial_state import bind_spatial_probes
         return bind_spatial_probes(baseline,run_numerical_probes(baseline))
     return baseline
+
+
+def complete_spatial(design, previous_state, source, output, *, expected_files, expected_inputs):
+    """complete preserved ordinary heads; no solve, refill or numerical continuation."""
+    from .spatial_state import read_completed_spatial_heads, copy_completed_spatial_heads
+    began=perf_counter();source=Path(source).resolve();output=Path(output).resolve()
+    require(previous_state is not None,'completed spatial heads require an accepted predecessor')
+    require(not output.exists() and output!=source and not output.is_relative_to(source),'spatial completion output already exists or overlaps its source')
+    if design.purpose=='real': require(output.is_relative_to('/Volumes/Expansion/hockey-stats'),'expensive real outputs must be external')
+    design=_annual_design(design,previous_state)
+    inputs={key:{name:getattr(design,key)[name] for name in ('path','sha256')} for key in ('prepared','coaches','valued')}
+    inputs['previous']=identity(previous_state.path/'manifest.json')
+    require(expected_inputs==inputs,'completed spatial original input bindings differ')
+    heads,arrays,files=read_completed_spatial_heads(source,design,
+        {head:previous_state.heads[head]['ledger'] for head in HEADS},expected_files)
+    load_wall=perf_counter()-began;check_started=perf_counter();anchors={}
+    for head in HEADS:
+        work=_head_work(design,head)
+        grouped=None if work is None else work['volume'][0].shape[0]
+        require(grouped==heads[head]['resources']['dimensions']['grouped_time_rows'],'completed spatial grouping differs')
+        value,gradient=head_objective(arrays[head]['coefficients'],design,head,heads[head]['priors'],work)
+        norm=float(np.max(np.abs(gradient)))
+        require(value==heads[head]['objective']['total'] and norm==heads[head]['solver']['raw_gradient_inf_norm'],
+                'completed spatial objective/gradient anchor differs')
+        anchors[head]=dict(objective=heads[head]['objective'],raw_gradient_inf_norm=norm,full_evaluations=1,grouped_time_rows=grouped)
+    check_wall=perf_counter()-check_started
+    copy_started=perf_counter();output.mkdir(parents=True)
+    copy_completed_spatial_heads(source,output,files)
+    copy_wall=perf_counter()-copy_started
+    completion=dict(source_files=files,anchors=anchors,
+        reconstruction_limit='original design and moments were not saved; deterministic input reconstruction and exact head checks do not establish old/new design-byte equality')
+    resources=dict(design=design.resources,fit_wall_seconds=0.,new_solver_calls=0,new_probe_calls=0,
+        head_load_validation_wall_seconds=load_wall,consistency_wall_seconds=check_wall,head_copy_wall_seconds=copy_wall,
+        retained_head_wall_seconds=sum(heads[head]['resources']['wall_seconds'] for head in HEADS),
+        retained_head_resources={head:heads[head]['resources'] for head in HEADS},
+        peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        peak_rss_scope='new process through restored-head qualification/copy; excludes fresh projection/write/canonical read',
+        completion=completion)
+    return _finish_spatial_annual(design,previous_state,output,heads,arrays,resources)
+
 
 
 

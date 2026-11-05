@@ -1,0 +1,27 @@
+# preserved second spatial annual: source and held-command review
+
+verdict: clear for root's source commit and final concrete-pin preparation. real reconstruction remains held until the committed tree, adapter and metadata-writer pins receive narrow review and root releases the command. [prospective conditions](real-second-spatial-completion-review-conditions.md) remain byte-exact at `2bd4afe1818f5a36afe12df68f52a1ae06a346400f7988cdb5105ee721c32f5f`.
+
+| artifact | sha256 |
+| --- | --- |
+| `analysis/src/hockey_stats/spatial_rates.py` | `12bc92a91dd2eb359cf62382b962ac06adb6301bd5894ca958b2866ea47a37f0` |
+| `analysis/src/hockey_stats/spatial_state.py` | `e2b54a0fa867d4b2a966708894e71afc4c2b7a4166cd186180ca2e3bb31776ea` |
+| `var/v1-08-replacement/real-second-spatial-completion-preparation.json` | `f2931d1cb9199e2b4d88b7673a3efbee3bc87e25f3918d58322a75ea9f6efa35` |
+| fixed adapter `complete_real_spatial_20222023.py` | `e821fa49ae46ebb678985ce8cc6d221f90f198065293ab1e20bd7c8723b4741c` |
+| held completion command | `0c8d87f9f40bd63b6630a51908493d31f2b9a06e67c991e1a163b4169bf3374d` |
+| four-consumer metadata writer | `390c37ab3fe0fa6dbf14e59868718b1353af03a03c9d2ba5c199a71fcce85359` |
+| new held third-year command | `78a7bad8eb9e12ba91cab3a35835784a44b74de5bea6c2bd260543736f718932` |
+
+unqualified names are under `var/v1-08-replacement/`. all twenty-five preparation references reproduce their hashes, including source proof `b604dfd7` and layering addendum `e544e4ca`.
+
+the package boundary is appropriately small. shared annual preparation and finishing preserve the ordinary fit path and final-probe branch. volume work extraction is the exact former grouping body. complete-head reading requires six pinned files, closed existing metadata, exact coefficient dtype/cardinality, complete ordinary controls and canonical head validation. expected priors come from the actual accepted predecessor; untouched older/absent ledger anchors must match it. no coefficient refill or donor mutation occurs. exactly one same-grouped objective/full-gradient call per head must reproduce both saved total and gradient maximum exactly before projection or output creation. no optimizer, probe, tolerance or statistical construction changes.
+
+completion copies the six original files byte-exact into fresh sibling `20222023-complete-01`, then uses the one shared projection/writer/reader path. failed consistency checks stop without a solve, projection, tolerance rescue or retry. retained head costs remain original; new fit/probe counts are zero. the pre-projection resident-peak scope is labeled explicitly; later projection diagnostics and whole-command native accounting own later peaks. the original partial directory, logs and helpers remain historical.
+
+the layering clarification changes no numerical requirement. `MANIFEST_KEYS`, `HEAD_KEYS` and every pre-existing spatial-state function, including validation, writer and reader, remain unchanged. generic six-source identities, anchors and retained/new costs use existing resources json. the canonical artifact acquires no interruption/reconnection schema or study-specific validator. full original launch/interruption/reconnection evidence and run-record counts belong to the fixed adapter and study receipt. the adapter pins those records and original inputs before rebuilding once; it proves unchanged numerical bodies, exact grouping extraction, final-probe branch and lock against the original tree. source-proof execution during this review opened only worktree/git source.
+
+independent tiny integration passes frozen ordinary-path coefficients, solvers, objectives and projection arrays; canonical completion readback; six exact file identities; exactly three objective/full-gradient calls; and zero fit, solver, probe or prior-only refill calls during completion. it records one actual projection, ordinary standardized verification and one canonical writer read. eleven deliberate component/input/history/anchor/control/output faults refuse before projection. scratch command controls pass true exits zero/three, guarded refusal and one call to each ordinary orchestration owner. four-consumer metadata controls pass, including fresh-alias binding, missing evidence and old-partial alias refusals; the updated held third-year controls also pass. no saved fixture or real data was used.
+
+limits remain material. original design/moments and the original annual implementation/process-runtime snapshot were not saved. deterministic reconstruction plus exact head checks do not establish original/reconstructed design-byte equality or recover an unknown producer snapshot. the new completion records its own implementation; available original launch and reconnection evidence stay attributable to their actual phases. the metadata writer copies implementation and recorded acceptance pins; root still verifies producer commit/tree/clean and the actual acceptance receipts per annual. independent history/rate acceptance follows completion, and the third-year predecessor digest stays unavailable until root accepts the fresh annual.
+
+no actual real artifact, source game, design reconstruction, numerical anchor, production reader, completion or fit was called by this reviewer. only the authorized tiny design integration, source checks and scratch stubs ran. no production edit, launch or commit was made. final code-identity literals and root's release remain required.

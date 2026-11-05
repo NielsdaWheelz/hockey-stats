@@ -18,10 +18,11 @@ command_sha='a'*64;head='b'*40
 def write(path,value):path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,allow_nan=False)+'\n')
 def bundle(year):
  campaign=Path(tempfile.mkdtemp(prefix='case-',dir=scratch));h.CAMPAIGN=campaign
- current=campaign/'real/spatial'/year;previous=campaign/'real/spatial'/f'{int(year[:4])-1}{year[:4]}'
- previous.mkdir(parents=True,exist_ok=True);write(previous/'manifest.json',dict(kind='spatial_state',purpose='real',season=previous.name))
+ previous_year=f'{int(year[:4])-1}{year[:4]}'
+ current=campaign/h.STATE_PATHS[year];previous=campaign/h.STATE_PATHS[previous_year]
+ previous.mkdir(parents=True,exist_ok=True);write(previous/'manifest.json',dict(kind='spatial_state',purpose='real',season=previous_year))
  previous_sha=sha256((previous/'manifest.json').read_bytes()).hexdigest()
- manifest=dict(kind='spatial_state',purpose='real',season=year,previous=dict(path=str(previous/'manifest.json'),sha256=previous_sha,season=previous.name,purpose='real',usage='annual'),
+ manifest=dict(kind='spatial_state',purpose='real',season=year,previous=dict(path=str(previous/'manifest.json'),sha256=previous_sha,season=previous_year,purpose='real',usage='annual'),
   prepared=dict(path=h.PREPARED,sha256=h.PREPARED_SHA),coaches=dict(path=h.COACHES,sha256=h.COACHES_SHA),
   valued=dict(path=str(campaign/'real/scores'/year/'manifest.json'),sha256=h.SCORES[year],season=year),
   implementation=dict(git_commit='c'*40,git_dirty=False),heads=[],files=[],resources={'producer':'copied'})
@@ -42,6 +43,7 @@ def bundle(year):
   '-launch-command-sha256.txt':command_sha+'  /synthetic/command.sh\n','-launch-inputs-sha256.txt':''.join(f'{sha}  {p}\n' for p,sha in expected.items()),
   '-launch-acceptance-sha256.txt':'d'*64+'  /synthetic/accepted.json\n','-launch-spatial-recipe.txt':h.RECIPE+'\n',
   '.log':'4.5 real 6.0 user 7.0 sys\n123456 maximum resident set size\n234567 peak memory footprint\n'}
+ if year=='20222023':records['-completion-preflight.json']=json.dumps(dict(kind='synthetic-pinned-completion-evidence'))+'\n'
  for suffix,value in records.items():Path(str(current)+suffix).write_text(value)
  return current,previous,manifest,previous_sha
 
@@ -59,6 +61,7 @@ for year in h.SCORES:
  assert r['status']=='saved_run_passed_pending_history_audit_and_root_acceptance' and r['launch']['head']==head and r['implementation']['git_commit']=='c'*40
  assert r['whole_command']['maximum_resident_bytes']==123456 and r['whole_command']['peak_memory_footprint_bytes']==234567
  assert len(r['probes'])==(3 if year=='20252026' else 0)
+ assert (r['completion_preflight'] is not None)==(year=='20222023')
  passed.append(year)
 refused=[]
 for defect in ('current_manifest_pin','previous_manifest_pin','wrong_valued','wrong_previous','head_incomplete','head_control','head_digest','probe_early','probe_missing','probe_failed','wrong_source','dirty_source','wrong_command','wrong_inputs','bad_exit','wrong_recipe','occupied_receipt'):
@@ -90,6 +93,18 @@ for defect in ('current_manifest_pin','previous_manifest_pin','wrong_valued','wr
   else:inspect(current,previous,m,previous_sha)
  except (AssertionError,KeyError,FileExistsError):refused.append(defect)
  else:raise AssertionError('admitted '+defect)
+current,previous,m,previous_sha=bundle('20222023');Path(str(current)+'-completion-preflight.json').unlink()
+try:inspect(current,previous,m,previous_sha)
+except FileNotFoundError:refused.append('missing_completion_evidence')
+else:raise AssertionError('unbound completion provenance admitted')
+for label,year in (('old_partial_current','20222023'),('old_partial_previous','20232024')):
+ current,previous,m,previous_sha=bundle(year);old=h.CAMPAIGN/'real/spatial/20222023';old.mkdir()
+ write(current/'manifest.json',m)
+ if label=='old_partial_current':write(old/'manifest.json',m);expected=sha256((old/'manifest.json').read_bytes()).hexdigest();args=(old,previous,expected,previous_sha,command_sha)
+ else:write(old/'manifest.json',json.loads((previous/'manifest.json').read_text()));expected=sha256((current/'manifest.json').read_bytes()).hexdigest();args=(current,old,expected,previous_sha,command_sha)
+ try:h.saved_run_receipt(*args)
+ except AssertionError:refused.append(label)
+ else:raise AssertionError('old partial alias admitted')
 current,previous,m,previous_sha=bundle('20242025');Path(str(current)+'.log').write_text('without time metrics\n')
 r=inspect(current,previous,m,previous_sha);assert r['whole_command']==dict(timing=None,maximum_resident_bytes=None,peak_memory_footprint_bytes=None)
 output=Path(str(current)+'-saved-metadata-acceptance.json');expected=sha256((current/'manifest.json').read_bytes()).hexdigest()
@@ -99,4 +114,4 @@ assert json.loads(output.read_text())['status']==r['status']
 try:h.write_receipt(current,previous,expected,previous_sha,command_sha,current/'unlisted-receipt.json')
 except AssertionError:pass
 else:raise AssertionError('receipt placed inside preserved state')
-print(json.dumps(dict(status='passed',scope='tiny synthetic json/run records only; no real/fixture source, model, arrays, production reader or math calls',seasons=passed,refusals=refused,missing_resource_metrics_are_null=True,producer_and_launch_head_remain_distinct=True,small_json_only=True,explicit_cli_fresh_receipt=True,inside_state_output_refused=True,scratch=str(scratch)),indent=2))
+print(json.dumps(dict(status='passed',scope='tiny synthetic json/run records only; no real/fixture source, model, arrays, production reader or math calls',seasons=passed,refusals=refused,missing_resource_metrics_are_null=True,producer_and_launch_head_remain_distinct=True,small_json_only=True,explicit_cli_fresh_receipt=True,completion_alias_map_checked=True,completion_preflight_bound=True,inside_state_output_refused=True,scratch=str(scratch)),indent=2))

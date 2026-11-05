@@ -1,0 +1,433 @@
+{
+  "kind": "independent-spatial-annual-saved-history-checked-facts",
+  "status": "passed_pending_root_annual_acceptance",
+  "season": "20232024",
+  "root_release": {
+    "owner": "root",
+    "authorization": "explicit team message releasing exactly one year-three saved-only audit after native/canonical/metadata completion",
+    "producer_commit": "63e6ad4fe27aa068be384522dcb9b55861f67ec5",
+    "previous_root_acceptance_sha256_prefix": "2e3e4d65",
+    "current_manifest_sha256": "42bfbab911efc9a58904b5273a09545d617fd7c29a2be67203bbc55b236eff25",
+    "previous_manifest_sha256": "bdc5c2d4ed8645f5b1aa825abe06397b333ed399c2a4399eff6106dd6b98bd17",
+    "fresh_output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20232024-01",
+    "successor_released": false
+  },
+  "code": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/independent_spatial_history_audit.py",
+    "sha256": "e4f08448d08893ef3b2405397bdd5d328312ad81805ff19bc60787988fc471d2",
+    "bytes": 20734
+  },
+  "primitives": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/independent_first_spatial_audit.py",
+    "sha256": "6ebe300de7821343a3533c147871043a814e41617240358ca5674229ba581483",
+    "bytes": 30408
+  },
+  "protocol": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-spatial-history-audit-protocol.md",
+    "sha256": "9c64f4793ff2f6b1dc3d93b8a0c2399b4bdbb558a2f12a6f42897b3214a096c3",
+    "bytes": 7060
+  },
+  "addendum": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-spatial-history-audit-binding-addendum.md",
+    "sha256": "c3606064bdec0d3c25604568f12425bdd418486f71d4b3e96f78dd8b493a152b",
+    "bytes": 2670
+  },
+  "source_and_command_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-spatial-history-input-binding-repair-source-review.md",
+    "sha256": "290f20ce2916055de4cc664894c4b003da1e3378237407051fd3a99a5d02b272",
+    "bytes": 3478
+  },
+  "saved_report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20232024-01/audit.json",
+    "sha256": "1efa3e014b46a9c0c03443d54ea854b2f1e57ad1f7e39fe3bf11ecf769349e71",
+    "bytes": 11588
+  },
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20232024-01.log",
+    "sha256": "958bc429c5a6fdf998aa7a2c041403d5ee44561e56e5d84f154b513200aa355b",
+    "bytes": 992
+  },
+  "exit_record": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20232024-01-exit.txt",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "bytes": 2
+  },
+  "invocation": {
+    "session": 22367,
+    "child_pids": null,
+    "pid_observation": "audit completed before the targeted process snapshot; no child pid was observed",
+    "true_exit": 0,
+    "python_version": "3.14.8",
+    "command_argv": [
+      "/usr/bin/time",
+      "-l",
+      "analysis/.venv/bin/python",
+      "var/v1-08-replacement/independent_spatial_history_audit.py",
+      "--input",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024",
+      "--previous",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01",
+      "--expected-manifest-sha256",
+      "42bfbab911efc9a58904b5273a09545d617fd7c29a2be67203bbc55b236eff25",
+      "--expected-previous-manifest-sha256",
+      "bdc5c2d4ed8645f5b1aa825abe06397b333ed399c2a4399eff6106dd6b98bd17",
+      "--out",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20232024-01"
+    ],
+    "fresh_output_log_exit_guarded": true,
+    "code_primitive_protocol_addendum_review_pins_passed": true,
+    "separately_released_invocations": 1,
+    "automatic_retries": 0
+  },
+  "resources": {
+    "whole_command_wall_seconds": 1.38,
+    "user_seconds": 0.84,
+    "system_seconds": 0.06,
+    "maximum_resident_bytes": 349995008,
+    "peak_memory_footprint_bytes": 333366016,
+    "audit_body_wall_seconds": 1.132421875023283
+  },
+  "report": {
+    "kind": "independent-spatial-annual-saved-history-audit",
+    "status": "passed_pending_root_acceptance",
+    "season": "20232024",
+    "audit_code_sha256": "e4f08448d08893ef3b2405397bdd5d328312ad81805ff19bc60787988fc471d2",
+    "primitive_code_sha256": "6ebe300de7821343a3533c147871043a814e41617240358ca5674229ba581483",
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/manifest.json",
+      "sha256": "42bfbab911efc9a58904b5273a09545d617fd7c29a2be67203bbc55b236eff25"
+    },
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01/manifest.json",
+      "sha256": "bdc5c2d4ed8645f5b1aa825abe06397b333ed399c2a4399eff6106dd6b98bd17"
+    },
+    "rehashed_small_members": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/reference.json",
+        "sha256": "75ad6f8760bb7b667f76ee06e17112c7720282b635cfba324c4ef14e4b01bfaa",
+        "bytes": 541525
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/heads/volume.json",
+        "sha256": "f39cb9b14b4831f18ff549f91a28f123704f52f180c3a709d68ce8afcc3c345f",
+        "bytes": 4293274
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01/heads/volume.json",
+        "sha256": "61077c66975c32a3ed0003e27743332946635e4b9f6d8977ea55e2c44e858d00",
+        "bytes": 4075991
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/heads/volume.npz",
+        "sha256": "4462f8aa736baa4bb9b4641fa0e9c2dd13d954b7ded3b998d9687c3c86b47f06",
+        "bytes": 25214
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01/heads/volume.npz",
+        "sha256": "480493b902fffc91c2faba382a008d197cc39d99392e3338ebda4578984390c2",
+        "bytes": 25646
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/heads/shape.json",
+        "sha256": "fc3fedbcf007ba70a4a34a8c5f80885d77f2f202103aeacbf7dc3e447501e84e",
+        "bytes": 18719251
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01/heads/shape.json",
+        "sha256": "f8eee5d3c2787da3efd5705bd595325d8119f251ec77c71ce73db0edb7e3d22c",
+        "bytes": 17904390
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/heads/shape.npz",
+        "sha256": "f413adc3c13434eb7071ea514c6dd62ad8761a1ac2d31f4ccfcb58cc4e3f61b1",
+        "bytes": 995158
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01/heads/shape.npz",
+        "sha256": "ebdb35f32a4a6cb41084f75eb0dab15b56ac8d02772cc9557e9087d0987b18c5",
+        "bytes": 1012438
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/heads/quality.json",
+        "sha256": "7fffb310d86f3cc341b72f577fcd0d63f699c836142018e301c70ace31dec2d8",
+        "bytes": 19476624
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01/heads/quality.json",
+        "sha256": "63a4d6b7ab51e840553b1369507669d8d7bd6250682cbfce6cad5ad88dcc430b",
+        "bytes": 18629560
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/heads/quality.npz",
+        "sha256": "f3b6488511e6e4e753eb97a839dfdd8f915c87801ea3ce6ce53afe8d37ac63bc",
+        "bytes": 1020030
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01/heads/quality.npz",
+        "sha256": "ff5658fcd1eec98ae9c5177546d2c578936a857a556f6aa7499fb9d9764823e8",
+        "bytes": 1037742
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/projections.jsonl",
+        "sha256": "2356a2eea5294517003b4404c507ddb78c8d6876eb5a88f4f4fd840d13b0bf1d",
+        "bytes": 1110898
+      }
+    ],
+    "selected_array_members": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/design.npz",
+        "member": "basis",
+        "array_sha256": "4fa1d565e939dae706a7f3fa0d060b06b647602ba32d2850174b80c6267fa42b",
+        "archive_sha256": "4fd32354af6958b71f7cf140f5ff6d4ddef35a4020edd2a4b6d08f772011fc99",
+        "archive_integrity": "canonical writer/read validation; this audit reads only the named npy member"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/projections.npz",
+        "member": "rates",
+        "array_sha256": "f66a09d1bba3829a0f373ea9bf19ab225715413e6973f1f75e851a877443e209",
+        "archive_sha256": "065fc146039bdc0b01fc3a068a246a7369216d554d09c034af940219bacf6d11",
+        "archive_integrity": "canonical writer/read validation; this audit reads only the named npy member"
+      }
+    ],
+    "basis_identity": {
+      "sha256": "f70933a396c86b819ea65b420ff736c03d968047dd8b6e7294e048e9b7c02cc6",
+      "array_sha256": "4fa1d565e939dae706a7f3fa0d060b06b647602ba32d2850174b80c6267fa42b",
+      "reference": "uniform-native-656",
+      "modes": 40
+    },
+    "history": {
+      "volume": {
+        "entry_rows": 494,
+        "carry_rows": 2264,
+        "carry_gaps": {
+          "1": 2026,
+          "2": 238
+        },
+        "transitions": {
+          "age_carry": 1618,
+          "entry": 494,
+          "missing_or_changed_role": 2,
+          "age_neutral": 644
+        },
+        "fresh_supported_rows": 2394,
+        "prior_only_rows": 364,
+        "absent_anchors_retained": 662,
+        "previous_fresh_npz_rows": 2364,
+        "previous_older_ledger_anchors": 562,
+        "maximum_conditional_mean_difference": 0.0,
+        "maximum_absolute_age_coefficient": 0.24823280882489104,
+        "nonzero_age_adjusted_means": 1618,
+        "maximum_absolute_age_mean_shift": 0.07721907948968915,
+        "solver": {
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 4018,
+          "evaluations": 4452,
+          "objective": -396918.8795482745,
+          "options": {
+            "maxiter": 10000,
+            "ftol": 1e-15,
+            "gtol": 1e-06,
+            "maxcor": 10
+          },
+          "maxfun": 15000,
+          "maxls": 20,
+          "raw_gradient_inf_norm": 0.011583448059980128,
+          "trace_summary": {
+            "evaluations": 4452,
+            "initial": [
+              -364493.71742614824,
+              25472.047786534647
+            ],
+            "final": [
+              -396918.8795482745,
+              0.011583448059980128
+            ],
+            "minimum_objective": -396918.8795482745
+          }
+        },
+        "objective": {
+          "likelihood": -398558.3664223463,
+          "penalty": 1639.4868740718277,
+          "total": -396918.8795482745
+        }
+      },
+      "shape": {
+        "entry_rows": 494,
+        "carry_rows": 2264,
+        "carry_gaps": {
+          "1": 2026,
+          "2": 238
+        },
+        "transitions": {
+          "age_neutral": 2264,
+          "entry": 494
+        },
+        "fresh_supported_rows": 2392,
+        "prior_only_rows": 366,
+        "absent_anchors_retained": 662,
+        "previous_fresh_npz_rows": 2363,
+        "previous_older_ledger_anchors": 563,
+        "maximum_conditional_mean_difference": 0.0,
+        "maximum_absolute_age_coefficient": 0.0,
+        "nonzero_age_adjusted_means": 0,
+        "maximum_absolute_age_mean_shift": 0.0,
+        "solver": {
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 1212,
+          "evaluations": 1266,
+          "objective": 672379.8476577754,
+          "options": {
+            "maxiter": 10000,
+            "ftol": 1e-15,
+            "gtol": 1e-06,
+            "maxcor": 10
+          },
+          "maxfun": 15000,
+          "maxls": 20,
+          "raw_gradient_inf_norm": 0.0026976256077517746,
+          "trace_summary": {
+            "evaluations": 1266,
+            "initial": [
+              680047.9436915747,
+              2044.4379470946697
+            ],
+            "final": [
+              672379.8476577754,
+              0.0026976256077517746
+            ],
+            "minimum_objective": 672379.8476577754
+          }
+        },
+        "objective": {
+          "likelihood": 669604.5938248254,
+          "penalty": 2775.2538329500026,
+          "total": 672379.8476577754
+        }
+      },
+      "quality": {
+        "entry_rows": 494,
+        "carry_rows": 2264,
+        "carry_gaps": {
+          "1": 2026,
+          "2": 238
+        },
+        "transitions": {
+          "age_neutral": 2264,
+          "entry": 494
+        },
+        "fresh_supported_rows": 2392,
+        "prior_only_rows": 366,
+        "absent_anchors_retained": 662,
+        "previous_fresh_npz_rows": 2363,
+        "previous_older_ledger_anchors": 563,
+        "maximum_conditional_mean_difference": 0.0,
+        "maximum_absolute_age_coefficient": 0.0,
+        "nonzero_age_adjusted_means": 0,
+        "maximum_absolute_age_mean_shift": 0.0,
+        "solver": {
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 3222,
+          "evaluations": 3431,
+          "objective": 18182.051951281395,
+          "options": {
+            "maxiter": 10000,
+            "ftol": 1e-15,
+            "gtol": 1e-06,
+            "maxcor": 10
+          },
+          "maxfun": 15000,
+          "maxls": 20,
+          "raw_gradient_inf_norm": 0.000535499815195184,
+          "trace_summary": {
+            "evaluations": 3431,
+            "initial": [
+              18268.321425753293,
+              166.97380322441396
+            ],
+            "final": [
+              18182.051951281395,
+              0.000535499815195184
+            ],
+            "minimum_objective": 18182.051951281395
+          }
+        },
+        "objective": {
+          "likelihood": 18170.95070552019,
+          "penalty": 11.101245761203383,
+          "total": 18182.051951281395
+        }
+      }
+    },
+    "reference": {
+      "derived_directed_hours": 2035.8333333329597,
+      "exposure_owner": "saved head included_seconds metadata; source/design reconciliation remains canonical/prior proof"
+    },
+    "standardized_projections": {
+      "players": 924,
+      "roles": 2,
+      "maximum_native_difference": 4.374278717023117e-14,
+      "maximum_scalar_difference": 1.7905676941154525e-12
+    },
+    "resources": {
+      "wall_seconds": 1.132421875023283,
+      "peak_resident_bytes": 349995008
+    },
+    "calls": {
+      "source": 0,
+      "production_reader": 0,
+      "production_evaluator": 0,
+      "objective": 0,
+      "gradient": 0,
+      "native_fit": 0,
+      "probe": 0,
+      "actual_allocations": 0
+    },
+    "limits": [
+      "accepted previous ledger is the raw-history induction boundary; older anchors are not compared to profiled previous npz rows",
+      "only basis/rates npy members read from the two larger archives; whole-archive integrity belongs to canonical validation",
+      "current saved head support/exposure/age facts are inputs; no original design or source reconciliation repeated",
+      "no objective/gradient recomputation, stronger gradient gate, continuation or actual-context allocation"
+    ]
+  },
+  "small_member_rehash_count": 14,
+  "small_member_bytes": 88867741,
+  "previous_independent_acceptance": {
+    "checked_facts": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-spatial-history-20222023-02-checked-facts.json",
+      "sha256": "dd01eff3a7939292b2153d18b079f8742ab26eeed1c5811041ef8bf759350e7b",
+      "bytes": 18518
+    },
+    "review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-spatial-history-20222023-02-saved-review.md",
+      "sha256": "c17c8588d4f4259d557996a146c8138f3e12a439db9bfd759f0971a36bb41dbc",
+      "bytes": 6196
+    }
+  },
+  "actual_history_boundary": {
+    "two_year_gap_rows_per_head": 238,
+    "previous_older_anchors": {
+      "volume": 562,
+      "shape": 563,
+      "quality": 563
+    },
+    "claim": "these actual older anchors bind to the accepted previous raw ledger; no earlier annual or profiled older coefficient comparison was added"
+  },
+  "root_reported_canonical_completion": {
+    "producer": "63e6ad4fe27aa068be384522dcb9b55861f67ec5",
+    "analysis_tree_prefix": "38ec",
+    "dirty": false,
+    "metadata_acceptance_sha256": "3e78fc59856422435eb01fee63758f702f7a5a1dcc2621fafd0ee9932126e13e",
+    "whole_seconds": 19740.79,
+    "maximum_resident_bytes": 22128148480,
+    "peak_memory_footprint_bytes": 49474375728,
+    "artifact_bytes": 11525697489,
+    "independently_replayed": false
+  },
+  "verdict": "no blocking finding in released saved-history scope; root owns formal annual acceptance and successor release"
+}

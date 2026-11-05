@@ -1,0 +1,41 @@
+#!/bin/zsh
+# held candidate publication only; accepted combined results and root release remain required.
+set -eu
+publish_results_sha=FUTURE_COMBINED_RESULTS_MANIFEST_SHA256_WITHHELD
+case "$publish_results_sha" in *[!0-9a-f]*) print -u2 'combined results pin withheld; command not launched'; exit 1 ;; esac
+[ "${#publish_results_sha}" -eq 64 ]
+publish_command_path=${0:A}
+cd /Users/nnandal/Documents/code/hockey-stats-v1-08
+publish_head=$(git rev-parse HEAD)
+publish_tree=38ec706cb505ea3d9936518dd119869e7695200b
+publish_campaign=/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01
+publish_observed=/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json
+publish_results=$publish_campaign/real/results
+publish_output=$publish_campaign/real/candidate
+publish_run=$publish_campaign/real/publish
+for publish_path in "$publish_output" "$publish_run.log" "$publish_run-start.txt" "$publish_run-finish.txt" "$publish_run-exit.txt" "$publish_run-shell.pid" "$publish_run-launch-head.txt" "$publish_run-launch-analysis-tree.txt" "$publish_run-launch-analysis-status.txt" "$publish_run-launch-command-sha256.txt" "$publish_run-launch-inputs-sha256.txt"; do
+  if [ -e "$publish_path" ]; then print -u2 "occupied path: $publish_path; command not launched"; exit 1; fi
+done
+[ "$(git rev-parse HEAD:analysis)" = "$publish_tree" ]
+[ -z "$(git status --porcelain --untracked-files=all -- analysis)" ]
+publish_pin() {
+  if [ "$(shasum -a256 "$1" | cut -d' ' -f1)" != "$2" ]; then print -u2 "pin mismatch: $1; command not launched"; exit 1; fi
+}
+publish_pin "$publish_observed" 5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9
+publish_pin "$publish_results/manifest.json" "$publish_results_sha"
+[ "$(git rev-parse HEAD)" = "$publish_head" ]
+set -C
+print -r -- $$ > "$publish_run-shell.pid"
+date -u +%Y-%m-%dT%H:%M:%SZ > "$publish_run-start.txt"
+print -r -- "$publish_head" > "$publish_run-launch-head.txt"
+git rev-parse HEAD:analysis > "$publish_run-launch-analysis-tree.txt"
+git status --porcelain --untracked-files=all -- analysis > "$publish_run-launch-analysis-status.txt"
+shasum -a256 "$publish_command_path" > "$publish_run-launch-command-sha256.txt"
+shasum -a256 "$publish_observed" "$publish_results/manifest.json" > "$publish_run-launch-inputs-sha256.txt"
+set +e
+/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python -m hockey_stats.analysis_cli publish --observed "$publish_observed" --results "$publish_results" --out "$publish_output" > "$publish_run.log" 2>&1
+publish_status=$?
+set -e
+print -r -- "$publish_status" > "$publish_run-exit.txt"
+date -u +%Y-%m-%dT%H:%M:%SZ > "$publish_run-finish.txt"
+exit "$publish_status"

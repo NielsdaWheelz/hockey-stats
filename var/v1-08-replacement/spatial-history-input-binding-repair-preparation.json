@@ -1,0 +1,103 @@
+{
+  "kind": "saved-spatial-history-input-binding-precondition-repair",
+  "status": "red_green_source_only_controls_passed_actual_audit_held",
+  "audit": {
+    "path": "var/v1-08-replacement/independent_spatial_history_audit.py",
+    "sha256": "e4f08448d08893ef3b2405397bdd5d328312ad81805ff19bc60787988fc471d2",
+    "bytes": 20734
+  },
+  "previous_audit_sha256": "ed289155196ed2cd143cdcdf0f72bb06ee56ffc230a146b01f1424f6667f1621",
+  "analysis_tree": "38ec706cb505ea3d9936518dd119869e7695200b",
+  "analysis_worktree_unchanged": true,
+  "control": {
+    "path": "var/v1-08-replacement/check_spatial_history_input_bindings.py",
+    "sha256": "5c1e4a268c42eb28ddaf56da1d41d2a5db8ea0b2a1f5f2c90b98343235e9f577",
+    "bytes": 3401
+  },
+  "red": {
+    "path": "var/v1-08-replacement/spatial-history-input-bindings-red.log",
+    "sha256": "6ad9f784e1865977a3313674fdccf632681e85fbdfcfddcd8f24e2f5330e6fea",
+    "bytes": 526
+  },
+  "green": {
+    "path": "var/v1-08-replacement/spatial-history-input-bindings-green.json",
+    "sha256": "5c8b35fa73feb37295475cef9be251cc2a0126c63bb537f35a359bf38177afa2",
+    "bytes": 631
+  },
+  "red_evidence": "old precondition rejects legitimate distinct-season headers at original line192; assertion traceback retained",
+  "protocol_addendum": {
+    "path": "docs/research/spatial-v1-08/reviews/real-spatial-history-audit-binding-addendum.md",
+    "sha256": "c3606064bdec0d3c25604568f12425bdd418486f71d4b3e96f78dd8b493a152b",
+    "bytes": 2670
+  },
+  "contract_sources": [
+    {
+      "path": "analysis/src/hockey_stats/spatial_design.py",
+      "sha256": "5c6925ec0b93ac52ef3442c5237f534a4bef4658ace08021e9ba759123352633",
+      "bytes": 35820
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_data.py",
+      "sha256": "4fce9d43d6c5afca6ed9335ce5b308feca8a7cf2f8582f8fe222aa44f3a64f1d",
+      "bytes": 45885
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_records.py",
+      "sha256": "afc74806c18da4e7d5f45ba2b0709e143a5c97c76442c3a68ff540f5e85c95bb",
+      "bytes": 68434
+    }
+  ],
+  "inverse_byte_proof": "remove only new check_input_bindings helper and restore its single original assertion; exact complete original bytes/hash reproduced",
+  "other_code_math_loops_tolerances": "byte unchanged by exact inverse proof",
+  "protected_unchanged": [
+    {
+      "path": "var/v1-08-replacement/independent_first_spatial_audit.py",
+      "sha256": "6ebe300de7821343a3533c147871043a814e41617240358ca5674229ba581483",
+      "bytes": 30408
+    },
+    {
+      "path": "var/v1-08-replacement/write_spatial_saved_run_receipt.py",
+      "sha256": "6de8aca4ba17f685ed5a3686eb67c5cbb39f635f24f9fd9c0dfad6f789239ca4",
+      "bytes": 9935
+    },
+    {
+      "path": "var/v1-08-replacement/complete_real_spatial_20222023.py",
+      "sha256": "e821fa49ae46ebb678985ce8cc6d221f90f198065293ab1e20bd7c8723b4741c",
+      "bytes": 7944
+    },
+    {
+      "path": "var/v1-08-replacement/real-20222023-spatial-completion-command.sh",
+      "sha256": "7931d78c5efd5d65a8203b4b2592d125b7b06ebaccef26b2810cd206acb344f2",
+      "bytes": 5017
+    },
+    {
+      "path": "docs/research/spatial-v1-08/receipts/real-spatial-history-20222023-01-checked-facts.json",
+      "sha256": "23222674b545158ac591b75a655c23cab6c903ca845845b7ff6dd1ceaf0ea125",
+      "bytes": 7304
+    },
+    {
+      "path": "docs/research/spatial-v1-08/reviews/real-spatial-history-20222023-01-saved-review.md",
+      "sha256": "0e78009a6f5dab0044fabb520d78fb15d3d7f18d8f9947708e32b9126a912a72",
+      "bytes": 3333
+    }
+  ],
+  "historical_protocol": {
+    "path": "docs/research/spatial-v1-08/reviews/real-spatial-history-audit-protocol.md",
+    "sha256": "9c64f4793ff2f6b1dc3d93b8a0c2399b4bdbb558a2f12a6f42897b3214a096c3",
+    "bytes": 7060
+  },
+  "historical_source_review": {
+    "path": "docs/research/spatial-v1-08/reviews/real-spatial-history-audit-source-review.md",
+    "sha256": "fa024930d66625ddd5ee5ac32b3b306489a5ffef16257dff15a30405a76e4cb7",
+    "bytes": 4034
+  },
+  "compile": "passed",
+  "actual_reads_and_calls": {
+    "annual_manifest": 0,
+    "prepared_or_coaches_inputs": 0,
+    "member_or_array": 0,
+    "production_import": 0,
+    "source_or_model_or_objective_or_gradient": 0
+  },
+  "release": "root after independent source/command review; no actual audit rerun/native/model replay/commit"
+}

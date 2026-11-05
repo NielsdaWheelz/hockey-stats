@@ -180,6 +180,21 @@ def check_projections(heads,betas,references,centers,reference,rows,saved,basis,
     return dict(players=len(players),roles=2,maximum_native_difference=max_map,maximum_scalar_difference=max_scalar)
 
 
+def check_input_bindings(manifest,old):
+    """common artifact identities are shared; member selections belong to each year."""
+    for name in ('prepared','coaches'):
+        assert all(manifest[name][field]==old[name][field] for field in ('purpose','path','sha256')), 'common input identity differs'
+    for annual in (old,manifest):
+        season=annual['season'];prepared=annual['prepared'];coaches=annual['coaches']
+        assert prepared['purpose']==coaches['purpose']==annual['purpose']=='real'
+        members=prepared['members'];games=coaches['selected_game_ids']
+        assert type(members) is list and type(games) is list and bool(games)
+        assert len(games)==len(set(games)) and all(gid[:4]+str(int(gid[:4])+1)==season for gid in games), 'duplicate or cross-season selected game'
+        keys=[(row['kind'],row['season'],row['game_id']) for row in members]
+        expected={('people',season,None)}|{('game',season,gid) for gid in games}
+        assert len(keys)==len(set(keys)) and set(keys)==expected, 'annual prepared/coach membership differs'
+
+
 def audit(root,previous,expected,previous_expected):
     began=perf_counter();assert sha(root/'manifest.json')==expected and sha(previous/'manifest.json')==previous_expected
     manifest=read(root/'manifest.json');old=read(previous/'manifest.json');season=manifest['season']
@@ -189,7 +204,7 @@ def audit(root,previous,expected,previous_expected):
     assert manifest['recipe']==old['recipe'] and manifest['recipe']['solver']==SOLVER
     assert manifest['recipe']['heads']==list(HEADS) and manifest['recipe']['modes']==40
     assert manifest['basis_identity']==old['basis_identity'] and manifest['valued']['season']==season
-    assert all(manifest[n]==old[n] for n in ('prepared','coaches'))
+    check_input_bindings(manifest,old)
     checked=[]
     def member(folder,document,name,loader):
         wanted=next(r['sha256'] for r in document['files'] if r['path']==name)

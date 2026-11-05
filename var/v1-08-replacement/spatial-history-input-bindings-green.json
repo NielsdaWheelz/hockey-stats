@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "audit_sha256": "e4f08448d08893ef3b2405397bdd5d328312ad81805ff19bc60787988fc471d2",
+  "legitimate_distinct_seasons_passed": true,
+  "refused": [
+    "prepared_path",
+    "prepared_sha256",
+    "prepared_purpose",
+    "coaches_path",
+    "coaches_sha256",
+    "coaches_purpose",
+    "own_purpose",
+    "cross_season_member",
+    "cross_season_game",
+    "duplicate_member",
+    "missing_people",
+    "wrong_member_kind",
+    "duplicate_selected",
+    "missing_selected",
+    "extra_selected",
+    "previous_membership"
+  ],
+  "actual_artifact_reads": 0,
+  "production_imports": 0,
+  "numerical_calls": 0
+}

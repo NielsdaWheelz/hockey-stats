@@ -1,0 +1,172 @@
+{
+  "kind": "independent-spatial-annual-saved-history-failed-check",
+  "status": "not_audited_due_to_checker_contract_error",
+  "season": "20222023",
+  "current_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01/manifest.json",
+    "sha256": "bdc5c2d4ed8645f5b1aa825abe06397b333ed399c2a4399eff6106dd6b98bd17",
+    "bytes": 359924
+  },
+  "previous_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+    "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509",
+    "bytes": 355634
+  },
+  "code": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/independent_spatial_history_audit.py",
+    "sha256": "ed289155196ed2cd143cdcdf0f72bb06ee56ffc230a146b01f1424f6667f1621",
+    "bytes": 19694
+  },
+  "primitives": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/independent_first_spatial_audit.py",
+    "sha256": "6ebe300de7821343a3533c147871043a814e41617240358ca5674229ba581483",
+    "bytes": 30408
+  },
+  "protocol": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-spatial-history-audit-protocol.md",
+    "sha256": "9c64f4793ff2f6b1dc3d93b8a0c2399b4bdbb558a2f12a6f42897b3214a096c3",
+    "bytes": 7060
+  },
+  "source_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-spatial-history-audit-source-review.md",
+    "sha256": "fa024930d66625ddd5ee5ac32b3b306489a5ffef16257dff15a30405a76e4cb7",
+    "bytes": 4034
+  },
+  "failure": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20222023-01/audit-failure.json",
+    "sha256": "e469da132e73133c6194709c76182ba96c746a9461960b766a39d778e4ef7d0f",
+    "bytes": 74
+  },
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20222023-01.log",
+    "sha256": "7537df07a4836c8e3019c24f5ea882be435641531e4830050949f71649c0326d",
+    "bytes": 1578
+  },
+  "exit_record": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20222023-01-exit.txt",
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "bytes": 2
+  },
+  "invocation": {
+    "session": 41737,
+    "observed_parent_shell_pid": 6913,
+    "python": "analysis/.venv/bin/python",
+    "python_version": "3.14.8",
+    "true_exit": 1,
+    "argv": [
+      "--input",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01",
+      "--previous",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022",
+      "--expected-manifest-sha256",
+      "bdc5c2d4ed8645f5b1aa825abe06397b333ed399c2a4399eff6106dd6b98bd17",
+      "--expected-previous-manifest-sha256",
+      "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509",
+      "--out",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20222023-01"
+    ],
+    "fresh_output_log_exit_guarded": true,
+    "code_and_primitive_pins_passed": true,
+    "automatic_retries": 0,
+    "command_argv": [
+      "/usr/bin/time",
+      "-l",
+      "analysis/.venv/bin/python",
+      "var/v1-08-replacement/independent_spatial_history_audit.py",
+      "--input",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01",
+      "--previous",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022",
+      "--expected-manifest-sha256",
+      "bdc5c2d4ed8645f5b1aa825abe06397b333ed399c2a4399eff6106dd6b98bd17",
+      "--expected-previous-manifest-sha256",
+      "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509",
+      "--out",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20222023-01"
+    ]
+  },
+  "failure_site": {
+    "file": "var/v1-08-replacement/independent_spatial_history_audit.py",
+    "line": 192,
+    "expression": "assert all(manifest[n]==old[n] for n in ('prepared','coaches'))",
+    "cause": "checker incorrectly equates shared source binding identity with complete season-specific selection dictionaries"
+  },
+  "manifest_binding_differences": {
+    "prepared": {
+      "differing_fields": [
+        "members"
+      ],
+      "shared_identity": {
+        "purpose": "real",
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+        "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+      },
+      "current_selection_counts": {
+        "members": 1313
+      },
+      "previous_selection_counts": {
+        "members": 1313
+      }
+    },
+    "coaches": {
+      "differing_fields": [
+        "selected_game_ids"
+      ],
+      "shared_identity": {
+        "purpose": "real",
+        "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+        "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+      },
+      "current_selection_counts": {
+        "selected_game_ids": 1312
+      },
+      "previous_selection_counts": {
+        "selected_game_ids": 1312
+      }
+    }
+  },
+  "completed_checks": [
+    "two exact manifest hashes",
+    "current/previous chronological seasons and real spatial kinds",
+    "exact accepted annual predecessor locator/hash",
+    "common recipe/solver/heads/modes",
+    "common basis identity and current valued season"
+  ],
+  "unreached_checks": [
+    "all head json/npz reads and raw ledger/age/conditional mean checks",
+    "selected basis/rates numeric reads",
+    "centers/reference and all standardized rates/scalars"
+  ],
+  "calls": {
+    "whole_design_reads": 0,
+    "head_json_reads": 0,
+    "head_npz_reads": 0,
+    "basis_reads": 0,
+    "rates_reads": 0,
+    "production_reader": 0,
+    "production_evaluator": 0,
+    "objective": 0,
+    "gradient": 0,
+    "source": 0,
+    "native_fit": 0,
+    "probe": 0,
+    "actual_allocation": 0
+  },
+  "command_resources": {
+    "wall_seconds": 0.23,
+    "user_seconds": 0.12,
+    "system_seconds": 0.03,
+    "maximum_resident_bytes": 60948480,
+    "peak_memory_footprint_bytes": 44270096
+  },
+  "independently_observed_limit": "manifest-only refusal; no evidence about actual nonzero age/history/projection correctness was produced",
+  "root_reported_producer": {
+    "metadata_acceptance_sha256": "a27cfb43697b3e57015d8d7d0012935c897b49b1cc0f926992e3cb20d3d84d2f",
+    "whole_seconds": 18167.36,
+    "maximum_resident_bytes": 18989268992,
+    "peak_memory_footprint_bytes": 47570602832,
+    "artifact_bytes": 11679522279,
+    "independently_rechecked_here": false
+  },
+  "followup": "preserve failed run; correct checker source-identity versus annual-selection contract and add a tiny synthetic regression, then obtain fresh source review and explicit root release before another saved check"
+}

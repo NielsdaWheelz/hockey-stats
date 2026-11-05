@@ -1,0 +1,109 @@
+{
+  "kind": "real-second-spatial-completion-release",
+  "status": "released_once_not_yet_launched",
+  "recorded_at_utc": "2026-11-05T03:28:15.062911+00:00",
+  "analysis_tree": "38ec706cb505ea3d9936518dd119869e7695200b",
+  "source_commit": "dd8856680de1813c70e11cfc7646684f72ddccf0",
+  "original_analysis_tree": "2866624de84c2f1a4881e9cee516db3f5530e3ba",
+  "original_fit_launch_head": "fcc80500a80faf96f06db12253b6373c75b976cd",
+  "recipe_sha256": "04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b",
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20222023-spatial-completion-command.sh",
+    "bytes": 5017,
+    "sha256": "7931d78c5efd5d65a8203b4b2592d125b7b06ebaccef26b2810cd206acb344f2"
+  },
+  "adapter": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/complete_real_spatial_20222023.py",
+    "bytes": 7944,
+    "sha256": "e821fa49ae46ebb678985ce8cc6d221f90f198065293ab1e20bd7c8723b4741c"
+  },
+  "metadata_writer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/write_spatial_saved_run_receipt.py",
+    "bytes": 9935,
+    "sha256": "6de8aca4ba17f685ed5a3686eb67c5cbb39f635f24f9fd9c0dfad6f789239ca4"
+  },
+  "command_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-second-spatial-completion-command-review.md",
+    "bytes": 2581,
+    "sha256": "c3734847410694273810d5f5df2c562901de00125559da35d7a1a79619b4878c"
+  },
+  "source_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-second-spatial-completion-source-review.md",
+    "bytes": 5439,
+    "sha256": "9c0ff772679e7a0372874a4291af7b7633fc12ee5e8795915c8e103114cbaf30"
+  },
+  "preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-second-spatial-completion-preparation.json",
+    "bytes": 9256,
+    "sha256": "f2931d1cb9199e2b4d88b7673a3efbee3bc87e25f3918d58322a75ea9f6efa35"
+  },
+  "final_pin_preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-second-spatial-completion-final-pin-preparation.json",
+    "bytes": 5677,
+    "sha256": "cf166a9d9d624795c2161b1ae67f25275a68c3dc5e1650aee4e1a8b4f44807d6"
+  },
+  "reconnection": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-second-spatial-reconnection-preflight.json",
+    "bytes": 7074,
+    "sha256": "e9515116b27d2f68cb5fdfc4f571bb21039c2879c7d0613f734a38691b106b53"
+  },
+  "interruption": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-second-spatial-interruption.json",
+    "bytes": 6503,
+    "sha256": "0bc1f5cb3b09ed326b8176ad35b41d51d868ab1ac72ebef1bad52dd35692c684"
+  },
+  "history_audit": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/independent_spatial_history_audit.py",
+    "bytes": 19694,
+    "sha256": "ed289155196ed2cd143cdcdf0f72bb06ee56ffc230a146b01f1424f6667f1621"
+  },
+  "source": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023",
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01",
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+    "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509"
+  },
+  "command_argv": [
+    "/bin/zsh",
+    "var/v1-08-replacement/real-20222023-spatial-completion-command.sh"
+  ],
+  "fresh_paths_checked": [
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01.log",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-start.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-finish.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-exit.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-shell.pid",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-launch-head.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-launch-analysis-tree.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-launch-analysis-status.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-launch-command-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-launch-inputs-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-launch-acceptance-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-launch-spatial-recipe.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-saved-metadata-acceptance.json",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01-completion-preflight.json"
+  ],
+  "available_external_bytes": 7211309715456,
+  "scope": {
+    "design_reconstructions": 1,
+    "preserved_complete_heads": 3,
+    "maximum_full_F_G_checks": 3,
+    "new_solver_calls": 0,
+    "new_probes": 0,
+    "refills": 0,
+    "retries": 0,
+    "projection": "all players and actual contexts through the existing shared writer/canonical reader"
+  },
+  "qualification": "exact native grouped objective-total and raw gradient-norm equality at each retained point; explicit incoming and absent-anchor binding; all checks precede projection/output creation; failure stops",
+  "preservation": "all six original head bytes and twelve interrupted records remain unchanged; accepted execution families/exchange and first spatial annual remain untouched",
+  "limits": [
+    "original design/moments and original annual producer/runtime snapshot were not saved; no old/new design-byte identity or invented producer is claimed",
+    "reconnection records the observed runtime; original fit source is bound by its actual launch/source/input evidence and mathematical-body equivalence",
+    "F/G replay is consistency evidence, not a new optimum-distance or sensitivity check",
+    "canonical state schema/read/write remain unchanged; study-specific interruption/reconnection evidence stays in fixed adapter/run receipt"
+  ],
+  "freeze": "analysis, adapter, active command, metadata writer and selected audit sources unchanged through command and post-exit checks; other heavy work stays held",
+  "launch_order": "after real start, observe completion-preflight.json or pins-accepted log before committing launch docs, preserving the worker initial HEAD preflight boundary",
+  "acceptance": "canonical exit and saved run/history/root review remain required; no successor or activation released"
+}

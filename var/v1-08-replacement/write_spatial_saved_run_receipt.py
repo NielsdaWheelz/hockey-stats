@@ -7,7 +7,7 @@ import re
 from time import perf_counter
 
 CAMPAIGN=Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01')
-ANALYSIS='2866624de84c2f1a4881e9cee516db3f5530e3ba'
+ANALYSIS='38ec706cb505ea3d9936518dd119869e7695200b'
 RECIPE='04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b'
 PREPARED='/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json'
 PREPARED_SHA='63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c'

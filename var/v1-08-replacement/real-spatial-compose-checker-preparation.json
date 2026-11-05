@@ -1,0 +1,85 @@
+{
+  "kind": "real-saved-spatial-composition-checker-preparation",
+  "status": "source_and_small_metadata_controls_passed_actual_checks_held",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/verify_real_spatial_compose.py",
+    "sha256": "76ec83d8a0eda9c3fb319d8c689874a38262e9186a2c320df43f177c872cf2dd"
+  },
+  "adapted_from": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/verify-spatial-compose.py",
+    "sha256": "56a547629c5ca8a682aef776a90f0bb0aedc6acb702235c796d053f07a519c35"
+  },
+  "compositor_contract_source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_composition.py",
+    "sha256": "d0d98be5c6c15a86b10945250d087b60164369df9e3887f00550eaf7f95008d6"
+  },
+  "base_sha256": "3441f784c11eb6a8eda38800806b8e4dc68e06e8587c91db24c5dffaadae4347",
+  "combined_sha256": null,
+  "selection_sha256": null,
+  "controls": {
+    "pending_refusal_before_read_write_stat": true,
+    "strict_current_selection_path_map": true,
+    "owner_formatter_source_backed_synthetic_only": true,
+    "all16_available_scalars_with_zero_values": true,
+    "missing_and_noexposure_and_failed_scalar_branches": true,
+    "seven_available_or_missing_context_fields": true,
+    "missing_map_none_contract": true,
+    "published_fitted_set_reconciliation": true,
+    "full_npz_hash_guard": true,
+    "numpy_or_production_imports_or_array_loads": 0,
+    "refusals": [
+      "old_partial_path",
+      "missing_selected_year",
+      "old_campaign_path",
+      "missing_scalar_invented_neutral",
+      "missing_context_invented_factual",
+      "missing_map_invented_cells"
+    ],
+    "compile": "passed",
+    "whitespace": "passed"
+  },
+  "actual_future_scope": "all nonowned output member hashes against accepted current base3441, people/sources/supports exact preservation, old method tuple retention and exactly three spatial additions, all published sixteen scalar/support and four-target seven context fields against saved projection/adjustment JSONL, population receipts and added method source/evidence bindings",
+  "evidence_read_limit": "added spatial method tuple evidence (JSON/JSONL, possibly large) is hashed and byte sizes recorded; retained inherited method evidence payloads are not reopened. each fully traversed JSONL is hashed while read; no source base table payload replay and no full NPZ hash",
+  "native_limit": "one deterministic first available offense-attempts effect sample per display year using rates.npy only; whole rates member must be decompressed, loaded array bytes reported. no adjustments/design/head arrays. checks chosen656 native cells and native/display sums only; not all real map cells/densities/display transport. prefix-only map headers noted, no available sample is reported rather than invented",
+  "no_actual_acceptance": "producer canonical/full transport proofs remain their existing owners; actual real saved check needs future pinned selection and combined manifest plus separate root release; independent real review, candidate/runtime/product/browser proof remain required for whole goal",
+  "report_path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/compose-spatial-saved-check-01.json",
+  "frozen_unchanged": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_rates.py",
+      "sha256": "12bc92a91dd2eb359cf62382b962ac06adb6301bd5894ca958b2866ea47a37f0"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_state.py",
+      "sha256": "e2b54a0fa867d4b2a966708894e71afc4c2b7a4166cd186180ca2e3bb31776ea"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20222023-spatial-completion-command.sh",
+      "sha256": "7931d78c5efd5d65a8203b4b2592d125b7b06ebaccef26b2810cd206acb344f2"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/complete_real_spatial_20222023.py",
+      "sha256": "e821fa49ae46ebb678985ce8cc6d221f90f198065293ab1e20bd7c8723b4741c"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/write_spatial_saved_run_receipt.py",
+      "sha256": "6de8aca4ba17f685ed5a3686eb67c5cbb39f635f24f9fd9c0dfad6f789239ca4"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/independent_spatial_history_audit.py",
+      "sha256": "ed289155196ed2cd143cdcdf0f72bb06ee56ffc230a146b01f1424f6667f1621"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/independent_first_spatial_audit.py",
+      "sha256": "6ebe300de7821343a3533c147871043a814e41617240358ca5674229ba581483"
+    }
+  ],
+  "execution": "no actual artifact/data/CLI/production import/array load/model/source/compose/strict-read call, active/core edit, commit or launch; only pure source metadata formatting and tiny in-memory controls",
+  "report_label_refresh": {
+    "change": "prior_only_zero_time_players -> fitted_prior_only_zero_time_players",
+    "reason": "count includes every fitted projection, including fitted_only identities",
+    "previous_checker_sha256": "2d538f785b541e4a6eb0b39332af5771b5d469c2e89fc4b9b81ef7bcb9dc4771",
+    "inverse_byte_proof": "one literal replacement restores exact previous checker bytes and sha256",
+    "compile": "passed",
+    "logic_values_thresholds": "unchanged; prior tiny controls retained without repetition"
+  }
+}

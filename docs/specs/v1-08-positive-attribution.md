@@ -127,19 +127,22 @@ spatial_design.prepare_spatial(prepared, coaches, valued, season) -> SpatialDesi
 spatial_rates.fit_spatial(design, previous_state, output) -> SpatialState
 spatial_state.read_spatial_state(path, expected_purpose) -> SpatialState
 spatial_rates.project_spatial(state, design) -> SpatialProjections
-spatial_composition.compose_results(existing_results, state_selection, output)
+spatial_composition.compose_results(existing_results, state_selection, output,
+  *, product_admission=None)
   -> player_analysis_results
 
 hockey-stats-analysis fit --family spatial --prepared DIR --coaches FILE
   --valued DIR --season ID [--previous DIR] --out NEWDIR
 hockey-stats-analysis summarize --family spatial --results DIR
-  --states FILE --out NEWDIR
+  --states FILE [--product-admission FILE] --out NEWDIR
 hockey-stats-analysis publish --observed FILE --results DIR --out NEWDIR
 ```
 
 `fit` writes one annual family and its projections; only the final real year adds the three prescribed probes. reject repeated/unknown/irrelevant flags; preserve execution's command shapes. `--previous` is mandatory after the first selected year. `--valued` selects this year's checked execution-score manifest; no newest-directory discovery. `--states` is strict `{schema_version:1,purpose,prepared_sha256,states:[{season,path,sha256}]}` in consecutive chronological order. real selection has all five years; fixture selection declares its consecutive subset explicitly. summary requires matching preparation, coaches, recipe, basis and exact selected execution targets; it adds three display years only. first-year absence of history is explicit, not a restart option.
 
 use finite json plus non-object numpy arrays and existing exclusive artifact writers/hash helpers. the old research artifact helper's `research|fixture_exercise` purpose contract is not the product's `real|fixture` contract. reuse the small strict annual-state pattern, not execution-specific penalties/schema. validate cardinality, shape, ordering, uniqueness, dtype, finite domains and semantic identities, not just file hashes.
+
+experimental-use contract amendment — 2026-11-06: real spatial summary requires `--product-admission`; fixture summary forbids it. the closed receipt binds the exact selection, final saved baseline and original comparison identities/statuses, policy, consequence report and independent review. the study owns its explicit private-use decision and reviewed warning; composition validates the bindings and carries the warning/evidence into the final-year method. no absent-receipt real path exists. this implements [the separately disclosed post-result policy](../research/spatial-v1-08/experimental-use-policy.md), without changing the state reader, recipe, numerical verdict or public schemas.
 
 | artifact, schema1 | required contract |
 |---|---|

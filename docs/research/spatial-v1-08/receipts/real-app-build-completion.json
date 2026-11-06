@@ -1,0 +1,33 @@
+{
+  "status": "accepted_fresh_build_only",
+  "recorded_at": "2026-11-06T18:28:07.905518+00:00",
+  "native_session_id": 60084,
+  "native_exit": 0,
+  "native_session_closed": true,
+  "release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-app-build-release.json",
+    "sha256": "f833dfff7bad0ba73ee35c8ac13348f2b4154f2fe73a4e9b89ccd1a20d9fdf3f"
+  },
+  "build_bindings": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/app-typecheck-build-01.bindings.json",
+    "sha256": "74d4de60b4d4c9524a60df0282cd6a5744f9be3cf62e4854c19ba076783a23ca"
+  },
+  "independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-app-build-bindings-review.md",
+    "sha256": "c111126779dcd2b86e307a50932fd10b079e7d79eb380c0fe3f4f94a29b97215"
+  },
+  "app_tree": "e01418f448cbfaae517685d7927a90cd37343660",
+  "source_sha256": "0861036972ccacc7bb8cb6393b0e3cb697293d44c873f36bee0a0e5bd4223511",
+  "dist_sha256": "c4ac0c8541ed059c6a4e983498841bbb4265dce8c4072ec2f095adb78a250cb1",
+  "rollback_carry": {
+    "condition": "all fourteen compiled operator/carry modules match retained fixture bytes and sizes",
+    "result": "condition satisfied; prior scoped rollback evidence carries without a rerun",
+    "receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-fixture-rollback-completion.json",
+      "sha256": "6f5fca5139c410dd1f141f0bbb6e6216c92c68920f99c49402ef0388e8779ff7"
+    },
+    "operator_sha256": "e655d6633d081f8b83133b779c2850434b3c1e9a65dcaaae29662d7f3f18d7b2",
+    "reader_sha256": "957d0706671eb0e3b42797084b94887230b61c7932313e46ae908d66819752e6"
+  },
+  "remaining": "real candidate, detached runtime, API, browser, native downloaded CSV/PNG and capacity acceptance; fixture browser results are not real acceptance"
+}

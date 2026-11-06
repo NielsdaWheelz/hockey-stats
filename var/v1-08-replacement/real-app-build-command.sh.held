@@ -1,0 +1,76 @@
+#!/bin/sh
+# held: root must review this exact source and replace the release literal before execution.
+cd /Users/nnandal/Documents/code/hockey-stats-v1-08 || exit 1
+real_build_release='released-after-source-review'
+[ "$real_build_release" = released-after-source-review ] || exit 1
+[ "$(git rev-parse HEAD:app)" = e01418f448cbfaae517685d7927a90cd37343660 ] || exit 1
+[ -z "$(git status --porcelain --untracked-files=all -- app)" ] || exit 1
+[ "$(cat app/.node-version)" = 24.21.0 ] || exit 1
+[ "$(/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node --version)" = v24.21.0 ] || exit 1
+real_build_base=/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/app-typecheck-build-01
+for real_build_suffix in typecheck.log typecheck.exit build.log build.exit source-files.json dist-files.json bindings.json; do
+  [ ! -e "$real_build_base.$real_build_suffix" ] || exit 1
+done
+set -C
+cd /Users/nnandal/Documents/code/hockey-stats-v1-08/app || exit 1
+/usr/bin/time -l env PATH=/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin:$PATH npm run typecheck > "$real_build_base.typecheck.log" 2>&1
+real_typecheck_status=$?
+printf '%s\n' "$real_typecheck_status" > "$real_build_base.typecheck.exit"
+[ "$real_typecheck_status" -eq 0 ] || exit "$real_typecheck_status"
+/bin/rm -rf /Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist || exit 1
+/usr/bin/time -l env PATH=/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin:$PATH npm run build > "$real_build_base.build.log" 2>&1
+real_build_status=$?
+printf '%s\n' "$real_build_status" > "$real_build_base.build.exit"
+[ "$real_build_status" -eq 0 ] || exit "$real_build_status"
+cd /Users/nnandal/Documents/code/hockey-stats-v1-08 || exit 1
+/usr/bin/python3 - <<'PY_BINDINGS'
+from pathlib import Path
+from datetime import datetime, timezone
+import hashlib, json, re, subprocess
+root = Path('/Users/nnandal/Documents/code/hockey-stats-v1-08')
+base = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/app-typecheck-build-01')
+sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+def identity(p):
+    return dict(path=str(p), sha256=sha(p), bytes=p.stat().st_size)
+def git(*args):
+    return subprocess.check_output(['git', *args], cwd=root, text=True).strip()
+assert git('rev-parse', 'HEAD:app') == 'e01418f448cbfaae517685d7927a90cd37343660'
+assert git('status', '--porcelain', '--untracked-files=all', '--', 'app') == ''
+source = [root / p for p in subprocess.check_output(['git', 'ls-files', 'app'], cwd=root, text=True).splitlines()]
+dist = [p for p in (root / 'app/dist').rglob('*') if p.is_file()]
+actual, lists = {}, []
+for label, paths in [('source', source), ('dist', dist)]:
+    # keep pathlib.Path ordering, exactly as the accepted fixture/server identity mechanism.
+    records = [dict(path=str(p.relative_to(root)), sha256=sha(p), bytes=p.stat().st_size) for p in sorted(paths)]
+    actual[label] = dict(sha256=hashlib.sha256(json.dumps(records, sort_keys=True, separators=(',', ':')).encode()).hexdigest(), files=len(records), bytes=sum(r['bytes'] for r in records))
+    target = Path(str(base) + '.' + label + '-files.json')
+    with target.open('x') as f:
+        json.dump(records, f, indent=2)
+        f.write('\n')
+    lists.append(identity(target))
+assert actual['source'] == dict(sha256='0861036972ccacc7bb8cb6393b0e3cb697293d44c873f36bee0a0e5bd4223511', files=52, bytes=873415), actual
+checks = {}
+for name in ('typecheck', 'build'):
+    log, exit_path = (Path(str(base) + '.' + name + suffix) for suffix in ('.log', '.exit'))
+    status = int(exit_path.read_text())
+    assert status == 0
+    text = log.read_text()
+    wall = re.search(r'^\s*([0-9.]+) real\s', text, re.M)
+    rss = re.search(r'^\s*(\d+)\s+maximum resident set size\s*$', text, re.M)
+    assert wall and rss, name
+    checks[name] = dict(exit=status, wall_seconds=float(wall.group(1)), peak_rss_bytes=int(rss.group(1)), log=identity(log), exit_receipt=identity(exit_path))
+receipt = dict(
+    kind='replacement-real-fresh-app-typecheck-build-bindings', status='typecheck and fresh build passed; real runtime/browser/export acceptance remains pending',
+    recorded_at_utc=datetime.now(timezone.utc).isoformat(), code_commit=git('rev-parse', 'HEAD'), app_git_tree=git('rev-parse', 'HEAD:app'), app_worktree_clean=True,
+    source=actual['source'], dist=actual['dist'], file_lists=lists,
+    digest_definition='sha256 of compact sorted-key json of pathlib.Path-ordered {path relative to repository,sha256,bytes} records; source is git ls-files app; dist is every actual app/dist file. this is Path component ordering, not sorted string ordering',
+    node=dict(path='/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node', version='v24.21.0', path_bin_first='/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin'),
+    checks=checks, server_entrypoint=identity(root / 'app/dist/node/server/main.js'),
+    build_command=identity(root / 'var/v1-08-replacement/real-app-build-command.sh.held'),
+    scope='fresh task-checkout typecheck/build and bounded source/dist hashes only; no database, source artifact, API, browser, sandbox/server, activation or serving-file action')
+output = Path(str(base) + '.bindings.json')
+with output.open('x') as f:
+    json.dump(receipt, f, indent=2)
+    f.write('\n')
+print(json.dumps(dict(status='passed', receipt=identity(output), source=actual['source'], dist=actual['dist'])))
+PY_BINDINGS

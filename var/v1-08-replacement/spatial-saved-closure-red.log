@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_spatial_saved_closure_generated.py", line 14, in <module>
+    assert check([1e8,-1e8,0.,0.,0.,0.,.001]) is False
+           ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_spatial_saved_closure_generated.py", line 12, in check
+    return m.check_context(data,adjustment,'attempts','m',{'source':[]})
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/verify_real_spatial_compose.py", line 103, in check_context
+    if data['factual_prediction']['value'] is not None:close(sum(data[name]['value'] for name in list(TERMS)[:-1]),data['factual_prediction']['value'])
+                                                       ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/verify_real_spatial_compose.py", line 63, in close
+    def close(a,b):assert math.isclose(a,b,rel_tol=1e-10,abs_tol=1e-10),(a,b)
+                          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (0.0, 0.001)

@@ -1,0 +1,40 @@
+{
+  "status": "released_saved_composition_check_02",
+  "recorded_at": "2026-11-06T20:06:25.501257+00:00",
+  "analysis_tree": "52bcae1c68161d4424cec672837e783eaeead673",
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-spatial-saved-check-02-command.sh.held",
+    "sha256": "3bb13de09a5f3ca21a903b89b2238615d66af877fb239a3d9ab216acba0ec4a2"
+  },
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/verify_real_spatial_compose.py",
+    "sha256": "c863a97abb0d2763f0a3b09e916fb546aad568a1959a524ef8a28106e5653c20"
+  },
+  "review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-spatial-compose-check-02-source-command-review.md",
+    "sha256": "dfe9a98f60f02818e9fbe0dded1557e95ab13cf2babcba21d80eb27536c98f7f"
+  },
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/manifest.json",
+    "sha256": "a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5"
+  },
+  "previous_check": {
+    "native_session_id": 76791,
+    "native_exit": 1,
+    "native_session_closed": true,
+    "wall_seconds": 5.86,
+    "peak_resident_bytes": 195985408,
+    "peak_footprint_bytes": 183714392,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/compose-spatial-saved-check-01.log",
+      "sha256": "7831bba16e62087916b6838050f4bb3455bcc328f1401a7e62d79e2a24d0202d"
+    },
+    "exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/compose-spatial-saved-check-01-exit.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "cause": "checker used a net-only closure comparison instead of the existing term-scaled contract; no result json or data mutation"
+  },
+  "boundary": "one saved-only pass; global comparisons unchanged, local actual-context closure uses original spec117 scale; decompress rates member only for one native sample per displayed year; no state reader, design/adjustment arrays, model, source reconstruction, objective, gradient, fit or probe",
+  "next": "independent saved-result review before inactive candidate publication"
+}

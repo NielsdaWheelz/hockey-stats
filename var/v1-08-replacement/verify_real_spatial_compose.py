@@ -14,7 +14,7 @@ SOURCE=ROOT/'execution-results'
 OUTPUT=ROOT/'results'
 SELECTION=ROOT/'states-selection.json'
 ADMISSION=ROOT/'spatial-product-admission-02.json'
-DESTINATION=ROOT/'compose-spatial-saved-check-01.json'
+DESTINATION=ROOT/'compose-spatial-saved-check-02.json'
 BASE_SHA='3441f784c11eb6a8eda38800806b8e4dc68e06e8587c91db24c5dffaadae4347'
 COMBINED_SHA='a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5'
 SELECTION_SHA='7ac43cfa0bcf72b449bc9267b19f16eb5ac7d7bf396fd08d9a98200d94549f1c'
@@ -100,7 +100,12 @@ def check_context(data,adjustment,quantity,method,person):
     saved=adjustment[quantity] if adjustment is not None else {}
     reason=adjustment['reason'] if adjustment is not None else 'published skater has no saved actual-context projection'
     for name,source in TERMS.items():check_estimate(data[name],saved.get(source),reason,method,person)
-    if data['factual_prediction']['value'] is not None:close(sum(data[name]['value'] for name in list(TERMS)[:-1]),data['factual_prediction']['value'])
+    if data['factual_prediction']['value'] is not None:
+        terms=[data[name]['value'] for name in list(TERMS)[:5]]
+        residual=data['numerical_residual']['value'];factual=data['factual_prediction']['value']
+        total=sum(terms)+residual;tolerance=1e-10*(1+abs(factual)+sum(abs(term) for term in terms))
+        assert all(math.isfinite(value) for value in (*terms,residual,factual,total,tolerance))
+        assert math.isfinite(total-factual) and abs(total-factual)<=tolerance
     return data['factual_prediction']['value'] is None
 
 

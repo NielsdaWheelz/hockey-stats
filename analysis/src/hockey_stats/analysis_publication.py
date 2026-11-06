@@ -1437,9 +1437,17 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
         for key in names:
             estimate(value[key], catalogs)
         if all(value[key]['value'] is not None for key in names):
-            require(close(sum(value[key]['value'] for key in names[:-1]),value['factual_prediction']['value']), 'adjustment does not close')
-            unadjusted = sum(value[key]['value'] for key in ('baseline','self','teammates','opponents','coaching_other_context'))
-            require(close(value['numerical_residual']['value'],value['factual_prediction']['value']-unadjusted) and abs(value['numerical_residual']['value']) <= 1e-9+1e-9*max(abs(unadjusted),abs(value['factual_prediction']['value'])), 'adjustment residual exceeds expression arithmetic tolerance')
+            terms = [value[key]['value'] for key in names[:5]]
+            factual = value['factual_prediction']['value']
+            residual = value['numerical_residual']['value']
+            # unbounded per60 terms are independently integrated; cancellation
+            # therefore scales roundoff with their magnitudes, not only the net.
+            tolerance = 1e-10*(1+abs(factual)+sum(abs(term) for term in terms))
+            unadjusted = sum(terms)
+            require(math.isfinite(tolerance) and math.isfinite(unadjusted), 'adjustment arithmetic is nonfinite')
+            require(abs(unadjusted+residual-factual) <= tolerance, 'adjustment does not close')
+            require(abs(residual-(factual-unadjusted)) <= tolerance and abs(residual) <= tolerance,
+                    'adjustment residual exceeds expression arithmetic tolerance')
     elif table in ('goalie_evidence_map','goalie_danger'):
         _goalie_distribution(table,value,catalogs)
         _actual_selection(value['actual_states'],row['strength'])

@@ -70,18 +70,22 @@ def _product_admission(path, selection_path, purpose):
     path = Path(path).absolute()
     document = strict_json(path.read_bytes())
     publication.fields(document, ('schema_version', 'kind', 'purpose', 'decision', 'season', 'selection', 'baseline',
-        'original_precision', 'policy', 'consequence_result', 'consequence_review', 'optimizer_accuracy', 'content_warning'))
-    require(type(document['schema_version']) is int and document['schema_version'] == 1
+        'original_precision', 'policy', 'consequence_result', 'consequence_review', 'optimizer_accuracy', 'content_warning',
+        'actual_context_review', 'actual_context_warnings'))
+    require(type(document['schema_version']) is int and document['schema_version'] == 2
             and document['kind'] == 'spatial_private_experimental_admission' and document['purpose'] == 'real'
             and document['decision'] == 'admit_saved_baseline' and document['season'] == YEARS[-1]
             and document['optimizer_accuracy'] == 'unknown', 'invalid spatial product admission')
     publication.text(document['content_warning'])
+    publication.fields(document['actual_context_warnings'], ('20242025', '20252026'))
+    for warning in document['actual_context_warnings'].values():
+        publication.text(warning)
     precision = document['original_precision']
     publication.fields(precision, ('status', 'comparisons'))
     publication.fields(precision['comparisons'], ('volume', 'shape', 'quality'))
     require(precision['status'] in ('passed', 'failed'), 'invalid original spatial precision status')
     evidence = [dict(uri=str(path), sha256=identity(path)['sha256'])]
-    for name in ('selection', 'baseline', 'policy', 'consequence_result', 'consequence_review', 'volume', 'shape', 'quality'):
+    for name in ('selection', 'baseline', 'policy', 'consequence_result', 'consequence_review', 'volume', 'shape', 'quality', 'actual_context_review'):
         reference = precision['comparisons'][name] if name in precision['comparisons'] else document[name]
         publication.fields(reference, ('path', 'sha256', 'status') if name in precision['comparisons'] else ('path', 'sha256'))
         publication.digest(reference['sha256'])
@@ -95,7 +99,8 @@ def _product_admission(path, selection_path, purpose):
     require(precision['status'] == ('passed' if all(r['status'] == 'passed' for r in precision['comparisons'].values()) else 'failed'),
             'original spatial aggregate precision status differs')
     return dict(season=document['season'], warning=document['content_warning'], baseline=document['baseline'],
-                precision=precision, evidence=evidence)
+                precision=precision, evidence=evidence[:-1], receipt=evidence[0], actual_context_review=evidence[-1],
+                actual_context_warnings=document['actual_context_warnings'])
 
 
 def _states(selection_path, results, admission=None):
@@ -170,7 +175,7 @@ def _datum(value, method, person, *, reason=None):
     return result
 
 
-def _method(year, state, annuals, results, source_sha, receipt, admission=None):
+def _method(year, state, annuals, purpose, source_sha, receipt, admission=None):
     manifest = state.manifest
     years = [y for y in annuals if y <= year]
     inputs = [dict(role='prepared', sha256=manifest['prepared']['sha256'], seasons=years),
@@ -185,6 +190,20 @@ def _method(year, state, annuals, results, source_sha, receipt, admission=None):
     if admission is not None and year == admission['season']:
         evidence.extend(admission['evidence'])
         warning.append(admission['warning'])
+    findings = [dict(quantities=[f'skater_spatial.{field}' for field in publication.ESTIMATE_FIELDS['skater_spatial']],
+        population='matched current-season 5v5 and fixed historical conditional priors',
+        summary='; '.join(['experimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not established', *warning]),
+        evidence=list(evidence))]
+    if admission is not None and year in admission['actual_context_warnings']:
+        context_evidence = [admission['receipt'], admission['actual_context_review']]
+        if year != admission['season']:
+            evidence.append(admission['receipt'])
+        evidence.append(admission['actual_context_review'])
+        warning.append(admission['actual_context_warnings'][year])
+        findings.append(dict(quantities=[f'adjustment_decomposition.{field}' for field in
+            ('baseline', 'self', 'teammates', 'opponents', 'coaching_other_context', 'numerical_residual', 'factual_prediction')],
+            population='actual included elapsed workload and four-group counterfactual allocations',
+            summary=admission['actual_context_warnings'][year], evidence=context_evidence))
     return dict(method_id=f'spatial-v1-08-{year}', family='spatial', recipe_id=manifest['recipe_id'] + ':' + manifest['recipe']['version'],
                 design_sha256=manifest['design_identity'], input_sha256=hashlib.sha256(publication.json_bytes(inputs)).hexdigest(),
                 fit_seasons=years, training_cutoff=manifest['training_cutoff'],
@@ -197,10 +216,8 @@ def _method(year, state, annuals, results, source_sha, receipt, admission=None):
                              'aggregate support is the common matched physical-time population and any contributing focal information; it does not establish current evidence for each volume, shape or quality term',
                              'spatial support reason counts are games with a located excluded segment, counted once per reason code; codes can overlap within a game',
                              'head support is saved in the bound receipt; structured head and actual-context adjustment presentation remain separate work', *warning],
-                evidence=evidence, purpose=results.manifest['purpose'], inputs=inputs, reference_id=REFERENCE, support_policy_id=POLICY,
-                assessment=dict(status='experimental', findings=[dict(quantities=[f'skater_spatial.{field}' for field in publication.ESTIMATE_FIELDS['skater_spatial']],
-                    population='matched current-season 5v5 and fixed historical conditional priors',
-                    summary='; '.join(['experimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not established', *warning]), evidence=evidence)]))
+                evidence=evidence, purpose=purpose, inputs=inputs, reference_id=REFERENCE, support_policy_id=POLICY,
+                assessment=dict(status='experimental', findings=findings))
 
 
 def _season_tables(year, state, people, method):
@@ -336,7 +353,7 @@ def compose_results(existing_results, state_selection, output, *, product_admiss
                        missing_projection='every required published skater is emitted; absence retains a located unavailable reason, never a neutral player')
         receipt_path = output / f'{year}-spatial-composition.json'
         write_json(receipt_path, receipt)
-        method = _method(year, state, annuals, existing, source_sha, dict(uri=str(receipt_path), sha256=identity(receipt_path)['sha256']), admission)
+        method = _method(year, state, annuals, existing.manifest['purpose'], source_sha, dict(uri=str(receipt_path), sha256=identity(receipt_path)['sha256']), admission)
         require(method['method_id'] not in methods, 'spatial method identity already exists')
         methods[method['method_id']] = method
         tables = _season_tables(year, state, people, method['method_id'])
@@ -356,3 +373,97 @@ def compose_results(existing_results, state_selection, output, *, product_admiss
                                        for member in [*manifest['catalogs'].values(),
                                                       *(member for record in manifest['families'] for member in record['tables'].values())])))
     return manifest
+
+
+def complete_results(result_dir, expected_donor_sha256, state_selection, product_admission):
+    """finish one saved exchange additively, without reloading model states."""
+    started = perf_counter()
+    directory = Path(result_dir).resolve(strict=True)
+    donor_path = directory / 'manifest.json.incomplete'
+    new_methods = directory / 'methods-complete-01.jsonl'
+    staging = directory / 'manifest-complete-01.json.incomplete'
+    final = directory / 'manifest.json'
+    resources = directory / 'completion-resources-01.json'
+    publication.digest(expected_donor_sha256)
+    require(directory.is_dir() and all(not p.exists() for p in (new_methods, staging, final, resources)),
+            'completion output already exists or donor directory is missing')
+    require(identity(donor_path)['sha256'] == expected_donor_sha256, 'incomplete donor manifest digest differs')
+    manifest = strict_json(donor_path.read_bytes())
+    require(manifest['purpose'] == 'real', 'saved completion requires a real exchange')
+    require(identity(ACCEPTED_RESULTS / 'manifest.json')['sha256'] == ACCEPTED_RESULTS_SHA256, 'accepted source digest differs')
+    source = strict_json((ACCEPTED_RESULTS / 'manifest.json').read_bytes())
+    require(all(manifest[k] == source[k] for k in ('purpose', 'seasons', 'observed_bindings', 'prepared_sha256')),
+            'donor and accepted source identity differs')
+    admission = _product_admission(product_admission, state_selection, 'real')
+    selection = strict_json(Path(state_selection).read_bytes())
+    publication.fields(selection, ('schema_version', 'purpose', 'prepared_sha256', 'states'))
+    require(selection['schema_version'] == 1 and selection['purpose'] == 'real'
+            and selection['prepared_sha256'] == manifest['prepared_sha256']
+            and [r['season'] for r in selection['states']] == list(YEARS), 'saved selection differs')
+    annuals = {}
+    for item in selection['states']:
+        publication.fields(item, ('season', 'path', 'sha256'))
+        publication.digest(item['sha256'])
+        path = Path(item['path'])
+        require(path.is_absolute() and path.name == 'manifest.json' and identity(path)['sha256'] == item['sha256'],
+                'saved annual manifest identity differs')
+        header = strict_json(path.read_bytes())
+        require(header['purpose'] == 'real' and header['season'] == item['season']
+                and header['prepared']['sha256'] == selection['prepared_sha256']
+                and header['valued']['sha256'] == ACCEPTED_VALUED[item['season']]
+                and [r['head'] for r in header['heads']] == ['volume', 'shape', 'quality']
+                and all(r['status'] == 'complete' for r in header['heads']), 'saved annual header differs')
+        annuals[item['season']] = _AnnualProjection(path.parent, header, [], {}, [])
+    for left, right in zip(YEARS, YEARS[1:]):
+        before, after = annuals[left], annuals[right]
+        require(after.manifest['previous'] == dict(season=left, path=str(before.path / 'manifest.json'),
+                sha256=identity(before.path / 'manifest.json')['sha256'], purpose='real', usage='annual'), 'saved history differs')
+        require(all(after.manifest[k] == before.manifest[k] for k in ('recipe_id','recipe','basis_identity'))
+                and all(after.manifest[k]['sha256'] == before.manifest[k]['sha256'] for k in ('prepared','coaches')),
+                'saved annual recipe or preparation differs')
+    require(annuals[YEARS[0]].manifest['previous'] is None, 'saved first annual has history')
+    last = annuals[YEARS[-1]]
+    members = {r['path']: r for r in last.manifest['files']}
+    for name, reference in [('baseline', admission['baseline']), *admission['precision']['comparisons'].items()]:
+        member = 'probes/baseline.json' if name == 'baseline' else f'probes/{name}-comparison.json'
+        require(member in members and reference['path'] == str(last.path / member)
+                and reference['sha256'] == members[member]['sha256'], 'saved admission probe identity differs')
+        if name != 'baseline':
+            require(strict_json((last.path / member).read_bytes())['status'] == reference['status'], 'saved probe status differs')
+    original = manifest['catalogs']['methods']
+    original_path = publication.member_path(directory, original)
+    require(identity(original_path)['sha256'] == original['sha256'], 'donor methods digest differs')
+    expected_ids = {f'spatial-v1-08-{year}' for year in manifest['seasons']}
+    found = set(); digest = hashlib.sha256(); count = 0; previous = None
+    with original_path.open('rb') as src, new_methods.open('xb') as dst:
+        for line in src:
+            require(line.endswith(b'\n') and line.strip(), 'invalid donor method line')
+            row = strict_json(line); key = row['method_id']
+            require(previous is None or previous < key, 'donor method ordering differs')
+            previous = key; count += 1
+            if key in expected_ids:
+                year = key.removeprefix('spatial-v1-08-')
+                receipt = row['evidence'][2]
+                receipt_path = directory / f'{year}-spatial-composition.json'
+                require(receipt == dict(uri=str(receipt_path), sha256=identity(receipt_path)['sha256']), 'saved composition receipt differs')
+                replacement = _method(year, annuals[year], annuals, 'real', ACCEPTED_RESULTS_SHA256, receipt, admission)
+                require({k:v for k,v in row.items() if k not in ('limitations','evidence','assessment')}
+                        == {k:v for k,v in replacement.items() if k not in ('limitations','evidence','assessment')},
+                        'saved method differs outside disclosure fields')
+                publication.validate_catalog('methods', replacement, 'real', {}, manifest['prepared_sha256'])
+                line = publication.json_bytes(replacement) + b'\n'; found.add(key)
+            dst.write(line); digest.update(line)
+    require(count == original['rows'] and found == expected_ids, 'saved method inventory differs')
+    completed = deepcopy(manifest)
+    completed['producer'] = implementation_identity()
+    completed['catalogs']['methods'] = dict(path=new_methods.name, sha256=digest.hexdigest(), rows=count)
+    write_json(staging, completed)
+    read_started = perf_counter()
+    publication._read_results(directory, staging.name)
+    strict_seconds = perf_counter() - read_started
+    staging.rename(final)
+    write_json(resources, dict(donor_manifest=identity(donor_path), state_selection=identity(Path(state_selection)),
+        product_admission=identity(Path(product_admission)), methods=identity(new_methods), manifest=identity(final),
+        wall_seconds=perf_counter()-started, strict_read_wall_seconds=strict_seconds,
+        scope='additive saved finalization; donor files preserved; one strict read; no state, model or source reconstruction'))
+    return completed

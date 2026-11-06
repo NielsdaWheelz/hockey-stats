@@ -20,6 +20,10 @@ YEARS = composition.YEARS
 HEADS = ('volume', 'shape', 'quality')
 WARNING = ('the original volume precision check failed; this review measures only the saved '
            'baseline/continuation difference; remaining optimizer accuracy is unknown')
+CONTEXT_WARNINGS = {
+    '20242025': 'synthetic 2024 actual-context allocation limitation; standardized sensitivity is a separate review',
+    '20252026': 'synthetic 2025 actual-context allocation limitation; standardized sensitivity is a separate review',
+}
 
 
 def store(path, value):
@@ -65,10 +69,12 @@ def exercise(root, purpose, mutation=None, with_receipt=True, expect_refusal=Fal
     policy = store(root / 'policy.json', {'synthetic': 'frozen product policy'})
     consequence = store(root / 'consequence.json', {'status': 'computed_pending_materiality_review', 'synthetic': True})
     review = store(root / 'review.json', {'synthetic': 'independent prose review'})
-    receipt = dict(schema_version=1, kind='spatial_private_experimental_admission', purpose='real',
+    context_review = store(root / 'context-review.json', {'synthetic': 'actual-context diagnosis'})
+    receipt = dict(schema_version=2, kind='spatial_private_experimental_admission', purpose='real',
         decision='admit_saved_baseline', season=YEARS[-1], selection=selection, baseline=baseline,
         original_precision={'status': 'failed', 'comparisons': comparisons}, policy=policy,
-        consequence_result=consequence, consequence_review=review, optimizer_accuracy='unknown', content_warning=WARNING)
+        consequence_result=consequence, consequence_review=review, optimizer_accuracy='unknown', content_warning=WARNING,
+        actual_context_review=context_review, actual_context_warnings=dict(CONTEXT_WARNINGS))
     if mutation is not None:
         mutation(receipt)
     admission = store(root / 'admission.json', receipt)
@@ -122,10 +128,25 @@ def exercise(root, purpose, mutation=None, with_receipt=True, expect_refusal=Fal
         method = spatial[f'spatial-v1-08-{year}']
         composition.publication.validate_catalog('methods', method, purpose, {}, prepared)
         affected = purpose == 'real' and year == YEARS[-1]
+        contextual = purpose == 'real' and year in CONTEXT_WARNINGS
         assert (WARNING in method['limitations']) == affected, 'warning missing or leaked to another year/purpose'
+        for warning_year, warning in CONTEXT_WARNINGS.items():
+            assert (warning in method['limitations']) == (contextual and year == warning_year), 'context warning missing or leaked'
+            assert warning not in method['assessment']['findings'][0]['summary'], 'context warning attached to standardized quantities'
         evidence = method['evidence']
+        assert len(evidence) == ({'20232024': 3, '20242025': 5, '20252026': 13}[year] if purpose == 'real' else 3)
         assert any(item['uri'] == str(annuals[year].path / 'manifest.json') for item in evidence)
-        assert any(item['uri'] == admission['path'] and item['sha256'] == admission['sha256'] for item in evidence) == affected
+        assert sum(item['uri'] == admission['path'] and item['sha256'] == admission['sha256'] for item in evidence) == int(contextual)
+        assert sum(item['uri'] == context_review['path'] and item['sha256'] == context_review['sha256'] for item in evidence) == int(contextual)
+        assert len(method['assessment']['findings']) == (2 if contextual else 1)
+        assert len(method['assessment']['findings'][0]['evidence']) == (12 if affected else 3)
+        assert (WARNING in method['assessment']['findings'][0]['summary']) == affected
+        if contextual:
+            finding = method['assessment']['findings'][1]
+            assert finding['summary'] == CONTEXT_WARNINGS[year]
+            assert set(finding['quantities']) == {f'adjustment_decomposition.{name}' for name in
+                ('baseline', 'self', 'teammates', 'opponents', 'coaching_other_context', 'numerical_residual', 'factual_prediction')}
+            assert finding['evidence'] == [dict(uri=reference['path'], sha256=reference['sha256']) for reference in (admission, context_review)]
         if affected:
             assert method['assessment']['status'] == 'experimental'
             assert any(item['uri'] == admission['path'] for finding in method['assessment']['findings'] for item in finding['evidence'])
@@ -137,11 +158,22 @@ def alter_path(receipt):
     receipt['baseline']['path'] = str(Path(receipt['baseline']['path']).parent / 'continuation.json')
 
 
+def old_receipt(receipt):
+    receipt['schema_version'] = 1
+    del receipt['actual_context_review']
+    del receipt['actual_context_warnings']
+
+
 cases = (
     ('real receipt required before state reads', 'real', None, False, True, True),
     ('fixture rejects real receipt before state reads', 'fixture', None, True, True, True),
     ('fixture existing contract survives', 'fixture', None, False, False, False),
     ('explicit baseline admission with final-year evidence', 'real', None, True, False, False),
+    ('old receipt schema refused', 'real', old_receipt, True, True, True),
+    ('missing context review refused', 'real', lambda r: r.pop('actual_context_review'), True, True, True),
+    ('missing context warning year refused', 'real', lambda r: r['actual_context_warnings'].pop('20242025'), True, True, True),
+    ('blank context warning refused', 'real', lambda r: r['actual_context_warnings'].update({'20252026': ' '}), True, True, True),
+    ('context review digest mismatch refused', 'real', lambda r: r['actual_context_review'].update(sha256='0' * 64), True, True, True),
     ('non-admission decision refused', 'real', lambda r: r.update(decision='deny_saved_baseline'), True, True, True),
     ('selection digest mismatch refused', 'real', lambda r: r['selection'].update(sha256='0' * 64), True, True, True),
     ('policy digest mismatch refused', 'real', lambda r: r['policy'].update(sha256='0' * 64), True, True, True),

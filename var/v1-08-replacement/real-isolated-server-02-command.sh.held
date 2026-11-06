@@ -1,0 +1,70 @@
+#!/bin/sh
+# held isolated real candidate; actual candidate, profile and fresh build acceptance are required.
+set -eu
+real_database_sha=12d738d0eee0694a76f266c5b48284a035365cc837d8de1667a765443369ef5b
+real_profile_sha=6964a1c0588a891dcb9db8f749fbe0855b454333a71a00e62b280ef755a3f53e
+real_app_tree=e01418f448cbfaae517685d7927a90cd37343660
+real_source_sha=0861036972ccacc7bb8cb6393b0e3cb697293d44c873f36bee0a0e5bd4223511
+real_dist_sha=c4ac0c8541ed059c6a4e983498841bbb4265dce8c4072ec2f095adb78a250cb1
+real_entrypoint_sha=9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05
+real_verification_sha=e186f43d900c499f0b77ec35610a32079358c6500d52ff4edd919c504419fc51
+real_publication_id=53d900fd-7926-4841-89aa-c3a73bdf4b08
+real_database_stat=13356376064:1794001967
+for real_pin in "$real_database_sha" "$real_profile_sha" "$real_source_sha" "$real_dist_sha" "$real_entrypoint_sha" "$real_verification_sha"; do
+  case "$real_pin" in *[!0-9a-f]*) printf '%s\n' 'real candidate/profile/fresh build pins withheld; server not started' >&2; exit 1 ;; esac
+  [ "${#real_pin}" -eq 64 ]
+done
+case "$real_app_tree" in *[!0-9a-f]*) printf '%s\n' 'fresh real app tree withheld; server not started' >&2; exit 1 ;; esac
+[ "${#real_app_tree}" -eq 40 ]
+case "$real_publication_id:$real_database_stat" in *WITHHELD*) printf '%s\n' 'accepted real publication identity/stat withheld; server not started' >&2; exit 1 ;; esac
+cd /Users/nnandal/Documents/code/hockey-stats-v1-08
+real_root=/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real
+real_database=$real_root/candidate/player-analysis.sqlite
+real_profile=/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-detached.sb
+real_run=$real_root/detached-server-02
+if /usr/sbin/lsof -nP -iTCP:3399 -sTCP:LISTEN >/dev/null 2>&1; then
+  printf '%s\n' 'port 3399 occupied; server not started' >&2
+  exit 1
+fi
+[ -f "$real_database" ]
+for real_path in "$real_run.log" "$real_run.exit" "$real_run.shell.pid" "$real_run.start.txt" "$real_run.finish.txt" "$real_run.launch-profile-sha256.txt" "$real_run.launch-app-tree.txt" "$real_run.launch-app-status.txt" "$real_run.launch-entrypoint-sha256.txt" "$real_run.accepted-database-sha256.txt" "$real_run.accepted-publication-id.txt" "$real_run.launch-database-stat.txt" "$real_run.publication-verification-sha256.txt" "$real_run.launch-app-identities.json"; do
+  if [ -e "$real_path" ]; then printf 'occupied server record: %s\n' "$real_path" >&2; exit 1; fi
+done
+set -C
+printf '%s\n' "$$" > "$real_run.shell.pid"
+date -u +%Y-%m-%dT%H:%M:%SZ > "$real_run.start.txt"
+shasum -a256 "$real_profile" > "$real_run.launch-profile-sha256.txt"
+[ "$(cut -d' ' -f1 "$real_run.launch-profile-sha256.txt")" = "$real_profile_sha" ]
+git rev-parse HEAD:app > "$real_run.launch-app-tree.txt"
+[ "$(cat "$real_run.launch-app-tree.txt")" = "$real_app_tree" ]
+git status --porcelain --untracked-files=all -- app > "$real_run.launch-app-status.txt"
+[ ! -s "$real_run.launch-app-status.txt" ]
+/usr/bin/python3 - "$real_source_sha" "$real_dist_sha" > "$real_run.launch-app-identities.json" <<'PY_APP'
+from pathlib import Path
+import hashlib,json,subprocess,sys
+root=Path('/Users/nnandal/Documents/code/hockey-stats-v1-08')
+source=[root/p for p in subprocess.check_output(['git','ls-files','app'],cwd=root,text=True).splitlines()]
+dist=[p for p in (root/'app/dist').rglob('*') if p.is_file()]
+actual={}
+for label,paths in [('source',source),('dist',dist)]:
+ records=[{'path':str(p.relative_to(root)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size} for p in sorted(paths)]
+ actual[label]={'sha256':hashlib.sha256(json.dumps(records,sort_keys=True,separators=(',',':')).encode()).hexdigest(),'files':len(records),'bytes':sum(r['bytes'] for r in records)}
+assert actual['source']['sha256']==sys.argv[1],actual
+assert actual['dist']['sha256']==sys.argv[2],actual
+print(json.dumps(actual,sort_keys=True))
+PY_APP
+shasum -a256 /Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js > "$real_run.launch-entrypoint-sha256.txt"
+[ "$(cut -d' ' -f1 "$real_run.launch-entrypoint-sha256.txt")" = "$real_entrypoint_sha" ]
+printf '%s\n' "$real_database_sha" > "$real_run.accepted-database-sha256.txt"
+printf '%s\n' "$real_publication_id" > "$real_run.accepted-publication-id.txt"
+stat -f '%z:%m' "$real_database" > "$real_run.launch-database-stat.txt"
+[ "$(cat "$real_run.launch-database-stat.txt")" = "$real_database_stat" ]
+shasum -a256 "$real_root/candidate/verification.json" > "$real_run.publication-verification-sha256.txt"
+[ "$(cut -d' ' -f1 "$real_run.publication-verification-sha256.txt")" = "$real_verification_sha" ]
+set +e
+/usr/bin/time -l /usr/bin/sandbox-exec -f "$real_profile" /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js --publication "$real_database" --port 3399 > "$real_run.log" 2>&1
+real_server_status=$?
+set -e
+printf '%s\n' "$real_server_status" > "$real_run.exit"
+date -u +%Y-%m-%dT%H:%M:%SZ > "$real_run.finish.txt"
+exit "$real_server_status"

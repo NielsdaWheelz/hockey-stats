@@ -1,0 +1,7 @@
+# real spatial browser acceptance blocked
+
+backend construction, detached runtime and seven api cases pass under [the accepted real candidate](../research/spatial-v1-08/receipts/real-runtime-api-completion.json). v1-08 remains incomplete because computer-use cannot reach a usable browser. the temporary server is deliberately stopped; the candidate and fits are preserved.
+
+actual native `cua.getApp("com.google.Chrome")` and firefox attempts return `cgWindowNotFound`. browser inventory and `cua.createBrowserTab("iab", "http://127.0.0.1:3399/", { visible: true })` report `The browser access host is unavailable`. resetting the cua repl and rebinding the app did not restore access. the cause is not established; this is no evidence of an application or model defect.
+
+resolution requires a usable browser-control surface, then the required real scalar journeys at 320px, a wide viewport and native 200% zoom; actual csv/png downloads, exact warning/quartet/support fidelity and measured render/export costs. bind these to app source `08610369`, dist `c4ac0c85` and candidate `12d738d0`, or repeat the affected checks after a changed build. [the reviewed server02 command](../research/spatial-v1-08/reviews/real-server02-source-review.md) is held for that resumption. six csv paths remain withheld. only after full acceptance delete temporary campaign checks/controllers. no fit, tolerance change, new source acquisition or activation is required by this blocker.

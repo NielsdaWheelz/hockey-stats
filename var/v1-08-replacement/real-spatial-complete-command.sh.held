@@ -1,0 +1,41 @@
+#!/bin/zsh
+# held additive finalization of the already-written exchange; no fit or recomposition.
+set -eu
+spatial_tree=52bcae1c68161d4424cec672837e783eaeead673
+case "$spatial_tree" in *[!0-9a-f]*) print -u2 'analysis pin withheld; command not launched'; exit 1 ;; esac
+[ "${#spatial_tree}" -eq 40 ]
+spatial_command_path=${0:A}
+cd /Users/nnandal/Documents/code/hockey-stats-v1-08
+spatial_head=$(git rev-parse HEAD)
+spatial_campaign=/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01
+spatial_output=$spatial_campaign/real/results
+spatial_selection=$spatial_campaign/real/states-selection.json
+spatial_admission=$spatial_campaign/real/spatial-product-admission-02.json
+spatial_run=$spatial_campaign/real/compose-spatial-complete-01
+for spatial_path in "$spatial_output/methods-complete-01.jsonl" "$spatial_output/manifest-complete-01.json.incomplete" "$spatial_output/manifest.json" "$spatial_output/completion-resources-01.json" "$spatial_run.log" "$spatial_run-start.txt" "$spatial_run-finish.txt" "$spatial_run-exit.txt" "$spatial_run-shell.pid" "$spatial_run-launch-head.txt" "$spatial_run-launch-analysis-tree.txt" "$spatial_run-launch-analysis-status.txt" "$spatial_run-launch-command-sha256.txt" "$spatial_run-launch-inputs-sha256.txt"; do
+  if [ -e "$spatial_path" ]; then print -u2 "occupied path: $spatial_path; command not launched"; exit 1; fi
+done
+[ "$(git rev-parse HEAD:analysis)" = "$spatial_tree" ]
+[ -z "$(git status --porcelain --untracked-files=all -- analysis)" ]
+spatial_pin() {
+  if [ "$(shasum -a256 "$1" | cut -d' ' -f1)" != "$2" ]; then print -u2 "pin mismatch: $1; command not launched"; exit 1; fi
+}
+spatial_pin "$spatial_output/manifest.json.incomplete" f5c467767a45d0b9152a0308e1fc7e407da0d5b465ffdd743baae10918c44521
+spatial_pin "$spatial_selection" 7ac43cfa0bcf72b449bc9267b19f16eb5ac7d7bf396fd08d9a98200d94549f1c
+spatial_pin "$spatial_admission" f07d5a6ab23ec8234818958050223177e6b19cb56136972af83ad448faab6b80
+[ "$(git rev-parse HEAD)" = "$spatial_head" ]
+set -C
+print -r -- $$ > "$spatial_run-shell.pid"
+date -u +%Y-%m-%dT%H:%M:%SZ > "$spatial_run-start.txt"
+print -r -- "$spatial_head" > "$spatial_run-launch-head.txt"
+git rev-parse HEAD:analysis > "$spatial_run-launch-analysis-tree.txt"
+git status --porcelain --untracked-files=all -- analysis > "$spatial_run-launch-analysis-status.txt"
+shasum -a256 "$spatial_command_path" > "$spatial_run-launch-command-sha256.txt"
+shasum -a256 "$spatial_output/manifest.json.incomplete" "$spatial_selection" "$spatial_admission" > "$spatial_run-launch-inputs-sha256.txt"
+set +e
+/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python -c 'from hockey_stats.spatial_composition import complete_results; complete_results("/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results", "f5c467767a45d0b9152a0308e1fc7e407da0d5b465ffdd743baae10918c44521", "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/states-selection.json", "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial-product-admission-02.json")' > "$spatial_run.log" 2>&1
+spatial_status=$?
+set -e
+print -r -- "$spatial_status" > "$spatial_run-exit.txt"
+date -u +%Y-%m-%dT%H:%M:%SZ > "$spatial_run-finish.txt"
+exit "$spatial_status"

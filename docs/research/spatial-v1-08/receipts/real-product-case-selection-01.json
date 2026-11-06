@@ -1,0 +1,1687 @@
+{
+  "kind": "replacement-real-product-case-selection",
+  "status": "passed accepted-exchange/support-metadata preselection; publication/api/browser/export acceptance pending",
+  "recorded_at_utc": "2026-11-06T19:56:11.256543+00:00",
+  "combined_manifest_sha256": "a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5",
+  "selected": {
+    "regular_d": {
+      "player_id": "8470613",
+      "history": [
+        {
+          "season": "20232024",
+          "availability": "provided",
+          "display_name": "Brent Burns",
+          "position": "D",
+          "teams": [
+            {
+              "abbreviation": "CAR",
+              "id": "12"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 2530,
+            "included_seconds": 72052.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "historical_borrowing",
+              "setter"
+            ],
+            "known_excluded_seconds": 1845.0,
+            "prior_only": false,
+            "prior_seasons": [
+              "20212022",
+              "20222023"
+            ],
+            "reason_counts": [
+              {
+                "code": "count_accounting_conflict",
+                "count": 2
+              },
+              {
+                "code": "event_evidence_unresolved",
+                "count": 1
+              },
+              {
+                "code": "identity_conflict",
+                "count": 4
+              },
+              {
+                "code": "membership_unavailable",
+                "count": 2
+              }
+            ],
+            "unquantified_gap": true
+          },
+          "selected_values": {
+            "offense_attempts_per60": -3.327960835470177,
+            "offense_xg_per60": -0.17537676252523932,
+            "offense_attempts_relative_percent": -7.164467027019564,
+            "offense_xg_relative_percent": -9.621077869207205,
+            "defense_attempts_per60": 5.83201999795159,
+            "defense_xg_per60": 0.20637250393518308,
+            "defense_attempts_relative_percent": 12.55523037738504,
+            "defense_xg_relative_percent": 11.321488102723531
+          },
+          "method_id": "spatial-v1-08-20232024"
+        },
+        {
+          "season": "20242025",
+          "availability": "provided",
+          "display_name": "Brent Burns",
+          "position": "D",
+          "teams": [
+            {
+              "abbreviation": "CAR",
+              "id": "12"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 2487,
+            "included_seconds": 70086.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "historical_borrowing",
+              "setter"
+            ],
+            "known_excluded_seconds": 3336.0,
+            "prior_only": false,
+            "prior_seasons": [
+              "20212022",
+              "20222023",
+              "20232024"
+            ],
+            "reason_counts": [
+              {
+                "code": "count_accounting_conflict",
+                "count": 3
+              },
+              {
+                "code": "event_evidence_unresolved",
+                "count": 2
+              },
+              {
+                "code": "identity_conflict",
+                "count": 1
+              },
+              {
+                "code": "unmatched_report_attempt",
+                "count": 4
+              }
+            ],
+            "unquantified_gap": true
+          },
+          "selected_values": {
+            "offense_attempts_per60": -4.125467243452744,
+            "offense_xg_per60": -0.19655762753810516,
+            "offense_attempts_relative_percent": -9.498897960095485,
+            "offense_xg_relative_percent": -11.704392940809566,
+            "defense_attempts_per60": 10.452722666733615,
+            "defense_xg_per60": 0.40318632154244755,
+            "defense_attempts_relative_percent": 24.067418344929376,
+            "defense_xg_relative_percent": 24.008486441349376
+          },
+          "method_id": "spatial-v1-08-20242025"
+        },
+        {
+          "season": "20252026",
+          "availability": "provided",
+          "display_name": "Brent Burns",
+          "position": "D",
+          "teams": [
+            {
+              "abbreviation": "COL",
+              "id": "21"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 2583,
+            "included_seconds": 72425.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "historical_borrowing",
+              "setter"
+            ],
+            "known_excluded_seconds": 2956.0,
+            "prior_only": false,
+            "prior_seasons": [
+              "20212022",
+              "20222023",
+              "20232024",
+              "20242025"
+            ],
+            "reason_counts": [
+              {
+                "code": "count_accounting_conflict",
+                "count": 3
+              },
+              {
+                "code": "identity_conflict",
+                "count": 6
+              }
+            ],
+            "unquantified_gap": true
+          },
+          "selected_values": {
+            "offense_attempts_per60": -4.674231485907905,
+            "offense_xg_per60": -0.209496716028514,
+            "offense_attempts_relative_percent": -11.853555813719986,
+            "offense_xg_relative_percent": -12.926240713288282,
+            "defense_attempts_per60": 9.481621822470375,
+            "defense_xg_per60": 0.3553852975925267,
+            "defense_attempts_relative_percent": 24.044794062099733,
+            "defense_xg_relative_percent": 21.927770466909575
+          },
+          "method_id": "spatial-v1-08-20252026"
+        }
+      ]
+    },
+    "regular_f": {
+      "player_id": "8470621",
+      "history": [
+        {
+          "season": "20232024",
+          "availability": "provided",
+          "display_name": "Corey Perry",
+          "position": "R",
+          "teams": [
+            {
+              "abbreviation": "CHI",
+              "id": "16"
+            },
+            {
+              "abbreviation": "EDM",
+              "id": "22"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 1100,
+            "included_seconds": 35392.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "historical_borrowing",
+              "setter"
+            ],
+            "known_excluded_seconds": 17.0,
+            "prior_only": false,
+            "prior_seasons": [
+              "20212022",
+              "20222023"
+            ],
+            "reason_counts": [
+              {
+                "code": "event_evidence_unresolved",
+                "count": 1
+              },
+              {
+                "code": "membership_unavailable",
+                "count": 2
+              },
+              {
+                "code": "unmatched_report_attempt",
+                "count": 1
+              }
+            ],
+            "unquantified_gap": true
+          },
+          "selected_values": {
+            "offense_attempts_per60": 3.0000806296201916,
+            "offense_xg_per60": 0.2711883998043859,
+            "offense_attempts_relative_percent": 6.458603274481525,
+            "offense_xg_relative_percent": 14.877254398901345,
+            "defense_attempts_per60": -0.9413176543988095,
+            "defense_xg_per60": -0.10766729683213169,
+            "defense_attempts_relative_percent": -2.026477963626295,
+            "defense_xg_relative_percent": -5.906571839241859
+          },
+          "method_id": "spatial-v1-08-20232024"
+        },
+        {
+          "season": "20242025",
+          "availability": "provided",
+          "display_name": "Corey Perry",
+          "position": "R",
+          "teams": [
+            {
+              "abbreviation": "EDM",
+              "id": "22"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 1517,
+            "included_seconds": 46125.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "historical_borrowing",
+              "setter"
+            ],
+            "known_excluded_seconds": 632.0,
+            "prior_only": false,
+            "prior_seasons": [
+              "20212022",
+              "20222023",
+              "20232024"
+            ],
+            "reason_counts": [
+              {
+                "code": "count_accounting_conflict",
+                "count": 1
+              },
+              {
+                "code": "unmatched_report_attempt",
+                "count": 1
+              }
+            ],
+            "unquantified_gap": true
+          },
+          "selected_values": {
+            "offense_attempts_per60": 5.369854916182413,
+            "offense_xg_per60": 0.31451636852674314,
+            "offense_attempts_relative_percent": 12.364103481923118,
+            "offense_xg_relative_percent": 18.728467623775224,
+            "defense_attempts_per60": 1.8603142640248107,
+            "defense_xg_per60": 0.06074447335002,
+            "defense_attempts_relative_percent": 4.283377936335861,
+            "defense_xg_relative_percent": 3.6171437047556805
+          },
+          "method_id": "spatial-v1-08-20242025"
+        },
+        {
+          "season": "20252026",
+          "availability": "provided",
+          "display_name": "Corey Perry",
+          "position": "R",
+          "teams": [
+            {
+              "abbreviation": "TBL",
+              "id": "14"
+            },
+            {
+              "abbreviation": "LAK",
+              "id": "26"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 1403,
+            "included_seconds": 44314.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "historical_borrowing",
+              "setter"
+            ],
+            "known_excluded_seconds": 2060.0,
+            "prior_only": false,
+            "prior_seasons": [
+              "20212022",
+              "20222023",
+              "20232024",
+              "20242025"
+            ],
+            "reason_counts": [
+              {
+                "code": "count_accounting_conflict",
+                "count": 4
+              },
+              {
+                "code": "event_evidence_unresolved",
+                "count": 1
+              },
+              {
+                "code": "identity_conflict",
+                "count": 1
+              },
+              {
+                "code": "unmatched_report_attempt",
+                "count": 1
+              }
+            ],
+            "unquantified_gap": true
+          },
+          "selected_values": {
+            "offense_attempts_per60": 3.898969506940401,
+            "offense_xg_per60": 0.2320826496708667,
+            "offense_attempts_relative_percent": 9.887540402277143,
+            "offense_xg_relative_percent": 14.31982444352523,
+            "defense_attempts_per60": 1.8713255892010536,
+            "defense_xg_per60": 0.04192414600930642,
+            "defense_attempts_relative_percent": 4.7455634972534115,
+            "defense_xg_relative_percent": 2.5867785103685335
+          },
+          "method_id": "spatial-v1-08-20252026"
+        }
+      ]
+    },
+    "low_time": {
+      "player_id": "8482479",
+      "history": [
+        {
+          "season": "20232024",
+          "availability": "absent",
+          "person": null,
+          "support": null
+        },
+        {
+          "season": "20242025",
+          "availability": "absent",
+          "person": null,
+          "support": null
+        },
+        {
+          "season": "20252026",
+          "availability": "provided",
+          "display_name": "Trevor Kuntar",
+          "position": "C",
+          "teams": [
+            {
+              "abbreviation": "BUF",
+              "id": "7"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 14,
+            "included_seconds": 312.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "setter"
+            ],
+            "known_excluded_seconds": 0.0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          },
+          "selected_values": {
+            "offense_attempts_per60": -6.358252607535792,
+            "offense_xg_per60": -0.25730666183430745,
+            "offense_attempts_relative_percent": -16.124127011762013,
+            "offense_xg_relative_percent": -15.87618131231342,
+            "defense_attempts_per60": 15.507362938343315,
+            "defense_xg_per60": 0.6725560586886666,
+            "defense_attempts_relative_percent": 39.32569293314776,
+            "defense_xg_relative_percent": 41.49765052454036
+          },
+          "method_id": "spatial-v1-08-20252026"
+        }
+      ]
+    },
+    "six_head_entry": {
+      "player_id": "8475253",
+      "history": [
+        {
+          "season": "20232024",
+          "availability": "absent",
+          "person": null,
+          "support": null
+        },
+        {
+          "season": "20242025",
+          "availability": "absent",
+          "person": null,
+          "support": null
+        },
+        {
+          "season": "20252026",
+          "availability": "provided",
+          "display_name": "Garrett Wilson",
+          "position": "L",
+          "teams": [
+            {
+              "abbreviation": "PHI",
+              "id": "4"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 32,
+            "included_seconds": 1488.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "setter"
+            ],
+            "known_excluded_seconds": 39.0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [
+              {
+                "code": "membership_unavailable",
+                "count": 1
+              }
+            ],
+            "unquantified_gap": true
+          },
+          "selected_values": {
+            "offense_attempts_per60": -7.073717572314034,
+            "offense_xg_per60": -0.2651206436793203,
+            "offense_attempts_relative_percent": -17.93850097212928,
+            "offense_xg_relative_percent": -16.35831493317721,
+            "defense_attempts_per60": -4.3508385680379105,
+            "defense_xg_per60": -0.15754232905472415,
+            "defense_attempts_relative_percent": -11.033451800195897,
+            "defense_xg_relative_percent": -9.720582291210055
+          },
+          "method_id": "spatial-v1-08-20252026"
+        }
+      ]
+    },
+    "traded": {
+      "player_id": "8473507",
+      "history": [
+        {
+          "season": "20232024",
+          "availability": "provided",
+          "display_name": "Jeff Petry",
+          "position": "D",
+          "teams": [
+            {
+              "abbreviation": "DET",
+              "id": "17"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 2348,
+            "included_seconds": 70461.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "historical_borrowing",
+              "setter"
+            ],
+            "known_excluded_seconds": 37.0,
+            "prior_only": false,
+            "prior_seasons": [
+              "20212022",
+              "20222023"
+            ],
+            "reason_counts": [
+              {
+                "code": "event_evidence_unresolved",
+                "count": 1
+              },
+              {
+                "code": "identity_conflict",
+                "count": 2
+              },
+              {
+                "code": "unmatched_report_attempt",
+                "count": 1
+              }
+            ],
+            "unquantified_gap": true
+          },
+          "selected_values": {
+            "offense_attempts_per60": -8.009431707839688,
+            "offense_xg_per60": -0.31175413348062286,
+            "offense_attempts_relative_percent": -17.242783858625334,
+            "offense_xg_relative_percent": -17.10266942481978,
+            "defense_attempts_per60": 5.677323974371325,
+            "defense_xg_per60": 0.10011712060786024,
+            "defense_attempts_relative_percent": 12.22219924662798,
+            "defense_xg_relative_percent": 5.492373103137933
+          },
+          "method_id": "spatial-v1-08-20232024"
+        },
+        {
+          "season": "20242025",
+          "availability": "provided",
+          "display_name": "Jeff Petry",
+          "position": "D",
+          "teams": [
+            {
+              "abbreviation": "DET",
+              "id": "17"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 1329,
+            "included_seconds": 40598.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "historical_borrowing",
+              "setter"
+            ],
+            "known_excluded_seconds": 1006.0,
+            "prior_only": false,
+            "prior_seasons": [
+              "20212022",
+              "20222023",
+              "20232024"
+            ],
+            "reason_counts": [
+              {
+                "code": "count_accounting_conflict",
+                "count": 1
+              }
+            ],
+            "unquantified_gap": true
+          },
+          "selected_values": {
+            "offense_attempts_per60": -10.336218092152455,
+            "offense_xg_per60": -0.3984458171226628,
+            "offense_attempts_relative_percent": -23.799166289944065,
+            "offense_xg_relative_percent": -23.72620420604895,
+            "defense_attempts_per60": -25.437321799771453,
+            "defense_xg_per60": -1.0131117432139063,
+            "defense_attempts_relative_percent": -58.56949283444462,
+            "defense_xg_relative_percent": -60.3276407232038
+          },
+          "method_id": "spatial-v1-08-20242025"
+        },
+        {
+          "season": "20252026",
+          "availability": "provided",
+          "display_name": "Jeff Petry",
+          "position": "D",
+          "teams": [
+            {
+              "abbreviation": "FLA",
+              "id": "13"
+            },
+            {
+              "abbreviation": "MIN",
+              "id": "30"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 1569,
+            "included_seconds": 50144.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "historical_borrowing",
+              "setter"
+            ],
+            "known_excluded_seconds": 1569.0,
+            "prior_only": false,
+            "prior_seasons": [
+              "20212022",
+              "20222023",
+              "20232024",
+              "20242025"
+            ],
+            "reason_counts": [
+              {
+                "code": "count_accounting_conflict",
+                "count": 2
+              },
+              {
+                "code": "membership_unavailable",
+                "count": 2
+              }
+            ],
+            "unquantified_gap": true
+          },
+          "selected_values": {
+            "offense_attempts_per60": -7.50049312901805,
+            "offense_xg_per60": -0.28518584529571317,
+            "offense_attempts_relative_percent": -19.020776827865994,
+            "offense_xg_relative_percent": -17.596365967919223,
+            "defense_attempts_per60": -3.9052612231618347,
+            "defense_xg_per60": -0.2163557706901754,
+            "defense_attempts_relative_percent": -9.903495797216333,
+            "defense_xg_relative_percent": -13.349453989863797
+          },
+          "method_id": "spatial-v1-08-20252026"
+        }
+      ]
+    },
+    "prior_only_zero": {
+      "selected_season": "20242025",
+      "player_id": "8478173",
+      "history": [
+        {
+          "season": "20232024",
+          "availability": "absent",
+          "person": null,
+          "support": null
+        },
+        {
+          "season": "20242025",
+          "availability": "provided",
+          "display_name": "Hayden Hodgson",
+          "position": "R",
+          "teams": [
+            {
+              "abbreviation": "OTT",
+              "id": "9"
+            }
+          ],
+          "support": {
+            "current_season_information": false,
+            "eligible_weight": null,
+            "events": 0,
+            "included_seconds": 0.0,
+            "inferred_inputs": [
+              "historical_borrowing"
+            ],
+            "known_excluded_seconds": 0.0,
+            "prior_only": true,
+            "prior_seasons": [
+              "20212022",
+              "20222023"
+            ],
+            "reason_counts": [],
+            "unquantified_gap": true
+          },
+          "selected_values": {
+            "offense_attempts_per60": -5.814300866308025,
+            "offense_xg_per60": -0.2286047803529296,
+            "offense_attempts_relative_percent": -13.387441319769469,
+            "offense_xg_relative_percent": -13.61270081915003,
+            "defense_attempts_per60": 0.29742101264579135,
+            "defense_xg_per60": -0.03693227944401433,
+            "defense_attempts_relative_percent": 0.6848125760286388,
+            "defense_xg_relative_percent": -2.199201914607596
+          },
+          "method_id": "spatial-v1-08-20242025"
+        },
+        {
+          "season": "20252026",
+          "availability": "provided",
+          "display_name": "Hayden Hodgson",
+          "position": "R",
+          "teams": [
+            {
+              "abbreviation": "OTT",
+              "id": "9"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 132,
+            "included_seconds": 4188.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "historical_borrowing",
+              "setter"
+            ],
+            "known_excluded_seconds": 0.0,
+            "prior_only": false,
+            "prior_seasons": [
+              "20212022",
+              "20222023"
+            ],
+            "reason_counts": [],
+            "unquantified_gap": false
+          },
+          "selected_values": {
+            "offense_attempts_per60": 1.542078310284585,
+            "offense_xg_per60": 0.08235390127399071,
+            "offense_attempts_relative_percent": 3.910613193889534,
+            "offense_xg_relative_percent": 5.081351019369167,
+            "defense_attempts_per60": 6.730976964285322,
+            "defense_xg_per60": 0.2587096710629291,
+            "defense_attempts_relative_percent": 17.069332438404526,
+            "defense_xg_relative_percent": 15.962748946192988
+          },
+          "method_id": "spatial-v1-08-20252026"
+        }
+      ]
+    },
+    "absent_year": {
+      "absent_seasons": [
+        "20232024",
+        "20242025"
+      ],
+      "player_id": "8475253",
+      "history": [
+        {
+          "season": "20232024",
+          "availability": "absent",
+          "person": null,
+          "support": null
+        },
+        {
+          "season": "20242025",
+          "availability": "absent",
+          "person": null,
+          "support": null
+        },
+        {
+          "season": "20252026",
+          "availability": "provided",
+          "display_name": "Garrett Wilson",
+          "position": "L",
+          "teams": [
+            {
+              "abbreviation": "PHI",
+              "id": "4"
+            }
+          ],
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": 32,
+            "included_seconds": 1488.0,
+            "inferred_inputs": [
+              "blocked_origin",
+              "setter"
+            ],
+            "known_excluded_seconds": 39.0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [
+              {
+                "code": "membership_unavailable",
+                "count": 1
+              }
+            ],
+            "unquantified_gap": true
+          },
+          "selected_values": {
+            "offense_attempts_per60": -7.073717572314034,
+            "offense_xg_per60": -0.2651206436793203,
+            "offense_attempts_relative_percent": -17.93850097212928,
+            "offense_xg_relative_percent": -16.35831493317721,
+            "defense_attempts_per60": -4.3508385680379105,
+            "defense_xg_per60": -0.15754232905472415,
+            "defense_attempts_relative_percent": -11.033451800195897,
+            "defense_xg_relative_percent": -9.720582291210055
+          },
+          "method_id": "spatial-v1-08-20252026"
+        }
+      ]
+    }
+  },
+  "selection_rule": {
+    "regular_d": "frozen consequence regular witness, confirmed numeric/searchable and >=300 spatial minutes in all three years",
+    "regular_f": "smallest numeric player id satisfying recognized forward, unique nonempty searchable name, eight numeric values and >=300 spatial minutes in all three years",
+    "low_time": "frozen consequence low-time witness, positive final-year spatial time below300 minutes",
+    "six_head_entry": "frozen consequence entrant witness, independently confirmed available entry/null anchor/empty historical years in both roles and all three heads; this is model-history entry, not an nhl rookie claim",
+    "traded": "frozen consequence traded witness plus a hash-bound selected probe row marked trades and at least two published final-year team ids",
+    "prior_only_zero": "first season then smallest numeric id among available eight-selector, unique-name zero-time prior-only actual rows; null records absence",
+    "absent_year": "prefer six-head entry if it has actual published gaps; otherwise smallest numeric searchable actual id with a displayed-year absence"
+  },
+  "journeys": {
+    "discovery_regular_case_ids": [
+      "8470613",
+      "8470621"
+    ],
+    "api_primary_id": "8470613",
+    "same_position_pair": [
+      "8470613",
+      "8473507"
+    ],
+    "mixed_position_pair": [
+      "8470613",
+      "8470621"
+    ],
+    "low_time_pair": [
+      "8470613",
+      "8482479"
+    ],
+    "entry_absent_pair": [
+      "8470613",
+      "8475253"
+    ],
+    "traded_pair": [
+      "8470613",
+      "8473507"
+    ]
+  },
+  "populations": {
+    "20232024": {
+      "published_skaters": 924,
+      "numeric_all_eight": 924,
+      "unavailable_any_selector": 0,
+      "zero_time_prior_only": 0
+    },
+    "20242025": {
+      "published_skaters": 920,
+      "numeric_all_eight": 920,
+      "unavailable_any_selector": 0,
+      "zero_time_prior_only": 10
+    },
+    "20252026": {
+      "published_skaters": 940,
+      "numeric_all_eight": 940,
+      "unavailable_any_selector": 0,
+      "zero_time_prior_only": 0
+    }
+  },
+  "prior_only_zero_candidate_count": 10,
+  "absent_year_candidate_count": 510,
+  "six_head_entry_records": [
+    {
+      "season": "20252026",
+      "player_id": "8475253",
+      "role": "offense",
+      "head": "volume",
+      "available": true,
+      "included_seconds": 1487.9999999999925,
+      "likelihood_events": 12,
+      "eligible_origin_weight": 12.0,
+      "current_season_information": true,
+      "prior_only": false,
+      "prior_kind": "entry",
+      "prior_anchor_season": null,
+      "prior_seasons": [],
+      "reason": null
+    },
+    {
+      "season": "20252026",
+      "player_id": "8475253",
+      "role": "offense",
+      "head": "shape",
+      "available": true,
+      "included_seconds": 1487.9999999999925,
+      "likelihood_events": 12,
+      "eligible_origin_weight": 12.0,
+      "current_season_information": true,
+      "prior_only": false,
+      "prior_kind": "entry",
+      "prior_anchor_season": null,
+      "prior_seasons": [],
+      "reason": null
+    },
+    {
+      "season": "20252026",
+      "player_id": "8475253",
+      "role": "offense",
+      "head": "quality",
+      "available": true,
+      "included_seconds": 1487.9999999999925,
+      "likelihood_events": 12,
+      "eligible_origin_weight": 12.0,
+      "current_season_information": true,
+      "prior_only": false,
+      "prior_kind": "entry",
+      "prior_anchor_season": null,
+      "prior_seasons": [],
+      "reason": null
+    },
+    {
+      "season": "20252026",
+      "player_id": "8475253",
+      "role": "defense",
+      "head": "volume",
+      "available": true,
+      "included_seconds": 1487.9999999999925,
+      "likelihood_events": 20,
+      "eligible_origin_weight": 20.0,
+      "current_season_information": true,
+      "prior_only": false,
+      "prior_kind": "entry",
+      "prior_anchor_season": null,
+      "prior_seasons": [],
+      "reason": null
+    },
+    {
+      "season": "20252026",
+      "player_id": "8475253",
+      "role": "defense",
+      "head": "shape",
+      "available": true,
+      "included_seconds": 1487.9999999999925,
+      "likelihood_events": 20,
+      "eligible_origin_weight": 20.0,
+      "current_season_information": true,
+      "prior_only": false,
+      "prior_kind": "entry",
+      "prior_anchor_season": null,
+      "prior_seasons": [],
+      "reason": null
+    },
+    {
+      "season": "20252026",
+      "player_id": "8475253",
+      "role": "defense",
+      "head": "quality",
+      "available": true,
+      "included_seconds": 1487.9999999999925,
+      "likelihood_events": 20,
+      "eligible_origin_weight": 20.0,
+      "current_season_information": true,
+      "prior_only": false,
+      "prior_kind": "entry",
+      "prior_anchor_season": null,
+      "prior_seasons": [],
+      "reason": null
+    }
+  ],
+  "traded_frozen_witnesses": [
+    {
+      "kind": "time",
+      "index": 7,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 1,
+        "chunk_index": 3,
+        "source_index": null,
+        "attacking_side": "away",
+        "attacking_players": [
+          "8476882",
+          "8477450",
+          "8477479",
+          "8482176",
+          "8484783"
+        ],
+        "defending_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "attacking_team_id": 16,
+        "defending_team_id": 13,
+        "optional_missing": true
+      },
+      "role": "defense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 6,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 1,
+        "chunk_index": 3,
+        "source_index": null,
+        "attacking_side": "home",
+        "attacking_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "defending_players": [
+          "8476882",
+          "8477450",
+          "8477479",
+          "8482176",
+          "8484783"
+        ],
+        "attacking_team_id": 13,
+        "defending_team_id": 16,
+        "optional_missing": true
+      },
+      "role": "offense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 9,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 2,
+        "chunk_index": 4,
+        "source_index": null,
+        "attacking_side": "away",
+        "attacking_players": [
+          "8476882",
+          "8477479",
+          "8482176",
+          "8483493",
+          "8484783"
+        ],
+        "defending_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "attacking_team_id": 16,
+        "defending_team_id": 13,
+        "optional_missing": true
+      },
+      "role": "defense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 8,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 2,
+        "chunk_index": 4,
+        "source_index": null,
+        "attacking_side": "home",
+        "attacking_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "defending_players": [
+          "8476882",
+          "8477479",
+          "8482176",
+          "8483493",
+          "8484783"
+        ],
+        "attacking_team_id": 13,
+        "defending_team_id": 16,
+        "optional_missing": true
+      },
+      "role": "offense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 11,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 2,
+        "chunk_index": 5,
+        "source_index": null,
+        "attacking_side": "away",
+        "attacking_players": [
+          "8476882",
+          "8477479",
+          "8482176",
+          "8483493",
+          "8484783"
+        ],
+        "defending_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "attacking_team_id": 16,
+        "defending_team_id": 13,
+        "optional_missing": true
+      },
+      "role": "defense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 10,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 2,
+        "chunk_index": 5,
+        "source_index": null,
+        "attacking_side": "home",
+        "attacking_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "defending_players": [
+          "8476882",
+          "8477479",
+          "8482176",
+          "8483493",
+          "8484783"
+        ],
+        "attacking_team_id": 13,
+        "defending_team_id": 16,
+        "optional_missing": true
+      },
+      "role": "offense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 13,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 2,
+        "chunk_index": 6,
+        "source_index": null,
+        "attacking_side": "away",
+        "attacking_players": [
+          "8476882",
+          "8477479",
+          "8482176",
+          "8483493",
+          "8484783"
+        ],
+        "defending_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "attacking_team_id": 16,
+        "defending_team_id": 13,
+        "optional_missing": true
+      },
+      "role": "defense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 12,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 2,
+        "chunk_index": 6,
+        "source_index": null,
+        "attacking_side": "home",
+        "attacking_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "defending_players": [
+          "8476882",
+          "8477479",
+          "8482176",
+          "8483493",
+          "8484783"
+        ],
+        "attacking_team_id": 13,
+        "defending_team_id": 16,
+        "optional_missing": true
+      },
+      "role": "offense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 15,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 2,
+        "chunk_index": 7,
+        "source_index": null,
+        "attacking_side": "away",
+        "attacking_players": [
+          "8476882",
+          "8477479",
+          "8482176",
+          "8483493",
+          "8484783"
+        ],
+        "defending_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "attacking_team_id": 16,
+        "defending_team_id": 13,
+        "optional_missing": true
+      },
+      "role": "defense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 14,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 2,
+        "chunk_index": 7,
+        "source_index": null,
+        "attacking_side": "home",
+        "attacking_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "defending_players": [
+          "8476882",
+          "8477479",
+          "8482176",
+          "8483493",
+          "8484783"
+        ],
+        "attacking_team_id": 13,
+        "defending_team_id": 16,
+        "optional_missing": true
+      },
+      "role": "offense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 17,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 2,
+        "chunk_index": 8,
+        "source_index": null,
+        "attacking_side": "away",
+        "attacking_players": [
+          "8476882",
+          "8477479",
+          "8482176",
+          "8483493",
+          "8484783"
+        ],
+        "defending_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "attacking_team_id": 16,
+        "defending_team_id": 13,
+        "optional_missing": true
+      },
+      "role": "defense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 16,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 2,
+        "chunk_index": 8,
+        "source_index": null,
+        "attacking_side": "home",
+        "attacking_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "defending_players": [
+          "8476882",
+          "8477479",
+          "8482176",
+          "8483493",
+          "8484783"
+        ],
+        "attacking_team_id": 13,
+        "defending_team_id": 16,
+        "optional_missing": true
+      },
+      "role": "offense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 19,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 3,
+        "chunk_index": 9,
+        "source_index": null,
+        "attacking_side": "away",
+        "attacking_players": [
+          "8476882",
+          "8476891",
+          "8477479",
+          "8483493",
+          "8484783"
+        ],
+        "defending_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "attacking_team_id": 16,
+        "defending_team_id": 13,
+        "optional_missing": true
+      },
+      "role": "defense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 18,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 3,
+        "chunk_index": 9,
+        "source_index": null,
+        "attacking_side": "home",
+        "attacking_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "defending_players": [
+          "8476882",
+          "8476891",
+          "8477479",
+          "8483493",
+          "8484783"
+        ],
+        "attacking_team_id": 13,
+        "defending_team_id": 16,
+        "optional_missing": true
+      },
+      "role": "offense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 21,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 3,
+        "chunk_index": 10,
+        "source_index": null,
+        "attacking_side": "away",
+        "attacking_players": [
+          "8476882",
+          "8476891",
+          "8477479",
+          "8483493",
+          "8484783"
+        ],
+        "defending_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "attacking_team_id": 16,
+        "defending_team_id": 13,
+        "optional_missing": true
+      },
+      "role": "defense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 20,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 3,
+        "chunk_index": 10,
+        "source_index": null,
+        "attacking_side": "home",
+        "attacking_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "defending_players": [
+          "8476882",
+          "8476891",
+          "8477479",
+          "8483493",
+          "8484783"
+        ],
+        "attacking_team_id": 13,
+        "defending_team_id": 16,
+        "optional_missing": true
+      },
+      "role": "offense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 23,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 3,
+        "chunk_index": 11,
+        "source_index": null,
+        "attacking_side": "away",
+        "attacking_players": [
+          "8476882",
+          "8476891",
+          "8477479",
+          "8483493",
+          "8484783"
+        ],
+        "defending_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "attacking_team_id": 16,
+        "defending_team_id": 13,
+        "optional_missing": true
+      },
+      "role": "defense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    },
+    {
+      "kind": "time",
+      "index": 22,
+      "key": {
+        "game_id": "2025020001",
+        "segment_index": 3,
+        "chunk_index": 11,
+        "source_index": null,
+        "attacking_side": "home",
+        "attacking_players": [
+          "8473507",
+          "8475179",
+          "8477933",
+          "8480185",
+          "8482113"
+        ],
+        "defending_players": [
+          "8476882",
+          "8476891",
+          "8477479",
+          "8483493",
+          "8484783"
+        ],
+        "attacking_team_id": 13,
+        "defending_team_id": 16,
+        "optional_missing": true
+      },
+      "role": "offense",
+      "player_id": "8473507",
+      "requirements": [
+        "missing_optional_inputs",
+        "trades"
+      ]
+    }
+  ],
+  "source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/select_real_product_cases.py",
+    "sha256": "618380524c41cf59bbc0bf2a175a46d973a6c54686269645843b7151deffd0d2",
+    "bytes": 11445
+  },
+  "read_scope": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/manifest.json",
+      "sha256": "a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5",
+      "bytes": 19160,
+      "mtime_ns": 1793993757248593570,
+      "wall_seconds": 0.00012995803263038397,
+      "jsonl_rows": null
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/people.jsonl",
+      "sha256": "d3448bdde7e927357ac5296274d47e60af43031ce91eeb6b73c4e45ebba01d41",
+      "bytes": 10254671,
+      "mtime_ns": 1793991262314898714,
+      "wall_seconds": 0.048339499975554645,
+      "jsonl_rows": 3145
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/methods-complete-01.jsonl",
+      "sha256": "e41ae390b3b3fc5f314d7336b78728495a148e72de01d2594742588f52848a9a",
+      "bytes": 52096,
+      "mtime_ns": 1793993757234593407,
+      "wall_seconds": 0.00022612500470131636,
+      "jsonl_rows": 12
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/20232024-spatial-skater_spatial.jsonl",
+      "sha256": "f06e168353f613cfd31a4c84a880de649a6486ef772e48a4b811a4665f002965",
+      "bytes": 3991930,
+      "mtime_ns": 1793990920317847063,
+      "wall_seconds": 0.02011162496637553,
+      "jsonl_rows": 8316
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/coefficient-support.jsonl",
+      "sha256": "cf5d367c6da3bedac93e0a676ddfc12b9112e392182e19d6d71321bc715b9d36",
+      "bytes": 1899681,
+      "mtime_ns": 1793888509352498013,
+      "wall_seconds": 14.487172416993417,
+      "jsonl_rows": 5544
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/20242025-spatial-skater_spatial.jsonl",
+      "sha256": "f9b8a4b8e1c1bddff7ce89b4551349806cab1e75b06683343b241cc1df504701",
+      "bytes": 3973550,
+      "mtime_ns": 1793991053127219602,
+      "wall_seconds": 0.019817541004158556,
+      "jsonl_rows": 8280
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/coefficient-support.jsonl",
+      "sha256": "e2af2bbb3493a5638286b561c77460695473817e1d2049bab408f754c961c83b",
+      "bytes": 1930817,
+      "mtime_ns": 1793908822978409355,
+      "wall_seconds": 0.045614666072651744,
+      "jsonl_rows": 5520
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/20252026-spatial-skater_spatial.jsonl",
+      "sha256": "a03616f6610499cd105d884fa8c0494d6c6bc2f0209563f7cf6f20b53d018869",
+      "bytes": 4064239,
+      "mtime_ns": 1793991194647997602,
+      "wall_seconds": 0.02221791702322662,
+      "jsonl_rows": 8460
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/coefficient-support.jsonl",
+      "sha256": "fb5a550486e808345ab19610ddd337a29bbb00b7e342989cf77f3743311d794c",
+      "bytes": 2009469,
+      "mtime_ns": 1793929307710915044,
+      "wall_seconds": 0.05061849998310208,
+      "jsonl_rows": 5640
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/review.json",
+      "sha256": "02f39b8251e8a403b2747577dc8669c796068ba01a32e467d3684ecdd0661122",
+      "bytes": 2196691,
+      "mtime_ns": 1793988609882711618,
+      "wall_seconds": 0.007753374986350536,
+      "jsonl_rows": null
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/manifest.json",
+      "sha256": "c74b313e2ac4ed0b1b8e09787de024b0febe7e98339879a06fb7537ff2398bab",
+      "bytes": 359235,
+      "mtime_ns": 1793930203541868019,
+      "wall_seconds": 0.0007612500339746475,
+      "jsonl_rows": null
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/probes/rows.json",
+      "sha256": "3c836ce53180aecdfa5d75c8f5f07c315b683ba9352503ee0a88f12a3ef236e6",
+      "bytes": 174729,
+      "mtime_ns": 1793929582863851012,
+      "wall_seconds": 0.030458124936558306,
+      "jsonl_rows": null
+    }
+  ],
+  "data_read_bytes": 30926268,
+  "resources": {
+    "wall_seconds": 15.280225667054765,
+    "peak_rss_bytes": 203620352
+  },
+  "earlier_exploration": "initial locator search read historical local fixture/controller text only; small accepted manifest, people, methods and saved consequence report were inspected before this measured invocation. this invocation records its complete exact input bytes/time separately",
+  "limits": [
+    "no database, map/native/display array, actual-context allocation, head coefficient array, source game, model/state reader, objective/solver, api/http, server, browser, build, activation or serving-file action",
+    "all choices are exchange-bound preselection; inactive publication still needs independent acceptance and concrete database binding"
+  ]
+}

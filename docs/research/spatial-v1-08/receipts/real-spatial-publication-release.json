@@ -1,0 +1,33 @@
+{
+  "status": "released_single_inactive_candidate_publication",
+  "recorded_at": "2026-11-06T20:13:20.043953+00:00",
+  "analysis_tree": "52bcae1c68161d4424cec672837e783eaeead673",
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-spatial-publish-command.sh.held",
+    "sha256": "3f4e199326736bbd4b5326a87b4f33d8d7560381039c707d922235d273bfd6de",
+    "bytes": 2909
+  },
+  "results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/manifest.json",
+    "sha256": "a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5",
+    "bytes": 19160
+  },
+  "observed_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+    "bytes": 711
+  },
+  "accepted_exchange": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-spatial-composition-completion.json",
+    "sha256": "8f8fdeb479da099f6c2b2d43e24ac0088bb73c5d00c2906c6a2faa6b6e36222e",
+    "bytes": 8730
+  },
+  "command_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-spatial-finalization-bindings-and-check-command-review.md",
+    "sha256": "17dd516650a3ea46e9fcb3e36eee1cc086151c0741b3773401caddaeb773dfeb",
+    "bytes": 2239
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/candidate",
+  "boundary": "one ordinary compatible schema8 publication to a fresh external inactive candidate; preserve existing publication and previous database; no fit, source acquisition or activation",
+  "remaining": "candidate verification, detached runtime, actual API/browser/export acceptance and cleanup"
+}

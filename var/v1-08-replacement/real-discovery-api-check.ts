@@ -7,7 +7,7 @@ import { discoveryPreset, composeDiscoveryRows, filterDiscoveryRows, sortDiscove
 import { readDiscovery, readPeerSettings } from '../../app/src/web/explorer.ts';
 const root='/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results';
 const expectedManifestSha='a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5';
-const expectedPublicationId='WITHHELD_ACCEPTED_REAL_PUBLICATION_ID';
+const expectedPublicationId='53d900fd-7926-4841-89aa-c3a73bdf4b08';
 const caseIds=['8470613','8470621'];
 const fields=['offense_attempts_per60','offense_xg_per60','offense_attempts_relative_percent','offense_xg_relative_percent','defense_attempts_per60','defense_xg_per60','defense_attempts_relative_percent','defense_xg_relative_percent'];
 const metricIds=fields.map(field=>'spatial.5v5.'+field);const preset=discoveryPreset('spatial','5v5');

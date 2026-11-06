@@ -6,9 +6,9 @@ import csv, hashlib, json, resource, sqlite3, time
 project = Path('/Users/nnandal/Documents/code/hockey-stats-v1-08')
 campaign = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01')
 database = campaign / 'real/candidate/player-analysis.sqlite'
-expected_database_sha256 = 'WITHHELD_ACCEPTED_REAL_DATABASE_SHA256'
-expected_publication_id = 'WITHHELD_ACCEPTED_REAL_PUBLICATION_ID'
-expected_database_stat = None  # accepted (bytes, mtime_ns), supplied by root; no duplicate database rehash.
+expected_database_sha256 = '12d738d0eee0694a76f266c5b48284a035365cc837d8de1667a765443369ef5b'
+expected_publication_id = '53d900fd-7926-4841-89aa-c3a73bdf4b08'
+expected_database_stat = (13356376064, 1794001967301147330)  # accepted (bytes, mtime_ns), supplied by root; no duplicate database rehash.
 downloads = {
     'burns_history': 'WITHHELD_ACTUAL_BURNS_HISTORY_CSV_PATH',
     'same_distribution': 'WITHHELD_ACTUAL_BURNS_PETRY_DISTRIBUTION_CSV_PATH',

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { performance } from 'node:perf_hooks';
 import { analysisMetric, selectHistoryValue } from '../../app/src/web/analysis-values.ts';
 import { analysisCsvHeaders, analysisCsvRow } from '../../app/src/web/analysis-history.tsx';
-const expectedPublicationId='WITHHELD_ACCEPTED_REAL_PUBLICATION_ID';
+const expectedPublicationId='53d900fd-7926-4841-89aa-c3a73bdf4b08';
 const requests:any[]=[];
 const [base,playerId,secondId]=process.argv.slice(2);
 const ids=secondId?[playerId,secondId]:[playerId];

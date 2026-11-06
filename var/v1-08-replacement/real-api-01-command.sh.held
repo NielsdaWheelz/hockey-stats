@@ -1,0 +1,33 @@
+#!/bin/sh
+# held serial api checks; release only after the accepted detached server is ready.
+set -eu
+cd /Users/nnandal/Documents/code/hockey-stats-v1-08
+api_root=/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01
+api_node=/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node
+api_tsx=/Users/nnandal/Documents/code/hockey-stats-v1-08/app/node_modules/tsx/dist/cli.mjs
+api_discovery=/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-discovery-api-check.ts
+api_live=/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-live-check.ts
+[ "$(git rev-parse HEAD:app)" = e01418f448cbfaae517685d7927a90cd37343660 ]
+[ -z "$(git status --porcelain --untracked-files=all -- app)" ]
+[ "$(shasum -a256 "$api_discovery" | cut -d' ' -f1)" = a5f4291272faec8a3b95c32f6c99f7aab5548f85b11e3de8892cecce504f00f2 ]
+[ "$(shasum -a256 "$api_live" | cut -d' ' -f1)" = 94fdbf3bcf4c8338be2930c29800bee0cbaa48eb36fb015272abfec20c52a0e7 ]
+[ ! -e "$api_root" ]
+mkdir "$api_root"
+set -C
+run_case() {
+  case_name=$1
+  shift
+  set +e
+  "$@" > "$api_root/$case_name.json" 2> "$api_root/$case_name.log"
+  case_status=$?
+  set -e
+  printf '%s\n' "$case_status" > "$api_root/$case_name-exit.txt"
+  return "$case_status"
+}
+run_case discovery "$api_node" "$api_tsx" "$api_discovery"
+run_case burns "$api_node" "$api_tsx" "$api_live" http://127.0.0.1:3399 8470613
+run_case burns-petry "$api_node" "$api_tsx" "$api_live" http://127.0.0.1:3399 8470613 8473507
+run_case burns-perry "$api_node" "$api_tsx" "$api_live" http://127.0.0.1:3399 8470613 8470621
+run_case burns-kuntar "$api_node" "$api_tsx" "$api_live" http://127.0.0.1:3399 8470613 8482479
+run_case burns-wilson "$api_node" "$api_tsx" "$api_live" http://127.0.0.1:3399 8470613 8475253
+run_case burns-hodgson "$api_node" "$api_tsx" "$api_live" http://127.0.0.1:3399 8470613 8478173

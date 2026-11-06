@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 import hashlib, json, math, re, resource, sqlite3, subprocess, time, uuid
 
-release = 'WITHHELD_ROOT_POST_EXIT_METADATA_RELEASE'
+release = 'released-after-publisher-exit-and-source-review'
 project = Path('/Users/nnandal/Documents/code/hockey-stats-v1-08')
 campaign = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01')
 real = campaign / 'real'

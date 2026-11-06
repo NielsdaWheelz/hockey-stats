@@ -1,0 +1,12 @@
+#!/bin/sh
+# source prepared only; root release after exact command review is still required.
+cd /Users/nnandal/Documents/code/hockey-stats-v1-08 || exit 1
+[ "$(shasum -a 256 /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_real_publication_metadata.py | cut -d' ' -f1)" = bd641ad5ec1716c8c9a9c1c082505f4d12dfbd3b160eb4e7a9f90c1a9c2bcaa9 ] || exit 1
+for metadata_path in /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/publication-post-exit-metadata-01.json /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/publication-post-exit-metadata-01.log /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/publication-post-exit-metadata-01.exit; do
+  [ ! -e "$metadata_path" ] || exit 1
+done
+set -C
+/usr/bin/time -l /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_real_publication_metadata.py > /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/publication-post-exit-metadata-01.log 2>&1
+metadata_status=$?
+printf '%s\n' "$metadata_status" > /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/publication-post-exit-metadata-01.exit
+exit "$metadata_status"

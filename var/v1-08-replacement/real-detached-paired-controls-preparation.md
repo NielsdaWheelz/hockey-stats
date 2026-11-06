@@ -1,0 +1,7 @@
+# held real detached paired controls
+
+status: source preparation only. no sandbox control, candidate read or server has run. release requires the accepted database sha256, database size:mtime and publication verification sha256; all three remain withheld before filesystem access.
+
+`real-detached-paired-controls.py` is bound by the held command. it verifies the exact `real-detached.sb` bytes before and after, then attempts one byte outside and inside the sandbox for 25 fixed source, history and candidate-verification paths. outside must read a byte; inside must fail specifically with `EPERM`. absent or empty targets fail rather than count as denied. the built server asset and accepted candidate database must each read the same byte outside and inside. the asset digest and publication-verification digest are checked; the accepted database digest is recorded from the separately reviewed publication, with size:mtime checked before and after. the database is not rehashed by this control.
+
+all paths are explicit. no external-root search, broad denial claim, model call, http request or server start occurs. the 25 witnesses cover named paths, not every possible path. prior fixture database and campaign fixture execution, score, exchange and selection paths are not separately sampled; the current state, selection and results paths are distinct witnesses. the result, log and exit use fresh `real/detached-paired-controls-01` names. future completion is permission evidence only; isolated server and application acceptance remain separate.

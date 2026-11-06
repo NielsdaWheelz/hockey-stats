@@ -1,0 +1,28 @@
+#!/bin/sh
+# held: publication identity must be accepted before any target is touched.
+set -eu
+control_database_sha=WITHHELD_ACCEPTED_REAL_DATABASE_SHA256
+control_database_stat=WITHHELD_ACCEPTED_REAL_DATABASE_STAT
+control_verification_sha=WITHHELD_ACCEPTED_REAL_PUBLICATION_VERIFICATION_SHA256
+for control_pin in "$control_database_sha" "$control_verification_sha"; do
+  case "$control_pin" in *[!0-9a-f]*) printf '%s\n' 'accepted database and verification pins withheld; controls not started' >&2; exit 1 ;; esac
+  [ "${#control_pin}" -eq 64 ]
+done
+case "$control_database_stat" in *WITHHELD*|*[!0-9:]*|'') printf '%s\n' 'accepted database stat withheld; controls not started' >&2; exit 1 ;; esac
+cd /Users/nnandal/Documents/code/hockey-stats-v1-08
+control_root=/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real
+control_script=/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-detached-paired-controls.py
+control_profile=/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-detached.sb
+control_run=$control_root/detached-paired-controls-01
+[ "$(shasum -a256 "$control_script" | cut -d' ' -f1)" = 299564d74be64cf732901334ed36da20b91fe14ddef6b311f97ebbc9c0e8170b ]
+[ "$(shasum -a256 "$control_profile" | cut -d' ' -f1)" = 6964a1c0588a891dcb9db8f749fbe0855b454333a71a00e62b280ef755a3f53e ]
+for control_target in "$control_run.json" "$control_run.log" "$control_run-exit.txt"; do
+  if [ -e "$control_target" ]; then printf 'occupied control record: %s\n' "$control_target" >&2; exit 1; fi
+done
+set -C
+set +e
+/usr/bin/time -l /usr/bin/python3 "$control_script" --database-sha256 "$control_database_sha" --database-stat "$control_database_stat" --verification-sha256 "$control_verification_sha" > "$control_run.log" 2>&1
+control_status=$?
+set -e
+printf '%s\n' "$control_status" > "$control_run-exit.txt"
+exit "$control_status"

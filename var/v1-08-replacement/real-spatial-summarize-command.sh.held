@@ -1,9 +1,9 @@
 #!/bin/zsh
 # held current-campaign spatial composition; selection acceptance and root release remain required.
 set -eu
-spatial_selection_sha=FUTURE_SPATIAL_SELECTION_SHA256_WITHHELD
-spatial_admission_sha=FUTURE_PRODUCT_ADMISSION_SHA256_WITHHELD
-spatial_tree=WITHHELD_REVIEWED_ANALYSIS_TREE
+spatial_selection_sha=7ac43cfa0bcf72b449bc9267b19f16eb5ac7d7bf396fd08d9a98200d94549f1c
+spatial_admission_sha=1f09a7c2723bb502b96938e88c4708f5ed2d544d906a5c68d74dd346ede89ce2
+spatial_tree=f71461a5496b657d27bd20ae14f77d5177fdd7e4
 for pin in "$spatial_selection_sha" "$spatial_admission_sha" "$spatial_tree"; do
   case "$pin" in *[!0-9a-f]*) print -u2 'selection, admission or analysis pin withheld; command not launched'; exit 1 ;; esac
 done

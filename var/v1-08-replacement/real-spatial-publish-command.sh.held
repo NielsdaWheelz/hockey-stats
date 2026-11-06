@@ -2,7 +2,7 @@
 # held candidate publication only; accepted combined results and root release remain required.
 set -eu
 publish_results_sha=FUTURE_COMBINED_RESULTS_MANIFEST_SHA256_WITHHELD
-publish_tree=WITHHELD_REVIEWED_ANALYSIS_TREE
+publish_tree=f71461a5496b657d27bd20ae14f77d5177fdd7e4
 for pin in "$publish_results_sha" "$publish_tree"; do
   case "$pin" in *[!0-9a-f]*) print -u2 'results or analysis pin withheld; command not launched'; exit 1 ;; esac
 done

@@ -130,6 +130,8 @@ spatial_rates.project_spatial(state, design) -> SpatialProjections
 spatial_composition.compose_results(existing_results, state_selection, output,
   *, product_admission=None)
   -> player_analysis_results
+spatial_composition.complete_results(result_dir, expected_donor_sha256,
+  state_selection, product_admission) -> player_analysis_results
 
 hockey-stats-analysis fit --family spatial --prepared DIR --coaches FILE
   --valued DIR --season ID [--previous DIR] --out NEWDIR
@@ -143,6 +145,8 @@ hockey-stats-analysis publish --observed FILE --results DIR --out NEWDIR
 use finite json plus non-object numpy arrays and existing exclusive artifact writers/hash helpers. the old research artifact helper's `research|fixture_exercise` purpose contract is not the product's `real|fixture` contract. reuse the small strict annual-state pattern, not execution-specific penalties/schema. validate cardinality, shape, ordering, uniqueness, dtype, finite domains and semantic identities, not just file hashes.
 
 experimental-use contract amendment — 2026-11-06: real spatial summary requires `--product-admission`; fixture summary forbids it. the closed receipt binds the exact selection, final saved baseline and original comparison identities/statuses, policy, consequence report and independent review. the study owns its explicit private-use decision and reviewed warning; composition validates the bindings and carries the warning/evidence into the final-year method. no absent-receipt real path exists. this implements [the separately disclosed post-result policy](../research/spatial-v1-08/experimental-use-policy.md), without changing the state reader, recipe, numerical verdict or public schemas.
+
+the closed schema2 receipt additionally binds an actual-context review and year-specific warnings. a separate assessment names the seven adjustment quantities; standardized admission does not establish their reliability. [the disclosure decision](../research/spatial-v1-08/adjustment-disclosure-decision.md) retains the saved extreme cancelling terms as experimental diagnostics. explicit completion finalizes the hash-bound written exchange by adding a fresh method catalog and checked manifest after one normal strict read, preserving every original member and failed manifest/catalog. it does not reload model states or recalculate projections.
 
 | artifact, schema1 | required contract |
 |---|---|

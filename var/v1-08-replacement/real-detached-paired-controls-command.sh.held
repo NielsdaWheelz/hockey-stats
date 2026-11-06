@@ -1,9 +1,9 @@
 #!/bin/sh
 # held: publication identity must be accepted before any target is touched.
 set -eu
-control_database_sha=WITHHELD_ACCEPTED_REAL_DATABASE_SHA256
-control_database_stat=WITHHELD_ACCEPTED_REAL_DATABASE_STAT
-control_verification_sha=WITHHELD_ACCEPTED_REAL_PUBLICATION_VERIFICATION_SHA256
+control_database_sha=12d738d0eee0694a76f266c5b48284a035365cc837d8de1667a765443369ef5b
+control_database_stat=13356376064:1794001967
+control_verification_sha=e186f43d900c499f0b77ec35610a32079358c6500d52ff4edd919c504419fc51
 for control_pin in "$control_database_sha" "$control_verification_sha"; do
   case "$control_pin" in *[!0-9a-f]*) printf '%s\n' 'accepted database and verification pins withheld; controls not started' >&2; exit 1 ;; esac
   [ "${#control_pin}" -eq 64 ]

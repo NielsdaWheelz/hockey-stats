@@ -1,0 +1,63 @@
+{
+  "scope": "synthetic only; root-frozen receipt shape; no actual saved data or scientific verdict",
+  "cases": [
+    {
+      "case": "real receipt required before state reads",
+      "status": "passed"
+    },
+    {
+      "case": "fixture rejects real receipt before state reads",
+      "status": "passed"
+    },
+    {
+      "case": "fixture existing contract survives",
+      "status": "passed"
+    },
+    {
+      "case": "explicit baseline admission with final-year evidence",
+      "status": "passed"
+    },
+    {
+      "case": "non-admission decision refused",
+      "status": "passed"
+    },
+    {
+      "case": "selection digest mismatch refused",
+      "status": "passed"
+    },
+    {
+      "case": "policy digest mismatch refused",
+      "status": "passed"
+    },
+    {
+      "case": "review digest mismatch refused",
+      "status": "passed"
+    },
+    {
+      "case": "comparison digest mismatch refused",
+      "status": "passed"
+    },
+    {
+      "case": "comparison status mismatch refused",
+      "status": "passed"
+    },
+    {
+      "case": "aggregate precision status mismatch refused",
+      "status": "passed"
+    },
+    {
+      "case": "continuation cannot replace baseline",
+      "status": "passed"
+    },
+    {
+      "case": "cli forwards explicit receipt without opening inputs",
+      "status": "passed"
+    },
+    {
+      "case": "cli rejects receipt for execution",
+      "status": "passed"
+    }
+  ],
+  "passed": 14,
+  "red": 0
+}

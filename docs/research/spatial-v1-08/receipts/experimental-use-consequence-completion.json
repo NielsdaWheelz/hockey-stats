@@ -1,0 +1,130 @@
+{
+  "status": "completed_saved_consequence_review",
+  "recorded_at": "2026-11-06T18:12:28.424510+00:00",
+  "launch_head": "032d05867d0736190203dbf8f2af83581cc3bbb7",
+  "native_session_id": 39537,
+  "native_exit": 0,
+  "native_session_closed": true,
+  "release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/experimental-use-consequence-release.json",
+    "sha256": "8c810b67ff4debfd2463cf6013cc7eb47ba24f85914342527597037c304b5af3",
+    "bytes": 2463
+  },
+  "report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/review.json",
+    "sha256": "02f39b8251e8a403b2747577dc8669c796068ba01a32e467d3684ecdd0661122",
+    "bytes": 2196691
+  },
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01.log",
+    "sha256": "3a6973916a2bc8aca38cfd90c008e87c10f9089d953a8fa78cd822dbfdea8405",
+    "bytes": 969
+  },
+  "exit": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01-exit.txt",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "bytes": 2
+  },
+  "independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/experimental-use-consequences-01-saved-review.md",
+    "sha256": "17912c5a4eb822124d0e07b39ef528c66a11b98e8f030efdee8a2b78203cfd00",
+    "bytes": 4582
+  },
+  "root_decision": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/experimental-use-decision.md",
+    "sha256": "dc567ef354930e74f2f74d8f618a297992439bb65c62b8f81630146a2060c3f7",
+    "bytes": 3856
+  },
+  "figures": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-01.png",
+      "sha256": "777d3aae9c98d1a68bb8206f7d0995fd2e722911cf7b222c99fc1461efd91b30",
+      "bytes": 116768
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-01.svg",
+      "sha256": "da35e9c6d9d2b6b6bd679f896fe138917759c5794760b8bfe9bf80efe12c163e",
+      "bytes": 1839117
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-02.png",
+      "sha256": "6d8df10b9700da530aeda6825683fd3cb6d0baac86695ff932cf2dee6e46f1e4",
+      "bytes": 103124
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-02.svg",
+      "sha256": "8e8480d9f45d6f472bc12553568238f952a22b2610377d25566424492609bced",
+      "bytes": 1854874
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-03.png",
+      "sha256": "ad2158eb7736a1d80639d9d7f4eddce11a6bcf7d926299e97053a61de2307c67",
+      "bytes": 117445
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-03.svg",
+      "sha256": "b314323db4d639e7ccfc21fdc4d9da8470cd9e5cc588a45c09c99fc2de7e589a",
+      "bytes": 1848802
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-04.png",
+      "sha256": "de9951d3b57a6242e81bbf271b2c43359ae63a9b10f6c3380a51f1893b913c72",
+      "bytes": 99974
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-04.svg",
+      "sha256": "d5c3991c34afe454ab66fd937884218029104a50d1ca7523302d089414c4935d",
+      "bytes": 1859057
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-05.png",
+      "sha256": "5faeb3d3c1a1b6b8fd4a276a0f4f8d296c4a8c8ced201c3e70a245cd9a6df80a",
+      "bytes": 109311
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-05.svg",
+      "sha256": "27625ac585c61967e94d7eb734cad58cc78677284eae0a783b3684fe6961b3c1",
+      "bytes": 1858237
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-06.png",
+      "sha256": "05a024c708d4ff2c7165d5efe05fe31ff66b9894f28eac666a20a2d8900a9695",
+      "bytes": 95735
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-06.svg",
+      "sha256": "ac3b673deb0490870601f8293e3e4099643f6dcabf6e3db902e0b5c31a2cc8cd",
+      "bytes": 1854451
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-07.png",
+      "sha256": "8d4332a465241ed0111ea1b8aa8621a41091190ec098bbf32b83975ebe1399f5",
+      "bytes": 98842
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-07.svg",
+      "sha256": "c4ae40e2200e4ab15f1c4a017739fd906dd5d194bf0423193a0eb3ce4ace3c39",
+      "bytes": 1860173
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-08.png",
+      "sha256": "c24382ab75cd062aa641fb2f9addd68e3a649ab0b7327e48a252774af556b171",
+      "bytes": 96506
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/case-08.svg",
+      "sha256": "fb1133678936ed6669604ee1095350d9717e8918f9d8e106479b29ef7ba2aa0d",
+      "bytes": 1818404
+    }
+  ],
+  "resources": {
+    "whole_wall_seconds": 8.88,
+    "peak_resident_bytes": 997670912,
+    "peak_footprint_bytes": 971343120,
+    "swaps": 0
+  },
+  "verdict": "immaterial within the frozen saved baseline versus volume-continuation scope",
+  "original_volume_precision": "failed",
+  "remaining_optimizer_accuracy": "unknown",
+  "scope": "one saved-only consequence invocation, no model/source/fit/objective/gradient/extra continuation; actual source-to-screen acceptance pending"
+}

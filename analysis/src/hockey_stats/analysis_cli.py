@@ -41,6 +41,7 @@ def main(argv=None) -> int:
     summarize.add_argument("--scores", action=Once, metavar="FILE")
     summarize.add_argument("--results", action=Once, metavar="DIRECTORY")
     summarize.add_argument("--states", action=Once, metavar="FILE")
+    summarize.add_argument("--product-admission", action=Once, metavar="FILE")
     summarize.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     publish = commands.add_parser("publish", allow_abbrev=False)
     publish.add_argument("--observed", required=True, action=Once, metavar="FILE")
@@ -54,10 +55,10 @@ def main(argv=None) -> int:
             fit.error("execution fit does not accept --valued")
     elif args.command == "summarize":
         required = ("results", "states") if args.family == "spatial" else ("prepared", "facts", "scores")
-        forbidden = ("prepared", "facts", "scores") if args.family == "spatial" else ("results", "states")
+        forbidden = ("prepared", "facts", "scores") if args.family == "spatial" else ("results", "states", "product_admission")
         for flag in forbidden:
             if getattr(args, flag) is not None:
-                summarize.error(f"{args.family} summarize does not accept --{flag}")
+                summarize.error(f"{args.family} summarize does not accept --{flag.replace('_', '-')}")
         for flag in required:
             if getattr(args, flag) is None:
                 summarize.error(f"{args.family} summarize requires --{flag}")
@@ -144,7 +145,8 @@ def main(argv=None) -> int:
         elif args.command == "summarize" and args.family == "spatial":
             from .spatial_composition import compose_results
 
-            manifest = compose_results(Path(args.results), Path(args.states), Path(args.out))
+            manifest = compose_results(Path(args.results), Path(args.states), Path(args.out),
+                                       product_admission=Path(args.product_admission) if args.product_admission is not None else None)
             print(f"composed results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
         elif args.command == "summarize":
             from .execution_scores import compose_results

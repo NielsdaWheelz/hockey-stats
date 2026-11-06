@@ -13,10 +13,12 @@ ROOT=Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20
 SOURCE=ROOT/'execution-results'
 OUTPUT=ROOT/'results'
 SELECTION=ROOT/'states-selection.json'
+ADMISSION=ROOT/'spatial-product-admission.json'
 DESTINATION=ROOT/'compose-spatial-saved-check-01.json'
 BASE_SHA='3441f784c11eb6a8eda38800806b8e4dc68e06e8587c91db24c5dffaadae4347'
 COMBINED_SHA=None
 SELECTION_SHA=None
+ADMISSION_SHA=None
 YEARS=('20212022','20222023','20232024','20242025','20252026')
 DISPLAY=YEARS[2:]
 PATHS=dict(zip(YEARS,('spatial/20212022','spatial/20222023-complete-01','spatial/20232024','spatial/20242025','spatial/20252026')))
@@ -132,12 +134,21 @@ def native_sample(path,member,projections,sample,public):
 
 
 def main():
-    if not all(type(value) is str and re.fullmatch('[0-9a-f]{64}',value) for value in (BASE_SHA,COMBINED_SHA,SELECTION_SHA)):
-        raise SystemExit('combined manifest/selection pins withheld; no input/output access')
+    if not all(type(value) is str and re.fullmatch('[0-9a-f]{64}',value) for value in (BASE_SHA,COMBINED_SHA,SELECTION_SHA,ADMISSION_SHA)):
+        raise SystemExit('combined manifest/selection/admission pins withheld; no input/output access')
     started=time.perf_counter();assert not DESTINATION.exists();HASHED.clear()
     assert int((ROOT/'compose-spatial-exit.txt').read_text())==0
     manifest=bound_json(OUTPUT/'manifest.json',COMBINED_SHA);base=bound_json(SOURCE/'manifest.json',BASE_SHA)
     selection=bound_json(SELECTION,SELECTION_SHA);pinned=selected_states(selection)
+    admission=bound_json(ADMISSION,ADMISSION_SHA)
+    assert admission['season']==YEARS[-1] and admission['purpose']=='real' and admission['decision']=='admit_saved_baseline'
+    assert admission['selection']==dict(path=str(SELECTION),sha256=SELECTION_SHA)
+    assert admission['optimizer_accuracy']=='unknown' and admission['original_precision']['status']=='failed'
+    precision=admission['original_precision']['comparisons']
+    assert {head:precision[head]['status'] for head in ('volume','shape','quality')}==dict(volume='failed',shape='passed',quality='passed')
+    warning=admission['content_warning'];assert type(warning) is str and warning
+    references=[admission[name] for name in ('selection','baseline','policy','consequence_result','consequence_review')]+[precision[head] for head in ('volume','shape','quality')]
+    admission_evidence=[dict(uri=str(ADMISSION),sha256=ADMISSION_SHA)]+[dict(uri=row['path'],sha256=row['sha256']) for row in references]
     assert manifest['purpose']==base['purpose']=='real' and manifest['seasons']==base['seasons']==list(DISPLAY)
     for key in ('observed_bindings','prepared_sha256'):assert manifest[key]==base[key]
     assert manifest['prepared_sha256']==PREPARED
@@ -146,6 +157,13 @@ def main():
         state=bound_json(Path(item['path']),item['sha256']);assert state['purpose']=='real' and state['season']==year
         assert state['prepared']['sha256']==PREPARED and state['coaches']['sha256']==COACHES
         assert state['previous']==(None if previous is None else dict(previous,purpose='real',usage='annual'))
+        if year==YEARS[-1]:
+            members_by_path={r['path']:r for r in state['files']};parent=Path(item['path']).parent
+            baseline=members_by_path['probes/baseline.json']
+            assert admission['baseline']==dict(path=str(parent/baseline['path']),sha256=baseline['sha256'])
+            for head in ('volume','shape','quality'):
+                member=members_by_path[f'probes/{head}-comparison.json']
+                assert precision[head]==dict(path=str(parent/member['path']),sha256=member['sha256'],status=precision[head]['status'])
         annuals[year]=state;previous=item
     before={(r['season'],r['family']):r for r in base['families']};after={(r['season'],r['family']):r for r in manifest['families']};assert set(before)==set(after)
     inherited=[]
@@ -173,11 +191,18 @@ def main():
         inputs=[dict(role='prepared',sha256=PREPARED,seasons=fit_years),dict(role='coaches',sha256=COACHES,seasons=fit_years),dict(role='opportunity_panel',sha256=state['valued']['sha256'],seasons=[year]),dict(role='source_results',sha256=BASE_SHA,seasons=[year]),*[dict(role='annual_state',sha256=pinned[y]['sha256'],seasons=[y]) for y in fit_years]]
         assert method['inputs']==inputs and method['input_sha256']==hashlib.sha256(json.dumps(inputs,ensure_ascii=False,allow_nan=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
         assert any(r['sha256']==state['valued']['sha256'] for r in old_methods[f'execution-v1-06-{year}']['evidence'])
-        evidence=method['evidence'];assert len(evidence)==3 and evidence[0]==dict(uri=pinned[year]['path'],sha256=pinned[year]['sha256'])
+        evidence=method['evidence'];assert len(evidence)==(12 if year==YEARS[-1] else 3) and evidence[0]==dict(uri=pinned[year]['path'],sha256=pinned[year]['sha256'])
         support=members['coefficient_support'];assert evidence[1]==dict(uri=str(path/support['path']),sha256=support['sha256'])
         assert identity(path/support['path'])['sha256']==support['sha256']
         assert evidence[2]['uri']==str(receipt_path) and bound_json(receipt_path,evidence[2]['sha256'])==population
-        method_evidence.extend(identity(Path(row['uri'])) for row in evidence)
+        if year==YEARS[-1]:
+            assert evidence[3:]==admission_evidence
+            assert method['limitations'].count(warning)==1
+            findings=method['assessment']['findings'];assert len(findings)==1
+            assert findings[0]['evidence']==evidence and findings[0]['summary'].endswith('; '+warning)
+        for row in evidence:
+            checked=identity(Path(row['uri']));assert checked['sha256']==row['sha256']
+            method_evidence.append(checked)
         family=after[year,'spatial'];assert family['availability']=='provided';public={};pending=numeric=0
         scalar_member=family['tables']['skater_spatial']
         for row in rows(OUTPUT/scalar_member['path'],scalar_member):
@@ -205,11 +230,11 @@ def main():
         years.append(dict(season=year,identity_reconciliation=population,published_5v5_players=len(public),scalar_fields_exact=16*len(public),numeric_scalar_values=numeric,unavailable_scalar_fields=16*len(public)-numeric,pending_strength_rows=pending,actual_context_fields_exact=7*len(context_keys),unavailable_actual_context_rows=unavailable,map_header_prefix_rows_checked=map_headers,fitted_prior_only_zero_time_players=sum(r['support']['prior_only'] and r['support']['included_seconds']==0 for r in projections)))
     resource_path=OUTPUT/'composition-resources.json';producer_resources=json.loads(resource_path.read_text());assert producer_resources['state_selection']==dict(path=str(SELECTION),sha256=SELECTION_SHA)
     text=(ROOT/'compose-spatial.log').read_text();timing=re.findall(r'([\d.]+) real\s+([\d.]+) user\s+([\d.]+) sys',text);rss=re.findall(r'(\d+)\s+maximum resident set size',text);footprint=re.findall(r'(\d+)\s+peak memory footprint',text)
-    result=dict(kind='real-combined-spatial-saved-composition-check',status='scoped_saved_checks_passed_pending_independent_and_runtime_acceptance',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),manifest=identity(OUTPUT/'manifest.json'),execution_base=identity(SOURCE/'manifest.json'),states_selection=identity(SELECTION),purpose='real',displayed_seasons=list(DISPLAY),producer=manifest['producer'],exit=0,
+    result=dict(kind='real-combined-spatial-saved-composition-check',status='scoped_saved_checks_passed_pending_independent_and_runtime_acceptance',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),manifest=identity(OUTPUT/'manifest.json'),execution_base=identity(SOURCE/'manifest.json'),states_selection=identity(SELECTION),product_admission=identity(ADMISSION),purpose='real',displayed_seasons=list(DISPLAY),producer=manifest['producer'],exit=0,
         cost=dict(producer_resources=producer_resources,whole_command=dict(timing=None if not timing else dict(zip(('wall_seconds','user_seconds','system_seconds'),map(float,timing[-1]))),maximum_resident_bytes=None if not rss else int(rss[-1]),peak_memory_footprint_bytes=None if not footprint else int(footprint[-1])),log=identity(ROOT/'compose-spatial.log')),
         preservation=dict(nonowned_family_rows_exact=sum(k[1]!='spatial' for k in before),table_members_byte_exact=len(inherited),inherited_table_bytes=sum(row['bytes'] for row in inherited),people_sources_supports_descriptor_and_actual_hash_exact=True,retained_methods=len(old_methods),added_methods=len(methods)-len(old_methods)),saved_scalar_and_context_checks=years,native_source_samples=samples,method_evidence_actual_hashes=method_evidence,fully_hashed_files=list(HASHED.values()),
         verification_cost=dict(wall_seconds=time.perf_counter()-started,peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*(1 if sys.platform=='darwin' else 1024)),checker=identity(Path(__file__).resolve()),publication_launched=False,
-        scope='saved preservation hashes/catalog retention, all 16 published scalar/support and seven actual-context fields, exact identity intersection/differences and added method bindings; JSON/JSONL evidence may be large and is counted above; only one native rates map per display year, no full NPZ hash or adjustments/design/head array read, source/model/compose/full strict reader. inherited method evidence payloads are not reopened. full native/display transport proof remains the fixture algorithm proof; real independent/runtime/product acceptance remains separate')
+        scope='saved preservation hashes/catalog retention, all 16 published scalar/support and seven actual-context fields, exact identity intersection/differences and added method/admission disclosure bindings; JSON/JSONL evidence may be large and is counted above; only one native rates map per display year, no full NPZ hash or adjustments/design/head array read, source/model/compose/full strict reader. inherited method evidence payloads are not reopened. full native/display transport proof remains the fixture algorithm proof; real independent/runtime/product acceptance remains separate')
     with DESTINATION.open('x') as stream:json.dump(result,stream,indent=2,allow_nan=False);stream.write('\n')
     print(json.dumps(dict(status=result['status'],receipt=str(DESTINATION),inherited_members=len(inherited),display_years=len(years))))
     return 0

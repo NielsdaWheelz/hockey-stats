@@ -1,0 +1,71 @@
+{
+  "scope": "synthetic only; provisional receipt shape; no actual saved data or scientific verdict",
+  "cases": [
+    {
+      "case": "real receipt required before state reads",
+      "status": "red",
+      "error": "AssertionError: refusal occurred after state reads"
+    },
+    {
+      "case": "fixture rejects real receipt before state reads",
+      "status": "red",
+      "error": "TypeError: compose_results() got an unexpected keyword argument 'product_admission'"
+    },
+    {
+      "case": "fixture existing contract survives",
+      "status": "passed"
+    },
+    {
+      "case": "explicit baseline admission with final-year evidence",
+      "status": "red",
+      "error": "TypeError: compose_results() got an unexpected keyword argument 'product_admission'"
+    },
+    {
+      "case": "non-admission decision refused",
+      "status": "red",
+      "error": "TypeError: compose_results() got an unexpected keyword argument 'product_admission'"
+    },
+    {
+      "case": "selection digest mismatch refused",
+      "status": "red",
+      "error": "TypeError: compose_results() got an unexpected keyword argument 'product_admission'"
+    },
+    {
+      "case": "policy digest mismatch refused",
+      "status": "red",
+      "error": "TypeError: compose_results() got an unexpected keyword argument 'product_admission'"
+    },
+    {
+      "case": "review digest mismatch refused",
+      "status": "red",
+      "error": "TypeError: compose_results() got an unexpected keyword argument 'product_admission'"
+    },
+    {
+      "case": "comparison digest mismatch refused",
+      "status": "red",
+      "error": "TypeError: compose_results() got an unexpected keyword argument 'product_admission'"
+    },
+    {
+      "case": "comparison status mismatch refused",
+      "status": "red",
+      "error": "TypeError: compose_results() got an unexpected keyword argument 'product_admission'"
+    },
+    {
+      "case": "aggregate precision status mismatch refused",
+      "status": "red",
+      "error": "TypeError: compose_results() got an unexpected keyword argument 'product_admission'"
+    },
+    {
+      "case": "continuation cannot replace baseline",
+      "status": "red",
+      "error": "TypeError: compose_results() got an unexpected keyword argument 'product_admission'"
+    },
+    {
+      "case": "cli forwards explicit receipt without opening inputs",
+      "status": "red",
+      "error": "SystemExit: 2"
+    }
+  ],
+  "passed": 1,
+  "red": 12
+}

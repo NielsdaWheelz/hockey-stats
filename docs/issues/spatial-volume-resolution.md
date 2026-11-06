@@ -1,6 +1,6 @@
 # final spatial volume sensitivity
 
-the real `20252026` volume continuation exceeds v1-08's fixed numerical budgets. the final family is not accepted; combined selection, composition, publication, real browser acceptance and campaign cleanup remain held. twelve earlier spatial heads/four annuals remain accepted. all fifteen baseline heads and all three continuations are preserved.
+the real `20252026` volume continuation exceeds v1-08's original fixed numerical budgets. that verdict remains failed and remaining optimizer accuracy is unknown. the separate [private experimental-use decision](../research/spatial-v1-08/experimental-use-decision.md) admits the saved baseline after a bounded consequence review, with disclosure; it does not certify numerical resolution. actual integration and source-to-screen acceptance remain unfinished. all fifteen baseline heads, three continuations and earlier accepted annuals remain preserved.
 
 ## evidence
 
@@ -19,4 +19,6 @@ volume's completed coefficient maximum / l2 movement is `0.00043763782110511906`
 
 ## resolution boundary
 
-retain the complete saved numerical design, baseline heads, all continuation evidence and earlier accepted work. any further numerical work needs a newly bounded decision preserving the statistical objective and original movement budgets. no retry, tolerance change, endpoint promotion, source reconstruction or additional continuation has been authorized after this failure. qualification and all affected artifact bindings must pass before downstream work resumes. an explicit incomplete result remains the alternative; no implementation or scientific acceptance is inferred from native completion.
+retain the complete saved numerical design, baseline heads, all continuation evidence and earlier accepted work. no retry, tolerance change, endpoint promotion, source reconstruction or additional continuation is assigned. the product-policy amendment permits baseline integration through an explicit bound admission receipt, while this optimizer follow-up remains open.
+
+future solver work, if separately assigned, should target volume alone and reuse its saved design. scaling or curvature-aware refinement requires evidence, preserved objective/gradient meaning and a bounded qualification contract before execution; no particular repair is selected here. this issue is resolved only when separately reviewed evidence establishes adequate numerical resolution under a justified contract. private admission does not supply that evidence or an optimum bound.

@@ -1,4 +1,4 @@
-"""held exclusive selection from five root-admitted replacement spatial manifests."""
+"""held identity-only selection from five pinned replacement spatial manifests."""
 import hashlib
 import json
 from pathlib import Path
@@ -11,10 +11,10 @@ PATHS=dict(zip(YEARS,('spatial/20212022','spatial/20222023-complete-01','spatial
 RUN_STEMS={**PATHS,'20212022':'spatial/20212022-resume-01'}
 PINS={
  '20212022':'3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509',
- '20222023':None,
- '20232024':None,
- '20242025':None,
- '20252026':None,
+ '20222023':'bdc5c2d4ed8645f5b1aa825abe06397b333ed399c2a4399eff6106dd6b98bd17',
+ '20232024':'42bfbab911efc9a58904b5273a09545d617fd7c29a2be67203bbc55b236eff25',
+ '20242025':'74f35a1c9599335279954170693f7d3add11302bc83611fe14a368322870e6eb',
+ '20252026':'c74b313e2ac4ed0b1b8e09787de024b0febe7e98339879a06fb7537ff2398bab',
 }
 SCORES=dict(zip(YEARS,(
  '37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d',
@@ -26,6 +26,11 @@ PREPARED='63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c'
 COACHES='102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0'
 RECIPE='04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b'
 HEADS=('volume','shape','quality')
+COMPARISONS={
+ 'volume':('failed','0e4fb977a919484a36ca2c62a9af8ce49c260527273eed71c788b1ce93fda0b5'),
+ 'shape':('passed','38e892975fd1a9abea1a2ab9fd5289d048ab96c1e9c01b1d5406fe7c159c693a'),
+ 'quality':('passed','a2e87528618e76c79106aa435bf00f94eb5d8c57e756a9b1c7b001673f80c92b'),
+}
 
 
 def bound_json(path,expected):
@@ -60,8 +65,10 @@ def main():
             names={f'probes/{head}-comparison.json' for head in HEADS}
             assert {row['path'] for row in manifest['files'] if row['role']=='probe_comparison'}==names
             for head in HEADS:
-                name=f'probes/{head}-comparison.json';comparison=bound_json(path.parent/name,members[name]['sha256'])
-                assert comparison['status']=='passed' and comparison['failures']==[]
+                name=f'probes/{head}-comparison.json';status,digest=COMPARISONS[head]
+                assert members[name]['sha256']==digest
+                comparison=bound_json(path.parent/name,digest)
+                assert comparison['status']==status and bool(comparison['failures'])==(status=='failed')
                 probe_bindings.append(dict(path=str(path.parent/name),sha256=members[name]['sha256']))
         else:
             assert not any(name.startswith('probes/') for name in members) and not (path.parent/'probes').exists()
@@ -72,7 +79,7 @@ def main():
     assert DESTINATION.read_bytes()==encoded
     print(json.dumps(dict(path=str(DESTINATION),sha256=hashlib.sha256(encoded).hexdigest(),bytes=len(encoded),states=len(selected),
         prepared_sha256=PREPARED,coaches_sha256=COACHES,recorded_design_recipe_sha256=RECIPE,basis_identity=basis,final_probe_comparisons=probe_bindings,
-        scope='root-admitted manifests, saved launch recipe records and final bound comparisons only; accepted canonical annual validation owns design contents; no design/head/array or repeated strict read')))
+        scope='pinned manifests, saved launch recipe records and final bound comparison identities/statuses only; selection is not admission; accepted canonical annual validation owns design contents; no design/head/array or repeated strict read')))
     return 0
 
 

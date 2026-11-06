@@ -2,15 +2,19 @@
 # held current-campaign spatial composition; selection acceptance and root release remain required.
 set -eu
 spatial_selection_sha=FUTURE_SPATIAL_SELECTION_SHA256_WITHHELD
-case "$spatial_selection_sha" in *[!0-9a-f]*) print -u2 'spatial selection pin withheld; command not launched'; exit 1 ;; esac
-[ "${#spatial_selection_sha}" -eq 64 ]
+spatial_admission_sha=FUTURE_PRODUCT_ADMISSION_SHA256_WITHHELD
+spatial_tree=WITHHELD_REVIEWED_ANALYSIS_TREE
+for pin in "$spatial_selection_sha" "$spatial_admission_sha" "$spatial_tree"; do
+  case "$pin" in *[!0-9a-f]*) print -u2 'selection, admission or analysis pin withheld; command not launched'; exit 1 ;; esac
+done
+[ "${#spatial_selection_sha}" -eq 64 ] && [ "${#spatial_admission_sha}" -eq 64 ] && [ "${#spatial_tree}" -eq 40 ]
 spatial_command_path=${0:A}
 cd /Users/nnandal/Documents/code/hockey-stats-v1-08
 spatial_head=$(git rev-parse HEAD)
-spatial_tree=38ec706cb505ea3d9936518dd119869e7695200b
 spatial_campaign=/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01
 spatial_source=$spatial_campaign/real/execution-results
 spatial_selection=$spatial_campaign/real/states-selection.json
+spatial_admission=$spatial_campaign/real/spatial-product-admission.json
 spatial_output=$spatial_campaign/real/results
 spatial_run=$spatial_campaign/real/compose-spatial
 for spatial_path in "$spatial_output" "$spatial_run.log" "$spatial_run-start.txt" "$spatial_run-finish.txt" "$spatial_run-exit.txt" "$spatial_run-shell.pid" "$spatial_run-launch-head.txt" "$spatial_run-launch-analysis-tree.txt" "$spatial_run-launch-analysis-status.txt" "$spatial_run-launch-command-sha256.txt" "$spatial_run-launch-inputs-sha256.txt"; do
@@ -23,6 +27,7 @@ spatial_pin() {
 }
 spatial_pin "$spatial_source/manifest.json" 3441f784c11eb6a8eda38800806b8e4dc68e06e8587c91db24c5dffaadae4347
 spatial_pin "$spatial_selection" "$spatial_selection_sha"
+spatial_pin "$spatial_admission" "$spatial_admission_sha"
 [ "$(git rev-parse HEAD)" = "$spatial_head" ]
 set -C
 print -r -- $$ > "$spatial_run-shell.pid"
@@ -31,9 +36,9 @@ print -r -- "$spatial_head" > "$spatial_run-launch-head.txt"
 git rev-parse HEAD:analysis > "$spatial_run-launch-analysis-tree.txt"
 git status --porcelain --untracked-files=all -- analysis > "$spatial_run-launch-analysis-status.txt"
 shasum -a256 "$spatial_command_path" > "$spatial_run-launch-command-sha256.txt"
-shasum -a256 "$spatial_source/manifest.json" "$spatial_selection" > "$spatial_run-launch-inputs-sha256.txt"
+shasum -a256 "$spatial_source/manifest.json" "$spatial_selection" "$spatial_admission" > "$spatial_run-launch-inputs-sha256.txt"
 set +e
-/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python -m hockey_stats.analysis_cli summarize --family spatial --results "$spatial_source" --states "$spatial_selection" --out "$spatial_output" > "$spatial_run.log" 2>&1
+/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python -m hockey_stats.analysis_cli summarize --family spatial --results "$spatial_source" --states "$spatial_selection" --product-admission "$spatial_admission" --out "$spatial_output" > "$spatial_run.log" 2>&1
 spatial_status=$?
 set -e
 print -r -- "$spatial_status" > "$spatial_run-exit.txt"

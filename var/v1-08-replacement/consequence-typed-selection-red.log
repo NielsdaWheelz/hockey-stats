@@ -1,0 +1,6 @@
+generated arithmetic controls passed
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_spatial_experimental_consequences.py", line 66, in <module>
+    assert f'worst published {q} {view} delta' in reasons
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

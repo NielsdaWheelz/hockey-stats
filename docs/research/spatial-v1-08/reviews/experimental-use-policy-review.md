@@ -9,3 +9,7 @@ this review did not read consequence data or run a checker, source extraction, m
 ## freeze addendum
 
 the frozen scope is `01bf4c5ffb8c4ba99298ab0d9eed401d9c14af49588c19ace37da55e3520308c`. restoring its original proposed-status sentence in memory yields the reviewed scope hash `1d3a37e9a857e23082b165e6a83527b64cc1cd21a82cabc21455d5678ac86667`; the freeze changes no other bytes. the dated specification and current plan preserve the original failure and require a separate experimental admission without scientific or fitting authorization. their added relative links resolve. no consequence data were read.
+
+## pre-invocation units clarification
+
+reviewed scope `e7be8b277996039e6a675c10a86e5153a564f01e9751f16b25477e8fd8f73b98`: four absolute-density selections and two minimum positive effect-extent selections are now separated by quantity; two normalized selections are dimensionless and may compare quantities. the original failure case remains required, with deduplication and at most nine cases. this corrects unlike-unit ordering before consequence data are opened; the input boundary and materiality policy remain unchanged. implementation and generated controls require separate review.

@@ -16,7 +16,7 @@ all paths below are relative to `/Volumes/Expansion/hockey-stats`. these expecte
 | original combined composition input | `runs/execution-spatial-replacement-20261031-01/real/results/manifest.json` | `a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5` |
 | selected first annual base scores | `runs/execution-spatial-replacement-20261031-01/real/scores/20212022/manifest.json` | `37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d` |
 
-local environment inspected at `2026-11-09T04:52:11Z`: analysis tree `a727a28b49624f41c70ed26fa0dc6abe6a430bc3`, clean analysis subtree, python `3.14.8`/arm64, numpy `2.5.3`, scipy `1.18.1`. lockfile sha256 `bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd`; goalie recipe sha256 `cd57b284183962a5795f0c1b2c15065881be3531a4de46b70a20e163907a97c6`.
+runtime inspected at `2026-11-09T04:52:11Z`: python `3.14.8`/arm64, numpy `2.5.3`, scipy `1.18.1`. after final diagnostic/source-coverage fixes, commit `8781eb1` has clean frozen analysis tree `84973cc35cd453ebe6bc87b87200e782f75d5bcc`. lockfile sha256 `bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd`; goalie recipe sha256 `cd57b284183962a5795f0c1b2c15065881be3531a4de46b70a20e163907a97c6`.
 
 numpy reports `accelerate` and scipy reports `Accelerate` for blas/lapack; both backend versions are unknown. `OPENBLAS_NUM_THREADS`, `OMP_NUM_THREADS`, `MKL_NUM_THREADS`, `VECLIB_MAXIMUM_THREADS`, `NUMEXPR_NUM_THREADS` and `BLIS_NUM_THREADS` were unset. retain the existing environment and record those values at launch. thread count remains backend-managed and unmeasured; no dependency synchronization, backend change or thread tuning belongs to this command.
 
@@ -52,7 +52,7 @@ replace pending values only after root releases the exact command. the receipt b
   "status": "HELD",
   "recorded_at_utc": null,
   "launch_commit": null,
-  "analysis_tree": "a727a28b49624f41c70ed26fa0dc6abe6a430bc3",
+  "analysis_tree": "84973cc35cd453ebe6bc87b87200e782f75d5bcc",
   "analysis_clean": null,
   "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd",
   "recipe_sha256": "cd57b284183962a5795f0c1b2c15065881be3531a4de46b70a20e163907a97c6",

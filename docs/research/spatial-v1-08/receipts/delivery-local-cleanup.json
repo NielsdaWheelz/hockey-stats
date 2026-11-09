@@ -1,0 +1,39 @@
+{
+  "status": "owned worktree removed; frozen evidence data-only root installed",
+  "removed_git_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-08",
+  "retained_data_only_root": "/Users/nnandal/Documents/code/hockey-stats-v1-08",
+  "retained_frozen_documents": [
+    {
+      "path": "docs/research/spatial-v1-08/experimental-use-policy.md",
+      "bytes": 4395,
+      "sha256": "4c0f136c46735f48ef76f8202f75388969d5484947faa33d868718b8ff2b0bbb"
+    },
+    {
+      "path": "docs/research/spatial-v1-08/experimental-use-consequence-review.md",
+      "bytes": 8972,
+      "sha256": "e7be8b277996039e6a675c10a86e5153a564f01e9751f16b25477e8fd8f73b98"
+    },
+    {
+      "path": "docs/research/spatial-v1-08/reviews/experimental-use-policy-review.md",
+      "bytes": 2705,
+      "sha256": "84141a218c18320586d0578b9add6f2a73a27aec04f7555a6dc459a4e9c24495"
+    },
+    {
+      "path": "docs/research/spatial-v1-08/reviews/actual-context-disclosure-review.md",
+      "bytes": 2351,
+      "sha256": "ef9f61a6ad12046e26d9f436ba30b0c46177356c37d1d142f9d6842f6c698242"
+    },
+    {
+      "path": "docs/research/spatial-v1-08/reviews/experimental-use-consequences-01-saved-review.md",
+      "bytes": 4582,
+      "sha256": "17912c5a4eb822124d0e07b39ef528c66a11b98e8f030efdee8a2b78203cfd00"
+    }
+  ],
+  "retained_frozen_document_bytes": 23005,
+  "analysis_alias": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis",
+  "analysis_alias_target": "/Users/nnandal/Documents/code/hockey-stats/analysis",
+  "geometry_hashes_match": true,
+  "coordinator_temp_backup_removed": true,
+  "other_worktrees_references_external_artifacts_untouched": true,
+  "no_git_app_duplicate_environment_build_or_var": true
+}

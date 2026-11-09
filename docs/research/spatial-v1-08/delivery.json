@@ -1,0 +1,95 @@
+{
+  "status": "pr merged, primary synchronized and scoped task cleanup complete; real browser/export acceptance deferred, not passed",
+  "recorded_at_utc": "2026-11-09T03:10:24.369092+00:00",
+  "pr": {
+    "number": 59,
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/59",
+    "head": "68c16ded89914eed3866e48d7fcf71f0028bb0e8",
+    "base": "c288b4c38e39d3aa8b1606646a53e2bbfa209747",
+    "merge": "1f2b1f72188573c9ffb8b42be2d9d7d27d0f8e01",
+    "merged_at": "2026-11-09T03:02:25Z",
+    "reviewed_merged_tree": "b39a66243c281de53e268ed23c47ffc7cedceb8d",
+    "exact_tree_equality": true,
+    "merge_method": "merge",
+    "security_check": {
+      "name": "GitGuardian Security Checks",
+      "conclusion": "SUCCESS",
+      "completed_at": "2026-11-09T03:01:30Z"
+    }
+  },
+  "primary_sync": {
+    "path": "docs/research/spatial-v1-08/receipts/delivery-primary-sync.json",
+    "sha256": "0e337c3b18aee8ebc5f68048ad7c2323f3959f81ad1eb3ab0dc538aba9236e83",
+    "bytes": 1025
+  },
+  "primary_preservation_before": {
+    "path": "docs/research/spatial-v1-08/receipts/delivery-protected-before.json",
+    "sha256": "d79f0095e97baab61eea76f2a0173b886350823485fc710c39ade6d41d945dd0",
+    "bytes": 13304
+  },
+  "primary_preservation_after": {
+    "path": "docs/research/spatial-v1-08/receipts/delivery-protected-after.json",
+    "sha256": "e2277a40c0c4406095618e4b0f31c848205d0afdfca01b4ff97acd1a174cd49f",
+    "bytes": 1116
+  },
+  "primary_typecheck": {
+    "path": "docs/research/spatial-v1-08/receipts/delivery-primary-typecheck.txt",
+    "sha256": "36de49487a44b2407d4252ebd69b7c04224469392cf8cef8b594809e014b8fdf",
+    "bytes": 89
+  },
+  "primary_cli_imports": {
+    "path": "docs/research/spatial-v1-08/receipts/delivery-primary-cli.txt",
+    "sha256": "0be50007a5c9a71071b196800207f72d3f24781c8c974dad7600f5e4824bf44c",
+    "bytes": 520
+  },
+  "source_evidence_preservation": {
+    "path": "docs/research/spatial-v1-08/receipts/source-evidence-preservation-copy-proof.json",
+    "sha256": "42372a07744944b78b67664d1e4d303b259e8df982a198d63abb7c9a2643cc62",
+    "bytes": 6775
+  },
+  "tracked_test_retirement": {
+    "path": "docs/research/spatial-v1-08/receipts/task-test-retirement.json",
+    "sha256": "25b2c68789fad53d938997e92c3deb24b47015a940450ccab46a6480bc62f905",
+    "bytes": 930
+  },
+  "local_cleanup": {
+    "path": "docs/research/spatial-v1-08/receipts/delivery-local-cleanup.json",
+    "sha256": "bd4adf75f7a66c453d7be050936605cef2f92b5c51653310d35e4efbc876602b",
+    "bytes": 1704
+  },
+  "removed_local_branches": [
+    "implement/v1-08-positive-attribution",
+    "delivery/v1-08-primary-input",
+    "preserve/v1-08-primary-drafts-20261108"
+  ],
+  "removed_remote_branch": "implement/v1-08-positive-attribution",
+  "registered_worktrees": [
+    "/Users/nnandal/Documents/code/hockey-stats"
+  ],
+  "remaining_frozen_data_root": "/Users/nnandal/Documents/code/hockey-stats-v1-08",
+  "retained_frozen_document_files": 5,
+  "retained_frozen_document_bytes": 23005,
+  "retained_analysis_alias": "/Users/nnandal/Documents/code/hockey-stats/analysis",
+  "scientific_tools_retained": 4,
+  "unique_checked_outputs_retained": 2,
+  "test_only_dependencies_removed": 0,
+  "model_or_scientific_tool_calls_during_delivery": 0,
+  "publications_fits_captures_and_sibling_fixture_inputs_preserved": true,
+  "live_activation": false,
+  "scientific_limits": [
+    "original volume precision verdict failed; remaining optimizer accuracy unknown",
+    "extreme actual-context allocations remain disclosed diagnostics, not reliable player credits"
+  ],
+  "deferred": [
+    "real browser journeys/layouts/native 200-percent checks",
+    "actual CSV/PNG downloads and render/export costs"
+  ],
+  "source_recovery": "retired campaign sources and both exact primary input snapshots remain in merged git ancestry; future browser acceptance restores an isolated build and reviewed path/profile bindings",
+  "write_api": "github integration could read but returned403 on PR creation; authenticated gh CLI created and merged the authorized PR",
+  "bookkeeping_scope": "this record and current-status notes are committed after the code merge; no production source/build/data changes follow the checked PR tree",
+  "independent_final_review": {
+    "path": "docs/research/spatial-v1-08/reviews/real-source-delivery-final-review.md",
+    "sha256": "0c67b95b7749ce5289bdfddf24753d03f922bbabb21b0d66ed3d294cc5555fd2",
+    "bytes": 2115
+  }
+}

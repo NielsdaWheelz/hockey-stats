@@ -1,0 +1,26 @@
+{
+  "status": "primary source synchronized and live serving preservation checked",
+  "recorded_at_utc": "2026-11-09T03:06:29.282462+00:00",
+  "build_files_sha_size_mtime_exact": 38,
+  "active_previous_database_stat_inode_header_exact": 2,
+  "database_hash_passes": 0,
+  "dependencies_directory_inode_mtime_unchanged": true,
+  "live_port3000_listener_unchanged": "p9645\ncnode\nf15\nn127.0.0.1:3000\n",
+  "geometry_source_hashes_match": [
+    {
+      "path": "analysis/src/hockey_stats/observed_spatial.py",
+      "sha256": "0169915ed0abad0c20fe1c3336a55fd7ef8fc2adf599dc1d34e083a3fabdc30c",
+      "bytes": 9053
+    },
+    {
+      "path": "analysis/src/hockey_stats/shot_origins.py",
+      "sha256": "34cc5ea4b5364aac502593a2d65d5b2192498ae63d006c187009d5f7a1d4340e",
+      "bytes": 2586
+    }
+  ],
+  "original_stash_blobs_verified_against_merged_input_ancestry": true,
+  "owned_stash_removed": "db2faf9f2df56d371c46ee1c06a15091693c639f",
+  "primary_typecheck_exit": 0,
+  "production_imports_cli_help_exit": 0,
+  "scope": "source delivery only; no build, publication rotation, scientific computation or test rerun"
+}

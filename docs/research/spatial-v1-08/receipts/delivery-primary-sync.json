@@ -1,0 +1,16 @@
+{
+  "recorded_at_utc": "2026-11-09T03:03:47.759270+00:00",
+  "old_head": "c288b4c38e39d3aa8b1606646a53e2bbfa209747",
+  "new_head": "1f2b1f72188573c9ffb8b42be2d9d7d27d0f8e01",
+  "owned_stash": "db2faf9f2df56d371c46ee1c06a15091693c639f",
+  "stash_message": "Saved working directory and index state On main: v1-08 delivery: exact drafts already preserved in merged ancestry",
+  "input_snapshot_commits": [
+    "dcbbdfaae978d5274e7b1c3465425f6243a23b93",
+    "07951ab189782f6ec16e9018c5f964c1fa170afd"
+  ],
+  "input_blobs_preserved_in_ancestry": true,
+  "working_draft_disposition": "all eleven intents incorporated or explicitly advanced; exact originals remain in both input snapshots; no stale draft replay onto new main",
+  "primary_status": "clean after fast-forward",
+  "serving_scope": "source synchronization only; primary app/dist and publication files not rebuilt, copied or rotated",
+  "owned_stash_disposition": "removed after verifying every original tracked/untracked blob against the two merged input snapshots"
+}

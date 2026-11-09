@@ -109,7 +109,7 @@ export type AnalysisMetric = {
   readonly qualificationLabel: string;
   readonly observedPopulation?: "personal" | "onIce";
   readonly quantityPath?: typeof QuantityPath.Type;
-  readonly selectionStrength?: typeof import("../shared/player-analysis").ExecutionStrength.Type;
+  readonly selectionStrength?: typeof import("../shared/player-analysis").ExecutionStrength.Type | "ev" | "pk";
   readonly select: (inputs: ValueInputs) => SelectedValue;
 };
 
@@ -704,6 +704,7 @@ const goalie = (["ev", "pk"] as const).flatMap(strength =>
     publicationFamily: "goalie",
     id: `goalie.${strength}.${field}`,
     quantityPath: `goalie_result.${field}`,
+    selectionStrength: strength,
     kind: "goalie",
     group: `goalie ${strength}`,
     label: `${meaning.label}${difference ? " difference" : ""}`,

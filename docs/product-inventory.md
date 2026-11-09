@@ -111,6 +111,8 @@ content owner: descriptive card with context/history owners. retain its two scat
 | g13 observed stages/workload evidence | `stage_evidence` labeled successes, denominators, expected sums; per-game counterparts | p/m; source unknown terminal spans remain unknown; real workload and conditional evidence |
 | g14 history/selection/explanation | three annual stopping/observed/subskill rows and cohorts, exact strength/population/reference/method keys | m/p; embedded stopping history, subskill trajectories in detail, same-kind comparison and coherent card/plot pngs |
 
+[v1-07](specs/v1-07-goalie-continuation.md) is the full producer/current-interface handoff for these fields; implementation remains unassigned. it preserves the existing thirteen modeled scalars, strict source/paired/stage/map/histogram schemas and separate references. v1-19 owns the complete composition below, goalie discovery and browser two-goalie comparison; v1-07 verifies direct profiles/history/exports and paired map requests through the api.
+
 content owner: goalie card/details with shared rink/history. default modeled stopping is ev with pk detail; default actual saving evidence is unblocked on the selected state group, with covered-all explicitly available. source examples do not disclose the restricted career graphic or goalie total formula; our stopping-only headline and independent danger/ratio definitions are explicit differences. jfresh goalie start-quality/consistency and separate smoothed season-overview composition remain later.
 
 #### comparative skater — s01 and public player-card guide

@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "kind": "independent-first-real-saved-arithmetic",
+  "status": "passed",
+  "score": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20212022/manifest.json",
+    "sha256": "086a70c4ca0b41329d6879ea83e9d61a02787f7885f5fee89afb2dee1fb7948f"
+  },
+  "season": "20212022",
+  "player_id": "8467950",
+  "person": {
+    "season": "20212022",
+    "player_id": "8467950",
+    "kind": "goalie",
+    "display_name": "Craig Anderson",
+    "reported_position": "G",
+    "teams": [
+      {
+        "id": "7",
+        "abbreviation": "BUF"
+      }
+    ],
+    "source": [
+      {
+        "kind": "source",
+        "id": "goalie-source-v1-07-20212022"
+      }
+    ],
+    "birth_date": "1981-05-21",
+    "age_as_of": "2022-02-01",
+    "age_years": 40.70088980150582,
+    "height_cm": null,
+    "handedness": "L",
+    "sweater_numbers": [
+      {
+        "team_id": "7",
+        "game_id": "2021020007",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020021",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020039",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020062",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020069",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020083",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020107",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020130",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020143",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020156",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020489",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020504",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020515",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020524",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020614",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020782",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020790",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020806",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020825",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020843",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020860",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020873",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020890",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020899",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020916",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020942",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020973",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020980",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021020998",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021014",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021028",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021049",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021055",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021068",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021083",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021100",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021113",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021130",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021138",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021156",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021165",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021182",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021197",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021212",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021228",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021236",
+        "number": "41"
+      },
+      {
+        "team_id": "7",
+        "game_id": "2021021273",
+        "number": "41"
+      }
+    ],
+    "identity_support": {
+      "problems": [
+        {
+          "field": "height_cm",
+          "code": "unavailable",
+          "explanation": "source height units are unverified; raw height remains in bio observations"
+        }
+      ],
+      "evidence": [
+        {
+          "kind": "source",
+          "id": "goalie-source-v1-07-20212022"
+        }
+      ]
+    }
+  },
+  "selected_event_rows": 1628,
+  "checks": {
+    "original_boundary": 1,
+    "paired_summaries": 1152,
+    "matched_stages": 2880,
+    "observed_strengths": 12,
+    "breakdowns": 99,
+    "histograms": 24,
+    "evidence_maps": 144,
+    "stopping_neutral_denominators": 11,
+    "stopping_maps": 11
+  },
+  "boundary": {
+    "season": "20212022",
+    "game_id": "2021020156",
+    "source_index": 71,
+    "key": "2021020156:71",
+    "goalie_id": "8474682",
+    "physical_state": [
+      5,
+      5,
+      1,
+      1
+    ],
+    "outcome": "save",
+    "shot_type": "wrist",
+    "source_status": "included",
+    "base_status": "complete",
+    "paired": true,
+    "origin_cell": 575,
+    "on_net_probability": 0.13877890072804772,
+    "unblocked_probability": 0.09945037746410773,
+    "neutral_on_net_probability": 0.11383570162250674,
+    "stages": {
+      "miss": {
+        "response": 0,
+        "prediction": 0.28338978805581183,
+        "reason": null
+      },
+      "recorded_stop": {
+        "response": 0,
+        "prediction": 0.10758290207744228,
+        "reason": null
+      },
+      "conversion": {
+        "response": 0,
+        "prediction": 0.15550901148253288,
+        "reason": null
+      },
+      "reattempt": {
+        "response": 1,
+        "prediction": 0.1684494336360736,
+        "reason": null
+      },
+      "next_attempt_danger": {
+        "response": null,
+        "prediction": 0.08938844925877246,
+        "reason": "label_unavailable"
+      }
+    },
+    "continuation_probabilities": {
+      "actor": {
+        "h": 0.1824681389653748,
+        "d": 0.0957130083935384
+      },
+      "neutral_goalie": {
+        "h": 0.1684494336360736,
+        "d": 0.08938844925877246
+      }
+    },
+    "base_heads": {
+      "u": {
+        "included": true,
+        "target": 1.0,
+        "reasons": []
+      },
+      "q": {
+        "included": true,
+        "target": 1.0,
+        "reasons": []
+      },
+      "r": {
+        "included": true,
+        "target": 1.0,
+        "reasons": []
+      },
+      "g": {
+        "included": true,
+        "target": 0.0,
+        "reasons": []
+      }
+    },
+    "exclusions": []
+  },
+  "opened_members": {
+    "manifest.json": 1,
+    "goalie_result.jsonl": 1,
+    "people.jsonl": 1,
+    "event_values.jsonl": 1,
+    "goalie_observed.jsonl": 1,
+    "execution_breakdown.jsonl": 1,
+    "goalie_danger.jsonl": 1,
+    "goalie_evidence_map.jsonl": 1,
+    "projections.jsonl": 1,
+    "analysis_map.jsonl": 1
+  },
+  "member_prefix_bytes": {
+    "manifest.json": 346186,
+    "goalie_result.jsonl": 77198,
+    "people.jsonl": 3084,
+    "event_values.jsonl": 176470950,
+    "goalie_observed.jsonl": 5175700,
+    "execution_breakdown.jsonl": 85052,
+    "goalie_danger.jsonl": 71704,
+    "goalie_evidence_map.jsonl": 22335970,
+    "projections.jsonl": 84075,
+    "analysis_map.jsonl": 1096141
+  },
+  "member_prefix_rows": {
+    "goalie_result.jsonl": 12,
+    "people.jsonl": 1,
+    "event_values.jsonl": 149412,
+    "goalie_observed.jsonl": 13,
+    "execution_breakdown.jsonl": 100,
+    "goalie_danger.jsonl": 25,
+    "goalie_evidence_map.jsonl": 145,
+    "projections.jsonl": 12,
+    "analysis_map.jsonl": 12
+  },
+  "cost": {
+    "wall_seconds": 2.476925333030522,
+    "peak_memory_bytes": 93634560,
+    "peak_memory_unit": "darwin ru_maxrss bytes"
+  },
+  "limits": [
+    "one actual goalie arithmetic sample, not full strict artifact validation or scientific admission",
+    "event_values streamed once; no original/prepared/base/state/model-array reads",
+    "one person public table prefixes only; no full map-table materialization",
+    "shared physical-cell geometry reused solely for density area; transport not reimplemented",
+    "stopping headline formula cannot be reconstructed from focal prefixD, which includes qG; independent branch formula was already checked on the fixture",
+    "histogram bin masses are numerically densities per probability percentage point, not per unit probability"
+  ]
+}

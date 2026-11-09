@@ -1,0 +1,89 @@
+{
+  "status": "pr_merged_and_scoped_cleanup_complete",
+  "recorded_at": "2026-11-09T08:54:00.444899+00:00",
+  "user_assignment": "pr, merge, clean everything up",
+  "pull_request": {
+    "number": 60,
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/60",
+    "reviewed_head": "f5f4c0ae94d9304e23e677560f5287bc2b0d2393",
+    "base": "22af7dff91f024b94b459055dae24a7f13e8e729",
+    "merge_commit": "951cb2692dd36074ae1bf39a424e66f771974c72",
+    "merge_tree": "eea16f9bebb282cfa19818266cdba66abe80ff3a",
+    "exact_reviewed_tree": true,
+    "merged_at": "2026-11-09T08:46:18Z",
+    "security_check": {
+      "name": "GitGuardian Security Checks",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-09T08:45:33Z"
+    }
+  },
+  "preserved_commit_ancestry": [
+    "06df291",
+    "148d60f",
+    "f5f4c0ae94d9304e23e677560f5287bc2b0d2393"
+  ],
+  "primary_reconciliation": {
+    "captured_originals": 14,
+    "tracked_paths_restored_before_fast_forward": 11,
+    "captured_untracked_paths_consumed": 3,
+    "original_blob_source": "06df291",
+    "operation": "path-limited restore/unlink only after exact byte verification, then clean fast-forward; no hard reset, stash or broad clean",
+    "preflight": "receipts/source-delivery-preflight.json"
+  },
+  "cleanup": {
+    "kind": "v1_17_owned_worktree_cleanup",
+    "recorded_at": "2026-11-09T08:51:05.743812+00:00",
+    "removed_ignored_directories": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-17/app/node_modules",
+        "files": 10839,
+        "regular_file_bytes": 176527339
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-17/app/dist",
+        "files": 38,
+        "regular_file_bytes": 1327111
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-17/app/.react-router",
+        "files": 6,
+        "regular_file_bytes": 9753
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-17/analysis/src/hockey_stats/__pycache__",
+        "files": 27,
+        "regular_file_bytes": 1471420
+      }
+    ],
+    "removed_registered_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-17",
+    "preserved_source_alias": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-17",
+      "target": "/Users/nnandal/Documents/code/hockey-stats",
+      "scope": "tracked source/docs/fixtures only; no archived build, environment or temporary controller promise"
+    },
+    "local_branch_removed": "implement/v1-17-microstat-cards",
+    "remaining_worktrees": "worktree /Users/nnandal/Documents/code/hockey-stats\nHEAD 951cb2692dd36074ae1bf39a424e66f771974c72\nbranch refs/heads/main\n\nworktree /Users/nnandal/Documents/code/hockey-stats-v1-07\nHEAD e34e77900279e3324241dcac60e7b4d1518b6b6a\nbranch refs/heads/implement/v1-07-goalie-continuation\n\n",
+    "preservation": "all external expensive outputs/donor/fits, primary serving build/dependencies/databases and v1-07 worktree/jobs retained"
+  },
+  "remote_branch_removed": "implement/v1-17-microstat-cards",
+  "remote_absence_verified": true,
+  "post_cleanup_checks": {
+    "primary_pinned_typecheck": "receipts/primary-typecheck-after-cleanup.txt",
+    "source_import_through_alias": "receipts/source-import-after-cleanup.txt",
+    "source_and_serving_preservation": "receipts/source-delivery-preservation.json",
+    "production_files_equal_reviewed": 12,
+    "primary_serving_build_files_equal": 38,
+    "active_previous_database_stat_identity_equal": 2,
+    "port3000_pid": 9645
+  },
+  "retained_external_run": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01",
+  "retained_original_donor": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real",
+  "preservation": "all source evidence, expensive fits, corrected results/receipt/candidate, previous published database, primary serving assets/dependencies and v1-07 worktree/jobs retained; no activation",
+  "acceptance": {
+    "software": "accepted",
+    "available_field_real_integration": "accepted",
+    "whole_card_integration": "pending_v1_12_six_real_component_rows"
+  },
+  "remaining": "tracking unavailable, skating user-deferred; v1-12 component and v1-20 whole-product obligations unchanged"
+}

@@ -1,0 +1,376 @@
+{
+  "kind": "v1_17_source_delivery_preflight",
+  "recorded_at": "2026-11-09T08:48:15.092552+00:00",
+  "base": "22af7dff91f024b94b459055dae24a7f13e8e729",
+  "merge": "951cb2692dd36074ae1bf39a424e66f771974c72",
+  "reviewed_head": "f5f4c0ae94d9304e23e677560f5287bc2b0d2393",
+  "tree": "eea16f9bebb282cfa19818266cdba66abe80ff3a",
+  "primary_drafts": [
+    {
+      "path": "docs/architecture.md",
+      "sha256": "e17fe5d977c69862f32d16ce8d35a334a140edf0ced8dbc0e8c0a95bc50e72ab",
+      "primary_state": "tracked_modified",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/issues/microstat-inputs.md",
+      "sha256": "ebd19d1ab05893c0bdd28e8ec01bd45600fb007dd0a0b1d97739f3fc13c96849",
+      "primary_state": "tracked_modified",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/issues/microstat-reference-population.md",
+      "sha256": "c0ca8e0d0f9349d7dc3d05082c03646a8ad8214be586cc38929ecdcdba47ba56",
+      "primary_state": "untracked",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/model-features.md",
+      "sha256": "df91e138cb8bcff6770a3986a017fc36a6d4e8dd47a5e0a66f06e974a2489253",
+      "primary_state": "tracked_modified",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/plan.md",
+      "sha256": "07e79915f6f0308b88091fe2d7d58bac76cdca4f3e2b97bde1993be075394419",
+      "primary_state": "tracked_modified",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/product-inventory.md",
+      "sha256": "9d2b25665bd79e958663f42a8e04c6f6b8791b5d512c8bf81f3a168b8ba2602c",
+      "primary_state": "tracked_modified",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/research/council.md",
+      "sha256": "8cb828990408eb93994c5cac5c23d68941466361aa50e1ccdcedccc967ead8b1",
+      "primary_state": "tracked_modified",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "sha256": "444e6dd3753ae8f42daa254b17e0507b9121a1b2c6bdc71d1c2597d997da3bd7",
+      "primary_state": "tracked_modified",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/specs/experimental-application.md",
+      "sha256": "5a0c9f5702c8854a59050ec860e615828922a203f42c723aa4ebb81f3f6e4aac",
+      "primary_state": "tracked_modified",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/specs/experimental-card-facts.md",
+      "sha256": "1591165d8faa8e4f9bdeb8211d6bce88eba2d1b7bffb88e090d613fd170d98ee",
+      "primary_state": "tracked_modified",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/specs/experimental-chance.md",
+      "sha256": "c815ff042609c4d6dbed51bd009608e1729738328df4fb483a458dede96fca35",
+      "primary_state": "tracked_modified",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/specs/experimental-player-analysis.md",
+      "sha256": "db42e2f228e7daeb0c4dafa2c484a0f52f9878d04f6321444187a896760efddf",
+      "primary_state": "tracked_modified",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/specs/v1-07-goalie-continuation.md",
+      "sha256": "91e544bab9fcbf2e9ec62f0b0fcf40d73d3d940c03678e2b7404ed9761bfc4d7",
+      "primary_state": "untracked",
+      "preserved_in": "06df291"
+    },
+    {
+      "path": "docs/specs/v1-17-microstat-cards.md",
+      "sha256": "dd2806552c2fc6911dc7eb197f2f634e69ab7c1359dd99531a4104412298accd",
+      "primary_state": "untracked",
+      "preserved_in": "06df291"
+    }
+  ],
+  "serving_files": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/server/index.js",
+      "bytes": 147163,
+      "mtime_ns": 1793431027132909194,
+      "inode": 191938301,
+      "sha256": "fd24fc29b2ef2501cad088836c8b146abf6cdbefcd6bdeb7d8f4c5e19110e8fc"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/index.html",
+      "bytes": 2114,
+      "mtime_ns": 1793431028082194216,
+      "inode": 191938333,
+      "sha256": "a24a924e0be2b27e4f3b835fb0d0899787079b82dc2323b5a472b807531d8f7c"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/compare-client-loader-qd0jkNh_.js",
+      "bytes": 128,
+      "mtime_ns": 1793431026840567656,
+      "inode": 191938283,
+      "sha256": "351a60527471b241f9a0568c002a074c5bbb059f1830815b09659a12cf8a68f8"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/root-OsyQwkgO.js",
+      "bytes": 3627,
+      "mtime_ns": 1793431026842465429,
+      "inode": 191938290,
+      "sha256": "5fd2401c4b4dc92f4def0a3d2d07fdab01ed8cc9a0821a46bb5868599f9ee4d4"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/league-main-DnVjqvyt.js",
+      "bytes": 20300,
+      "mtime_ns": 1793431026842116758,
+      "inode": 191938287,
+      "sha256": "ffc2527f5689e79b979c6ce30282af9b669e6a68cb4b46013f21724443480552"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/peer-distributions-qO0Os7mj.js",
+      "bytes": 38493,
+      "mtime_ns": 1793431026843201521,
+      "inode": 191938295,
+      "sha256": "7d37afc1d0e23891a2a905405aaf089ad2d53c176a1c20d2e35c60f6b9043a7b"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/explorer-BwkgQfus.js",
+      "bytes": 258675,
+      "mtime_ns": 1793431026842869475,
+      "inode": 191938293,
+      "sha256": "a9cde0349e791880fd9100d7ccd9630140e34cc128da42f2284133852b7720d3"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/compare-main-VNo5gR4M.js",
+      "bytes": 15401,
+      "mtime_ns": 1793431026841015453,
+      "inode": 191938284,
+      "sha256": "3731e0cae377c6f9eac94c7000fa0ac47b41f7902452ad9a8ff9ace91ddf41c0"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/player-main-DBfKCNrk.js",
+      "bytes": 24360,
+      "mtime_ns": 1793431026842364094,
+      "inode": 191938289,
+      "sha256": "d164c711dc61b1234d70a8e929c6ac76f62025916e56def0b266158bc163b0d3"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/manifest-43be76d2.js",
+      "bytes": 2228,
+      "mtime_ns": 1793431027110635011,
+      "inode": 191938299,
+      "sha256": "3f3fa423e3cd98e319ada76afce09c96ef16785b00bea351127ddc206e464555"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/jsx-runtime-Bcb-PiJy.js",
+      "bytes": 121191,
+      "mtime_ns": 1793431026843071519,
+      "inode": 191938294,
+      "sha256": "124bc89765020c2632a94bba506ddbc28f0ad97a82a099ee96c4459d56a89f2e"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/league-client-loader-CQ7CpLfD.js",
+      "bytes": 128,
+      "mtime_ns": 1793431026841699170,
+      "inode": 191938286,
+      "sha256": "4d67bbc47b4038c51d700c1ed25b0c58b8920c9afb7e4a2ed502597abf097dd6"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/client-DrnbQfYM.js",
+      "bytes": 27289,
+      "mtime_ns": 1793431026842568347,
+      "inode": 191938291,
+      "sha256": "5d4dd83bcbb6a396ff13605618b23da143cafeaa44f60448333a6e3ff6f93848"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/player-client-loader-BgtgO6VN.js",
+      "bytes": 148,
+      "mtime_ns": 1793431026842245218,
+      "inode": 191938288,
+      "sha256": "c5188d578bfcda7d2d957c26d47b6269e65fbd65047cde1d729ca3e3d402ee8c"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/styles-DBcIPaN6.css",
+      "bytes": 22043,
+      "mtime_ns": 1793431026843340439,
+      "inode": 191938296,
+      "sha256": "fea30479c0ea968f6e80731df6dfc37ad69025f8ab08dde7e55026dcf4d94274"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/descriptive-card-CZP7SGDv.js",
+      "bytes": 59964,
+      "mtime_ns": 1793431026842687598,
+      "inode": 191938292,
+      "sha256": "d2448b1a409994e3b41f369d9d4adcc10f58fa6a801b17ce5bc4d3bb3bad0202"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/entry.client-CimxyNE3.js",
+      "bytes": 214675,
+      "mtime_ns": 1793431026841257414,
+      "inode": 191938285,
+      "sha256": "f123592f11d56cc3c499149ae7c2b8ef315cfbadf89ad6c66dd6a55ea1f22785"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/physical-schema.js",
+      "bytes": 31543,
+      "mtime_ns": 1793431029192318578,
+      "inode": 191938472,
+      "sha256": "f7aa360aeaab03cc2dafdbef6d79f48d057aa476bcb040401e6cab3153ffa4be"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/analysis-publication.js",
+      "bytes": 58397,
+      "mtime_ns": 1793431029194407228,
+      "inode": 191938473,
+      "sha256": "fd29eb2178ece0b14109821f884647a7b272eff158b0c445d1d08d3e84d9a0d1"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/deployment-publication.js",
+      "bytes": 3584,
+      "mtime_ns": 1793431029189798840,
+      "inode": 191938469,
+      "sha256": "d3f58438196d105b25c56fc124338f807426c09ad1c4f01e40fea590b29416b0"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/spatial-publication.js",
+      "bytes": 19687,
+      "mtime_ns": 1793431029194625272,
+      "inode": 191938474,
+      "sha256": "b68753a324582a6d3a7f6368ea47ebf3fb67f67a6187b01e842c8d183eb72e08"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/main.js",
+      "bytes": 8073,
+      "mtime_ns": 1793431029187111641,
+      "inode": 191938464,
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/sql-rows.js",
+      "bytes": 1531,
+      "mtime_ns": 1793431029187352560,
+      "inode": 191938454,
+      "sha256": "f81eb158c93737b2e1ace2aa476cfddcc3e3c1d3906c9da6cd2fcedba898aa0e"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/publication.js",
+      "bytes": 15445,
+      "mtime_ns": 1793431029195693785,
+      "inode": 191938475,
+      "sha256": "957d0706671eb0e3b42797084b94887230b61c7932313e46ae908d66819752e6"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/selected-publication.js",
+      "bytes": 17838,
+      "mtime_ns": 1793431029189713797,
+      "inode": 191938467,
+      "sha256": "c2a7b7f9951823062c16b0d893ad0803aecae3b0bc63d1490977e29acc8b6de3"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/observed-publication.js",
+      "bytes": 19960,
+      "mtime_ns": 1793431029186075837,
+      "inode": 191938462,
+      "sha256": "d9bba2571dac5840edc52602db83dbb6e1c0fccc2c9700a1b6f747fcee65b424"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/shared/observed.js",
+      "bytes": 14656,
+      "mtime_ns": 1793431029186016086,
+      "inode": 191938461,
+      "sha256": "240326632f648f4763858b59c4890076acc558fdec5ac2e4f6ddb95982a2bd71"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/shared/player-analysis-selections.js",
+      "bytes": 9121,
+      "mtime_ns": 1793431029189123290,
+      "inode": 191938466,
+      "sha256": "6b047294b1ae38aeab56f4f1b23cb5d6bc56f8664b35382b1346906992e73a71"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/shared/player-analysis.js",
+      "bytes": 99386,
+      "mtime_ns": 1793431029201127683,
+      "inode": 191938476,
+      "sha256": "02f35c055e7b51c08e7661b37a7163ab9b4b295af0b04a887c97a9a84ffb2e0d"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/shared/publication.js",
+      "bytes": 3015,
+      "mtime_ns": 1793431029184944740,
+      "inode": 191938458,
+      "sha256": "8741b38b41627e62b66fad77db6ff9e74edd3416b1e69ff7009c62d198abbfcd"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/publication-cli.js",
+      "bytes": 5132,
+      "mtime_ns": 1793431029192270077,
+      "inode": 191938471,
+      "sha256": "e655d6633d081f8b83133b779c2850434b3c1e9a65dcaaae29662d7f3f18d7b2"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/skating-cli.js",
+      "bytes": 3202,
+      "mtime_ns": 1793431029189692213,
+      "inode": 191938468,
+      "sha256": "99c4b7725ef8168b684262f25dc41659fb34353b51b95e4fdd9a3d97f906e8b4"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/capture-season-cli.js",
+      "bytes": 1981,
+      "mtime_ns": 1793431029188148153,
+      "inode": 191938465,
+      "sha256": "2f4f4446819741dd2fe71d3ba763f896036b2b24bf12d3aaa114c020ac575c72"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/capture-report.js",
+      "bytes": 2610,
+      "mtime_ns": 1793431029186110462,
+      "inode": 191938463,
+      "sha256": "dfcb57ef79e1208fb4e2edcdd9967882a37fa045547e410829e25e74ffe2eb95"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/cli.js",
+      "bytes": 2047,
+      "mtime_ns": 1793431029184285440,
+      "inode": 191938456,
+      "sha256": "937cdd5e2fbb7ac830c8e5cc0f96e3e1f1dd0442f58428547f226ffd63b06146"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/capture.js",
+      "bytes": 6014,
+      "mtime_ns": 1793431029185117492,
+      "inode": 191938459,
+      "sha256": "552447959a0da4d19bea4d40cbd9faa7e7425c24b186537742fb8e69a5e52159"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/capture-season.js",
+      "bytes": 1333,
+      "mtime_ns": 1793431029185480121,
+      "inode": 191938460,
+      "sha256": "63c86edf02296351410f5e1d21cd5016ecadf3428d38a9a3411b2b8a25318392"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/skating-capture.js",
+      "bytes": 1933,
+      "mtime_ns": 1793431029190912978,
+      "inode": 191938470,
+      "sha256": "6298efd247cc3823f6d5b544198a82a3f0fa4ff13cf9b5c55f7b6ea64cc6a15d"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/previous.sqlite",
+      "bytes": 4635877376,
+      "mtime_ns": 1793080727502487829,
+      "inode": 173454037
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite",
+      "bytes": 11310997504,
+      "mtime_ns": 1793431198154070471,
+      "inode": 191950541
+    }
+  ],
+  "port3000_listener": "COMMAND  PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    9645 nnandal   15u  IPv4 0xc2742b6b63798716      0t0  TCP 127.0.0.1:3000 (LISTEN)\n",
+  "policy": "consume only byte-verified captured drafts after their exact originals become retained merge ancestors; no reset, clean, stash, primary build or data rotation"
+}

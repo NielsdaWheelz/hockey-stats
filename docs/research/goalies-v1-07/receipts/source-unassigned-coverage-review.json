@@ -42,7 +42,9 @@
     "known_public_game_records_unchanged": true,
     "python_public_summary_schema_passes": true,
     "detached_actual_evidence_checker_rejects_erased_gap": true,
-    "exact_private_potential_game_locators_saved": true
+    "exact_private_potential_game_locators_saved": true,
+    "explicit_unknown_dated_team_does_not_become_annual_team_assignment": true,
+    "unknown_dated_team_keeps_known_listed_report_without_new_game_or_team_usage_row": true
   },
   "execution": {
     "heavy_commands": 0,

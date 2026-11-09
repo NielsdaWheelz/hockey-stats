@@ -194,7 +194,7 @@ def _base_actor_evidence(state, player, event_values):
 
 
 def _panel_continuation(state, panel, predictors):
-    from .execution_design import predictor_matrix
+    from .goalie import goalie_reference_logits
     offsets = panel.arrays['event_offsets']
     length = len(panel.arrays['origin_cells'])
     result = {head:np.empty(length) if state.heads[head]['status'] == 'complete' else None for head in HEADS}
@@ -202,14 +202,11 @@ def _panel_continuation(state, panel, predictors):
         end = min(length,start+65536)
         indices = np.searchsorted(offsets,np.arange(start,end),side='right')-1
         rows = [predictors[panel.events[index]['key']] for index in indices]
+        evaluated=goalie_reference_logits(state,rows,panel.arrays['origin_cells'][start:end])
         for head in HEADS:
-            if result[head] is None:
-                continue
-            metadata = state.heads[head]
-            coefficients = state.arrays[head]['coefficients'].copy()
-            for actor in metadata['actors']:
-                coefficients[actor['index']] = metadata['centers'][actor['block']]['value']
-            result[head][start:end] = np.asarray(predictor_matrix(metadata['design'],rows,panel.arrays['origin_cells'][start:end]) @ coefficients).ravel()
+            if result[head] is not None:
+                require(evaluated[head] is not None,'completed goalie head lacks neutral panel evaluation')
+                result[head][start:end]=evaluated[head]
     return result
 
 
@@ -919,6 +916,7 @@ class GoalieScores:
     numerical_sensitivity: dict
 
     def rows(self,table):
+        """yield contiguous ascending person groups; selectors retain their declared native order."""
         require(table in PUBLIC_TABLES,'unknown goalie score table')
         return _jsonl(self.path.parent/(table+'.jsonl'))
 
@@ -1316,7 +1314,10 @@ def _validate_scores(path,manifest,expected_purpose):
     method='goalie-v1-07-'+manifest['season'];source=dict(kind='source',id='goalie-source-v1-07-'+manifest['season'])
     require(method in lookups['method'] and source['id'] in lookups['source'],'goalie fixed method/source identities absent')
     for table in PUBLIC_TABLES:
+        previous_player=None
         for row in _jsonl(root/(table+'.jsonl')):
+            require(previous_player is None or previous_player<=row['player_id'],'goalie score person groups are not ascending/contiguous')
+            previous_player=row['player_id']
             public.validate_row(table,row,'goalie',lookups,person_keys)
             require(row['season']==manifest['season'] and row['result']['availability']=='provided','goalie score row must be provided in its annual scope')
             key=tuple(row[field] for field in KEYS[table]);require(key not in seen[table],'duplicate goalie public selector');seen[table].add(key);counts[table]+=1

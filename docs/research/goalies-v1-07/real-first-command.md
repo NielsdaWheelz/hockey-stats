@@ -18,7 +18,7 @@ all paths below are relative to `/Volumes/Expansion/hockey-stats`. these expecte
 
 local environment inspected at `2026-11-09T04:52:11Z`: analysis tree `a727a28b49624f41c70ed26fa0dc6abe6a430bc3`, clean analysis subtree, python `3.14.8`/arm64, numpy `2.5.3`, scipy `1.18.1`. lockfile sha256 `bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd`; goalie recipe sha256 `cd57b284183962a5795f0c1b2c15065881be3531a4de46b70a20e163907a97c6`.
 
-numpy reports `accelerate` for blas/lapack, backend version unknown. `OPENBLAS_NUM_THREADS`, `OMP_NUM_THREADS`, `MKL_NUM_THREADS`, `VECLIB_MAXIMUM_THREADS`, `NUMEXPR_NUM_THREADS` and `BLIS_NUM_THREADS` were unset. retain the existing environment and record those values at launch. thread count remains backend-managed and unmeasured; no dependency synchronization, backend change or thread tuning belongs to this command.
+numpy reports `accelerate` and scipy reports `Accelerate` for blas/lapack; both backend versions are unknown. `OPENBLAS_NUM_THREADS`, `OMP_NUM_THREADS`, `MKL_NUM_THREADS`, `VECLIB_MAXIMUM_THREADS`, `NUMEXPR_NUM_THREADS` and `BLIS_NUM_THREADS` were unset. retain the existing environment and record those values at launch. thread count remains backend-managed and unmeasured; no dependency synchronization, backend change or thread tuning belongs to this command.
 
 ## release-time preflight
 

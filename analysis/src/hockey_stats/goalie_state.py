@@ -9,7 +9,7 @@ from pathlib import Path
 
 import numpy as np
 
-from .artifacts import digest, require, write_arrays, write_json
+from .artifacts import clean_implementation, digest, require, write_arrays, write_json
 from .captures import InputContractError
 from .chance_cli import identity, read_json
 from .execution_state import (_closed, _finite, _reference, _member, _season, _design,
@@ -208,6 +208,8 @@ def _manifest(value,purpose):
             and all(type(producer[k]) is str and producer[k] for k in ('python_version','numpy_version','scipy_version')),
             'invalid goalie implementation identity')
     digest(producer['lockfile_sha256'])
+    if purpose=='real':
+        clean_implementation(producer)
     costs=value['resources']; _closed(costs,RESOURCE_KEYS,'goalie resources')
     for key in ('wall_seconds','design_wall_seconds','input_read_wall_seconds'):
         _nonnegative(costs[key],key)

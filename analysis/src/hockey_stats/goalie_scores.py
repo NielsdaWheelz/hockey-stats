@@ -70,68 +70,6 @@ def _restore_logs(values):
     return np.array([-np.inf if value is None else value for value in values])
 
 
-def reference_masses(upstream, goal, setup_weights, origin_weights, continuation, effects):
-    """integrate identical origin × setup branches, preserving logs below float underflow.
-
-    effects are the focal goalie's centered residuals; unavailable heads use none.
-    continuation carries neutral h/d logits. prefix and continuation sums are unnormalized.
-    """
-    upstream = np.asarray(upstream, dtype=np.float64)
-    goal = np.asarray(goal, dtype=np.float64)
-    setup = np.asarray(setup_weights, dtype=np.float64)
-    weights = np.asarray(origin_weights, dtype=np.float64)
-    n = len(weights)
-    require(upstream.shape == (n,3) and goal.shape == setup.shape == (n,2)
-            and np.isfinite(upstream).all() and np.isfinite(goal).all()
-            and np.isfinite(setup).all() and np.all(setup > 0)
-            and np.allclose(setup.sum(axis=1),1,rtol=0,atol=1e-15)
-            and weights.shape == (n,) and np.isfinite(weights).all() and np.all(weights >= 0),
-            'invalid goalie reference branches')
-    require(set(effects) == {'q','r','g','h','d'} and set(continuation) == set(HEADS), 'goalie head axes differ')
-    for head, values in continuation.items():
-        require(values is None or np.shape(values) == (n,) and np.isfinite(values).all(), head+': invalid neutral logits')
-    with np.errstate(divide='ignore'):
-        logs = np.log(weights)
-    neutral_upstream = log_expit(upstream)
-    neutral_goal = log_expit(goal)
-    focal_upstream = upstream.copy()
-    for index, head in ((1,'q'),(2,'r')):
-        if effects[head] is not None:
-            focal_upstream[:,index] += effects[head]
-    focal_goal = goal + (effects['g'] or 0.)
-    prefix = {}
-    for name, first, last in (('neutral',neutral_upstream,neutral_goal),
-                              ('focal',log_expit(focal_upstream),log_expit(focal_goal))):
-        cumulative = np.cumsum(first,axis=1)
-        prefix[name] = np.array([*(_log_sum(logs+cumulative[:,i]) for i in range(3)),
-                                _log_sum(logs+cumulative[:,2]+logsumexp(np.log(setup)+last,axis=1))])
-    # 1-r*g = (1-r) + r*(1-g). this remains positive when expit(r) rounds to one.
-    saved = logs+neutral_upstream[:,0]+neutral_upstream[:,1]+logsumexp(
-        np.log(setup)+np.logaddexp(log_expit(-upstream[:,2,None]),
-                                  neutral_upstream[:,2,None]+log_expit(-goal)),axis=1)
-    continuation_mass = {}
-    for name in ('neutral','focal'):
-        h = continuation['h']
-        d = continuation['d']
-        h = None if h is None or name == 'focal' and effects['h'] is None else log_expit(h+(effects['h'] if name == 'focal' else 0.))
-        d = None if d is None or name == 'focal' and effects['d'] is None else log_expit(d+(effects['d'] if name == 'focal' else 0.))
-        continuation_mass[name] = np.array([_log_sum(saved), -np.inf if h is None else _log_sum(saved+h),
-                                           -np.inf if h is None or d is None else _log_sum(saved+h+d)])
-    # signed per-origin stopping numerator. cancellation is taken before integration.
-    neutral_rg = neutral_upstream[:,2,None]+neutral_goal
-    focal_rg = log_expit(focal_upstream[:,2,None])+log_expit(focal_goal)
-    high = np.maximum(neutral_rg,focal_rg)
-    delta = np.exp(high)*(-np.expm1(np.minimum(neutral_rg,focal_rg)-high))
-    delta *= np.sign(neutral_rg-focal_rg)
-    delta = np.sum(setup*delta,axis=1)
-    log_base = logs+neutral_upstream[:,0]+neutral_upstream[:,1]
-    positive = np.where(delta > 0, delta, 0.)
-    negative = np.where(delta < 0, -delta, 0.)
-    with np.errstate(divide='ignore'):
-        stopping = (log_base+np.log(positive),log_base+np.log(negative))
-    return dict(prefixes=prefix,continuation=continuation_mass,stopping=stopping)
-
-
 def _continuation_levels(logs):
     w,h,hd=logs
     return dict(recorded_reattempt_probability=_ratio(h,w),
@@ -214,23 +152,96 @@ def _panel_continuation(state, panel, predictors):
     return result
 
 
-def _projection_log_masses(panel, continuation, effects):
+def _panel_projections(panel, continuation, effects_by_player):
+    """reduce one panel in origin order; retain only each goalie's scalar/cell sums.
+
+    continuation contains the panel's fully neutral h/d logits. effects_by_player maps
+    goalie ids to centered q/r/g/h/d residuals; unavailable residuals remain none.
+    """
+    if not effects_by_player:
+        return {}
+    require(set(continuation) == set(HEADS), 'goalie head axes differ')
+    for effects in effects_by_player.values():
+        require(set(effects) == {'q','r','g','h','d'}, 'goalie head axes differ')
+    totals = {player:dict(prefixes={'focal':np.full(4,-np.inf)},
+        continuation={'focal':np.full(3,-np.inf)},positive=np.full(656,-np.inf),negative=np.full(656,-np.inf))
+        for player in effects_by_player}
+    neutral_prefix = np.full(4,-np.inf)
+    neutral_continuation = np.full(3,-np.inf)
     arrays = panel.arrays
     length = len(arrays['origin_cells'])
-    totals = dict(prefixes={name:np.full(4,-np.inf) for name in ('neutral','focal')},
-                  continuation={name:np.full(3,-np.inf) for name in ('neutral','focal')},
-                  positive=np.full(656,-np.inf),negative=np.full(656,-np.inf))
     for start in range(0,length,65536):
         end = min(length,start+65536)
         event = np.searchsorted(arrays['event_offsets'],np.arange(start,end),side='right')-1
-        reduced = reference_masses(arrays['neutral_upstream_logits'][start:end],arrays['neutral_goal_logits'][start:end],
-            arrays['setup_weights'][event],arrays['origin_weights'][start:end],
-            {head:None if continuation[head] is None else continuation[head][start:end] for head in HEADS},effects)
-        for group in ('prefixes','continuation'):
-            for name in ('neutral','focal'):
-                totals[group][name] = np.logaddexp(totals[group][name],reduced[group][name])
-        for name,values in zip(('positive','negative'),reduced['stopping'],strict=True):
-            np.logaddexp.at(totals[name],arrays['origin_cells'][start:end],values)
+        upstream = np.asarray(arrays['neutral_upstream_logits'][start:end],dtype=np.float64)
+        goal = np.asarray(arrays['neutral_goal_logits'][start:end],dtype=np.float64)
+        setup = np.asarray(arrays['setup_weights'][event],dtype=np.float64)
+        weights = np.asarray(arrays['origin_weights'][start:end],dtype=np.float64)
+        n = len(weights)
+        require(upstream.shape == (n,3) and goal.shape == setup.shape == (n,2)
+                and np.isfinite(upstream).all() and np.isfinite(goal).all()
+                and np.isfinite(setup).all() and np.all(setup > 0)
+                and np.allclose(setup.sum(axis=1),1,rtol=0,atol=1e-15)
+                and weights.shape == (n,) and np.isfinite(weights).all() and np.all(weights >= 0),
+                'invalid goalie reference branches')
+        logits = {head:None if values is None else values[start:end] for head,values in continuation.items()}
+        for head,values in logits.items():
+            require(values is None or np.shape(values) == (n,) and np.isfinite(values).all(), head+': invalid neutral logits')
+        with np.errstate(divide='ignore'):
+            logs = np.log(weights)
+        log_setup = np.log(setup)
+        neutral_upstream = log_expit(upstream)
+        neutral_goal = log_expit(goal)
+        cumulative = np.cumsum(neutral_upstream,axis=1)
+        prefix = np.array([*(_log_sum(logs+cumulative[:,i]) for i in range(3)),
+                           _log_sum(logs+cumulative[:,2]+logsumexp(log_setup+neutral_goal,axis=1))])
+        neutral_prefix = np.logaddexp(neutral_prefix,prefix)
+        # fixed saved-shot reference; independent of the focal goalie.
+        saved = logs+neutral_upstream[:,0]+neutral_upstream[:,1]+logsumexp(
+            log_setup+np.logaddexp(log_expit(-upstream[:,2,None]),
+                                  neutral_upstream[:,2,None]+log_expit(-goal)),axis=1)
+        w = _log_sum(saved)
+        h = None if logits['h'] is None else log_expit(logits['h']+0.)
+        d = None if logits['d'] is None else log_expit(logits['d']+0.)
+        mass = np.array([w,-np.inf if h is None else _log_sum(saved+h),
+                         -np.inf if h is None or d is None else _log_sum(saved+h+d)])
+        neutral_continuation = np.logaddexp(neutral_continuation,mass)
+        neutral_rg = neutral_upstream[:,2,None]+neutral_goal
+        log_base = logs+neutral_upstream[:,0]+neutral_upstream[:,1]
+        for player,effects in effects_by_player.items():
+            focal_upstream = upstream.copy()
+            for index,head in ((1,'q'),(2,'r')):
+                if effects[head] is not None:
+                    focal_upstream[:,index] += effects[head]
+            focal_goal = goal+(effects['g'] or 0.)
+            focal_upstream_logs = log_expit(focal_upstream)
+            focal_goal_logs = log_expit(focal_goal)
+            cumulative = np.cumsum(focal_upstream_logs,axis=1)
+            prefix = np.array([*(_log_sum(logs+cumulative[:,i]) for i in range(3)),
+                               _log_sum(logs+cumulative[:,2]+logsumexp(log_setup+focal_goal_logs,axis=1))])
+            own = totals[player]
+            own['prefixes']['focal'] = np.logaddexp(own['prefixes']['focal'],prefix)
+            h = None if logits['h'] is None or effects['h'] is None else log_expit(logits['h']+effects['h'])
+            d = None if logits['d'] is None or effects['d'] is None else log_expit(logits['d']+effects['d'])
+            mass = np.array([w,-np.inf if h is None else _log_sum(saved+h),
+                             -np.inf if h is None or d is None else _log_sum(saved+h+d)])
+            own['continuation']['focal'] = np.logaddexp(own['continuation']['focal'],mass)
+            # cancellation precedes setup/origin integration; focal q stays excluded.
+            focal_rg = log_expit(focal_upstream[:,2,None])+focal_goal_logs
+            high = np.maximum(neutral_rg,focal_rg)
+            delta = np.exp(high)*(-np.expm1(np.minimum(neutral_rg,focal_rg)-high))
+            delta *= np.sign(neutral_rg-focal_rg)
+            delta = np.sum(setup*delta,axis=1)
+            positive = np.where(delta > 0,delta,0.)
+            negative = np.where(delta < 0,-delta,0.)
+            with np.errstate(divide='ignore'):
+                stopping = log_base+np.log(positive),log_base+np.log(negative)
+            for name,values in zip(('positive','negative'),stopping,strict=True):
+                np.logaddexp.at(own[name],arrays['origin_cells'][start:end],values)
+    # these common arrays are complete; pooling reads them without mutation.
+    for own in totals.values():
+        own['prefixes']['neutral'] = neutral_prefix
+        own['continuation']['neutral'] = neutral_continuation
     return totals
 
 
@@ -475,20 +486,20 @@ def _usage_rows(goalies, method, source, unassigned, unassigned_by_team, *, team
     return value
 
 
-def _summary_evidence(events, league_events, source, method, *, missing=False, gap=False, reasons=()):
+def _summary_evidence(events, league, source, method, *, missing=False, gap=False, reasons=()):
     state_groups = defaultdict(list)
     for row in events:
         if row['source_status'] == 'included' and row['physical_state'] is not None:
             state_groups[tuple(row['physical_state'])].append(row)
     result = dict(source_counts=_source_counts(events,source,method,unavailable=missing,gap=gap,reasons=reasons),
-        on_net_evidence=_paired_evidence(events,_totals(league_events,'on_net'),'on_net',method),
-        unblocked_evidence=_paired_evidence(events,_totals(league_events,'unblocked'),'unblocked',method),
+        on_net_evidence=_paired_evidence(events,league['populations']['on_net'],'on_net',method),
+        unblocked_evidence=_paired_evidence(events,league['populations']['unblocked'],'unblocked',method),
         stage_evidence=_stage_evidence(events),actual_states=[],provenance=source)
     for state, rows in sorted(state_groups.items()):
-        league = [row for row in league_events if row['physical_state'] == list(state)]
+        reference = league['states'][state]
         result['actual_states'].append(dict(state=_actual_state(state),source_counts=_source_counts(rows,source,method,gap=gap,reasons=reasons),
-            on_net_evidence=_paired_evidence(rows,_totals(league,'on_net'),'on_net',method),
-            unblocked_evidence=_paired_evidence(rows,_totals(league,'unblocked'),'unblocked',method),stage_evidence=_stage_evidence(rows)))
+            on_net_evidence=_paired_evidence(rows,reference['on_net'],'on_net',method),
+            unblocked_evidence=_paired_evidence(rows,reference['unblocked'],'unblocked',method),stage_evidence=_stage_evidence(rows)))
     return result
 
 
@@ -522,6 +533,25 @@ def _type_selected(event, shot_type):
     return shot_type == 'all' or event['shot_type'] in (('wrist','snap') if shot_type == 'wrist_snap' else (shot_type,))
 
 
+def _league_references(events):
+    """reduce ordered annual events once per strength/state/type/population reference."""
+    result = {}
+    for strength in (*GOALIE_STRENGTHS,'covered_all'):
+        selected = [row for row in events if state_selected(row['physical_state'],strength)]
+        states = defaultdict(list)
+        for row in selected:
+            states[tuple(row['physical_state'])].append(row)
+        populations = {population:_totals(selected,population) for population in POPULATIONS}
+        types = {'all':populations}
+        for shot_type in GROUPED_TYPES[1:]:
+            rows = [row for row in selected if _type_selected(row,shot_type)]
+            types[shot_type] = {population:_totals(rows,population) for population in POPULATIONS}
+        result[strength] = dict(populations=populations,
+            states={state:{population:_totals(rows,population) for population in POPULATIONS}
+                    for state,rows in states.items()},types=types)
+    return result
+
+
 def _mass_states(events,population):
     grouped = defaultdict(list)
     for row in _paired_rows(events,population):
@@ -529,7 +559,7 @@ def _mass_states(events,population):
     return [dict(state=_actual_state(state),**_totals(rows,population),support=_support(len(rows),inferred=['setter'])) for state,rows in sorted(grouped.items())]
 
 
-def _evidence_map(events,league,population,method):
+def _evidence_map(events,league_totals,population,method):
     from .observed_spatial import cells as geometry
     selected = _paired_rows(events,population)
     native = np.zeros((656,3));unmapped = np.zeros(3)
@@ -540,7 +570,6 @@ def _evidence_map(events,league,population,method):
         else:
             native[row['origin_cell']] += mass
     totals = _totals(events,population)
-    league_totals = _totals(league,population)
     display = np.column_stack([native_display_mass(native[:,index]) for index in range(3)]) if selected else np.zeros((668,3))
     result = dict(native_cells=[dict(cell_id=index,goals=int(mass[0]),expected_goals=float(mass[1]),attempts=int(mass[2]))
                                 for index,mass in enumerate(native)],
@@ -604,20 +633,19 @@ def _observed_summary(strength,events,league,coverage,source,method):
     return data
 
 
-def _observed_rows(year,person,events,all_events,source_games,source,method):
+def _observed_rows(year,person,events,league_references,source_games,source,method):
     from .descriptive import goalie_source_coverage
     player=person['player_id']
     coverage=goalie_source_coverage(person,source_games)
     for strength in (*GOALIE_STRENGTHS,'covered_all'):
         selected=[row for row in events if state_selected(row['physical_state'],strength)]
-        league=[row for row in all_events if state_selected(row['physical_state'],strength)]
+        league=league_references[strength]
         yield 'goalie_observed',_row(year,player,_observed_summary(strength,selected,league,coverage,source,method),strength=strength)
         for population in POPULATIONS:
             yield 'goalie_danger',_row(year,player,_danger_histogram(selected,population,method),strength=strength,population=population)
             for shot_type in GROUPED_TYPES:
                 own_type=[row for row in selected if _type_selected(row,shot_type)]
-                league_type=[row for row in league if _type_selected(row,shot_type)]
-                yield 'goalie_evidence_map',_row(year,player,_evidence_map(own_type,league_type,population,method),
+                yield 'goalie_evidence_map',_row(year,player,_evidence_map(own_type,league['types'][shot_type][population],population,method),
                     strength=strength,population=population,type=shot_type)
         if strength!='covered_all':
             for kind,axis in (('shot_type',TYPES),('danger',DANGER)):
@@ -652,8 +680,9 @@ def _project_variants(design, states, base_state, base_scores, people, participa
                     'replayed panel predictor key/state/type/tip differs')
         for name,state in states.items():
             continuation = _panel_continuation(state,panel,predictors)
-            for player in players:
-                pieces[name][player][strength] = _projection_log_masses(panel,continuation,evidence[name,player][2])
+            effects = {player:evidence[name,player][2] for player in players}
+            for player,piece in _panel_projections(panel,continuation,effects).items():
+                pieces[name][player][strength] = piece
     for name in states:
         for player in players:
             for strength in GOALIE_STRENGTHS:
@@ -970,9 +999,10 @@ def score_goalie(state, prepared, coaches, annual_execution_scores, output):
             if row['goalie_id'] is not None:
                 by_player[row['goalie_id']].append(row)
         source_ref=dict(kind='source',id=source['sources'][0]['source_id'])
+        league_references=_league_references(events)
         for person in source['people']:
             player=person['player_id']
-            for table,row in _observed_rows(design.season,person,by_player[player],events,design.source_games,source_ref,method):
+            for table,row in _observed_rows(design.season,person,by_player[player],league_references,design.source_games,source_ref,method):
                 handles[table].write(_line(row));counts[table]+=1
     projection_seconds=perf_counter()-projection_started
     sensitivity_started=perf_counter()
@@ -1411,7 +1441,6 @@ def _check_actual_evidence(table,row,selected,league,source_coverage,method,sour
         population=row['population']
         if table=='goalie_evidence_map':
             selected=[event for event in selected if _type_selected(event,row['type'])]
-            league=[event for event in league if _type_selected(event,row['type'])]
         require(data['totals']==_totals(selected,population) and data['actual_states']==_mass_states(selected,population),
                 'goalie distribution totals differ from keyed matched attempts')
         if table=='goalie_danger':
@@ -1425,7 +1454,7 @@ def _check_actual_evidence(table,row,selected,league,source_coverage,method,sour
             for index,item in enumerate(data['native_cells']):
                 require([item[key] for key in ('goals','expected_goals','attempts')]==list(native[index]),'goalie native evidence deposit differs')
             require([data['unmapped'][key] for key in ('goals','expected_goals','attempts')]==list(unmapped),'goalie unmapped evidence differs')
-            totals=_totals(league,population)
+            totals=league['types'][row['type']][population]
             require(data['league_goals']==totals['goals'] and data['league_expected_goals']==totals['expected_goals'],'goalie matched type/population league differs')
         return
     if table!='goalie_observed':return
@@ -1498,13 +1527,12 @@ def _validate_scores(path,manifest,expected_purpose):
     require(set(projections)=={(player,strength) for player in people for strength in GOALIE_STRENGTHS},'goalie projection matrix incomplete')
     sensitivity=read_json(root/'sensitivity.json');_validate_sensitivity(sensitivity,manifest,people,projections,_stage_summaries(list(events.values())),list(targets.values()))
     _finite(sensitivity,'goalie sensitivity')
-    by_selector=defaultdict(list);league_by_strength=defaultdict(list)
+    league_references=_league_references(events.values())
+    by_selector=defaultdict(list)
     for row in events.values():
         for strength in (*GOALIE_STRENGTHS,'covered_all'):
-            if state_selected(row['physical_state'],strength):
-                league_by_strength[strength].append(row)
-                if row['goalie_id'] is not None:
-                    by_selector[row['goalie_id'],strength].append(row)
+            if row['goalie_id'] is not None and state_selected(row['physical_state'],strength):
+                by_selector[row['goalie_id'],strength].append(row)
     source_coverage={player:goalie_source_coverage(person,source_games) for player,person in people.items()}
     counts=Counter();seen=defaultdict(set)
     method='goalie-v1-07-'+manifest['season'];source=dict(kind='source',id='goalie-source-v1-07-'+manifest['season'])
@@ -1525,7 +1553,7 @@ def _validate_scores(path,manifest,expected_purpose):
                 require(row['result']['data']['integrated_value']==projections[row['player_id'],row['strength']]['values']['stopping_goals_per100_on_net'],
                         'goalie map scalar differs from saved projection')
             else:
-                _check_actual_evidence(table,row,by_selector[row['player_id'],row['strength']],league_by_strength[row['strength']],source_coverage[row['player_id']],method,source)
+                _check_actual_evidence(table,row,by_selector[row['player_id'],row['strength']],league_references[row['strength']],source_coverage[row['player_id']],method,source)
         expected={tuple([manifest['season'],player,*selectors]) for player in people for selectors in public.required_keys(table,'goalie')}
         require(seen[table]==expected,'goalie public required selector matrix incomplete: '+table)
     coverage=read_json(root/'coverage.json')

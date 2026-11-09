@@ -1,0 +1,37 @@
+{
+  "kind": "main-source-integration",
+  "status": "source_checks_passed_live_acceptance_pending",
+  "merge_commit": "30cad7df94678a533f189032a0141d96dfdc1881",
+  "incoming_commit": "08b5294c60d41d665d71cece47ed48813449786c",
+  "analysis_tree_at_merge": "d072db603bc719af9ac8de4a6027fb326c4cbd25",
+  "app_tree": "a241a2eed1f6fa5880278e4c61dc390e08b46bdb",
+  "producer_ancestors": [
+    "e0dae525abc8d25acbadbb5246b9fd88d57179bb",
+    "e34e77900279e3324241dcac60e7b4d1518b6b6a"
+  ],
+  "history_rewritten": false,
+  "checks": {
+    "node_version": "24.21.0",
+    "typecheck_exit": 0,
+    "production_build_exit": 0,
+    "document_local_links": 576,
+    "conflict_markers": 0,
+    "numerical_tree_exact": true,
+    "raw_v1_17_receipts_exact_to_main": true
+  },
+  "react_review": {
+    "status": "no_static_findings",
+    "scope": [
+      "goalie view forced to observed before metric/request selection",
+      "skater-only microstat cohort and rendering",
+      "stable unconditional hooks, item keys and accessible controls",
+      "snapshot-based export handler and parallel abortable cohort reads",
+      "no new frontend dependency"
+    ]
+  },
+  "limits": [
+    "no candidate or live API/browser/export acceptance claimed",
+    "csv carriage returns and frozen log endings preserved exactly; source/prose whitespace checked separately",
+    "later Python reduction refactors do not alter this merged app tree"
+  ]
+}

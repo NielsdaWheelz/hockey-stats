@@ -1,6 +1,7 @@
 """annual execution likelihoods, native penalties and deterministic setter em."""
 
 from fractions import Fraction
+from math import fsum
 from time import perf_counter
 
 import numpy as np
@@ -151,6 +152,7 @@ def objective(beta, design, actors, responsibilities=None, *, addends=None):
             addends = []
         first_addend = len(addends)
     value, gradient = penalty(beta, design, actors, addends=addends)
+    fractional_terms = [value] if design.get("target_kind") == "fractional" else None
     physical_residual = np.zeros(len(design["target"]))
     for number, (batch, logits) in enumerate(_logit_batches(beta, design)):
         if design["head"] == "g":
@@ -164,7 +166,13 @@ def objective(beta, design, actors, responsibilities=None, *, addends=None):
             gradient += partial
         else:
             targets = design["target"][batch["row"]]
-            term = np.dot(batch["weight"], log_expit((2*targets-1)*logits))
+            if design.get("target_kind") == "fractional":
+                terms = batch["weight"] * (-targets * log_expit(logits)
+                                            - (1-targets) * log_expit(-logits))
+                term = -fsum(terms)
+                fractional_terms.append(-term)
+            else:
+                term = np.dot(batch["weight"], log_expit((2*targets-1)*logits))
             value -= term
             if addends is not None:
                 addends.append(float(-term))
@@ -172,6 +180,8 @@ def objective(beta, design, actors, responsibilities=None, *, addends=None):
         gradient += np.asarray(batch["dynamic_matrix"].T @ residual).ravel()
         np.add.at(physical_residual, batch["row"], residual)
     gradient += np.asarray(design["fixed_matrix"].T @ physical_residual).ravel()
+    if fractional_terms is not None:
+        value = fsum(fractional_terms)
     if design["head"] == "u":
         value = float(sum((Fraction.from_float(term) for term in addends[first_addend:]), Fraction()))
     return float(value), gradient
@@ -207,21 +217,26 @@ def head_diagnostics(beta, design):
         else:
             logits = base_logits
             predicted = expit(logits)
-            log_likelihood = log_expit((2*target[batch["row"]]-1)*logits)
+            if design.get("target_kind") == "fractional":
+                y = target[batch["row"]]
+                log_likelihood = y*log_expit(logits) + (1-y)*log_expit(-logits)
+            else:
+                log_likelihood = log_expit((2*target[batch["row"]]-1)*logits)
             outcome_log_likelihood = log_likelihood
         likelihood_loss -= float(np.dot(batch["weight"], log_likelihood))
         outcome_loss -= float(np.dot(batch["weight"], outcome_log_likelihood))
         np.add.at(probabilities, batch["row"], batch["weight"] * predicted)
         np.add.at(mass, batch["row"], batch["weight"])
+    response_mass = float if design.get("target_kind") == "fractional" else int
     bins = np.minimum(np.searchsorted(np.linspace(0., 1., 21), probabilities, side="right")-1, 19)
     reliability = []
     for index in range(20):
         selected = bins == index
         reliability.append(dict(lower=index/20., upper=(index+1)/20.,
                                 count=int(selected.sum()),
-                                observed_positive=int(target[selected].sum()),
+                                observed_positive=response_mass(target[selected].sum()),
                                 predicted_mass=float(probabilities[selected].sum())))
-    return dict(attempts=len(target), positive=int(target.sum()),
+    return dict(attempts=len(target), positive=response_mass(target.sum()),
                 class_fraction=float(target.mean()),
                 mean_predicted_probability=float(probabilities.mean()),
                 mean_imputation_weighted_negative_log_likelihood=likelihood_loss/len(target),
@@ -236,6 +251,8 @@ def _solve_start(design, actors, initial, tightened):
     solver = DEFINITION["solver"]
     stopping = solver["continuation"] if tightened else solver
     options = dict(maxiter=solver["maxiter"], ftol=stopping["ftol"], gtol=stopping["gtol"])
+    if design["head"] in ("h", "d"):
+        options["maxfun"] = 15000
     if design["head"] != "g":
         beta, result = solve_logistic(lambda b: objective(b, design, actors), initial, **options)
         value, gradient = objective(beta, design, actors)
@@ -309,7 +326,8 @@ def fit_head(design, previous_ledger=None, *, tightened=False, initial=None):
     result = dict(status="unavailable", coefficients=None, actors=actors,
                   selected_start=None, requested_starts=requested, starts=[], endpoints={},
                   reasons=[])
-    if not len(target) or len(np.unique(target)) < 2:
+    unsupported = (not len(target) or not 0 < float(target.sum()) < len(target)) if design.get("target_kind") == "fractional" else (not len(target) or len(np.unique(target)) < 2)
+    if unsupported:
         result["reasons"] = ["empty_head" if not len(target) else "single_class_head"]
         result["wall_seconds"] = perf_counter()-began
         return result

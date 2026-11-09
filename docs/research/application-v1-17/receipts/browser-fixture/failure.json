@@ -1,0 +1,22 @@
+{
+  "url": "http://127.0.0.1:41917/players/8484860?season=20252026&peerMin=0&view=microstats&metric=microstats.reference_xg_per60",
+  "errors": [],
+  "downloads": [
+    {
+      "label": "forward",
+      "png": "hockey-stats-20252026-8484860-microstats.png",
+      "csv": "hockey-stats-20252026-8484860-microstats.csv",
+      "width": 1200,
+      "height": 1807,
+      "png_bytes": 521602,
+      "png_sha256": "ed78c43ec58f7d4683b89908453bebd552eb846afd18274fd5a25f58d29dc217",
+      "csv_rows": 27,
+      "csv_sha256": "8e4a390f7a2269f43fd36efe87cb8a62e36446854559a700ee1b683e3bb154b8",
+      "export_ms": 138.8502499999995,
+      "publication": "e7428c18-c105-4a51-bc57-af8d47899aae",
+      "person": "8484860",
+      "season": "20252026"
+    }
+  ],
+  "message": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'microstats.unblocked_attempts_per60'\n- 'microstats.reference_xg_per60'\n              ^\n"
+}

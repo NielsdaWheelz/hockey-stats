@@ -1,0 +1,16 @@
+{
+  "status": "passed_independent_saved_metadata_review",
+  "donor_manifest_sha256": "a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5",
+  "successor_manifest_sha256": "38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8",
+  "correction_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4",
+  "changed_method_ids": [
+    "reference-xg-v1-06-20232024",
+    "reference-xg-v1-06-20242025",
+    "reference-xg-v1-06-20252026"
+  ],
+  "unchanged_nonowned_methods": 9,
+  "unchanged_nonmethod_member_bindings": 57,
+  "unchanged_nonmethod_rows": 37915678,
+  "checker_sha256": "cc6b0a18ea0a4d7640027c3a217e873ae41c6e2e71faf73da05297a4ba4a374f",
+  "scope": "independent exact metadata/whitelist/identity comparison; member byte digests were already proved by the producer strict reader, not rescanned here"
+}

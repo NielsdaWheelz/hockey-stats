@@ -1,0 +1,1494 @@
+[23:04:42.865] INFO (#1): Listening on http://127.0.0.1:41918
+[23:05:44.981] INFO (#583139) http.span=510ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:22.959] INFO (#583141) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478402',
+  'http.status': 200
+}
+[23:06:23.165] INFO (#583142) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/manifest-aa938c44.js',
+  'http.status': 200
+}
+[23:06:23.168] INFO (#583144) http.span=4ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/jsx-runtime-Bcb-PiJy.js',
+  'http.status': 200
+}
+[23:06:23.168] INFO (#583145) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/root-DUdtlzsm.js',
+  'http.status': 200
+}
+[23:06:23.168] INFO (#583143) http.span=5ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/entry.client-CimxyNE3.js',
+  'http.status': 200
+}
+[23:06:23.169] INFO (#583146) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/styles-CJs1q0sp.css',
+  'http.status': 200
+}
+[23:06:23.170] INFO (#583147) http.span=4ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/explorer-Cs01Ni70.js',
+  'http.status': 200
+}
+[23:06:23.207] INFO (#583148) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/favicon.ico',
+  'http.status': 404
+}
+[23:06:23.214] INFO (#583149) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-client-loader-BSvpd0K-.js',
+  'http.status': 200
+}
+[23:06:23.216] INFO (#583150) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-main-BKQmhou2.js',
+  'http.status': 200
+}
+[23:06:23.216] INFO (#583151) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/client-Wd-S41Zk.js',
+  'http.status': 200
+}
+[23:06:23.217] INFO (#583152) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/peer-distributions-C7VwHZ9Y.js',
+  'http.status': 200
+}
+[23:06:23.218] INFO (#583153) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/descriptive-card-Br-TrS5Z.js',
+  'http.status': 200
+}
+[23:06:23.245] INFO (#583154) http.span=25ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:06:30.140] INFO (#583245) http.span=6884ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:30.810] INFO (#584187) http.span=7507ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:30.925] INFO (#584186) http.span=7622ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:31.626] INFO (#586032) http.span=24ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:06:32.732] INFO (#587059) http.span=1064ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:33.421] INFO (#587060) http.span=1753ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:33.558] INFO (#587061) http.span=1880ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:35.738] INFO (#586118) http.span=4107ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:35.872] INFO (#587062) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:06:36.581] INFO (#587063) http.span=20ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:06:36.614] INFO (#587149) http.span=22ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:06:37.681] INFO (#588176) http.span=1015ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:38.430] INFO (#588177) http.span=1763ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:38.560] INFO (#588178) http.span=1893ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:40.718] INFO (#587235) http.span=4089ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:40.856] INFO (#588179) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:06:40.978] INFO (#588180) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:06:42.097] INFO (#589209) http.span=1076ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:48.411] INFO (#589207) http.span=7390ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:48.700] INFO (#589208) http.span=7679ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:49.052] INFO (#588266) http.span=8069ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:49.410] INFO (#591054) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/compare-client-loader-DmCdZ3y4.js',
+  'http.status': 200
+}
+[23:06:49.428] INFO (#591055) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/compare-main-Bve1xkNB.js',
+  'http.status': 200
+}
+[23:06:51.927] INFO (#591056) http.span=2498ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:52.591] INFO (#591997) http.span=538ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:55.752] INFO (#591998) http.span=2506ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:06:55.900] INFO (#592939) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:06:55.922] INFO (#593025) http.span=22ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481542',
+  'http.status': 200
+}
+[23:06:56.852] INFO (#594033) http.span=879ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:01.121] INFO (#594032) http.span=5158ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:01.436] INFO (#593111) http.span=5509ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:02.206] INFO (#594958) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481542',
+  'http.status': 200
+}
+[23:07:05.168] INFO (#595044) http.span=2553ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:05.326] INFO (#595965) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:07:05.348] INFO (#596036) http.span=22ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481542',
+  'http.status': 200
+}
+[23:07:06.244] INFO (#597064) http.span=842ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:10.653] INFO (#597063) http.span=5261ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:11.008] INFO (#596122) http.span=5655ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:13.698] INFO (#597989) http.span=2478ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:13.848] INFO (#598930) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:07:13.869] INFO (#599016) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481542',
+  'http.status': 200
+}
+[23:07:14.790] INFO (#600024) http.span=871ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:16.268] INFO (#600949) http.span=50ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8474590',
+  'http.status': 200
+}
+[23:07:16.304] INFO (#600950) http.span=36ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/manifest-aa938c44.js',
+  'http.status': 200
+}
+[23:07:16.351] INFO (#600952) http.span=65ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/jsx-runtime-Bcb-PiJy.js',
+  'http.status': 200
+}
+[23:07:16.352] INFO (#600953) http.span=56ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/root-DUdtlzsm.js',
+  'http.status': 200
+}
+[23:07:16.361] INFO (#600951) http.span=84ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/entry.client-CimxyNE3.js',
+  'http.status': 200
+}
+[23:07:16.362] INFO (#600954) http.span=57ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/styles-CJs1q0sp.css',
+  'http.status': 200
+}
+[23:07:16.435] INFO (#600955) http.span=120ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/explorer-Cs01Ni70.js',
+  'http.status': 200
+}
+[23:07:16.455] INFO (#600956) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/favicon.ico',
+  'http.status': 404
+}
+[23:07:16.492] INFO (#600957) http.span=37ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-client-loader-BSvpd0K-.js',
+  'http.status': 200
+}
+[23:07:16.492] INFO (#600958) http.span=37ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-main-BKQmhou2.js',
+  'http.status': 200
+}
+[23:07:16.548] INFO (#600959) http.span=55ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/client-Wd-S41Zk.js',
+  'http.status': 200
+}
+[23:07:16.548] INFO (#600960) http.span=55ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/peer-distributions-C7VwHZ9Y.js',
+  'http.status': 200
+}
+[23:07:16.568] INFO (#600962) http.span=20ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590',
+  'http.status': 200
+}
+[23:07:16.587] INFO (#600961) http.span=94ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/descriptive-card-Br-TrS5Z.js',
+  'http.status': 200
+}
+[23:07:18.324] INFO (#601051) http.span=1718ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:18.739] INFO (#601048) http.span=2133ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:18.873] INFO (#601049) http.span=2267ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:22.369] INFO (#599102) http.span=8495ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:22.746] INFO (#600023) http.span=8836ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:23.224] INFO (#601976) http.span=38ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478402',
+  'http.status': 200
+}
+[23:07:23.266] INFO (#601977) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:07:24.499] INFO (#602984) http.span=1129ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:25.178] INFO (#602057) http.span=1901ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:25.320] INFO (#602058) http.span=2043ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:25.774] INFO (#601050) http.span=9168ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:26.112] INFO (#602986) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590/evidence',
+  'http.status': 200
+}
+[23:07:26.181] INFO (#602985) http.span=972ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:26.618] INFO (#602987) http.span=43ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590',
+  'http.status': 200
+}
+[23:07:28.353] INFO (#603073) http.span=1726ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:28.824] INFO (#603074) http.span=2158ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:29.112] INFO (#604000) http.span=2331ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:29.155] INFO (#604001) http.span=2372ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:30.357] INFO (#604002) http.span=764ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:33.804] INFO (#602059) http.span=10517ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:33.926] INFO (#604928) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:07:35.089] INFO (#603075) http.span=8382ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:35.232] INFO (#604929) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590/evidence',
+  'http.status': 200
+}
+[23:07:36.006] INFO (#604003) http.span=5351ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:38.715] INFO (#604930) http.span=2425ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:41.426] INFO (#605851) http.span=2448ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:07:41.708] INFO (#606792) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590',
+  'http.status': 200
+}
+[23:07:42.434] INFO (#606878) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590/evidence',
+  'http.status': 200
+}
+[23:07:42.502] INFO (#606879) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480069',
+  'http.status': 200
+}
+[23:07:43.206] INFO (#606963) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480069/evidence',
+  'http.status': 200
+}
+[23:07:43.271] INFO (#606964) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478420',
+  'http.status': 200
+}
+[23:07:43.971] INFO (#607050) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478420/evidence',
+  'http.status': 200
+}
+[23:07:44.029] INFO (#607051) http.span=14ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480075',
+  'http.status': 200
+}
+[23:07:44.730] INFO (#607056) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480075/evidence',
+  'http.status': 200
+}
+[23:07:44.778] INFO (#607057) http.span=7ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481558',
+  'http.status': 200
+}
+[23:07:45.501] INFO (#607060) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481558/evidence',
+  'http.status': 200
+}
+[23:07:45.575] INFO (#607061) http.span=22ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:07:46.295] INFO (#607147) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:08:23.666] INFO (#607148) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478402',
+  'http.status': 200
+}
+[23:08:23.673] INFO (#607149) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/manifest-aa938c44.js',
+  'http.status': 200
+}
+[23:08:23.675] INFO (#607150) http.span=5ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/entry.client-CimxyNE3.js',
+  'http.status': 200
+}
+[23:08:23.675] INFO (#607151) http.span=4ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/jsx-runtime-Bcb-PiJy.js',
+  'http.status': 200
+}
+[23:08:23.675] INFO (#607152) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/styles-CJs1q0sp.css',
+  'http.status': 200
+}
+[23:08:23.676] INFO (#607153) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/root-DUdtlzsm.js',
+  'http.status': 200
+}
+[23:08:23.676] INFO (#607154) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/explorer-Cs01Ni70.js',
+  'http.status': 200
+}
+[23:08:23.716] INFO (#607156) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/favicon.ico',
+  'http.status': 404
+}
+[23:08:23.717] INFO (#607155) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-client-loader-BSvpd0K-.js',
+  'http.status': 200
+}
+[23:08:23.718] INFO (#607157) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-main-BKQmhou2.js',
+  'http.status': 200
+}
+[23:08:23.720] INFO (#607159) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/peer-distributions-C7VwHZ9Y.js',
+  'http.status': 200
+}
+[23:08:23.720] INFO (#607158) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/client-Wd-S41Zk.js',
+  'http.status': 200
+}
+[23:08:23.721] INFO (#607160) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/descriptive-card-Br-TrS5Z.js',
+  'http.status': 200
+}
+[23:08:23.746] INFO (#607161) http.span=22ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:08:24.923] INFO (#608190) http.span=1079ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:25.526] INFO (#608189) http.span=1702ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:25.539] INFO (#608188) http.span=1753ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:27.821] INFO (#607247) http.span=4064ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:27.967] INFO (#608191) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:08:28.815] INFO (#608192) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478402',
+  'http.status': 200
+}
+[23:08:28.823] INFO (#608193) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/manifest-aa938c44.js',
+  'http.status': 200
+}
+[23:08:28.824] INFO (#608195) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/jsx-runtime-Bcb-PiJy.js',
+  'http.status': 200
+}
+[23:08:28.824] INFO (#608196) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/styles-CJs1q0sp.css',
+  'http.status': 200
+}
+[23:08:28.824] INFO (#608194) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/entry.client-CimxyNE3.js',
+  'http.status': 200
+}
+[23:08:28.824] INFO (#608197) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/root-DUdtlzsm.js',
+  'http.status': 200
+}
+[23:08:28.825] INFO (#608198) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/explorer-Cs01Ni70.js',
+  'http.status': 200
+}
+[23:08:28.868] INFO (#608200) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/favicon.ico',
+  'http.status': 404
+}
+[23:08:28.869] INFO (#608199) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-client-loader-BSvpd0K-.js',
+  'http.status': 200
+}
+[23:08:28.869] INFO (#608201) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-main-BKQmhou2.js',
+  'http.status': 200
+}
+[23:08:28.870] INFO (#608202) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/client-Wd-S41Zk.js',
+  'http.status': 200
+}
+[23:08:28.871] INFO (#608203) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/peer-distributions-C7VwHZ9Y.js',
+  'http.status': 200
+}
+[23:08:28.872] INFO (#608204) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/descriptive-card-Br-TrS5Z.js',
+  'http.status': 200
+}
+[23:08:28.898] INFO (#608205) http.span=22ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:08:30.108] INFO (#609232) http.span=1139ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:30.704] INFO (#609233) http.span=1734ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:30.835] INFO (#609234) http.span=1865ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:32.999] INFO (#608291) http.span=4090ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:33.139] INFO (#609235) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:08:44.821] INFO (#609236) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8474590',
+  'http.status': 200
+}
+[23:08:44.827] INFO (#609237) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/manifest-aa938c44.js',
+  'http.status': 200
+}
+[23:08:44.829] INFO (#609239) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/jsx-runtime-Bcb-PiJy.js',
+  'http.status': 200
+}
+[23:08:44.829] INFO (#609240) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/styles-CJs1q0sp.css',
+  'http.status': 200
+}
+[23:08:44.829] INFO (#609238) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/entry.client-CimxyNE3.js',
+  'http.status': 200
+}
+[23:08:44.829] INFO (#609241) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/root-DUdtlzsm.js',
+  'http.status': 200
+}
+[23:08:44.830] INFO (#609242) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/explorer-Cs01Ni70.js',
+  'http.status': 200
+}
+[23:08:44.865] INFO (#609243) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/favicon.ico',
+  'http.status': 404
+}
+[23:08:44.871] INFO (#609244) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-client-loader-BSvpd0K-.js',
+  'http.status': 200
+}
+[23:08:44.872] INFO (#609245) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-main-BKQmhou2.js',
+  'http.status': 200
+}
+[23:08:44.872] INFO (#609246) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/client-Wd-S41Zk.js',
+  'http.status': 200
+}
+[23:08:44.873] INFO (#609247) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/peer-distributions-C7VwHZ9Y.js',
+  'http.status': 200
+}
+[23:08:44.873] INFO (#609248) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/descriptive-card-Br-TrS5Z.js',
+  'http.status': 200
+}
+[23:08:44.896] INFO (#609249) http.span=20ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590',
+  'http.status': 200
+}
+[23:08:46.661] INFO (#609338) http.span=1694ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:46.790] INFO (#609335) http.span=1882ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:46.805] INFO (#609336) http.span=1856ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:48.918] INFO (#609337) http.span=3951ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:49.036] INFO (#610263) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590/evidence',
+  'http.status': 200
+}
+[23:08:49.357] INFO (#610264) http.span=24ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590',
+  'http.status': 200
+}
+[23:08:50.487] INFO (#610353) http.span=1066ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:51.103] INFO (#610350) http.span=1740ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:51.113] INFO (#610351) http.span=1710ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:53.335] INFO (#610352) http.span=3914ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:53.454] INFO (#611278) http.span=4ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590/evidence',
+  'http.status': 200
+}
+[23:08:53.600] INFO (#611279) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8480069',
+  'http.status': 200
+}
+[23:08:53.646] INFO (#611280) http.span=23ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480069',
+  'http.status': 200
+}
+[23:08:55.000] INFO (#612286) http.span=1281ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:55.372] INFO (#612287) http.span=1633ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:55.486] INFO (#611364) http.span=1832ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:57.662] INFO (#611365) http.span=3970ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:57.800] INFO (#612288) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480069/evidence',
+  'http.status': 200
+}
+[23:08:58.173] INFO (#612289) http.span=25ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480069',
+  'http.status': 200
+}
+[23:08:59.305] INFO (#613295) http.span=1059ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:08:59.909] INFO (#613296) http.span=1644ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:00.023] INFO (#612373) http.span=1844ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:02.200] INFO (#612374) http.span=3981ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:02.340] INFO (#613297) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480069/evidence',
+  'http.status': 200
+}
+[23:09:02.528] INFO (#613298) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478420',
+  'http.status': 200
+}
+[23:09:02.568] INFO (#613299) http.span=23ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478420',
+  'http.status': 200
+}
+[23:09:03.942] INFO (#614307) http.span=1298ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:04.294] INFO (#614308) http.span=1631ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:04.406] INFO (#613385) http.span=1830ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:06.556] INFO (#613386) http.span=3940ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:06.694] INFO (#614309) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478420/evidence',
+  'http.status': 200
+}
+[23:09:07.106] INFO (#614310) http.span=26ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478420',
+  'http.status': 200
+}
+[23:09:08.483] INFO (#615318) http.span=1303ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:08.834] INFO (#615319) http.span=1629ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:08.845] INFO (#614396) http.span=1733ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:11.124] INFO (#614397) http.span=3971ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:11.269] INFO (#615320) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478420/evidence',
+  'http.status': 200
+}
+[23:09:11.399] INFO (#615321) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8480075',
+  'http.status': 200
+}
+[23:09:11.429] INFO (#615322) http.span=14ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480075',
+  'http.status': 200
+}
+[23:09:12.768] INFO (#616249) http.span=1266ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:13.139] INFO (#616250) http.span=1618ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:13.252] INFO (#615327) http.span=1817ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:15.464] INFO (#615328) http.span=3989ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:15.595] INFO (#616251) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480075/evidence',
+  'http.status': 200
+}
+[23:09:15.932] INFO (#616252) http.span=17ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480075',
+  'http.status': 200
+}
+[23:09:17.268] INFO (#617179) http.span=1262ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:17.642] INFO (#617180) http.span=1617ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:17.760] INFO (#616257) http.span=1822ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:19.958] INFO (#616258) http.span=3980ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:20.092] INFO (#617181) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480075/evidence',
+  'http.status': 200
+}
+[23:09:20.289] INFO (#617182) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8481558',
+  'http.status': 200
+}
+[23:09:20.314] INFO (#617183) http.span=8ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481558',
+  'http.status': 200
+}
+[23:09:21.681] INFO (#618108) http.span=1295ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:22.021] INFO (#618109) http.span=1615ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:22.137] INFO (#617186) http.span=1818ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:24.314] INFO (#617187) http.span=3957ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:24.445] INFO (#618110) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481558/evidence',
+  'http.status': 200
+}
+[23:09:24.807] INFO (#618111) http.span=8ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481558',
+  'http.status': 200
+}
+[23:09:25.930] INFO (#619036) http.span=1038ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:26.540] INFO (#619037) http.span=1628ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:26.662] INFO (#618114) http.span=1838ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:28.823] INFO (#618115) http.span=3958ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:28.955] INFO (#619038) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481558/evidence',
+  'http.status': 200
+}
+[23:09:29.084] INFO (#619039) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478402',
+  'http.status': 200
+}
+[23:09:29.121] INFO (#619040) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:09:30.240] INFO (#620067) http.span=1075ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:30.898] INFO (#620068) http.span=1732ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:30.910] INFO (#620069) http.span=1744ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:33.174] INFO (#619126) http.span=4046ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:33.304] INFO (#620070) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:09:33.569] INFO (#620071) http.span=24ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:09:34.686] INFO (#621098) http.span=1071ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:35.088] INFO (#621099) http.span=1473ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:35.376] INFO (#621100) http.span=1761ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:37.620] INFO (#620157) http.span=4044ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:09:37.751] INFO (#621101) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:14:51.785] INFO (#621102) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8474590',
+  'http.status': 200
+}
+[23:14:51.792] INFO (#621103) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/manifest-6c9a6538.js',
+  'http.status': 200
+}
+[23:14:51.793] INFO (#621105) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/jsx-runtime-Bcb-PiJy.js',
+  'http.status': 200
+}
+[23:14:51.793] INFO (#621106) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/styles-CJs1q0sp.css',
+  'http.status': 200
+}
+[23:14:51.793] INFO (#621104) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/entry.client-CimxyNE3.js',
+  'http.status': 200
+}
+[23:14:51.793] INFO (#621107) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/root-DUdtlzsm.js',
+  'http.status': 200
+}
+[23:14:51.794] INFO (#621108) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/explorer-Cs01Ni70.js',
+  'http.status': 200
+}
+[23:14:51.831] INFO (#621109) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/favicon.ico',
+  'http.status': 404
+}
+[23:14:51.837] INFO (#621110) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-client-loader-BSvpd0K-.js',
+  'http.status': 200
+}
+[23:14:51.838] INFO (#621111) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-main-EMex3Ktx.js',
+  'http.status': 200
+}
+[23:14:51.839] INFO (#621112) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/client-Wd-S41Zk.js',
+  'http.status': 200
+}
+[23:14:51.840] INFO (#621113) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/peer-distributions-C7VwHZ9Y.js',
+  'http.status': 200
+}
+[23:14:51.840] INFO (#621114) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/descriptive-card-D0gn6sau.js',
+  'http.status': 200
+}
+[23:14:51.870] INFO (#621115) http.span=28ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590',
+  'http.status': 200
+}
+[23:14:53.619] INFO (#621203) http.span=1738ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:14:53.636] INFO (#621206) http.span=1693ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:14:53.867] INFO (#621204) http.span=1945ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:14:55.026] INFO (#622132) http.span=59ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478402',
+  'http.status': 200
+}
+[23:14:55.061] INFO (#622133) http.span=62ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478402',
+  'http.status': 200
+}
+[23:14:55.112] INFO (#622134) http.span=86ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/manifest-6c9a6538.js',
+  'http.status': 200
+}
+[23:14:55.142] INFO (#622136) http.span=100ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/jsx-runtime-Bcb-PiJy.js',
+  'http.status': 200
+}
+[23:14:55.142] INFO (#622137) http.span=80ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/manifest-6c9a6538.js',
+  'http.status': 200
+}
+[23:14:55.142] INFO (#622138) http.span=80ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/styles-CJs1q0sp.css',
+  'http.status': 200
+}
+[23:14:55.155] INFO (#622135) http.span=128ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/entry.client-CimxyNE3.js',
+  'http.status': 200
+}
+[23:14:55.155] INFO (#622139) http.span=60ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/root-DUdtlzsm.js',
+  'http.status': 200
+}
+[23:14:55.201] INFO (#622142) http.span=59ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/jsx-runtime-Bcb-PiJy.js',
+  'http.status': 200
+}
+[23:14:55.201] INFO (#622143) http.span=46ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/root-DUdtlzsm.js',
+  'http.status': 200
+}
+[23:14:55.219] INFO (#622140) http.span=107ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/explorer-Cs01Ni70.js',
+  'http.status': 200
+}
+[23:14:55.220] INFO (#622141) http.span=92ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/entry.client-CimxyNE3.js',
+  'http.status': 200
+}
+[23:14:55.220] INFO (#622144) http.span=55ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/styles-CJs1q0sp.css',
+  'http.status': 200
+}
+[23:14:55.251] INFO (#622147) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/favicon.ico',
+  'http.status': 404
+}
+[23:14:55.293] INFO (#622145) http.span=116ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/explorer-Cs01Ni70.js',
+  'http.status': 200
+}
+[23:14:55.308] INFO (#622146) http.span=58ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-client-loader-BSvpd0K-.js',
+  'http.status': 200
+}
+[23:14:55.309] INFO (#622148) http.span=58ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-main-EMex3Ktx.js',
+  'http.status': 200
+}
+[23:14:55.325] INFO (#622152) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/favicon.ico',
+  'http.status': 404
+}
+[23:14:55.363] INFO (#622149) http.span=54ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/client-Wd-S41Zk.js',
+  'http.status': 200
+}
+[23:14:55.363] INFO (#622150) http.span=54ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/peer-distributions-C7VwHZ9Y.js',
+  'http.status': 200
+}
+[23:14:55.390] INFO (#622155) http.span=27ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:14:55.401] INFO (#622151) http.span=92ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/descriptive-card-D0gn6sau.js',
+  'http.status': 200
+}
+[23:14:55.401] INFO (#622154) http.span=76ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-main-EMex3Ktx.js',
+  'http.status': 200
+}
+[23:14:55.401] INFO (#622153) http.span=76ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-client-loader-BSvpd0K-.js',
+  'http.status': 200
+}
+[23:14:55.466] INFO (#622241) http.span=65ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/client-Wd-S41Zk.js',
+  'http.status': 200
+}
+[23:14:55.466] INFO (#622242) http.span=65ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/peer-distributions-C7VwHZ9Y.js',
+  'http.status': 200
+}
+[23:14:55.489] INFO (#623188) http.span=23ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:14:55.610] INFO (#622243) http.span=209ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/descriptive-card-D0gn6sau.js',
+  'http.status': 200
+}
+[23:14:57.648] INFO (#622245) http.span=2233ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:14:58.029] INFO (#622246) http.span=2614ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:14:58.249] INFO (#622247) http.span=2834ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:01.228] INFO (#621205) http.span=9285ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:01.388] INFO (#626061) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590/evidence',
+  'http.status': 200
+}
+[23:15:02.078] INFO (#626062) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590',
+  'http.status': 200
+}
+[23:15:03.648] INFO (#626148) http.span=1536ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:04.219] INFO (#626149) http.span=2067ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:04.722] INFO (#627075) http.span=2495ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:10.406] INFO (#623276) http.span=14762ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:11.017] INFO (#622244) http.span=15602ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:11.427] INFO (#627076) http.span=15ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:15:11.446] INFO (#623275) http.span=15802ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:11.823] INFO (#623274) http.span=16179ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:12.268] INFO (#627077) http.span=33ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:15:12.636] INFO (#628107) http.span=206ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478402',
+  'http.status': 200
+}
+[23:15:12.776] INFO (#628108) http.span=139ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/manifest-6c9a6538.js',
+  'http.status': 200
+}
+[23:15:12.856] INFO (#628111) http.span=120ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/styles-CJs1q0sp.css',
+  'http.status': 200
+}
+[23:15:12.856] INFO (#628110) http.span=198ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/jsx-runtime-Bcb-PiJy.js',
+  'http.status': 200
+}
+[23:15:12.868] INFO (#628109) http.span=231ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/entry.client-CimxyNE3.js',
+  'http.status': 200
+}
+[23:15:12.868] INFO (#628112) http.span=109ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/root-DUdtlzsm.js',
+  'http.status': 200
+}
+[23:15:13.014] INFO (#628113) http.span=237ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/explorer-Cs01Ni70.js',
+  'http.status': 200
+}
+[23:15:13.067] INFO (#628115) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/favicon.ico',
+  'http.status': 404
+}
+[23:15:13.215] INFO (#628114) http.span=148ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-client-loader-BSvpd0K-.js',
+  'http.status': 200
+}
+[23:15:13.215] INFO (#628116) http.span=148ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-main-EMex3Ktx.js',
+  'http.status': 200
+}
+[23:15:13.363] INFO (#628118) http.span=147ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/peer-distributions-C7VwHZ9Y.js',
+  'http.status': 200
+}
+[23:15:13.363] INFO (#628117) http.span=147ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/client-Wd-S41Zk.js',
+  'http.status': 200
+}
+[23:15:13.384] INFO (#628120) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:15:13.392] INFO (#628119) http.span=176ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/descriptive-card-D0gn6sau.js',
+  'http.status': 200
+}
+[23:15:14.530] INFO (#628104) http.span=2196ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:14.553] INFO (#628105) http.span=2192ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:14.815] INFO (#628106) http.span=2425ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:16.009] INFO (#629147) http.span=2579ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:16.289] INFO (#629148) http.span=2839ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:16.439] INFO (#629149) http.span=2989ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:17.103] INFO (#626150) http.span=14911ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:17.267] INFO (#629150) http.span=11ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8474590/evidence',
+  'http.status': 200
+}
+[23:15:17.463] INFO (#629151) http.span=67ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8480069',
+  'http.status': 200
+}
+[23:15:17.513] INFO (#629152) http.span=41ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480069',
+  'http.status': 200
+}
+[23:15:18.835] INFO (#629236) http.span=1312ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:19.609] INFO (#630158) http.span=2010ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:19.649] INFO (#630159) http.span=2041ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:24.401] INFO (#627163) http.span=12119ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:24.792] INFO (#630160) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:15:24.795] INFO (#628206) http.span=11391ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:24.948] INFO (#630161) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:15:25.504] INFO (#630162) http.span=20ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:15:25.508] INFO (#629237) http.span=7944ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:25.545] INFO (#630248) http.span=24ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:15:25.686] INFO (#631278) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480069/evidence',
+  'http.status': 200
+}
+[23:15:26.066] INFO (#631279) http.span=22ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480069',
+  'http.status': 200
+}
+[23:15:27.066] INFO (#631277) http.span=1429ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:28.071] INFO (#631276) http.span=2448ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:28.199] INFO (#631275) http.span=2589ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:29.257] INFO (#632285) http.span=2983ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:29.408] INFO (#632286) http.span=3124ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:29.408] INFO (#631363) http.span=3276ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:33.696] INFO (#630334) http.span=8132ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:33.706] INFO (#631364) http.span=7554ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:33.850] INFO (#632287) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:15:33.854] INFO (#632288) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480069/evidence',
+  'http.status': 200
+}
+[23:15:33.985] INFO (#632289) http.span=22ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:15:34.159] INFO (#634239) http.span=80ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478420',
+  'http.status': 200
+}
+[23:15:34.205] INFO (#635164) http.span=45ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478420',
+  'http.status': 200
+}
+[23:15:35.849] INFO (#635252) http.span=1595ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:36.987] INFO (#635250) http.span=2753ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:36.999] INFO (#633318) http.span=2960ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:37.000] INFO (#635253) http.span=2746ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:44.846] INFO (#635251) http.span=10592ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:45.261] INFO (#636175) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478420/evidence',
+  'http.status': 200
+}
+[23:15:45.289] INFO (#633316) http.span=11259ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:45.659] INFO (#632375) http.span=11669ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:45.736] INFO (#636176) http.span=32ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478420',
+  'http.status': 200
+}
+[23:15:46.119] INFO (#633317) http.span=12089ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:47.728] INFO (#636262) http.span=1983ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:47.871] INFO (#637184) http.span=2026ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:47.883] INFO (#637185) http.span=1806ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:50.080] INFO (#636263) http.span=4294ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:50.213] INFO (#637186) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478420/evidence',
+  'http.status': 200
+}
+[23:15:50.349] INFO (#637187) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8480075',
+  'http.status': 200
+}
+[23:15:50.379] INFO (#637188) http.span=14ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480075',
+  'http.status': 200
+}
+[23:15:51.493] INFO (#638115) http.span=1041ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:52.099] INFO (#638116) http.span=1628ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:52.210] INFO (#637193) http.span=1825ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:54.380] INFO (#637194) http.span=3955ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:54.517] INFO (#638117) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480075/evidence',
+  'http.status': 200
+}
+[23:15:54.895] INFO (#638118) http.span=17ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480075',
+  'http.status': 200
+}
+[23:15:56.014] INFO (#639045) http.span=1042ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:56.610] INFO (#639046) http.span=1620ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:56.733] INFO (#638123) http.span=1831ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:58.915] INFO (#638124) http.span=3970ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:15:59.056] INFO (#639047) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8480075/evidence',
+  'http.status': 200
+}
+[23:15:59.237] INFO (#639048) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8481558',
+  'http.status': 200
+}
+[23:15:59.262] INFO (#639049) http.span=8ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481558',
+  'http.status': 200
+}
+[23:16:00.338] INFO (#639974) http.span=1003ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:00.990] INFO (#639975) http.span=1636ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:01.105] INFO (#639052) http.span=1838ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:03.390] INFO (#639053) http.span=4082ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:03.528] INFO (#639976) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481558/evidence',
+  'http.status': 200
+}
+[23:16:03.772] INFO (#639977) http.span=7ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481558',
+  'http.status': 200
+}
+[23:16:05.210] INFO (#640902) http.span=1355ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:05.556] INFO (#639980) http.span=1769ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:05.572] INFO (#640903) http.span=1696ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:08.039] INFO (#639981) http.span=4212ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:08.178] INFO (#640904) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481558/evidence',
+  'http.status': 200
+}
+[23:16:08.316] INFO (#640905) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478402',
+  'http.status': 200
+}
+[23:16:08.354] INFO (#640906) http.span=22ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:16:09.488] INFO (#641933) http.span=1088ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:10.175] INFO (#641934) http.span=1774ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:10.310] INFO (#641935) http.span=1909ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:12.583] INFO (#640992) http.span=4222ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:12.729] INFO (#641936) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:16:13.404] INFO (#641937) http.span=23ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:16:14.552] INFO (#642964) http.span=1105ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:15.218] INFO (#642965) http.span=1770ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:15.351] INFO (#642966) http.span=1903ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:17.603] INFO (#642023) http.span=4194ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:16:17.747] INFO (#642967) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:17:48.068] INFO (#642968) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478402',
+  'http.status': 200
+}
+[23:17:48.075] INFO (#642969) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/manifest-6c9a6538.js',
+  'http.status': 200
+}
+[23:17:48.077] INFO (#642971) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/jsx-runtime-Bcb-PiJy.js',
+  'http.status': 200
+}
+[23:17:48.077] INFO (#642972) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/styles-CJs1q0sp.css',
+  'http.status': 200
+}
+[23:17:48.077] INFO (#642970) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/entry.client-CimxyNE3.js',
+  'http.status': 200
+}
+[23:17:48.078] INFO (#642973) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/root-DUdtlzsm.js',
+  'http.status': 200
+}
+[23:17:48.078] INFO (#642974) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/explorer-Cs01Ni70.js',
+  'http.status': 200
+}
+[23:17:48.110] INFO (#642975) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/favicon.ico',
+  'http.status': 404
+}
+[23:17:48.116] INFO (#642976) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-client-loader-BSvpd0K-.js',
+  'http.status': 200
+}
+[23:17:48.117] INFO (#642977) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/player-main-EMex3Ktx.js',
+  'http.status': 200
+}
+[23:17:48.117] INFO (#642978) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/client-Wd-S41Zk.js',
+  'http.status': 200
+}
+[23:17:48.118] INFO (#642979) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/peer-distributions-C7VwHZ9Y.js',
+  'http.status': 200
+}
+[23:17:48.119] INFO (#642980) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/descriptive-card-D0gn6sau.js',
+  'http.status': 200
+}
+[23:17:48.143] INFO (#642981) http.span=22ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:17:55.087] INFO (#644013) http.span=6895ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:17:55.637] INFO (#644934) http.span=7402ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:17:55.639] INFO (#643072) http.span=7486ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:17:56.002] INFO (#645859) http.span=22ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:17:57.155] INFO (#646886) http.span=1110ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:17:57.809] INFO (#646887) http.span=1764ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:17:57.968] INFO (#646888) http.span=1913ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:00.139] INFO (#645945) http.span=4131ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:00.275] INFO (#646889) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:18:00.968] INFO (#646890) http.span=20ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:18:01.019] INFO (#646976) http.span=23ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:18:02.163] INFO (#648003) http.span=1095ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:02.842] INFO (#648004) http.span=1774ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:02.852] INFO (#648005) http.span=1784ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:05.145] INFO (#647062) http.span=4114ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:05.281] INFO (#648006) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}
+[23:18:05.399] INFO (#648007) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:18:06.506] INFO (#649956) http.span=1037ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:12.734] INFO (#649034) http.span=7302ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:13.162] INFO (#649955) http.span=7693ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:13.447] INFO (#648093) http.span=8043ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:13.808] INFO (#650881) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/compare-client-loader-DmCdZ3y4.js',
+  'http.status': 200
+}
+[23:18:13.823] INFO (#650882) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/assets/compare-main-DHH9Cxol.js',
+  'http.status': 200
+}
+[23:18:16.318] INFO (#650883) http.span=2494ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:16.990] INFO (#651824) http.span=546ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:20.173] INFO (#651825) http.span=2524ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:20.319] INFO (#652766) http.span=20ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:18:20.341] INFO (#652852) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481542',
+  'http.status': 200
+}
+[23:18:21.277] INFO (#653860) http.span=886ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:25.524] INFO (#653859) http.span=5142ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:25.824] INFO (#652938) http.span=5478ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:26.592] INFO (#654785) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481542',
+  'http.status': 200
+}
+[23:18:29.370] INFO (#654871) http.span=2476ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:29.517] INFO (#655792) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:18:29.538] INFO (#655863) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481542',
+  'http.status': 200
+}
+[23:18:30.455] INFO (#656891) http.span=866ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:34.705] INFO (#656890) http.span=5125ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:35.063] INFO (#655949) http.span=5520ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:37.772] INFO (#657816) http.span=2496ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:37.917] INFO (#658757) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:18:37.938] INFO (#658843) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8481542',
+  'http.status': 200
+}
+[23:18:38.860] INFO (#659851) http.span=872ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:43.133] INFO (#659850) http.span=5154ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:43.441] INFO (#658929) http.span=5498ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:43.866] INFO (#660776) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/8478402',
+  'http.status': 200
+}
+[23:18:43.912] INFO (#660777) http.span=21ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402',
+  'http.status': 200
+}
+[23:18:45.036] INFO (#661784) http.span=1010ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:45.700] INFO (#660857) http.span=1781ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:45.702] INFO (#660858) http.span=1762ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:47.998] INFO (#660859) http.span=4038ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[23:18:48.119] INFO (#661785) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/8478402/evidence',
+  'http.status': 200
+}

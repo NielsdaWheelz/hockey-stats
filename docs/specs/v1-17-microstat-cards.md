@@ -20,7 +20,7 @@ accepted costs: most tracking cells remain unavailable; explicit per-field popul
 | card content and interaction | new `app/src/web/microstat-card.tsx`; `microstat-values.ts` only if preparation/export would otherwise obscure the renderer: fixed groups, typed view model, html/svg composition, reasons, strip and card downloads |
 | application integration | existing `client.ts`, `explorer.ts`, `peer-distributions.tsx`, `routes/player.tsx`, `routes/compare.tsx`, `styles.css`, `export.ts`: coherent reads, navigation, bounded field picker, responsive composition and shared download plumbing |
 | reference-xg provenance | existing `analysis/src/hockey_stats/execution_composition.py`, `analysis_publication.py` and `spatial_composition.py`: correct method meaning, attributed successor and exact inherited-family preservation; no new numerics |
-| receipts | `fixtures/publication-v1-17/README.md` if new cases are necessary; `docs/research/application-v1-17/verification.md`; existing source issue and [metadata issue](../issues/microstat-reference-population.md) |
+| receipts | `fixtures/publication-v1-17/README.md` if new cases are necessary; `docs/research/application-v1-17/verification.md`; existing source issue and [metadata issue](../research/application-v1-17/verification.md#reference-xg-provenance) |
 
 assign a card designer, a field/evidence designer and a history/export designer before implementation; these are responsibilities, not additional services. each defines good content in the acceptance table below. one integrator owns shared-file edits with v1-07, especially selectors, client composition, history/export and publication helpers. v1-07 numerical preparation/fitting can proceed independently. do not run competing large candidate builds/reads against the drive. preserve its drafts, source evidence, expensive fits and outputs.
 
@@ -109,7 +109,7 @@ one typed `MicrostatCardModel` binds selected/historical identity, publication/s
 
 ## bounded reference-xg metadata correction
 
-the current `_method` in `execution_composition.py` correctly identifies the personal-xg target but copies execution common-panel population, qualification and assessment wording into its `microstats` methods. `analysis-values.ts` exposes that wording. the values/support already use matched personal 5v5; changing only the card label would leave false evidence. [issue/evidence](../issues/microstat-reference-population.md).
+the current `_method` in `execution_composition.py` correctly identifies the personal-xg target but copies execution common-panel population, qualification and assessment wording into its `microstats` methods. `analysis-values.ts` exposes that wording. the values/support already use matched personal 5v5; changing only the card label would leave false evidence. [issue/evidence](../research/application-v1-17/verification.md#reference-xg-provenance).
 
 correct those strings at the producer owner. add one narrow package operation, `correct_reference_xg_metadata(existing_results, output)`, using existing strict exchange readers/writers. it creates an attributed successor of an explicitly pinned combined exchange; it does not call ordinary execution composition, preparation or scoring. this operation is specific to this correction, not a generic migration framework or new CLI. a temporary controller may invoke it and is removed after verification.
 

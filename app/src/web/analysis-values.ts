@@ -240,6 +240,7 @@ const definition = (
     : metric.unit === "attempts_per60" ? "attempts per 60 min"
     : metric.unit === "xg_per60" ? "xg per 60 min"
     : metric.unit === "per60" ? "per 60 min"
+    : metric.unit === "xga_saved_per100_plays" ? "xga saved per 100 plays"
     : metric.unit
 });
 
@@ -569,75 +570,193 @@ const descriptive = descriptiveMetricIds.map(id => {
   });
 });
 
-const microstatFields = [
-  "goals_per60",
-  "primary_assists_per60",
-  "unblocked_attempts_per60",
-  "hits_per60",
-  "reference_xg_per60",
-  "blocked_attempt_share",
-  "primary_pass_xg_per60",
-  "primary_shot_assists_per60",
-  "in_zone_attempts_per60",
-  "rush_attempts_per60",
-  "high_danger_pass_attempts_per60",
-  "in_zone_shot_assists_per60",
-  "rush_shot_assists_per60",
-  "high_danger_passes_per60",
-  "zone_entries_per60",
-  "possession_entries_per60",
-  "zone_exits_per60",
-  "possession_exits_per60",
-  "forecheck_involvements_per60",
-  "defensive_zone_touches_per60",
-  "pass_exits_per60",
-  "carry_exits_per60",
-  "defensive_zone_retrievals_per60",
-  "successful_retrievals_per60",
-  "shot_assisting_passes_per60",
-  "puck_management_xga_saved_per100_plays",
-  "entry_denial_fraction",
-  "possession_entry_denial_fraction",
-  "skating_max_speed_mph",
-  "skating_bursts_over20_count",
-] as const satisfies readonly (keyof SkaterMicrostats)[];
+const personalMicrostatPopulation = "matched personal-credit regular-season physical 5v5 time with both goalies present";
+const trackingMicrostatPopulation = "source-certified or independently corroborated regular-season physical 5v5 observed-action window with both goalies present";
+const skatingMicrostatPopulation = "source-season all-situations skating aggregate; standing requires a separately verified source-season census";
+const trackingMicrostatReference = "observed action credits under the source's documented protocol; that protocol is not established by this application";
+const microstatFields = {
+  goals_per60: {
+    label: "goals", unit: "per60", population: personalMicrostatPopulation,
+    construction: "recorded credited goals per 60 minutes of matched personal-credit time",
+    numericReference: "recorded goals; unchanged personal-credit count and time",
+  },
+  primary_assists_per60: {
+    label: "primary assists", unit: "per60", population: personalMicrostatPopulation,
+    construction: "recorded first goal-assist credits per 60 minutes of matched personal-credit time",
+    numericReference: "recorded primary assists; unchanged personal-credit count and time",
+  },
+  unblocked_attempts_per60: {
+    label: "unblocked attempts", unit: "per60",
+    population: "matched personal unblocked-attempt regular-season physical 5v5 time with both goalies present; no coordinate requirement",
+    construction: "credited goals, saves and misses per 60 minutes of this field's matched time",
+    numericReference: "recorded unblocked attempts, including misses; not shots on goal",
+  },
+  hits_per60: {
+    label: "hits", unit: "per60",
+    population: "reconciled recorded-hit and player-membership regular-season physical 5v5 time with both goalies present",
+    construction: "recorded hitter events per 60 minutes of their own reconciled hit/membership support",
+    numericReference: "recorded credited hits; higher means more hits, not better play",
+  },
+  reference_xg_per60: {
+    label: "reference xg", unit: "per60",
+    population: "credited ordinary physical 5v5 attempts on matched neutral_all_attempt_value elapsed support, both goalies present",
+    construction: "model-valued personal ordinary-attempt opportunities per 60 matched minutes, including declared blocked-origin inference",
+    numericReference: "virtual neutral execution on observed opportunities; same-season model valuation, not isolated finishing or a held-out forecast",
+  },
+  blocked_attempt_share: {
+    label: "blocking share", unit: "fraction",
+    population: "opponent ordinary-attempt opportunities while personally present on matched regular-season physical 5v5 blocker support, both goalies present",
+    construction: "personal credited blocks divided by opponent ordinary attempts while present; matched time qualifies standing but is not the share denominator",
+    numericReference: "recorded fraction of opponent attempts blocked; zero opportunities is unavailable",
+  },
+  primary_pass_xg_per60: {
+    label: "reference expected assists", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "neutral recipient-attempt probabilities summed over observed primary-pass opportunities per 60 tracked minutes; not inferred setting",
+    numericReference: "virtual neutral execution valued on observed primary-pass links",
+  },
+  primary_shot_assists_per60: {
+    label: "primary shot assists", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "observed primary-pass-to-attempt credits per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  in_zone_attempts_per60: {
+    label: "in-zone attempts", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "attempts tagged as in-zone possession plays by the tracking protocol per 60 tracked minutes; not the complement of a rush proxy", numericReference: trackingMicrostatReference,
+  },
+  rush_attempts_per60: {
+    label: "rush attempts", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "attempts linked to a tracked controlled-entry rush per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  high_danger_pass_attempts_per60: {
+    label: "attempts off high-danger passes", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "recipient attempts linked to source-qualified high-danger passes per 60 tracked minutes; shot location alone does not qualify a pass", numericReference: trackingMicrostatReference,
+  },
+  in_zone_shot_assists_per60: {
+    label: "in-zone shot assists", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "observed primary-pass attempt credits on tracked in-zone plays per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  rush_shot_assists_per60: {
+    label: "rush shot assists", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "observed primary-pass attempt credits on tracked rush plays per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  high_danger_passes_per60: {
+    label: "high-danger passes", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "source-qualified dangerous-pass credits retaining pass-path and receiver evidence per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  zone_entries_per60: {
+    label: "zone entries", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "source-qualified attacking-zone entry credits per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  possession_entries_per60: {
+    label: "possession entries", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "controlled-entry credits under the source's carrier/passer rule per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  zone_exits_per60: {
+    label: "zone exits", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "source-qualified successful defensive-zone exit credits per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  possession_exits_per60: {
+    label: "possession exits", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "successful exit credits retaining possession under the source's pressure/outcome rules per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  forecheck_involvements_per60: {
+    label: "forecheck involvements", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "credited dump-in recoveries plus forecheck pressures per 60 tracked minutes; distinct actions can share an episode", numericReference: trackingMicrostatReference,
+  },
+  defensive_zone_touches_per60: {
+    label: "defensive-zone touches", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "source-qualified defensive-zone puck-touch credits per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  pass_exits_per60: {
+    label: "pass exits", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "successful possession-preserving exit-pass credits per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  carry_exits_per60: {
+    label: "carry exits", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "successful possession-preserving carried-exit credits per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  defensive_zone_retrievals_per60: {
+    label: "defensive-zone retrievals", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "source-qualified clean loose-puck retrieval credits per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  successful_retrievals_per60: {
+    label: "successful retrievals", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "retrieval credits linked to a qualifying successful exit per 60 tracked minutes", numericReference: trackingMicrostatReference,
+  },
+  shot_assisting_passes_per60: {
+    label: "shot-assisting passes", unit: "per60", population: trackingMicrostatPopulation,
+    construction: "observed primary, secondary and tertiary shot-assisting pass credits per 60 tracked minutes; not all completed passes", numericReference: trackingMicrostatReference,
+  },
+  puck_management_xga_saved_per100_plays: {
+    label: "puck management", unit: "xga_saved_per100_plays", population: trackingMicrostatPopulation,
+    construction: "source-modeled signed expected goals against saved per 100 eligible puck plays; not our additive ledger",
+    numericReference: "source-provided model, comparison reference and eligible-play identity required",
+  },
+  entry_denial_fraction: {
+    label: "entry denials", unit: "fraction", population: trackingMicrostatPopulation,
+    construction: "denied entry attempts divided by all tracked entry attempts defended by this player", numericReference: trackingMicrostatReference,
+  },
+  possession_entry_denial_fraction: {
+    label: "possession entry denials", unit: "fraction", population: trackingMicrostatPopulation,
+    construction: "defended attempts prevented from gaining controlled access divided by all tracked entry attempts defended", numericReference: trackingMicrostatReference,
+  },
+  skating_max_speed_mph: {
+    label: "maximum sustained speed", unit: "mph", population: skatingMicrostatPopulation,
+    construction: "source maximum sustained skating speed in miles per hour; separate measurement, no skating composite",
+    numericReference: "source-season maximum under the source sustained-speed definition; no per60 conversion",
+  },
+  skating_bursts_over20_count: {
+    label: "20+ mph bursts", unit: "count", population: skatingMicrostatPopulation,
+    construction: "source count of skating bursts over 20 mph; not a rate or composite",
+    numericReference: "source-season count under the source burst definition; no per60 conversion",
+  },
+} as const satisfies Record<keyof SkaterMicrostats, {
+  readonly label: string;
+  readonly unit: string;
+  readonly population: string;
+  readonly construction: string;
+  readonly numericReference: string;
+}>;
 
-const microstats = microstatFields.map(field => definition({
-  ...base,
-  publicationFamily: "microstats",
-  id: `microstats.${field}`,
-  quantityPath: field === "reference_xg_per60" ||
-    field === "primary_pass_xg_per60" ||
-    field === "puck_management_xga_saved_per100_plays"
-    ? `skater_microstats.${field}`
-    : undefined,
-  family: "microstats",
-  group: "microstats",
-  label: title(field),
-  unit: field === "skating_max_speed_mph"
-    ? "mph"
-    : field === "skating_bursts_over20_count"
-      ? "count"
-      : field === "puck_management_xga_saved_per100_plays"
-        ? "xga_saved_per100_plays"
-        : field === "blocked_attempt_share" || field.endsWith("fraction")
-          ? "fraction"
-          : "per60",
-  population: `published ${field} window`,
-  qualificationLabel: `${title(field)} own source window`,
-  construction: "source-backed",
-  numericReference: "published source window",
-  cutoff: field.startsWith("skating_") ? "census" : "general",
-  select: inputs => fromResult(inputs.microstats, data => {
-    const fact = data[field];
-    return {
-      ...estimate(fact, fact.support, "", `microstats.${field}.support.included_seconds`),
-      methodId: fact.provenance.kind === "method" ? fact.provenance.id : undefined,
-      sourceId: fact.provenance.kind === "source" ? fact.provenance.id : undefined,
-      construction: fact.construction
-    };
-  })
-}));
+export const microstatMetricIds: readonly `microstats.${keyof SkaterMicrostats}`[] = (Object.keys(microstatFields) as (keyof SkaterMicrostats)[])
+  .map(field => `microstats.${field}` as const);
+export const microstatComponentIds = [
+  "ledger.five_on_five_offense.league_goals",
+  "ledger.five_on_five_defense.league_goals",
+  "ledger.power_play_offense.league_goals",
+  "ledger.penalty_kill_defense.league_goals",
+  "ledger.finishing.league_goals",
+  "ledger.penalties_combined.league_goals",
+] as const satisfies readonly AnalysisMetricId[];
+
+const microstats = (Object.keys(microstatFields) as (keyof SkaterMicrostats)[]).map(field => {
+  const content = microstatFields[field];
+  return definition({
+    ...base,
+    ...content,
+    publicationFamily: "microstats",
+    id: `microstats.${field}`,
+    quantityPath: field === "reference_xg_per60" ||
+      field === "primary_pass_xg_per60" ||
+      field === "puck_management_xga_saved_per100_plays"
+      ? `skater_microstats.${field}`
+      : undefined,
+    family: "microstats",
+    group: "microstats",
+    qualificationLabel: field.startsWith("skating_")
+      ? "source-season skating census (unverified)"
+      : `${content.label}: own matched positive elapsed support`,
+    cutoff: field.startsWith("skating_") ? "census" : "general",
+    select: inputs => fromResult(inputs.microstats, data => {
+      const fact = data[field];
+      return {
+        ...estimate(fact, fact.support, "", `microstats.${field}.support.included_seconds`),
+        methodId: fact.provenance.kind === "method" ? fact.provenance.id : undefined,
+        sourceId: fact.provenance.kind === "source" ? fact.provenance.id : undefined,
+        construction: `${fact.construction}: ${content.construction}`,
+      };
+    }),
+  });
+});
 
 const goalieFields = [
   "stopping_goals_per100_on_net",

@@ -1,0 +1,38 @@
+{
+  "scope": "expanded actual-font svg check after deleting only per-field rules; text and heights unchanged",
+  "results": [
+    {
+      "path": "docs/research/application-v1-17/static-long-defense.svg",
+      "sha256": "5335119e34101b0fd646d94c849f03335f5de94a81386717c499590fbbb0a82b",
+      "width": 1200,
+      "height": 1991,
+      "text_count": 137,
+      "horizontal_rules": 5,
+      "rule_text_crossings": [],
+      "text_text_overlaps": [],
+      "overflow": []
+    },
+    {
+      "path": "docs/research/application-v1-17/static-unknown.svg",
+      "sha256": "2660d84235960d42000a8eb247ecdb2b183074b476aa2ee2339d07c1426008b8",
+      "width": 1200,
+      "height": 2558,
+      "text_count": 178,
+      "horizontal_rules": 5,
+      "rule_text_crossings": [],
+      "text_text_overlaps": [],
+      "overflow": []
+    },
+    {
+      "path": "docs/research/application-v1-17/static-absent.svg",
+      "sha256": "259b580ba78621d2b0e4f8fb58efee031eacbb6834383aa24f9a76dcab5f203c",
+      "width": 1200,
+      "height": 2032,
+      "text_count": 148,
+      "horizontal_rules": 5,
+      "rule_text_crossings": [],
+      "text_text_overlaps": [],
+      "overflow": []
+    }
+  ]
+}

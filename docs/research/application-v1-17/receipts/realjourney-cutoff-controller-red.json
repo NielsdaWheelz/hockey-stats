@@ -1,0 +1,22 @@
+{
+  "url": "http://127.0.0.1:41918/players/8478402?season=20252026&peerMin=999999&view=microstats&metric=ledger.finishing.league_goals",
+  "errors": [],
+  "downloads": [
+    {
+      "label": "forward",
+      "png": "hockey-stats-20252026-8478402-microstats.png",
+      "csv": "hockey-stats-20252026-8478402-microstats.csv",
+      "width": 1200,
+      "height": 1812,
+      "png_bytes": 521067,
+      "png_sha256": "113870a05e08358c71fa31d94fcdeea9a081141645480d7d64a27324b63a59d2",
+      "csv_rows": 27,
+      "csv_sha256": "61a041a5eab53583b681b93d03c62bb89421cf774ac16e691a383bc9268e2a9d",
+      "png_csv_save_elapsed_ms": 412.9729580000021,
+      "publication": "dd469700-19ec-4e70-b024-382204b9ae1c",
+      "person": "8478402",
+      "season": "20252026"
+    }
+  ],
+  "message": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /below cutoff|unavailable|no standing/. Input:\n\n'81.9 percentile\\nn=615'\n"
+}

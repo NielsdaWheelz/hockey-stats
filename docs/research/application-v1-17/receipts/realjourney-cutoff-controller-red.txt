@@ -1,0 +1,18 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The input did not match the regular expression /below cutoff|unavailable|no standing/. Input:
+
+'81.9 percentile\nn=615'
+
+    at file:///private/tmp/hockey-stats-v1-17-browser/journey.mjs:130:9 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: '81.9 percentile\nn=615',
+  expected: /below cutoff|unavailable|no standing/,
+  operator: 'match',
+  diff: 'simple'
+}
+
+Node.js v24.21.0

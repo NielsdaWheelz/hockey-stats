@@ -70,7 +70,7 @@ population codes: `p` existing matched personal-credit support; `u` newly matche
 
 [v1-06](v1-06-execution-scoring.md#matched-values-and-publication) fixes `v` to the matched `neutral_all_attempt_value` context support, including saved ordinary-attempt masks and checked physical shooter/team membership. sum the same fully neutral ordinary-attempt opportunities by shooter, including declared block imputation; retain zero-event time. counts/time leave together on unusable required values. this population does not replace `p/u`, conditional unblocked probabilities or standardized finishing. reference xg is a model-valued observed-opportunity rate.
 
-the [v1-17 review](v1-17-microstat-cards.md#bounded-reference-xg-metadata-correction) found that the producer's method prose still describes execution common panels for this field. its values/support already use `v`. correct the producer and attribute a metadata-only combined successor before real card acceptance; preserve all numerical identities, values and support. [the issue](../issues/microstat-reference-population.md) remains open until verified correction, not merely amended prose.
+the [v1-17 review](v1-17-microstat-cards.md#bounded-reference-xg-metadata-correction) found that the producer's method prose described execution common panels for this field while values/support already used `v`. the [verified producer correction and attributed combined successor](../research/application-v1-17/verification.md#reference-xg-provenance) now preserve every numerical identity, value and support body while correcting the personal population through publication, detail and exports.
 
 | key / card slot | exact construction and units | population; construction / source disposition |
 |---|---|---|

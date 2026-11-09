@@ -1,0 +1,60 @@
+{
+  "method": "owned per-host browser zoom; no device emulation; direct unclipped CDP capture; actual PNG/CSV downloads at both zooms",
+  "url": "http://127.0.0.1:41918/players/8478402?season=20252026&view=microstats&peerMin=0",
+  "expected_publication_id": "dd469700-19ec-4e70-b024-382204b9ae1c",
+  "identical_png_csv_bytes_across_zoom": true,
+  "records": [
+    {
+      "zoom": 1,
+      "metrics": {
+        "innerWidth": 1280,
+        "outerWidth": 1280,
+        "devicePixelRatio": 1,
+        "documentWidth": 1280
+      },
+      "committed_url": "http://127.0.0.1:41918/players/8478402?season=20252026&view=microstats&peerMin=0",
+      "downloads": {
+        "publication_id": "dd469700-19ec-4e70-b024-382204b9ae1c",
+        "purpose": "real",
+        "player_id": "8478402",
+        "season": "20252026",
+        "png_filename": "hockey-stats-20252026-8478402-microstats.png",
+        "csv_filename": "hockey-stats-20252026-8478402-microstats.csv",
+        "png_width": 1200,
+        "png_height": 1812,
+        "png_bytes": 521067,
+        "png_sha256": "113870a05e08358c71fa31d94fcdeea9a081141645480d7d64a27324b63a59d2",
+        "csv_rows": 27,
+        "csv_bytes": 56917,
+        "csv_sha256": "61a041a5eab53583b681b93d03c62bb89421cf774ac16e691a383bc9268e2a9d",
+        "png_csv_save_elapsed_ms": 119.72816700000112
+      }
+    },
+    {
+      "zoom": 2,
+      "metrics": {
+        "innerWidth": 640,
+        "outerWidth": 1280,
+        "devicePixelRatio": 2,
+        "documentWidth": 640
+      },
+      "committed_url": "http://127.0.0.1:41918/players/8478402?season=20252026&view=microstats&peerMin=0",
+      "downloads": {
+        "publication_id": "dd469700-19ec-4e70-b024-382204b9ae1c",
+        "purpose": "real",
+        "player_id": "8478402",
+        "season": "20252026",
+        "png_filename": "hockey-stats-20252026-8478402-microstats.png",
+        "csv_filename": "hockey-stats-20252026-8478402-microstats.csv",
+        "png_width": 1200,
+        "png_height": 1812,
+        "png_bytes": 521067,
+        "png_sha256": "113870a05e08358c71fa31d94fcdeea9a081141645480d7d64a27324b63a59d2",
+        "csv_rows": 27,
+        "csv_bytes": 56917,
+        "csv_sha256": "61a041a5eab53583b681b93d03c62bb89421cf774ac16e691a383bc9268e2a9d",
+        "png_csv_save_elapsed_ms": 98.01174999999785
+      }
+    }
+  ]
+}

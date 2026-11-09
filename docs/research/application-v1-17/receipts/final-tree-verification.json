@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-11-09T07:28:34.285040+00:00",
+  "local_document_files": 13,
+  "local_file_links": 730,
+  "metadata_anchor": "present",
+  "stale_metadata_issue_links": 0,
+  "temporary_roots_absent": [
+    ".tmp",
+    "app/.tmp",
+    ".scratch/v1-17",
+    "var/v1-17-provenance",
+    "app/var/v1-17",
+    "/tmp/hockey-stats-v1-17-browser"
+  ],
+  "production_source_files": [
+    {
+      "path": "analysis/src/hockey_stats/execution_composition.py",
+      "bytes": 40342,
+      "sha256": "daad0528d71a3f47c95080041058f5c72a775f3288301b0af5dd5e01203bdc77"
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_publication.py",
+      "bytes": 157903,
+      "sha256": "89376556cc7f0515563a41bf30a114a3626d6c3d1925ed9c4914345ed0d45dcb"
+    },
+    {
+      "path": "analysis/src/hockey_stats/spatial_composition.py",
+      "bytes": 35071,
+      "sha256": "c11c687d2f47ccccfc1f01f901b2036b16990948a7cc593a00ace2db2483a63e"
+    },
+    {
+      "path": "app/src/web/analysis-values.ts",
+      "bytes": 52999,
+      "sha256": "730e59cdb0b3ca9b466c59d37022478b11a1c6192be14ba33e6893d7f71f48e0"
+    },
+    {
+      "path": "app/src/web/client.ts",
+      "bytes": 34329,
+      "sha256": "c8c3eeaaff1d3ee6d43d626a23801bb340f5a83ac7232d35af4a219648e15dc5"
+    },
+    {
+      "path": "app/src/web/explorer.ts",
+      "bytes": 11976,
+      "sha256": "1c32b496d44fc90ec6c08d140226a5b24d9240f3be84b462e70e40bb38a1633d"
+    },
+    {
+      "path": "app/src/web/peer-distributions.tsx",
+      "bytes": 23313,
+      "sha256": "27e064999de1f9ad8f6ac85239306933c3b1fcd06a9ac4c8b52792519de3eea7"
+    },
+    {
+      "path": "app/src/web/routes/compare.tsx",
+      "bytes": 20880,
+      "sha256": "51af26d5b13e30d65cf7697e42698a8c2467456173155132987bf187de2d394f"
+    },
+    {
+      "path": "app/src/web/routes/player.tsx",
+      "bytes": 27967,
+      "sha256": "f31a77d49d8feb57f19b7a8f2d82a1d7ff7905d209ba62978f1425e93311d7e5"
+    },
+    {
+      "path": "app/src/web/styles.css",
+      "bytes": 30338,
+      "sha256": "54e020a31b6601a67b1666d358dacf966ebd2d633d0f0f568a3c2901f4e9932c"
+    },
+    {
+      "path": "app/src/web/microstat-card.tsx",
+      "bytes": 14431,
+      "sha256": "b41ca41d2907ffe7fac856f079143fe77e6af55b3ca94f7e04b90ac12293df6f"
+    },
+    {
+      "path": "app/src/web/microstat-values.ts",
+      "bytes": 8502,
+      "sha256": "e8562829efb387a88a5a172bb48ffb661c6dbc4f0f18ad53b0a04b3aee798811"
+    }
+  ],
+  "pinned_checks": [
+    "typecheck-after-cleanup.txt",
+    "build-after-cleanup.txt"
+  ],
+  "scope": "final changed documentation local targets and preserved source identities; no historical corpus or second publication read"
+}

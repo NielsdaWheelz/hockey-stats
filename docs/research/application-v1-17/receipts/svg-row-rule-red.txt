@@ -1,0 +1,19 @@
+{"phase":"red","height":"659","rule_count":4,"text_rule_intersections":3}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: separators must not cross rendered text
+
+3 !== 0
+
+    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-17/.tmp/v1-17-provenance-rule/check.mts:34:9) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 3,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.21.0

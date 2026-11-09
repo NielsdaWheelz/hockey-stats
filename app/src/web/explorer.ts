@@ -10,6 +10,8 @@ import { HockeyId, type Team } from "../shared/observed";
 import {
   analysisMetric,
   defaultAnalysisMetric,
+  microstatMetricIds,
+  microstatComponentIds,
   type AnalysisMetric,
   type AnalysisMetricId,
 } from "./analysis-values";
@@ -25,7 +27,7 @@ export type Sort =
   | "reportedMinutes"
   | "evScoringMinutes"
   | "ppScoringMinutes";
-export type AnalysisView = "comparative" | "observed";
+export type AnalysisView = "comparative" | "observed" | "microstats";
 export type DiscoveryTable =
   | "overview"
   | "observed"
@@ -57,9 +59,9 @@ export function readView(search: URLSearchParams): {
   const next = new URLSearchParams(search);
   const values = search.getAll("view");
   const selected = values.length === 1 ? values[0] : undefined;
-  if (values.length && selected !== "comparative" && selected !== "observed")
+  if (values.length && selected !== "comparative" && selected !== "observed" && selected !== "microstats")
     next.delete("view");
-  return { view: selected === "observed" ? "observed" : "comparative", search: next };
+  return { view: selected === "observed" || selected === "microstats" ? selected : "comparative", search: next };
 }
 
 export function readTableSelection(search: URLSearchParams): {
@@ -190,10 +192,14 @@ export function readMetric(
   const next = new URLSearchParams(search);
   const values = search.getAll("metric");
   const selected = values.length === 1 ? analysisMetric(values[0]) : undefined;
-  const metric = selected?.kind === kind ? selected : undefined;
+  const allowed = selected?.kind === kind && (kind !== "skater" || view !== "microstats" ||
+    [...microstatMetricIds, ...microstatComponentIds].some(id => id === selected.id));
+  const metric = allowed ? selected : undefined;
   if (values.length && metric === undefined) next.delete("metric");
   return {
-    metric: metric ?? (kind === "skater" && view === "comparative"
+    metric: metric ?? (kind === "skater" && view === "microstats"
+      ? analysisMetric("microstats.unblocked_attempts_per60")!
+      : kind === "skater" && view === "comparative"
       ? analysisMetric("ledger.league_total")!
       : defaultAnalysisMetric(kind)),
     search: next,
@@ -327,6 +333,12 @@ export function shouldRevalidateView(
   }
   return defaultShouldRevalidate;
 }
+
+export const shouldRevalidateAnalysisView = (args: ShouldRevalidateFunctionArgs) =>
+  shouldRevalidateView(args, [
+    "peers", "peerMin", "specialtyMin", "history",
+    ...(readView(args.nextUrl.searchParams).view === "observed" ? [] : ["map"]),
+  ]);
 
 export function pendingSeasonChange(
   current: { readonly search: string },

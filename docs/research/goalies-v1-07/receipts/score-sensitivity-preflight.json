@@ -14,7 +14,10 @@
     "individual repeated probability/joint maxima and row counts must agree with saved probes within 32 float64 epsilon absolute probability",
     "assessed, partial and unavailable h/d/joint evidence retain separate counts and unavailable values",
     "final real year cannot be relabeled as an earlier annual unassessed state",
-    "variant native stopping maps must remain bytewise-equal as arrays to baseline, alongside existing exact base scalar invariance"
+    "variant native stopping maps must remain exactly equal as arrays to baseline, alongside existing exact base scalar invariance",
+    "strict diagnostic probabilities, differences and available heads bind to saved W/H/HD log masses; no independent normalization path",
+    "existing setter inference marker identifies inherited setup/g dependencies only; raw source, reports, usage and actual occurrence evidence stay pure",
+    "shared source-owned annual affiliation coverage flags unknown assignments without invented participation or changed known counts/sums/listed denominators; per-team usage flags only relevant missing sides"
   ],
   "independent_toy_oracle": {
     "contexts": 1,
@@ -38,7 +41,11 @@
     "threshold rescue",
     "altered native comparison budget",
     "joint comparison omitted while both heads fully available",
-    "final real year demoted to annual not-assessed"
+    "final real year demoted to annual not-assessed",
+    "diagnostic variant probability 1.7 contradicts saved normalization",
+    "in-range diagnostic variant probability .4 contradicts saved normalization",
+    "changed fixed neutral saved-shot W",
+    "negative/increasing/orphan continuation masses"
   ],
   "independent_positive_checks": [
     "all three pointwise h/d/joint maxima match direct hand arithmetic",
@@ -63,5 +70,10 @@
     "source_replay": false,
     "output_created": false,
     "temporary_check": ".tmp/goalie-acceptance/check_malformed_score_cli.py"
+  },
+  "historical_fixture_scope": "first score04 bytes and its accepted pre-inference-flag reader proof remain historical; current full reader intentionally requires corrected setup/source-coverage metadata, exercised next by the fresh final-year fixture",
+  "independent_review": {
+    "numerical_owner": "cleared pointwise/descriptor/probe/unit relations, underflow, native stopping-map invariance and header rejection",
+    "source_owner": "cleared known-zero plus missing-side, unrelated-side, no-assignment, traded-team, qualified-seconds and detached-checker counterexamples; reviewed in source-helper commit f00b551"
   }
 }

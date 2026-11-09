@@ -132,13 +132,17 @@ def reference_masses(upstream, goal, setup_weights, origin_weights, continuation
     return dict(prefixes=prefix,continuation=continuation_mass,stopping=stopping)
 
 
+def _continuation_levels(logs):
+    w,h,hd=logs
+    return dict(recorded_reattempt_probability=_ratio(h,w),
+                reattempt_neutral_goal_probability=_ratio(hd,h),followup_danger=_ratio(hd,w))
+
+
 def _levels(prefix, continuation):
     a,b,c,d = prefix
-    w,h,hd = continuation
     return dict(miss_probability=None if a == -np.inf else float(-np.expm1(b-a)),
                 recorded_stop_probability=None if b == -np.inf else float(-np.expm1(c-b)),
-                conversion_probability=_ratio(d,c),recorded_reattempt_probability=_ratio(h,w),
-                reattempt_neutral_goal_probability=_ratio(hd,h),followup_danger=_ratio(hd,w))
+                conversion_probability=_ratio(d,c),**_continuation_levels(continuation))
 
 
 def _estimate(value, method, *, reason='no_exposure', explanation='the selected population has no supported positive denominator'):
@@ -278,7 +282,9 @@ def _finish_projection(season, player, strength, panels, pooled, evidence, likel
         support[field] = _support(len(current),weight=_mass(reference_denominators[base]),
             seconds=None if elapsed is None else elapsed['included_seconds'],
             gap=True if elapsed is None else elapsed['unquantified_gap'],current=all_current,prior_only=prior_only,years=years,
-            inferred=(['historical_borrowing'] if years else [])+(['blocked_origin'] if any(row['origins'] > row['events'] for row in panels) else []))
+            inferred=(['historical_borrowing'] if years else [])
+                +(['blocked_origin'] if any(row['origins'] > row['events'] for row in panels) else [])
+                +(['setter'] if base not in ('miss_probability','recorded_stop_probability') and any(row['events'] for row in panels) else []))
         if base == 'reattempt_neutral_goal_probability' and evidence['h']['reason'] == 'head_incomplete':
             support[field]['eligible_weight'] = None
         if elapsed is not None:
@@ -392,7 +398,7 @@ def _paired_evidence(events, league, population, method):
         goals_per100_expected=_estimate(100*goals/expected if expected > 0 else None,method),
         mean_goal_probability=_estimate(mean,method),league_mean_goal_probability=_estimate(league_mean,method),
         difficulty_relative_percent=_estimate(100*(mean/league_mean-1) if mean is not None and league_mean is not None and league_mean > 0 else None,method),
-        support=_support(n),method_id=method)
+        support=_support(n,inferred=['setter'] if n or league_n else ()),method_id=method)
     if population == 'on_net':
         result['expected_save_fraction'] = _estimate(None if mean is None else 1-mean,method)
     return result
@@ -406,23 +412,27 @@ def _stage_evidence(events):
         numerator = 'fractional_response_sum' if stage == 'next_attempt_danger' else 'success_count'
         response = fsum(row['response'] for row in selected) if stage == 'next_attempt_danger' else sum(row['response'] for row in selected)
         result[stage] = {numerator:response,'eligible_count':len(selected),
-                        'matched_expected_sum':fsum(row['prediction'] for row in selected),'support':_support(len(selected))}
+                        'matched_expected_sum':fsum(row['prediction'] for row in selected),
+                        'support':_support(len(selected),inferred=['setter'] if selected and stage in ('conversion','next_attempt_danger') else ())}
     return result
 
 
-def _source_counts(events, source, method, *, unavailable=False, gap=False):
+def _source_counts(events, source, method, *, unavailable=False, gap=False, reasons=()):
     rows = [row for row in events if row['source_status'] == 'included' and row['outcome'] != 'block']
     counts = Counter(row['outcome'] for row in rows)
     n, on_net = len(rows),counts['save']+counts['goal']
+    reasons=list(reasons)
+    if (unavailable or gap) and 'source_unavailable' not in reasons:
+        reasons.append('source_unavailable')
     return dict(unblocked_attempts=None if unavailable else n,misses=None if unavailable else counts['miss'],
         shots_on_goal=None if unavailable else on_net,saves=None if unavailable else counts['save'],
         goals_against=None if unavailable else counts['goal'],
         save_percentage=_estimate(counts['save']/on_net if on_net and not unavailable else None,method,
             reason='missing_source' if unavailable else 'no_exposure',explanation='the source collection is unavailable or this identity has no dated game evidence' if unavailable else 'no supported on-net source attempts'),
-        support=_support(n,gap=unavailable or gap,reasons=['source_unavailable'] if unavailable or gap else ()),provenance=source)
+        support=_support(n,gap=unavailable or gap,reasons=reasons),provenance=source)
 
 
-def _reported_counts(goalies, strength, source, method):
+def _reported_counts(goalies, strength, source, method, *, unassigned=0):
     category = 'all' if strength == 'covered_all' else strength if strength in ('ev','pk') else None
     counts, coverage = {}, {}
     for field in ('shots_on_goal','saves','goals_against'):
@@ -438,40 +448,45 @@ def _reported_counts(goalies, strength, source, method):
     fraction = sum(row['saves'] for row in paired)/denominator if denominator else None
     if fraction is not None and (counts['shots_on_goal'] != denominator or counts['saves'] != sum(row['saves'] for row in paired)):
         fraction = None
-    counts.update(save_percentage=_estimate(fraction,method),support=_support(len(goalies),gap=not goalies or any(value < len(goalies) for value in coverage.values()),
-        reasons=['source_unavailable'] if not goalies or category is None or any(value < len(goalies) for value in coverage.values()) else ()),provenance=source)
+    reasons=['source_unavailable'] if not goalies or category is None or any(value < len(goalies) for value in coverage.values()) else []
+    if not goalies and unassigned:
+        reasons=[]
+    reasons+=['unassigned_player_games','source_unavailable']*unassigned
+    counts.update(save_percentage=_estimate(fraction,method),support=_support(len(goalies),gap=bool(reasons),reasons=reasons),provenance=source)
     return counts
 
 
-def _usage_rows(goalies, method, source, *, team_id=None):
+def _usage_rows(goalies, method, source, unassigned, unassigned_by_team, *, team_id=None):
     selected = [row for row in goalies if team_id is None or row['team'] is not None and row['team']['id'] == team_id]
     timed = [row for row in selected if row['reported_seconds'] is not None]
     positive = sum(row['reported_seconds'] > 0 for row in timed)
     seconds = sum(row['reported_seconds'] for row in timed) if timed else None
     shifts = [row['reported_shifts'] for row in selected if row['reported_shifts'] is not None]
+    reasons=['source_unavailable'] if len(timed)<len(selected) or not selected and not unassigned else []
+    reasons+=['unassigned_player_games','source_unavailable']*unassigned
     value = dict(positive_toi_appearances=positive,reported_seconds=seconds,
                  minutes_per_appearance=_estimate(seconds/(60*positive) if positive else None,method),
                  reported_shifts=sum(shifts) if shifts else None,listed_games=len(selected),supported_games=len(timed),
-                 missing_games=len(selected)-len(timed),support=_support(len(timed),gap=not selected or len(timed)<len(selected),reasons=['source_unavailable'] if not selected else ()))
+                 missing_games=len(selected)-len(timed),support=_support(len(timed),gap=bool(reasons),reasons=reasons))
     if team_id is not None:
         value['team_id'] = team_id
     else:
-        value.update(teams=[_usage_rows(selected,method,source,team_id=team) for team in sorted({row['team']['id'] for row in selected if row['team'] is not None})],provenance=source)
+        value.update(teams=[_usage_rows(selected,method,source,len(unassigned_by_team.get(team,[])),{},team_id=team) for team in sorted({row['team']['id'] for row in selected if row['team'] is not None})],provenance=source)
     return value
 
 
-def _summary_evidence(events, league_events, source, method, *, missing=False, gap=False):
+def _summary_evidence(events, league_events, source, method, *, missing=False, gap=False, reasons=()):
     state_groups = defaultdict(list)
     for row in events:
         if row['source_status'] == 'included' and row['physical_state'] is not None:
             state_groups[tuple(row['physical_state'])].append(row)
-    result = dict(source_counts=_source_counts(events,source,method,unavailable=missing,gap=gap),
+    result = dict(source_counts=_source_counts(events,source,method,unavailable=missing,gap=gap,reasons=reasons),
         on_net_evidence=_paired_evidence(events,_totals(league_events,'on_net'),'on_net',method),
         unblocked_evidence=_paired_evidence(events,_totals(league_events,'unblocked'),'unblocked',method),
         stage_evidence=_stage_evidence(events),actual_states=[],provenance=source)
     for state, rows in sorted(state_groups.items()):
         league = [row for row in league_events if row['physical_state'] == list(state)]
-        result['actual_states'].append(dict(state=_actual_state(state),source_counts=_source_counts(rows,source,method,gap=gap),
+        result['actual_states'].append(dict(state=_actual_state(state),source_counts=_source_counts(rows,source,method,gap=gap,reasons=reasons),
             on_net_evidence=_paired_evidence(rows,_totals(league,'on_net'),'on_net',method),
             unblocked_evidence=_paired_evidence(rows,_totals(league,'unblocked'),'unblocked',method),stage_evidence=_stage_evidence(rows)))
     return result
@@ -511,7 +526,7 @@ def _mass_states(events,population):
     grouped = defaultdict(list)
     for row in _paired_rows(events,population):
         grouped[tuple(row['physical_state'])].append(row)
-    return [dict(state=_actual_state(state),**_totals(rows,population),support=_support(len(rows))) for state,rows in sorted(grouped.items())]
+    return [dict(state=_actual_state(state),**_totals(rows,population),support=_support(len(rows),inferred=['setter'])) for state,rows in sorted(grouped.items())]
 
 
 def _evidence_map(events,league,population,method):
@@ -532,7 +547,8 @@ def _evidence_map(events,league,population,method):
         unmapped=dict(goals=int(unmapped[0]),expected_goals=float(unmapped[1]),attempts=int(unmapped[2])),totals=totals,
         league_goals=league_totals['goals'],league_expected_goals=league_totals['expected_goals'],display_cells=[],
         reference='matched actual offense with virtual neutral goalie; positive ratio is more goals allowed per expected goal than matched league',
-        support=_support(len(selected)),method_id=method,actual_states=_mass_states(events,population))
+        support=_support(len(selected),inferred=['setter'] if selected or league_totals['attempts'] else ()),
+        method_id=method,actual_states=_mass_states(events,population))
     league_rate=league_totals['goals']/league_totals['expected_goals'] if league_totals['expected_goals'] > 0 else 0.
     for shape,(goals,expected,n) in zip(geometry(),display,strict=True):
         ratio = 100*((goals/expected)/league_rate-1) if expected > 0 and league_rate > 0 else None
@@ -552,7 +568,7 @@ def _danger_histogram(events,population,method):
         expected[index].append(probability)
     return dict(edges=edges,attempt_counts=counts,goal_mass=goals,
         expected_goal_mass=[fsum(values) for values in expected],totals=_totals(events,population),
-        support=_support(sum(counts)),method_id=method,actual_states=_mass_states(events,population))
+        support=_support(sum(counts),inferred=['setter'] if any(counts) else ()),method_id=method,actual_states=_mass_states(events,population))
 
 
 def _breakdown(events,kind,stratum,method):
@@ -563,44 +579,47 @@ def _breakdown(events,kind,stratum,method):
     n,goals,expected=(totals[key] for key in ('attempts','goals','expected_goals'))
     return dict(events=n,eligible_weight=n,observed_successes=goals,expected_successes=expected,
         probability=_estimate(expected/n if n else None,method),effect=_estimate((expected-goals)/n if n else None,method),
-        support=_support(n),method_id=method)
+        support=_support(n,inferred=['setter'] if n else ()),method_id=method)
 
 
-def _observed_rows(year,player,events,all_events,source_games,source,method):
-    games = []
-    for game in source_games:
-        actor = next((row for row in game['goalies'] if row['player_id'] == player),None)
-        if actor is not None:
-            games.append((game,actor))
+def _observed_summary(strength,events,league,coverage,source,method):
+    games=coverage['actor_games']
+    unassigned=len(coverage['unassigned_games'])
+    data=_summary_evidence(events,league,source,method,missing=coverage['source_counts_unavailable'],
+                           gap=coverage['unquantified_gap'],reasons=coverage['reasons'])
+    data.update(reported_boxscore_counts=_reported_counts([actor for _,actor in games],strength,source,method,unassigned=unassigned),
+        starts=sum(actor['start_status']=='start' for _,actor in games),
+        relief_appearances=sum(actor['start_status']=='relief' for _,actor in games),
+        unknown_start_status=sum(actor['start_status']=='unknown' for _,actor in games),
+        reported_usage=_usage_rows([actor for _,actor in games],method,source,unassigned,coverage['unassigned_by_team']),
+        coverage=_support(len(events),gap=coverage['unquantified_gap'],reasons=coverage['reasons']),games=[])
+    for game,actor in games:
+        if actor['team'] is None:continue
+        rows=[row for row in events if row['game_id']==game['game_id']]
+        game_data=_summary_evidence(rows,league,source,method,missing=not game['source_events_available'],gap=actor['source_events_gap'])
+        game_data.update(game_id=game['game_id'],date=game['date'],team=actor['team'],opponent=actor['opponent'],
+            start_status=actor['start_status'],reported_seconds=actor['reported_seconds'],
+            reported_boxscore_counts=_reported_counts([actor],strength,source,method))
+        data['games'].append(game_data)
+    return data
+
+
+def _observed_rows(year,person,events,all_events,source_games,source,method):
+    from .descriptive import goalie_source_coverage
+    player=person['player_id']
+    coverage=goalie_source_coverage(person,source_games)
     for strength in (*GOALIE_STRENGTHS,'covered_all'):
-        selected = [row for row in events if state_selected(row['physical_state'],strength)]
-        league = [row for row in all_events if state_selected(row['physical_state'],strength)]
-        missing = not games or all(not game['source_events_available'] for game,actor in games)
-        data = _summary_evidence(selected,league,source,method,missing=missing,gap=any(actor['source_events_gap'] for _,actor in games))
-        data.update(reported_boxscore_counts=_reported_counts([actor for _,actor in games],strength,source,method),
-            starts=sum(actor['start_status']=='start' for _,actor in games),
-            relief_appearances=sum(actor['start_status']=='relief' for _,actor in games),
-            unknown_start_status=sum(actor['start_status']=='unknown' for _,actor in games),
-            reported_usage=_usage_rows([actor for _,actor in games],method,source),
-            coverage=_support(len(selected),gap=any(actor['source_events_gap'] for _,actor in games)),games=[])
-        for game,actor in games:
-            if actor['team'] is None:
-                continue
-            rows = [row for row in selected if row['game_id'] == game['game_id']]
-            game_data = _summary_evidence(rows,league,source,method,missing=not game['source_events_available'],gap=actor['source_events_gap'])
-            game_data.update(game_id=game['game_id'],date=game['date'],team=actor['team'],opponent=actor['opponent'],
-                start_status=actor['start_status'],reported_seconds=actor['reported_seconds'],
-                reported_boxscore_counts=_reported_counts([actor],strength,source,method))
-            data['games'].append(game_data)
-        yield 'goalie_observed',_row(year,player,data,strength=strength)
+        selected=[row for row in events if state_selected(row['physical_state'],strength)]
+        league=[row for row in all_events if state_selected(row['physical_state'],strength)]
+        yield 'goalie_observed',_row(year,player,_observed_summary(strength,selected,league,coverage,source,method),strength=strength)
         for population in POPULATIONS:
             yield 'goalie_danger',_row(year,player,_danger_histogram(selected,population,method),strength=strength,population=population)
             for shot_type in GROUPED_TYPES:
-                own_type = [row for row in selected if _type_selected(row,shot_type)]
-                league_type = [row for row in league if _type_selected(row,shot_type)]
+                own_type=[row for row in selected if _type_selected(row,shot_type)]
+                league_type=[row for row in league if _type_selected(row,shot_type)]
                 yield 'goalie_evidence_map',_row(year,player,_evidence_map(own_type,league_type,population,method),
                     strength=strength,population=population,type=shot_type)
-        if strength != 'covered_all':
+        if strength!='covered_all':
             for kind,axis in (('shot_type',TYPES),('danger',DANGER)):
                 for stratum in axis:
                     yield 'execution_breakdown',_row(year,player,_breakdown(selected,kind,stratum,method),
@@ -803,17 +822,29 @@ def _method(design, state, sensitivity, projection_member):
         inputs.append(dict(role='predecessor',sha256=previous['sha256'],seasons=[previous['season']]))
     evidence=[dict(uri=str(state.path),sha256=identity(state.path)['sha256']),
               dict(uri=str(projection_member),sha256=identity(projection_member)['sha256']),
+              dict(uri=str(projection_member.parent/'sensitivity.json'),sha256=identity(projection_member.parent/'sensitivity.json')['sha256']),
               dict(uri=design.base_scores['path'],sha256=design.base_scores['sha256'])]
     maximum=max((row['maximum_probability_change'] for row in sensitivity['variants']
                  if row['maximum_probability_change'] is not None),default=None)
     numerical=('not assessed for this annual state; remaining optimizer accuracy is unknown' if sensitivity['status']=='not_assessed_for_annual_state'
-               else sensitivity['status']+'; '+('no completed probability comparison' if maximum is None else 'maximum assessed probability movement '+str(maximum))+'; remaining optimizer accuracy is unknown')
+               else sensitivity['status']+'; '+('no completed summary probability comparison' if maximum is None else 'maximum summary probability movement '+str(maximum))+'; remaining optimizer accuracy is unknown')
+    if sensitivity['status']!='not_assessed_for_annual_state':
+        if maximum is not None:
+            numerical+='; '+('summary sensitivity flagged above 1e-4' if any(row['flagged'] for row in sensitivity['variants']) else
+                'no assessed summary exceeds 1e-4')
+        pointwise=[maximum for row in sensitivity['variants'] for maximum in row['pointwise']['maximum_absolute_change'].values() if maximum is not None]
+        numerical+='; '+('no completed frozen pointwise comparison' if not pointwise else
+            'maximum frozen pointwise h/d/joint probability movement '+str(max(pointwise))+'; '+
+            ('frozen pointwise sensitivity flagged above 1e-5' if any(flag is True for row in sensitivity['variants'] for flag in row['pointwise']['flagged'].values()) else
+             'no assessed frozen pointwise comparison exceeds 1e-5'))
     baseline_status='; '.join(head+': '+state.heads[head]['status']+(' ('+', '.join(state.heads[head]['reasons'])+')' if state.heads[head]['reasons'] else '') for head in HEADS)
     limits=['baseline head status: '+baseline_status,
         'goalie execution breakdown uses paired unblocked attempts: observed successes means goals allowed; effect=(expected goals-goals allowed)/N is recorded goals saved per unblocked attempt, not isolated ability',
         'evidence maps retain additive expected-minus-goal mass; ratios are nonadditive and positive means more goals allowed per expected goal than matched league',
+        'positively supported annual team affiliation is only a possible-participation coverage reference; missing dated goalie identities leave located gaps without invented games, starts, reported counts or listed-game denominators',
         'official reported fields retain independently supported game subsets and field-specific coverage in source evidence; these splits do not establish exact-state or both-goalie totals',
         'experimental seasonal point estimates, not held-out forecasts or causal isolation; no calibrated intervals',
+        'inherited base probabilities, saved-shot weights and generated next-danger targets retain a pre-outcome inferred setter/setup mixture; this is neither an observed pass nor a setter coefficient in h/d',
         'recorded reattempt means the immediately next recorded same-team ordinary attempt within five seconds; this proxy is not tracking, passing or proven goalie rebound control',
         'conditional danger learns fully neutral successor all-attempt targets on the valued positive subset; selection and base-target uncertainty are omitted',
         'current information requires every contributing head to have current likelihood support; partial priors are distinct from all-head current evidence; prior-only coefficients may be evaluated',
@@ -835,7 +866,8 @@ def _method(design, state, sensitivity, projection_member):
             population='all selected annual goalies and declared common-panel/actual matched populations',summary='; '.join(limits),evidence=evidence)]))
 
 
-def _coverage(target_summary, source_games, events, row_counts, head_status):
+def _coverage(target_summary, source_games, people, events, row_counts, head_status):
+    from .descriptive import goalie_source_coverage
     source={row['key']:row for row in events}
     source_keys={key for key,row in source.items() if row['source_status']=='included'}
     numerical={key for key,row in source.items() if row['base_status']=='complete'}
@@ -862,8 +894,8 @@ def _coverage(target_summary, source_games, events, row_counts, head_status):
                 prediction_unavailable=counts['prediction_unavailable'],label_unavailable=counts['label_unavailable']))
     return dict(targets=target_summary,events=len(events),source_included=len(source_keys),paired_unblocked=len(paired),
         baseline_head_status=head_status,
-        team_unavailable_games=[dict(game_id=game['game_id'],player_id=row['player_id'],reason='dated_goalie_team_unavailable')
-            for game in source_games for row in game['goalies'] if row['team'] is None],
+        team_unavailable_games=sorted([row for person in people for row in goalie_source_coverage(person,source_games)['unassigned_games']],
+            key=lambda row:(row['game_id'],row['player_id'],row['reason'])),
         stage_prediction_reasons=[dict(code=code,count=count) for code,count in sorted(Counter(value['reason'] for row in events
             for value in row['stages'].values() if value['prediction'] is None and value['response'] is not None).items())],
         source_only=sorted(source_keys-numerical),numerical_only=sorted(numerical-source_keys),stage_dispositions=stage,
@@ -939,13 +971,13 @@ def score_goalie(state, prepared, coaches, annual_execution_scores, output):
         source_ref=dict(kind='source',id=source['sources'][0]['source_id'])
         for person in source['people']:
             player=person['player_id']
-            for table,row in _observed_rows(design.season,player,by_player[player],events,design.source_games,source_ref,method):
+            for table,row in _observed_rows(design.season,person,by_player[player],events,design.source_games,source_ref,method):
                 handles[table].write(_line(row));counts[table]+=1
     projection_seconds=perf_counter()-projection_started
     sensitivity_started=perf_counter()
     sensitivity=_sensitivity(state,variants,baseline_projections,changed_projections,events,design)
     _write_document(output/'sensitivity.json',sensitivity)
-    coverage=_coverage(design.coverage,design.source_games,events,counts,{head:state.heads[head]['status'] for head in HEADS})
+    coverage=_coverage(design.coverage,design.source_games,source['people'],events,counts,{head:state.heads[head]['status'] for head in HEADS})
     _write_document(output/'coverage.json',coverage)
     catalogs=dict(sources=source['sources'],methods=[_method(design,state,sensitivity,output/'projections.jsonl')],supports=[])
     _write_document(output/'catalogs.json',catalogs)
@@ -1098,6 +1130,25 @@ def _validate_event_value(row,manifest,source,target):
         require(row['stages'][stage]['prediction']==row['continuation_probabilities']['neutral_goalie'][head], 'continuation event stage/reference differs')
 
 
+def _validate_mass_record(record,size):
+    _closed(record,('log_masses','masses'),'goalie reference mass')
+    require(type(record['masses']) is list and type(record['log_masses']) is list
+            and len(record['masses'])==len(record['log_masses'])==size,'goalie reference mass axis differs')
+    for log_value,mass in zip(record['log_masses'],record['masses'],strict=True):
+        if mass is None:
+            require(log_value is None,'unsupported goalie mass retained a log')
+        else:
+            _number(mass,'goalie reference mass',low=0.)
+            require(log_value is None and mass==0. or type(log_value) in (int,float) and isfinite(log_value)
+                    and isclose(mass,float(np.exp(log_value)),rel_tol=1e-12,abs_tol=0.),'goalie log/reference mass differs')
+    for index in range(1,size):
+        left,right=record['masses'][index-1:index+1]
+        if right is None:continue
+        require(left is not None,'goalie downstream mass exists without its conditioning mass')
+        earlier,later=record['log_masses'][index-1:index+1]
+        require(later is None or earlier is not None and later<=earlier,'goalie reference log mass increases')
+
+
 def _validate_projection(row,manifest,people,likelihood_index):
     from .analysis_publication import support
     _closed(row,('season','player_id','strength','values','neutral_values','masses','coefficient_support','support','panels','unavailable'),'goalie projection')
@@ -1122,23 +1173,9 @@ def _validate_projection(row,manifest,people,likelihood_index):
     for group,size in (('prefixes',4),('continuation',3)):
         _closed(row['masses'][group],('neutral','focal'),'goalie mass references')
         for name,record in row['masses'][group].items():
-            _closed(record,('log_masses','masses'),'goalie reference mass')
-            require(type(record['masses']) is list and type(record['log_masses']) is list
-                    and len(record['masses'])==len(record['log_masses'])==size,'goalie reference mass axis differs')
-            for log_value,mass in zip(record['log_masses'],record['masses'],strict=True):
-                if mass is None:
-                    require(log_value is None,'unsupported goalie mass retained a log')
-                else:
-                    _number(mass,'goalie reference mass',low=0.)
-                    require(log_value is None and mass==0. or type(log_value) in (int,float) and isfinite(log_value)
-                            and isclose(mass,float(np.exp(log_value)),rel_tol=1e-12,abs_tol=0.),'goalie log/reference mass differs')
-    for name in ('neutral','focal'):
-        prefix=row['masses']['prefixes'][name]['masses']
-        for left,right in zip(prefix,prefix[1:]):
-            require(left is None or right is None or right<=left or isclose(right,left,rel_tol=1e-12),'goalie prefix mass increases')
-        continuation=row['masses']['continuation'][name]['masses']
-        for left,right in zip(continuation,continuation[1:]):
-            require(left is None or right is None or right<=left or isclose(right,left,rel_tol=1e-12),'goalie continuation mass increases')
+            _validate_mass_record(record,size)
+    require(all(row['masses']['continuation']['neutral'][field][0]==row['masses']['continuation']['focal'][field][0]
+                for field in ('masses','log_masses')),'goalie focal continuation changed the fixed neutral saved-shot reference')
     for name in ('neutral','focal'):
         expected=_levels(_restore_logs(row['masses']['prefixes'][name]['log_masses']),
                          _restore_logs(row['masses']['continuation'][name]['log_masses']))
@@ -1293,8 +1330,32 @@ def _validate_sensitivity(value,manifest,people,projections,baseline_actual,targ
             for group in ('baseline_masses','variant_masses'):
                 _closed(row[group],('neutral','focal'),'goalie comparison references')
                 for record in row[group].values():
-                    _closed(record,('log_masses','masses'),'goalie comparison masses')
-                    require(len(record['log_masses'])==len(record['masses'])==3,'goalie comparison continuation axis differs')
+                    _validate_mass_record(record,3)
+            expected={}
+            for reference,record in row['variant_masses'].items():
+                baseline=row['baseline_masses'][reference]
+                require([mass is None for mass in record['masses']]==[mass is None for mass in baseline['masses']],
+                        'goalie diagnostic variant changed coefficient applicability')
+                require(all(record[field][0]==baseline[field][0] for field in ('masses','log_masses')),
+                        'goalie diagnostic variant changed fixed neutral saved-shot reference mass')
+                expected[reference]=_continuation_levels(_restore_logs(record['log_masses']))
+                if record['masses'][1] is None:
+                    expected[reference]=dict.fromkeys(CONTINUATION)
+                elif record['masses'][2] is None:
+                    expected[reference]['reattempt_neutral_goal_probability']=None
+                    expected[reference]['followup_danger']=None
+            for group,reference in (('neutral_values','neutral'),('values','focal')):
+                for item in row[group]:
+                    field=item['field'];base=field.removesuffix('_difference')
+                    expected_value=expected[reference][base]
+                    if field.endswith('_difference'):
+                        neutral=expected['neutral'][base]
+                        expected_value=None if expected_value is None or neutral is None else expected_value-neutral
+                    actual=item['variant']
+                    if actual is not None:_number(actual,'goalie diagnostic variant probability/difference',low=-1. if field.endswith('_difference') else 0.,high=1.)
+                    require(actual is None and expected_value is None or actual is not None and expected_value is not None
+                            and isclose(actual,expected_value,rel_tol=1e-12,abs_tol=1e-15),
+                            'goalie diagnostic variant level/difference differs from saved continuation masses')
         require(keys==set(projections),'goalie sensitivity omitted a published goalie-strength')
         actual_keys=set()
         for row in variant['actual_summaries']:
@@ -1340,7 +1401,7 @@ def _validate_sensitivity(value,manifest,people,projections,baseline_actual,targ
                     'combined goalie probe changed an independently evaluated head')
 
 
-def _check_actual_evidence(table,row,selected,league,source_games,method,source):
+def _check_actual_evidence(table,row,selected,league,source_coverage,method,source):
     data=row['result']['data'];strength=row['strength']
     if table=='execution_breakdown':
         require(data==_breakdown(selected,row['kind'],row['stratum'],method),'saved goalie breakdown differs from keyed paired events')
@@ -1367,30 +1428,13 @@ def _check_actual_evidence(table,row,selected,league,source_games,method,source)
             require(data['league_goals']==totals['goals'] and data['league_expected_goals']==totals['expected_goals'],'goalie matched type/population league differs')
         return
     if table!='goalie_observed':return
-    actor_games=[(game,actor) for game in source_games for actor in game['goalies'] if actor['player_id']==row['player_id']]
-    missing=not actor_games or all(not game['source_events_available'] for game,actor in actor_games)
-    expected=_summary_evidence(selected,league,source,method,missing=missing,gap=any(actor['source_events_gap'] for _,actor in actor_games))
-    for key in expected:
-        require(data[key]==expected[key],'goalie season '+key+' differs from source/matched event reduction')
-    require(data['reported_boxscore_counts']==_reported_counts([actor for _,actor in actor_games],strength,source,method),
-            'goalie reported season field populations differ')
-    expected_games={game['game_id']:(game,actor) for game,actor in actor_games if actor['team'] is not None}
-    require({game['game_id'] for game in data['games']}==set(expected_games),'goalie game evidence membership differs')
-    for game in data['games']:
-        original,actor=expected_games[game['game_id']]
-        game_events=[event for event in selected if event['game_id']==game['game_id']]
-        expected=_summary_evidence(game_events,league,source,method,missing=not original['source_events_available'],gap=actor['source_events_gap'])
-        for key in expected:
-            require(game[key]==expected[key],'goalie game '+key+' differs from keyed physical events')
-        require(game['reported_boxscore_counts']==_reported_counts([actor],strength,source,method)
-                and game['start_status']==actor['start_status'] and game['reported_seconds']==actor['reported_seconds']
-                and game['team']==actor['team'] and game['opponent']==actor['opponent'] and game['date']==original['date'],
-                'goalie game usage/start/source facts differ')
+    require(data==_observed_summary(strength,selected,league,source_coverage,source,method),
+            'goalie season/game evidence differs from checked source assignments and matched events')
 
 
 def _validate_scores(path,manifest,expected_purpose):
     from . import analysis_publication as public
-    from .descriptive import validate_goalie_source_game
+    from .descriptive import validate_goalie_source_game, goalie_source_coverage
     from .execution_state import _finite
     from .goalie import target_coverage
     from .goalie_state import validate_goalie_target
@@ -1460,6 +1504,7 @@ def _validate_scores(path,manifest,expected_purpose):
                 league_by_strength[strength].append(row)
                 if row['goalie_id'] is not None:
                     by_selector[row['goalie_id'],strength].append(row)
+    source_coverage={player:goalie_source_coverage(person,source_games) for player,person in people.items()}
     counts=Counter();seen=defaultdict(set)
     method='goalie-v1-07-'+manifest['season'];source=dict(kind='source',id='goalie-source-v1-07-'+manifest['season'])
     require(method in lookups['method'] and source['id'] in lookups['source'],'goalie fixed method/source identities absent')
@@ -1479,7 +1524,7 @@ def _validate_scores(path,manifest,expected_purpose):
                 require(row['result']['data']['integrated_value']==projections[row['player_id'],row['strength']]['values']['stopping_goals_per100_on_net'],
                         'goalie map scalar differs from saved projection')
             else:
-                _check_actual_evidence(table,row,by_selector[row['player_id'],row['strength']],league_by_strength[row['strength']],source_games,method,source)
+                _check_actual_evidence(table,row,by_selector[row['player_id'],row['strength']],league_by_strength[row['strength']],source_coverage[row['player_id']],method,source)
         expected={tuple([manifest['season'],player,*selectors]) for player in people for selectors in public.required_keys(table,'goalie')}
         require(seen[table]==expected,'goalie public required selector matrix incomplete: '+table)
     coverage=read_json(root/'coverage.json')
@@ -1487,6 +1532,6 @@ def _validate_scores(path,manifest,expected_purpose):
                      'stage_prediction_reasons','source_only','numerical_only','stage_dispositions','event_exclusions','row_counts'),'goalie score coverage')
     _closed(coverage['baseline_head_status'],HEADS,'goalie baseline dispositions')
     require(all(value in ('complete','unavailable') for value in coverage['baseline_head_status'].values()),'invalid goalie baseline status')
-    require(coverage==_coverage(target_coverage(list(targets.values()),manifest['season']),source_games,list(events.values()),counts,coverage['baseline_head_status']),
+    require(coverage==_coverage(target_coverage(list(targets.values()),manifest['season']),source_games,list(people.values()),list(events.values()),counts,coverage['baseline_head_status']),
             'goalie saved coverage differs from source/target/numerical members')
     return GoalieScores(path,manifest,people,catalogs,coverage,sensitivity)

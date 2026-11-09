@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "kind": "spatial-v1-08-source-evidence-preservation",
+  "status": "six exact copies completed; originals and git unchanged; deletion and data-only aliases remain root-owned",
+  "recorded_at_utc": "2026-11-09T02:54:13.577043+00:00",
+  "proposal_sha256": "5163517b8fff1ed9fe0c6391fe10efcbbd57473cfe52825574759972006cea76",
+  "copies": [
+    {
+      "source": "var/v1-08-replacement/diagnose_execution_u.py",
+      "destination": "analysis/research/spatial_v1_08/diagnose_execution_u.py",
+      "bytes": 18226,
+      "sha256": "031f30d640c0d526e35d8d862803718c1f565ee99ca2ef5638b9e36df3f25ca1",
+      "exact_byte_equal": true,
+      "original_still_present": true
+    },
+    {
+      "source": "var/v1-08-replacement/diagnose_saved_adjustment_closure.py",
+      "destination": "analysis/research/spatial_v1_08/diagnose_saved_adjustment_closure.py",
+      "bytes": 5378,
+      "sha256": "dc6089b917fad222cc8e0373fbbe9315c2a6b79b2c7e63aacd7708642a465eba",
+      "exact_byte_equal": true,
+      "original_still_present": true
+    },
+    {
+      "source": "var/v1-08-replacement/review_spatial_experimental_consequences.py",
+      "destination": "analysis/research/spatial_v1_08/review_spatial_experimental_consequences.py",
+      "bytes": 25779,
+      "sha256": "8c1602039fc616ca7f8b26df950800bf9a53b6951b4024e995e26fa42c0315ec",
+      "exact_byte_equal": true,
+      "original_still_present": true
+    },
+    {
+      "source": "var/v1-08-replacement/u-pinned-lbfgsb.c",
+      "destination": "analysis/research/spatial_v1_08/u-pinned-lbfgsb.c",
+      "bytes": 132042,
+      "sha256": "49cdb5a7b6146e210e8e526757a5d4b5e961ea645abfb2cd4380b6c7f3ea160a",
+      "exact_byte_equal": true,
+      "original_still_present": true
+    },
+    {
+      "source": "var/v1-08-replacement/saved-adjustment-closure-diagnosis-01.json",
+      "destination": "docs/research/spatial-v1-08/receipts/real-adjustment-closure-diagnosis-01.json",
+      "bytes": 23090,
+      "sha256": "21dcafc4dd56bbac4a6687c872874c3462990dc1dfaf8d971c14dfd7ed059fff",
+      "exact_byte_equal": true,
+      "original_still_present": true
+    },
+    {
+      "source": "var/v1-08-replacement/independent-final-score-saved-checked-facts.json",
+      "destination": "docs/research/spatial-v1-08/receipts/real-final-score-independent-full-checked-facts.json",
+      "bytes": 100538,
+      "sha256": "0c6577ff88a747ed3bd932282ce27d4da3c64b399b182a53c5d0e3757d86b7c7",
+      "exact_byte_equal": true,
+      "original_still_present": true
+    }
+  ],
+  "source_copy_files": 4,
+  "source_copy_bytes": 181425,
+  "unique_output_copy_files": 2,
+  "unique_output_copy_bytes": 123628,
+  "readme": {
+    "path": "analysis/research/spatial_v1_08/README.md",
+    "bytes": 3420,
+    "sha256": "125a2a205adb5396b3d70349134d957fb005237aab61eeaaf55d285a0b3bf0c7"
+  },
+  "frozen_old_root_docs": [
+    {
+      "relative_to_task_root": "docs/research/spatial-v1-08/reviews/actual-context-disclosure-review.md",
+      "bytes": 2351,
+      "sha256": "ef9f61a6ad12046e26d9f436ba30b0c46177356c37d1d142f9d6842f6c698242",
+      "old_absolute_path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/actual-context-disclosure-review.md",
+      "post_worktree_action": "root will copy exact regular file at same old absolute path; not materialized by this preservation step"
+    },
+    {
+      "relative_to_task_root": "docs/research/spatial-v1-08/experimental-use-policy.md",
+      "bytes": 4395,
+      "sha256": "4c0f136c46735f48ef76f8202f75388969d5484947faa33d868718b8ff2b0bbb",
+      "old_absolute_path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/experimental-use-policy.md",
+      "post_worktree_action": "root will copy exact regular file at same old absolute path; not materialized by this preservation step"
+    },
+    {
+      "relative_to_task_root": "docs/research/spatial-v1-08/reviews/experimental-use-consequences-01-saved-review.md",
+      "bytes": 4582,
+      "sha256": "17912c5a4eb822124d0e07b39ef528c66a11b98e8f030efdee8a2b78203cfd00",
+      "old_absolute_path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/experimental-use-consequences-01-saved-review.md",
+      "post_worktree_action": "root will copy exact regular file at same old absolute path; not materialized by this preservation step"
+    },
+    {
+      "relative_to_task_root": "docs/research/spatial-v1-08/experimental-use-consequence-review.md",
+      "bytes": 8972,
+      "sha256": "e7be8b277996039e6a675c10a86e5153a564f01e9751f16b25477e8fd8f73b98",
+      "old_absolute_path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/experimental-use-consequence-review.md",
+      "post_worktree_action": "root will copy exact regular file at same old absolute path; not materialized by this preservation step"
+    },
+    {
+      "relative_to_task_root": "docs/research/spatial-v1-08/reviews/experimental-use-policy-review.md",
+      "bytes": 2705,
+      "sha256": "84141a218c18320586d0578b9add6f2a73a27aec04f7555a6dc459a4e9c24495",
+      "old_absolute_path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/experimental-use-policy-review.md",
+      "post_worktree_action": "root will copy exact regular file at same old absolute path; not materialized by this preservation step"
+    }
+  ],
+  "frozen_doc_files": 5,
+  "frozen_doc_bytes": 23005,
+  "remaining_root_materialization": {
+    "analysis_alias": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis -> /Users/nnandal/Documents/code/hockey-stats/analysis",
+    "docs_mode": "five immutable regular files, not a docs symlink",
+    "whole_primary_alias": false,
+    "task_var_build_env_required": false
+  },
+  "direct_assessor_local_read_contract": {
+    "documents": [
+      "experimental-use-policy.md",
+      "experimental-use-consequence-review.md",
+      "reviews/experimental-use-policy-review.md"
+    ],
+    "geometry_source_files": [
+      "analysis/src/hockey_stats/observed_spatial.py",
+      "analysis/src/hockey_stats/shot_origins.py"
+    ],
+    "ordinary_package_imports": "retained primary analysis code; no sibling local var helper",
+    "discovery": "static source read/bind inspection only; extra policy-review binding at original source line302 identified and accepted by root",
+    "static_ast_bindings_confirmed": [
+      "experimental-use-policy.md",
+      "experimental-use-consequence-review.md",
+      "reviews/experimental-use-policy-review.md"
+    ]
+  },
+  "scope": "same-byte source/evidence copies and readme/proof writing only; no source-body edit, removal, git/staging, scientific-helper import/execution, model, fit, probe, external artifact access, server, database or activation"
+}

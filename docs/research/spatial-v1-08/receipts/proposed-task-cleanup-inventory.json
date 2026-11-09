@@ -1,0 +1,1601 @@
+{
+  "schema_version": 1,
+  "kind": "spatial-v1-08-proposed-task-cleanup-inventory",
+  "status": "proposal only; source/evidence moves, deletes and aliases not performed",
+  "recorded_at_utc": "2026-11-09T02:50:49.314488+00:00",
+  "task_root": "/Users/nnandal/Documents/code/hockey-stats-v1-08",
+  "primary_root": "/Users/nnandal/Documents/code/hockey-stats",
+  "user_boundary": "latest explicit pr/merge/cleanup assignment supersedes prior keep-tests-until-gui timing; actual real gui/png/csv acceptance remains unverified and spatial-browser-acceptance issue must survive",
+  "preserve_same_byte_moves": [
+    {
+      "source": "var/v1-08-replacement/diagnose_execution_u.py",
+      "destination": "analysis/research/spatial_v1_08/diagnose_execution_u.py",
+      "bytes": 18226,
+      "sha256": "031f30d640c0d526e35d8d862803718c1f565ee99ca2ef5638b9e36df3f25ca1",
+      "operation": "proposed same-byte move only; not performed"
+    },
+    {
+      "source": "var/v1-08-replacement/diagnose_saved_adjustment_closure.py",
+      "destination": "analysis/research/spatial_v1_08/diagnose_saved_adjustment_closure.py",
+      "bytes": 5378,
+      "sha256": "dc6089b917fad222cc8e0373fbbe9315c2a6b79b2c7e63aacd7708642a465eba",
+      "operation": "proposed same-byte move only; not performed"
+    },
+    {
+      "source": "var/v1-08-replacement/review_spatial_experimental_consequences.py",
+      "destination": "analysis/research/spatial_v1_08/review_spatial_experimental_consequences.py",
+      "bytes": 25779,
+      "sha256": "8c1602039fc616ca7f8b26df950800bf9a53b6951b4024e995e26fa42c0315ec",
+      "operation": "proposed same-byte move only; not performed"
+    },
+    {
+      "source": "var/v1-08-replacement/u-pinned-lbfgsb.c",
+      "destination": "analysis/research/spatial_v1_08/u-pinned-lbfgsb.c",
+      "bytes": 132042,
+      "sha256": "49cdb5a7b6146e210e8e526757a5d4b5e961ea645abfb2cd4380b6c7f3ea160a",
+      "operation": "proposed same-byte move only; not performed"
+    }
+  ],
+  "preserve_same_byte_copies_before_cleanup": [
+    {
+      "source": "var/v1-08-replacement/saved-adjustment-closure-diagnosis-01.json",
+      "destination": "docs/research/spatial-v1-08/receipts/real-adjustment-closure-diagnosis-01.json",
+      "bytes": 23090,
+      "sha256": "21dcafc4dd56bbac4a6687c872874c3462990dc1dfaf8d971c14dfd7ed059fff",
+      "exact_existing_docs_copies": 0
+    },
+    {
+      "source": "var/v1-08-replacement/independent-final-score-saved-checked-facts.json",
+      "destination": "docs/research/spatial-v1-08/receipts/real-final-score-independent-full-checked-facts.json",
+      "bytes": 100538,
+      "sha256": "0c6577ff88a747ed3bd932282ce27d4da3c64b399b182a53c5d0e3757d86b7c7",
+      "exact_existing_docs_copies": 0
+    }
+  ],
+  "scientific_tool_contracts": {
+    "diagnose_execution_u.py": {
+      "inputs": "explicit --bundle and --output; typed external captured bundle is self-contained; no sibling local var module or default task-root data",
+      "dependencies": [
+        "numpy",
+        "scipy.optimize._lbfgsb",
+        "hockey_stats.chance",
+        "hockey_stats.execution_fit",
+        "hockey_stats.execution_trace",
+        "hockey_stats.execution_inputs"
+      ],
+      "note": "contains controlled full-objective/native diagnostic execution; do not rerun during cleanup"
+    },
+    "diagnose_saved_adjustment_closure.py": {
+      "inputs": "six fixed external canonical/publication scalar adjustment jsonl files under the retained campaign real root",
+      "dependencies": [
+        "python standard library"
+      ],
+      "note": "saved-data diagnosis only; no old task-var input"
+    },
+    "review_spatial_experimental_consequences.py": {
+      "inputs": "retained external real final state/probe/execution exchange and docs policy/scope; explicit --out and --expected-source-sha256",
+      "dependencies": [
+        "numpy",
+        "matplotlib",
+        "hockey_stats.observed_spatial",
+        "hockey_stats.shot_origins"
+      ],
+      "frozen_local_prefix": "/Users/nnandal/Documents/code/hockey-stats-v1-08",
+      "needed_aliases": [
+        "docs",
+        "analysis"
+      ],
+      "note": "REPO is a literal old root; docs policy/scope and two geometry source files use it. same-byte relocation works with proposed docs/analysis symlinks; current package dependencies already retained"
+    },
+    "u-pinned-lbfgsb.c": {
+      "inputs": "none",
+      "dependencies": [],
+      "note": "exact upstream scipy native diagnostic source evidence; not a local dynamic import required by the three tools"
+    }
+  },
+  "live_published_evidence": {
+    "source_catalog": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/candidate/results/methods-complete-01.jsonl",
+    "source_catalog_bytes": 52096,
+    "source_catalog_sha256": "e41ae390b3b3fc5f314d7336b78728495a148e72de01d2594742588f52848a9a",
+    "methods": 12,
+    "task_local_uri_files": [
+      {
+        "path": "docs/research/spatial-v1-08/reviews/actual-context-disclosure-review.md",
+        "bytes": 2351,
+        "sha256": "ef9f61a6ad12046e26d9f436ba30b0c46177356c37d1d142f9d6842f6c698242"
+      },
+      {
+        "path": "docs/research/spatial-v1-08/experimental-use-policy.md",
+        "bytes": 4395,
+        "sha256": "4c0f136c46735f48ef76f8202f75388969d5484947faa33d868718b8ff2b0bbb"
+      },
+      {
+        "path": "docs/research/spatial-v1-08/reviews/experimental-use-consequences-01-saved-review.md",
+        "bytes": 4582,
+        "sha256": "17912c5a4eb822124d0e07b39ef528c66a11b98e8f030efdee8a2b78203cfd00"
+      }
+    ],
+    "task_local_uri_bytes": 11328,
+    "all_current_local_hashes_match": true,
+    "no_task_var_build_env_uri": true
+  },
+  "preserve_external_consequence_report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/review.json",
+    "bytes": 2196691,
+    "sha256": "02f39b8251e8a403b2747577dc8669c796068ba01a32e467d3684ecdd0661122",
+    "binding_owner": "docs/research/spatial-v1-08/receipts/experimental-use-consequence-completion.json",
+    "independent_review": "docs/research/spatial-v1-08/reviews/experimental-use-consequences-01-saved-review.md",
+    "scope": "existing immutable external evidence; no reread or mutation in this inventory"
+  },
+  "tracked_campaign_retirement": {
+    "paths": [
+      {
+        "path": "var/v1-08-product/replacement/check-real-compose-streaming.py",
+        "bytes": 13006
+      },
+      {
+        "path": "var/v1-08-product/replacement/prepare-real-score-selection.py",
+        "bytes": 4394
+      },
+      {
+        "path": "var/v1-08-product/replacement/real-compose-execution-command.sh",
+        "bytes": 6414
+      },
+      {
+        "path": "var/v1-08-product/replacement/real-compose-streaming-controls-02.json",
+        "bytes": 2147
+      },
+      {
+        "path": "var/v1-08-product/replacement/real-compose-streaming-controls-03.json",
+        "bytes": 2210
+      },
+      {
+        "path": "var/v1-08-product/replacement/real-compose-streaming-controls-04.json",
+        "bytes": 2255
+      },
+      {
+        "path": "var/v1-08-product/replacement/verify-real-execution-compose.py",
+        "bytes": 28759
+      },
+      {
+        "path": "var/v1-08-replacement/accept_real_execution_20212022.py",
+        "bytes": 14341
+      },
+      {
+        "path": "var/v1-08-replacement/accept_real_execution_20252026.py",
+        "bytes": 25529
+      },
+      {
+        "path": "var/v1-08-replacement/accept_real_execution_20252026_final_02.py",
+        "bytes": 38013
+      },
+      {
+        "path": "var/v1-08-replacement/accept_real_score_20252026.py",
+        "bytes": 39234
+      },
+      {
+        "path": "var/v1-08-replacement/accept_real_spatial_20212022.py",
+        "bytes": 8471
+      },
+      {
+        "path": "var/v1-08-replacement/accept_real_spatial_20222023.py",
+        "bytes": 10433
+      },
+      {
+        "path": "var/v1-08-replacement/adjustment-publication-contract-green-01.json",
+        "bytes": 2161
+      },
+      {
+        "path": "var/v1-08-replacement/adjustment-publication-contract-red-02.json",
+        "bytes": 5006
+      },
+      {
+        "path": "var/v1-08-replacement/adjustment-publication-finite-green-01.json",
+        "bytes": 2326
+      },
+      {
+        "path": "var/v1-08-replacement/adjustment-publication-finite-red-01.json",
+        "bytes": 2270
+      },
+      {
+        "path": "var/v1-08-replacement/adjustment_publication_contract_check.py",
+        "bytes": 4987
+      },
+      {
+        "path": "var/v1-08-replacement/assemble_execution_u.py",
+        "bytes": 9869
+      },
+      {
+        "path": "var/v1-08-replacement/capture_execution_u.py",
+        "bytes": 14979
+      },
+      {
+        "path": "var/v1-08-replacement/check-real-api-held-and-measurements.ts",
+        "bytes": 3173
+      },
+      {
+        "path": "var/v1-08-replacement/check-real-discovery-nullable.ts",
+        "bytes": 5059
+      },
+      {
+        "path": "var/v1-08-replacement/check_execution_compose_cutover.py",
+        "bytes": 3927
+      },
+      {
+        "path": "var/v1-08-replacement/check_execution_selection_cutover.py",
+        "bytes": 4582
+      },
+      {
+        "path": "var/v1-08-replacement/check_failed_continuation.py",
+        "bytes": 20973
+      },
+      {
+        "path": "var/v1-08-replacement/check_final02_native_reporting.py",
+        "bytes": 2631
+      },
+      {
+        "path": "var/v1-08-replacement/check_final02_reporting.py",
+        "bytes": 7968
+      },
+      {
+        "path": "var/v1-08-replacement/check_final_score_cutover.py",
+        "bytes": 5848
+      },
+      {
+        "path": "var/v1-08-replacement/check_final_score_reporting.py",
+        "bytes": 6284
+      },
+      {
+        "path": "var/v1-08-replacement/check_final_spatial_probe_audit.py",
+        "bytes": 9097
+      },
+      {
+        "path": "var/v1-08-replacement/check_independent_first_spatial_fixture.py",
+        "bytes": 1930
+      },
+      {
+        "path": "var/v1-08-replacement/check_independent_first_spatial_scale.py",
+        "bytes": 9787
+      },
+      {
+        "path": "var/v1-08-replacement/check_independent_spatial_history.py",
+        "bytes": 11037
+      },
+      {
+        "path": "var/v1-08-replacement/check_real_publication_metadata.py",
+        "bytes": 12456
+      },
+      {
+        "path": "var/v1-08-replacement/check_real_spatial_selection_generated.py",
+        "bytes": 3250
+      },
+      {
+        "path": "var/v1-08-replacement/check_spatial_complete_generated.py",
+        "bytes": 6556
+      },
+      {
+        "path": "var/v1-08-replacement/check_spatial_completion_command.py",
+        "bytes": 7285
+      },
+      {
+        "path": "var/v1-08-replacement/check_spatial_experimental_consequences.py",
+        "bytes": 4266
+      },
+      {
+        "path": "var/v1-08-replacement/check_spatial_head_completion.py",
+        "bytes": 7651
+      },
+      {
+        "path": "var/v1-08-replacement/check_spatial_history_input_bindings.py",
+        "bytes": 3401
+      },
+      {
+        "path": "var/v1-08-replacement/check_spatial_saved_closure_generated.py",
+        "bytes": 1029
+      },
+      {
+        "path": "var/v1-08-replacement/check_spatial_saved_run_receipt.py",
+        "bytes": 10094
+      },
+      {
+        "path": "var/v1-08-replacement/check_u_baseline_start_gap.py",
+        "bytes": 9124
+      },
+      {
+        "path": "var/v1-08-replacement/check_u_continuation_native.py",
+        "bytes": 8210
+      },
+      {
+        "path": "var/v1-08-replacement/complete_real_spatial_20222023.py",
+        "bytes": 7944
+      },
+      {
+        "path": "var/v1-08-replacement/consequence-command.sh.held",
+        "bytes": 1885
+      },
+      {
+        "path": "var/v1-08-replacement/consequence-controls-green.log",
+        "bytes": 100
+      },
+      {
+        "path": "var/v1-08-replacement/consequence-controls-red.log",
+        "bytes": 630
+      },
+      {
+        "path": "var/v1-08-replacement/consequence-review-preparation.json",
+        "bytes": 1371
+      },
+      {
+        "path": "var/v1-08-replacement/consequence-typed-selection-red.log",
+        "bytes": 348
+      },
+      {
+        "path": "var/v1-08-replacement/consumed_start_check-286.py",
+        "bytes": 13248
+      },
+      {
+        "path": "var/v1-08-replacement/consumed_start_check.py",
+        "bytes": 19868
+      },
+      {
+        "path": "var/v1-08-replacement/diagnose_execution_u.py",
+        "bytes": 18226
+      },
+      {
+        "path": "var/v1-08-replacement/diagnose_saved_adjustment_closure.py",
+        "bytes": 5378
+      },
+      {
+        "path": "var/v1-08-replacement/execution-compose-cutover-green-02.log",
+        "bytes": 856
+      },
+      {
+        "path": "var/v1-08-replacement/execution-compose-final-pin-controls.json",
+        "bytes": 764
+      },
+      {
+        "path": "var/v1-08-replacement/execution-compose-stream-controls-after-final-score.json",
+        "bytes": 2256
+      },
+      {
+        "path": "var/v1-08-replacement/execution-selection-cutover-green-02.log",
+        "bytes": 461
+      },
+      {
+        "path": "var/v1-08-replacement/execution-selection-cutover-red.log",
+        "bytes": 457
+      },
+      {
+        "path": "var/v1-08-replacement/failed-continuation-finite-green-08.json",
+        "bytes": 4172
+      },
+      {
+        "path": "var/v1-08-replacement/failed-continuation-finite-green-09.json",
+        "bytes": 4172
+      },
+      {
+        "path": "var/v1-08-replacement/failed-continuation-finite_bad_gradient-green-09.json",
+        "bytes": 4186
+      },
+      {
+        "path": "var/v1-08-replacement/failed-continuation-finite_bad_objective-green-08.json",
+        "bytes": 4143
+      },
+      {
+        "path": "var/v1-08-replacement/failed-continuation-finite_bad_objective-green-09.json",
+        "bytes": 4143
+      },
+      {
+        "path": "var/v1-08-replacement/failed-continuation-green-05.json",
+        "bytes": 3077
+      },
+      {
+        "path": "var/v1-08-replacement/failed-continuation-injected-green-08.json",
+        "bytes": 4170
+      },
+      {
+        "path": "var/v1-08-replacement/failed-continuation-injected-green-09.json",
+        "bytes": 4170
+      },
+      {
+        "path": "var/v1-08-replacement/failed-continuation-nonfinite-green-08.json",
+        "bytes": 4134
+      },
+      {
+        "path": "var/v1-08-replacement/failed-continuation-nonfinite-green-09.json",
+        "bytes": 4134
+      },
+      {
+        "path": "var/v1-08-replacement/failed-continuation-overflow-green-08.json",
+        "bytes": 4178
+      },
+      {
+        "path": "var/v1-08-replacement/failed-continuation-overflow-green-09.json",
+        "bytes": 4178
+      },
+      {
+        "path": "var/v1-08-replacement/final-score-cutover-green-02.log",
+        "bytes": 1997
+      },
+      {
+        "path": "var/v1-08-replacement/final-score-cutover-red.log",
+        "bytes": 403
+      },
+      {
+        "path": "var/v1-08-replacement/final-score-reporting-controls-after-assembly-receipt.json",
+        "bytes": 2564
+      },
+      {
+        "path": "var/v1-08-replacement/final-score-reporting-controls-after-assembly.json",
+        "bytes": 2564
+      },
+      {
+        "path": "var/v1-08-replacement/final-score-reporting-controls.json",
+        "bytes": 2564
+      },
+      {
+        "path": "var/v1-08-replacement/final-spatial-probe-audit-green.json",
+        "bytes": 737
+      },
+      {
+        "path": "var/v1-08-replacement/final-spatial-probe-audit-preparation.json",
+        "bytes": 7393
+      },
+      {
+        "path": "var/v1-08-replacement/final-spatial-probe-audit-red.log",
+        "bytes": 306
+      },
+      {
+        "path": "var/v1-08-replacement/final02-native-reporting-control.json",
+        "bytes": 517
+      },
+      {
+        "path": "var/v1-08-replacement/final02-passed-zero-reporting-control.json",
+        "bytes": 577
+      },
+      {
+        "path": "var/v1-08-replacement/final02-reporting-controls.json",
+        "bytes": 837
+      },
+      {
+        "path": "var/v1-08-replacement/fixture-20212022-fit-observed-command.sh",
+        "bytes": 2849
+      },
+      {
+        "path": "var/v1-08-replacement/fixture-20212022-spatial-command.sh",
+        "bytes": 2704
+      },
+      {
+        "path": "var/v1-08-replacement/fixture-20222023-fit-observed-command.sh",
+        "bytes": 3471
+      },
+      {
+        "path": "var/v1-08-replacement/fixture-20222023-spatial-command.sh",
+        "bytes": 3320
+      },
+      {
+        "path": "var/v1-08-replacement/fixture-20232024-fit-observed-command.sh",
+        "bytes": 3471
+      },
+      {
+        "path": "var/v1-08-replacement/fixture-20232024-spatial-command.sh",
+        "bytes": 3320
+      },
+      {
+        "path": "var/v1-08-replacement/fixture-20242025-fit-observed-command.sh",
+        "bytes": 3471
+      },
+      {
+        "path": "var/v1-08-replacement/fixture-20242025-spatial-command.sh",
+        "bytes": 3320
+      },
+      {
+        "path": "var/v1-08-replacement/fixture-20252026-fit-observed-command.sh",
+        "bytes": 3471
+      },
+      {
+        "path": "var/v1-08-replacement/fixture-20252026-spatial-command.sh",
+        "bytes": 3320
+      },
+      {
+        "path": "var/v1-08-replacement/fixture-fit-commands.md",
+        "bytes": 25146
+      },
+      {
+        "path": "var/v1-08-replacement/fixture-spatial-selection-write-result.json",
+        "bytes": 873
+      },
+      {
+        "path": "var/v1-08-replacement/independent-first-spatial-fixture-control.log",
+        "bytes": 46529
+      },
+      {
+        "path": "var/v1-08-replacement/independent-first-spatial-scale-control.json",
+        "bytes": 1384
+      },
+      {
+        "path": "var/v1-08-replacement/independent-spatial-history-control.json",
+        "bytes": 2681
+      },
+      {
+        "path": "var/v1-08-replacement/independent_final_score_saved_audit.py",
+        "bytes": 26129
+      },
+      {
+        "path": "var/v1-08-replacement/independent_final_score_saved_rounding_check.py",
+        "bytes": 2523
+      },
+      {
+        "path": "var/v1-08-replacement/independent_final_spatial_probe_audit.py",
+        "bytes": 23405
+      },
+      {
+        "path": "var/v1-08-replacement/independent_first_spatial_audit.py",
+        "bytes": 30408
+      },
+      {
+        "path": "var/v1-08-replacement/independent_first_spatial_audit_fixture_version.py",
+        "bytes": 28855
+      },
+      {
+        "path": "var/v1-08-replacement/independent_spatial_history_audit.py",
+        "bytes": 20734
+      },
+      {
+        "path": "var/v1-08-replacement/observed-fit-book-checks.json",
+        "bytes": 7184
+      },
+      {
+        "path": "var/v1-08-replacement/product-admission-synthetic-green-03.json",
+        "bytes": 1460
+      },
+      {
+        "path": "var/v1-08-replacement/product-admission-synthetic-red-03.json",
+        "bytes": 2456
+      },
+      {
+        "path": "var/v1-08-replacement/product-admission-v2-synthetic-green-01.json",
+        "bytes": 1899
+      },
+      {
+        "path": "var/v1-08-replacement/product-admission-v2-synthetic-red-02.json",
+        "bytes": 2209
+      },
+      {
+        "path": "var/v1-08-replacement/product_admission_synthetic_check.py",
+        "bytes": 15107
+      },
+      {
+        "path": "var/v1-08-replacement/real-20212022-acceptance-result.txt",
+        "bytes": 3441
+      },
+      {
+        "path": "var/v1-08-replacement/real-20212022-execution-command-check.json",
+        "bytes": 2878
+      },
+      {
+        "path": "var/v1-08-replacement/real-20212022-execution-command.sh",
+        "bytes": 4260
+      },
+      {
+        "path": "var/v1-08-replacement/real-20212022-metadata-preflight-result.json",
+        "bytes": 1730
+      },
+      {
+        "path": "var/v1-08-replacement/real-20212022-score-command.sh",
+        "bytes": 7600
+      },
+      {
+        "path": "var/v1-08-replacement/real-20212022-spatial-command.sh",
+        "bytes": 4260
+      },
+      {
+        "path": "var/v1-08-replacement/real-20212022-spatial-resume-01-preparation.json",
+        "bytes": 9089
+      },
+      {
+        "path": "var/v1-08-replacement/real-20222023-execution-command.sh",
+        "bytes": 4523
+      },
+      {
+        "path": "var/v1-08-replacement/real-20222023-score-command.sh",
+        "bytes": 7061
+      },
+      {
+        "path": "var/v1-08-replacement/real-20222023-score-preparation-draft.json",
+        "bytes": 1960
+      },
+      {
+        "path": "var/v1-08-replacement/real-20222023-spatial-analysis-refresh.json",
+        "bytes": 2624
+      },
+      {
+        "path": "var/v1-08-replacement/real-20222023-spatial-command.sh",
+        "bytes": 4484
+      },
+      {
+        "path": "var/v1-08-replacement/real-20222023-spatial-completion-command.sh",
+        "bytes": 5017
+      },
+      {
+        "path": "var/v1-08-replacement/real-20222023-spatial-completion-command.sh.held",
+        "bytes": 4998
+      },
+      {
+        "path": "var/v1-08-replacement/real-20222023-spatial-preparation-held-02.json",
+        "bytes": 6455
+      },
+      {
+        "path": "var/v1-08-replacement/real-20222023-spatial-preparation-held.json",
+        "bytes": 4894
+      },
+      {
+        "path": "var/v1-08-replacement/real-20222023-spatial-preparation.json",
+        "bytes": 8463
+      },
+      {
+        "path": "var/v1-08-replacement/real-20232024-execution-command.sh",
+        "bytes": 4605
+      },
+      {
+        "path": "var/v1-08-replacement/real-20232024-execution-preparation-draft.json",
+        "bytes": 1865
+      },
+      {
+        "path": "var/v1-08-replacement/real-20232024-score-command.sh",
+        "bytes": 7061
+      },
+      {
+        "path": "var/v1-08-replacement/real-20232024-score-preparation-draft.json",
+        "bytes": 2059
+      },
+      {
+        "path": "var/v1-08-replacement/real-20232024-spatial-command-completed-previous.sh.held",
+        "bytes": 4514
+      },
+      {
+        "path": "var/v1-08-replacement/real-20232024-spatial-command.sh",
+        "bytes": 4526
+      },
+      {
+        "path": "var/v1-08-replacement/real-20232024-spatial-command.sh.held",
+        "bytes": 4457
+      },
+      {
+        "path": "var/v1-08-replacement/real-20232024-spatial-preparation-held-02.json",
+        "bytes": 4106
+      },
+      {
+        "path": "var/v1-08-replacement/real-20232024-spatial-preparation-held.json",
+        "bytes": 3764
+      },
+      {
+        "path": "var/v1-08-replacement/real-20242025-execution-command.sh",
+        "bytes": 4605
+      },
+      {
+        "path": "var/v1-08-replacement/real-20242025-execution-preparation-draft.json",
+        "bytes": 1843
+      },
+      {
+        "path": "var/v1-08-replacement/real-20242025-score-command.sh",
+        "bytes": 7061
+      },
+      {
+        "path": "var/v1-08-replacement/real-20242025-score-preparation-draft.json",
+        "bytes": 2057
+      },
+      {
+        "path": "var/v1-08-replacement/real-20242025-spatial-command.sh",
+        "bytes": 4488
+      },
+      {
+        "path": "var/v1-08-replacement/real-20242025-spatial-command.sh.held",
+        "bytes": 4474
+      },
+      {
+        "path": "var/v1-08-replacement/real-20252026-execution-command.sh",
+        "bytes": 4783
+      },
+      {
+        "path": "var/v1-08-replacement/real-20252026-execution-preparation-draft.json",
+        "bytes": 2329
+      },
+      {
+        "path": "var/v1-08-replacement/real-20252026-final-02-execution-command.sh",
+        "bytes": 5441
+      },
+      {
+        "path": "var/v1-08-replacement/real-20252026-score-command.sh",
+        "bytes": 5577
+      },
+      {
+        "path": "var/v1-08-replacement/real-20252026-score-preparation-draft.json",
+        "bytes": 2356
+      },
+      {
+        "path": "var/v1-08-replacement/real-20252026-score-preparation.json",
+        "bytes": 8007
+      },
+      {
+        "path": "var/v1-08-replacement/real-20252026-spatial-command.sh",
+        "bytes": 4500
+      },
+      {
+        "path": "var/v1-08-replacement/real-20252026-spatial-command.sh.held",
+        "bytes": 4486
+      },
+      {
+        "path": "var/v1-08-replacement/real-actual-csv-download-check.py",
+        "bytes": 18299
+      },
+      {
+        "path": "var/v1-08-replacement/real-api-01-command.sh.held",
+        "bytes": 1896
+      },
+      {
+        "path": "var/v1-08-replacement/real-api-held-and-measurements-green.json",
+        "bytes": 417
+      },
+      {
+        "path": "var/v1-08-replacement/real-app-build-command.sh.held",
+        "bytes": 5461
+      },
+      {
+        "path": "var/v1-08-replacement/real-detached-paired-controls-command.sh.held",
+        "bytes": 1926
+      },
+      {
+        "path": "var/v1-08-replacement/real-detached-paired-controls-preparation.md",
+        "bytes": 1552
+      },
+      {
+        "path": "var/v1-08-replacement/real-detached-paired-controls.py",
+        "bytes": 5900
+      },
+      {
+        "path": "var/v1-08-replacement/real-detached-server-preparation.json",
+        "bytes": 7184
+      },
+      {
+        "path": "var/v1-08-replacement/real-detached.sb",
+        "bytes": 2732
+      },
+      {
+        "path": "var/v1-08-replacement/real-discovery-api-check.patch",
+        "bytes": 19007
+      },
+      {
+        "path": "var/v1-08-replacement/real-discovery-api-check.ts",
+        "bytes": 11926
+      },
+      {
+        "path": "var/v1-08-replacement/real-discovery-live-preparation.json",
+        "bytes": 6887
+      },
+      {
+        "path": "var/v1-08-replacement/real-discovery-nullable-green.json",
+        "bytes": 264
+      },
+      {
+        "path": "var/v1-08-replacement/real-discovery-nullable-red.log",
+        "bytes": 1304
+      },
+      {
+        "path": "var/v1-08-replacement/real-execution-compose-final-pin-preparation.json",
+        "bytes": 2455
+      },
+      {
+        "path": "var/v1-08-replacement/real-execution-selection-compose-preparation.json",
+        "bytes": 8324
+      },
+      {
+        "path": "var/v1-08-replacement/real-final-score-source-parity-independent.json",
+        "bytes": 3357
+      },
+      {
+        "path": "var/v1-08-replacement/real-final-spatial-final-pin-preparation.json",
+        "bytes": 6783
+      },
+      {
+        "path": "var/v1-08-replacement/real-first-spatial-audit-protocol-fixture-version.md",
+        "bytes": 4770
+      },
+      {
+        "path": "var/v1-08-replacement/real-first-state-pin-command-diff.txt",
+        "bytes": 4817
+      },
+      {
+        "path": "var/v1-08-replacement/real-fit-commands.md",
+        "bytes": 24998
+      },
+      {
+        "path": "var/v1-08-replacement/real-fourth-spatial-final-pin-preparation.json",
+        "bytes": 6750
+      },
+      {
+        "path": "var/v1-08-replacement/real-isolated-server-02-command.sh.held",
+        "bytes": 5104
+      },
+      {
+        "path": "var/v1-08-replacement/real-isolated-server-command.sh.held",
+        "bytes": 5104
+      },
+      {
+        "path": "var/v1-08-replacement/real-last-two-spatial-held-preparation.json",
+        "bytes": 7725
+      },
+      {
+        "path": "var/v1-08-replacement/real-live-check.patch",
+        "bytes": 3904
+      },
+      {
+        "path": "var/v1-08-replacement/real-live-check.ts",
+        "bytes": 7779
+      },
+      {
+        "path": "var/v1-08-replacement/real-product-final-build-preparation.json",
+        "bytes": 1337
+      },
+      {
+        "path": "var/v1-08-replacement/real-publication-metadata-command.sh.held",
+        "bytes": 1348
+      },
+      {
+        "path": "var/v1-08-replacement/real-second-spatial-completion-final-pin-preparation.json",
+        "bytes": 5677
+      },
+      {
+        "path": "var/v1-08-replacement/real-second-spatial-completion-preparation.json",
+        "bytes": 9256
+      },
+      {
+        "path": "var/v1-08-replacement/real-spatial-complete-command.sh.held",
+        "bytes": 3411
+      },
+      {
+        "path": "var/v1-08-replacement/real-spatial-compose-checker-preparation.json",
+        "bytes": 5593
+      },
+      {
+        "path": "var/v1-08-replacement/real-spatial-publish-command.sh.held",
+        "bytes": 2909
+      },
+      {
+        "path": "var/v1-08-replacement/real-spatial-saved-check-02-command.sh.held",
+        "bytes": 1695
+      },
+      {
+        "path": "var/v1-08-replacement/real-spatial-selection-preparation.json",
+        "bytes": 6327
+      },
+      {
+        "path": "var/v1-08-replacement/real-spatial-summarize-command.sh.held",
+        "bytes": 3265
+      },
+      {
+        "path": "var/v1-08-replacement/real-spatial-summarize-publish-held-preparation.json",
+        "bytes": 6602
+      },
+      {
+        "path": "var/v1-08-replacement/real-third-spatial-final-pin-preparation.json",
+        "bytes": 6763
+      },
+      {
+        "path": "var/v1-08-replacement/real-u-assembly-command.sh",
+        "bytes": 8954
+      },
+      {
+        "path": "var/v1-08-replacement/real-u-capture-command.sh",
+        "bytes": 3249
+      },
+      {
+        "path": "var/v1-08-replacement/real-u-repair-command.sh",
+        "bytes": 6494
+      },
+      {
+        "path": "var/v1-08-replacement/recipe-gate-controls-red.json",
+        "bytes": 3067
+      },
+      {
+        "path": "var/v1-08-replacement/recipe-gate-final-green.json",
+        "bytes": 3081
+      },
+      {
+        "path": "var/v1-08-replacement/recipe-gate-green.json",
+        "bytes": 3081
+      },
+      {
+        "path": "var/v1-08-replacement/recipe-gate-new-version-red.json",
+        "bytes": 3083
+      },
+      {
+        "path": "var/v1-08-replacement/recipe_gate_check.py",
+        "bytes": 4244
+      },
+      {
+        "path": "var/v1-08-replacement/remaining-spatial-saved-run-preparation-02.json",
+        "bytes": 5207
+      },
+      {
+        "path": "var/v1-08-replacement/remaining-spatial-saved-run-preparation.json",
+        "bytes": 4131
+      },
+      {
+        "path": "var/v1-08-replacement/repair_execution_u.py",
+        "bytes": 13649
+      },
+      {
+        "path": "var/v1-08-replacement/review_spatial_experimental_consequences.py",
+        "bytes": 25779
+      },
+      {
+        "path": "var/v1-08-replacement/saved-adjustment-closure-diagnosis-01.json",
+        "bytes": 23090
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-complete-green.log",
+        "bytes": 87
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-complete-red.log",
+        "bytes": 402
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-completion-command-green-01.log",
+        "bytes": 1261
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-completion-responsibility-addendum.json",
+        "bytes": 2465
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-completion-source-equivalence-02.json",
+        "bytes": 5289
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-concrete-pin-check.py",
+        "bytes": 9647
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-concrete-pin-green-01.log",
+        "bytes": 610
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-concrete-pin-green-02.log",
+        "bytes": 3995
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-concrete-pin-green-03.log",
+        "bytes": 1686
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-concrete-pin-preparation.json",
+        "bytes": 6935
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-pin-application.json",
+        "bytes": 3327
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-pin-check.py",
+        "bytes": 8268
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-pin-cutover.patch",
+        "bytes": 1511
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-pin-cutover.patch.held",
+        "bytes": 1497
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-pin-green-01.log",
+        "bytes": 784
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-pin-green-02.log",
+        "bytes": 710
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-pin-preparation-held.json",
+        "bytes": 6926
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-pin-red-02.log",
+        "bytes": 899
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-composition-pin-red.log",
+        "bytes": 1019
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-first-preflight-check.py",
+        "bytes": 5325
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-first-preflight-green.log",
+        "bytes": 1038
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-first-resume-binding-check.py",
+        "bytes": 5147
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-first-resume-bindings-green-01.log",
+        "bytes": 1418
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-first-resume-shell-green-01.log",
+        "bytes": 1824
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-first-resume-shell-red.log",
+        "bytes": 472
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-first-shell-check.py",
+        "bytes": 6106
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-first-shell-green.log",
+        "bytes": 1187
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-head-completion-green-01.log",
+        "bytes": 1063
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-head-completion-green-02.log",
+        "bytes": 680
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-head-completion-green-03.log",
+        "bytes": 731
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-head-completion-green-04.log",
+        "bytes": 829
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-head-completion-red.log",
+        "bytes": 380
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-history-input-binding-repair-preparation.json",
+        "bytes": 4317
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-history-input-bindings-green.json",
+        "bytes": 631
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-history-input-bindings-red.log",
+        "bytes": 526
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-saved-closure-green.log",
+        "bytes": 76
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-saved-closure-red.log",
+        "bytes": 1317
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-saved-run-receipt-four-consumer-green-03.log",
+        "bytes": 1098
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-saved-run-receipt-green-01.log",
+        "bytes": 780
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-saved-run-receipt-green-02.log",
+        "bytes": 857
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-saved-run-receipt-green-03.log",
+        "bytes": 914
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-saved-run-receipt-red.log",
+        "bytes": 694
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-second-final-pin-check.json",
+        "bytes": 1232
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-second-preflight-check.py",
+        "bytes": 7762
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-second-preflight-green-01.log",
+        "bytes": 603
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-second-preflight-green-02.log",
+        "bytes": 697
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-second-preflight-red.log",
+        "bytes": 690
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-second-resource-check.py",
+        "bytes": 2167
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-second-resource-green-01.log",
+        "bytes": 765
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-second-resource-red.log",
+        "bytes": 276
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-second-shell-check.py",
+        "bytes": 5262
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-second-shell-green-01.log",
+        "bytes": 1045
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-third-completed-previous-shell-check.py",
+        "bytes": 5390
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-third-completed-previous-shell-green-01.log",
+        "bytes": 1046
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-third-shell-check.py",
+        "bytes": 5357
+      },
+      {
+        "path": "var/v1-08-replacement/spatial-third-shell-green-01.log",
+        "bytes": 1046
+      },
+      {
+        "path": "var/v1-08-replacement/u-assembled-family-independent-green.json",
+        "bytes": 2982
+      },
+      {
+        "path": "var/v1-08-replacement/u-assembly-check.py",
+        "bytes": 4816
+      },
+      {
+        "path": "var/v1-08-replacement/u-assembly-command-check.py",
+        "bytes": 8219
+      },
+      {
+        "path": "var/v1-08-replacement/u-assembly-command-green-02.log",
+        "bytes": 1146
+      },
+      {
+        "path": "var/v1-08-replacement/u-assembly-green-03.log",
+        "bytes": 601
+      },
+      {
+        "path": "var/v1-08-replacement/u-assembly-red.log",
+        "bytes": 413
+      },
+      {
+        "path": "var/v1-08-replacement/u-baseline-start-gap-controls-02.json",
+        "bytes": 2798
+      },
+      {
+        "path": "var/v1-08-replacement/u-baseline-start-gap-controls-03.json",
+        "bytes": 2797
+      },
+      {
+        "path": "var/v1-08-replacement/u-basic-proof-check.py",
+        "bytes": 1672
+      },
+      {
+        "path": "var/v1-08-replacement/u-basic-proof-green-01.log",
+        "bytes": 350
+      },
+      {
+        "path": "var/v1-08-replacement/u-capture-adapter-check.py",
+        "bytes": 5170
+      },
+      {
+        "path": "var/v1-08-replacement/u-capture-adapter-green-04.log",
+        "bytes": 324
+      },
+      {
+        "path": "var/v1-08-replacement/u-capture-adapter-red.log",
+        "bytes": 694
+      },
+      {
+        "path": "var/v1-08-replacement/u-capture-fixture-check.py",
+        "bytes": 3500
+      },
+      {
+        "path": "var/v1-08-replacement/u-capture-fixture-green-01.log",
+        "bytes": 803
+      },
+      {
+        "path": "var/v1-08-replacement/u-capture-fixture-green-02.log",
+        "bytes": 1045
+      },
+      {
+        "path": "var/v1-08-replacement/u-capture-fixture-red.log",
+        "bytes": 345
+      },
+      {
+        "path": "var/v1-08-replacement/u-capture-orchestration-check.py",
+        "bytes": 8938
+      },
+      {
+        "path": "var/v1-08-replacement/u-capture-orchestration-green-03.json",
+        "bytes": 1456
+      },
+      {
+        "path": "var/v1-08-replacement/u-capture-progress-green-01.log",
+        "bytes": 427
+      },
+      {
+        "path": "var/v1-08-replacement/u-capture-progress-red.log",
+        "bytes": 531
+      },
+      {
+        "path": "var/v1-08-replacement/u-continuation-native-controls-03.json",
+        "bytes": 2250
+      },
+      {
+        "path": "var/v1-08-replacement/u-continuation-native-green-02.exit",
+        "bytes": 2
+      },
+      {
+        "path": "var/v1-08-replacement/u-continuation-native-green-02.log",
+        "bytes": 1011
+      },
+      {
+        "path": "var/v1-08-replacement/u-continuation-native-green-03.exit",
+        "bytes": 2
+      },
+      {
+        "path": "var/v1-08-replacement/u-continuation-native-green-03.log",
+        "bytes": 2250
+      },
+      {
+        "path": "var/v1-08-replacement/u-continuation-native-red.exit",
+        "bytes": 2
+      },
+      {
+        "path": "var/v1-08-replacement/u-continuation-native-red.log",
+        "bytes": 546
+      },
+      {
+        "path": "var/v1-08-replacement/u-diagnosis-e2e-check.py",
+        "bytes": 4867
+      },
+      {
+        "path": "var/v1-08-replacement/u-diagnosis-e2e-extraction-green.log",
+        "bytes": 334
+      },
+      {
+        "path": "var/v1-08-replacement/u-diagnosis-e2e-green.log",
+        "bytes": 334
+      },
+      {
+        "path": "var/v1-08-replacement/u-diagnosis-fixture-check.py",
+        "bytes": 1596
+      },
+      {
+        "path": "var/v1-08-replacement/u-diagnosis-fixture-green.log",
+        "bytes": 273
+      },
+      {
+        "path": "var/v1-08-replacement/u-exact-repair-independent-shell-check.py",
+        "bytes": 5397
+      },
+      {
+        "path": "var/v1-08-replacement/u-exact-repair-independent-shell-green.json",
+        "bytes": 1261
+      },
+      {
+        "path": "var/v1-08-replacement/u-exact-repair-probability-independent-audit.py",
+        "bytes": 6900
+      },
+      {
+        "path": "var/v1-08-replacement/u-exact-repair-probability-independent-green.json",
+        "bytes": 5813
+      },
+      {
+        "path": "var/v1-08-replacement/u-exact-repair-saved-independent-audit.py",
+        "bytes": 17091
+      },
+      {
+        "path": "var/v1-08-replacement/u-exact-repair-saved-independent-file-identities.json",
+        "bytes": 1104789
+      },
+      {
+        "path": "var/v1-08-replacement/u-exact-repair-saved-independent-green.json",
+        "bytes": 2028
+      },
+      {
+        "path": "var/v1-08-replacement/u-exact-return-check.py",
+        "bytes": 4513
+      },
+      {
+        "path": "var/v1-08-replacement/u-exact-return-green.log",
+        "bytes": 285
+      },
+      {
+        "path": "var/v1-08-replacement/u-exact-return-red.log",
+        "bytes": 387
+      },
+      {
+        "path": "var/v1-08-replacement/u-independent-saved-audit.log",
+        "bytes": 4440
+      },
+      {
+        "path": "var/v1-08-replacement/u-independent-saved-audit.py",
+        "bytes": 19363
+      },
+      {
+        "path": "var/v1-08-replacement/u-independent-shell-check.py",
+        "bytes": 3481
+      },
+      {
+        "path": "var/v1-08-replacement/u-input-capture-check.py",
+        "bytes": 7152
+      },
+      {
+        "path": "var/v1-08-replacement/u-input-capture-green-02.log",
+        "bytes": 626
+      },
+      {
+        "path": "var/v1-08-replacement/u-input-capture-red.log",
+        "bytes": 307
+      },
+      {
+        "path": "var/v1-08-replacement/u-native-observer-check.py",
+        "bytes": 4587
+      },
+      {
+        "path": "var/v1-08-replacement/u-native-observer-extraction-green.log",
+        "bytes": 390
+      },
+      {
+        "path": "var/v1-08-replacement/u-native-observer-green.log",
+        "bytes": 390
+      },
+      {
+        "path": "var/v1-08-replacement/u-observation-check.py",
+        "bytes": 3038
+      },
+      {
+        "path": "var/v1-08-replacement/u-observation-green.log",
+        "bytes": 256
+      },
+      {
+        "path": "var/v1-08-replacement/u-observation-red.log",
+        "bytes": 360
+      },
+      {
+        "path": "var/v1-08-replacement/u-probability-locator-check.py",
+        "bytes": 3085
+      },
+      {
+        "path": "var/v1-08-replacement/u-probability-locator-green-01.log",
+        "bytes": 1702
+      },
+      {
+        "path": "var/v1-08-replacement/u-qualification-check.py",
+        "bytes": 6788
+      },
+      {
+        "path": "var/v1-08-replacement/u-qualification-green-03.log",
+        "bytes": 524
+      },
+      {
+        "path": "var/v1-08-replacement/u-qualification-red.log",
+        "bytes": 298
+      },
+      {
+        "path": "var/v1-08-replacement/u-repair-cap-check.py",
+        "bytes": 1016
+      },
+      {
+        "path": "var/v1-08-replacement/u-repair-cap-extraction-green.log",
+        "bytes": 97
+      },
+      {
+        "path": "var/v1-08-replacement/u-repair-fixture-check.py",
+        "bytes": 2579
+      },
+      {
+        "path": "var/v1-08-replacement/u-repair-fixture-extraction-green.log",
+        "bytes": 446
+      },
+      {
+        "path": "var/v1-08-replacement/u-repair-qualification-check.py",
+        "bytes": 1675
+      },
+      {
+        "path": "var/v1-08-replacement/u-repair-qualification-green.log",
+        "bytes": 137
+      },
+      {
+        "path": "var/v1-08-replacement/u-repair-qualification-red.log",
+        "bytes": 677
+      },
+      {
+        "path": "var/v1-08-replacement/u-repair-shell-check.py",
+        "bytes": 4881
+      },
+      {
+        "path": "var/v1-08-replacement/u-repair-shell-green.log",
+        "bytes": 1283
+      },
+      {
+        "path": "var/v1-08-replacement/u-trace-before-extraction.py",
+        "bytes": 29944
+      },
+      {
+        "path": "var/v1-08-replacement/u-trace-owner-check.py",
+        "bytes": 1647
+      },
+      {
+        "path": "var/v1-08-replacement/u-trace-owner-green.log",
+        "bytes": 112
+      },
+      {
+        "path": "var/v1-08-replacement/u-trace-owner-red.log",
+        "bytes": 372
+      },
+      {
+        "path": "var/v1-08-replacement/u-verdict-check.py",
+        "bytes": 1597
+      },
+      {
+        "path": "var/v1-08-replacement/u-verdict-green.log",
+        "bytes": 94
+      },
+      {
+        "path": "var/v1-08-replacement/u-verdict-red.log",
+        "bytes": 666
+      },
+      {
+        "path": "var/v1-08-replacement/verify_real_spatial_compose.py",
+        "bytes": 25461
+      },
+      {
+        "path": "var/v1-08-replacement/write_fixture_spatial_selection.py",
+        "bytes": 4468
+      },
+      {
+        "path": "var/v1-08-replacement/write_real_spatial_selection.py",
+        "bytes": 5751
+      },
+      {
+        "path": "var/v1-08-replacement/write_spatial_saved_run_receipt.py",
+        "bytes": 9935
+      }
+    ],
+    "files": 337,
+    "bytes": 2826496,
+    "condition": "apply only after the four source moves and two unique-evidence copies; all other campaign controllers/checks/log references are historical and recoverable from git ancestry. record retirement explicitly rather than claim gui completion"
+  },
+  "temporary_research_checks": {
+    "paths": [
+      {
+        "path": "analysis/research/spatial_v1_08_checks/failure_state.py",
+        "bytes": 2400
+      },
+      {
+        "path": "analysis/research/spatial_v1_08_checks/numerical.py",
+        "bytes": 4203
+      },
+      {
+        "path": "analysis/research/spatial_v1_08_checks/state_integration.py",
+        "bytes": 12042
+      }
+    ],
+    "tracked_source_files": 3,
+    "tracked_source_bytes": 18645,
+    "whole_directory_with_cache": {
+      "files": 4,
+      "bytes": 43409
+    },
+    "reason": "all three docstrings explicitly call these temporary acceptance/integration/failure-state checks; no retained v1-08 regression selected under07"
+  },
+  "ignored_task_scratch": {
+    "product": {
+      "files": 260,
+      "bytes": 192871895,
+      "tracked_files": 7
+    },
+    "replacement": {
+      "files": 30067,
+      "bytes": 467900381,
+      "tracked_files": 330
+    },
+    "scope": "metadata census only; mixed tracked+ignored totals. after preserving listed source/evidence, the task-owned synthetic/generated control directories and caches are disposable with worktree removal; not a deletion instruction for arbitrary external outputs"
+  },
+  "ignored_outside_var": [
+    {
+      "path": "analysis/.venv",
+      "files": 4296,
+      "bytes": 163491887,
+      "symlinks": 3
+    },
+    {
+      "path": "app/node_modules",
+      "files": 10839,
+      "bytes": 176527339,
+      "symlinks": 16
+    },
+    {
+      "path": "app/dist",
+      "files": 38,
+      "bytes": 1289564
+    },
+    {
+      "path": "app/.react-router",
+      "files": 6,
+      "bytes": 9753
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__",
+      "files": 49,
+      "bytes": 3386424
+    }
+  ],
+  "reference_ownership": {
+    "task_reference_path_exists": false,
+    "inspection": "lstat/immediate inventory only; no archived reference followed",
+    "primary_reference": "untouched; no deletion proposed"
+  },
+  "unique_input_findings": {
+    "task_var_selection_required": false,
+    "task_var_selection_scope": "current publication/state/bundle readers and inspected fixed fixture launch recipes; actual fixed selections are external, fixture prepared/coaches are retained v1-01/v1-05 sibling data, and load_u_bundle reads members within its own captured external bundle",
+    "synthetic_retention_inputs": {
+      "files": 3,
+      "bytes": 582,
+      "meaning": "two21-byte fake state manifests and540-byte selection; disposable"
+    },
+    "paired_control_witness": {
+      "path": "var/v1-08-product/synthetic-state-interface/exchange/manifest.json",
+      "bytes": 16914,
+      "meaning": "used only as a one-byte negative witness by the now-retired paired controller; no live product/reader dependency; not required once that controller is explicitly retired"
+    },
+    "analysis_data": {
+      "path": "analysis/data/coach-identities.json",
+      "bytes": 94868,
+      "tracked": true,
+      "action": "retain normal source through merge"
+    },
+    "fixtures": "retain fixtures/source-admission-v1-08.json, both complete original new capture bundles and required references; all committed fixtures remain normal merged source, not task scratch"
+  },
+  "aliases_proposed": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs",
+      "target": "/Users/nnandal/Documents/code/hockey-stats/docs",
+      "reason": "three exact live published Method.evidence URIs and retained consequence policy/scope"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis",
+      "target": "/Users/nnandal/Documents/code/hockey-stats/analysis",
+      "reason": "retained consequence assessor hardcodes old root for geometry source hashes and package source paths"
+    }
+  ],
+  "no_whole_primary_alias_needed": true,
+  "resume": {
+    "issue": "docs/issues/spatial-browser-acceptance.md",
+    "source_recovery": "retired csv/api/server/profile controllers remain recoverable by their checked git source hashes/commits; six actual csv download paths remain withheld",
+    "profile_caveat": "old real-detached.sb explicitly denies the primary checkout. docs/analysis aliases preserve evidence/scientific-tool paths, not detached runtime compatibility; future browser resume needs reviewed fresh literal command/profile/build bindings after browser access returns. do not retain full checkout/build solely for old guard",
+    "no_api_fit_probe_rerun_implied": true
+  },
+  "dependencies": {
+    "task_test_only_dependency_additions": 0,
+    "manifests_compared_to": "27eb5bb",
+    "tsx": "retain package: used by ordinary capture/publication/dev commands; task node_modules copy itself is disposable"
+  },
+  "scope": "local directory metadata without following symlinks; bounded local source/docs reads and exact small evidence/source hashes; one52,096-byte accepted published method catalog; no DB, bulk external scan/hash, season read, fit, controller, launch, source copy/delete or git mutation"
+}

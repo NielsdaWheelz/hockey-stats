@@ -1,0 +1,512 @@
+{
+  "scope": "saved scalar jsonl only; no arrays/model/state/source/fit readers; no output mutation",
+  "files": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/adjustments.jsonl",
+      "sha256": "01e1ae4009b3ff0863aa5231f21dffaee30d9846fd56379bc0f3c75f30ed0037",
+      "rows": 1848
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/20232024-spatial-adjustment_decomposition.jsonl",
+      "sha256": "38bd9a8cce589263d12338618fd24fac2943fdb7c763a9e519c815796ac1024d",
+      "rows": 18480
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/adjustments.jsonl",
+      "sha256": "0f8c2f2ed67e86143db02897ba0bf590dc631c3590974e5826dc60908d1beda1",
+      "rows": 1840
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/20242025-spatial-adjustment_decomposition.jsonl",
+      "sha256": "e055b39faf8dacc9d2da6fe89539d7b111d44898faa95906ed1aacac5e767fbc",
+      "rows": 18400
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/adjustments.jsonl",
+      "sha256": "f1552fd9c15b5b43f4444be56ceff8d8b0e1eee8749e656f03390c4bee17917b",
+      "rows": 1880
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/20252026-spatial-adjustment_decomposition.jsonl",
+      "sha256": "c4139365e5d5f496bd404e479aae8e0ce96b5afe99333199d27b47abc0aa733c",
+      "rows": 18800
+    }
+  ],
+  "seasons": [
+    {
+      "season": "20232024",
+      "numeric_rows": 3696,
+      "unavailable_rows": 0,
+      "publication_canonical_scalar_mismatch_count": 0,
+      "mismatches": [],
+      "failed_rows": 0,
+      "current_failed_rows": 0,
+      "spec_failed_rows": 0,
+      "maxima": {
+        "closure_error": 1.3642420526593924e-12,
+        "closure_over_spec_bound": 0.00012610847186665192,
+        "residual_expression_error": 1.3631517115792467e-12,
+        "residual_expression_over_current_bound": 0.001363151711577387,
+        "absolute_residual": 3.404758971054034e-15
+      },
+      "failures": []
+    },
+    {
+      "season": "20242025",
+      "numeric_rows": 3640,
+      "unavailable_rows": 40,
+      "publication_canonical_scalar_mismatch_count": 0,
+      "mismatches": [],
+      "failed_rows": 0,
+      "current_failed_rows": 0,
+      "spec_failed_rows": 0,
+      "maxima": {
+        "closure_error": 1.460875864722766e-11,
+        "closure_over_spec_bound": 0.0003517683535331476,
+        "residual_expression_error": 1.4605358048192157e-11,
+        "residual_expression_over_current_bound": 0.014605358047968827,
+        "absolute_residual": 7.879843528850358e-13
+      },
+      "failures": []
+    },
+    {
+      "season": "20252026",
+      "numeric_rows": 3760,
+      "unavailable_rows": 0,
+      "publication_canonical_scalar_mismatch_count": 0,
+      "mismatches": [],
+      "failed_rows": 12,
+      "current_failed_rows": 12,
+      "spec_failed_rows": 0,
+      "maxima": {
+        "closure_error": 8.348629876309133e-08,
+        "closure_over_spec_bound": 6.527224540174819e-05,
+        "residual_expression_error": 8.348631523319507e-08,
+        "residual_expression_over_current_bound": 83.48631057899874,
+        "absolute_residual": 2.773829747554426e-08
+      },
+      "failures": [
+        {
+          "line": 895,
+          "player_id": "8475169",
+          "target": "for_attempts_per60",
+          "values": {
+            "baseline": 39.43315878681427,
+            "self": -10656690.714137321,
+            "teammates": -34978447.12588723,
+            "opponents": -35381706.05797443,
+            "coaching_other_context": 81016863.39107998,
+            "numerical_residual": -3.3846885385835325e-09,
+            "factual_prediction": 58.92623976809628
+          },
+          "canonical_scalar_exact": true,
+          "current_checks": {
+            "closure": true,
+            "residual_expression": false,
+            "residual_magnitude": true
+          },
+          "unadjusted_sum": 58.92623978465384,
+          "total_sum": 58.926239781269146,
+          "fsum_unadjusted": 58.92623978465384,
+          "fsum_total": 58.926239781269146,
+          "factual_minus_sum": -1.655755710316953e-08,
+          "factual_minus_fsum": -1.655755710316953e-08,
+          "closure_error": 1.3172865465094219e-08,
+          "current_closure_bound": 5.992623978126915e-08,
+          "residual_expression_error": 1.3172868564585997e-08,
+          "current_residual_expression_bound": 1.0000000165575571e-09,
+          "current_residual_magnitude_bound": 5.992623978465384e-08,
+          "spec_closure_bound": 0.01620338066484775,
+          "spec_closure_pass": true,
+          "decimal_exact_float_unadjusted_sum": "58.92623978465383771663255174644291400909423828125",
+          "decimal_exact_float_residual_expression_error": "1.3172868564585996459420128996942699062255854869363247416913509368896484375E-8"
+        },
+        {
+          "line": 1453,
+          "player_id": "8475718",
+          "target": "against_attempts_per60",
+          "values": {
+            "baseline": 39.433158786814666,
+            "self": -160926802.8083025,
+            "teammates": -176445712.9641692,
+            "opponents": -175920531.3666902,
+            "coaching_other_context": 513293199.6681408,
+            "numerical_residual": -2.773829747554426e-08,
+            "factual_prediction": 191.96213778638744
+          },
+          "canonical_scalar_exact": true,
+          "current_checks": {
+            "closure": true,
+            "residual_expression": false,
+            "residual_magnitude": true
+          },
+          "unadjusted_sum": 191.96213773063943,
+          "total_sum": 191.96213770290115,
+          "fsum_unadjusted": 191.96213773063943,
+          "fsum_total": 191.96213770290115,
+          "factual_minus_sum": 5.5748017757650814e-08,
+          "factual_minus_fsum": 5.5748017757650814e-08,
+          "closure_error": 8.348629876309133e-08,
+          "current_closure_bound": 1.9296213778638745e-07,
+          "residual_expression_error": 8.348631523319507e-08,
+          "current_residual_expression_bound": 1.0000000557480178e-09,
+          "current_residual_magnitude_bound": 1.9296213778638745e-07,
+          "spec_closure_bound": 0.10265864792025993,
+          "spec_closure_pass": true,
+          "decimal_exact_float_unadjusted_sum": "191.96213773063943364149963599629700183868408203125",
+          "decimal_exact_float_residual_expression_error": "-8.348630812776771652038363389670971859146675342344678938388824462890625E-8"
+        },
+        {
+          "line": 1673,
+          "player_id": "8475764",
+          "target": "against_attempts_per60",
+          "values": {
+            "baseline": 39.43315878681498,
+            "self": -3072862.8357459763,
+            "teammates": -29815801.054467987,
+            "opponents": -29622113.797168918,
+            "coaching_other_context": 62510796.966506705,
+            "numerical_residual": -2.1164583197807544e-09,
+            "factual_prediction": 58.712282614183565
+          },
+          "canonical_scalar_exact": true,
+          "current_checks": {
+            "closure": true,
+            "residual_expression": false,
+            "residual_magnitude": true
+          },
+          "unadjusted_sum": 58.71228260997342,
+          "total_sum": 58.71228260785696,
+          "fsum_unadjusted": 58.71228260997342,
+          "fsum_total": 58.71228260785696,
+          "factual_minus_sum": 4.210143345062534e-09,
+          "factual_minus_fsum": 4.210143345062534e-09,
+          "closure_error": 6.326601464934356e-09,
+          "current_closure_bound": 5.971228261418357e-08,
+          "residual_expression_error": 6.3266016648432885e-09,
+          "current_residual_expression_bound": 1.0000000042101434e-09,
+          "current_residual_magnitude_bound": 5.971228261418357e-08,
+          "spec_closure_bound": 0.0125021673799331,
+          "spec_closure_pass": true,
+          "decimal_exact_float_unadjusted_sum": "58.71228260997342118798769661225378513336181640625",
+          "decimal_exact_float_residual_expression_error": "-6.326601664843288072783439126059966406412371497935964725911617279052734375E-9"
+        },
+        {
+          "line": 3455,
+          "player_id": "8476927",
+          "target": "for_attempts_per60",
+          "values": {
+            "baseline": 39.4331587868143,
+            "self": -33852309.06723286,
+            "teammates": -57476957.5176022,
+            "opponents": -58683071.674395114,
+            "coaching_other_context": 150012361.58946016,
+            "numerical_residual": -7.105529967257279e-09,
+            "factual_prediction": 62.76338880572868
+          },
+          "canonical_scalar_exact": true,
+          "current_checks": {
+            "closure": true,
+            "residual_expression": false,
+            "residual_magnitude": true
+          },
+          "unadjusted_sum": 62.76338877699861,
+          "total_sum": 62.76338876989308,
+          "fsum_unadjusted": 62.76338877699861,
+          "fsum_total": 62.76338876989308,
+          "factual_minus_sum": 2.8730070766869176e-08,
+          "factual_minus_fsum": 2.8730070766869176e-08,
+          "closure_error": 3.5835597600453184e-08,
+          "current_closure_bound": 6.376338880572869e-08,
+          "residual_expression_error": 3.5835600734126455e-08,
+          "current_residual_expression_bound": 1.0000000287300707e-09,
+          "current_residual_magnitude_bound": 6.376338880572869e-08,
+          "spec_closure_bound": 0.030002480304523797,
+          "spec_closure_pass": true,
+          "decimal_exact_float_unadjusted_sum": "62.7633887769986102966868202202022075653076171875",
+          "decimal_exact_float_residual_expression_error": "-3.583560073412645453284327816552944090400245613636798225343227386474609375E-8"
+        },
+        {
+          "line": 3456,
+          "player_id": "8476927",
+          "target": "for_xg_per60",
+          "values": {
+            "baseline": 1.6207087634779356,
+            "self": -918229.0785754451,
+            "teammates": -1540892.8561194758,
+            "opponents": -1572111.3789909272,
+            "coaching_other_context": 4031233.511208235,
+            "numerical_residual": -3.1502415001544604e-10,
+            "factual_prediction": 1.818231151030782
+          },
+          "canonical_scalar_exact": true,
+          "current_checks": {
+            "closure": true,
+            "residual_expression": false,
+            "residual_magnitude": true
+          },
+          "unadjusted_sum": 1.8182311501536361,
+          "total_sum": 1.818231149838612,
+          "fsum_unadjusted": 1.8182311501536361,
+          "fsum_total": 1.818231149838612,
+          "factual_minus_sum": 8.771459114598201e-10,
+          "factual_minus_fsum": 8.771459114598201e-10,
+          "closure_error": 1.1921701403849738e-09,
+          "current_closure_bound": 2.818231151030782e-09,
+          "residual_expression_error": 1.1921700614752662e-09,
+          "current_residual_expression_bound": 1.000000000877146e-09,
+          "current_residual_magnitude_bound": 2.818231151030782e-09,
+          "spec_closure_bound": 0.0008062471263833998,
+          "spec_closure_pass": true,
+          "decimal_exact_float_unadjusted_sum": "1.8182311501536361220132675953209400177001953125",
+          "decimal_exact_float_residual_expression_error": "-1.19217006147526616685324184403450831215565131060429848730564117431640625E-9"
+        },
+        {
+          "line": 4393,
+          "player_id": "8477494",
+          "target": "against_attempts_per60",
+          "values": {
+            "baseline": 39.43315878681424,
+            "self": -17427578.766525473,
+            "teammates": -40616964.17315262,
+            "opponents": -40388078.28099593,
+            "coaching_other_context": 98432642.38773061,
+            "numerical_residual": -4.159288107757158e-09,
+            "factual_prediction": 60.60021537037149
+          },
+          "canonical_scalar_exact": true,
+          "current_checks": {
+            "closure": true,
+            "residual_expression": false,
+            "residual_magnitude": true
+          },
+          "unadjusted_sum": 60.60021538085821,
+          "total_sum": 60.60021537669892,
+          "fsum_unadjusted": 60.60021538085821,
+          "fsum_total": 60.60021537669892,
+          "factual_minus_sum": -1.0486722601399379e-08,
+          "factual_minus_fsum": -1.0486722601399379e-08,
+          "closure_error": 6.327432799935195e-09,
+          "current_closure_bound": 6.160021537669892e-08,
+          "residual_expression_error": 6.327434493642221e-09,
+          "current_residual_expression_bound": 1.0000000104867227e-09,
+          "current_residual_magnitude_bound": 6.160021538085821e-08,
+          "spec_closure_bound": 0.01968653646417788,
+          "spec_closure_pass": true,
+          "decimal_exact_float_unadjusted_sum": "60.60021538085820935748415649868547916412353515625",
+          "decimal_exact_float_residual_expression_error": "6.3274344936422208707623698734946737776141389986150898039340972900390625E-9"
+        },
+        {
+          "line": 6655,
+          "player_id": "8478498",
+          "target": "for_attempts_per60",
+          "values": {
+            "baseline": 39.433158786814296,
+            "self": -12464021.171626879,
+            "teammates": -34945485.79629935,
+            "opponents": -35389468.85340786,
+            "coaching_other_context": 82798992.34290011,
+            "numerical_residual": -4.450356036709699e-09,
+            "factual_prediction": 55.9547247665339
+          },
+          "canonical_scalar_exact": true,
+          "current_checks": {
+            "closure": true,
+            "residual_expression": false,
+            "residual_magnitude": true
+          },
+          "unadjusted_sum": 55.95472480713912,
+          "total_sum": 55.954724802688766,
+          "fsum_unadjusted": 55.95472480713912,
+          "fsum_total": 55.954724802688766,
+          "factual_minus_sum": -4.060522229565322e-08,
+          "factual_minus_fsum": -4.060522229565322e-08,
+          "closure_error": 3.615486576791227e-08,
+          "current_closure_bound": 5.6954724802688775e-08,
+          "residual_expression_error": 3.615486625894352e-08,
+          "current_residual_expression_bound": 1.0000000406052224e-09,
+          "current_residual_magnitude_bound": 5.6954724807139126e-08,
+          "spec_closure_bound": 0.016559806455211778,
+          "spec_closure_pass": true,
+          "decimal_exact_float_unadjusted_sum": "55.95472480713912233341034152545034885406494140625",
+          "decimal_exact_float_residual_expression_error": "3.61548662589435211571516404541713762821331101804389618337154388427734375E-8"
+        },
+        {
+          "line": 16795,
+          "player_id": "8483768",
+          "target": "for_attempts_per60",
+          "values": {
+            "baseline": 39.43315878681452,
+            "self": -69456458.62995563,
+            "teammates": -74688586.79173633,
+            "opponents": -80141104.74847652,
+            "coaching_other_context": 224286195.38913912,
+            "numerical_residual": -1.4164038120931247e-08,
+            "factual_prediction": 84.65212936524279
+          },
+          "canonical_scalar_exact": true,
+          "current_checks": {
+            "closure": true,
+            "residual_expression": false,
+            "residual_magnitude": true
+          },
+          "unadjusted_sum": 84.65212941340715,
+          "total_sum": 84.65212939924312,
+          "fsum_unadjusted": 84.65212941340715,
+          "fsum_total": 84.65212939924312,
+          "factual_minus_sum": -4.8164366717173834e-08,
+          "factual_minus_fsum": -4.8164366717173834e-08,
+          "closure_error": 3.400033676825842e-08,
+          "current_closure_bound": 8.565212939924313e-08,
+          "residual_expression_error": 3.4000328596242584e-08,
+          "current_residual_expression_bound": 1.0000000481643668e-09,
+          "current_residual_magnitude_bound": 8.565212941340716e-08,
+          "spec_closure_bound": 0.04485724706445957,
+          "spec_closure_pass": true,
+          "decimal_exact_float_unadjusted_sum": "84.65212941340715957494467147625982761383056640625",
+          "decimal_exact_float_residual_expression_error": "3.4000335701669944835506627822847847131271237230976112186908721923828125E-8"
+        },
+        {
+          "line": 17153,
+          "player_id": "8484164",
+          "target": "against_attempts_per60",
+          "values": {
+            "baseline": 39.433158786814275,
+            "self": -11229697.323151084,
+            "teammates": -43833354.44697252,
+            "opponents": -43565835.41747417,
+            "coaching_other_context": 98628908.5440288,
+            "numerical_residual": -4.251525953347348e-09,
+            "factual_prediction": 60.78958978789674
+          },
+          "canonical_scalar_exact": true,
+          "current_checks": {
+            "closure": true,
+            "residual_expression": false,
+            "residual_magnitude": true
+          },
+          "unadjusted_sum": 60.789589814688625,
+          "total_sum": 60.7895898104371,
+          "fsum_unadjusted": 60.789589814688625,
+          "fsum_total": 60.7895898104371,
+          "factual_minus_sum": -2.6791887819399562e-08,
+          "factual_minus_fsum": -2.6791887819399562e-08,
+          "closure_error": 2.254036246540636e-08,
+          "current_closure_bound": 6.17895898104371e-08,
+          "residual_expression_error": 2.2540361866052213e-08,
+          "current_residual_expression_bound": 1.000000026791888e-09,
+          "current_residual_magnitude_bound": 6.178958981468863e-08,
+          "spec_closure_bound": 0.019725789695437517,
+          "spec_closure_pass": true,
+          "decimal_exact_float_unadjusted_sum": "60.7895898146886253243792452849447727203369140625",
+          "decimal_exact_float_residual_expression_error": "2.25403618660522147295538619303674476856969022264820523560047149658203125E-8"
+        },
+        {
+          "line": 17494,
+          "player_id": "8484230",
+          "target": "against_xg_per60",
+          "values": {
+            "baseline": 1.6207087634779163,
+            "self": -1687719.7259186404,
+            "teammates": -1670726.599282535,
+            "opponents": -1695297.9314558622,
+            "coaching_other_context": 5053744.489999829,
+            "numerical_residual": -2.530059680466512e-10,
+            "factual_prediction": 1.8540515534068458
+          },
+          "canonical_scalar_exact": true,
+          "current_checks": {
+            "closure": true,
+            "residual_expression": false,
+            "residual_magnitude": true
+          },
+          "unadjusted_sum": 1.8540515546869136,
+          "total_sum": 1.8540515544339076,
+          "fsum_unadjusted": 1.8540515546869136,
+          "fsum_total": 1.8540515544339076,
+          "factual_minus_sum": -1.280067829512177e-09,
+          "factual_minus_fsum": -1.280067829512177e-09,
+          "closure_error": 1.0270617689656092e-09,
+          "current_closure_bound": 2.8540515544339075e-09,
+          "residual_expression_error": 1.0270618614655258e-09,
+          "current_residual_expression_bound": 1.0000000012800679e-09,
+          "current_residual_magnitude_bound": 2.854051554686914e-09,
+          "spec_closure_bound": 0.0010107493221417183,
+          "spec_closure_pass": true,
+          "decimal_exact_float_unadjusted_sum": "1.8540515546869136276342260316596366465091705322265625",
+          "decimal_exact_float_residual_expression_error": "1.027061861465525798084766532862997789887771205030730925500392913818359375E-9"
+        },
+        {
+          "line": 18115,
+          "player_id": "8484798",
+          "target": "for_attempts_per60",
+          "values": {
+            "baseline": 39.43315878681462,
+            "self": -9686300.717989346,
+            "teammates": -27716103.949980997,
+            "opponents": -28063465.739097778,
+            "coaching_other_context": 65465885.156973705,
+            "numerical_residual": -3.696496495819155e-09,
+            "factual_prediction": 54.18306438103396
+          },
+          "canonical_scalar_exact": true,
+          "current_checks": {
+            "closure": true,
+            "residual_expression": false,
+            "residual_magnitude": true
+          },
+          "unadjusted_sum": 54.183064371194654,
+          "total_sum": 54.183064367498154,
+          "fsum_unadjusted": 54.183064371194654,
+          "fsum_total": 54.183064367498154,
+          "factual_minus_sum": 9.839304482284206e-09,
+          "factual_minus_fsum": 9.839304482284206e-09,
+          "closure_error": 1.353580358909312e-08,
+          "current_closure_bound": 5.5183064381033965e-08,
+          "residual_expression_error": 1.353580097810336e-08,
+          "current_residual_expression_bound": 1.0000000098393046e-09,
+          "current_residual_magnitude_bound": 5.5183064381033965e-08,
+          "spec_closure_bound": 0.0130931850180265,
+          "spec_closure_pass": true,
+          "decimal_exact_float_unadjusted_sum": "54.18306437119465357454828335903584957122802734375",
+          "decimal_exact_float_residual_expression_error": "-1.3535800978103360629641148873557494891617380972093087621033191680908203125E-8"
+        },
+        {
+          "line": 18116,
+          "player_id": "8484798",
+          "target": "for_xg_per60",
+          "values": {
+            "baseline": 1.6207087634779442,
+            "self": -260170.8293353352,
+            "teammates": -746922.6918497011,
+            "opponents": -755799.6500583596,
+            "coaching_other_context": 1762893.5356156419,
+            "numerical_residual": -1.0575664602134394e-10,
+            "factual_prediction": 1.9850810071005982
+          },
+          "canonical_scalar_exact": true,
+          "current_checks": {
+            "closure": true,
+            "residual_expression": false,
+            "residual_magnitude": true
+          },
+          "unadjusted_sum": 1.9850810094162286,
+          "total_sum": 1.9850810093104718,
+          "fsum_unadjusted": 1.9850810094162286,
+          "fsum_total": 1.9850810093104718,
+          "factual_minus_sum": -2.315630354132736e-09,
+          "factual_minus_fsum": -2.315630354132736e-09,
+          "closure_error": 2.2098736174314126e-09,
+          "current_closure_bound": 2.985081009310472e-09,
+          "residual_expression_error": 2.209873708111392e-09,
+          "current_residual_expression_bound": 1.0000000023156304e-09,
+          "current_residual_magnitude_bound": 2.985081009416229e-09,
+          "spec_closure_bound": 0.00035257913126488086,
+          "spec_closure_pass": true,
+          "decimal_exact_float_unadjusted_sum": "1.9850810094162285590613237218349240720272064208984375",
+          "decimal_exact_float_residual_expression_error": "2.209873708111392159024290109573343023063873857836370007134974002838134765625E-9"
+        }
+      ]
+    }
+  ]
+}

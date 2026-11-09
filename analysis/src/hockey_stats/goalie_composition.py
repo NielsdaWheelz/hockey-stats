@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 import hashlib
+from itertools import groupby
 from pathlib import Path
 from time import perf_counter
 
@@ -95,6 +96,15 @@ def _annuals(selection_path, existing, prepared, base_scores):
     return selection,annuals
 
 
+def _public_rows(annual,table):
+    """sort one goalie's fixed selector matrix; never materialize a full map table."""
+    previous = None
+    for player,rows in groupby(annual.rows(table),key=lambda row:row['player_id']):
+        require(previous is None or previous < player, 'goalie score rows must be grouped by ordered person')
+        yield from sorted(rows,key=lambda row:tuple(row[field] for field in publication.KEYS[table]))
+        previous = player
+
+
 def compose_goalie(prepared, combined_results, annual_goalie_scores, output):
     """copy inherited bytes, replace only goalie rows, and complete one strict exchange."""
     started = perf_counter()
@@ -147,7 +157,7 @@ def compose_goalie(prepared, combined_results, annual_goalie_scores, output):
         year = record['season']
         annual = annuals[year]
         record.update(availability='provided',explanation=None,tables={table:write_member(
-            year+'-goalie-'+table+'.jsonl',annual.rows(table),table) for table in publication.FAMILY_TABLES['goalie']})
+            year+'-goalie-'+table+'.jsonl',_public_rows(annual,table),table) for table in publication.FAMILY_TABLES['goalie']})
     copy_member(manifest['catalogs']['people'])
     for table,catalog,key in (('sources','source','source_id'),('methods','method','method_id'),('supports','support','support_id')):
         additions = {}

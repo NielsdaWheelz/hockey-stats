@@ -521,6 +521,41 @@ def validate_goalie_source_game(game):
     require(people == sorted(set(people)), 'goalie source identities duplicate or unordered')
 
 
+def goalie_source_coverage(person, games):
+    """locate unassigned annual-team evidence without assigning a player-game."""
+    player = person['player_id']
+    actor_games = [(game,actor) for game in games for actor in game['goalies'] if actor['player_id'] == player]
+    annual_teams = {team['id'] for team in person['teams']}
+    annual_teams.update(actor['team']['id'] for _,actor in actor_games if actor['team'] is not None)
+    unassigned,by_team = [],{}
+    for game in games:
+        relevant_teams = annual_teams & {team['id'] for team in game['teams'].values()}
+        actor = next((row for row in game['goalies'] if row['player_id'] == player),None)
+        if actor is not None:
+            if actor['team'] is None:
+                record = dict(game_id=game['game_id'],player_id=player,reason='dated_goalie_team_unavailable')
+                unassigned.append(record)
+                for team in relevant_teams:
+                    by_team.setdefault(team,[]).append(record)
+            continue
+        assigned_teams = {row['team']['id'] for row in game['goalies'] if row['team'] is not None}
+        missing_teams = relevant_teams - assigned_teams
+        if missing_teams:
+            record = dict(game_id=game['game_id'],player_id=player,
+                reason='possible_annual_affiliation_without_dated_goalie_identity')
+            unassigned.append(record)
+            for team in missing_teams:
+                by_team.setdefault(team,[]).append(record)
+    missing = not any(game['source_events_available'] for game,_ in actor_games)
+    source_gaps = {game['game_id'] for game,actor in actor_games if not game['source_events_available'] or actor['source_events_gap']}
+    source_gaps.update(row['game_id'] for row in unassigned)
+    reasons = ['source_unavailable']*len(source_gaps)+['unassigned_player_games']*len(unassigned)
+    if not actor_games and not unassigned:
+        reasons += ['unassigned_player_games','source_unavailable']
+    return dict(actor_games=actor_games,unassigned_games=unassigned,unassigned_by_team=by_team,source_counts_unavailable=missing,
+                unquantified_gap=bool(reasons),reasons=reasons)
+
+
 def goalie_source_season(prepared, season, games):
     """complete annual identity/provenance from an already performed source replay."""
     from .analysis_data import read_prepared_people
@@ -542,13 +577,27 @@ def goalie_source_season(prepared, season, games):
     source = dict(source_id=source_id,label='prepared source-only goalie evidence '+season,purpose=prepared['purpose'],
         origin='source_capture',acquisition='admitted',construction='reconstructed',
         population='selected regular-season ordinary attempts and dated goalie boxscore/elapsed membership',
-        definition='source-only defending-goalie attribution uses opposing membership, dated team and credited/native conflicts; source counts do not require numerical scores, location, modeled type or elapsed clock; reported official splits remain distinct from exact both-goalie states',
+        definition='source-only defending-goalie attribution uses opposing membership, dated team and credited/native conflicts; source counts do not require numerical scores, location, modeled type or elapsed clock; reported official splits remain distinct from exact both-goalie states; a game without a dated goalie identity for a positively supported annual team leaves a possible-affiliation coverage gap, not an assigned player-game',
         receipts=[dict(uri=str(manifest),sha256=identity(manifest)['sha256'])],
         limitations=['recorded events are incomplete physical evidence; unknown source/state/identity remains excluded with a located reason',
                      'boxscore official power-play/shorthanded shots against describe opposing-team strength and do not establish exact-state both-goalie totals',
-                     'source-resolved defending goalie may differ from absent native credit; attribution provenance remains saved'])
-    return dict(people=people,games=games,sources=[source],participation=summarize_execution_participation(
-        {(row['player_id'],strength):metric for row in game['goalies'] for strength,metric in row['participation'].items()} for game in games))
+                     'source-resolved defending goalie may differ from absent native credit; attribution provenance remains saved',
+                     'annual team affiliation does not establish dated tenure, dressing or playing; unknown assignments retain located coverage gaps while known included counts, reported sums and listed-game denominators remain unchanged'])
+    participation = summarize_execution_participation(
+        {(row['player_id'],strength):metric for row in game['goalies'] for strength,metric in row['participation'].items()} for game in games)
+    from .analysis_publication import GOALIE_STRENGTHS
+    for person in people:
+        coverage = goalie_source_coverage(person,games)
+        if not coverage['unassigned_games'] and coverage['actor_games']:
+            continue
+        for strength in GOALIE_STRENGTHS:
+            metric = participation.setdefault((person['player_id'],strength),support(None,gap=True))
+            metric['unquantified_gap'] = True
+            metric['current_season_information'] = bool(metric['included_seconds'])
+            reasons = Counter({row['code']:row['count'] for row in metric['reason_counts']})
+            reasons.update(['unassigned_player_games','source_unavailable']*max(1,len(coverage['unassigned_games'])))
+            metric['reason_counts'] = [dict(code=code,count=count) for code,count in sorted(reasons.items())]
+    return dict(people=people,games=games,sources=[source],participation=participation)
 
 
 def reduce_goalie_sources(prepared, season):

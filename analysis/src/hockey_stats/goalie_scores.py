@@ -813,8 +813,9 @@ def _method(design, state, sensitivity, projection_member):
     import hashlib
     from .analysis_publication import json_bytes
     method_id='goalie-v1-07-'+design.season
-    inputs=[dict(role='prepared',sha256=design.prepared['sha256'],seasons=[design.season]),
-            dict(role='coaches',sha256=design.coaches['sha256'],seasons=[design.season]),
+    history=[year for year in design.seasons if year<=design.season]
+    inputs=[dict(role='prepared',sha256=design.prepared['sha256'],seasons=history),
+            dict(role='coaches',sha256=design.coaches['sha256'],seasons=history),
             dict(role='annual_state',sha256=identity(state.path)['sha256'],seasons=[design.season]),
             dict(role='opportunity_panel',sha256=design.base_scores['sha256'],seasons=[design.season])]
     previous=state.manifest['previous']
@@ -856,7 +857,7 @@ def _method(design, state, sensitivity, projection_member):
         'source counts, actual-offense/neutral-goalie paired evidence and common-panel modeled skills have different populations and references; covered-all is supported coverage, not gap-free all-situations']
     return dict(method_id=method_id,family='goalie',recipe_id=design.recipe['name']+':'+design.recipe['version'],
         design_sha256=identity(state.path)['sha256'],input_sha256=hashlib.sha256(json_bytes(inputs)).hexdigest(),
-        fit_seasons=[year for year in design.seasons if year<=design.season],training_cutoff=design.training_cutoff,
+        fit_seasons=history,training_cutoff=design.training_cutoff,
         target='stopping and six separately conditioned seasonal goalie skills; actual matched evidence remains descriptive',
         population='selected-year goalies, including unused backups; head-specific saved-attempt likelihood populations; each field records the union of its contributing current likelihood keys',
         reference='common-panel focal goalie versus zero actor residuals: miss given unblocked; recorded stop given on-net; conversion given on-net and no recorded stop; reattempt given neutral saved-shot opportunity; next danger given recorded reattempt; joint follow-up danger per neutral saved-shot opportunity. stopping is favorable-positive goals saved per100 common on-net opportunities and excludes focal q. h*d is averaged jointly using fixed neutral saved-shot weights. raw probabilities increase with the named event; focal-minus-neutral differences are fractions. actual evidence keeps offense/coaches and neutralizes only goalie. next-attempt targets neutralize every actor.',

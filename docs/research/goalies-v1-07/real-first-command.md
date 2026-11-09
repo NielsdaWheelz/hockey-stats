@@ -1,6 +1,6 @@
 # first real goalie annual — held command
 
-status: **HELD**. command preparation only; no real fit, source replay, candidate command or output directory has been started here. root releases execution after fixture acceptance and the sibling v1-17 heavy command has exited. [the spec](../../specs/v1-07-goalie-continuation.md) owns the numerical boundary.
+status: **released for launch** after final-02 fixture producer, independent sensitivity review and current detached-reader acceptance. the sibling heavy slot is explicitly released. no real fit has started at this document update; root records the exact launch in `receipts/real-first-fit-preflight.json`. [the spec](../../specs/v1-07-goalie-continuation.md) owns the numerical boundary.
 
 run root: `/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01`. fit `20212022`, with no predecessor and no final-year probe. retain the original completed baseline. the v1-17 compatible composition parent is selected later; it is not a fit input.
 
@@ -16,7 +16,7 @@ all paths below are relative to `/Volumes/Expansion/hockey-stats`. these expecte
 | original combined composition input | `runs/execution-spatial-replacement-20261031-01/real/results/manifest.json` | `a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5` |
 | selected first annual base scores | `runs/execution-spatial-replacement-20261031-01/real/scores/20212022/manifest.json` | `37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d` |
 
-runtime inspected at `2026-11-09T04:52:11Z`: python `3.14.8`/arm64, numpy `2.5.3`, scipy `1.18.1`. after final diagnostic/source-coverage fixes and interface cleanup, commit `97a005e` has clean frozen analysis tree `76e2d96c19d696a455258260324708212c8d5397`. lockfile sha256 `bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd`; goalie recipe sha256 `cd57b284183962a5795f0c1b2c15065881be3531a4de46b70a20e163907a97c6`.
+runtime inspected at `2026-11-09T04:52:11Z`: python `3.14.8`/arm64, numpy `2.5.3`, scipy `1.18.1`. after final diagnostic/source-coverage fixes, interface cleanup and the method-lineage correction, commit `d73093d` has clean frozen analysis tree `d072db603bc719af9ac8de4a6027fb326c4cbd25`. lockfile sha256 `bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd`; goalie recipe sha256 `cd57b284183962a5795f0c1b2c15065881be3531a4de46b70a20e163907a97c6`.
 
 numpy reports `accelerate` and scipy reports `Accelerate` for blas/lapack; both backend versions are unknown. `OPENBLAS_NUM_THREADS`, `OMP_NUM_THREADS`, `MKL_NUM_THREADS`, `VECLIB_MAXIMUM_THREADS`, `NUMEXPR_NUM_THREADS` and `BLIS_NUM_THREADS` were unset. retain the existing environment and record those values at launch. thread count remains backend-managed and unmeasured; no dependency synchronization, backend change or thread tuning belongs to this command.
 
@@ -49,17 +49,17 @@ replace pending values only after root releases the exact command. the receipt b
 ```json
 {
   "kind": "goalie-first-real-fit-preflight",
-  "status": "HELD",
+  "status": "READY_FOR_LAUNCH",
   "recorded_at_utc": null,
   "launch_commit": null,
-  "analysis_tree": "76e2d96c19d696a455258260324708212c8d5397",
+  "analysis_tree": "d072db603bc719af9ac8de4a6027fb326c4cbd25",
   "analysis_clean": null,
   "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd",
   "recipe_sha256": "cd57b284183962a5795f0c1b2c15065881be3531a4de46b70a20e163907a97c6",
   "input_pin_checks": "pending; five exact roles in the table above",
   "runtime_backend_thread_record": "pending launch-time confirmation of the values above",
   "external_mount_and_fresh_paths": "pending",
-  "sibling_heavy_commands_exited": false,
+  "sibling_heavy_slot_released": true,
   "season": "20212022",
   "previous": null,
   "expected_final_probe_solves": {"h": 0, "d": 0},

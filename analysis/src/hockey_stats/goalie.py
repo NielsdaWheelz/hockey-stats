@@ -9,7 +9,7 @@ from time import perf_counter
 import numpy as np
 from scipy.special import expit
 
-from .artifacts import implementation, linked_path, require, resources, write_json
+from .artifacts import implementation, linked_path, require, resources
 from .analysis_data import PreparedManifest
 from .chance_cli import identity, output_path
 from .execution_design import (RECIPE as EXECUTION_RECIPE, prepare_execution_sources,
@@ -102,39 +102,7 @@ def prepare_goalie_scoring(prepared, coaches, annual_execution_scores, season):
     event_rows = list(scores.events())
     valued = {row['key']: row for row in event_rows}
     require(len(valued) == len(event_rows), 'duplicate base event target keys')
-    targets = []
-    for row in source.source_rows:
-        key = row['key']
-        reasons = list(row['predictor_reasons'])
-        goalie = row['goalie_identity']['player_id']
-        if goalie is None:
-            reasons.append(row['goalie_identity']['reason'])
-        if row['outcome'] != 'save':
-            reasons.append('requires_saved_attempt')
-        if row['h_label'] is None:
-            reasons.append('immediate_reattempt_label_unavailable')
-        h_included = not reasons
-        successor = valued.get(row['successor_key'])
-        danger, danger_reason = None, None
-        if not h_included:
-            danger_reason = 'focal_occurrence_population_unavailable'
-        elif row['h_label'] is not True:
-            danger_reason = 'requires_positive_recorded_reattempt'
-        elif successor is None or successor['status'] != 'complete':
-            danger_reason = 'successor_execution_score_unavailable'
-        else:
-            danger = successor['prefixes']['neutral']['uqrg']
-            require(type(danger) in (int, float) and np.isfinite(danger) and 0 <= danger <= 1,
-                    'invalid fully neutral successor danger target')
-        target = dict(key=key, game_id=row['game_id'], source_index=row['source_index'],
-                      outcome=row['outcome'], physical_status=row['physical_status'], goalie_id=goalie,
-                      physical_state=row['physical_state'], h_label=row['h_label'],
-                      h_reason=None if row['h_problem'] is None else row['h_problem']['reason'],
-                      successor_key=row['successor_key'], target_score_sha256=score_ref['sha256'],
-                      d_target=danger, d_reason=danger_reason,
-                      h_included=h_included, d_included=danger is not None,
-                      h_exclusions=reasons)
-        targets.append(target)
+    targets = _target_rows(source.source_rows,valued,score_ref['sha256'])
     coverage = target_coverage(targets, season)
     head_keys = {h:tuple(r['key'] for r in targets if r[h+'_included']) for h in HEADS}
     return GoalieInputs(source.purpose, season, source.prepared, source.coaches, dict(base), score_ref,
@@ -158,6 +126,45 @@ def prepare_goalie(prepared, coaches, annual_execution_scores, season):
     return GoalieDesign(inputs.purpose,inputs.season,inputs.prepared,inputs.coaches,inputs.base_state,inputs.base_scores,
                         inputs.training_cutoff,inputs.seasons,inputs.predictors,heads,inputs.targets,inputs.coverage,
                         inputs.source_games,measured,RECIPE,inputs.execution_state,inputs.execution_scores)
+
+
+def _target_rows(source_rows,valued,score_sha256):
+    """join immediate source labels to exact saved successor targets, without fitting."""
+    targets = []
+    for row in source_rows:
+        key = row['key']
+        reasons = list(row['predictor_reasons'])
+        goalie = row['goalie_identity']['player_id']
+        if goalie is None:
+            reasons.append(row['goalie_identity']['reason'])
+        if row['outcome'] != 'save':
+            reasons.append('requires_saved_attempt')
+        if row['h_label'] is None:
+            reasons.append('immediate_reattempt_label_unavailable')
+        reasons = list(dict.fromkeys(reasons))
+        h_included = not reasons
+        successor = valued.get(row['successor_key'])
+        danger, danger_reason = None, None
+        if not h_included:
+            danger_reason = 'focal_occurrence_population_unavailable'
+        elif row['h_label'] is not True:
+            danger_reason = 'requires_positive_recorded_reattempt'
+        elif successor is None or successor['status'] != 'complete':
+            danger_reason = 'successor_execution_score_unavailable'
+        else:
+            danger = successor['prefixes']['neutral']['uqrg']
+            require(type(danger) in (int, float) and np.isfinite(danger) and 0 <= danger <= 1,
+                    'invalid fully neutral successor danger target')
+        target = dict(key=key, game_id=row['game_id'], source_index=row['source_index'],
+                      outcome=row['outcome'], physical_status=row['physical_status'], goalie_id=goalie,
+                      physical_state=row['physical_state'], h_label=row['h_label'],
+                      h_reason=None if row['h_problem'] is None else row['h_problem']['reason'],
+                      successor_key=row['successor_key'], target_score_sha256=score_sha256,
+                      d_target=danger, d_reason=danger_reason,
+                      h_included=h_included, d_included=danger is not None,
+                      h_exclusions=reasons)
+        targets.append(target)
+    return tuple(targets)
 
 
 def target_coverage(targets, season):
@@ -281,8 +288,7 @@ def _selector(design):
     for head in HEADS:
         sparse = sorted((r for r in design.heads[head]['actors'] if r['block']=='goalie'),
                         key=lambda r: (r['likelihood_support'], r['id']))
-        if sparse:
-            select('low_support:'+head, (p for p in ordered if p.actors['goalie']==sparse[0]['id']))
+        select('low_support:'+head, (p for p in ordered if sparse and p.actors['goalie']==sparse[0]['id']))
     for predictor in ordered:
         if len(selected) == 256:
             break

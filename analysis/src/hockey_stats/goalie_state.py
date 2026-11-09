@@ -90,6 +90,9 @@ def _head(metadata, head, arrays, season, *, probe=False):
                 'goalie starts omit requested solve')
     complete=metadata['status']=='complete'
     if not complete:
+        expected_reason='empty_head' if not keys else 'single_class_head' if metadata['target_mass'] in (0.,len(keys)) else 'no_completed_start'
+        require(metadata['reasons']==[expected_reason] and (bool(metadata['starts'])==(expected_reason=='no_completed_start')),
+                'goalie unavailable disposition contradicts target support/solve attempts')
         _closed(metadata['diagnostics'],('requested_starts','wall_seconds'),'unavailable goalie diagnostics')
         require(not arrays and metadata['arrays'] is None and metadata['selected_start'] is None
                 and metadata['centers'] is None and bool(metadata['reasons']), 'unavailable goalie head carries endpoint')
@@ -230,11 +233,16 @@ def validate_goalie_target(row,manifest):
     require(state is None or type(state) is list and len(state)==4 and all(type(v) is int for v in state)
             and state[0]>=0 and state[1]>=0 and state[2]>=0 and state[3]>=0,'invalid target physical state')
     require(row['h_label'] is None or type(row['h_label']) is bool,'invalid recorded occurrence label')
-    require(row['h_reason'] is None or type(row['h_reason']) is str and bool(row['h_reason']),'invalid h reason')
+    require((row['h_label'] is None)==(row['h_reason'] is not None)
+            and (row['h_reason'] is None or type(row['h_reason']) is str and bool(row['h_reason'])),'invalid h reason')
     require(row['successor_key'] is None or type(row['successor_key']) is str
             and row['successor_key'].startswith(row['game_id']+':') and row['successor_key']!=row['key'], 'invalid successor key')
+    if row['successor_key'] is not None:
+        suffix=row['successor_key'].removeprefix(row['game_id']+':')
+        require(suffix.isascii() and suffix.isdecimal() and str(int(suffix))==suffix,'noncanonical goalie successor source index')
     require(row['target_score_sha256']==manifest['base_scores']['sha256'],'goalie target score identity differs')
     require(type(row['h_exclusions']) is list and all(type(v) is str and v for v in row['h_exclusions'])
+            and len(row['h_exclusions'])==len(set(row['h_exclusions']))
             and type(row['h_included']) is bool and type(row['d_included']) is bool,'invalid goalie likelihood disposition')
     require(row['h_included']==(not row['h_exclusions']),'h inclusion contradicts exclusions')
     if row['h_included']:
@@ -335,6 +343,9 @@ def _read_goalie_state(path,manifest,expected_purpose):
             expected.add('baseline'); require(by_role['baseline']['path']=='baseline.json','goalie baseline path differs')
             baseline=read_json(root/'baseline.json')
             _baseline(baseline,manifest,heads,coverage,by_role)
+        if manifest['purpose']=='real':
+            require((baseline is not None)==(manifest['season']=='20252026'),
+                    'real goalie baseline descriptor must exist exactly for final annual')
         for head,record in numerical['heads'].items():
             if record['status'] in ('not_run','not_assessed_for_annual_state'):
                 _closed(record,('status','reason'),'goalie unassessed probe')
@@ -401,6 +412,15 @@ def _baseline(value,manifest,heads,coverage,by_role):
                 'goalie selector witness absent')
         requirements.append(row['requirement'])
     require(len(requirements)==len(set(requirements)),'duplicate goalie selector requirement')
+    fixed={*('type:'+str(i) for i in range(6)),'tip','missingness','h:false','h:true','d_low','d_high','low_support:h','low_support:d'}
+    require(fixed <= set(requirements),'missing fixed goalie selector requirements')
+    for name in set(requirements)-fixed:
+        parts=name.split(':')
+        require(len(parts)==2 and parts[0]=='state','unknown goalie selector requirement')
+        axis=parts[1].split(',')
+        require(len(axis)==3 and all(s.isascii() and s.isdecimal() and str(int(s))==s for s in axis)
+                and int(axis[0]) in (3,4,5,6) and int(axis[1]) in (3,4,5,6) and int(axis[2]) in (0,1),
+                'invalid goalie selector strength requirement')
 
 
 def _comparison(value,complete):

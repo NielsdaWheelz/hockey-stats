@@ -326,7 +326,10 @@ def fit_head(design, previous_ledger=None, *, tightened=False, initial=None):
     result = dict(status="unavailable", coefficients=None, actors=actors,
                   selected_start=None, requested_starts=requested, starts=[], endpoints={},
                   reasons=[])
-    unsupported = (not len(target) or not 0 < float(target.sum()) < len(target)) if design.get("target_kind") == "fractional" else (not len(target) or len(np.unique(target)) < 2)
+    if design.get("target_kind") == "fractional":
+        unsupported = not len(target) or not 0 < float(target.sum()) < len(target)
+    else:
+        unsupported = not len(target) or len(np.unique(target)) < 2
     if unsupported:
         result["reasons"] = ["empty_head" if not len(target) else "single_class_head"]
         result["wall_seconds"] = perf_counter()-began

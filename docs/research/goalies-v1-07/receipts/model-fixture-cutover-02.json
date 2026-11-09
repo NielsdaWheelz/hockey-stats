@@ -1,0 +1,103 @@
+{
+  "kind": "goalie-fixture-target-cutover",
+  "purpose": "fixture",
+  "status": "passed",
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20212022/manifest.json",
+    "sha256": "2c4bed99e41c71bce99d836f822ceb6ebaf14c7e62f3d5a081bbc5e7ddb2d8b7"
+  },
+  "preserved_pre_cutover_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-01/20212022/manifest.json",
+    "sha256": "24c4bfb50577a0a3c76bf684d908b28418f73585a9ae805becfd0168299ef413"
+  },
+  "pre_cutover_scope": "model checks passed before exclusion dedup; first score correctly rejected exact target replay; never accepted source-to-score",
+  "change": "deduplicate each excluded focal reason; strict successor source index and missing-label reason contracts; scoring source container avoids rebuilding fit matrices",
+  "coefficient_files": {
+    "h": {
+      "current": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20212022/heads/h.npz",
+        "sha256": "ed9895813fdbee94d3b57316a785a7f490b2f0c4f00b20e35a8ce98ca3323bff"
+      },
+      "previous": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-01/20212022/heads/h.npz",
+        "sha256": "ed9895813fdbee94d3b57316a785a7f490b2f0c4f00b20e35a8ce98ca3323bff"
+      },
+      "byte_identical": true
+    },
+    "d": {
+      "current": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20212022/heads/d.npz",
+        "sha256": "e63733e49e34bcd66346b0a2334dc5486501a7963b76082d1593cb5b316ffd5e"
+      },
+      "previous": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-01/20212022/heads/d.npz",
+        "sha256": "e63733e49e34bcd66346b0a2334dc5486501a7963b76082d1593cb5b316ffd5e"
+      },
+      "byte_identical": true
+    }
+  },
+  "measured": {
+    "preparation_wall_seconds": 24.452298125019297,
+    "total_wall_seconds": 24.888366999919526,
+    "resources": {
+      "wall_seconds": 0.3722867500036955,
+      "peak_memory_bytes": 955334656,
+      "design_wall_seconds": 24.40740870893933,
+      "input_read_wall_seconds": 0.0,
+      "dimensions": {
+        "h": 2610,
+        "d": 2610
+      },
+      "solve_counts": {
+        "h": 1,
+        "d": 1
+      },
+      "probe_solve_counts": {
+        "h": 0,
+        "d": 0
+      },
+      "output_bytes": 1408276
+    }
+  },
+  "checks": [
+    {
+      "script": {
+        "path": "/tmp/goalie-v1-07-checks/model_check.py",
+        "sha256": "b3d4d33581bfa757701c14a2e41067d033e4f5c728b0cd8e4b234c1400d371ba"
+      },
+      "status": "passed"
+    },
+    {
+      "script": {
+        "path": "/tmp/goalie-v1-07-checks/source_and_parity.py",
+        "sha256": "2089035c7c3657db6af9ea1cf4e4245274d4c17f1be8dd532b919b8cdc30f68f"
+      },
+      "status": "passed"
+    },
+    {
+      "script": {
+        "path": "/tmp/goalie-v1-07-checks/target_and_state_checks.py",
+        "sha256": "7bc0e736304e4c6dddb0c170fd6c4fd2aec39748b701a43d82456b5843f76027"
+      },
+      "status": "passed"
+    },
+    {
+      "script": {
+        "path": "/tmp/goalie-v1-07-checks/neutral_applicability.py",
+        "sha256": "8a19e99ac92243a179d7b15448502780d7acf073f52fdfc866b8cec31eb2aedb"
+      },
+      "status": "passed"
+    }
+  ],
+  "independent_review": {
+    "owner": "goalie_composition",
+    "source_reduction": "passed",
+    "target_shape": "red malformed successor accepted; green canonical and located-missing contracts",
+    "numerical_history_state": "no remaining blocking source findings; actual annual/real checks remain"
+  },
+  "preservation": "original fixture fit states and immutable base preparation/coaches/states/scores unchanged; no serving files or real fit touched",
+  "remaining": [
+    "source-to-score and full fixture annual chain",
+    "real five annual states/scores, probes, complete composition/publication/api/browser acceptance"
+  ]
+}

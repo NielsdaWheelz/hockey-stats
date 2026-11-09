@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "kind": "real-first-goalie-target-inventory",
+  "purpose": "real",
+  "status": "saved_target_inventory_passed",
+  "season": "20212022",
+  "annual_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20212022/manifest.json",
+    "sha256": "1898e7128a1e166cceec408784979a9e6fb62c045a0ed79840b0cfee471a5669",
+    "identity_source": "root supplied completed-fit pin; manifest not reopened"
+  },
+  "coverage": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20212022/coverage.json",
+    "sha256": "5d07c27669b294bec938efee0b1d52100192c15ed8a0e597586fb536a916dd13",
+    "bytes": 72037947
+  },
+  "source_target_rows": 149412,
+  "games": 1312,
+  "outcome_counts": {
+    "None": 1240,
+    "block": 35375,
+    "goal": 7657,
+    "miss": 30286,
+    "save": 74854
+  },
+  "counts": {
+    "h_included": 74681,
+    "h_positive": 8010,
+    "h_negative": 66671,
+    "ordinary_saved_source_rows": 74832,
+    "d_included": 7991,
+    "zero_d_target": 0,
+    "source_positive_focal_excluded": 81,
+    "eligible_h_positive_d_unavailable": 19,
+    "eligible_h_positive_successor_goalie_unresolved": 19
+  },
+  "heads": {
+    "h": {
+      "included": 74681,
+      "excluded": 74731,
+      "target_mass": 8010.0,
+      "exclusion_reason_counts": {
+        "goalie_population_unavailable_or_outside": 1810,
+        "immediate_reattempt_label_unavailable": 74580,
+        "location_or_frame_unavailable": 784,
+        "membership_unavailable_or_outside_population": 937,
+        "opposing_goalie_membership_unavailable": 1810,
+        "outcome_unavailable": 1240,
+        "physical_attempt_not_supported_ordinary": 1274,
+        "requires_saved_attempt": 74558,
+        "shooter_unavailable": 615,
+        "shot_type_unavailable": 901
+      }
+    },
+    "d": {
+      "included": 7991,
+      "excluded": 141421,
+      "target_mass": 911.1267457687366,
+      "exclusion_reason_counts": {
+        "focal_occurrence_population_unavailable": 74731,
+        "requires_positive_recorded_reattempt": 66671,
+        "successor_execution_score_unavailable": 19
+      }
+    }
+  },
+  "reconciliation": {
+    "saved_groups": 1892,
+    "all_head_state_goalie_groups_match": true,
+    "each_head_included_plus_excluded_equals_source_rows": true,
+    "h_positive_equals_valued_d_plus_d_excluded": true,
+    "maximum_group_target_mass_roundoff": 1.0658141036401503e-14,
+    "target_score_sha256": "37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d"
+  },
+  "unknown_h_reasons": {},
+  "eligible_positive_d_exclusion_reasons": {
+    "successor_execution_score_unavailable": 19
+  },
+  "d_missing_successor_outcomes": {
+    "save": 16,
+    "block": 3
+  },
+  "candidates": [
+    {
+      "category": "source_positive_focal_excluded_not_d_missing_witness",
+      "season": "20212022",
+      "focal": {
+        "key": "2021020942:278",
+        "game_id": "2021020942",
+        "source_index": 278,
+        "outcome": "save",
+        "physical_status": "ordinary",
+        "goalie_id": 8475852,
+        "physical_state": [
+          5,
+          4,
+          1,
+          1
+        ],
+        "h_label": true,
+        "h_included": false,
+        "h_reason": null,
+        "h_exclusions": [
+          "location_or_frame_unavailable"
+        ],
+        "successor_key": "2021020942:279",
+        "d_included": false,
+        "d_target": null,
+        "d_reason": "focal_occurrence_population_unavailable"
+      },
+      "focal_original_pointer": "/plays/278",
+      "successor_original_pointer": "/plays/279",
+      "successor_metadata": {
+        "key": "2021020942:279",
+        "outcome": "save",
+        "physical_status": "ordinary",
+        "goalie_id": 8475852,
+        "physical_state": [
+          5,
+          4,
+          1,
+          1
+        ],
+        "h_exclusions": [
+          "location_or_frame_unavailable"
+        ]
+      },
+      "not_original_event_proof": true,
+      "existing_original_bundle": {
+        "locator": "fixtures/captures/2021020942",
+        "evidence": "named complete existing bundle in fixtures/README.md; bytes not reopened",
+        "verification_status": "not reopened in this inventory"
+      },
+      "classification": "known positive source h label but focal h likelihood excluded; not a valid eligible h-positive/d-unavailable witness"
+    },
+    {
+      "category": "eligible_h_positive_d_unavailable",
+      "season": "20212022",
+      "focal": {
+        "key": "2021020156:71",
+        "game_id": "2021020156",
+        "source_index": 71,
+        "outcome": "save",
+        "physical_status": "ordinary",
+        "goalie_id": 8474682,
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "h_label": true,
+        "h_included": true,
+        "h_reason": null,
+        "h_exclusions": [],
+        "successor_key": "2021020156:72",
+        "d_included": false,
+        "d_target": null,
+        "d_reason": "successor_execution_score_unavailable"
+      },
+      "focal_original_pointer": "/plays/71",
+      "successor_original_pointer": "/plays/72",
+      "successor_metadata": {
+        "key": "2021020156:72",
+        "outcome": "save",
+        "physical_status": "ordinary",
+        "goalie_id": null,
+        "physical_state": null,
+        "h_exclusions": [
+          "membership_unavailable_or_outside_population",
+          "goalie_population_unavailable_or_outside",
+          "shot_type_unavailable",
+          "opposing_goalie_membership_unavailable"
+        ]
+      },
+      "not_original_event_proof": true,
+      "existing_original_bundle": {
+        "locator": null,
+        "evidence": "game is not listed in the bounded repository fixture index; exact immutable original capture locator must be resolved from its already-bound provenance after root release",
+        "verification_status": "not located from permitted small metadata"
+      }
+    }
+  ],
+  "missing_case_status": {
+    "intervening_invalid_event": {
+      "actual_count": null,
+      "status": "not identifiable from saved target records alone",
+      "unknown_immediate_label_candidates": 0,
+      "next_action": "root-released exact original next-record check; do not promote generic missing-label reasons to a known invalid event"
+    },
+    "unknown_terminal": {
+      "actual_count": null,
+      "status": "not identifiable from saved target records alone",
+      "next_action": "root-released original terminal/order evidence check"
+    }
+  },
+  "concept": "h is a source occurrence label independent of a valued successor; only eligible focal h-positive rows with missing d count toward the separate conditional-danger exclusion",
+  "limits": [
+    "one saved real coverage member only; no original-event proof or source reconstruction",
+    "candidate selection is bounded to at most one row per category and prefers named existing complete repository bundles",
+    "no source/prepared/array/base-state reader or probability/fit/probe computation",
+    "README conflicting terminal horizon does not by itself establish an unknown immediate recorded label"
+  ],
+  "cost": {
+    "wall_seconds": 0.7816382079618052,
+    "peak_memory_bytes": 366526464,
+    "coverage_reads": 1,
+    "raw_capture_opens": 0,
+    "prepared_game_opens": 0,
+    "array_opens": 0,
+    "source_parser_or_replay_calls": 0
+  }
+}

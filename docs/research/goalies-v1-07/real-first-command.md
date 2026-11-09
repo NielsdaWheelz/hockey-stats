@@ -1,6 +1,6 @@
 # first real goalie annual — held command
 
-status: **released for launch** after final-02 fixture producer, independent sensitivity review and current detached-reader acceptance. the sibling heavy slot is explicitly released. no real fit has started at this document update; root records the exact launch in `receipts/real-first-fit-preflight.json`. [the spec](../../specs/v1-07-goalie-continuation.md) owns the numerical boundary.
+status: **first real fit accepted** after final-02 fixture producer, independent sensitivity review and current detached-reader acceptance. the sibling heavy slot is explicitly released. the first real fit started at `2026-11-09T07:27:52Z` in native session `25695` and exited 0 after 4,472.78 seconds; `receipts/real-first-fit-preflight.json` records the exact launch and clean implementation. [the spec](../../specs/v1-07-goalie-continuation.md) owns the numerical boundary.
 
 run root: `/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01`. fit `20212022`, with no predecessor and no final-year probe. retain the original completed baseline. the v1-17 compatible composition parent is selected later; it is not a fit input.
 

@@ -1,0 +1,202 @@
+{
+  "kind": "independent-first-real-goalie-fit-metadata-review",
+  "status": "passed",
+  "recorded_at_utc": "2026-11-09T08:50:06.131138+00:00",
+  "season": "20212022",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20212022/manifest.json",
+    "bytes": 344700,
+    "sha256": "1898e7128a1e166cceec408784979a9e6fb62c045a0ed79840b0cfee471a5669"
+  },
+  "producer": {
+    "git_commit": "e34e77900279e3324241dcac60e7b4d1518b6b6a",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "analysis_tree": "d072db603bc719af9ac8de4a6027fb326c4cbd25",
+  "scope": "four small saved JSON members only; independent head count/diagnostic/prior/raw-ledger/center and binding arithmetic; no production reader",
+  "members_read": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20212022/manifest.json",
+      "bytes": 344700,
+      "sha256": "1898e7128a1e166cceec408784979a9e6fb62c045a0ed79840b0cfee471a5669"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20212022/heads/h.json",
+      "bytes": 2900198,
+      "sha256": "80463a2781739d0d8e8654be5f2d2a62557b72f940b7c9aa5f623a85df21eccf"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20212022/heads/d.json",
+      "bytes": 1426652,
+      "sha256": "57b9307055b7a0daaa78b4a5cb351dee313d770286131dd5d4a40f749660aed1"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20212022/numerical.json",
+      "bytes": 264,
+      "sha256": "16ae9945bc38797349fdc5476c2107ad4f94afcb47e3606587cdc6b123fd9638"
+    }
+  ],
+  "checked": {
+    "actor_priors": 2640,
+    "entry_priors": 2640,
+    "raw_supported_ledger_rows": 2197,
+    "prior_only_actor_rows": 443,
+    "centers": 10
+  },
+  "heads": {
+    "h": {
+      "status": "complete",
+      "target_kind": "binary",
+      "likelihood_keys": 74681,
+      "target_mass": 8010.0,
+      "source_actor_rows": 1320,
+      "supported_raw_ledger_rows": 1174,
+      "prior_only_actor_rows": 146,
+      "selected_start": "zero",
+      "native_termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 3836,
+      "evaluations": 4227,
+      "objective": 24191.279266215184,
+      "gradient_max": 0.00039162012138637715,
+      "stopping": "native ftol completed; gtol not attained",
+      "implied_total_penalty": 198.70945143064455,
+      "independent_entry_actor_penalty": 109.51187015260675,
+      "non_actor_penalty_remainder": 89.1975812780378,
+      "centers": {
+        "shooter": {
+          "value": 0.0075114967490614625,
+          "weight": 69634.0,
+          "prior_only": false
+        },
+        "goalie": {
+          "value": -0.015926415762108008,
+          "weight": 74681.0,
+          "prior_only": false
+        },
+        "setter": {
+          "value": 0.0,
+          "weight": 0.0,
+          "prior_only": true
+        },
+        "attacking_coach": {
+          "value": 0.00202045375043653,
+          "weight": 74681.0,
+          "prior_only": false
+        },
+        "defending_coach": {
+          "value": -0.0018823595706702091,
+          "weight": 74681.0,
+          "prior_only": false
+        }
+      }
+    },
+    "d": {
+      "status": "complete",
+      "target_kind": "fractional",
+      "likelihood_keys": 7991,
+      "target_mass": 911.1267457687366,
+      "source_actor_rows": 1320,
+      "supported_raw_ledger_rows": 1023,
+      "prior_only_actor_rows": 297,
+      "selected_start": "zero",
+      "native_termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 1257,
+      "evaluations": 1384,
+      "objective": 2806.981923774034,
+      "gradient_max": 0.00021480376288257087,
+      "stopping": "native ftol completed; gtol not attained",
+      "implied_total_penalty": 6.9655554981031855,
+      "independent_entry_actor_penalty": 4.1496637093472195,
+      "non_actor_penalty_remainder": 2.815891788755966,
+      "centers": {
+        "shooter": {
+          "value": -0.001346369532002206,
+          "weight": 7304.0,
+          "prior_only": false
+        },
+        "goalie": {
+          "value": -0.00043388815058697535,
+          "weight": 7991.0,
+          "prior_only": false
+        },
+        "setter": {
+          "value": 0.0,
+          "weight": 0.0,
+          "prior_only": true
+        },
+        "attacking_coach": {
+          "value": -8.10072989560398e-05,
+          "weight": 7991.0,
+          "prior_only": false
+        },
+        "defending_coach": {
+          "value": 8.008893122613015e-05,
+          "weight": 7991.0,
+          "prior_only": false
+        }
+      }
+    }
+  },
+  "known_positive_reattempts": 8010,
+  "valued_d_responses": 7991,
+  "difference_requires_source_coverage_review": 19,
+  "numerical_disposition": {
+    "heads": {
+      "h": {
+        "status": "not_assessed_for_annual_state",
+        "reason": "only final selected annual is probed"
+      },
+      "d": {
+        "status": "not_assessed_for_annual_state",
+        "reason": "only final selected annual is probed"
+      }
+    }
+  },
+  "resources": {
+    "wall_seconds": 34.91020858299453,
+    "peak_memory_bytes": 20406583296,
+    "design_wall_seconds": 4398.516936291009,
+    "input_read_wall_seconds": 16.795916832983494,
+    "dimensions": {
+      "h": 3656,
+      "d": 3656
+    },
+    "solve_counts": {
+      "h": 1,
+      "d": 1
+    },
+    "probe_solve_counts": {
+      "h": 0,
+      "d": 0
+    },
+    "output_bytes": 76424113
+  },
+  "native_command_cost": {
+    "exit_code": 0,
+    "wall_seconds": 4472.78,
+    "max_resident_bytes": 20406583296,
+    "source": "root-owned native25695 completion"
+  },
+  "limitations": [
+    "coefficient arrays and 69mb target/coverage member not reopened; their original canonical validation belongs to producer",
+    "full objective/gradient not independently recomputed; saved finite objectives, native termination, target diagnostics and implied penalty accounting checked",
+    "first-year optimizer sensitivity is not assessed; both native solves completed on ftol above gtol, with remaining accuracy unknown",
+    "source owner independently reconciles actual target populations/exclusions; this metadata review is not scientific admission or activation"
+  ],
+  "calls": {
+    "source_game_reads": 0,
+    "coverage_member_reads": 0,
+    "array_loads": 0,
+    "full_production_readers": 0,
+    "objective_gradient_or_model_evaluations": 0,
+    "solves": 0
+  },
+  "temporary_review_script": {
+    "path": "/tmp/goalie-v1-07-checks/review_real_first_metadata.py",
+    "sha256": "5de267e3f865b3ef45e633c706f60e2e572595e3bd1e9fa72e91adff98570503"
+  }
+}

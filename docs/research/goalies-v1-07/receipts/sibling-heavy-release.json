@@ -45,5 +45,35 @@
   },
   "release_scope": "final fixture score, chronological real goalie fits/scores and corrected-parent composition; no further v1-17 release cadence; bounded sibling api/browser work may continue",
   "activation": false,
-  "source": "explicit user coordination message; small startup receipt read only; no candidate or large member read"
+  "source": "explicit user coordination message; small startup receipt read only; no candidate or large member read",
+  "final_user_handoff": {
+    "received_at_utc": "2026-11-09T07:34:24.563785+00:00",
+    "branch": "implement/v1-17-microstat-cards",
+    "final_commit": "f5f4c0a",
+    "software_and_available_field_real_integration": "accepted",
+    "listeners_41917_41918": "stopped",
+    "owned_heavy_commands": 0,
+    "heavy_slot_stays_released": true,
+    "parent_and_correction_unchanged": true,
+    "activation": false,
+    "whole_card": "pending v1-12 six ledger rows",
+    "verification": "/Users/nnandal/Documents/code/hockey-stats-v1-17/docs/research/application-v1-17/verification.md",
+    "scope": "coordination only; no sibling source/candidate read and no v1-07 acceptance inferred"
+  },
+  "delivery_user_handoff": {
+    "pr": 60,
+    "merge_commit": "951cb2692dd36074ae1bf39a424e66f771974c72",
+    "primary_documentation_closeout": "08b5294",
+    "reviewed_tree_equals": "f5f4c0a",
+    "context_preserved": "06df291",
+    "producer_ancestor_preserved": "148d60f",
+    "task_worktree_path": "symlink to primary",
+    "task_scratch_and_branches": "removed",
+    "serving_build_databases_pid_9645": "unchanged per explicit user handoff",
+    "external_parent_and_correction": "unchanged",
+    "v1_07_worktree_jobs": "untouched",
+    "activation": false,
+    "record": "/Users/nnandal/Documents/code/hockey-stats/docs/research/application-v1-17/delivery.json",
+    "scope": "user-reported coordination; no new sibling read"
+  }
 }

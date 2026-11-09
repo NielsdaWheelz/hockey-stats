@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:41917/players/8484860?season=20252026&view=microstats&peerMin=0",
+  "checks": [
+    "same-position comparison uses complete full-width cards at1600px",
+    "two absent selected-year skaters retain union cards, same-field detail and annual histories"
+  ],
+  "saved": [],
+  "errors": [],
+  "error": "TimeoutError: page.waitForFunction: Timeout 30000ms exceeded."
+}

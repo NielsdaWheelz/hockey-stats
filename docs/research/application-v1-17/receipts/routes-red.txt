@@ -1,0 +1,17 @@
+/Users/nnandal/Documents/code/hockey-stats-v1-17/app/src/web/comparative-card.tsx:142
+      throw new Error("comparative card is missing an annual overview cohort");
+            ^
+
+Error: comparative card is missing an annual overview cohort
+    at point (/Users/nnandal/Documents/code/hockey-stats-v1-17/app/src/web/comparative-card.tsx:142:13)
+    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-17/app/src/web/comparative-card.tsx:164:26)
+    at Array.map (<anonymous>)
+    at history (/Users/nnandal/Documents/code/hockey-stats-v1-17/app/src/web/comparative-card.tsx:164:12)
+    at prepareComparativeCard (/Users/nnandal/Documents/code/hockey-stats-v1-17/app/src/web/comparative-card.tsx:199:17)
+    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-17/app/src/web/routes/player.tsx:235:11)
+    at Object.useMemo (/Users/nnandal/Documents/code/hockey-stats-v1-17/app/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:4140:20)
+    at process.env.NODE_ENV.exports.useMemo (/Users/nnandal/Documents/code/hockey-stats-v1-17/app/node_modules/react/cjs/react.development.js:1297:34)
+    at Player (/Users/nnandal/Documents/code/hockey-stats-v1-17/app/src/web/routes/player.tsx:232:16)
+    at Object.react_stack_bottom_frame (/Users/nnandal/Documents/code/hockey-stats-v1-17/app/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:10371:18)
+
+Node.js v24.21.0

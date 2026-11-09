@@ -1,0 +1,23 @@
+[
+  {
+    "case": "six_distinct_long",
+    "path": ".tmp/v1-17/six_distinct_long.png",
+    "bytes": 455704,
+    "sha256": "2e766f1aba17f4e37b7a5e72bf4c905ccd16e216a47ea82c8217ccb4e30b1f03",
+    "construction": "sips rasterization of generated svg; inspected with view_image, not a browser download"
+  },
+  {
+    "case": "unknown_position",
+    "path": ".tmp/v1-17/unknown_position.png",
+    "bytes": 514991,
+    "sha256": "eb30f7de69a9cbadf3c1d22c4f362743a901d5a1819ea60530deafbb21e4870f",
+    "construction": "sips rasterization of generated svg; inspected with view_image, not a browser download"
+  },
+  {
+    "case": "absent",
+    "path": ".tmp/v1-17/absent.png",
+    "bytes": 339744,
+    "sha256": "62fac21ab72a3ac6b47970aca4a3c91bdb26768354f637d3a6caeadf6401f92a",
+    "construction": "sips rasterization of generated svg; inspected with view_image, not a browser download"
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "scope": "actual fixture browser downloads; real corrected candidate remains separate",
+  "checks": [
+    {
+      "label": "forward",
+      "rows": 27,
+      "columns": 69,
+      "native_microstat_reconciliations": 21,
+      "publication": "e7428c18-c105-4a51-bc57-af8d47899aae",
+      "purpose": "fixture",
+      "season": "20252026",
+      "player": "8484860",
+      "csv_sha256": "8e4a390f7a2269f43fd36efe87cb8a62e36446854559a700ee1b683e3bb154b8",
+      "png_sha256": "f69cfdba66a27756f9b4881af0cd8067264ce0ae8d041f61f800fe868a6c6861",
+      "png_width": 1200,
+      "png_height": 1812,
+      "pixel_review": "inspected actual browser download; no clipping/colliding text; explicit raw units, percentiles, support and dispositions"
+    },
+    {
+      "label": "defense-comparison",
+      "rows": 26,
+      "columns": 69,
+      "native_microstat_reconciliations": 20,
+      "publication": "e7428c18-c105-4a51-bc57-af8d47899aae",
+      "purpose": "fixture",
+      "season": "20252026",
+      "player": "8484783",
+      "csv_sha256": "10ad917690f4b5c39b9d3c4a388d0a62b0e22ffe5f1b804978ff2aa969a53ca9",
+      "png_sha256": "0a19a5010f218bf24040efb6ac5744e312804e21df54b19720e5c332c9c00ac6",
+      "png_width": 1200,
+      "png_height": 1831,
+      "pixel_review": "inspected actual browser download; no clipping/colliding text; explicit raw units, percentiles, support and dispositions"
+    },
+    {
+      "label": "absent",
+      "rows": 36,
+      "columns": 69,
+      "native_microstat_reconciliations": 30,
+      "publication": "e7428c18-c105-4a51-bc57-af8d47899aae",
+      "purpose": "fixture",
+      "season": "20232024",
+      "player": "8484860",
+      "csv_sha256": "15f92af97acaf7984744e3ba864c073fbf28dd70c631ea270e3f255128275e56",
+      "png_sha256": "711dd43307e39248ef2a14fca55e46bf79d276886637cb15cce914bbd7de3dc7",
+      "png_width": 1200,
+      "png_height": 2032,
+      "pixel_review": "inspected actual browser download; no clipping/colliding text; explicit raw units, percentiles, support and dispositions"
+    }
+  ]
+}

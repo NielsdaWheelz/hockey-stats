@@ -1,0 +1,28 @@
+[
+  {
+    "label": "unknown-position",
+    "png_width": 1200,
+    "png_height": 2451,
+    "csv_rows": 36,
+    "csv_columns": 69,
+    "png_sha256": "034ce11d3a9d4730cb74eec0fe652c918cec7004bf86e4b10a05b628591e754f",
+    "csv_sha256": "b64805237ca1cf825d8afb570271444e0d35a4b354a61308e554caa97f5072a4",
+    "independent_review": "actual saved png inspected: no clipping/overlap; native csv quantities match unmodified fixture while coherent identity variation remains explicit"
+  },
+  {
+    "label": "long-name",
+    "png_width": 1200,
+    "png_height": 1938,
+    "csv_rows": 27,
+    "csv_columns": 69,
+    "png_sha256": "af1069af48a060d7a6352d78440166d9efb032810c49906833297f1316f45263",
+    "csv_sha256": "976761be88d7179c41ccd96ef41d1be899ac425c90fe12a8dd7743ef7d590f08",
+    "independent_review": "actual saved png inspected: no clipping/overlap; native csv quantities match unmodified fixture while coherent identity variation remains explicit"
+  },
+  {
+    "label": "native200-download",
+    "sha256": "f69cfdba66a27756f9b4881af0cd8067264ce0ae8d041f61f800fe868a6c6861",
+    "byte_identical_to": "forward.png",
+    "scope": "export accepted; clipped page screenshots require replacement before native visual acceptance"
+  }
+]

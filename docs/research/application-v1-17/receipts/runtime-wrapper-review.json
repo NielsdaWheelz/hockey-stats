@@ -1,0 +1,23 @@
+{
+  "status": "accepted_temporary_runtime_measurement_design",
+  "recorded_at": "2026-11-09T06:30:22.600405+00:00",
+  "wrapper_sha256_at_review": "69160f6cb82639cd57a5ef14eff60204d443699b72ac6693db9c640f364ce0bd",
+  "checks": [
+    "ordinary compiled main receives unchanged argv[2:]",
+    "publication validation completes before main can bind isolated listener",
+    "installed http.Server inherits net.Server.emit",
+    "single matching listening event restores original emitter before forwarding",
+    "no second artifact reader or modified production module"
+  ],
+  "native_units_probe": {
+    "node": "v24.21.0",
+    "maxRSS_KiB": 57360,
+    "current_rss_bytes": 58753024,
+    "native_exit_peak_rss_bytes": 59162624,
+    "maxRSS_conversion": "multiply by1024",
+    "cpu_time_conversion": "microseconds divided by1e6"
+  },
+  "scope": "elapsed starts at wrapper entry after builtin imports, ending at listening; kernel peak memory at readiness includes process lifetime; whole-runtime final receipt is separate",
+  "recommendation": "exclusive receipt writes preserve first-run evidence; no final receipt is expected after SIGKILL",
+  "real_startup_status": "not launched by reviewer; root launches after publisher completion"
+}

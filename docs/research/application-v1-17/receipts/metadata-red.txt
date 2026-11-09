@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-17/var/v1-17-provenance/check_metadata.py", line 51, in <module>
+    result = execution.correct_reference_xg_metadata(donor, successor)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'hockey_stats.execution_composition' has no attribute 'correct_reference_xg_metadata'

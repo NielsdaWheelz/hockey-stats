@@ -1,0 +1,205 @@
+{
+  "case": "two synthetic rows through production svg and actual chrome font bounds",
+  "phase": "green",
+  "svg_sha256": "fff1b47b6592b22d3d793e3434c95feb701de99e3f7a165cba4f90db21d6c89b",
+  "width": "1200",
+  "height": "659",
+  "texts": [
+    {
+      "text": "synthetic fixture · microstat card",
+      "x": 44,
+      "y": 17,
+      "width": 305.90625,
+      "height": 23
+    },
+    {
+      "text": "synthetic separator case",
+      "x": 44,
+      "y": 47,
+      "width": 368.640625,
+      "height": 38
+    },
+    {
+      "text": "2023–24 · C · teams unavailable",
+      "x": 44,
+      "y": 111,
+      "width": 282.65625,
+      "height": 23
+    },
+    {
+      "text": "forward microstats",
+      "x": 44,
+      "y": 137,
+      "width": 188.46875,
+      "height": 26
+    },
+    {
+      "text": "same-year reported position; cutoff 300 matched min",
+      "x": 44,
+      "y": 167,
+      "width": 469.546875,
+      "height": 23
+    },
+    {
+      "text": "shooting",
+      "x": 44,
+      "y": 196,
+      "width": 102.734375,
+      "height": 29
+    },
+    {
+      "text": "raw quantity",
+      "x": 319,
+      "y": 201,
+      "width": 107.546875,
+      "height": 23
+    },
+    {
+      "text": "percentile",
+      "x": 477,
+      "y": 201,
+      "width": 86.65625,
+      "height": 23
+    },
+    {
+      "text": "goals",
+      "x": 44,
+      "y": 241,
+      "width": 49.609375,
+      "height": 23
+    },
+    {
+      "text": "0.5",
+      "x": 319,
+      "y": 237,
+      "width": 37.265625,
+      "height": 28
+    },
+    {
+      "text": "per 60 min",
+      "x": 319,
+      "y": 269,
+      "width": 94.578125,
+      "height": 23
+    },
+    {
+      "text": "50.0",
+      "x": 477,
+      "y": 239,
+      "width": 48.234375,
+      "height": 26
+    },
+    {
+      "text": "n=1",
+      "x": 477,
+      "y": 268,
+      "width": 35.03125,
+      "height": 23
+    },
+    {
+      "text": "provided",
+      "x": 44,
+      "y": 301,
+      "width": 76.859375,
+      "height": 23
+    },
+    {
+      "text": "reference xg",
+      "x": 44,
+      "y": 328,
+      "width": 114.703125,
+      "height": 23
+    },
+    {
+      "text": "0.5",
+      "x": 319,
+      "y": 324,
+      "width": 37.265625,
+      "height": 28
+    },
+    {
+      "text": "per 60 min",
+      "x": 319,
+      "y": 356,
+      "width": 94.578125,
+      "height": 23
+    },
+    {
+      "text": "50.0",
+      "x": 477,
+      "y": 326,
+      "width": 48.234375,
+      "height": 26
+    },
+    {
+      "text": "n=1",
+      "x": 477,
+      "y": 355,
+      "width": 35.03125,
+      "height": 23
+    },
+    {
+      "text": "provided",
+      "x": 44,
+      "y": 388,
+      "width": 76.859375,
+      "height": 23
+    },
+    {
+      "text": "support keys",
+      "x": 44,
+      "y": 437,
+      "width": 133.09375,
+      "height": 26
+    },
+    {
+      "text": "no available field support; reasons remain field-specific",
+      "x": 44,
+      "y": 469,
+      "width": 480.265625,
+      "height": 23
+    },
+    {
+      "text": "2023–24; supported 5v5 facts plus model-valued reference xg; field-specific units and matched support.",
+      "x": 44,
+      "y": 528,
+      "width": 844.65625,
+      "height": 21
+    },
+    {
+      "text": "higher percentile means higher quantity, not better play. population spread is not uncertainty. reference xg is",
+      "x": 44,
+      "y": 553,
+      "width": 864.96875,
+      "height": 21
+    },
+    {
+      "text": "experimental, not a forecast.",
+      "x": 44,
+      "y": 576,
+      "width": 228.09375,
+      "height": 21
+    },
+    {
+      "text": "publication synthetic-separator-case · fixture; source/method keys above; full evidence in page/csv.",
+      "x": 44,
+      "y": 601,
+      "width": 796.328125,
+      "height": 21
+    }
+  ],
+  "rules": [
+    {
+      "x": 44,
+      "y": 236,
+      "width": 542
+    },
+    {
+      "x": 44,
+      "y": 517,
+      "width": 1112
+    }
+  ],
+  "intersections": [],
+  "text_geometry_sha256": "c16cef9da62e24fdca0ce0ae5a4e5587755f059dbb1c6fae113a5df0a1cea3da"
+}

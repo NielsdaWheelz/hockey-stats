@@ -378,7 +378,9 @@ def _read_goalie_state(path,manifest,expected_purpose):
                     'goalie probe changed design/targets/priors')
             require((record['status']=='assessed')==(probe['status']=='complete')
                     and (record['reason'] is None)==(probe['status']=='complete'),'false goalie probe assessment')
-            _comparison(record['comparison'],probe['status']=='complete')
+            validate_goalie_probe_comparison(record['comparison'],probe['status']=='complete')
+            require(record['comparison']['contexts']==len(baseline['selector']['keys']),
+                    'goalie pointwise comparison differs from frozen selector')
         require(set(by_role)==expected,'unknown or missing goalie member roles')
         return GoalieState(path,manifest,heads,arrays,coverage,probes=numerical['heads'])
     except (KeyError,TypeError,ValueError,IndexError,AttributeError) as error:
@@ -387,22 +389,29 @@ def _read_goalie_state(path,manifest,expected_purpose):
         raise InputContractError(f'malformed goalie state: {error}') from error
 
 
-def _baseline(value,manifest,heads,coverage,by_role):
+def validate_goalie_baseline_descriptor(value,purpose,season,recipe_sha256,base_scores,targets):
+    """check a detached descriptor against validated annual targets and identities."""
     _closed(value,('schema_version','kind','purpose','season','recipe_sha256','base_scores','target_sha256','selector','heads'),'goalie frozen baseline')
-    require(value['schema_version']==1 and value['kind']=='goalie-baseline' and value['purpose']==manifest['purpose']
-            and value['season']==manifest['season'] and value['recipe_sha256']==manifest['recipe']['sha256']
-            and value['base_scores']==manifest['base_scores'] and value['target_sha256']==_hash(coverage['targets']),
+    _finite(value,'goalie frozen baseline')
+    require(purpose in ('real','fixture') and 2021<=_season(season)<=2025
+            and (purpose!='real' or season=='20252026'),'invalid goalie frozen baseline scope')
+    require(type(value['schema_version']) is int and value['schema_version']==1
+            and value['kind']=='goalie-baseline' and value['purpose']==purpose
+            and value['season']==season and value['recipe_sha256']==recipe_sha256
+            and value['base_scores']==base_scores and value['target_sha256']==_hash(targets),
             'goalie baseline target/identity differs')
-    require(set(value['heads'])==set(HEADS),'baseline head axes differ')
-    for head,row in value['heads'].items():
+    digest(value['recipe_sha256']); digest(value['target_sha256'])
+    _closed(value['base_scores'],('path','sha256'),'goalie baseline base scores')
+    _reference(value['base_scores'],'goalie baseline base scores')
+    require(type(value['heads']) is dict and set(value['heads'])==set(HEADS),'baseline head axes differ')
+    for row in value['heads'].values():
         _closed(row,('metadata_sha256','coefficient_sha256','design_sha256','prior_sha256'),'goalie baseline head')
-        coefficient=by_role.get('coefficients:'+head)
-        require(row==dict(metadata_sha256=by_role['head:'+head]['sha256'],
-                          coefficient_sha256=None if coefficient is None else coefficient['sha256'],
-                          design_sha256=_hash(heads[head]['design']),prior_sha256=_hash(heads[head]['priors'])),
-                'goalie baseline design/prior/coefficients differ')
+        for key in ('metadata_sha256','design_sha256','prior_sha256'):
+            digest(row[key])
+        if row['coefficient_sha256'] is not None:
+            digest(row['coefficient_sha256'])
     selector=value['selector']; _closed(selector,('policy','keys','requirements'),'goalie probe selector')
-    keys=selector['keys']; known={r['key'] for r in coverage['targets']}
+    keys=selector['keys']; known={r['key'] for r in targets}
     require(type(keys) is list and len(keys)<=256 and len(keys)==len(set(keys)) and set(keys)<=known
             and keys==sorted(keys,key=lambda k:(k.split(':')[0],int(k.split(':')[1]))),'invalid goalie frozen keys')
     require(selector['policy']=='deterministic source-key coverage then fill; maximum256; all656 origins per context'
@@ -425,7 +434,20 @@ def _baseline(value,manifest,heads,coverage,by_role):
                 'invalid goalie selector strength requirement')
 
 
-def _comparison(value,complete):
+
+def _baseline(value,manifest,heads,coverage,by_role):
+    validate_goalie_baseline_descriptor(value,manifest['purpose'],manifest['season'],manifest['recipe']['sha256'],
+                                        manifest['base_scores'],coverage['targets'])
+    for head,row in value['heads'].items():
+        coefficient=by_role.get('coefficients:'+head)
+        require(row==dict(metadata_sha256=by_role['head:'+head]['sha256'],
+                          coefficient_sha256=None if coefficient is None else coefficient['sha256'],
+                          design_sha256=_hash(heads[head]['design']),prior_sha256=_hash(heads[head]['priors'])),
+                'goalie baseline design/prior/coefficients differ')
+
+
+def validate_goalie_probe_comparison(value,complete):
+    """check one frozen-head continuation diagnostic without opening its arrays."""
     base='base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol optimizer_maxfun coefficient_max_change coefficient_l2_change status contexts origin_rows maximum_probability_change maximum_joint_change pointwise_threshold compared_probability_rows compared_joint_rows'.split()
     final='tightened_objective objective_change tightened_gradient_max gradient_max_change'.split()
     _closed(value,base+(final if complete else []),'goalie probe comparison')
@@ -443,6 +465,20 @@ def _comparison(value,complete):
         require(complete or count==0,'unfinished probe claims evaluated comparison')
     require(not complete or value['compared_probability_rows']>0,'completed pointwise probe has no comparison rows')
     _finite(value,'goalie probe comparison')
+
+
+def read_goalie_baseline(state):
+    """return the checked frozen descriptor and its explicit contained-file identity."""
+    require(isinstance(state,GoalieState) and state.usage=='annual','goalie baseline needs original annual state')
+    by_role={row['role']:row for row in state.manifest['files']}
+    record=by_role.get('baseline')
+    require(record is not None and record['path']=='baseline.json','annual goalie state has no frozen final-year baseline')
+    path=_member(state.path.parent,record['path'])
+    reference=identity(path)
+    require(reference['sha256']==record['sha256'],'goalie baseline member digest differs')
+    value=read_json(path)
+    _baseline(value,state.manifest,state.heads,state.coverage,by_role)
+    return value,reference
 
 
 def read_goalie_probe(state,head):

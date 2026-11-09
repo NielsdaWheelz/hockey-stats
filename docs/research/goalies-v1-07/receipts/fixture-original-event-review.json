@@ -20,7 +20,7 @@
       "case": "known_nonattempt_missing_team",
       "game_id": "2021020001",
       "source": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/captures/2021020001/play-by-play/body.bin",
+        "path": "fixtures/captures/2021020001/play-by-play/body.bin",
         "sha256": "a8c72219c44f27ab619d7b720786ae547466607fc583e275aa31f2b55c5556e7",
         "focal_pointer": "/plays/6",
         "next_pointer": "/plays/7"
@@ -53,7 +53,7 @@
       "case": "blocked_successor",
       "game_id": "2021020001",
       "source": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/captures/2021020001/play-by-play/body.bin",
+        "path": "fixtures/captures/2021020001/play-by-play/body.bin",
         "sha256": "a8c72219c44f27ab619d7b720786ae547466607fc583e275aa31f2b55c5556e7",
         "focal_pointer": "/plays/20",
         "next_pointer": "/plays/21"
@@ -86,7 +86,7 @@
       "case": "known_terminal",
       "game_id": "2021020001",
       "source": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/captures/2021020001/play-by-play/body.bin",
+        "path": "fixtures/captures/2021020001/play-by-play/body.bin",
         "sha256": "a8c72219c44f27ab619d7b720786ae547466607fc583e275aa31f2b55c5556e7",
         "focal_pointer": "/plays/114",
         "next_pointer": "/plays/115"
@@ -119,7 +119,7 @@
       "case": "intervening_before_later_attempt",
       "game_id": "2021020001",
       "source": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/captures/2021020001/play-by-play/body.bin",
+        "path": "fixtures/captures/2021020001/play-by-play/body.bin",
         "sha256": "a8c72219c44f27ab619d7b720786ae547466607fc583e275aa31f2b55c5556e7",
         "focal_pointer": "/plays/287",
         "next_pointer": "/plays/288"
@@ -152,7 +152,7 @@
       "case": "exact_five_seconds",
       "game_id": "2021020454",
       "source": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/captures/2021020454/play-by-play/body.bin",
+        "path": "fixtures/captures/2021020454/play-by-play/body.bin",
         "sha256": "d2578edbcbd19cd4c8dc3f86812ad1e3a3d308fffcd54866be6ad5853e74a6f5",
         "focal_pointer": "/plays/15",
         "next_pointer": "/plays/16"
@@ -185,7 +185,7 @@
       "case": "same_clock_source_order",
       "game_id": "2021020615",
       "source": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/captures/2021020615/play-by-play/body.bin",
+        "path": "fixtures/captures/2021020615/play-by-play/body.bin",
         "sha256": "3cb0ad33b94df6b11c98c7d625dc1862d8b4ec6bbc51791cd6351aa7427145f7",
         "focal_pointer": "/plays/34",
         "next_pointer": "/plays/35"
@@ -218,7 +218,7 @@
       "case": "strength_change",
       "game_id": "2021020615",
       "source": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/captures/2021020615/play-by-play/body.bin",
+        "path": "fixtures/captures/2021020615/play-by-play/body.bin",
         "sha256": "3cb0ad33b94df6b11c98c7d625dc1862d8b4ec6bbc51791cd6351aa7427145f7",
         "focal_pointer": "/plays/147",
         "next_pointer": "/plays/148"

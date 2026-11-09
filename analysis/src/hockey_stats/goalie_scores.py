@@ -679,17 +679,74 @@ def _stage_summaries(events):
     return {key:dict(count=len(values),expected_sum=fsum(values),mean=fsum(values)/len(values)) for key,values in groups.items()}
 
 
+POINTWISE_ROUNDOFF = 32*np.finfo(np.float64).eps
+VARIANTS = (('h-tight',('h',)),('d-tight',('d',)),('h+d-tight',HEADS))
+
+
+def _pointwise_comparisons(state,variants,predictors):
+    from .goalie import goalie_probabilities
+    maxima={name:dict.fromkeys((*HEADS,'joint')) for name,_ in VARIANTS}
+    counts={name:dict.fromkeys((*HEADS,'joint'),0) for name,_ in VARIANTS}
+    cells=np.arange(656,dtype=np.int64)
+    for predictor in predictors:
+        if not variants:
+            break
+        for neutralize in ((),('shooter','goalie','coaching')):
+            baseline=goalie_probabilities(state,predictor,cells,neutralize)
+            for name,variant in variants.items():
+                changed=goalie_probabilities(variant,predictor,cells,neutralize)
+                for index,head in enumerate(HEADS):
+                    if baseline[index] is not None and changed[index] is not None:
+                        movement=float(np.max(np.abs(changed[index]-baseline[index])))
+                        maxima[name][head]=max(maxima[name][head] or 0.,movement)
+                        counts[name][head]+=len(cells)
+                if all(value is not None for value in (*baseline,*changed)):
+                    movement=float(np.max(np.abs(changed[0]*changed[1]-baseline[0]*baseline[1])))
+                    maxima[name]['joint']=max(maxima[name]['joint'] or 0.,movement)
+                    counts[name]['joint']+=len(cells)
+    result={}
+    for name,_ in VARIANTS:
+        available=sum(count>0 for count in counts[name].values())
+        status='assessed' if available==3 else 'partially_assessed' if available else 'unassessed'
+        result[name]=dict(status=status,reason=None if status=='assessed' else
+            'one or more frozen head/joint comparisons are unavailable' if available else
+            'no completed diagnostic endpoint or supported frozen comparison',
+            contexts=len(predictors),origin_rows=656*len(predictors),compared_rows=counts[name],
+            maximum_absolute_change=maxima[name],flagged={head:None if value is None else value>1e-5 for head,value in maxima[name].items()})
+    return result
+
+
 def _sensitivity(state, variants, baseline_projections, changed_projections, events, design):
     annual = all(row['status'] == 'not_assessed_for_annual_state' for row in state.probes.values())
     if annual:
         return dict(status='not_assessed_for_annual_state',summary_threshold=1e-4,pointwise_threshold=1e-5,variants=[])
+    from .goalie_state import read_goalie_baseline
+    descriptor,baseline_binding=read_goalie_baseline(state)
+    lookup={row.key:row for row in design.predictors}
+    keys=descriptor['selector']['keys']
+    require(all(key in lookup for key in keys),'frozen goalie context is absent from bound source replay')
+    predictors=tuple(lookup[key] for key in keys)
+    pointwise=_pointwise_comparisons(state,variants,predictors)
+    probes={head:dict(baseline_status=state.heads[head]['status'],probe_status=state.probes[head]['status'],
+                     reason=state.probes[head].get('reason'),comparison=state.probes[head].get('comparison')) for head in HEADS}
+    for head in HEADS:
+        if probes[head]['probe_status']!='assessed':continue
+        actual=pointwise[head+'-tight'];saved=probes[head]['comparison']
+        for field,saved_field,count_field in ((head,'maximum_probability_change','compared_probability_rows'),
+                                              ('joint','maximum_joint_change','compared_joint_rows')):
+            require(actual['compared_rows'][field]==saved[count_field], 'frozen goalie comparison row counts differ from saved individual probe')
+            left,right=actual['maximum_absolute_change'][field],saved[saved_field]
+            require(left is None and right is None or left is not None and right is not None and abs(left-right)<=POINTWISE_ROUNDOFF,
+                    'frozen goalie comparison differs from saved individual probe beyond float64 roundoff')
+    frozen=dict(baseline=baseline_binding,descriptor=descriptor,head_probes=probes,roundoff_tolerance=POINTWISE_ROUNDOFF,
+                references=['actor','neutral'],origins_per_context=656)
     baseline_stages = _stage_summaries(events)
     comparisons = []
-    for name,required in (('h-tight',('h',)),('d-tight',('d',)),('h+d-tight',HEADS)):
+    for name,required in VARIANTS:
         if name not in variants:
             comparisons.append(dict(variant=name,status='unassessed',reason='a required tighter head has no completed diagnostic endpoint',
                 unavailable_heads=[head for head in required if state.probes[head]['status'] != 'assessed'],
-                projections=[],actual_summaries=[],maximum_probability_change=None,flagged=False))
+                projections=[],actual_summaries=[],maximum_probability_change=None,flagged=False,pointwise=pointwise[name]))
             continue
         rows,changes = [],[]
         for key,baseline in sorted(baseline_projections.items()):
@@ -727,10 +784,10 @@ def _sensitivity(state, variants, baseline_projections, changed_projections, eve
                 expected_mass_change=right['expected_sum']-left['expected_sum']))
         maximum=max(changes,default=0.)
         comparisons.append(dict(variant=name,status='assessed',reason=None,unavailable_heads=[],projections=rows,
-            actual_summaries=actual,maximum_probability_change=maximum,flagged=maximum>1e-4))
+            actual_summaries=actual,maximum_probability_change=maximum,flagged=maximum>1e-4,pointwise=pointwise[name]))
     return dict(status='assessed' if all(row['status']=='assessed' for row in comparisons) else 'partially_assessed'
                 if any(row['status']=='assessed' for row in comparisons) else 'unassessed',
-                summary_threshold=1e-4,pointwise_threshold=1e-5,variants=comparisons)
+                summary_threshold=1e-4,pointwise_threshold=1e-5,variants=comparisons,frozen_contexts=frozen)
 
 
 def _method(design, state, sensitivity, projection_member):
@@ -750,7 +807,7 @@ def _method(design, state, sensitivity, projection_member):
     maximum=max((row['maximum_probability_change'] for row in sensitivity['variants']
                  if row['maximum_probability_change'] is not None),default=None)
     numerical=('not assessed for this annual state; remaining optimizer accuracy is unknown' if sensitivity['status']=='not_assessed_for_annual_state'
-               else sensitivity['status']+'; maximum assessed probability movement '+str(maximum)+'; remaining optimizer accuracy is unknown')
+               else sensitivity['status']+'; '+('no completed probability comparison' if maximum is None else 'maximum assessed probability movement '+str(maximum))+'; remaining optimizer accuracy is unknown')
     baseline_status='; '.join(head+': '+state.heads[head]['status']+(' ('+', '.join(state.heads[head]['reasons'])+')' if state.heads[head]['reasons'] else '') for head in HEADS)
     limits=['baseline head status: '+baseline_status,
         'goalie execution breakdown uses paired unblocked attempts: observed successes means goals allowed; effect=(expected goals-goals allowed)/N is recorded goals saved per unblocked attempt, not isolated ability',
@@ -1127,8 +1184,66 @@ def _validate_projection(row,manifest,people,likelihood_index):
         digest(record['events_sha256']);digest(record['arrays_sha256'])
 
 
-def _validate_sensitivity(value,manifest,people,projections,baseline_actual):
-    _closed(value,('status','summary_threshold','pointwise_threshold','variants'),'goalie sensitivity')
+def _validate_frozen_contexts(value,manifest,targets):
+    import hashlib
+    import json
+    from .goalie_state import validate_goalie_baseline_descriptor, validate_goalie_probe_comparison
+    _closed(value,('baseline','descriptor','head_probes','roundoff_tolerance','references','origins_per_context'),'goalie frozen contexts')
+    _closed(value['baseline'],('path','sha256'),'goalie frozen baseline reference')
+    require(value['baseline']['path']==str(Path(manifest['state']['path']).parent/'baseline.json'),'goalie frozen baseline locator differs')
+    digest(value['baseline']['sha256'])
+    descriptor=value['descriptor']
+    encoded=(json.dumps(descriptor,allow_nan=False,indent=2)+'\n').encode()
+    require(hashlib.sha256(encoded).hexdigest()==value['baseline']['sha256'],'copied goalie baseline descriptor digest differs')
+    validate_goalie_baseline_descriptor(descriptor,manifest['purpose'],manifest['season'],manifest['recipe']['sha256'],manifest['base_scores'],targets)
+    require(value['roundoff_tolerance']==POINTWISE_ROUNDOFF and value['references']==['actor','neutral']
+            and value['origins_per_context']==656,'goalie pointwise arithmetic/reference contract differs')
+    _closed(value['head_probes'],HEADS,'goalie frozen head dispositions')
+    for head,record in value['head_probes'].items():
+        _closed(record,('baseline_status','probe_status','reason','comparison'),'goalie frozen head probe')
+        require(record['baseline_status'] in ('complete','unavailable') and record['probe_status'] in ('assessed','unassessed','not_run'),
+                'invalid goalie frozen baseline/probe disposition')
+        require((descriptor['heads'][head]['coefficient_sha256'] is not None)==(record['baseline_status']=='complete'),
+                'goalie frozen baseline coefficient availability differs')
+        if record['probe_status']=='not_run':
+            require(record['baseline_status']=='unavailable' and type(record['reason']) is str and record['reason']
+                    and record['comparison'] is None,'unavailable goalie baseline invented a probe')
+        else:
+            complete=record['probe_status']=='assessed'
+            require(record['baseline_status']=='complete' and (record['reason'] is None if complete else
+                    type(record['reason']) is str and record['reason']),'goalie completed baseline/probe reason differs')
+            validate_goalie_probe_comparison(record['comparison'],complete)
+            require(record['comparison']['contexts']==len(descriptor['selector']['keys']),'goalie individual probe frozen context count differs')
+
+
+def _validate_pointwise(value,contexts,available):
+    _closed(value,('status','reason','contexts','origin_rows','compared_rows','maximum_absolute_change','flagged'),'goalie frozen pointwise comparison')
+    require(value['contexts']==contexts and type(value['contexts']) is int and value['origin_rows']==656*contexts,'goalie pointwise context/origin counts differ')
+    for key in ('compared_rows','maximum_absolute_change','flagged'):
+        _closed(value[key],(*HEADS,'joint'),'goalie pointwise '+key)
+    assessed=0
+    for field,count in value['compared_rows'].items():
+        require(type(count) is int and 0<=count<=2*value['origin_rows'] and count%656==0,'goalie pointwise compared origin count differs')
+        maximum=value['maximum_absolute_change'][field]
+        require((maximum is None)==(count==0),'goalie pointwise missing evidence became zero error')
+        if count:
+            _number(maximum,'goalie pointwise maximum',low=0.,high=1.);assessed+=1
+            require(available and type(value['flagged'][field]) is bool and value['flagged'][field]==(maximum>1e-5),
+                    'goalie pointwise flag or unavailable endpoint differs')
+        else:
+            require(value['flagged'][field] is None,'unassessed goalie pointwise movement has a numerical flag')
+    h,d,joint=(value['compared_rows'][key] for key in ('h','d','joint'))
+    require(max(0,h+d-2*value['origin_rows'])<=joint<=min(h,d),'goalie joint pointwise rows do not intersect head rows')
+    expected='assessed' if assessed==3 else 'partially_assessed' if assessed else 'unassessed'
+    require(value['status']==expected and (value['reason'] is None if assessed==3 else type(value['reason']) is str and value['reason']),
+            'goalie pointwise assessed status differs')
+
+
+def _validate_sensitivity(value,manifest,people,projections,baseline_actual,targets):
+    final=value.get('status')!='not_assessed_for_annual_state'
+    if manifest['purpose']=='real':
+        require(final==(manifest['season']=='20252026'),'real final-year goalie sensitivity cannot be omitted or claimed for an earlier year')
+    _closed(value,('status','summary_threshold','pointwise_threshold','variants',*(('frozen_contexts',) if final else ())), 'goalie sensitivity')
     require(value['summary_threshold']==1e-4 and value['pointwise_threshold']==1e-5,'goalie sensitivity thresholds differ')
     require(value['status'] in ('not_assessed_for_annual_state','assessed','partially_assessed','unassessed')
             and value['status']==manifest['numerical_sensitivity']['status'],'goalie sensitivity disposition differs')
@@ -1137,13 +1252,20 @@ def _validate_sensitivity(value,manifest,people,projections,baseline_actual):
         require(value['variants']==[],'earlier goalie year claims diagnostic comparisons')
         return
     require([row['variant'] for row in value['variants']]==['h-tight','d-tight','h+d-tight'],'goalie sensitivity variant axis differs')
+    _validate_frozen_contexts(value['frozen_contexts'],manifest,targets)
+    frozen=value['frozen_contexts'];contexts=len(frozen['descriptor']['selector']['keys'])
     assessed=0
     for variant in value['variants']:
-        _closed(variant,('variant','status','reason','unavailable_heads','projections','actual_summaries','maximum_probability_change','flagged'),
+        _closed(variant,('variant','status','reason','unavailable_heads','projections','actual_summaries','maximum_probability_change','flagged','pointwise'),
                 'goalie sensitivity comparison')
+        required=dict(VARIANTS)[variant['variant']]
+        missing=[head for head in required if frozen['head_probes'][head]['probe_status']!='assessed']
+        require(variant['unavailable_heads']==missing and (variant['status']=='assessed')==(not missing),
+                'goalie variant failed/unassessed dependency disposition differs')
+        _validate_pointwise(variant['pointwise'],contexts,not missing)
         if variant['status']=='unassessed':
             require(type(variant['reason']) is str and variant['reason'] and variant['unavailable_heads']
-                    and set(variant['unavailable_heads'])<=set(HEADS) and variant['projections']==variant['actual_summaries']==[]
+                    and variant['projections']==variant['actual_summaries']==[]
                     and variant['maximum_probability_change'] is None and variant['flagged'] is False,'unassessed goalie comparison invented evidence')
             continue
         require(variant['status']=='assessed' and variant['reason'] is None and variant['unavailable_heads']==[], 'invalid assessed goalie sensitivity')
@@ -1190,6 +1312,27 @@ def _validate_sensitivity(value,manifest,people,projections,baseline_actual):
         maximum=max(changes,default=0.)
         require(variant['maximum_probability_change']==maximum and variant['flagged']==(maximum>1e-4),'goalie sensitivity maximum/flag differs')
     require(value['status']==('assessed' if assessed==3 else 'partially_assessed' if assessed else 'unassessed'),'goalie sensitivity overall disposition differs')
+    comparisons={row['variant']:row for row in value['variants']}
+    for head in HEADS:
+        record=frozen['head_probes'][head]
+        if record['probe_status']!='assessed':continue
+        pointwise=comparisons[head+'-tight']['pointwise'];saved=record['comparison']
+        for field,maximum,count in ((head,'maximum_probability_change','compared_probability_rows'),('joint','maximum_joint_change','compared_joint_rows')):
+            require(pointwise['compared_rows'][field]==saved[count],'goalie saved/new frozen comparison row counts differ')
+            left,right=pointwise['maximum_absolute_change'][field],saved[maximum]
+            require(left is None and right is None or left is not None and right is not None and abs(left-right)<=POINTWISE_ROUNDOFF,
+                    'goalie individual frozen comparison differs beyond float64 roundoff')
+        unchanged='d' if head=='h' else 'h'
+        require(pointwise['maximum_absolute_change'][unchanged] in (None,0.),'one-head goalie probe changed the independent other head')
+    combined=comparisons['h+d-tight']
+    if combined['status']=='assessed':
+        require(all(combined['pointwise']['compared_rows']['joint']==comparisons[head+'-tight']['pointwise']['compared_rows']['joint']
+                    for head in HEADS),'combined goalie pointwise comparison changed joint applicability')
+        for head in HEADS:
+            individual=comparisons[head+'-tight']['pointwise'];joint=combined['pointwise']
+            require(joint['compared_rows'][head]==individual['compared_rows'][head]
+                    and joint['maximum_absolute_change'][head]==individual['maximum_absolute_change'][head],
+                    'combined goalie probe changed an independently evaluated head')
 
 
 def _check_actual_evidence(table,row,selected,league,source_games,method,source):
@@ -1303,7 +1446,7 @@ def _validate_scores(path,manifest,expected_purpose):
         _validate_projection(row,manifest,people,likelihood_index)
         key=row['player_id'],row['strength'];require(key not in projections,'duplicate goalie projection');projections[key]=row
     require(set(projections)=={(player,strength) for player in people for strength in GOALIE_STRENGTHS},'goalie projection matrix incomplete')
-    sensitivity=read_json(root/'sensitivity.json');_validate_sensitivity(sensitivity,manifest,people,projections,_stage_summaries(list(events.values())))
+    sensitivity=read_json(root/'sensitivity.json');_validate_sensitivity(sensitivity,manifest,people,projections,_stage_summaries(list(events.values())),list(targets.values()))
     _finite(sensitivity,'goalie sensitivity')
     by_selector=defaultdict(list);league_by_strength=defaultdict(list)
     for row in events.values():

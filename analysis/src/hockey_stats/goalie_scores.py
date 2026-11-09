@@ -881,8 +881,9 @@ def score_goalie(state, prepared, coaches, annual_execution_scores, output):
     from .goalie_state import GoalieState, read_goalie_state, read_goalie_probe
     started=perf_counter()
     if not isinstance(state,GoalieState):
-        purpose=read_json(Path(state)/'manifest.json' if Path(state).is_dir() else Path(state))['purpose']
-        state=read_goalie_state(state,purpose)
+        header=read_json(Path(state)/'manifest.json' if Path(state).is_dir() else Path(state))
+        require(type(header) is dict and header.get('purpose') in ('real','fixture'),'invalid goalie state manifest purpose')
+        state=read_goalie_state(state,header['purpose'])
     require(state.usage=='annual','goalie scores require the original annual baseline')
     if not isinstance(prepared,PreparedManifest):
         prepared=read_prepared(prepared,state.manifest['purpose'])
@@ -913,7 +914,7 @@ def score_goalie(state, prepared, coaches, annual_execution_scores, output):
     _write_jsonl(output/'event_values.jsonl',events)
     _write_jsonl(output/'targets.jsonl',design.targets)
     method='goalie-v1-07-'+design.season
-    baseline_projections={};changed_projections={name:{} for name in variants};counts=Counter()
+    baseline_projections={};baseline_maps={};changed_projections={name:{} for name in variants};counts=Counter()
     projection_started=perf_counter()
     with ExitStack() as stack:
         handles={table:stack.enter_context((output/(table+'.jsonl')).open('xb')) for table in PUBLIC_TABLES}
@@ -921,9 +922,13 @@ def score_goalie(state, prepared, coaches, annual_execution_scores, output):
         for name,projection,cells in _project_variants(design,states,base_state,base_scores,source['people'],source['participation'],base_events):
             key=projection['player_id'],projection['strength']
             if name!='baseline':
+                require(cells is None and baseline_maps[key] is None or cells is not None and baseline_maps[key] is not None
+                        and np.array_equal(cells,baseline_maps[key]),'goalie continuation changed a native stopping map')
                 changed_projections[name][key]=projection
                 continue
             baseline_projections[key]=projection
+            if variants:
+                baseline_maps[key]=cells
             projections.write(_line(projection))
             for table,row in _modeled_rows(projection,cells,method):
                 handles[table].write(_line(row));counts[table]+=1

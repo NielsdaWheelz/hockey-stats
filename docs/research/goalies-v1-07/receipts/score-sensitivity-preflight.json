@@ -13,7 +13,8 @@
     "copied descriptor is bound to original standalone bytes and validated without original fits at detached read",
     "individual repeated probability/joint maxima and row counts must agree with saved probes within 32 float64 epsilon absolute probability",
     "assessed, partial and unavailable h/d/joint evidence retain separate counts and unavailable values",
-    "final real year cannot be relabeled as an earlier annual unassessed state"
+    "final real year cannot be relabeled as an earlier annual unassessed state",
+    "variant native stopping maps must remain bytewise-equal as arrays to baseline, alongside existing exact base scalar invariance"
   ],
   "independent_toy_oracle": {
     "contexts": 1,
@@ -50,5 +51,17 @@
   "limits": [
     "toy software and saved metadata checks only",
     "actual final-year fixture, real outputs, complete candidate and user-facing acceptance remain outstanding"
-  ]
+  ],
+  "public_cli_malformed_headers": {
+    "inputs": [
+      "empty object",
+      "list",
+      "unsupported purpose"
+    ],
+    "expected_exit": 1,
+    "traceback": false,
+    "source_replay": false,
+    "output_created": false,
+    "temporary_check": ".tmp/goalie-acceptance/check_malformed_score_cli.py"
+  }
 }

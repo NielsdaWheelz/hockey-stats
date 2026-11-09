@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "heads": {
+    "h": {
+      "origin_rows": 4592,
+      "maximum_logit_change": 4.440892098500626e-16,
+      "maximum_probability_change": 5.551115123125783e-17,
+      "bit_identical": false
+    },
+    "d": {
+      "origin_rows": 4592,
+      "maximum_logit_change": 0.0,
+      "maximum_probability_change": 0.0,
+      "bit_identical": true
+    }
+  },
+  "single_and_batch": "bit identical",
+  "unknown_neutral_and_tip": "preserved",
+  "kind": "goalie-neutral-evaluator-ownership",
+  "purpose": "bounded attributed predictor parity",
+  "script": {
+    "path": "/tmp/goalie-v1-07-checks/reference_kernel_parity.py",
+    "sha256": "556199ecad15c06d65af2c97c8d68219cd1a78cc1b84a5b7e9dea9852af95fcb"
+  },
+  "source_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20212022/manifest.json",
+    "sha256": "2c4bed99e41c71bce99d836f822ceb6ebaf14c7e62f3d5a081bbc5e7ddb2d8b7"
+  },
+  "scope": "seven retained attributed predictor contexts, all 656 origins each; proper neutral applicability for tips, unknown actors and missing coaches",
+  "change": "one model-owned neutralization kernel serves single focal and batched fixed-neutral evaluation; scorer no longer interprets coefficient arrays",
+  "tradeoff": "offset summation moves h by at most one measured probability ulp; old/new batch is not claimed byte-identical; recipe, state schema and fits unchanged",
+  "limits": "bounded computational parity, not real population quality, calibrated uncertainty or end-to-end publication acceptance"
+}

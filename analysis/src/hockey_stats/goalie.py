@@ -197,43 +197,65 @@ def fractional_objective(beta, design, actors):
     return objective(beta, design, actors)
 
 
-def goalie_logits(state, focal_predictors, origin_cells, neutralize=()):
-    """evaluate one focal context at explicit origins; unavailable heads remain absent."""
+def _goalie_logits(state,predictors,origin_cells,blocks):
     from .goalie_state import GoalieState
 
-    require(isinstance(state, GoalieState), 'goalie evaluation needs checked saved state')
-    cells = np.asarray(origin_cells, dtype=np.int64)
-    require(cells.ndim == 1 and bool(len(cells)) and np.all((cells >= 0) & (cells < 656)),
-            'invalid goalie origin cells')
-    blocks = set(neutralize)
-    require(blocks <= {'shooter','setter','goalie','coaching','attacking_coach','defending_coach'},
+    require(isinstance(state,GoalieState),'goalie evaluation needs checked saved state')
+    cells=np.asarray(origin_cells)
+    require(cells.ndim==1 and cells.dtype.kind in ('i','u') and len(cells)==len(predictors)
+            and np.all((cells>=0)&(cells<656)),'invalid goalie origin cells')
+    result={}
+    for head in HEADS:
+        metadata=state.heads[head]
+        if metadata['status']!='complete':
+            result[head]=None
+            continue
+        offsets=np.empty(len(predictors))
+        start=0
+        supported=True
+        while start<len(predictors):
+            predictor=predictors[start]
+            end=start+1
+            while end<len(predictors) and predictors[end] is predictor:
+                end+=1
+            for block,axis in metadata['design']['actor_indices'].items():
+                if block in blocks or block=='shooter' and predictor.tip:
+                    continue
+                actor=predictor.actors.get(block)
+                if actor is not None and actor not in axis or actor is None and not block.endswith('coach'):
+                    supported=False
+                    break
+            if not supported:
+                break
+            offsets[start:end]=sum(metadata['centers'][block]['value']
+                for block in metadata['design']['actor_indices'] if block in blocks
+                and not (block=='shooter' and predictor.tip)
+                and not (block.endswith('coach') and predictor.actors.get(block) is None))
+            start=end
+        if not supported:
+            result[head]=None
+            continue
+        matrix=predictor_matrix(metadata['design'],predictors,cells,omit_actors=blocks)
+        result[head]=np.asarray(matrix@state.arrays[head]['coefficients']).ravel()+offsets
+        require(result[head].shape==cells.shape and np.isfinite(result[head]).all(),'invalid goalie logits')
+    return result
+
+
+def goalie_logits(state,focal_predictors,origin_cells,neutralize=()):
+    """evaluate one focal context at explicit origins; unavailable heads remain absent."""
+    blocks=set(neutralize)
+    require(blocks<={'shooter','setter','goalie','coaching','attacking_coach','defending_coach'},
             'unknown goalie neutralization group')
     if 'coaching' in blocks:
-        blocks.update(('attacking_coach', 'defending_coach'))
-    result = {}
-    for head in HEADS:
-        metadata = state.heads[head]
-        if metadata['status'] != 'complete':
-            result[head] = None
-            continue
-        for block, axis in metadata['design']['actor_indices'].items():
-            actor = focal_predictors.actors.get(block)
-            if block in blocks or block == 'shooter' and focal_predictors.tip:
-                continue
-            if actor is not None and actor not in axis or actor is None and not block.endswith('coach'):
-                result[head] = None
-                break
-        else:
-            beta = state.arrays[head]['coefficients']
-            offset = sum(metadata['centers'][block]['value']
-                         for block in metadata['design']['actor_indices'] if block in blocks
-                         and not (block == 'shooter' and focal_predictors.tip)
-                         and not (block.endswith('coach') and focal_predictors.actors.get(block) is None))
-            matrix = predictor_matrix(metadata['design'], [focal_predictors]*len(cells), cells, omit_actors=blocks)
-            result[head] = np.asarray(matrix @ beta).ravel()+offset
-            require(result[head].shape == cells.shape and np.isfinite(result[head]).all(),
-                    'invalid goalie logits')
-    return result
+        blocks.update(('attacking_coach','defending_coach'))
+    require(len(origin_cells)>0,'goalie focal evaluation needs at least one origin')
+    return _goalie_logits(state,[focal_predictors]*len(origin_cells),origin_cells,blocks)
+
+
+def goalie_reference_logits(state,predictors,origin_cells):
+    """evaluate aligned origin rows with all applicable actor residuals neutral."""
+    return _goalie_logits(state,predictors,origin_cells,
+                         {'shooter','goalie','attacking_coach','defending_coach'})
 
 
 def goalie_probabilities(state, focal_predictors, origin_cells, neutralize=()):

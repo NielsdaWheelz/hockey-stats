@@ -2,6 +2,8 @@
 
 status, updated 2026-10-31 utc: the [v1 field crosswalk](../product-inventory.md#microstat-skater--s02-and-documented-fd-variants) and [canonical contracts](../specs/experimental-card-facts.md#microstat-quantities-and-populations) are complete; all six constructible quantities have verified real producers. the twenty-field forward and defense variants contain twenty-nine distinct fields. grouped-card delivery, missing tracking and deferred skating remain open; [the plan](../plan.md#next-full-spec-queue) owns assignments.
 
+specification amendment, 2026-11-08: [v1-17](../specs/v1-17-microstat-cards.md) now defines profile/comparison cards, units/cohorts, real-value acceptance and faithful exports. five available quantities belong to F and six to D; both have fourteen tracking gaps. this is a handoff, not card completion or resumed source acquisition. [reference-xg population metadata](microstat-reference-population.md) is a separate bounded correctness repair; no numerical rerun is needed. v1-12 still supplies the real component strip.
+
 ## problem and impact
 
 six fields now have real checked outputs: goals, primary assists, personal unblocked attempts, hits and blocker share through [v1-03](../research/facts-v1-03/real/verification.md), and matched personal reference xg through [v1-06](../research/execution-v1-06/verification.md). their producer/support checks do not complete the grouped card. v1-17 must reconcile these exact published values, field-specific exposure/cohorts, unavailable reasons and exports; no duplicate factual or xg reduction belongs in the renderer. the six-component detail strip needs v1-12 ledger outputs and remains pending until that real integration passes.

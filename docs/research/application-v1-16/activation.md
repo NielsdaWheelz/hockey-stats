@@ -1,5 +1,7 @@
 # real descriptive-card activation — 2026-10-26
 
+on 2026-10-31, [v1-06 activation](../execution-v1-06/activation.md) superseded this serving state: schema8 is active and this schema7 publication is the single previous database. the identities, costs and schema7→schema6 rollback procedure below describe the earlier cutover; use the new record for current rollback.
+
 status: **publication active; normal server, live http and actual browser/export verification passed.** source delivery and real source-to-card acceptance already passed through [pr #55](https://github.com/NielsdaWheelz/hockey-stats/pull/55), merged as `816354566b60c8ae423cc73922d9e772a5fc7720`. this release changes serving publication/application state using the existing operator; it adds no production code, fit, acquisition or scientific admission. [integration evidence](verification.md#real-three-season-application-integration--accepted-2026-10-24)
 
 ## publication identities

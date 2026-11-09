@@ -1,26 +1,26 @@
 # positive 5v5 attribution verification
 
-status: implemented and exercised through the captured source-to-api boundary. the user has assigned the bounded upstream start-eligibility repair and replacement execution chain; focused checks and independent source review precede expensive execution. browser/export/layout acceptance remains pending; native typing exposed a discovery input defect now under repair. this record does not claim full software acceptance, real integration, activation or scientific support.
+status: implementation, inactive real candidate and detached runtime/api checks are accepted. the original final volume precision check failed; the saved baseline has separate private experimental-use admission, with remaining optimizer accuracy unknown. extreme cancelling actual-context allocations are disclosed diagnostic values, not reliable player credits. on 2026-11-08 the user deferred actual real browser, layout and download acceptance; those checks have not passed. no v1-08 activation or scientific admission follows.
 
 the user assigned the full [v1-08 specification](../../specs/v1-08-positive-attribution.md) on 2026-10-31, including fifteen chronological annual heads, three final-head continuations, three-season publication and actual application acceptance. branch `implement/v1-08-positive-attribution` and worktree `/Users/nnandal/Documents/code/hockey-stats-v1-08` isolate this work. base `0e0f5694721bb2f25b64c6dff905209a5feea93f`; `33a044f` preserves the supplied draft specification and governing documentation without changing the primary checkout.
 
 ## ownership and review
 
-native non-astra agents own `spatial_design.py` and execution origin access; `spatial_rates.py` and `spatial_state.py`; `spatial_composition.py`, cli and application. root owns integration, operational commands and adversarial acceptance. an independent claude session reviews mathematics, source/systems and content. exact interfaces are agreed before consumers proceed. temporary checks must demonstrate meaningful red, green and refactored green; they remain until acceptance. no new retained test harness is selected.
+native non-astra agents own `spatial_design.py` and execution origin access; `spatial_rates.py` and `spatial_state.py`; `spatial_composition.py`, cli and application. root owns integration, operational commands and adversarial acceptance. an independent claude session reviews mathematics, source/systems and content. exact interfaces are agreed before consumers proceed. temporary checks demonstrated relevant implementation boundaries; their disposition follows the assigned scoped delivery. deferred browser work is not a pass. no new retained test harness is selected.
 
 ## acceptance ledger
 
 | boundary | status |
 |---|---|
-| source masks, joins and fixed design | captured-source checks pass; first real pass correctly refuses 54 non-prior upstream targets |
-| independent objectives, gradients, priors and history | tiny independent checks pass; five-year real history pending |
-| strict states and detached readers | five captured annuals and detached candidate api pass; browser pending |
-| neutral/focal maps and exact coalition accounting | five captured annuals and three probe continuations pass; real integration pending |
-| fifteen real heads and exactly three continuations | first solve refused; approved replacement chain pending focused acceptance |
-| three-season exchange/sqlite/api preservation and integration | captured chain passes; corrected real chain pending |
-| actual discovery, detail, comparison, history, maps and exports | captured api/consumer checks pass; browser/downloads pending |
-| narrow/normal/native-200% and detached operation | pending |
-| independent reviews, preservation and temporary-test deletion | current reviews and scoped preservation recorded; tests retained until full acceptance |
+| source masks, joins and fixed design | repaired execution eligibility and checked spatial integration accepted; saved same-clock order remains an assumption |
+| independent objectives, gradients, priors and history | independent checks and five-year real saved history pass; scientific quality remains separate |
+| strict states and detached readers | five real annual states and inactive candidate strict read pass; actual detached application validation passes |
+| neutral/focal maps and exact coalition accounting | saved outputs and bounded independent checks pass; extreme actual-context allocations remain diagnostic and uncertain |
+| fifteen real heads and exactly three continuations | completed; original volume precision fails, shape/quality pass; separate private baseline-use decision recorded |
+| three-season exchange/sqlite/api preservation and integration | real exchange, inactive candidate, preserved inputs and detached api checks accepted |
+| actual discovery, detail, comparison, history, maps and exports | real api checks accepted; browser journeys and actual csv/png downloads deferred, not passed |
+| narrow/normal/native-200% and detached operation | detached operation accepted; real browser layouts deferred, not passed |
+| independent reviews, preservation and temporary-test deletion | reviewed evidence and preservation recorded; temporary-check disposition follows delivery, not a browser acceptance claim |
 
 ## input boundary
 

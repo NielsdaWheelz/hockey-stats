@@ -1,5 +1,11 @@
 # council synthesis
 
+## v1-08 delivery boundary — 2026-11-08
+
+the assigned implementation, inactive real candidate and detached api checks are accepted. the original final volume precision failure remains failed; a separately reviewed private experimental-use decision admits the saved baseline with unknown remaining optimizer accuracy. extreme cancelling actual-context allocations are disclosed diagnostics, not reliable player credits.
+
+the user deferred real browser, layout and download acceptance; it has not passed. v1-08 activation and scientific admission are not assigned. the [plan](../plan.md) owns current sequencing; the historical reviews below retain their original scope and verdicts.
+
 ## v1-08 positive-attribution specification review — 2026-10-31 utc
 
 three independent read-only reviewers examined the mathematics/history, source/system interfaces and content/publication of [v1-08](../specs/v1-08-positive-attribution.md). root inspected the delivered source, execution, artifact and application owners, plus the public [magnus ev description](https://hockeyviz.com/txt/magnus9EV) and [scipy stopping contract](https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html). existing user choices settle scope: five years, forty modes, virtual neutral execution and experimental use. no additional product preference was needed; new precision is engineering judgment, not a newly inferred user decision.

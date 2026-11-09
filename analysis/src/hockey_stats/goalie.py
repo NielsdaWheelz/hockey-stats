@@ -13,7 +13,7 @@ from .artifacts import implementation, linked_path, require, resources
 from .analysis_data import PreparedManifest
 from .chance_cli import identity, output_path
 from .execution_design import (RECIPE as EXECUTION_RECIPE, prepare_execution_sources,
-                               _head_design, predictor_matrix)
+                               build_head_design, predictor_matrix)
 from .execution_fit import fit_head, continue_head
 
 HEADS = ('h', 'd')
@@ -119,7 +119,7 @@ def prepare_goalie(prepared, coaches, annual_execution_scores, season):
     targets = {row['key']:row for row in inputs.targets}
     responses = [dict(h=float(targets[p.key]['h_label']) if targets[p.key]['h_included'] else None,
                       d=targets[p.key]['d_target'], observed_setter=-1) for p in inputs.predictors]
-    heads = {head:_head_design(head,inputs.predictors,responses,inputs.people,inputs.source_actors) for head in HEADS}
+    heads = {head:build_head_design(head,inputs.predictors,responses,inputs.people,inputs.source_actors) for head in HEADS}
     for head in HEADS:
         heads[head]['target_kind'] = DEFINITION['target_kinds'][head]
     measured = dict(inputs.resources,design_wall_seconds=inputs.resources['design_wall_seconds']+perf_counter()-started)

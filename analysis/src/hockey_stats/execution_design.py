@@ -548,7 +548,12 @@ def _setter_prior(game, attempt, state, people, history):
     return tuple(result), True
 
 
-def _head_design(head, predictors, labels, people, source_actors=None):
+def build_head_design(head, predictors, labels, people, source_actors=None):
+    """build one head from aligned predictors and nullable labels.
+
+    only included rows determine training moments and likelihood support;
+    source actors retain independently identified prior-only coordinates.
+    """
     rows = np.asarray([i for i, label in enumerate(labels) if label[head] is not None], dtype=np.int64)
     targets = np.asarray([labels[i][head] for i in rows], dtype=np.float64)
     template = predictors[0].context["features"] if predictors else {}
@@ -1028,7 +1033,7 @@ def prepare_execution(base_prepared, coaches, recipe, season, *, training_heads=
     _require(recipe == RECIPE, "execution recipe differs")
     started = perf_counter()
     source = prepare_execution_sources(base_prepared, coaches, season)
-    heads = {head: _head_design(head, source.predictors, source.labels,
+    heads = {head: build_head_design(head, source.predictors, source.labels,
                                source.people, source.source_actors) for head in training_heads}
     source.coverage["optional_features"] = {head: heads[head]["design"]["feature_support"] for head in training_heads}
     measured = dict(source.resources, design_wall_seconds=perf_counter()-started)

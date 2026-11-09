@@ -83,7 +83,7 @@ def _annuals(selection_path, existing, prepared, base_scores):
         require(method is not None and any(row['sha256'] == annual.manifest['base_scores']['sha256'] for row in method['evidence']), 'goalie target is not bound to combined execution')
         require(any(row['role'] == 'coaches' and row['sha256'] == annual.manifest['coaches']['sha256'] for row in method['inputs']), 'goalie/combined execution coaches differ')
         public = {pid:person for (season,pid),person in existing.people.items() if season == year and person['kind'] == 'goalie'}
-        saved = {person['player_id']:person for person in annual.people}
+        saved = annual.people
         require(set(public) == set(saved), 'goalie score/publication person population differs')
         for pid,person in public.items():
             require(all(saved[pid][field] == person[field] for field in person if field not in ('source','identity_support'))

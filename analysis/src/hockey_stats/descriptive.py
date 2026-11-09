@@ -365,10 +365,24 @@ def reduce_goalie_game(game: PreparedGame) -> dict:
     participation = execution_participation(game,goalies=True)
     dressed = _dressed(game)
     goalies = []
-    event_goalies = {row['goalie_id'] for row in rows if row['status'] == 'included'}
+    event_goalies = {row['goalie_id'] for row in rows if row['goalie_id'] is not None}
+    event_participation = set(event_goalies)
+    for attempt in game['attempts'] or []:
+        reported = _value(attempt['details'],'opposing_goalie_id')
+        if type(reported) is int and reported > 0:
+            event_participation.add(str(reported))
+    for record in source_events:
+        reported = (record['source'].get('roles') or {}).get('goalie')
+        if type(reported) is int and reported > 0:
+            event_participation.add(str(reported))
     interval_goalies = {str(pid) for segment in game['segments'] or []
                         for side in ('away','home') for pid in segment['membership'][side+'_goalies'] or []
                         if segment['end_seconds'] > segment['start_seconds']}
+    identities = _actor_identities(game,dressed)
+    supported_interval_goalies = {str(pid) for segment in game['segments'] or []
+        if segment['end_seconds'] > segment['start_seconds'] and _valid_membership(
+            segment,(teams['away']['id'],teams['home']['id']),dressed,identities,game['people'] or {})
+        for side in ('away','home') for pid in segment['membership'][side+'_goalies'] or []}
     for pid,person in sorted((game['people'] or {}).items()):
         if _value(person['people'],'reported_position') != 'G' and pid not in event_goalies and pid not in interval_goalies:
             continue
@@ -376,15 +390,17 @@ def reduce_goalie_game(game: PreparedGame) -> dict:
         side = next((side for side in ('away','home') if teams[side]['id'] == team_id),None)
         reported = _goalie_reported(person)
         seconds, starter = (reported['fields'][field]['value'] for field in ('toi_seconds','starter'))
-        positive = pid in event_goalies or pid in interval_goalies or seconds is not None and seconds > 0
+        positive = pid in event_goalies or pid in supported_interval_goalies or seconds is not None and seconds > 0
+        contrary = pid in event_participation or pid in interval_goalies
         if starter is True:
             start_status, reason = 'start',None
         elif starter is False and positive:
             start_status, reason = 'relief',None
-        elif seconds == 0 and not positive:
+        elif seconds == 0 and not positive and not contrary:
             start_status, reason = 'did_not_play',None
         else:
-            start_status, reason = 'unknown','supported_start_flag_and_participation_unavailable'
+            start_status, reason = 'unknown',('reported_zero_conflicts_with_event_or_interval_participation' if seconds == 0 and contrary
+                                           else 'supported_start_flag_and_participation_unavailable')
         goalies.append(dict(player_id=pid,team=teams[side] if side else None,
             opponent=teams['home' if side == 'away' else 'away'] if side else None,
             reported_seconds=seconds,reported_shifts=reported['fields']['shift_count']['value'],

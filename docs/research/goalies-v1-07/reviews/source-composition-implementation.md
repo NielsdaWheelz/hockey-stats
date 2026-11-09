@@ -23,3 +23,5 @@ root's adversarial review caught an overstrict whole-coach-record comparison, wh
 ## independent model review
 
 cross-review found that the initial annual-state reader accepted arbitrary implementation keys and extra fields in unavailable-head diagnostics. the numerical owner repaired both: implementation now has a closed identity schema, unavailable diagnostics have fixed fields, and full metadata is finite-checked before early returns. this review does not stand in for numerical objective/history checks.
+
+root's second source review found that counted-event eligibility was incorrectly deciding whether an event contradicted reported zero participation. an excluded event can still identify a participating goalie, and a conflicting native credit can contradict a listed backup's zero toi. the reducer now keeps supported participation separate from broader contradictory event/interval evidence. new independent counterexamples establish that unknown-starter/toi0 with excluded positive goalie evidence and nonstarter/toi0 with conflicting native goalie credit remain unknown, rather than did_not_play. starter status is never inferred from the first shot.

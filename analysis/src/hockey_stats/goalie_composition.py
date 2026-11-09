@@ -32,6 +32,8 @@ def _accepted_source(results):
     for row in accepted['families']:
         if row['family'] != 'goalie' and row['availability'] == 'provided':
             require(families[row['season'],row['family']] == row, 'accepted non-goalie '+row['family']+' differs')
+    corrections = []
+    correction_ids = {'reference-xg-v1-06-'+year for year in accepted['seasons']}
     for name,catalog,key in (('sources','source','source_id'),('methods','method','method_id'),('supports','support','support_id')):
         member = accepted['catalogs'][name]
         source = publication.member_path(path.parent,member)
@@ -39,7 +41,17 @@ def _accepted_source(results):
         with source.open('rb') as stream:
             for line in stream:
                 row = strict_json(line)
-                require(results.catalogs[catalog].get(row[key]) == row, 'accepted combined '+key+' differs')
+                actual = results.catalogs[catalog].get(row[key])
+                if catalog == 'method' and row['method_id'] in correction_ids and actual != row:
+                    from .execution_composition import check_reference_xg_correction
+
+                    require(actual is not None, 'accepted combined reference-xg method missing')
+                    check_reference_xg_correction(row,actual)
+                    corrections.append(actual['evidence'][-1])
+                else:
+                    require(actual == row, 'accepted combined '+key+' differs')
+    require(not corrections or len(corrections) == len(accepted['seasons']) and all(item == corrections[0] for item in corrections),
+            'accepted combined reference-xg correction is incomplete or inconsistent')
     selection_path = ACCEPTED_ROOT/'scores-selection.json'
     require(identity(selection_path)['sha256'] == ACCEPTED_SCORES_SHA256, 'accepted execution selection digest differs')
     return {row['season']:row['sha256'] for row in strict_json(selection_path.read_bytes())['scores']}

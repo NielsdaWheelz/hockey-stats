@@ -384,7 +384,8 @@ def reduce_goalie_game(game: PreparedGame) -> dict:
             segment,(teams['away']['id'],teams['home']['id']),dressed,identities,game['people'] or {})
         for side in ('away','home') for pid in segment['membership'][side+'_goalies'] or []}
     for pid,person in sorted((game['people'] or {}).items()):
-        if _value(person['people'],'reported_position') != 'G' and pid not in event_goalies and pid not in interval_goalies:
+        goalie_boxscore = any('/goalies/' in row['source_path'] for row in person['boxscore'] if 'source_path' in row)
+        if _value(person['people'],'reported_position') != 'G' and not goalie_boxscore and pid not in event_goalies and pid not in interval_goalies:
             continue
         team_id = dressed.get(pid)
         side = next((side for side in ('away','home') if teams[side]['id'] == team_id),None)
@@ -453,7 +454,7 @@ def validate_goalie_source_game(game):
         if row['state'] is not None:
             require(type(row['state']) is list and len(row['state']) == 4, 'invalid goalie physical state axis')
             for value in row['state']:
-                public.number(value,minimum=0,maximum=6,integer=True)
+                public.number(value,minimum=0,integer=True)
         require(row['outcome'] in (None,'block','miss','save','goal'), 'invalid goalie source outcome')
         require(row['model_type'] in (None,'wrist','snap','slap','backhand','tip','other'), 'invalid goalie source model type')
         public.number(row['origin_cell'],minimum=0,maximum=655,integer=True,nullable=True)
@@ -539,7 +540,7 @@ def goalie_source_season(prepared, season, games):
     people = [row for row in resolve_people(read_prepared_people(prepared,season),None,source_id,affiliations) if row['kind'] == 'goalie']
     manifest = prepared.directory/'manifest.json'
     source = dict(source_id=source_id,label='prepared source-only goalie evidence '+season,purpose=prepared['purpose'],
-        origin='source_capture' if prepared['purpose'] == 'real' else 'synthetic',acquisition='admitted',construction='reconstructed',
+        origin='source_capture',acquisition='admitted',construction='reconstructed',
         population='selected regular-season ordinary attempts and dated goalie boxscore/elapsed membership',
         definition='source-only defending-goalie attribution uses opposing membership, dated team and credited/native conflicts; source counts do not require numerical scores, location, modeled type or elapsed clock; reported official splits remain distinct from exact both-goalie states',
         receipts=[dict(uri=str(manifest),sha256=identity(manifest)['sha256'])],

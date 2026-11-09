@@ -346,7 +346,10 @@ def fit_goalie_year(design, previous, output):
     if previous is not None:
         roots.append(str(previous.path.parent))
     output = output_path(str(output), roots)
-    output.mkdir(); (output/'heads').mkdir()
+    if design.purpose=='real':
+        require(output.is_relative_to('/Volumes/Expansion/hockey-stats'),'expensive real outputs must be external')
+    output.mkdir()
+    (output/'heads').mkdir()
     started = perf_counter()
     heads, arrays = {}, {}
     for head in HEADS:

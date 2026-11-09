@@ -830,6 +830,8 @@ def score_goalie(state, prepared, coaches, annual_execution_scores, output):
     if not isinstance(prepared,PreparedManifest):
         prepared=read_prepared(prepared,state.manifest['purpose'])
     output=output_path(str(output),[str(prepared.directory),str(state.path.parent),str(Path(coaches).resolve().parent)])
+    if state.manifest['purpose']=='real':
+        require(output.is_relative_to('/Volumes/Expansion/hockey-stats'),'expensive real outputs must be external')
     design=prepare_goalie_scoring(prepared,coaches,annual_execution_scores,state.manifest['season'])
     for name in ('prepared','coaches','base_state','base_scores'):
         require(state.manifest[name]==getattr(design,name),'goalie scoring '+name+' binding differs')

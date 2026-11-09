@@ -14,7 +14,7 @@ from .analysis_data import PreparedManifest
 from .chance_cli import identity, output_path
 from .execution_design import (RECIPE as EXECUTION_RECIPE, prepare_execution_sources,
                                _head_design, predictor_matrix)
-from .execution_fit import objective, fit_head, continue_head
+from .execution_fit import fit_head, continue_head
 
 HEADS = ('h', 'd')
 TARGETS = dict(h='saved attempt: immediately next recorded same-team ordinary attempt within five seconds',
@@ -189,12 +189,6 @@ def target_coverage(targets, season):
                 for reason in reasons:
                     group['exclusion_reasons'][reason] = group['exclusion_reasons'].get(reason, 0)+1
     return dict(season=season, attempts=len(targets), groups=list(groups.values()))
-
-
-def fractional_objective(beta, design, actors):
-    """proper fractional cross-entropy over the shared native design and priors."""
-    require(design.get('target_kind') == 'fractional', 'fractional objective needs fractional targets')
-    return objective(beta, design, actors)
 
 
 def _goalie_logits(state,predictors,origin_cells,blocks):

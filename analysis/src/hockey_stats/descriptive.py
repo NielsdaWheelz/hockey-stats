@@ -5,6 +5,7 @@ from datetime import date
 from pathlib import Path
 import hashlib
 import math
+import re
 from typing import Iterable, Literal, NotRequired, TypedDict
 
 from .analysis_records import PreparedGame, PreparedPeople, PreparedEvent, Association
@@ -191,9 +192,9 @@ def _valid_membership(segment, teams, dressed, identities, people):
     return True
 
 
-def execution_participation(prepared_game: PreparedGame) -> dict:
+def execution_participation(prepared_game: PreparedGame, *, goalies=False) -> dict:
     """exact-strength elapsed qualification, independent of modeled attempts."""
-    from .analysis_publication import EXECUTION_STRENGTHS
+    from .analysis_publication import EXECUTION_STRENGTHS, GOALIE_STRENGTHS
 
     identity = prepared_game['game']['identity'] or prepared_game['game']['inventory']
     teams = (str(identity['away_team_id']),str(identity['home_team_id']))
@@ -205,10 +206,11 @@ def execution_participation(prepared_game: PreparedGame) -> dict:
     available = bool(valid_segments) and bool(prepared_game['game']['periods'])
     gap = not available or any(p['status'] != 'supported' for p in prepared_game['game']['periods'] or []) or any(
         row['classification'] == 'unresolved' for row in prepared_game['game']['native_intervals'] or [])
+    strengths = GOALIE_STRENGTHS if goalies else EXECUTION_STRENGTHS
     result = {(str(pid),strength):support(0 if available else None,gap=gap,
               reasons=['elapsed_unavailable'] if gap else ())
-              for pid,actor in identities.items() if actor['reported_position'] in ('C','L','R','D','F')
-              for strength in EXECUTION_STRENGTHS}
+              for pid,actor in identities.items() if actor['reported_position'] in (('G',) if goalies else ('C','L','R','D','F'))
+              for strength in strengths}
     for segment in segments:
         valid = segment['segment_index'] in valid_segments
         seconds = segment['end_seconds']-segment['start_seconds']
@@ -217,19 +219,25 @@ def execution_participation(prepared_game: PreparedGame) -> dict:
             if state is None or not all(state[2:]):
                 continue
             strength = f'{state[0]}v{state[1]}'
-            if strength not in EXECUTION_STRENGTHS:
+            if strength not in strengths:
                 continue
-            for pid in segment['membership'][side+'_skaters']:
-                metric = result.get((str(pid),strength))
-                if metric is None:
-                    continue
-                if valid:
-                    metric['included_seconds'] += seconds
-                else:
-                    metric['known_excluded_seconds'] += seconds
-                    reasons = Counter({r['code']:r['count'] for r in metric['reason_counts']})
-                    reasons['membership_unavailable'] += 1
-                    metric['reason_counts'] = [dict(code=k,count=v) for k,v in sorted(reasons.items())]
+            selected = [strength]
+            if goalies and strength in ('5v5','4v4','3v3'):
+                selected.append('ev')
+            if goalies and strength in ('4v5','3v5','3v4'):
+                selected.append('pk')
+            for pid in segment['membership'][side+('_goalies' if goalies else '_skaters')]:
+                for selected_strength in selected:
+                    metric = result.get((str(pid),selected_strength))
+                    if metric is None:
+                        continue
+                    if valid:
+                        metric['included_seconds'] += seconds
+                    else:
+                        metric['known_excluded_seconds'] += seconds
+                        reasons = Counter({r['code']:r['count'] for r in metric['reason_counts']})
+                        reasons['membership_unavailable'] += 1
+                        metric['reason_counts'] = [dict(code=k,count=v) for k,v in sorted(reasons.items())]
     for metric in result.values():
         metric['current_season_information'] = bool(metric['included_seconds'])
     return result
@@ -250,6 +258,288 @@ def summarize_execution_participation(game_supports: Iterable[dict]) -> dict:
         metric['reason_counts'] = [dict(code=k,count=v) for k,v in sorted(metric['reason_counts'].items())]
         metric['current_season_information'] = bool(metric['included_seconds'])
     return totals
+
+
+def _goalie_reported(person):
+    """keep independently reported fields and their field-specific support."""
+    rows = person['boxscore']
+    result = dict(counts={}, fields={})
+    for field in ('starter','toi_seconds','shift_count','saves','shotsAgainst','goalsAgainst',
+                  'even_strength_saves','power_play_saves','shorthanded_saves',
+                  'evenStrengthShotsAgainst','powerPlayShotsAgainst','shorthandedShotsAgainst',
+                  'evenStrengthGoalsAgainst','powerPlayGoalsAgainst','shorthandedGoalsAgainst'):
+        values, evidence = [], []
+        for row in rows:
+            group = row['derived_fields'] if field.endswith('_saves') else row['source_fields']
+            value = row.get(field) if field in ('toi_seconds','shift_count') else group['values'].get(field)
+            values.append(value)
+            source_field = {'toi_seconds':'toi','shift_count':'shifts'}.get(field,field)
+            evidence.extend(item for item in group['evidence'] if item['field'] == source_field)
+        known = bool(values) and all(value is not None and value == values[0] for value in values)
+        result['fields'][field] = dict(value=values[0] if known else None,
+            reason=None if known else 'boxscore_field_unavailable_or_conflicting', evidence=evidence)
+    for strength, fields in (('all',('shotsAgainst','saves','goalsAgainst')),
+                            ('ev',('evenStrengthShotsAgainst','even_strength_saves','evenStrengthGoalsAgainst')),
+                            ('pk',('powerPlayShotsAgainst','power_play_saves','powerPlayGoalsAgainst')),
+                            ('pp',('shorthandedShotsAgainst','shorthanded_saves','shorthandedGoalsAgainst'))):
+        selected = {}
+        coverage = {}
+        for public, field in zip(('shots_on_goal','saves','goals_against'),fields):
+            record = result['fields'][field]
+            value = record['value']
+            if public == 'shots_on_goal' and strength != 'all':
+                match = re.fullmatch(r'([0-9]+)/([0-9]+)',value) if type(value) is str else None
+                # preparation validates the saves/shots pair against its goals.
+                value = int(match[2]) if match is not None and result['fields'][fields[1]]['value'] is not None else None
+            selected[public] = value
+            coverage[public] = dict(supported=value is not None, field=field,
+                reason=None if value is not None else record['reason'] or 'reported_strength_pair_unavailable', evidence=record['evidence'])
+        if all(value is not None for value in selected.values()) and selected['shots_on_goal'] != selected['saves']+selected['goals_against']:
+            for field in selected:
+                selected[field] = None
+                coverage[field].update(supported=False,reason='reported_goalie_counts_conflict')
+        result['counts'][strength] = dict(selected,field_coverage=coverage)
+    return result
+
+
+def reduce_goalie_game(game: PreparedGame) -> dict:
+    """source-only attribution, usage and exposure; no numerical score prerequisite."""
+    from .execution_design import resolve_goalie_identity
+    from .execution_history import _value
+    from .shot_origins import cell_id
+
+    inventory = game['game']['inventory']
+    identity = game['game']['identity']
+    teams = {side:dict(id=str(inventory[side+'_team_id']),
+                      abbreviation=identity[side+'_team_abbrev'] if identity else None) for side in ('away','home')}
+    source_events = game['events'] or []
+    events = {row['source']['source_index']:(position,row) for position,row in enumerate(source_events)}
+    require(len(events) == len(source_events), 'duplicate goalie source-event key')
+    rows = []
+    for position, attempt in enumerate(game['attempts'] or []):
+        index = attempt['source_index']
+        event_position, event = events.get(index,(None,None))
+        details, state = attempt['details'],attempt['feature_facts']['state']
+        goalie = resolve_goalie_identity(attempt,game,event,f'/attempts/{position}',event_position)
+        side = _value(state,'home_away')
+        other = 'home' if side == 'away' else 'away' if side == 'home' else None
+        membership = [_value(state,str(which)+'_'+kind) for which,kind in
+                      ((side,'skaters'),(other,'skaters'),(side,'goalies'),(other,'goalies'))]
+        physical = tuple(len(value) for value in membership) if all(value is not None for value in membership) else None
+        reasons = []
+        physical_status = _value(details,'physical_status')
+        if physical_status != 'ordinary':
+            reasons.append('physical_attempt_outside_population' if physical_status == 'outside_population' else 'physical_attempt_not_supported_ordinary')
+        outcome = _value(details,'outcome')
+        if outcome not in ('block','miss','save','goal'):
+            reasons.append('outcome_unavailable')
+        if event is None or not event['source']['kind_valid']:
+            reasons.append('source_event_identity_unavailable')
+        if side not in ('away','home') or _value(state,'shooting_team_id') != _value(details,'shooting_team_id'):
+            reasons.append('shooting_team_unavailable')
+        if physical is None or not (3 <= physical[0] <= 6 and 3 <= physical[1] <= 6 and physical[2] in (0,1) and physical[3] == 1):
+            reasons.append('physical_state_unavailable_or_outside_population')
+        if goalie['status'] != 'identified':
+            reasons.append(goalie['reason'])
+        geometry = attempt['feature_facts']['geometry']
+        recorded = _value(geometry,'recorded') or {}
+        x,y = _value(geometry,'x'),_value(geometry,'y')
+        origin = cell_id((x,y)) if outcome != 'block' and x is not None and y is not None and in_rink(x,y) else None
+        immediate = attempt['immediate_outcomes']
+        stop, again = _value(immediate,'recorded_goalie_stop'),_value(immediate,'reattempt_within_5s')
+        rows.append(dict(season=game['season'],game_id=game['game_id'],source_index=index,
+            status='excluded' if reasons else 'included',reasons=reasons,
+            goalie_id=str(goalie['player_id']) if goalie['player_id'] is not None else None,goalie_identity=goalie,
+            state=list(physical) if physical is not None else None,outcome=outcome,
+            model_type=_value(recorded,'model_shot_type'),origin_cell=origin,
+            recorded_stop=stop,recorded_stop_reason=None if stop is not None else immediate['problems'].get('recorded_goalie_stop',{}).get('reason','immediate recorded stop unavailable'),
+            recorded_reattempt=again,recorded_reattempt_reason=None if again is not None else immediate['problems'].get('reattempt_within_5s',{}).get('reason','immediate recorded reattempt unavailable'),
+            reattempt_source_index=_value(immediate,'reattempt_source_index'),
+            source=dict(attempt_pointer=f'/attempts/{position}',event_pointer=f'/events/{event_position}' if event_position is not None else None,
+                        evidence=[*details['evidence'],*state['evidence'],*immediate['evidence']])))
+    rows.sort(key=lambda row:row['source_index'])
+    require(len({row['source_index'] for row in rows}) == len(rows), 'duplicate goalie attempt key')
+    available = game['events'] is not None and game['attempts'] is not None
+    gap = not available or any(row['status'] != 'included' and
+        'physical_attempt_outside_population' not in row['reasons'] for row in rows)
+    participation = execution_participation(game,goalies=True)
+    dressed = _dressed(game)
+    goalies = []
+    event_goalies = {row['goalie_id'] for row in rows if row['status'] == 'included'}
+    interval_goalies = {str(pid) for segment in game['segments'] or []
+                        for side in ('away','home') for pid in segment['membership'][side+'_goalies'] or []
+                        if segment['end_seconds'] > segment['start_seconds']}
+    for pid,person in sorted((game['people'] or {}).items()):
+        if _value(person['people'],'reported_position') != 'G' and pid not in event_goalies and pid not in interval_goalies:
+            continue
+        team_id = dressed.get(pid)
+        side = next((side for side in ('away','home') if teams[side]['id'] == team_id),None)
+        reported = _goalie_reported(person)
+        seconds, starter = (reported['fields'][field]['value'] for field in ('toi_seconds','starter'))
+        positive = pid in event_goalies or pid in interval_goalies or seconds is not None and seconds > 0
+        if starter is True:
+            start_status, reason = 'start',None
+        elif starter is False and positive:
+            start_status, reason = 'relief',None
+        elif seconds == 0 and not positive:
+            start_status, reason = 'did_not_play',None
+        else:
+            start_status, reason = 'unknown','supported_start_flag_and_participation_unavailable'
+        goalies.append(dict(player_id=pid,team=teams[side] if side else None,
+            opponent=teams['home' if side == 'away' else 'away'] if side else None,
+            reported_seconds=seconds,reported_shifts=reported['fields']['shift_count']['value'],
+            start_status=start_status,start_status_reason=reason,reported_counts=reported['counts'],reported_fields=reported['fields'],
+            participation={strength:metric for (actor,strength),metric in participation.items() if actor == pid},
+            source_events_available=available,source_events_gap=gap,
+            source=dict(person_pointer='/people/'+pid,boxscore=[row['source_path'] for row in person['boxscore'] if 'source_path' in row])))
+    result = dict(season=game['season'],game_id=game['game_id'],date=inventory['game_date'],teams=teams,
+                  events=rows,goalies=goalies,source_events_available=available)
+    validate_goalie_source_game(result)
+    return result
+
+
+def validate_goalie_source_game(game):
+    """check the detached source member's closed fields and attribution relations."""
+    from . import analysis_publication as public
+    from . import analysis_records as records
+    from .interpret import SourceEvidence
+
+    public.fields(game,('season','game_id','date','teams','events','goalies','source_events_available'))
+    public.season(game['season']); public.game_id(game['game_id'],game['season']); public.iso_date(game['date'])
+    require(type(game['source_events_available']) is bool, 'invalid goalie source availability')
+    public.fields(game['teams'],('away','home'))
+    for team in game['teams'].values():
+        public.fields(team,('id','abbreviation')); public.identifier(team['id'])
+        require(team['abbreviation'] is None or type(team['abbreviation']) is str and bool(team['abbreviation']), 'invalid goalie team abbreviation')
+    require(game['teams']['away']['id'] != game['teams']['home']['id'], 'goalie source teams coincide')
+    require(type(game['events']) is list and type(game['goalies']) is list, 'missing goalie source rows')
+    keys = []
+    for row in game['events']:
+        public.fields(row,('season','game_id','source_index','status','reasons','goalie_id','goalie_identity','state','outcome','model_type','origin_cell',
+                           'recorded_stop','recorded_stop_reason','recorded_reattempt','recorded_reattempt_reason','reattempt_source_index','source'))
+        require((row['season'],row['game_id']) == (game['season'],game['game_id']), 'goalie source event identity differs')
+        public.number(row['source_index'],minimum=0,integer=True); keys.append(row['source_index'])
+        require(row['status'] in ('included','excluded'), 'invalid goalie source event status')
+        public.strings(row['reasons']); require((row['status'] == 'included') == (not row['reasons']), 'goalie source disposition lacks reasons')
+        goalie = row['goalie_identity']
+        public.fields(goalie,('status','player_id','membership_id','dated_team_id','reported_position','reason','pointers'))
+        require(goalie['status'] in ('identified','unavailable','conflict'), 'invalid source goalie identity status')
+        for field in ('player_id','membership_id','dated_team_id'):
+            public.number(goalie[field],minimum=1,integer=True,nullable=True)
+        require(goalie['reported_position'] is None or goalie['reported_position'] in ('C','L','R','D','F','G'), 'invalid source goalie reported position')
+        public.strings(goalie['pointers'])
+        require(all(pointer.startswith('/') for pointer in goalie['pointers']), 'goalie identity pointer is not absolute')
+        if goalie['status'] == 'identified':
+            require(goalie['player_id'] is not None and goalie['player_id'] == goalie['membership_id'] and goalie['reason'] is None
+                    and row['goalie_id'] == str(goalie['player_id']), 'identified goalie source binding differs')
+        else:
+            require(goalie['player_id'] is None and row['goalie_id'] is None, 'unresolved goalie invents attribution'); public.text(goalie['reason'])
+        if row['state'] is not None:
+            require(type(row['state']) is list and len(row['state']) == 4, 'invalid goalie physical state axis')
+            for value in row['state']:
+                public.number(value,minimum=0,maximum=6,integer=True)
+        require(row['outcome'] in (None,'block','miss','save','goal'), 'invalid goalie source outcome')
+        require(row['model_type'] in (None,'wrist','snap','slap','backhand','tip','other'), 'invalid goalie source model type')
+        public.number(row['origin_cell'],minimum=0,maximum=655,integer=True,nullable=True)
+        require(row['outcome'] != 'block' or row['origin_cell'] is None, 'blocked source contact becomes origin')
+        for field in ('recorded_stop','recorded_reattempt'):
+            require(row[field] is None or type(row[field]) is bool, 'invalid immediate goalie source label')
+            require((row[field] is None) == (row[field+'_reason'] is not None), 'goalie source label/reason disagree')
+            if row[field+'_reason'] is not None: public.text(row[field+'_reason'])
+        public.number(row['reattempt_source_index'],minimum=0,integer=True,nullable=True)
+        require(row['recorded_reattempt'] is not True or row['reattempt_source_index'] is not None, 'positive source occurrence lacks successor')
+        public.fields(row['source'],('attempt_pointer','event_pointer','evidence'))
+        public.text(row['source']['attempt_pointer'])
+        require(row['source']['event_pointer'] is None or row['source']['event_pointer'].startswith('/events/'), 'invalid goalie event pointer')
+        records.validate(row['source']['evidence'],list[records.Evidence],'goalie_source/event/evidence')
+        if row['status'] == 'included':
+            state = row['state']
+            require(goalie['status'] == 'identified' and row['outcome'] is not None and state is not None and
+                    3 <= state[0] <= 6 and 3 <= state[1] <= 6 and state[2] in (0,1) and state[3] == 1, 'included goalie event lacks physical support')
+    require(keys == sorted(set(keys)), 'goalie source keys duplicate or unordered')
+    people = []
+    for row in game['goalies']:
+        public.fields(row,('player_id','team','opponent','reported_seconds','reported_shifts','start_status','start_status_reason',
+                           'reported_counts','reported_fields','participation','source_events_available','source_events_gap','source'))
+        public.identifier(row['player_id']); people.append(row['player_id'])
+        require((row['team'] is None) == (row['opponent'] is None), 'goalie dated team/opponent support differs')
+        if row['team'] is not None:
+            require(row['team'] in game['teams'].values() and row['opponent'] in game['teams'].values()
+                    and row['team'] != row['opponent'], 'goalie dated teams differ from game')
+        for field in ('reported_seconds','reported_shifts'):
+            public.number(row[field],minimum=0,integer=True,nullable=True)
+        require(row['start_status'] in ('start','relief','did_not_play','unknown'), 'invalid goalie start disposition')
+        require((row['start_status'] == 'unknown') == (row['start_status_reason'] is not None), 'goalie unknown start lacks reason')
+        if row['start_status_reason'] is not None: public.text(row['start_status_reason'])
+        public.fields(row['reported_fields'],('starter','toi_seconds','shift_count','saves','shotsAgainst','goalsAgainst',
+            'even_strength_saves','power_play_saves','shorthanded_saves','evenStrengthShotsAgainst','powerPlayShotsAgainst','shorthandedShotsAgainst',
+            'evenStrengthGoalsAgainst','powerPlayGoalsAgainst','shorthandedGoalsAgainst'))
+        for field,value in row['reported_fields'].items():
+            public.fields(value,('value','reason','evidence'))
+            if field == 'starter': require(value['value'] is None or type(value['value']) is bool, 'invalid goalie starter flag')
+            elif field.endswith('ShotsAgainst'): require(value['value'] is None or type(value['value']) is str, 'invalid reported strength shot pair')
+            else: public.number(value['value'],minimum=0,integer=True,nullable=True)
+            require((value['value'] is None) == (value['reason'] is not None), 'reported goalie field/reason differs')
+            if value['reason'] is not None: public.text(value['reason'])
+            records.validate(value['evidence'],list[SourceEvidence],'goalie_source/reported/evidence')
+        public.fields(row['reported_counts'],('all','ev','pp','pk'))
+        for value in row['reported_counts'].values():
+            public.fields(value,('shots_on_goal','saves','goals_against','field_coverage'))
+            public.fields(value['field_coverage'],('shots_on_goal','saves','goals_against'))
+            for field in ('shots_on_goal','saves','goals_against'):
+                public.number(value[field],minimum=0,integer=True,nullable=True)
+                coverage = value['field_coverage'][field]
+                public.fields(coverage,('supported','field','reason','evidence'))
+                require(type(coverage['supported']) is bool and coverage['supported'] == (value[field] is not None)
+                        and (coverage['reason'] is None) == coverage['supported'], 'reported goalie field coverage differs')
+                public.text(coverage['field'])
+                if coverage['reason'] is not None: public.text(coverage['reason'])
+                records.validate(coverage['evidence'],list[SourceEvidence],'goalie_source/reported/count/evidence')
+            if all(value[field] is not None for field in ('shots_on_goal','saves','goals_against')):
+                require(value['shots_on_goal'] == value['saves']+value['goals_against'], 'reported goalie source counts differ')
+        require(not row['participation'] or set(row['participation']) == set(public.GOALIE_STRENGTHS), 'incomplete goalie exposure strengths')
+        for metric in row['participation'].values(): public.support(metric)
+        require(row['source_events_available'] == game['source_events_available'] and type(row['source_events_gap']) is bool, 'goalie source coverage differs')
+        public.fields(row['source'],('person_pointer','boxscore')); public.text(row['source']['person_pointer']); public.strings(row['source']['boxscore'])
+    require(people == sorted(set(people)), 'goalie source identities duplicate or unordered')
+
+
+def goalie_source_season(prepared, season, games):
+    """complete annual identity/provenance from an already performed source replay."""
+    from .analysis_data import read_prepared_people
+    from .chance_cli import identity
+
+    selected = next(row['selected_game_ids'] for row in prepared['seasons'] if row['season'] == season)
+    require([game['game_id'] for game in games] == selected, 'goalie source replay differs from selected annual game order')
+    source_id = 'goalie-source-v1-07-'+season
+    affiliations = defaultdict(dict)
+    for game in games:
+        for row in game['goalies']:
+            team = row['team']
+            if team is not None:
+                previous = affiliations[row['player_id']].get(team['id'])
+                require(previous is None or team['abbreviation'] is None or previous == team['abbreviation'], 'dated goalie team abbreviation conflicts')
+                affiliations[row['player_id']][team['id']] = team['abbreviation'] if team['abbreviation'] is not None else previous
+    people = [row for row in resolve_people(read_prepared_people(prepared,season),None,source_id,affiliations) if row['kind'] == 'goalie']
+    manifest = prepared.directory/'manifest.json'
+    source = dict(source_id=source_id,label='prepared source-only goalie evidence '+season,purpose=prepared['purpose'],
+        origin='source_capture' if prepared['purpose'] == 'real' else 'synthetic',acquisition='admitted',construction='reconstructed',
+        population='selected regular-season ordinary attempts and dated goalie boxscore/elapsed membership',
+        definition='source-only defending-goalie attribution uses opposing membership, dated team and credited/native conflicts; source counts do not require numerical scores, location, modeled type or elapsed clock; reported official splits remain distinct from exact both-goalie states',
+        receipts=[dict(uri=str(manifest),sha256=identity(manifest)['sha256'])],
+        limitations=['recorded events are incomplete physical evidence; unknown source/state/identity remains excluded with a located reason',
+                     'boxscore official power-play/shorthanded shots against describe opposing-team strength and do not establish exact-state both-goalie totals',
+                     'source-resolved defending goalie may differ from absent native credit; attribution provenance remains saved'])
+    return dict(people=people,games=games,sources=[source],participation=summarize_execution_participation(
+        {(row['player_id'],strength):metric for row in game['goalies'] for strength,metric in row['participation'].items()} for game in games))
+
+
+def reduce_goalie_sources(prepared, season):
+    """source-only annual reduction; fitting callers reuse their own single replay."""
+    from .analysis_data import read_prepared_game
+
+    selected = next(row['selected_game_ids'] for row in prepared['seasons'] if row['season'] == season)
+    return goalie_source_season(prepared,season,[reduce_goalie_game(read_prepared_game(prepared,season,gid)) for gid in selected])
 
 
 def recorded_evidence(prepared_game: PreparedGame, observed_game_receipt: ObservedGameReceipt,
@@ -1063,11 +1353,11 @@ def summarize_season(people: list[PersonIdentity], game_reductions: Iterable[Gam
     return dict(skater_descriptive=descriptive,skater_context=contexts,context_coverage=sorted(coverage_rows,key=lambda r:tuple(r[k] for k in KEYS['context_coverage'])))
 
 
-def resolve_people(prepared_people: PreparedPeople, observed_result: ObservedResult,
+def resolve_people(prepared_people: PreparedPeople, observed_result: ObservedResult | None,
                    source_id: str, affiliations: dict[str, dict[str, str | None]]) -> list[dict]:
     """preserve observed identity and enrich only dated, nonconflicting facts."""
-    old_people = {p.player_id:p for p in observed_result.players}
-    old_rows = {p.player_id:p for p in observed_result.player_seasons}
+    old_people = {p.player_id:p for p in observed_result.players} if observed_result is not None else {}
+    old_rows = {p.player_id:p for p in observed_result.player_seasons} if observed_result is not None else {}
     rows = []
     for fact in prepared_people['people']:
         values = fact['values']

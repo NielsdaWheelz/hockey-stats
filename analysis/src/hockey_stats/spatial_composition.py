@@ -51,6 +51,7 @@ def _accepted_source(results):
     for row in accepted['families']:
         if row['family'] != 'spatial' and row['availability'] == 'provided':
             require(inherited[row['season'], row['family']] == row, f'accepted v1-06 {row["family"]} differs')
+    corrections = []
     for name, catalog, key in (('methods', 'method', 'method_id'), ('supports', 'support', 'support_id')):
         member = accepted['catalogs'][name]
         source = publication.member_path(ACCEPTED_RESULTS, member)
@@ -58,7 +59,18 @@ def _accepted_source(results):
         with source.open('rb') as stream:
             for line in stream:
                 row = strict_json(line)
-                require(results.catalogs[catalog].get(row[key]) == row, f'accepted v1-06 {key} differs')
+                actual = results.catalogs[catalog].get(row[key])
+                if catalog == 'method' and row['method_id'].startswith('reference-xg-v1-06-') and actual != row:
+                    from .execution_composition import check_reference_xg_correction
+
+                    require(actual is not None, 'accepted v1-06 reference-xg method missing')
+                    check_reference_xg_correction(row, actual)
+                    corrections.append(actual['evidence'][-1])
+                else:
+                    require(actual == row, f'accepted v1-06 {key} differs')
+
+    require(not corrections or len(corrections) == len(accepted['seasons']) and all(item == corrections[0] for item in corrections),
+            'accepted v1-06 reference-xg correction is incomplete or inconsistent')
 
 
 def _product_admission(path, selection_path, purpose):

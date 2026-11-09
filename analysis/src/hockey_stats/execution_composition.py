@@ -8,7 +8,7 @@ from pathlib import Path
 
 from . import analysis_publication as publication
 from .analysis_data import read_prepared, read_prepared_game
-from .artifacts import require
+from .artifacts import require, write_json
 from .captures import strict_json
 from .descriptive import estimate, support, valued_evidence, execution_participation, summarize_execution_participation
 from .microstats import reduce_reference_xg, summarize_reference_xg
@@ -19,6 +19,115 @@ DANGERS = ('<.05','[.05,.15)','>=.15')
 VALUED = ('neutral_all_attempt_value','neutral_locatable_unblocked_value')
 POLICY = 'execution-v1-06-matched-reference-v1'
 REFERENCE = 'reference-execution-zero'
+_REFERENCE_XG_OLD = dict(
+    population='checked regular-season physical opportunities; exact-strength common panels and separately paired source evidence',
+    qualification='qualification uses exact-strength current-season elapsed membership; panel and likelihood denominators differ',
+    finding_population='annual fitted opportunity panels and paired source attempts',
+    summary='experimental point estimates; calibration, recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicit')
+_REFERENCE_XG_TEXT = dict(
+    population='credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present',
+    qualification='qualification uses the same matched neutral_all_attempt_value elapsed personal 5v5 support as the personal reference-xg rate; both goalies present',
+    finding_population='credited ordinary physical 5v5 attempts and matched neutral_all_attempt_value elapsed personal support; both goalies present',
+    summary='experimental same-season neutral-execution valuation of personal observed ordinary-attempt opportunities; blocked origins and setup are inferred; calibration, recovery, assumption sensitivity and numerical accuracy are not certified')
+
+
+def _reference_xg_text(method):
+    require(method['family'] == 'microstats' and method['method_id'] in {f'reference-xg-v1-06-{year}' for year in publication.SEASONS}
+            and len(method['assessment']['findings']) == 1
+            and method['assessment']['findings'][0]['quantities'] == ['skater_microstats.reference_xg_per60'], 'unexpected reference-xg method')
+    finding = method['assessment']['findings'][0]
+    return dict(population=method['population'], qualification=method['limitations'][-1],
+                finding_population=finding['population'], summary=finding['summary'])
+
+
+def _with_reference_xg_text(method, evidence=None):
+    result = deepcopy(method)
+    result['population'] = _REFERENCE_XG_TEXT['population']
+    result['limitations'][-1] = _REFERENCE_XG_TEXT['qualification']
+    finding = result['assessment']['findings'][0]
+    finding['population'] = _REFERENCE_XG_TEXT['finding_population']
+    finding['summary'] = _REFERENCE_XG_TEXT['summary']
+    if evidence is not None:
+        result['evidence'].append(evidence)
+        finding['evidence'].append(evidence)
+    return result
+
+
+def check_reference_xg_correction(original, corrected):
+    """accept only the attributed four-string correction of this exact method."""
+    require(_reference_xg_text(original) == _REFERENCE_XG_OLD, 'reference-xg donor meaning differs')
+    require(_reference_xg_text(corrected) == _REFERENCE_XG_TEXT and len(corrected['evidence']) == len(original['evidence']) + 1,
+            'reference-xg corrected meaning or evidence differs')
+    evidence = corrected['evidence'][-1]
+    publication.fields(evidence, ('uri', 'sha256'))
+    path = Path(evidence['uri'])
+    require(path.is_absolute() and _sha(path) == evidence['sha256'], 'reference-xg correction receipt digest differs')
+    receipt = strict_json(path.read_bytes())
+    publication.fields(receipt, ('schema_version', 'kind', 'donor', 'changes', 'unchanged'))
+    require(type(receipt['schema_version']) is int and receipt['schema_version'] == 1
+            and receipt['kind'] == 'reference_xg_population_correction', 'invalid reference-xg correction receipt')
+    publication.fields(receipt['donor'], ('uri', 'sha256'))
+    donor_path = Path(receipt['donor']['uri'])
+    require(donor_path.is_absolute() and donor_path.name == 'manifest.json'
+            and _sha(donor_path) == receipt['donor']['sha256'], 'reference-xg donor manifest digest differs')
+    donor = strict_json(donor_path.read_bytes())
+    member = donor['catalogs']['methods']
+    method_bytes = publication.member_path(donor_path.parent, member).read_bytes()
+    require(hashlib.sha256(method_bytes).hexdigest() == member['sha256'], 'reference-xg donor method digest differs')
+    methods = [strict_json(line) for line in method_bytes.splitlines()]
+    require(len(methods) == member['rows'] and next((row for row in methods if row['method_id'] == original['method_id']), None) == original,
+            'reference-xg correction is bound to another donor method')
+    ids = [f'reference-xg-v1-06-{year}' for year in donor['seasons']]
+    expected = [dict(method_id=row['method_id'], original_sha256=hashlib.sha256(publication.json_bytes(row)).hexdigest(),
+                     before=_REFERENCE_XG_OLD, after=_REFERENCE_XG_TEXT) for row in methods if row['method_id'] in ids]
+    require([row['method_id'] for row in expected] == ids and receipt['changes'] == expected,
+            'reference-xg correction whitelist or changed text differs')
+    unchanged = dict(catalogs={key:value for key,value in donor['catalogs'].items() if key != 'methods'}, families=donor['families'],
+        nonowned_methods_sha256=hashlib.sha256(publication.json_bytes([row for row in methods if row['method_id'] not in ids])).hexdigest())
+    require(receipt['unchanged'] == unchanged, 'reference-xg no-numeric-change scope differs')
+    require(corrected == _with_reference_xg_text(original, evidence), 'reference-xg correction changes unrelated method fields')
+
+
+def correct_reference_xg_metadata(existing_results, output):
+    """write a metadata-only successor; an exactly corrected input is a no-op."""
+    from .chance_cli import output_path
+    from .spatial_composition import _accepted_source
+
+    source = publication.read_results(Path(existing_results))
+    _accepted_source(source)
+    if source.manifest['purpose'] == 'real':
+        require(all(row['availability'] == 'provided' for row in source.manifest['families'] if row['family'] == 'spatial'),
+                'reference-xg correction requires the combined spatial exchange')
+    ids = [f'reference-xg-v1-06-{year}' for year in source.manifest['seasons']]
+    methods = [source.catalogs['method'].get(key) for key in ids]
+    require(all(row is not None for row in methods), 'missing displayed-season reference-xg method')
+    meanings = [_reference_xg_text(row) for row in methods]
+    if all(meaning == _REFERENCE_XG_TEXT for meaning in meanings):
+        require(all(method['evidence'][-1] == methods[0]['evidence'][-1] for method in methods), 'reference-xg correction receipts differ')
+        for method in methods:
+            receipt = strict_json(Path(method['evidence'][-1]['uri']).read_bytes())
+            donor = strict_json(Path(receipt['donor']['uri']).read_bytes())
+            member = donor['catalogs']['methods']
+            originals = [strict_json(line) for line in publication.member_path(Path(receipt['donor']['uri']).parent, member).read_bytes().splitlines()]
+            original = next(row for row in originals if row['method_id'] == method['method_id'])
+            check_reference_xg_correction(original, method)
+        return source.manifest
+    require(all(meaning == _REFERENCE_XG_OLD for meaning in meanings), 'reference-xg donor meanings differ or are partly corrected')
+    output = output_path(str(output), [str(source.directory)])
+    receipt_path = output.with_name(output.name + '-reference-xg-correction.json')
+    receipt = dict(schema_version=1, kind='reference_xg_population_correction',
+        donor=dict(uri=str(source.directory/'manifest.json'), sha256=_sha(source.directory/'manifest.json')),
+        changes=[dict(method_id=row['method_id'], original_sha256=hashlib.sha256(publication.json_bytes(row)).hexdigest(),
+                      before=_REFERENCE_XG_OLD, after=_REFERENCE_XG_TEXT) for row in methods],
+        unchanged=dict(catalogs={key:value for key,value in source.manifest['catalogs'].items() if key != 'methods'}, families=source.manifest['families'],
+            nonowned_methods_sha256=hashlib.sha256(publication.json_bytes([row for key,row in source.catalogs['method'].items() if key not in ids])).hexdigest()))
+    write_json(receipt_path, receipt)
+    evidence = dict(uri=str(receipt_path), sha256=_sha(receipt_path))
+    corrected = [_with_reference_xg_text(row, evidence) if key in ids else row for key,row in source.catalogs['method'].items()]
+    result = publication._write_method_successor(source, corrected, output)
+    for original in methods:
+        check_reference_xg_correction(original, next(row for row in corrected if row['method_id'] == original['method_id']))
+    return result
 
 
 def _sha(path):
@@ -84,7 +193,7 @@ def _method(year, annual, prepared, facts, source_sha, inputs, family):
                   + [f'attempt_value.{field}' for field in publication.ESTIMATE_FIELDS['attempt_value']]) if family == 'execution' else ['skater_microstats.reference_xg_per60']
     evidence = [dict(uri=str(annual.path),sha256=_sha(annual.path)),
                 dict(uri=str(facts.directory/'manifest.json'),sha256=source_sha)]
-    return dict(method_id=method_id,family=family,recipe_id=annual.manifest['recipe']['name']+':'+annual.manifest['recipe']['version'],
+    result = dict(method_id=method_id,family=family,recipe_id=annual.manifest['recipe']['name']+':'+annual.manifest['recipe']['version'],
         design_sha256=_sha(annual.path),input_sha256=hashlib.sha256(publication.json_bytes(inputs)).hexdigest(),
         fit_seasons=[r['season'] for r in prepared['seasons'] if r['season'] <= year],
         training_cutoff=annual.manifest['training_cutoff'],target='common-panel execution contrasts' if family == 'execution' else 'personal reference-valued observed opportunity per60',
@@ -99,6 +208,7 @@ def _method(year, annual, prepared, facts, source_sha, inputs, family):
             population='annual fitted opportunity panels and paired source attempts',
             summary='experimental point estimates; calibration, recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicit',
             evidence=evidence)]))
+    return result if family == 'execution' else _with_reference_xg_text(result)
 
 
 def _empty_projection(person, strength, qualification, neutral):

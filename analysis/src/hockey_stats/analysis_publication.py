@@ -8,6 +8,7 @@ import json
 import math
 from pathlib import Path
 import re
+import shutil
 
 from .artifacts import digest, implementation_identity, require, write_json
 from .captures import strict_json
@@ -1866,6 +1867,39 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
         manifest['catalogs'][table] = member(table+'.jsonl',rows,table)
     staging = output/'manifest.json.incomplete'
     write_json(staging,manifest)
+    _read_results(output, 'manifest.json.incomplete')
+    staging.rename(output/'manifest.json')
+    return manifest
+
+
+def _write_method_successor(source, methods, output):
+    """replace only the method catalog, preserving inherited member bytes."""
+    require(not output.exists() and not output.is_symlink(), 'result output exists')
+    output.mkdir()
+    manifest = dict(source.manifest, producer=implementation_identity(), catalogs=dict(source.manifest['catalogs']))
+    members = [member for name,member in manifest['catalogs'].items() if name != 'methods']
+    members.extend(member for family in manifest['families'] for member in family['tables'].values())
+    for member in members:
+        destination = output/member['path']
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        with member_path(source.directory, member).open('rb') as original, destination.open('xb') as copied:
+            shutil.copyfileobj(original, copied)
+    path = manifest['catalogs']['methods']['path']
+    (output/path).parent.mkdir(parents=True, exist_ok=True)
+    previous = None
+    count = 0
+    sha = hashlib.sha256()
+    with (output/path).open('xb') as destination:
+        for row in methods:
+            require(previous is None or previous < row['method_id'], 'method successor rows must be sorted and unique')
+            previous = row['method_id']
+            data = json_bytes(row)+b'\n'
+            destination.write(data)
+            sha.update(data)
+            count += 1
+    manifest['catalogs']['methods'] = dict(path=path, rows=count, sha256=sha.hexdigest())
+    staging = output/'manifest.json.incomplete'
+    write_json(staging, manifest)
     _read_results(output, 'manifest.json.incomplete')
     staging.rename(output/'manifest.json')
     return manifest

@@ -74,7 +74,8 @@ def _annuals(selection_path, existing, prepared, base_scores):
     for left,right in zip(years,years[1:]):
         before,after = annuals[left].manifest,annuals[right].manifest
         require(after['state']['previous'] == {key:before['state'][key] for key in ('path','sha256')}, 'goalie score history differs')
-        require(after['recipe'] == before['recipe'] and after['coaches'] == before['coaches'], 'goalie annual recipe/coaches differ')
+        require(after['recipe'] == before['recipe'] and all(after['coaches'][field] == before['coaches'][field]
+                for field in ('path','sha256','purpose')), 'goalie annual recipe/coaches differ')
     require(annuals[years[0]].manifest['state']['previous'] is None, 'first selected goalie year has undeclared history')
     for year in existing.manifest['seasons']:
         annual = annuals[year]

@@ -1596,16 +1596,12 @@ const validGoalieStates = (value: {
   stage_evidence: typeof goalieStages.Type;
   actual_states: readonly (typeof GoalieActualState.Type)[];
 }) => {
+  const countFields = ["unblocked_attempts", "misses", "shots_on_goal", "saves", "goals_against"] as const;
   const missingCollection = value.actual_states.length === 0 &&
+    countFields.every(field => value.source_counts[field] === null) &&
     value.source_counts.support.unquantified_gap &&
     value.source_counts.support.reason_counts.some(row => row.code === "source_unavailable");
-  for (const field of [
-    "unblocked_attempts",
-    "misses",
-    "shots_on_goal",
-    "saves",
-    "goals_against",
-  ] as const) {
+  for (const field of countFields) {
     const total = value.source_counts[field];
     const expected = missingCollection || value.actual_states.some(row => row.source_counts[field] === null)
       ? null

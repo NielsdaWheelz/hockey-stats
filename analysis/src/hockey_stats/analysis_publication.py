@@ -2248,9 +2248,11 @@ def _goalie_actual_states(value, catalogs):
         _paired(row['unblocked_evidence'],catalogs)
         _goalie_stages(row['stage_evidence'])
     require(len(identities) == len(set(identities)), 'duplicate goalie summary actual state')
-    missing_collection = not rows and value['source_counts']['support']['unquantified_gap'] and any(
-        row['code'] == 'source_unavailable' for row in value['source_counts']['support']['reason_counts'])
-    for key in ('unblocked_attempts','misses','shots_on_goal','saves','goals_against'):
+    count_fields = ('unblocked_attempts','misses','shots_on_goal','saves','goals_against')
+    missing_collection = (not rows and all(value['source_counts'][key] is None for key in count_fields)
+        and value['source_counts']['support']['unquantified_gap'] and any(
+            row['code'] == 'source_unavailable' for row in value['source_counts']['support']['reason_counts']))
+    for key in count_fields:
         values = [row['source_counts'][key] for row in rows]
         expected = None if missing_collection or any(item is None for item in values) else sum(values)
         require(value['source_counts'][key] == expected, 'actual-state source counts do not close')

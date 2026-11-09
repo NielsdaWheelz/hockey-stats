@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_spatial_history_input_bindings.py", line 23, in <module>
-    check(current,old)
-    ~~~~~^^^^^^^^^^^^^
-  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/independent_spatial_history_audit.py", line 192, in check_input_bindings
-    assert all(manifest[n]==old[n] for n in ('prepared','coaches'))
-           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError

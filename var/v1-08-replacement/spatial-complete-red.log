@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_spatial_complete_generated.py", line 53, in <module>
-    s.complete_results(result,donor_sha,selection_path,root/'admission.json')
-    ^^^^^^^^^^^^^^^^^^
-AttributeError: module 'hockey_stats.spatial_composition' has no attribute 'complete_results'. Did you mean: 'compose_results'?

@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-assembly-check.py", line 10, in <module>
-    from hockey_stats.execution_u_repair import assemble_u_repair
-ImportError: cannot import name 'assemble_u_repair' from 'hockey_stats.execution_u_repair' (/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/execution_u_repair.py)

@@ -1,0 +1,16 @@
+{
+  "status": "tracked task campaign checks and controllers retired under explicit 2026-11-08 delivery assignment",
+  "recorded_at_utc": "2026-11-09T02:57:15.216304+00:00",
+  "preservation_commit": "edf86ce4f81fa6e53bdda73e3646af39428e6360",
+  "inventory_sha256": "5163517b8fff1ed9fe0c6391fe10efcbbd57473cfe52825574759972006cea76",
+  "retired_tracked_files": 340,
+  "retired_campaign_files": 337,
+  "retired_temporary_research_checks": 3,
+  "recoverable_original_source_commit": "8d3256838db948af0ab91d7cf26f3ff0ef732a56",
+  "scientific_source_files_retained": 4,
+  "unique_diagnostic_outputs_retained": 2,
+  "test_only_dependencies_removed": 0,
+  "remaining": "ignored generated scratch and duplicate environment/build removed with owned worktree after merge; five exact frozen documents and analysis alias preserved at old root",
+  "browser_acceptance": "deferred, not passed",
+  "no_scientific_tool_or_model_execution": true
+}

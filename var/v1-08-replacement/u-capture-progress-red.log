@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-capture-adapter-check.py", line 48, in <module>
-    assert progress.getvalue().splitlines()==['source pass started','prepared games read: 100','source parity accepted before u builder','u builder complete: 1 physical rows']
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError

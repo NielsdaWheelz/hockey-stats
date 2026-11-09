@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-observation-check.py", line 17, in <module>
-    observed,gradient=objective(beta,design,actors,addends=terms)
-                      ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: objective() got an unexpected keyword argument 'addends'

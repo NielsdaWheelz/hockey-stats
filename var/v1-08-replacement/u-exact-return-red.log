@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-exact-return-check.py", line 33, in <module>
-    assert np.float64(f).tobytes()==np.float64(expected).tobytes(),(f.hex(),expected.hex())
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: ('0x1.10246c4d7d6b4p+16', '0x1.10246c4d7d6cap+16')

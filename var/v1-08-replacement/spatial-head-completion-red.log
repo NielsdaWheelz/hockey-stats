@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_spatial_head_completion.py", line 19, in <module>
-    assert callable(rates.complete_spatial), 'completed-head boundary missing'
-                    ^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: module 'hockey_stats.spatial_rates' has no attribute 'complete_spatial'

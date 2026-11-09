@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_execution_selection_cutover.py", line 17, in <module>
-    assert h.EXPECTED['20252026']==FINAL and h.STATES['20252026']=='59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276'
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError

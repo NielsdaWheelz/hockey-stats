@@ -53,10 +53,16 @@ def _annuals(selection_path, existing, prepared, base_scores):
             and selection['purpose'] == existing.manifest['purpose']
             and selection['prepared_sha256'] == existing.manifest['prepared_sha256'], 'goalie selection identity differs')
     require(type(selection['scores']) is list and selection['scores'], 'missing goalie score selection')
-    years,annuals = [],{}
+    years = []
     for selected in selection['scores']:
         publication.fields(selected,('season','path','sha256')); publication.digest(selected['sha256'])
         require(selected['season'] in YEARS and type(selected['path']) is str and Path(selected['path']).is_absolute(), 'invalid selected goalie score locator/year')
+        years.append(selected['season'])
+    require(years == sorted(set(years)) and years == list(YEARS[YEARS.index(years[0]):YEARS.index(years[-1])+1]), 'goalie score years must be unique ordered and consecutive')
+    require(selection['purpose'] != 'real' or years == list(YEARS), 'real goalie composition requires five annual scores')
+    require(set(existing.manifest['seasons']) <= set(years), 'goalie scores omit a displayed season')
+    annuals = {}
+    for selected in selection['scores']:
         path = Path(selected['path'])
         path = path/'manifest.json' if path.is_dir() else path
         require(identity(path)['sha256'] == selected['sha256'], 'selected goalie score digest differs')
@@ -67,10 +73,7 @@ def _annuals(selection_path, existing, prepared, base_scores):
         require(manifest['prepared']['members'] == [row for row in prepared['files'] if row['season'] == year and row['kind'] in ('game','people')], 'goalie annual selected preparation members differ')
         if base_scores is not None:
             require(manifest['base_scores']['sha256'] == base_scores[year], 'goalie annual target differs from corrected execution')
-        years.append(year); annuals[year] = annual
-    require(years == sorted(set(years)) and years == list(YEARS[YEARS.index(years[0]):YEARS.index(years[-1])+1]), 'goalie score years must be unique ordered and consecutive')
-    require(selection['purpose'] != 'real' or years == list(YEARS), 'real goalie composition requires five annual scores')
-    require(set(existing.manifest['seasons']) <= set(years), 'goalie scores omit a displayed season')
+        annuals[year] = annual
     for left,right in zip(years,years[1:]):
         before,after = annuals[left].manifest,annuals[right].manifest
         require(after['state']['previous'] == {key:before['state'][key] for key in ('path','sha256')}, 'goalie score history differs')
@@ -94,6 +97,7 @@ def _annuals(selection_path, existing, prepared, base_scores):
 def compose_goalie(prepared, combined_results, annual_goalie_scores, output):
     """copy inherited bytes, replace only goalie rows, and complete one strict exchange."""
     started = perf_counter()
+    output = output_path(str(output),[])
     existing = publication.read_results(Path(combined_results))
     prepared = read_prepared(prepared,existing.manifest['purpose'])
     require(identity(prepared.directory/'manifest.json')['sha256'] == existing.manifest['prepared_sha256'], 'goalie composition preparation differs')
@@ -102,7 +106,8 @@ def compose_goalie(prepared, combined_results, annual_goalie_scores, output):
     require(all(corpus.get(row['season']) == row['corpus_sha256'] for row in existing.manifest['observed_bindings']), 'goalie composition observed/source binding differs')
     base_scores = _accepted_source(existing)
     selection,annuals = _annuals(annual_goalie_scores,existing,prepared,base_scores)
-    output = output_path(str(output),[str(existing.directory),str(prepared.directory),*[str(annual.path.parent) for annual in annuals.values()]])
+    require(not any(output.is_relative_to(root) for root in
+        [existing.directory,prepared.directory,*[annual.path.parent for annual in annuals.values()]]), 'goalie output must be outside input directories')
     if existing.manifest['purpose'] == 'real':
         require(output.is_relative_to('/Volumes/Expansion/hockey-stats'), 'expensive real outputs must be external')
     output.mkdir()

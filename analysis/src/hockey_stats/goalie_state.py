@@ -426,16 +426,22 @@ def _baseline(value,manifest,heads,coverage,by_role):
 
 
 def _comparison(value,complete):
-    base='base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol optimizer_maxfun coefficient_max_change coefficient_l2_change status contexts origin_rows maximum_probability_change maximum_joint_change pointwise_threshold'.split()
+    base='base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol optimizer_maxfun coefficient_max_change coefficient_l2_change status contexts origin_rows maximum_probability_change maximum_joint_change pointwise_threshold compared_probability_rows compared_joint_rows'.split()
     final='tightened_objective objective_change tightened_gradient_max gradient_max_change'.split()
     _closed(value,base+(final if complete else []),'goalie probe comparison')
     require(value['optimizer_maxiter']==10000 and value['optimizer_ftol']==1e-16 and value['optimizer_gtol']==1e-7 and value['optimizer_maxfun']==15000
             and value['pointwise_threshold']==1e-5 and type(value['contexts']) is int and 0<=value['contexts']<=256
             and value['origin_rows']==656*value['contexts'] and value['status']==('assessed' if complete else 'unassessed'),
             'goalie probe comparison controls differ')
-    for key in ('maximum_probability_change','maximum_joint_change'):
-        require(value[key] is None and not complete or type(value[key]) in (float,int) and 0<=value[key]<=1 and complete,
+    for key,count_key in (('maximum_probability_change','compared_probability_rows'),('maximum_joint_change','compared_joint_rows')):
+        count=value[count_key]
+        require(type(count) is int and 0<=count<=2*value['origin_rows'] and count%656==0,
+                'goalie comparison row count differs')
+        require((value[key] is None)==(count==0) and (value[key] is None
+                or complete and type(value[key]) in (float,int) and 0<=value[key]<=1),
                 'goalie comparison movement assessment differs')
+        require(complete or count==0,'unfinished probe claims evaluated comparison')
+    require(not complete or value['compared_probability_rows']>0,'completed pointwise probe has no comparison rows')
     _finite(value,'goalie probe comparison')
 
 

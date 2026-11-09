@@ -317,6 +317,8 @@ def fit_goalie_year(design, previous, output):
                 and all(previous.manifest[name][key] == getattr(design,name)[key]
                         for name in ('prepared','coaches') for key in ('path','sha256','purpose')),
                 'goalie predecessor lineage differs')
+        require(design.base_state['previous']=={key:previous.manifest['base_state'][key] for key in ('path','sha256')},
+                'goalie base execution predecessor differs')
     roots = [str(Path(design.prepared['path']).parent),str(Path(design.coaches['path']).parent),
              str(Path(design.base_scores['path']).parent)]
     if previous is not None:
@@ -355,7 +357,8 @@ def fit_goalie_year(design, previous, output):
                           if key not in ('em_maxiter','em_relative_tolerance','em_responsibility_tolerance')}
             comparison['optimizer_maxfun'] = 15000
             comparison.update(status='unassessed',contexts=len(predictors),origin_rows=656*len(predictors),
-                              maximum_probability_change=None,maximum_joint_change=None,pointwise_threshold=1e-5)
+                              maximum_probability_change=None,maximum_joint_change=None,pointwise_threshold=1e-5,
+                              compared_probability_rows=0,compared_joint_rows=0)
             if result['status'] == 'complete':
                 changed_heads = dict(heads,**{head:metadata}); changed_arrays = dict(arrays,**{head:probe_arrays})
                 variant = replace(base_state,heads=changed_heads,arrays=changed_arrays)
@@ -369,8 +372,9 @@ def fit_goalie_year(design, previous, output):
                             changes.append(float(np.max(np.abs(left[index]-right[index]))))
                         if all(x is not None for x in left+right):
                             joint.append(float(np.max(np.abs(left[0]*left[1]-right[0]*right[1]))))
-                comparison.update(status='assessed',maximum_probability_change=max(changes,default=0.),
-                                  maximum_joint_change=max(joint,default=0.))
+                comparison.update(status='assessed',maximum_probability_change=max(changes) if changes else None,
+                                  maximum_joint_change=max(joint) if joint else None,
+                                  compared_probability_rows=656*len(changes),compared_joint_rows=656*len(joint))
             probes[head] = write_goalie_probe(output,head,baseline,metadata,probe_arrays,comparison,design.season)
     measured = resources(started)
     measured.update(design_wall_seconds=design.resources['design_wall_seconds'],

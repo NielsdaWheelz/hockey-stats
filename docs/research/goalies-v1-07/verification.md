@@ -22,6 +22,16 @@ the first fixture model has 400 h observations with 41 positives and 41 d observ
 
 score04 covers 24 goalies: 264 scalar rows, 264 stopping maps, 288 observed rows, 2,376 breakdowns, 3,456 evidence maps and 576 histograms. measured full wall time is 94.42 seconds, including 46.41 seconds of final validation; source/input work takes 23.84 seconds and projection/writing takes 23.79 seconds. member bytes total 486,890,600; peak resident memory is 1,140,195,328 bytes. these bounded fixture costs are not real-run forecasts. normal strict producer validation passes; the independent detached consumer and full multi-year chain remain pending.
 
+the [five-year fixture state chain](receipts/model-fixture-chain-02.json) now passes: all ten baseline heads complete and exactly one continuation per final head is assessed. the independent saved-file audit checks 2,768 actor priors, 593 carries, 503 age carries, 1,436 prior-only coefficients, 1,774 retained unsupported anchors and 50 centers. final pointwise h/d changes are approximately `2.95e-8` and `4.65e-8`; these are diagnostics, not accuracy certificates. the detached score04 consumer opens only its fifteen contained members and passes every required selector in 49.08 seconds, without original source, coaching, base-fit or score access. seven selected original-event checks use three existing complete capture bundles; unavailable cases remain separately identified in the review.
+
+the shared neutral evaluator replaces scorer-side coefficient interpretation. [bounded parity](receipts/neutral-evaluator-parity-01.json) finds maximum h logit movement `4.44e-16` and probability movement `5.55e-17` over 4,592 origin rows; d is exact. single-context and batched fully neutral evaluation now share one implementation. this is a measured rounding difference, with no refit or changed recipe.
+
+## sibling coordination
+
+the user's v1-17 coordination assigns its reference-xg metadata correction and ordinary inactive publication to the sibling worktree. source commit `148d60f` is shared as `cab701b`; the goalie compositor reuses its producer-owned correction check for only the three inherited reference-xg methods. every other inherited source/method/support/family remains exact. the intended parent is the checked corrected combined successor of `a40ca1c0`, then the goalie compositor preserves that parent's non-goalie content. no new metadata correction or numerical rebuild is run here.
+
+all new heavy reads/runs/builds are held for sibling session `96105`. remaining fixture scores, complete exchange/candidate, real states/scores, detached api and actual browser/download checks remain open. small source, numerical, contract and content work continues during the hold.
+
 ## limits and remaining acceptance
 
 the recorded-event follow-up is a proxy for the next recorded same-team ordinary attempt within five seconds, not tracking or demonstrated physical rebound control. conditional danger selects valued positive successors and omits target-model uncertainty. fixed point-history priors, common-panel weighting and absent calibrated intervals remain explicit. final optimizer sensitivity is diagnostic; only completed baseline estimates may be published.

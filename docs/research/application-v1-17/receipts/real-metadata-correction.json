@@ -1,0 +1,46 @@
+{
+  "status": "passed_metadata_only_successor_and_strict_reader",
+  "recorded_at": "2026-11-09T05:02:12.424821+00:00",
+  "producer": {
+    "git_commit": "148d60fa718e561e8cb9ca75b95f5ba61668168d",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "source_manifest_sha256": "a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5",
+  "output": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results",
+  "manifest_sha256": "38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8",
+  "correction_receipt_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4",
+  "wall_seconds": 2096.0651687500067,
+  "peak_rss_bytes": 232128512,
+  "total_bytes": 14365560306,
+  "unchanged_nonmethod_members": true,
+  "changed_method_ids": [
+    "reference-xg-v1-06-20232024",
+    "reference-xg-v1-06-20242025",
+    "reference-xg-v1-06-20252026"
+  ],
+  "numerical_preparation_fit_score_calls": 0,
+  "external_completion": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results-completion.json",
+    "sha256": "df5719f9e2bfd411090640481eda7bfe7a2fa0c4c6ec02caa9e048404b3552af"
+  },
+  "correction_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results-reference-xg-correction.json",
+    "sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4"
+  },
+  "phase_seconds_approximate_from_file_boundaries": {
+    "strict_donor_and_small_lineage_checks": 916.8095679283142,
+    "byte_copy_and_method_write": 231.59839725494385,
+    "strict_successor_and_small_final_checks": 947.635285615921
+  },
+  "phase_timing_scope": "file write mtimes delimit the stages; aggregate wall_seconds is directly timed; no repeated whole-artifact read for profiling",
+  "native_session_id": 96105,
+  "publication_status": "ordinary inactive candidate, single strict typescript startup, full relevant scalar/API and actual browser/export integration accepted",
+  "acceptance": {
+    "software": "accepted",
+    "available_field_real_integration": "accepted",
+    "whole_card_integration": "pending_v1_12_real_six_component_rows",
+    "real_integration_receipt": "real-integration.json",
+    "content_pixel_receipt": "content-final-pixel-review.json"
+  }
+}

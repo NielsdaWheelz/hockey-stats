@@ -1,0 +1,73 @@
+{
+  "status": "accepted_inactive_candidate_publication_python_and_actual_spatial_metadata_inheritance",
+  "recorded_at": "2026-11-09T06:57:13.097601+00:00",
+  "native_session_id": 96105,
+  "native_exit": 0,
+  "publication_id": "dd469700-19ec-4e70-b024-382204b9ae1c",
+  "purpose": "real",
+  "producer": {
+    "git_commit": "148d60fa718e561e8cb9ca75b95f5ba61668168d",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "spatial_consumed_fields": [
+      "interpreted.events.reported_x",
+      "interpreted.events.reported_y",
+      "interpreted.events.home_team_defending_side",
+      "reconstruction.events.attacking_x",
+      "reconstruction.events.attacking_y",
+      "reconstruction.events.coordinate_status"
+    ],
+    "sqlite_version": "3.54.1"
+  },
+  "source_results_manifest_sha256": "38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8",
+  "observed_selection_sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+  "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/candidate/player-analysis.sqlite",
+    "sha256": "3e6d430cdb455f29f2843d46d0c39ab0db2ca3b4f37e5232691adebfe0b0874e",
+    "bytes": 13356380160,
+    "digest_scope": "ordinary publisher-owned completed hash reused; no second database hash"
+  },
+  "verification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/candidate/verification.json",
+    "sha256": "391489e64f5538ae5a23f2af5d5b3abfe1545147c8ad6fc0a621088d631206e2"
+  },
+  "checks": {
+    "integrity": "passed",
+    "foreign_keys": "passed",
+    "read_back": "passed",
+    "per_season_conservation": "passed"
+  },
+  "cost": {
+    "wall_seconds": 6555.186274625012,
+    "peak_rss_bytes": 3328049152,
+    "consumed_bytes": 23416810637,
+    "database_bytes": 13356380160
+  },
+  "cost_scope": "through independent read-back; top receipt writing and final rename excluded; peak rss is process high-water",
+  "candidate_total_file_bytes": 29780529653,
+  "candidate_file_count": 65,
+  "actual_spatial_metadata_inheritance": "passed using actual successor methods/supports and pinned source manifests; no repeated family member scan",
+  "preservation": "fresh external inactive outputs; no prepare/fit/score/activation; original source/fits/active/previous and port3000 untouched",
+  "remaining": [
+    "whole-card v1-12 real component integration",
+    "coordinated temporary control/test-only dependency deletion by root",
+    "activation remains separately assigned"
+  ],
+  "typescript_startup": {
+    "status": "strict_publication_startup_passed",
+    "elapsed_seconds": 473.79433679199997,
+    "peak_rss_bytes": 1101021184,
+    "pid": 99292,
+    "port": 41918,
+    "receipt": "runtime-startup.json",
+    "scope": "one normal compiled publication validation; wrapper entry to actual listening; no second strict reader"
+  },
+  "acceptance": {
+    "software": "accepted",
+    "available_field_real_integration": "accepted",
+    "whole_card_integration": "pending_v1_12_real_six_component_rows",
+    "real_integration_receipt": "real-integration.json",
+    "content_pixel_receipt": "content-final-pixel-review.json"
+  }
+}

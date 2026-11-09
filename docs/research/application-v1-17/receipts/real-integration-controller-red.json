@@ -1,0 +1,114 @@
+{
+  "kind": "v1_17_real_field_client_integration",
+  "status": "failed",
+  "origin": "http://127.0.0.1:41918",
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/candidate/player-analysis.sqlite",
+  "results": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results",
+  "started_at": "2026-11-09T07:05:44.098Z",
+  "source_members": [
+    {
+      "label": "people",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/people.jsonl",
+      "sha256": "d3448bdde7e927357ac5296274d47e60af43031ce91eeb6b73c4e45ebba01d41",
+      "rows": 3145,
+      "bytes": 10254671
+    },
+    {
+      "label": "methods",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/methods-complete-01.jsonl",
+      "sha256": "bc1b2aa42b6edd6092aa67246e6a8b9a83e461eb348194806296f4f15cdae091",
+      "rows": 12,
+      "bytes": 53839
+    },
+    {
+      "label": "donor methods only",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/methods-complete-01.jsonl",
+      "sha256": "e41ae390b3b3fc5f314d7336b78728495a148e72de01d2594742588f52848a9a",
+      "rows": 12,
+      "bytes": 52096
+    },
+    {
+      "label": "20232024 microstats",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/20232024-microstats-skater_microstats.jsonl",
+      "sha256": "660b5f87ac6999cc95f7ed3b67cd7966a227b6d3301df4e68b7b21d16cb8e922",
+      "rows": 924,
+      "bytes": 21835972
+    }
+  ],
+  "http_reads": [
+    {
+      "request": "/api/league?family=microstats&kind=skater&season=20232024",
+      "status": 200,
+      "bytes": 24953558,
+      "sha256": "e7a343d9900eb26534c04be6f37c8c995ea26d1292e3a1fa68ee797d1ac94f50",
+      "elapsed_ms": 531.165083
+    }
+  ],
+  "replayed_league_requests": 0,
+  "seasons": [],
+  "goals_a1_controls": [],
+  "cases": [],
+  "scope": "full three-season microstat scalar/person equality, readonly scalar-table comparison, declared parity/cohort/card/history controls; no corpus audit or whole-exchange revalidation",
+  "manifest_sha256": "38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8",
+  "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "correction": {
+    "uri": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results-reference-xg-correction.json",
+    "sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4",
+    "donor": {
+      "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/manifest.json",
+      "sha256": "a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5"
+    },
+    "methods": [
+      {
+        "method_id": "reference-xg-v1-06-20232024",
+        "semantic_tuple": [
+          "experimental-v1:execution-v1-05-2",
+          "reference-execution-zero",
+          "execution-v1-06-matched-reference-v1"
+        ],
+        "numerical_identity": {
+          "design_sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238",
+          "input_sha256": "e91afb5635953aeeb0da648b4f1d2fd22ae37e6eb9964c9d75249ec2945b5c71"
+        },
+        "population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present"
+      },
+      {
+        "method_id": "reference-xg-v1-06-20242025",
+        "semantic_tuple": [
+          "experimental-v1:execution-v1-05-2",
+          "reference-execution-zero",
+          "execution-v1-06-matched-reference-v1"
+        ],
+        "numerical_identity": {
+          "design_sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+          "input_sha256": "d665471d9782e8f1575a687e200c683fd078d9f5a7cb752719edb46ff89097ea"
+        },
+        "population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present"
+      },
+      {
+        "method_id": "reference-xg-v1-06-20252026",
+        "semantic_tuple": [
+          "experimental-v1:execution-v1-05-2",
+          "reference-execution-zero",
+          "execution-v1-06-matched-reference-v1"
+        ],
+        "numerical_identity": {
+          "design_sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+          "input_sha256": "b8c418e3d89c2847b9749246f7f8f35f6455ff7c2c5ce160d1bc27ce8341ea34"
+        },
+        "population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present"
+      }
+    ]
+  },
+  "publication_id": "dd469700-19ec-4e70-b024-382204b9ae1c",
+  "candidate_bytes": 13356380160,
+  "error": {
+    "name": "AssertionError",
+    "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    assessment: {\n      findings: [\n        {\n          evidence: [\n...\n    ],\n-   method_id: 'reference-xg-v1-06-20232024',\n    population: 'credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present',\n    purpose: 'real',\n    recipe_id: 'experimental-v1:execution-v1-05-2',\n    reference: 'virtual shooter, setter, goalie and coaching with zero residual execution; retain circumstances and inferred setup',\n    reference_id: 'reference-execution-zero',\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    assessment: {\n      findings: [\n        {\n          evidence: [\n...\n    ],\n-   method_id: 'reference-xg-v1-06-20232024',\n    population: 'credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present',\n    purpose: 'real',\n    recipe_id: 'experimental-v1:execution-v1-05-2',\n    reference: 'virtual shooter, setter, goalie and coaching with zero residual execution; retain circumstances and inferred setup',\n    reference_id: 'reference-execution-zero',\n\n    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-17/.tmp/v1-17-fields/real-check.mts:139:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+  },
+  "elapsed_seconds": 1.167625792,
+  "peak_rss_kib": 687296,
+  "peak_rss_bytes": 703791104,
+  "finished_at": "2026-11-09T07:05:45.265Z"
+}

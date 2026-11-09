@@ -1,0 +1,52 @@
+{
+  "checks": [
+    "same-position comparison uses complete full-width cards at1600px",
+    "two absent selected-year skaters retain union cards, same-field detail and annual histories",
+    "unknown role is never guessed; explicit all-skater peers admit standings",
+    "150-character formula-like synthetic identity wraps; actual csv strings are worksheet-safe",
+    "download resolves after season navigation with exact original click-time png bytes",
+    "failed encoding reports failure and retry saves a valid png",
+    "direct goalie pk selection stays unchanged under extraneous microstats view",
+    "observed descriptive card remains available",
+    "comparative remains default"
+  ],
+  "saved": [
+    {
+      "label": "unknown-position",
+      "width": 1200,
+      "height": 2451,
+      "png": "hockey-stats-20252026-8484860-microstats.png",
+      "png_sha256": "8558d9ef536484efa4316d809959189f6a5b71d2db3c0b59c34385876a61a498",
+      "csv_rows": 36
+    },
+    {
+      "label": "long-name",
+      "width": 1200,
+      "height": 1938,
+      "png": "hockey-stats-20252026-8484860-microstats.png",
+      "png_sha256": "61b2d0b8ba2c64fc4733cd9e02062a431a2da1a696983d63e0825abf8555d915",
+      "csv_rows": 27
+    },
+    {
+      "label": "retry",
+      "width": 1200,
+      "height": 1812,
+      "png": "hockey-stats-20252026-8484860-microstats.png",
+      "png_sha256": "c90a509c8a51bd31ee350551432fa3f092ec895aeed7623a38302860e457de19",
+      "csv_rows": 27
+    }
+  ],
+  "errors": [],
+  "pair": [
+    {
+      "x": 96,
+      "y": 1048.6875,
+      "width": 1408
+    },
+    {
+      "x": 96,
+      "y": 4494.328125,
+      "width": 1408
+    }
+  ]
+}

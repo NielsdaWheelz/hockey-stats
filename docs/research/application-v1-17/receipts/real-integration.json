@@ -1,0 +1,3531 @@
+{
+  "kind": "v1_17_real_field_client_integration",
+  "status": "passed",
+  "origin": "http://127.0.0.1:41918",
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/candidate/player-analysis.sqlite",
+  "results": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results",
+  "started_at": "2026-11-09T07:07:24.666Z",
+  "source_members": [
+    {
+      "label": "people",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/people.jsonl",
+      "sha256": "d3448bdde7e927357ac5296274d47e60af43031ce91eeb6b73c4e45ebba01d41",
+      "rows": 3145,
+      "bytes": 10254671
+    },
+    {
+      "label": "methods",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/methods-complete-01.jsonl",
+      "sha256": "bc1b2aa42b6edd6092aa67246e6a8b9a83e461eb348194806296f4f15cdae091",
+      "rows": 12,
+      "bytes": 53839
+    },
+    {
+      "label": "donor methods only",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/methods-complete-01.jsonl",
+      "sha256": "e41ae390b3b3fc5f314d7336b78728495a148e72de01d2594742588f52848a9a",
+      "rows": 12,
+      "bytes": 52096
+    },
+    {
+      "label": "20232024 microstats",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/20232024-microstats-skater_microstats.jsonl",
+      "sha256": "660b5f87ac6999cc95f7ed3b67cd7966a227b6d3301df4e68b7b21d16cb8e922",
+      "rows": 924,
+      "bytes": 21835972
+    },
+    {
+      "label": "20242025 microstats",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/20242025-microstats-skater_microstats.jsonl",
+      "sha256": "1f07b34c788e30f6c855eb804a364fa3d99ebb87b7f5ac9cfdaa4cb1fe31f7e2",
+      "rows": 920,
+      "bytes": 21803353
+    },
+    {
+      "label": "20252026 microstats",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/20252026-microstats-skater_microstats.jsonl",
+      "sha256": "aff04ffc0cdb0ba224979f392a112881524d0f8cacd502d0e40d8b38e20c703e",
+      "rows": 940,
+      "bytes": 22169838
+    }
+  ],
+  "http_reads": [
+    {
+      "request": "/api/league?family=microstats&kind=skater&season=20232024",
+      "status": 200,
+      "bytes": 24953558,
+      "sha256": "e7a343d9900eb26534c04be6f37c8c995ea26d1292e3a1fa68ee797d1ac94f50",
+      "elapsed_ms": 1177.34175
+    },
+    {
+      "request": "/api/league?family=microstats&kind=skater&season=20242025",
+      "status": 200,
+      "bytes": 24920088,
+      "sha256": "40f1b96175fca0b45f36fad64096f713cee6c13927db7d2ed2c2fc2691175250",
+      "elapsed_ms": 2416.475083
+    },
+    {
+      "request": "/api/league?family=microstats&kind=skater&season=20252026",
+      "status": 200,
+      "bytes": 25297479,
+      "sha256": "a7f9dff8963782ef04ba38f58eeb3c5d80678a1d8b110cab732c36e35ba9f4c0",
+      "elapsed_ms": 782.2705830000004
+    },
+    {
+      "request": "/api/league?family=overview&kind=skater&season=20232024",
+      "status": 200,
+      "bytes": 19503264,
+      "sha256": "c26771ba38aa6d55e1c7ec6766178509f52fe854cb835221733f5fdf3469268f",
+      "elapsed_ms": 5381.6131669999995
+    },
+    {
+      "request": "/api/league?family=overview&kind=skater&season=20242025",
+      "status": 200,
+      "bytes": 19649007,
+      "sha256": "d2708ef2c91272250d918c99a2ca05ab1fd2c52f610e2e7ab231ffa6617c2a04",
+      "elapsed_ms": 2435.0227910000012
+    },
+    {
+      "request": "/api/league?family=overview&kind=skater&season=20252026",
+      "status": 200,
+      "bytes": 19722481,
+      "sha256": "17cf5d7883c27abbda64629126ac536979a05746c63a50ab7f7590f2c43f6df2",
+      "elapsed_ms": 2457.897500000001
+    },
+    {
+      "request": "/api/players/8474590?season=20232024",
+      "status": 200,
+      "bytes": 725387,
+      "sha256": "c34f8af4efeb78ae7e05a60a58eb9e51abf57751a27acb3c3a156d494736dc38",
+      "elapsed_ms": 22.279374999998254
+    },
+    {
+      "request": "/api/players/8474590/evidence?family=microstats&season=20232024",
+      "status": 200,
+      "bytes": 114747,
+      "sha256": "d5f19e769c4b834b6c0c46427793cc13bc7a54914925c2260027b11595fd8ed6",
+      "elapsed_ms": 2.2535419999985606
+    },
+    {
+      "request": "/api/players/8480069?season=20242025",
+      "status": 200,
+      "bytes": 720741,
+      "sha256": "3489ce8769dda5f7082766b95823461d840de5d9167dd202668faa542da6416c",
+      "elapsed_ms": 22.71637499999997
+    },
+    {
+      "request": "/api/players/8480069/evidence?family=microstats&season=20242025",
+      "status": 200,
+      "bytes": 114812,
+      "sha256": "38996eb51f2fce9a95eb1aee7cfb45ddf7016111cdf016c30015e1c807047e31",
+      "elapsed_ms": 2.388875000000553
+    },
+    {
+      "request": "/api/players/8478420?season=20242025",
+      "status": 200,
+      "bytes": 718958,
+      "sha256": "6cd2f8c3b47fba23670df12b00d6fc14a00e6ba6adf43086d2b12c3c10745174",
+      "elapsed_ms": 22.331249999999272
+    },
+    {
+      "request": "/api/players/8478420/evidence?family=microstats&season=20242025",
+      "status": 200,
+      "bytes": 115107,
+      "sha256": "6029727e43e4b1666828fddff2dd5364f2df4e8c4ee8dc10f557e8e48d13c1f2",
+      "elapsed_ms": 2.145916000001307
+    },
+    {
+      "request": "/api/players/8480075?season=20242025",
+      "status": 200,
+      "bytes": 523011,
+      "sha256": "1cdd68e0da7aca41fa3ba8cddcfb7b2fdfa2d3db74763f1b894ed85597af82ee",
+      "elapsed_ms": 14.877916999997979
+    },
+    {
+      "request": "/api/players/8480075/evidence?family=microstats&season=20242025",
+      "status": 200,
+      "bytes": 115197,
+      "sha256": "02e11e27b4608f0498f6205c4d7f3ec7b624d440ff446270b986bf217d0e5d88",
+      "elapsed_ms": 2.248666999999841
+    },
+    {
+      "request": "/api/players/8481558?season=20242025",
+      "status": 200,
+      "bytes": 313180,
+      "sha256": "804230a1d82b3158479d8e99315eeda924730d4069594f068250ee0d50088677",
+      "elapsed_ms": 8.069791999998415
+    },
+    {
+      "request": "/api/players/8481558/evidence?family=microstats&season=20242025",
+      "status": 200,
+      "bytes": 115197,
+      "sha256": "eb3a63f4928a859adefe0b68bf187a156d6c4587a21e62c4d9c88a7176b0ee42",
+      "elapsed_ms": 3.9621250000018335
+    },
+    {
+      "request": "/api/players/8478402?season=20252026",
+      "status": 200,
+      "bytes": 711208,
+      "sha256": "fcd1f7b88a4ef4e9f41c5cb1d900efb47e25fba148d3ab90b74d5dc4aee18943",
+      "elapsed_ms": 25.414084000000003
+    },
+    {
+      "request": "/api/players/8478402/evidence?family=microstats&season=20252026",
+      "status": 200,
+      "bytes": 114857,
+      "sha256": "da57191cea85c7c968bbab9d6ab9e87ea01f321c923832b28986765f027d024d",
+      "elapsed_ms": 2.296749999997701
+    }
+  ],
+  "replayed_league_requests": 24,
+  "seasons": [
+    {
+      "season": "20232024",
+      "person_rows": 924,
+      "scalar_fields": 27720,
+      "api_producer_sqlite_equal": true,
+      "microstats_member_sha256": "660b5f87ac6999cc95f7ed3b67cd7966a227b6d3301df4e68b7b21d16cb8e922"
+    },
+    {
+      "season": "20242025",
+      "person_rows": 920,
+      "scalar_fields": 27600,
+      "api_producer_sqlite_equal": true,
+      "microstats_member_sha256": "1f07b34c788e30f6c855eb804a364fa3d99ebb87b7f5ac9cfdaa4cb1fe31f7e2"
+    },
+    {
+      "season": "20252026",
+      "person_rows": 940,
+      "scalar_fields": 28200,
+      "api_producer_sqlite_equal": true,
+      "microstats_member_sha256": "aff04ffc0cdb0ba224979f392a112881524d0f8cacd502d0e40d8b38e20c703e"
+    }
+  ],
+  "goals_a1_controls": [
+    {
+      "season": "20232024",
+      "old_metric": "goals60",
+      "microstat_metric": "microstats.goals_per60",
+      "peers": "position",
+      "cutoff_minutes": 0,
+      "selected_rows": 924,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "reported defense",
+          "n": 315,
+          "exact_member_ids_sha256": "a0030f67662228cc5a24e25807398594cebc60faee348ede7ca90cdb06c7b5ee"
+        },
+        {
+          "peer_group": "reported forwards",
+          "n": 609,
+          "exact_member_ids_sha256": "72285ddbac2565f1ebcec980f2b251d0a281efb97a9ec8b58f739caf2e8a38c4"
+        }
+      ]
+    },
+    {
+      "season": "20232024",
+      "old_metric": "goals60",
+      "microstat_metric": "microstats.goals_per60",
+      "peers": "position",
+      "cutoff_minutes": 300,
+      "selected_rows": 924,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "reported defense",
+          "n": 246,
+          "exact_member_ids_sha256": "3fad7a6654fc0c05540e24b6312a9201ecf7e5b3d0434dd90d0944b7e210c92c"
+        },
+        {
+          "peer_group": "reported forwards",
+          "n": 426,
+          "exact_member_ids_sha256": "8632c50c5d8e5bc183714c11763662c0c7e43d1e50c85affa809561b6798a93b"
+        }
+      ]
+    },
+    {
+      "season": "20232024",
+      "old_metric": "goals60",
+      "microstat_metric": "microstats.goals_per60",
+      "peers": "all",
+      "cutoff_minutes": 0,
+      "selected_rows": 924,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "all skaters",
+          "n": 924,
+          "exact_member_ids_sha256": "b78747ec4753c8e95ee6976a1eb827c3880855714aa3a401d580aba44258e5d8"
+        }
+      ]
+    },
+    {
+      "season": "20232024",
+      "old_metric": "goals60",
+      "microstat_metric": "microstats.goals_per60",
+      "peers": "all",
+      "cutoff_minutes": 300,
+      "selected_rows": 924,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "all skaters",
+          "n": 672,
+          "exact_member_ids_sha256": "817a21d5212baac7f1f54af3cc50369be34249f01069c50fb516ad80cc040882"
+        }
+      ]
+    },
+    {
+      "season": "20232024",
+      "old_metric": "primaryAssists60",
+      "microstat_metric": "microstats.primary_assists_per60",
+      "peers": "position",
+      "cutoff_minutes": 0,
+      "selected_rows": 924,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "reported defense",
+          "n": 315,
+          "exact_member_ids_sha256": "a0030f67662228cc5a24e25807398594cebc60faee348ede7ca90cdb06c7b5ee"
+        },
+        {
+          "peer_group": "reported forwards",
+          "n": 609,
+          "exact_member_ids_sha256": "72285ddbac2565f1ebcec980f2b251d0a281efb97a9ec8b58f739caf2e8a38c4"
+        }
+      ]
+    },
+    {
+      "season": "20232024",
+      "old_metric": "primaryAssists60",
+      "microstat_metric": "microstats.primary_assists_per60",
+      "peers": "position",
+      "cutoff_minutes": 300,
+      "selected_rows": 924,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "reported defense",
+          "n": 246,
+          "exact_member_ids_sha256": "3fad7a6654fc0c05540e24b6312a9201ecf7e5b3d0434dd90d0944b7e210c92c"
+        },
+        {
+          "peer_group": "reported forwards",
+          "n": 426,
+          "exact_member_ids_sha256": "8632c50c5d8e5bc183714c11763662c0c7e43d1e50c85affa809561b6798a93b"
+        }
+      ]
+    },
+    {
+      "season": "20232024",
+      "old_metric": "primaryAssists60",
+      "microstat_metric": "microstats.primary_assists_per60",
+      "peers": "all",
+      "cutoff_minutes": 0,
+      "selected_rows": 924,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "all skaters",
+          "n": 924,
+          "exact_member_ids_sha256": "b78747ec4753c8e95ee6976a1eb827c3880855714aa3a401d580aba44258e5d8"
+        }
+      ]
+    },
+    {
+      "season": "20232024",
+      "old_metric": "primaryAssists60",
+      "microstat_metric": "microstats.primary_assists_per60",
+      "peers": "all",
+      "cutoff_minutes": 300,
+      "selected_rows": 924,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "all skaters",
+          "n": 672,
+          "exact_member_ids_sha256": "817a21d5212baac7f1f54af3cc50369be34249f01069c50fb516ad80cc040882"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "old_metric": "goals60",
+      "microstat_metric": "microstats.goals_per60",
+      "peers": "position",
+      "cutoff_minutes": 0,
+      "selected_rows": 920,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "reported defense",
+          "n": 314,
+          "exact_member_ids_sha256": "89924be42bc3aa0ee3aafd778a1871aa13f0eb01af3d591d905f7bcd4d1af63d"
+        },
+        {
+          "peer_group": "reported forwards",
+          "n": 596,
+          "exact_member_ids_sha256": "f88dc8e2e051efd3bdbb05149c1f562f2717e041f149cc5f5d000c3e465cfac5"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "old_metric": "goals60",
+      "microstat_metric": "microstats.goals_per60",
+      "peers": "position",
+      "cutoff_minutes": 300,
+      "selected_rows": 920,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "reported defense",
+          "n": 238,
+          "exact_member_ids_sha256": "2a68496c4ca904743b5a35f25824d3380bf28c8d1a549bea56c9248fa38fcb0b"
+        },
+        {
+          "peer_group": "reported forwards",
+          "n": 414,
+          "exact_member_ids_sha256": "0ad1e22302ae3c44c1887403b5d7da082cd52de00c80dd03b8a6a8c5a3e5d41a"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "old_metric": "goals60",
+      "microstat_metric": "microstats.goals_per60",
+      "peers": "all",
+      "cutoff_minutes": 0,
+      "selected_rows": 920,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "all skaters",
+          "n": 910,
+          "exact_member_ids_sha256": "8a2f3ebcd15906de660952377fcaae65c70ff04e5b6d56ab4602eba83cb20af9"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "old_metric": "goals60",
+      "microstat_metric": "microstats.goals_per60",
+      "peers": "all",
+      "cutoff_minutes": 300,
+      "selected_rows": 920,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "all skaters",
+          "n": 652,
+          "exact_member_ids_sha256": "f8a63e249cbd689c035f99b746b79c40d9299583f1079427d50d56ddbc20b01e"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "old_metric": "primaryAssists60",
+      "microstat_metric": "microstats.primary_assists_per60",
+      "peers": "position",
+      "cutoff_minutes": 0,
+      "selected_rows": 920,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "reported defense",
+          "n": 314,
+          "exact_member_ids_sha256": "89924be42bc3aa0ee3aafd778a1871aa13f0eb01af3d591d905f7bcd4d1af63d"
+        },
+        {
+          "peer_group": "reported forwards",
+          "n": 596,
+          "exact_member_ids_sha256": "f88dc8e2e051efd3bdbb05149c1f562f2717e041f149cc5f5d000c3e465cfac5"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "old_metric": "primaryAssists60",
+      "microstat_metric": "microstats.primary_assists_per60",
+      "peers": "position",
+      "cutoff_minutes": 300,
+      "selected_rows": 920,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "reported defense",
+          "n": 238,
+          "exact_member_ids_sha256": "2a68496c4ca904743b5a35f25824d3380bf28c8d1a549bea56c9248fa38fcb0b"
+        },
+        {
+          "peer_group": "reported forwards",
+          "n": 414,
+          "exact_member_ids_sha256": "0ad1e22302ae3c44c1887403b5d7da082cd52de00c80dd03b8a6a8c5a3e5d41a"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "old_metric": "primaryAssists60",
+      "microstat_metric": "microstats.primary_assists_per60",
+      "peers": "all",
+      "cutoff_minutes": 0,
+      "selected_rows": 920,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "all skaters",
+          "n": 910,
+          "exact_member_ids_sha256": "8a2f3ebcd15906de660952377fcaae65c70ff04e5b6d56ab4602eba83cb20af9"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "old_metric": "primaryAssists60",
+      "microstat_metric": "microstats.primary_assists_per60",
+      "peers": "all",
+      "cutoff_minutes": 300,
+      "selected_rows": 920,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "all skaters",
+          "n": 652,
+          "exact_member_ids_sha256": "f8a63e249cbd689c035f99b746b79c40d9299583f1079427d50d56ddbc20b01e"
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "old_metric": "goals60",
+      "microstat_metric": "microstats.goals_per60",
+      "peers": "position",
+      "cutoff_minutes": 0,
+      "selected_rows": 940,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "reported defense",
+          "n": 325,
+          "exact_member_ids_sha256": "bf857ab709ac6723984081cb95662f6e11fd10162cc2e613c3f9f5220d5d6c0f"
+        },
+        {
+          "peer_group": "reported forwards",
+          "n": 615,
+          "exact_member_ids_sha256": "c5d8775c8cd1ad9037235b7df273d661bb6a9956bb11ced5eee62cf4c9a48187"
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "old_metric": "goals60",
+      "microstat_metric": "microstats.goals_per60",
+      "peers": "position",
+      "cutoff_minutes": 300,
+      "selected_rows": 940,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "reported defense",
+          "n": 236,
+          "exact_member_ids_sha256": "288a2427ab214686c11f25add9f46d2491cadf89a69f24e11c6c33d57ca77d9e"
+        },
+        {
+          "peer_group": "reported forwards",
+          "n": 438,
+          "exact_member_ids_sha256": "32e8017143cb04e125688d30ef8cd64ae772227765cfb2b23a86f26583641725"
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "old_metric": "goals60",
+      "microstat_metric": "microstats.goals_per60",
+      "peers": "all",
+      "cutoff_minutes": 0,
+      "selected_rows": 940,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "all skaters",
+          "n": 940,
+          "exact_member_ids_sha256": "d39fe50a42fb35537940229afb076148ff53ab26d9b691b7f701d676d2fc3f4c"
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "old_metric": "goals60",
+      "microstat_metric": "microstats.goals_per60",
+      "peers": "all",
+      "cutoff_minutes": 300,
+      "selected_rows": 940,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "all skaters",
+          "n": 674,
+          "exact_member_ids_sha256": "ec0e808a90e150b8a9e563d6e8caf0e752871191d80f6e46743bae0b53f605ed"
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "old_metric": "primaryAssists60",
+      "microstat_metric": "microstats.primary_assists_per60",
+      "peers": "position",
+      "cutoff_minutes": 0,
+      "selected_rows": 940,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "reported defense",
+          "n": 325,
+          "exact_member_ids_sha256": "bf857ab709ac6723984081cb95662f6e11fd10162cc2e613c3f9f5220d5d6c0f"
+        },
+        {
+          "peer_group": "reported forwards",
+          "n": 615,
+          "exact_member_ids_sha256": "c5d8775c8cd1ad9037235b7df273d661bb6a9956bb11ced5eee62cf4c9a48187"
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "old_metric": "primaryAssists60",
+      "microstat_metric": "microstats.primary_assists_per60",
+      "peers": "position",
+      "cutoff_minutes": 300,
+      "selected_rows": 940,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "reported defense",
+          "n": 236,
+          "exact_member_ids_sha256": "288a2427ab214686c11f25add9f46d2491cadf89a69f24e11c6c33d57ca77d9e"
+        },
+        {
+          "peer_group": "reported forwards",
+          "n": 438,
+          "exact_member_ids_sha256": "32e8017143cb04e125688d30ef8cd64ae772227765cfb2b23a86f26583641725"
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "old_metric": "primaryAssists60",
+      "microstat_metric": "microstats.primary_assists_per60",
+      "peers": "all",
+      "cutoff_minutes": 0,
+      "selected_rows": 940,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "all skaters",
+          "n": 940,
+          "exact_member_ids_sha256": "d39fe50a42fb35537940229afb076148ff53ab26d9b691b7f701d676d2fc3f4c"
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "old_metric": "primaryAssists60",
+      "microstat_metric": "microstats.primary_assists_per60",
+      "peers": "all",
+      "cutoff_minutes": 300,
+      "selected_rows": 940,
+      "exact_native_values_counts_time_membership_n_ranks": true,
+      "unavailable_reason_wording_retained_separately": true,
+      "partitions": [
+        {
+          "peer_group": "all skaters",
+          "n": 674,
+          "exact_member_ids_sha256": "ec0e808a90e150b8a9e563d6e8caf0e752871191d80f6e46743bae0b53f605ed"
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "player_id": "8474590",
+      "season": "20232024",
+      "label": "carlson, defense",
+      "layout": "defense",
+      "slot_count": 20,
+      "scalar_count": 20,
+      "selected_person": {
+        "season": "20232024",
+        "player_id": "8474590",
+        "kind": "skater",
+        "display_name": "John Carlson",
+        "reported_position": "D",
+        "teams": [
+          {
+            "id": "15",
+            "abbreviation": "WSH"
+          }
+        ],
+        "source": [
+          {
+            "kind": "source",
+            "id": "factual-20232024"
+          }
+        ],
+        "birth_date": "1990-01-10",
+        "age_as_of": "2024-02-01",
+        "age_years": 34.05886379192334,
+        "height_cm": null,
+        "handedness": "R",
+        "sweater_numbers": [
+          {
+            "team_id": "15",
+            "game_id": "2023020018",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020039",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020049",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020069",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020083",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020099",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020114",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020128",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020150",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020166",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020191",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020206",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020216",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020232",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020263",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020285",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020298",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020326",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020339",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020352",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020368",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020378",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020396",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020414",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020422",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020448",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020468",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020475",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020496",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020499",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020521",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020529",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020550",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020562",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020576",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020587",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020603",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020618",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020645",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020653",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020669",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020683",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020696",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020713",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020734",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020742",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020760",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020789",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020795",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020808",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020818",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020828",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020857",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020879",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020894",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020906",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020923",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020927",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020954",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020969",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023020998",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021017",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021029",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021043",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021056",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021072",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021080",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021095",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021109",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021124",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021140",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021155",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021176",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021189",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021206",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021212",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021232",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021240",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021255",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021275",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021291",
+            "number": "74"
+          },
+          {
+            "team_id": "15",
+            "game_id": "2023021299",
+            "number": "74"
+          }
+        ],
+        "identity_support": {
+          "problems": [
+            {
+              "field": "height_cm",
+              "code": "unavailable",
+              "explanation": "source height units are unverified; raw height remains in bio observations"
+            }
+          ],
+          "evidence": [
+            {
+              "kind": "source",
+              "id": "factual-20232024"
+            }
+          ]
+        }
+      },
+      "facts": {
+        "goals_per60": {
+          "value": 0.12142198637375486,
+          "numerator": 3,
+          "denominator": 88946,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 88946,
+          "known_excluded_seconds": 83,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "94a94d63dccc9c4990cf0a9b4e4856365e4f48e5ae85d64d323ae87045b02f99"
+        },
+        "primary_assists_per60": {
+          "value": 0.20236997728959144,
+          "numerator": 5,
+          "denominator": 88946,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 88946,
+          "known_excluded_seconds": 83,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "7e06456b1342c72c5ba33a44f5f0685e315fa7dc91104459cac683210b47441f"
+        },
+        "unblocked_attempts_per60": {
+          "value": 7.530787831074622,
+          "numerator": 186,
+          "denominator": 88915,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 88915,
+          "known_excluded_seconds": 114,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "4be0e01dd38d96c90dbf1b9ecd8e55a37b546574b114817a5eff4c22ff3c3e5f"
+        },
+        "hits_per60": {
+          "value": 2.3098743752532758,
+          "numerator": 57,
+          "denominator": 88836,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 88836,
+          "known_excluded_seconds": 193,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "8b3616f423a70deacd97a2b270e1c2bc0dcd60eb4a96ceee8958b457df2065dd"
+        },
+        "blocked_attempt_share": {
+          "value": 0.08049738219895287,
+          "numerator": 123,
+          "denominator": 1528,
+          "denominator_kind": "opponent_attempts",
+          "included_seconds": 86819,
+          "known_excluded_seconds": 2210,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "7ffd2879bbdbeb5d7b95ac167c0ad6174d77d6d91de54c57a35bf52cc14c2747"
+        },
+        "reference_xg_per60": {
+          "value": 0.3569434255493576,
+          "numerator": 8.816006856311425,
+          "denominator": 88915,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 88915,
+          "known_excluded_seconds": 114,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "52a955a9ff59857e85a526b564f4b63a0ff3a02e86148245aba029a02a17afff"
+        }
+      },
+      "annual_history": [
+        {
+          "season": "20232024",
+          "person_present": true,
+          "native_value": 7.530787831074622,
+          "included_seconds": 88915,
+          "standing": {
+            "kind": "ranked",
+            "percentile": 80.28455284552845,
+            "n": 246,
+            "peerGroup": "reported defense",
+            "cutoffMinutes": 300
+          }
+        },
+        {
+          "season": "20242025",
+          "person_present": true,
+          "native_value": 7.969524904765327,
+          "included_seconds": 69565,
+          "standing": {
+            "kind": "ranked",
+            "percentile": 84.66386554621849,
+            "n": 238,
+            "peerGroup": "reported defense",
+            "cutoffMinutes": 300
+          }
+        },
+        {
+          "season": "20252026",
+          "person_present": true,
+          "native_value": 8.859848593880429,
+          "included_seconds": 69482,
+          "standing": {
+            "kind": "ranked",
+            "percentile": 94.27966101694915,
+            "n": 236,
+            "peerGroup": "reported defense",
+            "cutoffMinutes": 300
+          }
+        }
+      ],
+      "pending_component_context": [
+        {
+          "metric": "ledger.five_on_five_offense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.five_on_five_defense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.power_play_offense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.penalty_kill_defense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.finishing.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.penalties_combined.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        }
+      ],
+      "typed_profile_card_history_elapsed_ms": 796.5395000000026
+    },
+    {
+      "player_id": "8480069",
+      "season": "20242025",
+      "label": "makar, defense",
+      "layout": "defense",
+      "slot_count": 20,
+      "scalar_count": 20,
+      "selected_person": {
+        "season": "20242025",
+        "player_id": "8480069",
+        "kind": "skater",
+        "display_name": "Cale Makar",
+        "reported_position": "D",
+        "teams": [
+          {
+            "id": "21",
+            "abbreviation": "COL"
+          }
+        ],
+        "source": [
+          {
+            "kind": "source",
+            "id": "factual-20242025"
+          }
+        ],
+        "birth_date": "1998-10-30",
+        "age_as_of": "2025-02-01",
+        "age_years": 26.258726899383984,
+        "height_cm": null,
+        "handedness": "R",
+        "sweater_numbers": [
+          {
+            "team_id": "21",
+            "game_id": "2024020010",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020034",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020047",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020059",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020074",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020089",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020106",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020115",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020139",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020144",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020157",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020182",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020202",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020217",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020233",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020243",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020255",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020268",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020289",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020310",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020321",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020334",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020358",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020373",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020385",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020397",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020415",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020432",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020440",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020447",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020469",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020484",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020496",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020520",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020527",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020543",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020564",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020597",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020610",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020626",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020639",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020651",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020662",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020678",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020703",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020718",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020724",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020741",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020759",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020776",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020789",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020803",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020824",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020836",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020855",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020868",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020874",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020898",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020910",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020931",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020947",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020980",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020996",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021007",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021023",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021030",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021052",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021067",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021087",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021089",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021112",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021136",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021149",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021161",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021180",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021195",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021199",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021218",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021244",
+            "number": "8"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024021256",
+            "number": "8"
+          }
+        ],
+        "identity_support": {
+          "problems": [
+            {
+              "field": "height_cm",
+              "code": "unavailable",
+              "explanation": "source height units are unverified; raw height remains in bio observations"
+            }
+          ],
+          "evidence": [
+            {
+              "kind": "source",
+              "id": "factual-20242025"
+            }
+          ]
+        }
+      },
+      "facts": {
+        "goals_per60": {
+          "value": 0.5567120680425861,
+          "numerator": 13,
+          "denominator": 84065,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 84065,
+          "known_excluded_seconds": 105,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "f4639a1fd8c3935ce2435582a0a3eaada323c02e92bed7df6838e38aef25f335"
+        },
+        "primary_assists_per60": {
+          "value": 0.8136560994468566,
+          "numerator": 19,
+          "denominator": 84065,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 84065,
+          "known_excluded_seconds": 105,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "c227862c3c9f97b6b4515d9d60dff97063c5ac18b08a82904417dfc49870d5cd"
+        },
+        "unblocked_attempts_per60": {
+          "value": 10.02081722476655,
+          "numerator": 234,
+          "denominator": 84065,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 84065,
+          "known_excluded_seconds": 105,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "716f3a46f79a024b1bd1cf86d3247ff9634b4441a370e4b75859d1ca365be483"
+        },
+        "hits_per60": {
+          "value": 1.7535939170725912,
+          "numerator": 41,
+          "denominator": 84170,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 84170,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "302d3f35427b6b636ee5c1c10d5cf45da11c98266865a522c1b775a1ba61a0ba"
+        },
+        "blocked_attempt_share": {
+          "value": 0.07021996615905245,
+          "numerator": 83,
+          "denominator": 1182,
+          "denominator_kind": "opponent_attempts",
+          "included_seconds": 81642,
+          "known_excluded_seconds": 2528,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "131b4a731449c518202cbaa996344c73a0005a271dec07b6406952b99d0641ac"
+        },
+        "reference_xg_per60": {
+          "value": 0.5996584871721186,
+          "numerator": 13.997528236815176,
+          "denominator": 84033,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 84033,
+          "known_excluded_seconds": 137,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "a287bd819ee1030c707658f687d454f43b8c56852c579c499f179c70390a45d2"
+        }
+      },
+      "annual_history": [
+        {
+          "season": "20232024",
+          "person_present": true,
+          "native_value": 9.240118206917602,
+          "included_seconds": 72077,
+          "standing": {
+            "kind": "ranked",
+            "percentile": 95.73170731707317,
+            "n": 246,
+            "peerGroup": "reported defense",
+            "cutoffMinutes": 300
+          }
+        },
+        {
+          "season": "20242025",
+          "person_present": true,
+          "native_value": 10.02081722476655,
+          "included_seconds": 84065,
+          "standing": {
+            "kind": "ranked",
+            "percentile": 97.6890756302521,
+            "n": 238,
+            "peerGroup": "reported defense",
+            "cutoffMinutes": 300
+          }
+        },
+        {
+          "season": "20252026",
+          "person_present": true,
+          "native_value": 9.627618623120872,
+          "included_seconds": 74037,
+          "standing": {
+            "kind": "ranked",
+            "percentile": 95.97457627118644,
+            "n": 236,
+            "peerGroup": "reported defense",
+            "cutoffMinutes": 300
+          }
+        }
+      ],
+      "pending_component_context": [
+        {
+          "metric": "ledger.five_on_five_offense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.five_on_five_defense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.power_play_offense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.penalty_kill_defense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.finishing.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.penalties_combined.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        }
+      ],
+      "typed_profile_card_history_elapsed_ms": 769.2436669999988
+    },
+    {
+      "player_id": "8478420",
+      "season": "20242025",
+      "label": "rantanen, traded forward",
+      "layout": "forward",
+      "slot_count": 20,
+      "scalar_count": 21,
+      "selected_person": {
+        "season": "20242025",
+        "player_id": "8478420",
+        "kind": "skater",
+        "display_name": "Mikko Rantanen",
+        "reported_position": "R",
+        "teams": [
+          {
+            "id": "12",
+            "abbreviation": "CAR"
+          },
+          {
+            "id": "21",
+            "abbreviation": "COL"
+          },
+          {
+            "id": "25",
+            "abbreviation": "DAL"
+          }
+        ],
+        "source": [
+          {
+            "kind": "source",
+            "id": "factual-20242025"
+          }
+        ],
+        "birth_date": "1996-10-29",
+        "age_as_of": "2025-02-01",
+        "age_years": 28.26009582477755,
+        "height_cm": null,
+        "handedness": "L",
+        "sweater_numbers": [
+          {
+            "team_id": "21",
+            "game_id": "2024020010",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020034",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020047",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020059",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020074",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020089",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020106",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020115",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020139",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020144",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020157",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020182",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020202",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020217",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020233",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020243",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020255",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020268",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020289",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020310",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020321",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020334",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020358",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020373",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020385",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020397",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020415",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020432",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020440",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020447",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020469",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020484",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020496",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020520",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020527",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020543",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020564",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020597",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020610",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020626",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020639",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020651",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020662",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020678",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020703",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020718",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020724",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020741",
+            "number": "96"
+          },
+          {
+            "team_id": "21",
+            "game_id": "2024020759",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020785",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020802",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020817",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020832",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020852",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020867",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020900",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020920",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020940",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020955",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020963",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020975",
+            "number": "96"
+          },
+          {
+            "team_id": "12",
+            "game_id": "2024020992",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021011",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021019",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021051",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021067",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021083",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021097",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021105",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021127",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021141",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021150",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021169",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021181",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021201",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021211",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021223",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021242",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021255",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021272",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021286",
+            "number": "96"
+          },
+          {
+            "team_id": "25",
+            "game_id": "2024021304",
+            "number": "96"
+          }
+        ],
+        "identity_support": {
+          "problems": [
+            {
+              "field": "height_cm",
+              "code": "unavailable",
+              "explanation": "source height units are unverified; raw height remains in bio observations"
+            }
+          ],
+          "evidence": [
+            {
+              "kind": "source",
+              "id": "factual-20242025"
+            }
+          ]
+        }
+      },
+      "facts": {
+        "goals_per60": {
+          "value": 0.5889088827089809,
+          "numerator": 12,
+          "denominator": 73356,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 73356,
+          "known_excluded_seconds": 1135,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "c042a4f8c5b070260a6cbdb7de9675e38727f042f64837b5db1372a5b4629960"
+        },
+        "primary_assists_per60": {
+          "value": 0.9324390642892197,
+          "numerator": 19,
+          "denominator": 73356,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 73356,
+          "known_excluded_seconds": 1135,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "fc35d03136daa24c8026212f47941a8e4e389ff52380be0a8ca447bc229e0ff1"
+        },
+        "unblocked_attempts_per60": {
+          "value": 9.825997952917094,
+          "numerator": 200,
+          "denominator": 73275,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 73275,
+          "known_excluded_seconds": 1216,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "23185054eaf93f14417c06e6ce9fe6a1ef642b06e46bc21dde48cee4e582673d"
+        },
+        "hits_per60": {
+          "value": 1.8384625722349146,
+          "numerator": 38,
+          "denominator": 74410,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 74410,
+          "known_excluded_seconds": 81,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "2ffbfdbe77499efca0264e8b92718c4c20a1e420c770784dfa0e62a5ee9ebca3"
+        },
+        "blocked_attempt_share": {
+          "value": 0.03525046382189239,
+          "numerator": 38,
+          "denominator": 1078,
+          "denominator_kind": "opponent_attempts",
+          "included_seconds": 71423,
+          "known_excluded_seconds": 3068,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "b33313142cb28f6c06bd98888966f05e46f1d64dac0e105bbc28a09205df6331"
+        },
+        "reference_xg_per60": {
+          "value": 0.7963816746503097,
+          "numerator": 16.209685336111512,
+          "denominator": 73275,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 73275,
+          "known_excluded_seconds": 1216,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "540c67860babdca84fcf7f69262dcc8053528536c0eebe1e5138e3030afed55d"
+        }
+      },
+      "annual_history": [
+        {
+          "season": "20232024",
+          "person_present": true,
+          "native_value": 11.690635562330174,
+          "included_seconds": 75445,
+          "standing": {
+            "kind": "ranked",
+            "percentile": 78.75586854460094,
+            "n": 426,
+            "peerGroup": "reported forwards",
+            "cutoffMinutes": 300
+          }
+        },
+        {
+          "season": "20242025",
+          "person_present": true,
+          "native_value": 9.825997952917094,
+          "included_seconds": 73275,
+          "standing": {
+            "kind": "ranked",
+            "percentile": 62.43961352657005,
+            "n": 414,
+            "peerGroup": "reported forwards",
+            "cutoffMinutes": 300
+          }
+        },
+        {
+          "season": "20252026",
+          "person_present": true,
+          "native_value": 8.137462096848296,
+          "included_seconds": 54415,
+          "standing": {
+            "kind": "ranked",
+            "percentile": 33.67579908675799,
+            "n": 438,
+            "peerGroup": "reported forwards",
+            "cutoffMinutes": 300
+          }
+        }
+      ],
+      "pending_component_context": [
+        {
+          "metric": "ledger.five_on_five_offense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.five_on_five_defense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.power_play_offense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.penalty_kill_defense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.finishing.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.penalties_combined.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        }
+      ],
+      "typed_profile_card_history_elapsed_ms": 765.0780000000013
+    },
+    {
+      "player_id": "8480075",
+      "season": "20242025",
+      "label": "crotty, sparse defense",
+      "layout": "defense",
+      "slot_count": 20,
+      "scalar_count": 20,
+      "selected_person": {
+        "season": "20242025",
+        "player_id": "8480075",
+        "kind": "skater",
+        "display_name": "Cameron Crotty",
+        "reported_position": "D",
+        "teams": [
+          {
+            "id": "30",
+            "abbreviation": "MIN"
+          }
+        ],
+        "source": [
+          {
+            "kind": "source",
+            "id": "factual-20242025"
+          }
+        ],
+        "birth_date": "1999-05-05",
+        "age_as_of": "2025-02-01",
+        "age_years": 25.746748802190282,
+        "height_cm": null,
+        "handedness": "R",
+        "sweater_numbers": [
+          {
+            "team_id": "30",
+            "game_id": "2024021273",
+            "number": "34"
+          }
+        ],
+        "identity_support": {
+          "problems": [
+            {
+              "field": "height_cm",
+              "code": "unavailable",
+              "explanation": "source height units are unverified; raw height remains in bio observations"
+            }
+          ],
+          "evidence": [
+            {
+              "kind": "source",
+              "id": "factual-20242025"
+            }
+          ]
+        }
+      },
+      "facts": {
+        "goals_per60": {
+          "value": null,
+          "numerator": null,
+          "denominator": 0,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 0,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": "no_exposure",
+          "body_sha256": "efea1fcefe1bec2ab47f13ac1fb0782112f72b1cab865c282f498b647c083d1b"
+        },
+        "primary_assists_per60": {
+          "value": null,
+          "numerator": null,
+          "denominator": 0,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 0,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": "no_exposure",
+          "body_sha256": "efea1fcefe1bec2ab47f13ac1fb0782112f72b1cab865c282f498b647c083d1b"
+        },
+        "unblocked_attempts_per60": {
+          "value": null,
+          "numerator": null,
+          "denominator": 0,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 0,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": "missing_source",
+          "body_sha256": "dd6d3f89bf172ece1985c861f1a276a3e4ad25ce9a5fea95213141e2f47fb0ab"
+        },
+        "hits_per60": {
+          "value": null,
+          "numerator": null,
+          "denominator": 0,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 0,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": "missing_source",
+          "body_sha256": "60cad70e287583802a9ee1e0a158d3b6c21e92e3a0acc4500c00956fb58ecd9b"
+        },
+        "blocked_attempt_share": {
+          "value": null,
+          "numerator": null,
+          "denominator": null,
+          "denominator_kind": "opponent_attempts",
+          "included_seconds": 0,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": "missing_source",
+          "body_sha256": "7aa78e3ac608ac1073991a121cd5dea9a59b99855cd1345ba9cf91e873b1e649"
+        },
+        "reference_xg_per60": {
+          "value": null,
+          "numerator": null,
+          "denominator": 0,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 0,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": "missing_source",
+          "body_sha256": "eeb5cdd6c78ab3c5a115842d2e6940fa64542106f57d2a4380a4c06a828077ef"
+        }
+      },
+      "annual_history": [
+        {
+          "season": "20232024",
+          "person_present": true,
+          "native_value": 11.940298507462687,
+          "included_seconds": 603,
+          "standing": {
+            "kind": "outside",
+            "reason": "below cutoff",
+            "n": 246,
+            "peerGroup": "reported defense",
+            "cutoffMinutes": 300
+          }
+        },
+        {
+          "season": "20242025",
+          "person_present": true,
+          "native_value": null,
+          "included_seconds": 0,
+          "standing": {
+            "kind": "unavailable",
+            "reason": "missing_source",
+            "n": 238,
+            "peerGroup": "reported defense",
+            "cutoffMinutes": 300
+          }
+        },
+        {
+          "season": "20252026",
+          "person_present": true,
+          "native_value": 6.051691531834419,
+          "included_seconds": 4759,
+          "standing": {
+            "kind": "outside",
+            "reason": "below cutoff",
+            "n": 236,
+            "peerGroup": "reported defense",
+            "cutoffMinutes": 300
+          }
+        }
+      ],
+      "pending_component_context": [
+        {
+          "metric": "ledger.five_on_five_offense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.five_on_five_defense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.power_play_offense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.penalty_kill_defense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.finishing.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.penalties_combined.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        }
+      ],
+      "typed_profile_card_history_elapsed_ms": 756.21875
+    },
+    {
+      "player_id": "8481558",
+      "season": "20242025",
+      "label": "farinacci, sparse forward",
+      "layout": "forward",
+      "slot_count": 20,
+      "scalar_count": 21,
+      "selected_person": {
+        "season": "20242025",
+        "player_id": "8481558",
+        "kind": "skater",
+        "display_name": "John Farinacci",
+        "reported_position": "C",
+        "teams": [
+          {
+            "id": "6",
+            "abbreviation": "BOS"
+          }
+        ],
+        "source": [
+          {
+            "kind": "source",
+            "id": "factual-20242025"
+          }
+        ],
+        "birth_date": "2001-02-14",
+        "age_as_of": "2025-02-01",
+        "age_years": 23.964407939767284,
+        "height_cm": null,
+        "handedness": "R",
+        "sweater_numbers": [
+          {
+            "team_id": "6",
+            "game_id": "2024021291",
+            "number": "32"
+          }
+        ],
+        "identity_support": {
+          "problems": [
+            {
+              "field": "height_cm",
+              "code": "unavailable",
+              "explanation": "source height units are unverified; raw height remains in bio observations"
+            }
+          ],
+          "evidence": [
+            {
+              "kind": "source",
+              "id": "factual-20242025"
+            }
+          ]
+        }
+      },
+      "facts": {
+        "goals_per60": {
+          "value": null,
+          "numerator": null,
+          "denominator": 0,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 0,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": "no_exposure",
+          "body_sha256": "efea1fcefe1bec2ab47f13ac1fb0782112f72b1cab865c282f498b647c083d1b"
+        },
+        "primary_assists_per60": {
+          "value": null,
+          "numerator": null,
+          "denominator": 0,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 0,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": "no_exposure",
+          "body_sha256": "efea1fcefe1bec2ab47f13ac1fb0782112f72b1cab865c282f498b647c083d1b"
+        },
+        "unblocked_attempts_per60": {
+          "value": null,
+          "numerator": null,
+          "denominator": 0,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 0,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": "missing_source",
+          "body_sha256": "dd6d3f89bf172ece1985c861f1a276a3e4ad25ce9a5fea95213141e2f47fb0ab"
+        },
+        "hits_per60": {
+          "value": null,
+          "numerator": null,
+          "denominator": 0,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 0,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": "missing_source",
+          "body_sha256": "60cad70e287583802a9ee1e0a158d3b6c21e92e3a0acc4500c00956fb58ecd9b"
+        },
+        "blocked_attempt_share": {
+          "value": null,
+          "numerator": null,
+          "denominator": null,
+          "denominator_kind": "opponent_attempts",
+          "included_seconds": 0,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": "missing_source",
+          "body_sha256": "7aa78e3ac608ac1073991a121cd5dea9a59b99855cd1345ba9cf91e873b1e649"
+        },
+        "reference_xg_per60": {
+          "value": null,
+          "numerator": null,
+          "denominator": 0,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 0,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason": "missing_source",
+          "body_sha256": "eeb5cdd6c78ab3c5a115842d2e6940fa64542106f57d2a4380a4c06a828077ef"
+        }
+      },
+      "annual_history": [
+        {
+          "season": "20232024",
+          "person_present": false,
+          "native_value": null,
+          "included_seconds": null,
+          "standing": {
+            "kind": "unavailable",
+            "reason": "absent season",
+            "n": null,
+            "peerGroup": null,
+            "cutoffMinutes": null
+          }
+        },
+        {
+          "season": "20242025",
+          "person_present": true,
+          "native_value": null,
+          "included_seconds": 0,
+          "standing": {
+            "kind": "unavailable",
+            "reason": "missing_source",
+            "n": 414,
+            "peerGroup": "reported forwards",
+            "cutoffMinutes": 300
+          }
+        },
+        {
+          "season": "20252026",
+          "person_present": false,
+          "native_value": null,
+          "included_seconds": null,
+          "standing": {
+            "kind": "unavailable",
+            "reason": "absent season",
+            "n": null,
+            "peerGroup": null,
+            "cutoffMinutes": null
+          }
+        }
+      ],
+      "pending_component_context": [
+        {
+          "metric": "ledger.five_on_five_offense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.five_on_five_defense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.power_play_offense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.penalty_kill_defense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.finishing.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.penalties_combined.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        }
+      ],
+      "typed_profile_card_history_elapsed_ms": 779.3008339999978
+    },
+    {
+      "player_id": "8478402",
+      "season": "20252026",
+      "label": "mcdavid, forward",
+      "layout": "forward",
+      "slot_count": 20,
+      "scalar_count": 21,
+      "selected_person": {
+        "season": "20252026",
+        "player_id": "8478402",
+        "kind": "skater",
+        "display_name": "Connor McDavid",
+        "reported_position": "C",
+        "teams": [
+          {
+            "id": "22",
+            "abbreviation": "EDM"
+          }
+        ],
+        "source": [
+          {
+            "kind": "source",
+            "id": "factual-20252026"
+          }
+        ],
+        "birth_date": "1997-01-13",
+        "age_as_of": "2026-02-01",
+        "age_years": 29.05133470225873,
+        "height_cm": null,
+        "handedness": "L",
+        "sweater_numbers": [
+          {
+            "team_id": "22",
+            "game_id": "2025020006",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020035",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020051",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020065",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020078",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020090",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020099",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020122",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020139",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020147",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020162",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020175",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020192",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020200",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020207",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020240",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020254",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020266",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020274",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020289",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020302",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020315",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020322",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020338",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020360",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020393",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020418",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020434",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020450",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020474",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020491",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020499",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020512",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020524",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020534",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020552",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020570",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020585",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020598",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020609",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020631",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020647",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020674",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020690",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020709",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020722",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020731",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020747",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020764",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020769",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020786",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020800",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020818",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020829",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020854",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020871",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020891",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020900",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020917",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020929",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020936",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020966",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025020986",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021007",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021023",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021034",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021042",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021061",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021073",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021089",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021109",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021132",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021148",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021154",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021187",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021200",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021218",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021241",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021246",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021264",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021289",
+            "number": "97"
+          },
+          {
+            "team_id": "22",
+            "game_id": "2025021311",
+            "number": "97"
+          }
+        ],
+        "identity_support": {
+          "problems": [
+            {
+              "field": "height_cm",
+              "code": "unavailable",
+              "explanation": "source height units are unverified; raw height remains in bio observations"
+            }
+          ],
+          "evidence": [
+            {
+              "kind": "source",
+              "id": "factual-20252026"
+            }
+          ]
+        }
+      },
+      "facts": {
+        "goals_per60": {
+          "value": 0.9419152276295133,
+          "numerator": 21,
+          "denominator": 80262,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 80262,
+          "known_excluded_seconds": 2217,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "43120bf69fdb223779e379d73d496701707cbd9b70515c091a41f228343d8289"
+        },
+        "primary_assists_per60": {
+          "value": 0.8522090154743216,
+          "numerator": 19,
+          "denominator": 80262,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 80262,
+          "known_excluded_seconds": 2217,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "1c2e7223ce4df2fee4251d505319e5afbc57c6aea73d2ce36dd965ae5a15821d"
+        },
+        "unblocked_attempts_per60": {
+          "value": 11.258129625476565,
+          "numerator": 251,
+          "denominator": 80262,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 80262,
+          "known_excluded_seconds": 2217,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "3035f2d03ecc345c92cb2c102259ea7749369bdc612e39227989d4269b072821"
+        },
+        "hits_per60": {
+          "value": 1.4416775884665793,
+          "numerator": 33,
+          "denominator": 82404,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 82404,
+          "known_excluded_seconds": 75,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "42c033e6b9dc3af76fb7bcb02ad660597f0a905435f42bfad2a63215d8947f61"
+        },
+        "blocked_attempt_share": {
+          "value": 0.019315188762071993,
+          "numerator": 22,
+          "denominator": 1139,
+          "denominator_kind": "opponent_attempts",
+          "included_seconds": 78824,
+          "known_excluded_seconds": 3655,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "86c6d44b7dce51eb4d6e239bf40b64b453a94296cfa7f7ed5be4cb2e9a9c6b46"
+        },
+        "reference_xg_per60": {
+          "value": 0.894624424665935,
+          "numerator": 19.938941864742027,
+          "denominator": 80235,
+          "denominator_kind": "included_seconds",
+          "included_seconds": 80235,
+          "known_excluded_seconds": 2244,
+          "unquantified_gap": true,
+          "reason": null,
+          "body_sha256": "c5f3ba0af764c91fd87aa9484e0e4575cf45d604d8727be2aab133a02c10d184"
+        }
+      },
+      "annual_history": [
+        {
+          "season": "20232024",
+          "person_present": true,
+          "native_value": 11.878737884099815,
+          "included_seconds": 72735,
+          "standing": {
+            "kind": "ranked",
+            "percentile": 81.10328638497653,
+            "n": 426,
+            "peerGroup": "reported forwards",
+            "cutoffMinutes": 300
+          }
+        },
+        {
+          "season": "20242025",
+          "person_present": true,
+          "native_value": 10.684474123539232,
+          "included_seconds": 64692,
+          "standing": {
+            "kind": "ranked",
+            "percentile": 75.48309178743962,
+            "n": 414,
+            "peerGroup": "reported forwards",
+            "cutoffMinutes": 300
+          }
+        },
+        {
+          "season": "20252026",
+          "person_present": true,
+          "native_value": 11.258129625476565,
+          "included_seconds": 80262,
+          "standing": {
+            "kind": "ranked",
+            "percentile": 78.88127853881278,
+            "n": 438,
+            "peerGroup": "reported forwards",
+            "cutoffMinutes": 300
+          }
+        }
+      ],
+      "pending_component_context": [
+        {
+          "metric": "ledger.five_on_five_offense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.five_on_five_defense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.power_play_offense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.penalty_kill_defense.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.finishing.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        },
+        {
+          "metric": "ledger.penalties_combined.league_goals",
+          "status": "not_computed",
+          "reason": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+        }
+      ],
+      "typed_profile_card_history_elapsed_ms": 788.7873749999999
+    }
+  ],
+  "scope": "full three-season microstat scalar/person equality, readonly scalar-table comparison, declared parity/cohort/card/history controls; no corpus audit or whole-exchange revalidation",
+  "manifest_sha256": "38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8",
+  "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "correction": {
+    "uri": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results-reference-xg-correction.json",
+    "sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4",
+    "donor": {
+      "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/manifest.json",
+      "sha256": "a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5"
+    },
+    "methods": [
+      {
+        "method_id": "reference-xg-v1-06-20232024",
+        "semantic_tuple": [
+          "experimental-v1:execution-v1-05-2",
+          "reference-execution-zero",
+          "execution-v1-06-matched-reference-v1"
+        ],
+        "numerical_identity": {
+          "design_sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238",
+          "input_sha256": "e91afb5635953aeeb0da648b4f1d2fd22ae37e6eb9964c9d75249ec2945b5c71"
+        },
+        "population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present"
+      },
+      {
+        "method_id": "reference-xg-v1-06-20242025",
+        "semantic_tuple": [
+          "experimental-v1:execution-v1-05-2",
+          "reference-execution-zero",
+          "execution-v1-06-matched-reference-v1"
+        ],
+        "numerical_identity": {
+          "design_sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+          "input_sha256": "d665471d9782e8f1575a687e200c683fd078d9f5a7cb752719edb46ff89097ea"
+        },
+        "population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present"
+      },
+      {
+        "method_id": "reference-xg-v1-06-20252026",
+        "semantic_tuple": [
+          "experimental-v1:execution-v1-05-2",
+          "reference-execution-zero",
+          "execution-v1-06-matched-reference-v1"
+        ],
+        "numerical_identity": {
+          "design_sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+          "input_sha256": "b8c418e3d89c2847b9749246f7f8f35f6455ff7c2c5ce160d1bc27ce8341ea34"
+        },
+        "population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present"
+      }
+    ]
+  },
+  "publication_id": "dd469700-19ec-4e70-b024-382204b9ae1c",
+  "candidate_bytes": 13356380160,
+  "goals_a1_annual_rows": 5568,
+  "available_field_real_integration": "accepted at the scalar, identity, cohort and typed card/history boundaries exercised here; actual browser/download acceptance is separate",
+  "whole_card_integration": "pending v1-12 real six-term component context",
+  "elapsed_seconds": 21.67226875,
+  "peak_rss_kib": 1749744,
+  "peak_rss_bytes": 1791737856,
+  "finished_at": "2026-11-09T07:07:46.338Z"
+}

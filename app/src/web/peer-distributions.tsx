@@ -5,6 +5,7 @@ import type { Publication, SeasonEvidence } from "../shared/observed";
 import {
   analysisMetrics,
   type AnalysisDatum,
+  type AnalysisMetricId,
   type AnalysisMetric,
 } from "./analysis-values";
 import {
@@ -253,6 +254,7 @@ export default function PeerDistributions({
   profileLink,
   exportValues = false,
   showPeerControls = true,
+  metricIds,
 }: {
   readonly cohort: AnalysisCohort;
   readonly metric: AnalysisMetric;
@@ -267,6 +269,7 @@ export default function PeerDistributions({
   };
   readonly exportValues?: boolean;
   readonly showPeerControls?: boolean;
+  readonly metricIds?: readonly AnalysisMetricId[];
 }) {
   const id = useId();
   const [status, setStatus] = useState("");
@@ -296,7 +299,7 @@ export default function PeerDistributions({
     `${8 + (84 * (value - domain![0])) / (domain![1] - domain![0])}%`;
   const grouped = new Map<string, AnalysisMetric[]>();
   for (const item of analysisMetrics.filter(
-    (item) => item.kind === metric.kind,
+    (item) => item.kind === metric.kind && (!metricIds || metricIds.includes(item.id)),
   )) {
     const items = grouped.get(item.group) ?? [];
     items.push(item);

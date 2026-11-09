@@ -1,0 +1,281 @@
+{
+  "scope": "adverse geometry missed by earlier text-only bounds; no acceptance from these previews",
+  "results": [
+    {
+      "path": "docs/research/application-v1-17/static-long-defense.svg",
+      "sha256": "fe2944da930a05f9f90ec87af992811f15e69312e2e3f49b4a1c494ffcef57d1",
+      "horizontal_rules": 25,
+      "crossing_count": 36,
+      "crossing_examples": [
+        {
+          "line": "M44 421h542",
+          "text": "reference xg",
+          "line_y": 421,
+          "text_top": 412,
+          "text_bottom": 435
+        },
+        {
+          "line": "M44 421h542",
+          "text": "3",
+          "line_y": 421,
+          "text_top": 408,
+          "text_bottom": 436
+        },
+        {
+          "line": "M44 421h542",
+          "text": "50.0",
+          "line_y": 421,
+          "text_top": 410,
+          "text_bottom": 436
+        },
+        {
+          "line": "M44 508h542",
+          "text": "unblocked attempts",
+          "line_y": 508,
+          "text_top": 499,
+          "text_bottom": 522
+        },
+        {
+          "line": "M44 508h542",
+          "text": "18",
+          "line_y": 508,
+          "text_top": 495,
+          "text_bottom": 523
+        },
+        {
+          "line": "M44 508h542",
+          "text": "50.0",
+          "line_y": 508,
+          "text_top": 497,
+          "text_bottom": 523
+        },
+        {
+          "line": "M614 421h542",
+          "text": "reference expected",
+          "line_y": 421,
+          "text_top": 412,
+          "text_bottom": 435
+        },
+        {
+          "line": "M614 421h542",
+          "text": "tracking unavailable",
+          "line_y": 421,
+          "text_top": 412,
+          "text_bottom": 435
+        },
+        {
+          "line": "M614 502h542",
+          "text": "primary shot assists",
+          "line_y": 502,
+          "text_top": 493,
+          "text_bottom": 516
+        },
+        {
+          "line": "M614 502h542",
+          "text": "tracking unavailable",
+          "line_y": 502,
+          "text_top": 493,
+          "text_bottom": 516
+        },
+        {
+          "line": "M614 583h542",
+          "text": "shot-assisting passes",
+          "line_y": 583,
+          "text_top": 574,
+          "text_bottom": 597
+        },
+        {
+          "line": "M614 583h542",
+          "text": "tracking unavailable",
+          "line_y": 583,
+          "text_top": 574,
+          "text_bottom": 597
+        }
+      ]
+    },
+    {
+      "path": "docs/research/application-v1-17/static-unknown.svg",
+      "sha256": "9bdfb21cbeef90b4f54f0eba4febecf6fd4810febf83414b36360b6efa9c122e",
+      "horizontal_rules": 35,
+      "crossing_count": 56,
+      "crossing_examples": [
+        {
+          "line": "M44 421h542",
+          "text": "reference xg",
+          "line_y": 421,
+          "text_top": 412,
+          "text_bottom": 435
+        },
+        {
+          "line": "M44 421h542",
+          "text": "3",
+          "line_y": 421,
+          "text_top": 408,
+          "text_bottom": 436
+        },
+        {
+          "line": "M44 421h542",
+          "text": "unknown",
+          "line_y": 421,
+          "text_top": 412,
+          "text_bottom": 435
+        },
+        {
+          "line": "M44 508h542",
+          "text": "unblocked attempts",
+          "line_y": 508,
+          "text_top": 499,
+          "text_bottom": 522
+        },
+        {
+          "line": "M44 508h542",
+          "text": "18",
+          "line_y": 508,
+          "text_top": 495,
+          "text_bottom": 523
+        },
+        {
+          "line": "M44 508h542",
+          "text": "unknown",
+          "line_y": 508,
+          "text_top": 499,
+          "text_bottom": 522
+        },
+        {
+          "line": "M44 595h542",
+          "text": "in-zone attempts",
+          "line_y": 595,
+          "text_top": 586,
+          "text_bottom": 609
+        },
+        {
+          "line": "M44 595h542",
+          "text": "tracking unavailable",
+          "line_y": 595,
+          "text_top": 586,
+          "text_bottom": 609
+        },
+        {
+          "line": "M44 676h542",
+          "text": "rush attempts",
+          "line_y": 676,
+          "text_top": 667,
+          "text_bottom": 690
+        },
+        {
+          "line": "M44 676h542",
+          "text": "tracking unavailable",
+          "line_y": 676,
+          "text_top": 667,
+          "text_bottom": 690
+        },
+        {
+          "line": "M44 757h542",
+          "text": "attempts off",
+          "line_y": 757,
+          "text_top": 748,
+          "text_bottom": 771
+        },
+        {
+          "line": "M44 757h542",
+          "text": "tracking unavailable",
+          "line_y": 757,
+          "text_top": 748,
+          "text_bottom": 771
+        }
+      ]
+    },
+    {
+      "path": "docs/research/application-v1-17/static-absent.svg",
+      "sha256": "760081f30139f374b2b619a059c0eba54496a8d5ad4a3cf4a576f7157f508b6a",
+      "horizontal_rules": 35,
+      "crossing_count": 52,
+      "crossing_examples": [
+        {
+          "line": "M44 331h542",
+          "text": "reference xg",
+          "line_y": 331,
+          "text_top": 322,
+          "text_bottom": 345
+        },
+        {
+          "line": "M44 331h542",
+          "text": "absent season",
+          "line_y": 331,
+          "text_top": 322,
+          "text_bottom": 345
+        },
+        {
+          "line": "M44 412h542",
+          "text": "unblocked attempts",
+          "line_y": 412,
+          "text_top": 403,
+          "text_bottom": 426
+        },
+        {
+          "line": "M44 412h542",
+          "text": "absent season",
+          "line_y": 412,
+          "text_top": 403,
+          "text_bottom": 426
+        },
+        {
+          "line": "M44 493h542",
+          "text": "in-zone attempts",
+          "line_y": 493,
+          "text_top": 484,
+          "text_bottom": 507
+        },
+        {
+          "line": "M44 493h542",
+          "text": "absent season",
+          "line_y": 493,
+          "text_top": 484,
+          "text_bottom": 507
+        },
+        {
+          "line": "M44 574h542",
+          "text": "rush attempts",
+          "line_y": 574,
+          "text_top": 565,
+          "text_bottom": 588
+        },
+        {
+          "line": "M44 574h542",
+          "text": "absent season",
+          "line_y": 574,
+          "text_top": 565,
+          "text_bottom": 588
+        },
+        {
+          "line": "M44 655h542",
+          "text": "attempts off",
+          "line_y": 655,
+          "text_top": 646,
+          "text_bottom": 669
+        },
+        {
+          "line": "M44 655h542",
+          "text": "absent season",
+          "line_y": 655,
+          "text_top": 646,
+          "text_bottom": 669
+        },
+        {
+          "line": "M614 331h542",
+          "text": "reference expected",
+          "line_y": 331,
+          "text_top": 322,
+          "text_bottom": 345
+        },
+        {
+          "line": "M614 331h542",
+          "text": "absent season",
+          "line_y": 331,
+          "text_top": 322,
+          "text_bottom": 345
+        }
+      ]
+    }
+  ]
+}

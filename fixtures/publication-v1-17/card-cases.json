@@ -1,0 +1,123 @@
+{
+  "purpose": "fixture",
+  "construction": "explicit synthetic card-interface cases, not observed player data or fitted estimates",
+  "source": "fixtures/publication-v1-13/results",
+  "player_id": "9000001",
+  "season": "20232024",
+  "cases": {
+    "complete": {
+      "construction": "unchanged provided microstat values and ledger from the first synthetic player; forward position C",
+      "expected": {
+        "slots": 20,
+        "scalars": 21,
+        "card_csv_rows": 27,
+        "constructible_values": 5
+      }
+    },
+    "defense_sparse": {
+      "construction": "same synthetic player/facts, selected-year position changed to D; no borrowed role",
+      "expected": {
+        "slots": 20,
+        "scalars": 20,
+        "card_csv_rows": 26,
+        "constructible_values": 6,
+        "blocked_attempt_share": 0.25,
+        "denominator_opponent_attempts": 4,
+        "qualification_seconds": 600
+      }
+    },
+    "unknown_position": {
+      "construction": "selected-year reported_position null; a historical C identity remains separate",
+      "expected": {
+        "slots": 29,
+        "scalars": 30,
+        "card_csv_rows": 36,
+        "default_peer_standing": "unknown position",
+        "all_peer_standing": "ranked"
+      }
+    },
+    "partial": {
+      "construction": "hits support retains its exact value/numerator/denominator but known_excluded_seconds becomes 60 and unquantified_gap true",
+      "expected": {
+        "hits_per60": 24,
+        "rank_retained": true,
+        "support": "partial / unknown coverage"
+      }
+    },
+    "zero": {
+      "construction": "goals numerator and value become 0; positive matched denominator remains 600",
+      "expected": {
+        "raw_goals": 0,
+        "singleton_percentile": 50,
+        "cohort_n": 1
+      }
+    },
+    "no_exposure": {
+      "construction": "hits becomes unavailable_reason no_exposure, value null, numerator 0, denominator 0 and included_seconds 0; original reason_detail says no reconciled hit/membership time",
+      "expected": {
+        "raw_value": null,
+        "state": "no exposure",
+        "percentile": null
+      }
+    },
+    "deferred": {
+      "construction": "both skating reason_detail explanations become skating acquisition deferred; no admitted measurements; original v1-13 bytes remain frozen",
+      "expected": {
+        "state": "skating deferred",
+        "raw_values": [
+          null,
+          null
+        ],
+        "percentile": null
+      }
+    },
+    "pending": {
+      "construction": "entire microstats result becomes not_computed with explanation microstats family not computed",
+      "expected": {
+        "state": "pending computation \u00b7 microstats",
+        "tracking_unavailable": false
+      }
+    },
+    "absent": {
+      "construction": "selected-year person null and families absent, no selected-year cohort row; prior-year synthetic C identity retained for the explicitly historical name",
+      "expected": {
+        "layout": "unknown",
+        "slots": 29,
+        "scalars": 30,
+        "card_csv_rows": 36,
+        "state": "absent season",
+        "tracking_unavailable": false,
+        "borrowed_role": false
+      }
+    },
+    "long_name": {
+      "display_name": "=synthetic player \"a deliberately long, punctuated identity for checking exact CSV safety and wrapped card headers across both forward and defense layouts\"",
+      "expected": {
+        "csv_text_prefix": "'",
+        "png_width": 1200,
+        "known_position_max_height": 2000,
+        "unknown_position_max_height": 2600
+      }
+    },
+    "six_distinct_long": {
+      "construction": "defense layout and long_name identity; each constructible fact support.events becomes its numerator, except reference xg retains five physical attempts; support.eligible_weight becomes its numerator; recorded provenance uses observed-microstats-<personal-credit or scalar key>-20232024 source ids copied from fixture_source. values and rate/share denominators remain unchanged.",
+      "expected": {
+        "support_keys": 6,
+        "png_width": 1200,
+        "png_max_height": 2000
+      }
+    },
+    "union_distinct_long": {
+      "construction": "same six-distinct-support/long-name case with selected-year reported_position null",
+      "expected": {
+        "support_keys": 6,
+        "slots": 29,
+        "scalars": 30,
+        "card_csv_rows": 36,
+        "png_width": 1200,
+        "png_max_height": 2600
+      }
+    }
+  },
+  "scope": "same-year synthetic singleton cohorts; peerMin 0 for ten-minute source fixture; csv preserves native scalars and source/support evidence. original captures, methods, sources and microstat members are not rewritten. image production from these cases establishes composition only; native browser downloads are separately required."
+}

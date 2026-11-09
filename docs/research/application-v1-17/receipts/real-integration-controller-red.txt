@@ -1,0 +1,205 @@
+{"status":"failed","publication_id":"dd469700-19ec-4e70-b024-382204b9ae1c","seasons":0,"cases":0,"elapsed_seconds":1.167625792,"receipt":"/Users/nnandal/Documents/code/hockey-stats-v1-17/docs/research/application-v1-17/receipts/real-integration.json"}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    assessment: {
+      findings: [
+        {
+          evidence: [
+...
+    ],
+-   method_id: 'reference-xg-v1-06-20232024',
+    population: 'credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present',
+    purpose: 'real',
+    recipe_id: 'experimental-v1:execution-v1-05-2',
+    reference: 'virtual shooter, setter, goalie and coaching with zero residual execution; retain circumstances and inferred setup',
+    reference_id: 'reference-execution-zero',
+
+    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-17/.tmp/v1-17-fields/real-check.mts:139:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: {
+    assessment: {
+      findings: [
+        {
+          evidence: [ [Object], [Object], [Object], [Object] ],
+          population: 'credited ordinary physical 5v5 attempts and matched neutral_all_attempt_value elapsed personal support; both goalies present',
+          quantities: [ 'skater_microstats.reference_xg_per60' ],
+          summary: 'experimental same-season neutral-execution valuation of personal observed ordinary-attempt opportunities; blocked origins and setup are inferred; calibration, recovery, assumption sensitivity and numerical accuracy are not certified'
+        }
+      ],
+      status: 'experimental'
+    },
+    design_sha256: 'f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238',
+    evidence: [
+      {
+        sha256: 'f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238',
+        uri: '/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024/manifest.json'
+      },
+      {
+        sha256: '786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb',
+        uri: '/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json'
+      },
+      {
+        sha256: '30f88042c25b64b27ce4ee840c7fa40487c4633cb0fe75b9994ddc3b2874cf4e',
+        uri: '/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results/20232024-execution-composition.json'
+      },
+      {
+        sha256: 'a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4',
+        uri: '/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results-reference-xg-correction.json'
+      }
+    ],
+    family: 'microstats',
+    fit_seasons: [ '20212022', '20222023', '20232024' ],
+    input_sha256: 'e91afb5635953aeeb0da648b4f1d2fd22ae37e6eb9964c9d75249ec2945b5c71',
+    inputs: [
+      {
+        role: 'prepared',
+        seasons: [ '20212022', '20222023', '20232024' ],
+        sha256: '63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c'
+      },
+      {
+        role: 'coaches',
+        seasons: [ '20212022', '20222023', '20232024' ],
+        sha256: '102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0'
+      },
+      {
+        role: 'opportunity_panel',
+        seasons: [ '20232024' ],
+        sha256: '74ece5f8e91976c174f0c1a9e04ee20a2a777d4102108347c9c5101b81d07541'
+      },
+      {
+        role: 'source_results',
+        seasons: [ '20232024' ],
+        sha256: '786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb'
+      },
+      {
+        role: 'annual_state',
+        seasons: [ '20212022' ],
+        sha256: '7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61'
+      },
+      {
+        role: 'annual_state',
+        seasons: [ '20222023' ],
+        sha256: 'eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c'
+      },
+      {
+        role: 'annual_state',
+        seasons: [ '20232024' ],
+        sha256: 'dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa'
+      }
+    ],
+    limitations: [
+      'experimental seasonal fits; no scientific admission or calibrated uncertainty',
+      'same-season fitted expectations are not held-out forecasts or causal effects',
+      'blocked origins and setup are inferred; recorded facts remain separate',
+      'qualification uses the same matched neutral_all_attempt_value elapsed personal 5v5 support as the personal reference-xg rate; both goalies present'
+    ],
+    population: 'credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present',
+    purpose: 'real',
+    recipe_id: 'experimental-v1:execution-v1-05-2',
+    reference: 'virtual shooter, setter, goalie and coaching with zero residual execution; retain circumstances and inferred setup',
+    reference_id: 'reference-execution-zero',
+    support_policy_id: 'execution-v1-06-matched-reference-v1',
+    target: 'personal reference-valued observed opportunity per60',
+    training_cutoff: '2024-04-18'
+  },
+  expected: {
+    assessment: {
+      findings: [
+        {
+          evidence: [ [Object], [Object], [Object], [Object] ],
+          population: 'credited ordinary physical 5v5 attempts and matched neutral_all_attempt_value elapsed personal support; both goalies present',
+          quantities: [ 'skater_microstats.reference_xg_per60' ],
+          summary: 'experimental same-season neutral-execution valuation of personal observed ordinary-attempt opportunities; blocked origins and setup are inferred; calibration, recovery, assumption sensitivity and numerical accuracy are not certified'
+        }
+      ],
+      status: 'experimental'
+    },
+    design_sha256: 'f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238',
+    evidence: [
+      {
+        sha256: 'f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238',
+        uri: '/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024/manifest.json'
+      },
+      {
+        sha256: '786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb',
+        uri: '/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json'
+      },
+      {
+        sha256: '30f88042c25b64b27ce4ee840c7fa40487c4633cb0fe75b9994ddc3b2874cf4e',
+        uri: '/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results/20232024-execution-composition.json'
+      },
+      {
+        sha256: 'a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4',
+        uri: '/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results-reference-xg-correction.json'
+      }
+    ],
+    family: 'microstats',
+    fit_seasons: [ '20212022', '20222023', '20232024' ],
+    input_sha256: 'e91afb5635953aeeb0da648b4f1d2fd22ae37e6eb9964c9d75249ec2945b5c71',
+    inputs: [
+      {
+        role: 'prepared',
+        seasons: [ '20212022', '20222023', '20232024' ],
+        sha256: '63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c'
+      },
+      {
+        role: 'coaches',
+        seasons: [ '20212022', '20222023', '20232024' ],
+        sha256: '102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0'
+      },
+      {
+        role: 'opportunity_panel',
+        seasons: [ '20232024' ],
+        sha256: '74ece5f8e91976c174f0c1a9e04ee20a2a777d4102108347c9c5101b81d07541'
+      },
+      {
+        role: 'source_results',
+        seasons: [ '20232024' ],
+        sha256: '786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb'
+      },
+      {
+        role: 'annual_state',
+        seasons: [ '20212022' ],
+        sha256: '7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61'
+      },
+      {
+        role: 'annual_state',
+        seasons: [ '20222023' ],
+        sha256: 'eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c'
+      },
+      {
+        role: 'annual_state',
+        seasons: [ '20232024' ],
+        sha256: 'dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa'
+      }
+    ],
+    limitations: [
+      'experimental seasonal fits; no scientific admission or calibrated uncertainty',
+      'same-season fitted expectations are not held-out forecasts or causal effects',
+      'blocked origins and setup are inferred; recorded facts remain separate',
+      'qualification uses the same matched neutral_all_attempt_value elapsed personal 5v5 support as the personal reference-xg rate; both goalies present'
+    ],
+    method_id: 'reference-xg-v1-06-20232024',
+    population: 'credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present',
+    purpose: 'real',
+    recipe_id: 'experimental-v1:execution-v1-05-2',
+    reference: 'virtual shooter, setter, goalie and coaching with zero residual execution; retain circumstances and inferred setup',
+    reference_id: 'reference-execution-zero',
+    support_policy_id: 'execution-v1-06-matched-reference-v1',
+    target: 'personal reference-valued observed opportunity per60',
+    training_cutoff: '2024-04-18'
+  },
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.21.0

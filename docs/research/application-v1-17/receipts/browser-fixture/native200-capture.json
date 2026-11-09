@@ -1,0 +1,42 @@
+{
+  "method": "direct Page.captureScreenshot fromSurface=true without clip; Playwright inferred clips are invalid under native zoom",
+  "adverse": [
+    "native200.png",
+    "native200-group.png"
+  ],
+  "accepted": [
+    "native200-cdp-true.png",
+    "native200-group-cdp.png",
+    "native200-support-cdp.png"
+  ],
+  "images": [
+    {
+      "path": "native200-group-cdp.png",
+      "width": 1280,
+      "height": 913,
+      "sha256": "95b0dfb1586c4c2636f7a917debf927dc908d10eaa361864959e31dc8f24674c",
+      "metrics": {
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "devicePixelRatio": 2,
+        "documentWidth": 640,
+        "scrollY": 1140.5
+      }
+    },
+    {
+      "path": "native200-support-cdp.png",
+      "width": 1280,
+      "height": 913,
+      "sha256": "02de427fab015305b12f691ae84aa2ac5adf6ae4259c8ed5234a9738530d6347",
+      "metrics": {
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "devicePixelRatio": 2,
+        "documentWidth": 640,
+        "scrollY": 4937.5
+      }
+    }
+  ]
+}

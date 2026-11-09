@@ -19,14 +19,14 @@ import {
   readHistoryScale,
   viewSearch,
   seasonSearch,
-  shouldRevalidateView,
+  shouldRevalidateAnalysisView,
   useCanonicalSearch,
   type PeerSettings,
 } from "../explorer";
 import SpatialViews from "../spatial-views";
 import ExecutionEvidence from "../execution-evidence";
 import PeerDistributions, { PeerControls } from "../peer-distributions";
-import { type AnalysisMetric } from "../analysis-values";
+import { microstatMetricIds, microstatComponentIds, type AnalysisMetric } from "../analysis-values";
 import AnalysisHistory, {
   prepareHistoryPoint,
   type HistoryScale,
@@ -34,6 +34,8 @@ import AnalysisHistory, {
 import DescriptiveCard from "../descriptive-card";
 import { buildDescriptiveCard } from "../descriptive-values";
 import ComparativeCard, { prepareComparativeCard } from "../comparative-card";
+import MicrostatCard from "../microstat-card";
+import { prepareMicrostatCard } from "../microstat-values";
 import DeploymentTables from "../deployment-tables";
 import {
   CoverageDetail,
@@ -55,17 +57,8 @@ export const clientLoader = ({ params, request }: ClientLoaderFunctionArgs) =>
     new URL(request.url).searchParams,
   );
 export const ErrorBoundary = LoadError;
-// map mode selects the requested map view, so it reloads.
 export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) =>
-  shouldRevalidateView(args, [
-    "peers",
-    "peerMin",
-    "specialtyMin",
-    "history",
-    ...(readView(args.nextUrl.searchParams).view === "comparative"
-      ? ["map"]
-      : []),
-  ]);
+  shouldRevalidateAnalysisView(args);
 
 type Identity = Pick<Person, "display_name" | "player_id" | "teams"> & {
   readonly reported_position: string | null;
@@ -149,8 +142,8 @@ export default function Player() {
     `?${seasonSearch("", season.season)}`;
   const comparisonSearch = historySearch(location.state?.comparisonSearch);
   const viewQuery = seasonSearch("", season.season);
-  if (view === "observed" && data.kind === "skater")
-    viewQuery.set("view", "observed");
+  if (view !== "comparative" && data.kind === "skater")
+    viewQuery.set("view", view);
   viewQuery.set("metric", metric.id);
   if (scale !== "raw") viewQuery.set("history", scale);
   if (settings.specialtyMin !== 50)
@@ -231,12 +224,12 @@ export default function Player() {
   };
   const card = useMemo(
     () =>
-      data.kind === "skater" && !observedView
+      data.kind === "skater" && view === "comparative"
         ? prepareComparativeCard(data, settings)
         : null,
     [
       data,
-      observedView,
+      view,
       settings.peers,
       settings.peerMin,
       settings.specialtyMin,
@@ -246,6 +239,11 @@ export default function Player() {
     () => data.kind === "skater" && observedView
       ? buildDescriptiveCard(data, data.player_id, settings) : null,
     [data, observedView, settings.peers, settings.peerMin, settings.specialtyMin],
+  );
+  const microstats = useMemo(
+    () => data.kind === "skater" && view === "microstats"
+      ? prepareMicrostatCard(data, settings) : null,
+    [data, view, settings.peers, settings.peerMin, settings.specialtyMin],
   );
   const comparisonQuery = new URLSearchParams(viewQuery);
   comparisonQuery.set("a", data.player_id);
@@ -300,9 +298,9 @@ export default function Player() {
       </section>
       {data.kind === "skater" && (
         <nav className="comparative-view-nav" aria-label="player view">
-          {(["comparative", "observed"] as const).map((choice) => {
+          {(["comparative", "observed", "microstats"] as const).map((choice) => {
             const next = seasonSearch(search, season.season);
-            if (choice === "observed") next.set("view", "observed");
+            if (choice !== "comparative") next.set("view", choice);
             else next.delete("view");
             return (
               <Link
@@ -313,7 +311,7 @@ export default function Player() {
               >
                 {choice === "comparative"
                   ? "comparative card"
-                  : "observed results"}
+                  : choice === "observed" ? "observed results" : "microstat card"}
               </Link>
             );
           })}
@@ -357,7 +355,23 @@ export default function Player() {
           }
         />
       )}
+      {microstats && (
+        <>
+          <section className="comparative-controls" aria-label="microstat peer settings">
+            <PeerControls settings={settings} onChange={changePeers} allCutoffs />
+          </section>
+          <MicrostatCard
+            model={microstats}
+            detailLink={id => {
+              const next = seasonSearch(search, season.season);
+              next.set("metric", id);
+              return { to: `${location.pathname}?${next}`, state: location.state };
+            }}
+          />
+        </>
+      )}
       <PeerDistributions
+        metricIds={microstats ? [...microstatMetricIds, ...microstatComponentIds] : undefined}
         showPeerControls={observedView && metric.standingPolicy !== "raw_only"}
         cohort={selectedScalar.cohort}
         metric={metric}

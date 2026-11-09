@@ -1,0 +1,205 @@
+{
+  "origin": "http://127.0.0.1:41917",
+  "publication": {
+    "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+    "kind": "player_analysis",
+    "schema_version": 8,
+    "purpose": "fixture",
+    "generated_at": "2026-10-31T16:37:53.308320Z",
+    "population_version": "matched_attempts_v2",
+    "personal_population_version": "matched_personal_credits_v2",
+    "spatial_population_version": "matched_unblocked_locations_v2",
+    "spatial_display_version": "rect5_gaussian10_v1",
+    "git_commit": "0d19c01e184b8911eedb1bca795acbed3b6ccd58",
+    "families": [
+      {
+        "season": "20232024",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "execution",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "goalie",
+        "availability": "not_computed",
+        "explanation": "goalie estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "penalties",
+        "availability": "not_computed",
+        "explanation": "penalties estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "shootiness",
+        "availability": "not_computed",
+        "explanation": "shootiness estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "spatial",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "execution",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "goalie",
+        "availability": "not_computed",
+        "explanation": "goalie estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "penalties",
+        "availability": "not_computed",
+        "explanation": "penalties estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "shootiness",
+        "availability": "not_computed",
+        "explanation": "shootiness estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "spatial",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "execution",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "goalie",
+        "availability": "not_computed",
+        "explanation": "goalie estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "penalties",
+        "availability": "not_computed",
+        "explanation": "penalties estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "shootiness",
+        "availability": "not_computed",
+        "explanation": "shootiness estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "spatial",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      }
+    ]
+  },
+  "season": "20252026",
+  "ids": [
+    "8470613",
+    "8473419"
+  ],
+  "profile_bytes": 71183,
+  "comparison_bytes": 168449,
+  "assertions": 10
+}

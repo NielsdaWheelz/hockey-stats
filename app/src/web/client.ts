@@ -3,6 +3,7 @@ import * as Result from "effect/Result";
 import * as FetchHttpClient from "effect/http/FetchHttpClient";
 import * as HttpApiClient from "effect/http-api/HttpApiClient";
 import * as Schema from "effect/Schema";
+import { HockeyId } from "../shared/observed";
 import type {
   Deployment,
   PlayerGame,
@@ -55,8 +56,12 @@ export type ObservedMaps = {
   readonly scale: Extract<MapsResponse, { family: "observed" }>["scale"];
 };
 export type ExecutionEvidence = Extract<EvidenceResponse, { family: "execution" }>;
+export type MicrostatsEvidence = Extract<EvidenceResponse, { family: "microstats" }>;
+export type MicrostatsCohort = Extract<LeagueResponse, { family: "microstats" }>;
 export type ProfileView = Release & {
   readonly executionEvidence: ExecutionEvidence | null;
+  readonly microstatsEvidence: MicrostatsEvidence | null;
+  readonly microstatsCohort: MicrostatsCohort | null;
   readonly detail: PlayerResponse;
   readonly overviewCohorts: readonly SkaterOverview[];
   readonly view: AnalysisView;
@@ -218,6 +223,11 @@ const descriptiveRequest = (season: string): ScalarRequest => ({
 });
 const rawObserved = (metric: AnalysisMetric, view: AnalysisView) =>
   view === "observed" && metric.standingPolicy === "raw_only";
+const needsOverview = (season: string, selectedSeason: string, metric: AnalysisMetric, view: AnalysisView) =>
+  season === selectedSeason || (view === "microstats" ? metric.family === "overview" : !rawObserved(metric, view));
+const microstatsRequest = (season: string): ScalarRequest => ({
+  season, kind: "skater", family: "microstats", strength: null,
+});
 
 // only these five selectors can use observed values already carried by overview.
 const metricRequest = (season: string, metric: AnalysisMetric): ScalarRequest =>
@@ -363,6 +373,45 @@ function checkDescriptive(detail: PlayerResponse, cohort: LeagueResponse) {
   return cohort;
 }
 
+function checkMicrostats(row: AnnualRow, cohort: LeagueResponse, playerId: string): MicrostatsCohort {
+  if (cohort.family !== "microstats" || cohort.kind !== "skater" || cohort.strength !== null)
+    throw new Error("expected a microstats cohort");
+  if (!equal(row.season, cohort.season))
+    throw new Error("microstats cohort differs from its annual season evidence");
+  const member = cohort.players.find(({ person }) => person.player_id === playerId);
+  const families = row.families;
+  if ("availability" in families) {
+    if (member) throw new Error("absent season has a microstats cohort row");
+    return cohort;
+  }
+  if (families.kind !== "skater")
+    throw new Error("microstats cohort requires annual skater families");
+  if (!member || !equal(row.person, member.person) || !equal(families.microstats, member.result))
+    throw new Error(`player ${playerId}: complete microstats identity, body, status or support differs from its cohort row`);
+  return cohort;
+}
+
+function withMicrostatsEvidence(profile: ProfileView, evidence: EvidenceResponse): ProfileView {
+  sameRelease(profile.detail, evidence);
+  if (evidence.family !== "microstats" ||
+      evidence.selection.player_id !== profile.player_id ||
+      evidence.selection.season !== profile.season.season ||
+      evidence.selection.strength !== null || evidence.selection.population !== null ||
+      evidence.selection.type !== null || evidence.selection.outcome !== null ||
+      evidence.selection.shot_type !== null || evidence.selection.blocked_contacts)
+    throw new Error("microstats evidence differs from the selected player, season or population");
+  catalogs([profile.detail, evidence]);
+  const families = profile.detail.families;
+  if (!("availability" in families) && families.kind !== "skater")
+    throw new Error("microstats evidence requires skater families");
+  const expected = "availability" in families
+    ? { availability: families.availability, data: families.data, explanation: families.explanation }
+    : families.microstats;
+  if (!equal(expected, evidence.result))
+    throw new Error("microstats evidence body, status or support differs from player detail");
+  return { ...profile, microstatsEvidence: evidence };
+}
+
 function scalarRows(
   detail: PlayerResponse,
   metric: AnalysisMetric,
@@ -372,6 +421,7 @@ function scalarRows(
     const cohort = metric.standingPolicy === "raw_only" ? null : cohorts.get(requestKey(metricRequest(row.season.season, metric)))!;
     if (cohort === null) return { ...row, cohort: null };
     sameRelease({ ...detail, season: row.season }, cohort);
+    if (metric.family === "microstats") checkMicrostats(row, cohort, detail.player_id);
     const member = cohort.players.find(({ person }) => person.player_id === detail.player_id);
     const selected = selectHistoryValue(row, cohort, metric, detail.player_id);
     if (member) {
@@ -402,8 +452,16 @@ function composeProfile(
     const cohort = cohorts.get(requestKey(overviewRequest(season)));
     return cohort ? [requireOverview(cohort)] : [];
   });
-  if (detail.kind === "skater" && !rawObserved(selectedMetric, view) && overviewCohorts.length !== detail.available_seasons.length)
-    throw new Error("profile is missing an annual overview cohort");
+  const requiredOverviews = detail.kind === "skater"
+    ? detail.available_seasons.filter(season => needsOverview(season, detail.season.season, selectedMetric, view))
+    : [];
+  if (requiredOverviews.some(season => !overviewCohorts.some(cohort => cohort.season.season === season)))
+    throw new Error("profile is missing a required annual overview cohort");
+  const selectedAnnual = detail.history.find(row => row.season.season === detail.season.season)!;
+  const microstats = cohorts.get(requestKey(microstatsRequest(detail.season.season)));
+  const microstatsCohort = microstats ? checkMicrostats(selectedAnnual, microstats, detail.player_id) : null;
+  if (view === "microstats" && !microstatsCohort)
+    throw new Error("microstats view is missing its selected-year microstats cohort");
   const descriptive = cohorts.get(requestKey(descriptiveRequest(detail.season.season)));
   const descriptiveCohort = descriptive ? checkDescriptive(detail, descriptive) : null;
   for (const cohort of overviewCohorts) {
@@ -431,6 +489,8 @@ function composeProfile(
     season: detail.season,
     detail,
     executionEvidence: null,
+    microstatsEvidence: null,
+    microstatsCohort,
     overviewCohorts,
     view,
     selectedMetric,
@@ -537,10 +597,11 @@ export const loadProfile = (
     const requests = [...new Map(
       [
         ...detail.available_seasons.flatMap(season => [
-          ...(detail.kind === "skater" && (!rawObserved(metric, view) || season === detail.season.season) ? [overviewRequest(season)] : []),
+          ...(detail.kind === "skater" && needsOverview(season, detail.season.season, metric, view) ? [overviewRequest(season)] : []),
           ...(metric.standingPolicy === "raw_only" ? [] : [metricRequest(season, metric)]),
         ]),
         ...(detail.kind === "skater" && (view === "observed" || metric.standingPolicy === "raw_only") ? [descriptiveRequest(detail.season.season)] : []),
+        ...(view === "microstats" ? [microstatsRequest(detail.season.season)] : []),
       ].map(request => [requestKey(request), request]),
     ).values()];
     const responses = yield* Effect.all(
@@ -559,31 +620,38 @@ export const loadProfile = (
       ]));
       return composeProfile({ ...detail, ...resolved }, metric, cohorts, view);
     });
-      if (metric.publicationFamily === "execution") {
-        const evidence = yield* api.analysis.evidence({
-          params: { playerId },
-          query: {
-            season: profile.season.season,
-            family: "execution",
-            strength: metric.selectionStrength!,
-          },
-        });
-        profile = yield* compose((): ProfileView => {
-          sameRelease(detail, evidence);
-          if (
-            evidence.family !== "execution" ||
-            evidence.selection.player_id !== playerId ||
-            evidence.selection.season !== profile.season.season ||
-            evidence.selection.strength !== metric.selectionStrength
-          )
-            throw new Error(
-              "execution evidence differs from the selected player, season or strength",
-            );
-          catalogs([detail, ...responses, evidence]);
-          return { ...profile, executionEvidence: evidence };
-        });
-      }
-      if (view !== "observed" || !profile.player) return profile;
+    if (view === "microstats" && metric.family === "microstats") {
+      const evidence = yield* api.analysis.evidence({
+        params: { playerId },
+        query: { season: profile.season.season, family: "microstats" },
+      });
+      profile = yield* compose(() => withMicrostatsEvidence(profile, evidence));
+    }
+    if (metric.publicationFamily === "execution") {
+      const evidence = yield* api.analysis.evidence({
+        params: { playerId },
+        query: {
+          season: profile.season.season,
+          family: "execution",
+          strength: metric.selectionStrength!,
+        },
+      });
+      profile = yield* compose((): ProfileView => {
+        sameRelease(detail, evidence);
+        if (
+          evidence.family !== "execution" ||
+          evidence.selection.player_id !== playerId ||
+          evidence.selection.season !== profile.season.season ||
+          evidence.selection.strength !== metric.selectionStrength
+        )
+          throw new Error(
+            "execution evidence differs from the selected player, season or strength",
+          );
+        catalogs([detail, ...responses, evidence]);
+        return { ...profile, executionEvidence: evidence };
+      });
+    }
+    if (view !== "observed" || !profile.player) return profile;
     const mapMode = mapView(query);
     const maps = yield* api.analysis.maps({
       query: mapsQuery(profile.season.season, [playerId], mapMode),
@@ -594,8 +662,8 @@ export const loadProfile = (
     });
   }), signal);
 
-// the picker uses every selected-year identity. two valid selections share all
-// three annual overview and selected-field reads, including request-local reuse.
+// the picker uses selected-year identities; microstats can retain a known skater
+// through an absent year. paired profiles share their exact annual reads.
 export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
   read(Effect.gen(function* () {
     const api = yield* client;
@@ -609,31 +677,38 @@ export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
     const view = readView(query).view;
     const metric = readMetric(query, "skater", view).metric;
     const persons = overview.players.map(row => row.person);
-    const [first, second] = ["a", "b"].map(key => {
+    const selectedIds = ["a", "b"].map(key => {
       const values = query.getAll(key);
-      return values.length === 1
-        ? persons.find(row => row.player_id === values[0])
-        : undefined;
+      return values.length === 1 && Schema.is(HockeyId)(values[0]) ? values[0] : null;
     });
+    const [first, second] = selectedIds.map(id => persons.find(row => row.player_id === id));
     const pair = first && second && first.player_id !== second.player_id
       ? [first, second] as const
       : null;
-    const details = pair ? yield* Effect.all(
-      pair.map(person => api.analysis.player({
-        params: { playerId: person.player_id },
+    const requestedIds = view === "microstats"
+      ? selectedIds[0] !== null && selectedIds[1] !== null && selectedIds[0] !== selectedIds[1]
+        ? [selectedIds[0], selectedIds[1]] as const : null
+      : pair ? [pair[0].player_id, pair[1].player_id] as const : null;
+    const details = requestedIds ? yield* Effect.all(
+      requestedIds.map(playerId => api.analysis.player({
+        params: { playerId },
         query: { season: overview.season.season },
-      })),
+      }).pipe(Effect.catch(error => view === "microstats" && Schema.is(ApiError)(error) && error._tag === "PlayerNotFound"
+        ? Effect.succeed(null) : Effect.fail(error)))),
       { concurrency: "unbounded" },
     ) : [];
+    const profileDetails = details[0]?.kind === "skater" && details[1]?.kind === "skater"
+      ? [details[0], details[1]] as const : null;
     const requests = [...new Map(
       [
-        ...(pair
+        ...(profileDetails
           ? overview.available_seasons.flatMap(season => [
-              ...(!rawObserved(metric, view) || season === overview.season.season ? [overviewRequest(season)] : []),
+              ...(needsOverview(season, overview.season.season, metric, view) ? [overviewRequest(season)] : []),
               ...(metric.standingPolicy === "raw_only" ? [] : [metricRequest(season, metric)]),
             ])
           : [metricRequest(overview.season.season, metric)]),
         ...(view === "observed" || metric.standingPolicy === "raw_only" ? [descriptiveRequest(overview.season.season)] : []),
+        ...(view === "microstats" ? [microstatsRequest(overview.season.season)] : []),
       ].map(request => [requestKey(request), request]),
     ).values()].filter(
       request => requestKey(request) !== requestKey(overviewRequest(overview.season.season)),
@@ -642,22 +717,21 @@ export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
       requests.map(request => api.analysis.league({ query: scalarQuery(request) })),
       { concurrency: "unbounded" },
     );
-    const comparison = yield* compose((): ComparisonView => {
+    let comparison = yield* compose((): ComparisonView => {
       checkRequest(overview, overviewRequest(overview.season.season));
       details.forEach((detail, index) => {
+        if (!detail) return;
         sameRelease(overview, detail);
-        if (
-          detail.player_id !== pair![index].player_id ||
-          detail.kind !== "skater" ||
-          !equal(detail.person, pair![index])
-        )
+        const person = persons.find(candidate => candidate.player_id === requestedIds![index]);
+        if (detail.player_id !== requestedIds![index] ||
+            (detail.kind === "skater" ? !equal(detail.person, person ?? null) : person !== undefined))
           throw new Error("comparison detail does not match its selected annual identity");
       });
       responses.forEach((response, index) => {
         samePublication(overview, response);
         checkRequest(response, requests[index]);
       });
-      const resolved = catalogs([overview, ...details, ...responses]);
+      const resolved = catalogs([overview, ...details.filter(detail => detail !== null), ...responses]);
       const cohorts = new Map([
         [
           requestKey(overviewRequest(overview.season.season)),
@@ -672,9 +746,9 @@ export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
       );
       const scalarCohort = cohorts.get(requestKey(metricRequest(overview.season.season, metric)))!;
       const league = composeLeague(selectedOverview, scalarCohort);
-      const profiles: ComparisonView["profiles"] = pair ? [
-        composeProfile({ ...details[0], ...resolved }, metric, cohorts, view),
-        composeProfile({ ...details[1], ...resolved }, metric, cohorts, view),
+      const profiles: ComparisonView["profiles"] = profileDetails ? [
+        composeProfile({ ...profileDetails[0], ...resolved }, metric, cohorts, view),
+        composeProfile({ ...profileDetails[1], ...resolved }, metric, cohorts, view),
       ] : null;
       return {
         ...league,
@@ -683,13 +757,30 @@ export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
         scalarCohort,
         pair,
         profiles,
-        overviewCohorts: pair ? overview.available_seasons.flatMap(season => {
+        overviewCohorts: profileDetails ? overview.available_seasons.flatMap(season => {
           const cohort = cohorts.get(requestKey(overviewRequest(season)));
           return cohort ? [requireOverview(cohort)] : [];
         }) : [selectedOverview],
         maps: null,
       };
     });
+    if (comparison.profiles && view === "microstats" && metric.family === "microstats") {
+      const profiles = comparison.profiles;
+      const evidence = yield* Effect.all(profiles.map(profile => api.analysis.evidence({
+        params: { playerId: profile.player_id },
+        query: { season: comparison.season.season, family: "microstats" },
+      })), { concurrency: "unbounded" });
+      comparison = yield* compose((): ComparisonView => {
+        catalogs([comparison.overview, ...evidence]);
+        return {
+          ...comparison,
+          profiles: [
+            withMicrostatsEvidence(profiles[0], evidence[0]),
+            withMicrostatsEvidence(profiles[1], evidence[1]),
+          ],
+        };
+      });
+    }
     if (!pair || view !== "observed") return comparison;
     const mapMode = mapView(query);
     const ids = pair.map(person => person.player_id);
@@ -697,7 +788,7 @@ export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
       query: mapsQuery(overview.season.season, ids, mapMode),
     });
     return yield* compose((): ComparisonView => {
-      catalogs([overview, ...details, ...responses, maps]);
+      catalogs([overview, ...details.filter(detail => detail !== null), ...responses, maps]);
       return { ...comparison, maps: observedMaps(maps, comparison, ids, mapMode) };
     });
   }), signal);

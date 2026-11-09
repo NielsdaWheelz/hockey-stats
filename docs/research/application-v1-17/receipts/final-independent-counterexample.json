@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "boundary": "selected field absent from one compact layout remains an independent same-field comparison",
+  "publication": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "selected": [
+    {
+      "player_id": "8484860",
+      "native": 0.1,
+      "display": 10,
+      "standing": {
+        "kind": "ranked",
+        "percentile": 82.63157894736842,
+        "n": 95,
+        "peerGroup": "reported forwards",
+        "cutoffMinutes": 0
+      }
+    },
+    {
+      "player_id": "8484783",
+      "native": 0,
+      "display": 0,
+      "standing": {
+        "kind": "ranked",
+        "percentile": 16.666666666666668,
+        "n": 48,
+        "peerGroup": "reported defense",
+        "cutoffMinutes": 0
+      }
+    }
+  ],
+  "layouts": [
+    "forward",
+    "defense"
+  ],
+  "csv_rows": [
+    27,
+    26
+  ]
+}

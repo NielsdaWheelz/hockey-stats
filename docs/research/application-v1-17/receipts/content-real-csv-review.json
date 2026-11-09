@@ -1,0 +1,183 @@
+{
+  "scope": "saved real browser csvs only; no source/corpus scans or extra api reads; svg/png repair still pending",
+  "publication_id": "dd469700-19ec-4e70-b024-382204b9ae1c",
+  "purpose": "real",
+  "checks": [
+    {
+      "path": "docs/research/application-v1-17/receipts/browser-real/defense-comparison.csv",
+      "sha256": "19f7f636cd3218242357a9e79213336167ee2464ec446afc089773c10a922756",
+      "player_id": "8481542",
+      "display_name": "Moritz Seider",
+      "season": "20252026",
+      "layout": "defense",
+      "teams": [
+        {
+          "id": "17",
+          "abbreviation": "DET"
+        }
+      ],
+      "rows": 26,
+      "columns": 69,
+      "available_native_arithmetic_checks": 6,
+      "microstat_rows": 20,
+      "pending_strip_rows": 6,
+      "reference_xg_population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present",
+      "correction_receipt_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4"
+    },
+    {
+      "path": "docs/research/application-v1-17/receipts/browser-real/forward.csv",
+      "sha256": "61a041a5eab53583b681b93d03c62bb89421cf774ac16e691a383bc9268e2a9d",
+      "player_id": "8478402",
+      "display_name": "Connor McDavid",
+      "season": "20252026",
+      "layout": "forward",
+      "teams": [
+        {
+          "id": "22",
+          "abbreviation": "EDM"
+        }
+      ],
+      "rows": 27,
+      "columns": 69,
+      "available_native_arithmetic_checks": 5,
+      "microstat_rows": 21,
+      "pending_strip_rows": 6,
+      "reference_xg_population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present",
+      "correction_receipt_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4"
+    },
+    {
+      "path": "docs/research/application-v1-17/receipts/browser-real-cases/carlson.csv",
+      "sha256": "bcfc30944866847edf170ee014f3d122d7b4a3827511d59a5ce46f80665aed63",
+      "player_id": "8474590",
+      "display_name": "John Carlson",
+      "season": "20232024",
+      "layout": "defense",
+      "teams": [
+        {
+          "id": "15",
+          "abbreviation": "WSH"
+        }
+      ],
+      "rows": 26,
+      "columns": 69,
+      "available_native_arithmetic_checks": 6,
+      "microstat_rows": 20,
+      "pending_strip_rows": 6,
+      "reference_xg_population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present",
+      "correction_receipt_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4"
+    },
+    {
+      "path": "docs/research/application-v1-17/receipts/browser-real-cases/crotty-sparse.csv",
+      "sha256": "67d7a454ab1713e45e57b8c2c0f2bf15ad55cee06cc4619c6603de51faa162f3",
+      "player_id": "8480075",
+      "display_name": "Cameron Crotty",
+      "season": "20242025",
+      "layout": "defense",
+      "teams": [
+        {
+          "id": "30",
+          "abbreviation": "MIN"
+        }
+      ],
+      "rows": 26,
+      "columns": 69,
+      "available_native_arithmetic_checks": 0,
+      "microstat_rows": 20,
+      "pending_strip_rows": 6,
+      "reference_xg_population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present",
+      "correction_receipt_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4"
+    },
+    {
+      "path": "docs/research/application-v1-17/receipts/browser-real-cases/farinacci-sparse.csv",
+      "sha256": "4fd4d6c22b8ee1d13868caaeed997171d12a14f838cb21f552cb26d29ecdcd89",
+      "player_id": "8481558",
+      "display_name": "John Farinacci",
+      "season": "20242025",
+      "layout": "forward",
+      "teams": [
+        {
+          "id": "6",
+          "abbreviation": "BOS"
+        }
+      ],
+      "rows": 27,
+      "columns": 69,
+      "available_native_arithmetic_checks": 0,
+      "microstat_rows": 21,
+      "pending_strip_rows": 6,
+      "reference_xg_population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present",
+      "correction_receipt_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4"
+    },
+    {
+      "path": "docs/research/application-v1-17/receipts/browser-real-cases/makar.csv",
+      "sha256": "84d4e0fd9e647be4c7a04b3ff4876ca85667ed8d4dc834898f65ebbf2a9d9b03",
+      "player_id": "8480069",
+      "display_name": "Cale Makar",
+      "season": "20242025",
+      "layout": "defense",
+      "teams": [
+        {
+          "id": "21",
+          "abbreviation": "COL"
+        }
+      ],
+      "rows": 26,
+      "columns": 69,
+      "available_native_arithmetic_checks": 6,
+      "microstat_rows": 20,
+      "pending_strip_rows": 6,
+      "reference_xg_population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present",
+      "correction_receipt_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4"
+    },
+    {
+      "path": "docs/research/application-v1-17/receipts/browser-real-cases/mcdavid.csv",
+      "sha256": "a9442d516ac28e46af62525f11714f8c4cab9ae08ca2a4b77aa8c484fac7b640",
+      "player_id": "8478402",
+      "display_name": "Connor McDavid",
+      "season": "20252026",
+      "layout": "forward",
+      "teams": [
+        {
+          "id": "22",
+          "abbreviation": "EDM"
+        }
+      ],
+      "rows": 27,
+      "columns": 69,
+      "available_native_arithmetic_checks": 5,
+      "microstat_rows": 21,
+      "pending_strip_rows": 6,
+      "reference_xg_population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present",
+      "correction_receipt_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4"
+    },
+    {
+      "path": "docs/research/application-v1-17/receipts/browser-real-cases/rantanen-traded.csv",
+      "sha256": "02c2b9ccb967993854b5f29fe13076154bdf59c45f9df3bceb35f359e1b225f4",
+      "player_id": "8478420",
+      "display_name": "Mikko Rantanen",
+      "season": "20242025",
+      "layout": "forward",
+      "teams": [
+        {
+          "id": "12",
+          "abbreviation": "CAR"
+        },
+        {
+          "id": "21",
+          "abbreviation": "COL"
+        },
+        {
+          "id": "25",
+          "abbreviation": "DAL"
+        }
+      ],
+      "rows": 27,
+      "columns": 69,
+      "available_native_arithmetic_checks": 5,
+      "microstat_rows": 21,
+      "pending_strip_rows": 6,
+      "reference_xg_population": "credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present",
+      "correction_receipt_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4"
+    }
+  ]
+}

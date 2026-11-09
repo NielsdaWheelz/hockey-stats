@@ -1,0 +1,22 @@
+{
+  "status": "strict_publication_startup_passed",
+  "started_at": "2026-11-09T06:56:49.063Z",
+  "ready_at": "2026-11-09T07:04:42.863Z",
+  "elapsed_seconds": 473.79433679199997,
+  "peak_rss_bytes": 1101021184,
+  "user_cpu_seconds": 460.697153,
+  "system_cpu_seconds": 28.491624,
+  "pid": 99292,
+  "port": 41918,
+  "node_version": "v24.21.0",
+  "argv": [
+    "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-17/app/.tmp/v1-17/runtime.mjs",
+    "--publication",
+    "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/candidate/player-analysis.sqlite",
+    "--port",
+    "41918"
+  ],
+  "server_module_sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05",
+  "measurement": "wrapper-entry to actual listening event; excludes node boot and wrapper static imports; whole-process kernel RSS high-water at ready; ordinary compiled server; one strict startup read"
+}

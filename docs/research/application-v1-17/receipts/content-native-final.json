@@ -1,0 +1,39 @@
+{
+  "status": "accepted_native_200_percent_content_and_layout",
+  "scope": "fixture software visual acceptance; corrected real candidate remains separate",
+  "browser_contract": {
+    "inner_width": 640,
+    "document_width": 640,
+    "outer_width": 1280,
+    "device_pixel_ratio": 2,
+    "capture": "direct Page.captureScreenshot, fromSurface=true, captureBeyondViewport=false, no inferred clip"
+  },
+  "images": [
+    {
+      "path": "docs/research/application-v1-17/receipts/browser-fixture/native200-cdp-true.png",
+      "sha256": "0aa5803402ac8e3f580df56d754cd3cb2d2e5ffe4f6a6a09d7c2c39081a10ce6",
+      "bytes": 91986,
+      "pixel_width": 1280,
+      "pixel_height": 913,
+      "independent_visual_review": "full actual viewport; readable wrapped text; no right-edge clipping or field collision"
+    },
+    {
+      "path": "docs/research/application-v1-17/receipts/browser-fixture/native200-group-cdp.png",
+      "sha256": "95b0dfb1586c4c2636f7a917debf927dc908d10eaa361864959e31dc8f24674c",
+      "bytes": 104409,
+      "pixel_width": 1280,
+      "pixel_height": 913,
+      "independent_visual_review": "full actual viewport; readable wrapped text; no right-edge clipping or field collision"
+    },
+    {
+      "path": "docs/research/application-v1-17/receipts/browser-fixture/native200-support-cdp.png",
+      "sha256": "02de427fab015305b12f691ae84aa2ac5adf6ae4259c8ed5234a9738530d6347",
+      "bytes": 195327,
+      "pixel_width": 1280,
+      "pixel_height": 913,
+      "independent_visual_review": "full actual viewport; readable wrapped text; no right-edge clipping or field collision"
+    }
+  ],
+  "original_inferred_clips": "native200.png and native200-group.png remain adverse evidence and are excluded from acceptance",
+  "export": "native200-download.png is byte-identical to normal forward.png, checked separately in content-extra-review.json"
+}

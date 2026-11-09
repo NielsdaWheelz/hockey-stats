@@ -1,0 +1,40 @@
+{
+  "status": "accepted_source_and_bounded_live_boundary",
+  "recorded_at_utc": "2026-11-09T05:00:33.295137+00:00",
+  "reviewer": "fresh final code review agent; no production authorship",
+  "source_sha256": {
+    "analysis/src/hockey_stats/analysis_publication.py": "89376556cc7f0515563a41bf30a114a3626d6c3d1925ed9c4914345ed0d45dcb",
+    "analysis/src/hockey_stats/execution_composition.py": "daad0528d71a3f47c95080041058f5c72a775f3288301b0af5dd5e01203bdc77",
+    "analysis/src/hockey_stats/spatial_composition.py": "c11c687d2f47ccccfc1f01f901b2036b16990948a7cc593a00ace2db2483a63e",
+    "app/src/web/analysis-values.ts": "730e59cdb0b3ca9b466c59d37022478b11a1c6192be14ba33e6893d7f71f48e0",
+    "app/src/web/client.ts": "c8c3eeaaff1d3ee6d43d626a23801bb340f5a83ac7232d35af4a219648e15dc5",
+    "app/src/web/explorer.ts": "1c32b496d44fc90ec6c08d140226a5b24d9240f3be84b462e70e40bb38a1633d",
+    "app/src/web/peer-distributions.tsx": "27e064999de1f9ad8f6ac85239306933c3b1fcd06a9ac4c8b52792519de3eea7",
+    "app/src/web/routes/compare.tsx": "51af26d5b13e30d65cf7697e42698a8c2467456173155132987bf187de2d394f",
+    "app/src/web/routes/player.tsx": "f31a77d49d8feb57f19b7a8f2d82a1d7ff7905d209ba62978f1425e93311d7e5",
+    "app/src/web/styles.css": "54e020a31b6601a67b1666d358dacf966ebd2d633d0f0f568a3c2901f4e9932c",
+    "app/src/web/microstat-card.tsx": "441d60a74240cfa07cc1320035df3d9860ffa07e8a758ed58db489495fda2ac9",
+    "app/src/web/microstat-values.ts": "e8562829efb387a88a5a172bb48ffb661c6dbc4f0f18ad53b0a04b3aee798811"
+  },
+  "temporary_control": {
+    "path": "app/.tmp/v1-17/final-review.mts",
+    "sha256": "a20d6b01418f76e119fe3b6ae14fb43ab9d2c781cc050c7ec7aaa9726a9c63ba",
+    "bytes": 2709,
+    "deleted_after_pass": true
+  },
+  "checks": [
+    "entire production diff from 22af7df plus new card/model files",
+    "publication/source-to-view responsibilities and narrow metadata correction",
+    "requested publication/season/catalog/person/body coherence",
+    "fixed composition, source states, own-field cohort/history and export model",
+    "independent live forward blocking-share detail outside compact forward layout in mixed comparison",
+    "native fraction 0.1 displays 10 percent once; separate F/D standings; CSV27/26 unchanged",
+    "source whitespace check"
+  ],
+  "limits": [
+    "no repeated whole-artifact read or expensive numerical work",
+    "actual figure/download review remains content reviewer evidence",
+    "real corrected successor and candidate acceptance remain integrator work",
+    "whole-card real component rows remain v1-12"
+  ]
+}

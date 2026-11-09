@@ -1,0 +1,47 @@
+{
+  "status": "accepted_independent_systems_provenance_boundary_review",
+  "recorded_at": "2026-11-09T04:34:23.187876+00:00",
+  "native_session": 79119,
+  "exit": 0,
+  "origin": "http://127.0.0.1:41917",
+  "checks": [
+    "absent selected-year comparison retains skater profiles/history/evidence; present year restores identity",
+    "global unknown/goalie/invalid/duplicate/observed selection behavior retained",
+    "goalie microstats-query metric parsing matches effective loader selection",
+    "8 schema-valid complete-body/publication/evidence/catalog/identity mutations rejected",
+    "1 malformed detail/history response rejected by schema owner",
+    "view/family revalidation and cancellation of all4 pending league requests"
+  ],
+  "source_and_temporary_control_sha256": {
+    ".tmp/v1-17-fields/absent-comparison.mts": "09d21f36d76be5dca9048fc36669af72159728e44c66751d3616274cbf41e1a1",
+    ".tmp/v1-17-fields/selection.ts": "583a890c410a860757cb29fd1915ae08b84fe1c8313cc11e0db03cf502c705f5",
+    ".tmp/v1-17-fields/adversarial.mts": "30b54d51e0cc97282219c05d0a8c8f81f6ed2459ab93a5fde15f614e3957204e",
+    "app/src/web/client.ts": "30ad96ec9232a17aac8c244e44c0c7075764de8d1e86f8301a20c487ded35f19",
+    "app/src/web/explorer.ts": "1c32b496d44fc90ec6c08d140226a5b24d9240f3be84b462e70e40bb38a1633d",
+    "app/src/web/routes/player.tsx": "f31a77d49d8feb57f19b7a8f2d82a1d7ff7905d209ba62978f1425e93311d7e5",
+    "app/src/web/routes/compare.tsx": "51af26d5b13e30d65cf7697e42698a8c2467456173155132987bf187de2d394f",
+    "app/src/web/analysis-values.ts": "e94f76785c438ce9b8b743ad9a777cd63f05d6de6a5d0c4492a709c583fdab5e"
+  },
+  "limits": [
+    "checked small fixture and source review; browser/render/export acceptance belongs to root",
+    "no heavy drive scan or real publication claim"
+  ],
+  "final_refactor_review": {
+    "recorded_at": "2026-11-09T05:05:25.308100+00:00",
+    "native_session": 34511,
+    "exit": 0,
+    "checks": [
+      "schema-valid contradictory extra catalogue entry across paired evidence responses rejected",
+      "schema-valid contradictory requested kind/person rejected independently when pair absent or other selection unsupported"
+    ],
+    "source_and_temporary_control_sha256": {
+      ".tmp/v1-17-fields/cross-evidence.mts": "7ddcf689463857815fc6f7ef62c12ef2c543fb9a28830c39cddd36129125f012",
+      ".tmp/v1-17-fields/comparison-identity.mts": "9c887b8c048ccc96606a2d3ef53c858afd49d96df9c1294e42c2d6d06df4cf54",
+      "app/src/web/client.ts": "c8c3eeaaff1d3ee6d43d626a23801bb340f5a83ac7232d35af4a219648e15dc5",
+      "app/src/web/explorer.ts": "1c32b496d44fc90ec6c08d140226a5b24d9240f3be84b462e70e40bb38a1633d",
+      "app/src/web/routes/player.tsx": "f31a77d49d8feb57f19b7a8f2d82a1d7ff7905d209ba62978f1425e93311d7e5",
+      "app/src/web/routes/compare.tsx": "51af26d5b13e30d65cf7697e42698a8c2467456173155132987bf187de2d394f"
+    },
+    "source_review": "final absent-year individual identity and cross-evidence catalogue guards retain strict semantic joins without changing observed/comparative selection"
+  }
+}

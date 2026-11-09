@@ -1250,3 +1250,43 @@ footer {
 .descriptive-sheet td { font-variant-numeric: tabular-nums; }
 .descriptive-detail { margin: 1.5rem 0; }
 .descriptive-sheet pre { max-width: 100%; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.microstat-card { min-width: 0; margin: 1.5rem 0; padding: clamp(.8rem, 2vw, 1.5rem); border: 1px solid var(--rule); background: var(--paper); overflow-wrap: anywhere; }
+.microstat-card header h3 { margin: .3rem 0; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.2; }
+.microstat-card header p { margin: .4rem 0; }
+.microstat-kicker { color: #145a66; font-weight: 700; }
+.microstat-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.microstat-group { min-width: 0; }
+.microstat-group h4 { font-size: 1.15rem; margin: 0 0 .6rem; }
+.microstat-columns, .microstat-field { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, .95fr); gap: .4rem .6rem; }
+.microstat-columns { font-size: .8rem; color: var(--muted); border-bottom: 2px solid var(--rule); padding-bottom: .4rem; }
+.microstat-slot { border-bottom: 1px solid var(--rule); }
+.microstat-field { padding: .85rem 0; }
+.microstat-label { font-weight: 600; }
+.microstat-value, .microstat-standing { font-variant-numeric: tabular-nums; }
+.microstat-value strong { font-size: 1.2rem; }
+.microstat-unit, .microstat-standing span, .microstat-standing strong { display: block; }
+.microstat-unit { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+.microstat-standing { font-size: .8rem; }
+.microstat-standing meter { display: block; width: 100%; accent-color: #4e817e; margin-top: .3rem; height: .55rem; }
+.microstat-standing meter::-webkit-meter-bar { background: #e5eeec; border: 0; border-radius: 0; }
+.microstat-standing meter::-webkit-meter-optimum-value { background: #4e817e; }
+.microstat-standing meter::-moz-meter-bar { background: #4e817e; }
+.microstat-unavailable { color: var(--muted); font-size: .86rem; }
+.microstat-marker, .microstat-reason, .microstat-evidence { grid-column: 1 / -1; font-size: .78rem; color: var(--muted); margin: 0; }
+.microstat-reason { padding-top: .25rem; }
+.microstat-evidence pre { white-space: pre-wrap; overflow-wrap: anywhere; max-width: 100%; }
+.microstat-supports { margin: 1rem 0; padding: .6rem 0; border-bottom: 1px solid var(--rule); font-size: .82rem; }
+.microstat-supports p { margin: .4rem 0; }
+.microstat-card footer { font-size: .82rem; color: var(--muted); }
+.microstat-card .card-actions { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; margin-top: 1rem; }
+.microstat-card .card-actions p { margin: 0; flex-basis: 100%; font-size: .82rem; }
+.microstat-components { border-top: 2px solid var(--rule); margin-top: 1.5rem; padding-top: .6rem; }
+.microstat-components > p { font-size: .82rem; }
+.microstat-component-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }
+.microstat-component { min-width: 0; padding: .6rem; border: 1px solid var(--rule); font-size: .8rem; }
+.microstat-component h5 { font-size: .9rem; margin: 0; }
+.microstat-component pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.microstat-pair { display: grid; gap: 1rem; }
+@media (max-width: 750px) { .microstat-groups { grid-template-columns: 1fr; } .microstat-component-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .microstat-component-grid { grid-template-columns: 1fr; } .microstat-columns, .microstat-field { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr); gap: .4rem; } }

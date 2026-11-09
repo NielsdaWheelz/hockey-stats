@@ -1,0 +1,21 @@
+{
+  "scope": "three temporary review crops only; actual screenshots, downloaded exports and receipts retained",
+  "removed": [
+    {
+      "path": ".tmp/v1-17/content-review/narrow-top.png",
+      "bytes": 123148,
+      "sha256": "16517464a4ab6a988244065251d5fc9d576ccdeba9fd0b1c472aa91784415030"
+    },
+    {
+      "path": ".tmp/v1-17/content-review/comparison-first.png",
+      "bytes": 284443,
+      "sha256": "325a104cac5d70526302a6a15953ec54ddfb41328e7cdb32e8fdfc94435e0655"
+    },
+    {
+      "path": ".tmp/v1-17/content-review/same-wide-first.png",
+      "bytes": 295543,
+      "sha256": "59ee0381049d2ab6fd48a519cb9d6be37b2c2833e325bd5d3c3d02a5e36dc614"
+    }
+  ],
+  "temporary_test_source": "none persisted; one-shot font/csv commands only"
+}

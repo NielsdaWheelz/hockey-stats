@@ -1,0 +1,38 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The input did not match the regular expression /calibration|experimental/. Input:
+
+'John Carlson\n' +
+  '\n' +
+  '0.356943 per 60 min\n' +
+  '\n' +
+  '95.3 percentile · reported defense · n=246 · cutoff 300 min\n' +
+  '\n' +
+  'model_valued: model-valued personal ordinary-attempt opportunities per 60 matched minutes, including declared blocked-origin inference · credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present · virtual shooter, setter, goalie and coaching with zero residual execution; retain circumstances and inferred setup\n' +
+  '\n' +
+  'qualification: 88915 matching seconds · microstats.reference_xg_per60.support.included_seconds\n' +
+  '\n' +
+  'support, sources and method'
+
+    at file:///private/tmp/hockey-stats-v1-17-browser/real-cases.mjs:76:10 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'John Carlson\n' +
+    '\n' +
+    '0.356943 per 60 min\n' +
+    '\n' +
+    '95.3 percentile · reported defense · n=246 · cutoff 300 min\n' +
+    '\n' +
+    'model_valued: model-valued personal ordinary-attempt opportunities per 60 matched minutes, including declared blocked-origin inference · credited ordinary regular-season physical 5v5 attempts on matched neutral_all_attempt_value elapsed personal support; both goalies present · virtual shooter, setter, goalie and coaching with zero residual execution; retain circumstances and inferred setup\n' +
+    '\n' +
+    'qualification: 88915 matching seconds · microstats.reference_xg_per60.support.included_seconds\n' +
+    '\n' +
+    'support, sources and method',
+  expected: /calibration|experimental/,
+  operator: 'match',
+  diff: 'simple'
+}
+
+Node.js v24.21.0

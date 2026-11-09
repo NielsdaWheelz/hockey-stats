@@ -1,0 +1,148 @@
+{
+  "publication_id": "dd469700-19ec-4e70-b024-382204b9ae1c",
+  "origin": "http://127.0.0.1:41918",
+  "cases": [
+    {
+      "label": "carlson",
+      "id": "8474590",
+      "season": "20232024",
+      "position": "D",
+      "teams": [
+        {
+          "id": "15",
+          "abbreviation": "WSH"
+        }
+      ],
+      "navigation_api_decode_render_wait_ms": 10085.667667,
+      "png_csv_save_elapsed_ms": 108.4655840000014,
+      "png_width": 1200,
+      "png_height": 1884,
+      "png_bytes": 526668,
+      "png_sha256": "8b551f68fc2c753ed0b8749d6d5080e4f23dabd5d547a26857ce0d2a09529c9b",
+      "csv_rows": 26,
+      "csv_sha256": "bcfc30944866847edf170ee014f3d122d7b4a3827511d59a5ce46f80665aed63",
+      "native_scalars_reconciled": 20,
+      "pending_component_rows": 6
+    },
+    {
+      "label": "makar",
+      "id": "8480069",
+      "season": "20242025",
+      "position": "D",
+      "teams": [
+        {
+          "id": "21",
+          "abbreviation": "COL"
+        }
+      ],
+      "navigation_api_decode_render_wait_ms": 8475.56825,
+      "png_csv_save_elapsed_ms": 117.26433399999951,
+      "png_width": 1200,
+      "png_height": 1884,
+      "png_bytes": 524611,
+      "png_sha256": "560e8ed79e97725793bbf61bf06c2858d5decc8fc34a12fa01b7e42e7f2fb9b4",
+      "csv_rows": 26,
+      "csv_sha256": "84d4e0fd9e647be4c7a04b3ff4876ca85667ed8d4dc834898f65ebbf2a9d9b03",
+      "native_scalars_reconciled": 20,
+      "pending_component_rows": 6
+    },
+    {
+      "label": "rantanen-traded",
+      "id": "8478420",
+      "season": "20242025",
+      "position": "R",
+      "teams": [
+        {
+          "id": "12",
+          "abbreviation": "CAR"
+        },
+        {
+          "id": "21",
+          "abbreviation": "COL"
+        },
+        {
+          "id": "25",
+          "abbreviation": "DAL"
+        }
+      ],
+      "navigation_api_decode_render_wait_ms": 11455.795250000003,
+      "png_csv_save_elapsed_ms": 111.25274999999965,
+      "png_width": 1200,
+      "png_height": 1812,
+      "png_bytes": 521646,
+      "png_sha256": "bb40d23995a2e530558f7c14e3935950d7963a1ab2d71119a2afc8bb28c1047f",
+      "csv_rows": 27,
+      "csv_sha256": "02c2b9ccb967993854b5f29fe13076154bdf59c45f9df3bceb35f359e1b225f4",
+      "native_scalars_reconciled": 21,
+      "pending_component_rows": 6
+    },
+    {
+      "label": "crotty-sparse",
+      "id": "8480075",
+      "season": "20242025",
+      "position": "D",
+      "teams": [
+        {
+          "id": "30",
+          "abbreviation": "MIN"
+        }
+      ],
+      "navigation_api_decode_render_wait_ms": 4372.977875000004,
+      "png_csv_save_elapsed_ms": 102.7746249999982,
+      "png_width": 1200,
+      "png_height": 1552,
+      "png_bytes": 364620,
+      "png_sha256": "8015b3b341a52f08144de6003ce7a544ab73b24bf1dfcf72bc015a6aa5e6274b",
+      "csv_rows": 26,
+      "csv_sha256": "67d7a454ab1713e45e57b8c2c0f2bf15ad55cee06cc4619c6603de51faa162f3",
+      "native_scalars_reconciled": 20,
+      "pending_component_rows": 6
+    },
+    {
+      "label": "farinacci-sparse",
+      "id": "8481558",
+      "season": "20242025",
+      "position": "C",
+      "teams": [
+        {
+          "id": "6",
+          "abbreviation": "BOS"
+        }
+      ],
+      "navigation_api_decode_render_wait_ms": 4376.442708000002,
+      "png_csv_save_elapsed_ms": 98.40545800000837,
+      "png_width": 1200,
+      "png_height": 1552,
+      "png_bytes": 373857,
+      "png_sha256": "f4ed1ffbbebda5de6368ecde9bb32b81b89b339d835c950ad5e7005b69446590",
+      "csv_rows": 27,
+      "csv_sha256": "4fd4d6c22b8ee1d13868caaeed997171d12a14f838cb21f552cb26d29ecdcd89",
+      "native_scalars_reconciled": 21,
+      "pending_component_rows": 6
+    },
+    {
+      "label": "mcdavid",
+      "id": "8478402",
+      "season": "20252026",
+      "position": "C",
+      "teams": [
+        {
+          "id": "22",
+          "abbreviation": "EDM"
+        }
+      ],
+      "navigation_api_decode_render_wait_ms": 4918.359582999998,
+      "png_csv_save_elapsed_ms": 90.0637080000015,
+      "png_width": 1200,
+      "png_height": 1812,
+      "png_bytes": 520756,
+      "png_sha256": "0c0f236ae43545b7485f4a32bbdde33c510b41cebbe7b424afd1cde370c6ee73",
+      "csv_rows": 27,
+      "csv_sha256": "a9442d516ac28e46af62525f11714f8c4cab9ae08ca2a4b77aa8c484fac7b640",
+      "native_scalars_reconciled": 21,
+      "pending_component_rows": 6
+    }
+  ],
+  "errors": [],
+  "apiErrors": []
+}

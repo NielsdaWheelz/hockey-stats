@@ -1,0 +1,27 @@
+{
+  "kind": "replacement-fixture-five-score-selection-written",
+  "status": "root-authorized exclusive write passed; composition not launched",
+  "recorded_at_utc": "2026-10-31T15:41:26.932825+00:00",
+  "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores-selection.json",
+  "sha256": "9c35a98ee4b5032084c4a7017d84960b4f57d3b9f256d272f92df27b59ce139d",
+  "bytes": 1447,
+  "helper": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/prepare-fixture-score-selection.py",
+    "bytes": 1994,
+    "sha256": "62ee19dc34a542da8991b0599a7c43e3f519da6c15dadde37a8f68338db16e2a"
+  },
+  "exit": 0,
+  "exact_pinned_manifest_rows": true,
+  "purpose": "fixture",
+  "years": [
+    "20212022",
+    "20222023",
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "prepared_sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+  "write_mode": "xb",
+  "composition_launched": false,
+  "scope": "five saved manifests verified; no source games/member arrays or new strict artifact read"
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "spatial-v1-08-real-command-occupied-guard-check",
+  "status": "passed",
+  "literal_recipe_sha256": "0a6a4c92455e4746024104c05ef39ae4743a16cf886eba2c7ebf60399c9cd1f6",
+  "syntax": "/bin/sh -n passed",
+  "checks": [
+    {
+      "case": "occupied_output",
+      "exit_code": 1,
+      "fit_not_launched": true,
+      "files_preserved": true
+    },
+    {
+      "case": "occupied_log",
+      "exit_code": 1,
+      "fit_not_launched": true,
+      "files_preserved": true
+    },
+    {
+      "case": "occupied_exit",
+      "exit_code": 1,
+      "fit_not_launched": true,
+      "files_preserved": true
+    }
+  ],
+  "scope": "the same three occupied disposable-path checks, non-fitting stub; no real output/game/array touched"
+}

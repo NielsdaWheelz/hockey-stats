@@ -1,0 +1,89 @@
+{
+  "kind": "replacement-real-final02-explicit-release",
+  "status": "authorized; ordinary command not yet launched",
+  "recorded_at_utc": "2026-11-02T05:08:05.074011+00:00",
+  "authorization": {
+    "source": "user message in this session",
+    "exact_text": "approve one full rerun and audit",
+    "scope": "one whole 20252026 annual execution fit and four automatic final-head continuations, then one saved-artifact audit when artifacts exist"
+  },
+  "reviewed_package_commit": "a644028",
+  "accepted_package_record_commit": "ec0bec1b09add754cbbf6e653d3eceffc4f291d6",
+  "analysis_tree": "59813412b3ef66bb66ae60f5daf930716d00073e",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-final-02-execution-command.sh",
+    "sha256": "36b9ac299de671134d23cd6d576cbf5ca201582e1a4158d91c329722d5ff342e",
+    "bytes": 5441
+  },
+  "observer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "sha256": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4",
+    "bytes": 19868
+  },
+  "auditor": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026_final_02.py",
+    "sha256": "ab15fe7ff38fd746fc647be278148e3e576ebd898ea5a83b7092fc3e7f39c957",
+    "bytes": 38013
+  },
+  "scope": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/execution-final-year-diagnostic-rerun.md",
+    "sha256": "8e11b3850061e1fd5ff0b67ef11abdc0e4a6d101450817d0a5d389d583659d8c",
+    "bytes": 7860
+  },
+  "preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-real-execution-20252026-final-02-preparation.json",
+    "sha256": "09d281d7eaceb91c6cfbe06241d31e12da856acf81e36bbea29671134ff8cee1",
+    "bytes": 6670
+  },
+  "audit_preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-real-execution-20252026-final-02-outcome-check-preparation.json",
+    "sha256": "c9b18cf9703abe7cf5d9a042ae0191751df4074692dbb0081b98f1bbbcbba7f5",
+    "bytes": 8035
+  },
+  "predecessor_sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe",
+  "preserved_failed_sha256": "9845808a40204d244ed07f9c8f0c7569d4c727e091dcb6e4f27bd658d3a3f491",
+  "budget": {
+    "annual_heads": 4,
+    "automatic_continuations": 4,
+    "manual_probe_commands": 0,
+    "second_retry": false
+  },
+  "invocation": [
+    "/usr/bin/caffeinate",
+    "-i",
+    "/bin/sh",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-final-02-execution-command.sh"
+  ],
+  "review": {
+    "independent": "static-clear for authorization at a644028; not itself authorization",
+    "source_design": "final integration clear at0d6dbe2",
+    "product": "final integration clear at0d6dbe2",
+    "root": "all code pins match; clean worktree; no competing numerical job observed before release"
+  },
+  "dispositions": {
+    "zero_motion": "uninformative even with native passed status; user decides before descendants",
+    "failed_endpoint": "no reuse or probability assessment authorized",
+    "other_failure": "stop and return evidence",
+    "ordinary_success": "existing four-passed rule plus independent/root acceptance before descendants"
+  },
+  "unchanged": [
+    "recipe",
+    "features",
+    "objective",
+    "prior history",
+    "solver options and stopping",
+    "probability budget",
+    "original outputs",
+    "preparation and facts",
+    "live publication"
+  ],
+  "limits": [
+    "same failure expected but unproved; v1-08 probably remains incomplete",
+    "12156.98 seconds is historical cost, not a forecast",
+    "side files have not run on real inputs; no hook failure recovery machinery",
+    "native fun cannot establish all internal trials were finite"
+  ],
+  "actual_launch_head": null,
+  "actual_pid": null
+}

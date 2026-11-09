@@ -1,0 +1,36 @@
+{
+  "kind": "spatial-v1-08-fixture03-discovery-consumer-review",
+  "status": "passed existing public consumer integration; no gui acceptance",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/discovery-api-check.ts",
+    "sha256": "05ca32ec6587793191d8c8ff7ef17eee673b9118340b075a45fb821456c49004"
+  },
+  "raw_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-discovery-consumer-green.json",
+    "sha256": "f43581a65c355eec6e7726a2ee0c838d3260b0cd901d0bd240ce940666133ecb"
+  },
+  "cost_receipt": "fixture03-discovery-consumer-cost.txt",
+  "total_players": 723,
+  "selected_raw_values": 5784,
+  "numeric_sort_orders": 48,
+  "prior_only_zero_time_players": 152,
+  "default_300_ranked_cells": 0,
+  "cutoff_0_ranked_cells": 4568,
+  "oracle_review": [
+    "all eight raw values compare against hash-checked saved spatial rows from accepted manifest2d297493, not against a second selector calculation",
+    "name/position/team expected membership comes from saved people; minute membership comes from raw actual overview observed seconds, explicitly distinct from spatial qualification seconds",
+    "numeric sorts compare ascending/descending raw-number arrays against independently sorted saved values; equal-value tie order is not overclaimed",
+    "300 is the peer cutoff; table visibility defaults to zero minimum. fixture exposure never reaches300minutes, so zero ranked default cells is expected",
+    "all actual prior-only zero-time rows retain numbers and are unranked at cutoff0; known final-year Toffoli/Hamilton retain nonzero xg differences",
+    "replacing the returned Toffoli spatial value with his actual observed on-ice rate causes the saved-row oracle to reject it",
+    "adversarial review replaced a set-only input-order assertion with an actual original-order snapshot; measured per-year timing is labeled year wall time, not isolated api time"
+  ],
+  "baseline_red": "existing pending-spatial live target red retained; baseline server not restarted",
+  "not_tested": [
+    "browser rendering or interaction",
+    "actual file downloads/png pixels",
+    "narrow/normal/native200 layout",
+    "real data states or arrays"
+  ],
+  "production_sources_unchanged": true
+}

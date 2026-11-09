@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "kind": "spatial-v1-08-real-first-annual-completion",
+  "purpose": "real",
+  "season": "20212022",
+  "status": "input_refused_before_fit",
+  "recorded_at": "2026-10-31T10:47:24.512028+00:00",
+  "start_utc": "2026-10-31T09:30:20Z",
+  "finish_utc": "2026-10-31T10:44:28Z",
+  "exit_code": 1,
+  "result_classification": "fixed-neutral-target input chronology refusal; no likelihood solve was attempted",
+  "evidence": {
+    "launch": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-20212022-launch.json",
+      "sha256": "617fa8bf8f0a229b9f21d439e691a5067c868df6bc8b319e4e741349c42fe039",
+      "bytes": 3813
+    },
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022.log",
+      "sha256": "1711e43a3be72679a852c5c63eb353855cfe27feb97c66a95a0e65ce25631e5f",
+      "bytes": 52044
+    },
+    "parsed_census": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-non-prior-starts.json",
+      "sha256": "6fd06ffbd3143379849fd82b4598c85d4f178b14c3c9eed4b28e003f30207a96",
+      "bytes": 61595
+    }
+  },
+  "launch_source_commit": "960e229d7ff753601650c3c0aef3fba044897d0b",
+  "observed_completion_commit": "940391bc0c62915115b9607bf81a4256b1ab693d",
+  "analysis_tree": "4c83f23d49def8c93177f0edd21aef7b96b3af7c",
+  "source_unchanged_from_launch": true,
+  "inputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json",
+      "sha256": "2f8fcb59d80cbd59c18b11d3d0c9dade850559754c1b19af907ea0effa094ec1",
+      "bytes": 1414,
+      "purpose": "real"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+      "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+      "bytes": 382434,
+      "purpose": "real"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+      "bytes": 18633830,
+      "purpose": "real"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+      "bytes": 39341670,
+      "purpose": "real"
+    }
+  ],
+  "historical_preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-20212022-pin-preflight.json",
+    "sha256": "b73ab9c3380d4bf7242d45f44031264de48a831aac454a8917e802f312636c3a",
+    "unchanged": true
+  },
+  "launch_status_completion": {
+    "launch_record_status": "running at creation; retained unchanged as historical evidence",
+    "completed_status": "input_refused_before_fit",
+    "separate_completion_receipt": true
+  },
+  "census": {
+    "targets": 54,
+    "games": 54,
+    "distinct_source_keys": 54,
+    "start_kind_counts": {
+      "on_the_fly": 50,
+      "faceoff": 4
+    },
+    "on_the_fly_same_clock": 50,
+    "faceoff_later_anchor": 4,
+    "scope": "complete collected refusal census for the selected real20212022 pass; detailed source locators remain in the unchanged external log/census",
+    "interpretation": "known non-prior target input fields are refused; representative source verification and upstream disposition belong to separate evidence"
+  },
+  "resources": {
+    "command_wall_seconds": 4447.22,
+    "command_user_seconds": 4046.33,
+    "command_system_seconds": 23.46,
+    "maximum_resident_bytes": 11184652288,
+    "measured_scope": "rejected source/input/design pass ending before fitting; not a complete annual triple or solved-model cost"
+  },
+  "numerical_work": {
+    "heads_attempted": 0,
+    "heads_completed": 0,
+    "probes_attempted": 0,
+    "projections_completed": 0,
+    "annual_output_created": false,
+    "annual_manifest_created": false
+  },
+  "processes": {
+    "owned_pids": [
+      27086,
+      27087,
+      27088
+    ],
+    "owned_processes_gone": true,
+    "checked_without_signals": true
+  },
+  "constraints": {
+    "no_retry": true,
+    "no_later_annual": true,
+    "no_upstream_change": true,
+    "no_new_source_or_array_reads": true,
+    "no_runtime_extrapolation": true,
+    "no_activation": true
+  },
+  "remaining": "source owner verifies representatives and preserves original capture bundles; root decides upstream work after that evidence"
+}

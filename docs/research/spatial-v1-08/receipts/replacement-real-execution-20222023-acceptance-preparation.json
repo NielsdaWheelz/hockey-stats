@@ -1,0 +1,76 @@
+{
+  "kind": "replacement-real-year2-state-acceptance-preparation",
+  "status": "prepared; HOLD until original20222023fit completes and root pins actual annual/source-report digests; no checker invocation",
+  "recorded_at_utc": "2026-10-31T23:46:24.950516+00:00",
+  "purpose": "real",
+  "season": "20222023",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20222023.py",
+    "sha256": "5c1a05aa6cd208a5438b360012a5ddd624e93659529808010f9828654109ccda",
+    "bytes": 21171
+  },
+  "command_argv": [
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20222023.py",
+    "--expected-manifest-sha256",
+    "<actual_completed_20222023_manifest_sha256>",
+    "--expected-source-sha256",
+    "<root_pinned_20222023_source_report_sha256>",
+    "--out-check",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20222023-saved-acceptance.json"
+  ],
+  "expected_manifest_sha256": null,
+  "expected_source_report_sha256": null,
+  "inputs": {
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/manifest.json",
+      "sha256": "7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61",
+      "usage": "accepted new raw last-supported ledger, never reporting-centered means"
+    },
+    "original": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/manifest.json",
+      "sha256": "a99521505f86bf97bf6fa35ae9538e3df5ebe0ab92266a5cd6fd8d95fcced20e",
+      "usage": "saved head/coverage metadata comparison only; not a prior or admitted legacy state"
+    },
+    "source_report": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20222023-source-check.json"
+  },
+  "source": {
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "analysis_clean": true,
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "production_and_observer_edited": false
+  },
+  "checks": [
+    "exactly one new strict saved-state read after exit0 and actual digest guard; no extra predecessor/original strict read",
+    "exact incoming priors against four manifest-bound accepted new2021head ledgers, including raw mean and fixed entry/carry precision",
+    "role-specific quadratic age differences and current conditional means; prior-only coefficients equal conditional means",
+    "outgoing ledger equals incoming union supported current raw updates; prior-only and absent actors never advance history",
+    "all first incoming observations are20212022, so real year2carry gaps are one year; record actual applicability, do not claim longer-gap exercise",
+    "original2022actors, all non-start design, origin/target metadata and complete coverage core exact; only three start-support records and declared transform text may differ",
+    "source report head counts/key digests/conditional populations, actual unavailable counts/weights and all five observational counters",
+    "minimum completed optimizer start with zero-first tie break; native ftol/gtol/EM policy unchanged; actual raw gradients and failed start diagnostics retained",
+    "reporting centers from current raw coefficients and declared fixed weights; no old centered coefficient substitution",
+    "exact source/prepared/coaching/predecessor/launch/recipe identities, real command and producer/checker resource scopes, output bytes; no year2probe"
+  ],
+  "boundaries": {
+    "native_stopping": "baseline ftol1e-15/gtol1e-6/maxiter10000; setterEM100/objective1e-8/responsibility1e-6; no new gtol-only rejection",
+    "source_counts": "five counters observed without thresholds; no census or exact newly-masked-key inference",
+    "fixture_history": "existing temporary first-year/fixture methods reused; fixed year2checker, no campaign framework"
+  },
+  "preparation_validation": {
+    "python_ast": "passed",
+    "pure_in_memory_prior_controls": "entry, age-carry, changed-role neutral carry, coach neutral carry passed",
+    "main_invocations": 0,
+    "saved_state_array_reads": 0,
+    "source_game_reads": 0,
+    "source_passes": 0,
+    "fits": 0,
+    "scores": 0
+  },
+  "access": "local first-year/fixture checker code, production source contracts, historical accepted original2022manifest locator from docs, git/observer identity only; no partial annual, real game or arrays read",
+  "remaining": "year2four heads currently running; later twelve execution baseline heads/four final continuations and all fifteen real spatial heads/three continuations remain; no launch or release follows this preparation",
+  "next": "root assigns read-only peer review; actual completed annual/source hashes and explicit release required before one checker invocation"
+}

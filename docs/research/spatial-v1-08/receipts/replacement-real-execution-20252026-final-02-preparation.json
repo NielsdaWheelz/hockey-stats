@@ -1,0 +1,103 @@
+{
+  "kind": "held-whole-final-execution-retry-command-preparation",
+  "status": "hold; reviewed native-return observer and both side-report arguments integrated; final package peer review and explicit expanded user authorization required; not launched",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-final-02-execution-command.sh",
+    "sha256": "36b9ac299de671134d23cd6d576cbf5ca201582e1a4158d91c329722d5ff342e",
+    "bytes": 5441
+  },
+  "derived_from": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-execution-command.sh",
+    "sha256": "d5cb26f54b0431ab222624b53b7a7a9607f35b78cecf0bc7c62a3b58622c264b",
+    "bytes": 4783
+  },
+  "repair_commit": "20e44c8e442551d2874b4f522b3251d73fb96fa8",
+  "analysis_tree": "59813412b3ef66bb66ae60f5daf930716d00073e",
+  "actual_launch_head": null,
+  "observer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "sha256": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4",
+    "commit": "caec8f1c6a8a92e92e7df595a95cfc49eea7d9a9"
+  },
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "coaches": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json",
+    "sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe"
+  },
+  "preserved_failed_annual": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20252026/manifest.json",
+    "sha256": "9845808a40204d244ed07f9c8f0c7569d4c727e091dcb6e4f27bd658d3a3f491"
+  },
+  "fresh_output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026",
+  "fresh_source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-source-check.json",
+  "ordinary_cli_argv": [
+    "fit",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--coaches",
+    "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "--season",
+    "20252026",
+    "--previous",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026"
+  ],
+  "scope": {
+    "annual_heads": 4,
+    "prescribed_continuations": 4,
+    "independent_native_calls": "observed after completion; setter em can contain several native calls",
+    "reuse": "accepted raw previous-year history only; no reuse of final-year coefficients or targets",
+    "scoring": false,
+    "forensic_helper": false,
+    "u_baseline_start_gap": "two completed non-deduplicated baseline endpoints only; producer-saved coefficient max/l2 side diagnostic with nullable overflow, no threshold or v1-05 substitute",
+    "u_continuation_native": "literal OptimizeResult success/status/message/nit/nfev/fun with finite/nan/posinf/neginf classification and requested solver options, captured before production postchecks; no failure-mechanism inference"
+  },
+  "checks": {
+    "shell_syntax": 0,
+    "ordinary_argv_equal_previous_except_fresh_output": true,
+    "guarded_paths": 17,
+    "all_paths_distinct_and_absent": true,
+    "analysis_exact_and_clean": true,
+    "exit_status_preserved": true,
+    "observer_side_flag_before_model_cli_separator": true,
+    "ordinary_cli_tail_unchanged": true,
+    "timed_argv_changes": "fresh output/source-check plus two observer-only side-report arguments; ordinary model CLI tail unchanged",
+    "timed_argv_equal_previous_except_fresh_paths_and_observer_side_flag": true,
+    "pinned_python_unchanged": true,
+    "observer_pin_updated_to_reviewed_side_hook": true,
+    "two_observer_side_flags_before_model_cli_separator": true
+  },
+  "post_run_requirements": [
+    "compare all four heads/*.npz member hashes with preserved 984; do not infer identity from successful status",
+    "compare available resolution/q.npz,r.npz,g.npz physical hashes with preserved 984 manifest bindings; missing new probes are unavailable, original u probe absence explicit; differences descriptive",
+    "retain actual native termination, finite-or-null endpoint movement and unchanged fixed-budget resolution results",
+    "a failed finite endpoint remains unavailable; evaluating its probability movement requires a separate user decision and incomplete-endpoint policy amendment",
+    "failed finite positive movement returns to the user without a newly selected coefficient-size threshold; nonfinite output remains failure; record different baseline hashes or a passing u outcome as reproducibility evidence",
+    "no new score or downstream use until complete state acceptance; no tolerance, recipe or objective change",
+    "failed zero endpoint motion remains uninformative for resolution; identity-implied zero probability change is tautological and cannot replace a completed continuation",
+    "literal passed zero motion is uninformative and returns to the user/root for disposition; the four-passed rule is unchanged and no descendant is implicitly released"
+  ],
+  "limits": [
+    "12156.98 seconds was the previous whole-command observation, not a forecast",
+    "failed coefficient movement summaries do not establish the 1e-5 probability bound and do not retain the failed endpoint coefficients",
+    "original 984 and accepted first four annuals remain preserved; this preparation opens no real game or state array"
+  ],
+  "executed": false,
+  "invocation": [
+    "/bin/sh",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-final-02-execution-command.sh"
+  ],
+  "fresh_baseline_start_gap": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-u-baseline-start-gap.json",
+  "fresh_continuation_native_result": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-u-continuation-native.json"
+}

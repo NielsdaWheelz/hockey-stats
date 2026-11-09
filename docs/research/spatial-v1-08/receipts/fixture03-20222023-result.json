@@ -1,0 +1,945 @@
+{
+  "kind": "spatial-v1-08-fixture03-annual-result",
+  "season": "20222023",
+  "status": "passed",
+  "exit_code": 0,
+  "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/20222023",
+  "manifest_sha256": "04bae620926b2ce11733b63e64d942b87caec7c4f778411195a581f679b771da",
+  "started": "2026-10-31T08:38:25Z",
+  "finished": "2026-10-31T08:39:18Z",
+  "implementation": {
+    "git_commit": "a4b07e0402657e8f0e137d2aed376a543868e248",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "strict_read_both_states_wall_seconds": 1.2837556659942493,
+  "strict_read_peak_rss_bytes": 405766144,
+  "output_bytes": 83267351,
+  "resources": {
+    "design": {
+      "design_wall_seconds": 16.017360500001814,
+      "input_read_bytes": 283955717,
+      "time_rows": 8464,
+      "event_rows": 352,
+      "columns": 1241,
+      "actor_columns": 891,
+      "context_columns": 350,
+      "design_bytes": 27968180,
+      "input_read_wall_seconds": 0.6767628749948926
+    },
+    "fit_wall_seconds": 5.834399291954469,
+    "peak_rss_bytes": 1037139968,
+    "projection": {
+      "wall_seconds": 27.80230095901061,
+      "players": 179,
+      "actual_context": true,
+      "population": "all retained season-roster skaters, including available prior-only standardized projections",
+      "reference_id": "28d5b360986a78c20a5d243c29290b9f4fa00ecfa18ff418d998c29022e3517b",
+      "assessment": "in-sample construction diagnostics; no held-out performance claim",
+      "peak_rss_bytes": 1037139968,
+      "largest_complete_rates": [
+        {
+          "player_id": "8480035",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 47.42251407108605,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478500",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 47.515603740214424,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8483630",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 47.74682596568965,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8480797",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 47.765757579414185,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8474586",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 47.817610129277746,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8477492",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 48.27090188904654,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8480803",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 48.53452584796019,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8474031",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 48.648218840670204,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478439",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 48.682759103802354,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8479293",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 49.155841029698585,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8476454",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 49.59333513772512,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8474602",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 49.60607973017675,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8479393",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 49.91986065125738,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478420",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 50.409533061034445,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475718",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 51.25085680206876,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475793",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 51.823907449423906,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8479996",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 52.32990915772666,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8476449",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 52.48633261890087,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475168",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 53.07664436420424,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8474053",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 54.32934114617332,
+          "units": "per_hour"
+        }
+      ],
+      "largest_absolute_contrasts": [
+        {
+          "player_id": "8478439",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 7.542601367774392,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478840",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -7.588912359693342,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8474602",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -7.605534447524125,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475197",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -7.756374926082449,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478843",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -7.778851981631841,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475786",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -7.82175648185631,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8479293",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 8.015683293670618,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8476454",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 8.45317740169716,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8474602",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 8.465921994148788,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8479393",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 8.779702915229427,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8476931",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -8.972229486833804,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478420",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 9.269375325006482,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8479983",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -9.866275020372923,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475718",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 10.110699066040796,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475793",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 10.683749713395947,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8479996",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 11.189751421698707,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8476449",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 11.346174882872907,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475168",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 11.93648662817629,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8480803",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -12.156667363886973,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8474053",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 13.189183410145361,
+          "units": "per_hour"
+        }
+      ]
+    },
+    "output_bytes": 83249960,
+    "write_wall_seconds": 1.6906204999540932
+  },
+  "heads": {
+    "volume": {
+      "status": "complete",
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 360,
+        "evaluations": 396,
+        "objective": -1193.6478406232861,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "maxfun": 15000,
+        "maxls": 20,
+        "raw_gradient_inf_norm": 1.4417560393553686e-05,
+        "trace_summary": {
+          "evaluations": 396,
+          "initial": [
+            -1053.187435100568,
+            43.665359071034814
+          ],
+          "final": [
+            -1193.6478406232861,
+            1.4417560393553686e-05
+          ],
+          "minimum_objective": -1193.6478406232861
+        }
+      },
+      "resources": {
+        "wall_seconds": 0.5616638339706697,
+        "peak_rss_bytes": 1037139968,
+        "dimensions": {
+          "rows": 8464,
+          "features": 1241,
+          "coordinates": 1249,
+          "grouped_time_rows": 8464
+        }
+      }
+    },
+    "shape": {
+      "status": "complete",
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 146,
+        "evaluations": 152,
+        "objective": 1708.4368928627732,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "maxfun": 15000,
+        "maxls": 20,
+        "raw_gradient_inf_norm": 1.8310866913839874e-05,
+        "trace_summary": {
+          "evaluations": 152,
+          "initial": [
+            1833.194329749008,
+            42.06817815649555
+          ],
+          "final": [
+            1708.4368928627732,
+            1.8310866913839874e-05
+          ],
+          "minimum_objective": 1708.4368928627732
+        }
+      },
+      "resources": {
+        "wall_seconds": 0.8239774169633165,
+        "peak_rss_bytes": 1037139968,
+        "dimensions": {
+          "rows": 352,
+          "features": 1241,
+          "coordinates": 49640,
+          "grouped_time_rows": null
+        }
+      }
+    },
+    "quality": {
+      "status": "complete",
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 812,
+        "evaluations": 875,
+        "objective": 50.885141384988756,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "maxfun": 15000,
+        "maxls": 20,
+        "raw_gradient_inf_norm": 5.906300619598626e-06,
+        "trace_summary": {
+          "evaluations": 875,
+          "initial": [
+            51.38471544567991,
+            2.372566671315395
+          ],
+          "final": [
+            50.885141384988756,
+            5.906300619598626e-06
+          ],
+          "minimum_objective": 50.885141384988756
+        }
+      },
+      "resources": {
+        "wall_seconds": 4.077105875010602,
+        "peak_rss_bytes": 1037139968,
+        "dimensions": {
+          "rows": 352,
+          "features": 1241,
+          "coordinates": 50881,
+          "grouped_time_rows": null
+        }
+      }
+    }
+  },
+  "inline_shift_start_audit": {
+    "games": [
+      {
+        "game_id": "2022020001",
+        "retained_targets": 90,
+        "shooter_known_faceoff_starts": 35,
+        "shooter_proved_earlier_faceoff_starts": 35,
+        "shooter_known_on_the_fly_starts": 55,
+        "shooter_proved_earlier_on_the_fly_starts": 55,
+        "spatial_unknown_starts": [
+          {
+            "game_id": "2022020001",
+            "source_index": 218,
+            "key": "2022020001:218",
+            "focal_order": 218,
+            "anchor_source_index": null,
+            "anchor_order": null,
+            "anchor_key": null,
+            "event_pointer": "/events/218",
+            "anchor_pointer": null,
+            "shift_pointer": "/player_shifts/796",
+            "focal_elapsed_seconds": 1024,
+            "shift_start_seconds": 1024,
+            "start_values": {
+              "kind": "on_the_fly",
+              "zone": null,
+              "event_source_index": null,
+              "episode_index": 43,
+              "rest_seconds": 62
+            },
+            "player_id": "8481477",
+            "chunk_pointer": "/chunks/553",
+            "disposition": "unknown_start_preserved_age"
+          },
+          {
+            "game_id": "2022020001",
+            "source_index": 221,
+            "key": "2022020001:221",
+            "focal_order": 221,
+            "anchor_source_index": null,
+            "anchor_order": null,
+            "anchor_key": null,
+            "event_pointer": "/events/221",
+            "anchor_pointer": null,
+            "shift_pointer": "/player_shifts/44",
+            "focal_elapsed_seconds": 1074,
+            "shift_start_seconds": 1074,
+            "start_values": {
+              "kind": "on_the_fly",
+              "zone": null,
+              "event_source_index": null,
+              "episode_index": 43,
+              "rest_seconds": 121
+            },
+            "player_id": "8474009",
+            "chunk_pointer": "/chunks/565",
+            "disposition": "unknown_start_preserved_age"
+          },
+          {
+            "game_id": "2022020001",
+            "source_index": 221,
+            "key": "2022020001:221",
+            "focal_order": 221,
+            "anchor_source_index": null,
+            "anchor_order": null,
+            "anchor_key": null,
+            "event_pointer": "/events/221",
+            "anchor_pointer": null,
+            "shift_pointer": "/player_shifts/432",
+            "focal_elapsed_seconds": 1074,
+            "shift_start_seconds": 1074,
+            "start_values": {
+              "kind": "on_the_fly",
+              "zone": null,
+              "event_source_index": null,
+              "episode_index": 43,
+              "rest_seconds": 126
+            },
+            "player_id": "8476988",
+            "chunk_pointer": "/chunks/565",
+            "disposition": "unknown_start_preserved_age"
+          },
+          {
+            "game_id": "2022020001",
+            "source_index": 221,
+            "key": "2022020001:221",
+            "focal_order": 221,
+            "anchor_source_index": null,
+            "anchor_order": null,
+            "anchor_key": null,
+            "event_pointer": "/events/221",
+            "anchor_pointer": null,
+            "shift_pointer": "/player_shifts/627",
+            "focal_elapsed_seconds": 1074,
+            "shift_start_seconds": 1074,
+            "start_values": {
+              "kind": "on_the_fly",
+              "zone": null,
+              "event_source_index": null,
+              "episode_index": 43,
+              "rest_seconds": 112
+            },
+            "player_id": "8479393",
+            "chunk_pointer": "/chunks/565",
+            "disposition": "unknown_start_preserved_age"
+          },
+          {
+            "game_id": "2022020001",
+            "source_index": 221,
+            "key": "2022020001:221",
+            "focal_order": 221,
+            "anchor_source_index": null,
+            "anchor_order": null,
+            "anchor_key": null,
+            "event_pointer": "/events/221",
+            "anchor_pointer": null,
+            "shift_pointer": "/player_shifts/759",
+            "focal_elapsed_seconds": 1074,
+            "shift_start_seconds": 1074,
+            "start_values": {
+              "kind": "on_the_fly",
+              "zone": null,
+              "event_source_index": null,
+              "episode_index": 43,
+              "rest_seconds": 126
+            },
+            "player_id": "8480160",
+            "chunk_pointer": "/chunks/565",
+            "disposition": "unknown_start_preserved_age"
+          },
+          {
+            "game_id": "2022020001",
+            "source_index": 298,
+            "key": "2022020001:298",
+            "focal_order": 298,
+            "anchor_source_index": null,
+            "anchor_order": null,
+            "anchor_key": null,
+            "event_pointer": "/events/298",
+            "anchor_pointer": null,
+            "shift_pointer": "/player_shifts/440",
+            "focal_elapsed_seconds": 921,
+            "shift_start_seconds": 921,
+            "start_values": {
+              "kind": "on_the_fly",
+              "zone": null,
+              "event_source_index": null,
+              "episode_index": 60,
+              "rest_seconds": 76
+            },
+            "player_id": "8476988",
+            "chunk_pointer": "/chunks/802",
+            "disposition": "unknown_start_preserved_age"
+          },
+          {
+            "game_id": "2022020001",
+            "source_index": 298,
+            "key": "2022020001:298",
+            "focal_order": 298,
+            "anchor_source_index": null,
+            "anchor_order": null,
+            "anchor_key": null,
+            "event_pointer": "/events/298",
+            "anchor_pointer": null,
+            "shift_pointer": "/player_shifts/802",
+            "focal_elapsed_seconds": 921,
+            "shift_start_seconds": 921,
+            "start_values": {
+              "kind": "on_the_fly",
+              "zone": null,
+              "event_source_index": null,
+              "episode_index": 60,
+              "rest_seconds": 109
+            },
+            "player_id": "8481477",
+            "chunk_pointer": "/chunks/802",
+            "disposition": "unknown_start_preserved_age"
+          }
+        ],
+        "unresolved_shooter_bindings": [],
+        "spatial_unknown_start_count": 7,
+        "unresolved_shooter_binding_count": 0
+      },
+      {
+        "game_id": "2022020009",
+        "retained_targets": 88,
+        "shooter_known_faceoff_starts": 31,
+        "shooter_proved_earlier_faceoff_starts": 31,
+        "shooter_known_on_the_fly_starts": 53,
+        "shooter_proved_earlier_on_the_fly_starts": 53,
+        "spatial_unknown_starts": [],
+        "unresolved_shooter_bindings": [],
+        "spatial_unknown_start_count": 0,
+        "unresolved_shooter_binding_count": 0
+      },
+      {
+        "game_id": "2022020822",
+        "retained_targets": 98,
+        "shooter_known_faceoff_starts": 33,
+        "shooter_proved_earlier_faceoff_starts": 33,
+        "shooter_known_on_the_fly_starts": 65,
+        "shooter_proved_earlier_on_the_fly_starts": 65,
+        "spatial_unknown_starts": [
+          {
+            "game_id": "2022020822",
+            "source_index": 93,
+            "key": "2022020822:93",
+            "focal_order": 93,
+            "anchor_source_index": 94,
+            "anchor_order": 94,
+            "anchor_key": "2022020822:94",
+            "event_pointer": "/events/93",
+            "anchor_pointer": "/events/94",
+            "shift_pointer": "/player_shifts/739",
+            "focal_elapsed_seconds": 116,
+            "shift_start_seconds": 116,
+            "start_values": {
+              "kind": "faceoff",
+              "zone": "neutral",
+              "event_source_index": 94,
+              "episode_index": 14,
+              "rest_seconds": null
+            },
+            "player_id": "8480803",
+            "chunk_pointer": "/chunks/552",
+            "disposition": "unknown_start_preserved_age"
+          },
+          {
+            "game_id": "2022020822",
+            "source_index": 244,
+            "key": "2022020822:244",
+            "focal_order": 244,
+            "anchor_source_index": null,
+            "anchor_order": null,
+            "anchor_key": null,
+            "event_pointer": "/events/244",
+            "anchor_pointer": null,
+            "shift_pointer": "/player_shifts/199",
+            "focal_elapsed_seconds": 879,
+            "shift_start_seconds": 879,
+            "start_values": {
+              "kind": "on_the_fly",
+              "zone": null,
+              "event_source_index": null,
+              "episode_index": 43,
+              "rest_seconds": 108
+            },
+            "player_id": "8476872",
+            "chunk_pointer": "/chunks/1293",
+            "disposition": "unknown_start_preserved_age"
+          }
+        ],
+        "unresolved_shooter_bindings": [],
+        "spatial_unknown_start_count": 2,
+        "unresolved_shooter_binding_count": 0
+      },
+      {
+        "game_id": "2022021077",
+        "retained_targets": 76,
+        "shooter_known_faceoff_starts": 29,
+        "shooter_proved_earlier_faceoff_starts": 29,
+        "shooter_known_on_the_fly_starts": 47,
+        "shooter_proved_earlier_on_the_fly_starts": 47,
+        "spatial_unknown_starts": [
+          {
+            "game_id": "2022021077",
+            "source_index": 137,
+            "key": "2022021077:137",
+            "focal_order": 137,
+            "anchor_source_index": null,
+            "anchor_order": null,
+            "anchor_key": null,
+            "event_pointer": "/events/137",
+            "anchor_pointer": null,
+            "shift_pointer": "/player_shifts/439",
+            "focal_elapsed_seconds": 437,
+            "shift_start_seconds": 437,
+            "start_values": {
+              "kind": "on_the_fly",
+              "zone": null,
+              "event_source_index": null,
+              "episode_index": 25,
+              "rest_seconds": 120
+            },
+            "player_id": "8478047",
+            "chunk_pointer": "/chunks/571",
+            "disposition": "unknown_start_preserved_age"
+          },
+          {
+            "game_id": "2022021077",
+            "source_index": 139,
+            "key": "2022021077:139",
+            "focal_order": 139,
+            "anchor_source_index": null,
+            "anchor_order": null,
+            "anchor_key": null,
+            "event_pointer": "/events/139",
+            "anchor_pointer": null,
+            "shift_pointer": "/player_shifts/69",
+            "focal_elapsed_seconds": 467,
+            "shift_start_seconds": 467,
+            "start_values": {
+              "kind": "on_the_fly",
+              "zone": null,
+              "event_source_index": null,
+              "episode_index": 25,
+              "rest_seconds": 154
+            },
+            "player_id": "8474189",
+            "chunk_pointer": "/chunks/586",
+            "disposition": "unknown_start_preserved_age"
+          }
+        ],
+        "unresolved_shooter_bindings": [],
+        "spatial_unknown_start_count": 2,
+        "unresolved_shooter_binding_count": 0
+      },
+      {
+        "game_id": "2022020547",
+        "retained_targets": 0,
+        "shooter_known_faceoff_starts": 0,
+        "shooter_proved_earlier_faceoff_starts": 0,
+        "shooter_known_on_the_fly_starts": 0,
+        "shooter_proved_earlier_on_the_fly_starts": 0,
+        "spatial_unknown_starts": [],
+        "unresolved_shooter_bindings": [],
+        "spatial_unknown_start_count": 0,
+        "unresolved_shooter_binding_count": 0
+      }
+    ],
+    "totals": {
+      "retained_targets": 352,
+      "shooter_known_faceoff_starts": 128,
+      "shooter_proved_earlier_faceoff_starts": 128,
+      "shooter_known_on_the_fly_starts": 220,
+      "shooter_proved_earlier_on_the_fly_starts": 220,
+      "spatial_unknown_start_count": 11,
+      "unresolved_shooter_binding_count": 0
+    }
+  },
+  "carry_checks": {
+    "volume": {
+      "counts": {
+        "entry": 654,
+        "carry": 236,
+        "carried_prior_only": 130,
+        "entry_prior_only": 400,
+        "current_supported": 360,
+        "absent_previous_records_retained": 340
+      },
+      "samples": [
+        {
+          "block": "attacking_player",
+          "id": "8473449",
+          "subblock": "base",
+          "prior_only": true,
+          "anchor": "20212022",
+          "previous_raw_first_coordinate": -0.03079715880446972,
+          "conditional_mean_first_coordinate": -0.029359516827407558,
+          "previous_center_first_coordinate": -0.0011363590116423388
+        },
+        {
+          "block": "attacking_player",
+          "id": "8474037",
+          "subblock": "base",
+          "prior_only": false,
+          "anchor": "20212022",
+          "previous_raw_first_coordinate": 0.12447815617178046,
+          "conditional_mean_first_coordinate": 0.12585417433002694,
+          "previous_center_first_coordinate": -0.0011363590116423388
+        }
+      ]
+    },
+    "shape": {
+      "counts": {
+        "entry": 667,
+        "carry": 223,
+        "carried_prior_only": 119,
+        "entry_prior_only": 411,
+        "current_supported": 360,
+        "absent_previous_records_retained": 339
+      },
+      "samples": [
+        {
+          "block": "attacking_player",
+          "id": "8473449",
+          "subblock": "base",
+          "prior_only": true,
+          "anchor": "20212022",
+          "previous_raw_first_coordinate": 0.0012976717242822624,
+          "conditional_mean_first_coordinate": 0.0012976717242822624,
+          "previous_center_first_coordinate": 0.00013502788171535494
+        },
+        {
+          "block": "attacking_player",
+          "id": "8474037",
+          "subblock": "base",
+          "prior_only": false,
+          "anchor": "20212022",
+          "previous_raw_first_coordinate": 0.0005868417749807262,
+          "conditional_mean_first_coordinate": 0.0005868417749807262,
+          "previous_center_first_coordinate": 0.00013502788171535494
+        }
+      ]
+    },
+    "quality": {
+      "counts": {
+        "entry": 667,
+        "carry": 223,
+        "carried_prior_only": 119,
+        "entry_prior_only": 411,
+        "current_supported": 360,
+        "absent_previous_records_retained": 339
+      },
+      "samples": [
+        {
+          "block": "attacking_player",
+          "id": "8473449",
+          "subblock": "base",
+          "prior_only": true,
+          "anchor": "20212022",
+          "previous_raw_first_coordinate": -0.0012546682452070467,
+          "conditional_mean_first_coordinate": -0.0012546682452070467,
+          "previous_center_first_coordinate": -0.0002810510518969876
+        },
+        {
+          "block": "attacking_player",
+          "id": "8474037",
+          "subblock": "base",
+          "prior_only": false,
+          "anchor": "20212022",
+          "previous_raw_first_coordinate": 0.0024498453822778153,
+          "conditional_mean_first_coordinate": 0.0024498453822778153,
+          "previous_center_first_coordinate": -0.0002810510518969876
+        }
+      ]
+    }
+  },
+  "previous_preserved": true,
+  "basis_exact": true,
+  "probes": {
+    "applicable": false,
+    "present": false,
+    "reason": "not the final selected fixture year; three final-year continuations remain pending"
+  },
+  "root_accepted": true
+}

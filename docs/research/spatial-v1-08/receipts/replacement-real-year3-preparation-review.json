@@ -1,0 +1,28 @@
+{
+  "kind": "replacement-real-year3-preparation-review",
+  "status": "clear held preparation; no release or invocation",
+  "recorded_at_utc": "2026-11-01T02:45:06.418621+00:00",
+  "fit_command": {
+    "path": "var/v1-08-replacement/real-20232024-execution-command.sh",
+    "sha256": "261a9290524136e180eb54738f822bced0574535248fb853d4750dbce6aacc4f",
+    "author": "source_design",
+    "reviewer": "root",
+    "accepted_previous_sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c",
+    "syntax_and_fixed_book_argv": "passed",
+    "distinct_fresh_guards": 15,
+    "census_pause_final_probe": false
+  },
+  "state_checker": {
+    "path": "var/v1-08-replacement/accept_real_execution_20232024.py",
+    "sha256": "5d713801dca73e0fe7771f6d6613fdf6010d0033d934c33274d4f985f04e22f9",
+    "author": "numerical",
+    "reviewers": [
+      "product",
+      "root"
+    ],
+    "verdict": "raw incoming history/age/profile/update rules and exact numpy centers preserved; only actual observed one/two-year gap witnesses reported; original non-start populations checked",
+    "actual_state_and_source_pins": "required and still unknown",
+    "invocations": 0
+  },
+  "scope": "second score remains sole heavy job; all analysis source frozen; year3 fit held until accepted score2 and root release; no source/state/array read or numerical command"
+}

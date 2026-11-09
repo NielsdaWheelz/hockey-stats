@@ -1,0 +1,33 @@
+{
+  "kind": "spatial-v1-08-fixture03-app-build-bindings",
+  "status": "passed",
+  "checked_at_utc": "2026-10-31T09:15:02.776695+00:00",
+  "git_commit": "ddb718112d1d2a92421e4ec9c97822c7b281e122",
+  "app_git_tree": "dc67fbca3b350dd1bea4af9db289470401b0b237",
+  "app_worktree_clean": true,
+  "node_version": "v24.21.0",
+  "source": {
+    "sha256": "359a32a081c2cc524351cf0d034b555ed7f392c777e9706f94c6119cbc866c19",
+    "files": 52,
+    "bytes": 873286
+  },
+  "build": {
+    "sha256": "2b84760dacbd8d6263d19963ea21259f403ff26cb17f69ce0702b172b78f7063",
+    "files": 38,
+    "bytes": 1289449
+  },
+  "digest_definition": "sha256 of compact sorted-key json of pathlib.Path-ordered {path relative to repository,sha256,bytes} records; source is git ls-files app, build is all actual app/dist files",
+  "typecheck_exit": 0,
+  "build_exit": 0,
+  "logs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-app-typecheck.txt",
+      "sha256": "36de49487a44b2407d4252ebd69b7c04224469392cf8cef8b594809e014b8fdf"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-app-build.txt",
+      "sha256": "0d3d305b17780f28e79266aa65e1d83354f61a9688796b476efdb2a57865b228"
+    }
+  ],
+  "after_prior_only_wording": true
+}

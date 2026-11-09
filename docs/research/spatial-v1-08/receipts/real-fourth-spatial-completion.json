@@ -1,0 +1,472 @@
+{
+  "kind": "real-fourth-spatial-root-acceptance",
+  "status": "accepted",
+  "recorded_at_utc": "2026-11-05T20:09:02.904804+00:00",
+  "season": "20242025",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/manifest.json",
+    "sha256": "74f35a1c9599335279954170693f7d3add11302bc83611fe14a368322870e6eb",
+    "bytes": 355907
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/manifest.json",
+    "sha256": "42bfbab911efc9a58904b5273a09545d617fd7c29a2be67203bbc55b236eff25",
+    "season": "20232024",
+    "purpose": "real",
+    "usage": "annual"
+  },
+  "inputs": {
+    "prepared": {
+      "purpose": "real",
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+    },
+    "coaches": {
+      "purpose": "real",
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+    },
+    "valued": {
+      "purpose": "real",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20242025/manifest.json",
+      "sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de"
+    }
+  },
+  "implementation": {
+    "git_commit": "b8679801b0226b132f5bbe84379df8bbc474fe39",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "analysis_tree": "38ec706cb505ea3d9936518dd119869e7695200b",
+  "launch_head": "9d26879200f2d467b6176c01352bde176d3ef241",
+  "exit": 0,
+  "eligible_as_annual_predecessor": true,
+  "evidence": {
+    "metadata": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025-saved-metadata-acceptance.json",
+      "sha256": "b7dc46504507b7612cf4f3aee72973d7bb6222a3c8154acd31e0c07ddd35e370",
+      "bytes": 382358
+    },
+    "binding_review": {
+      "path": "docs/research/spatial-v1-08/reviews/real-fourth-spatial-saved-binding-review.md",
+      "sha256": "9a394e58025b4ad512dbe6048f4c0f4e41f2d9fdca23e068b6be96e231297f6c",
+      "bytes": 2647
+    },
+    "history_report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20242025-01/audit.json",
+      "sha256": "aa557293a7db2ef4021e8b67835b40c4a15db84aa4f3bea2c7cb1668ba2a2c14",
+      "bytes": 11554
+    },
+    "history_review": {
+      "path": "docs/research/spatial-v1-08/reviews/real-spatial-history-20242025-01-saved-review.md",
+      "sha256": "2a5196365c1d9672ac597090a2d4c6e8094e5fc6ab74c732d6665f477c13c414",
+      "bytes": 5695
+    },
+    "history_checked_facts": {
+      "path": "docs/research/spatial-v1-08/receipts/real-spatial-history-20242025-01-checked-facts.json",
+      "sha256": "2479f19551d96ea3be8eab5112ce97b18903a47023ba9103ee64994ac794dac9",
+      "bytes": 18138
+    },
+    "release": {
+      "path": "docs/research/spatial-v1-08/receipts/real-fourth-spatial-release.json",
+      "sha256": "4d2a68915a526d6db82a7d40c02aa8ffbec4b67754135515c24499c4c7d97906",
+      "bytes": 5174
+    },
+    "launch": {
+      "path": "docs/research/spatial-v1-08/receipts/real-fourth-spatial-launch.json",
+      "sha256": "a5e718ac7500adc5a8347f35fec28f1bf3ab02e849a9cb781e0e68b9e6f90db2",
+      "bytes": 4628
+    }
+  },
+  "ordinary_heads": {
+    "volume": {
+      "status": "complete",
+      "objective": {
+        "likelihood": -393710.6477024963,
+        "penalty": 2995.5769455178593,
+        "total": -390715.0707569785
+      },
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 4059,
+        "evaluations": 4466,
+        "objective": -390715.0707569785,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "maxfun": 15000,
+        "maxls": 20,
+        "raw_gradient_inf_norm": 0.01737110950460874,
+        "trace_summary": {
+          "evaluations": 4466,
+          "initial": [
+            -351309.71181406855,
+            22574.72055209396
+          ],
+          "final": [
+            -390715.0707569785,
+            0.01737110950460874
+          ],
+          "minimum_objective": -390715.0707569785
+        }
+      },
+      "resources": {
+        "wall_seconds": 566.4411144590704,
+        "peak_rss_bytes": 24798986240,
+        "dimensions": {
+          "rows": 2814494,
+          "features": 3101,
+          "coordinates": 3109,
+          "grouped_time_rows": 2814494
+        }
+      }
+    },
+    "shape": {
+      "status": "complete",
+      "objective": {
+        "likelihood": 647014.5264668837,
+        "penalty": 2508.645055440799,
+        "total": 649523.1715223246
+      },
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 1175,
+        "evaluations": 1231,
+        "objective": 649523.1715223246,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "maxfun": 15000,
+        "maxls": 20,
+        "raw_gradient_inf_norm": 0.002208079028475751,
+        "trace_summary": {
+          "evaluations": 1231,
+          "initial": [
+            656605.8181080306,
+            2064.1998618985644
+          ],
+          "final": [
+            649523.1715223246,
+            0.002208079028475751
+          ],
+          "minimum_objective": 649523.1715223246
+        }
+      },
+      "resources": {
+        "wall_seconds": 1023.1734783330467,
+        "peak_rss_bytes": 24798986240,
+        "dimensions": {
+          "rows": 116131,
+          "features": 3101,
+          "coordinates": 124040,
+          "grouped_time_rows": null
+        }
+      }
+    },
+    "quality": {
+      "status": "complete",
+      "objective": {
+        "likelihood": 17226.978881929834,
+        "penalty": 9.850917301547861,
+        "total": 17236.829799231382
+      },
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 2961,
+        "evaluations": 3165,
+        "objective": 17236.829799231382,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "maxfun": 15000,
+        "maxls": 20,
+        "raw_gradient_inf_norm": 0.00041886276487823615,
+        "trace_summary": {
+          "evaluations": 3165,
+          "initial": [
+            17300.937913462734,
+            73.46977741517388
+          ],
+          "final": [
+            17236.829799231382,
+            0.00041886276487823615
+          ],
+          "minimum_objective": 17236.829799231382
+        }
+      },
+      "resources": {
+        "wall_seconds": 2076.360816499917,
+        "peak_rss_bytes": 24798986240,
+        "dimensions": {
+          "rows": 116131,
+          "features": 3101,
+          "coordinates": 127141,
+          "grouped_time_rows": null
+        }
+      }
+    }
+  },
+  "numerical_policy": "unchanged ordinary native stopping; no earlier-year probe or stronger gradient gate",
+  "cost": {
+    "whole_command": {
+      "timing": {
+        "wall_seconds": 19387.21,
+        "user_seconds": 19162.82,
+        "system_seconds": 105.78
+      },
+      "maximum_resident_bytes": 24798986240,
+      "peak_memory_footprint_bytes": 48810249928
+    },
+    "design": {
+      "design_wall_seconds": 5837.297408082988,
+      "input_read_bytes": 84362473166,
+      "time_rows": 2814494,
+      "event_rows": 116131,
+      "columns": 3101,
+      "actor_columns": 2751,
+      "context_columns": 350,
+      "design_bytes": 9303275208,
+      "input_read_wall_seconds": 185.6538514579879
+    },
+    "fit_wall_seconds": 3803.0581803329987,
+    "projection_wall_seconds": 9102.717018874944,
+    "write_wall_seconds": 259.1071534580551,
+    "artifact_bytes": 11429400860,
+    "artifact_files": 16,
+    "saved_metadata_check_wall_seconds": 0.36,
+    "independent_history_check_wall_seconds": 1.53
+  },
+  "independent_history": {
+    "history": {
+      "volume": {
+        "entry_rows": 360,
+        "carry_rows": 2390,
+        "carry_gaps": {
+          "1": 2102,
+          "2": 120,
+          "3": 168
+        },
+        "transitions": {
+          "age_carry": 1618,
+          "entry": 360,
+          "missing_or_changed_role": 2,
+          "age_neutral": 770
+        },
+        "fresh_supported_rows": 2324,
+        "prior_only_rows": 426,
+        "absent_anchors_retained": 890,
+        "previous_fresh_npz_rows": 2394,
+        "previous_older_ledger_anchors": 886,
+        "maximum_conditional_mean_difference": 0.0,
+        "maximum_absolute_age_coefficient": 0.22087627976901936,
+        "nonzero_age_adjusted_means": 1618,
+        "maximum_absolute_age_mean_shift": 0.10363771203672535,
+        "solver": {
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 4059,
+          "evaluations": 4466,
+          "objective": -390715.0707569785,
+          "options": {
+            "maxiter": 10000,
+            "ftol": 1e-15,
+            "gtol": 1e-06,
+            "maxcor": 10
+          },
+          "maxfun": 15000,
+          "maxls": 20,
+          "raw_gradient_inf_norm": 0.01737110950460874,
+          "trace_summary": {
+            "evaluations": 4466,
+            "initial": [
+              -351309.71181406855,
+              22574.72055209396
+            ],
+            "final": [
+              -390715.0707569785,
+              0.01737110950460874
+            ],
+            "minimum_objective": -390715.0707569785
+          }
+        },
+        "objective": {
+          "likelihood": -393710.6477024963,
+          "penalty": 2995.5769455178593,
+          "total": -390715.0707569785
+        }
+      },
+      "shape": {
+        "entry_rows": 360,
+        "carry_rows": 2390,
+        "carry_gaps": {
+          "1": 2102,
+          "2": 119,
+          "3": 169
+        },
+        "transitions": {
+          "age_neutral": 2390,
+          "entry": 360
+        },
+        "fresh_supported_rows": 2323,
+        "prior_only_rows": 427,
+        "absent_anchors_retained": 888,
+        "previous_fresh_npz_rows": 2392,
+        "previous_older_ledger_anchors": 886,
+        "maximum_conditional_mean_difference": 0.0,
+        "maximum_absolute_age_coefficient": 0.0,
+        "nonzero_age_adjusted_means": 0,
+        "maximum_absolute_age_mean_shift": 0.0,
+        "solver": {
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 1175,
+          "evaluations": 1231,
+          "objective": 649523.1715223246,
+          "options": {
+            "maxiter": 10000,
+            "ftol": 1e-15,
+            "gtol": 1e-06,
+            "maxcor": 10
+          },
+          "maxfun": 15000,
+          "maxls": 20,
+          "raw_gradient_inf_norm": 0.002208079028475751,
+          "trace_summary": {
+            "evaluations": 1231,
+            "initial": [
+              656605.8181080306,
+              2064.1998618985644
+            ],
+            "final": [
+              649523.1715223246,
+              0.002208079028475751
+            ],
+            "minimum_objective": 649523.1715223246
+          }
+        },
+        "objective": {
+          "likelihood": 647014.5264668837,
+          "penalty": 2508.645055440799,
+          "total": 649523.1715223246
+        }
+      },
+      "quality": {
+        "entry_rows": 360,
+        "carry_rows": 2390,
+        "carry_gaps": {
+          "1": 2102,
+          "2": 119,
+          "3": 169
+        },
+        "transitions": {
+          "age_neutral": 2390,
+          "entry": 360
+        },
+        "fresh_supported_rows": 2323,
+        "prior_only_rows": 427,
+        "absent_anchors_retained": 888,
+        "previous_fresh_npz_rows": 2392,
+        "previous_older_ledger_anchors": 886,
+        "maximum_conditional_mean_difference": 0.0,
+        "maximum_absolute_age_coefficient": 0.0,
+        "nonzero_age_adjusted_means": 0,
+        "maximum_absolute_age_mean_shift": 0.0,
+        "solver": {
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 2961,
+          "evaluations": 3165,
+          "objective": 17236.829799231382,
+          "options": {
+            "maxiter": 10000,
+            "ftol": 1e-15,
+            "gtol": 1e-06,
+            "maxcor": 10
+          },
+          "maxfun": 15000,
+          "maxls": 20,
+          "raw_gradient_inf_norm": 0.00041886276487823615,
+          "trace_summary": {
+            "evaluations": 3165,
+            "initial": [
+              17300.937913462734,
+              73.46977741517388
+            ],
+            "final": [
+              17236.829799231382,
+              0.00041886276487823615
+            ],
+            "minimum_objective": 17236.829799231382
+          }
+        },
+        "objective": {
+          "likelihood": 17226.978881929834,
+          "penalty": 9.850917301547861,
+          "total": 17236.829799231382
+        }
+      }
+    },
+    "reference": {
+      "derived_directed_hours": 1992.6894444440609,
+      "exposure_owner": "saved head included_seconds metadata; source/design reconciliation remains canonical/prior proof"
+    },
+    "standardized_projections": {
+      "players": 920,
+      "roles": 2,
+      "maximum_native_difference": 5.10702591327572e-14,
+      "maximum_scalar_difference": 2.1600499167107046e-12
+    },
+    "calls": {
+      "source": 0,
+      "production_reader": 0,
+      "production_evaluator": 0,
+      "objective": 0,
+      "gradient": 0,
+      "native_fit": 0,
+      "probe": 0,
+      "actual_allocations": 0
+    },
+    "limits": [
+      "accepted previous ledger is the raw-history induction boundary; older anchors are not compared to profiled previous npz rows",
+      "only basis/rates npy members read from the two larger archives; whole-archive integrity belongs to canonical validation",
+      "current saved head support/exposure/age facts are inputs; no original design or source reconciliation repeated",
+      "no objective/gradient recomputation, stronger gradient gate, continuation or actual-context allocation"
+    ]
+  },
+  "acceptance": {
+    "real_annual_states": 4,
+    "real_heads": 12,
+    "required_real_heads": 15,
+    "real_final_probes": 0,
+    "required_real_final_probes": 3,
+    "source_to_screen_real_complete": false,
+    "activation": false
+  },
+  "limits": [
+    "all three native solves stopped on ftol above gtol; final-year sensitivity remains untested",
+    "independent history uses saved exposure/age/support and selected basis/rates only; canonical read owns whole archive integrity",
+    "no repeated source, objective/gradient, production-reader or actual-allocation pass; earlier mathematical/source proofs remain applicable",
+    "computational acceptance is not scientific admission"
+  ]
+}

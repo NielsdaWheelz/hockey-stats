@@ -1,0 +1,1407 @@
+{
+  "kind": "real-final-spatial-root-failure",
+  "status": "numerical_resolution_failed_preserved",
+  "recorded_at_utc": "2026-11-06T02:12:53.711432+00:00",
+  "season": "20252026",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/manifest.json",
+    "sha256": "c74b313e2ac4ed0b1b8e09787de024b0febe7e98339879a06fb7537ff2398bab",
+    "bytes": 359235
+  },
+  "annual_baseline": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/annual-baseline-manifest.json",
+    "sha256": "8ed907e6034945af251b05cbc28c1fd6a1c5b08315a0c520fc2efd80ffd2257f",
+    "bytes": 355915
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/manifest.json",
+    "sha256": "74f35a1c9599335279954170693f7d3add11302bc83611fe14a368322870e6eb",
+    "season": "20242025",
+    "purpose": "real",
+    "usage": "annual"
+  },
+  "inputs": {
+    "prepared": {
+      "purpose": "real",
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+    },
+    "coaches": {
+      "purpose": "real",
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+    },
+    "valued": {
+      "purpose": "real",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026/manifest.json",
+      "sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc"
+    }
+  },
+  "implementation": {
+    "git_commit": "2434ddd9879bac9aa29116dd6289470961fc19d4",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "analysis_tree": "38ec706cb505ea3d9936518dd119869e7695200b",
+  "launch_head": "93afc89ea7fc480f7f957478b54c3a4701907aae",
+  "native_exit": 1,
+  "native_session": 54815,
+  "native_pids_closed": {
+    "shell": 76851,
+    "time": 76927,
+    "python": 76928
+  },
+  "finish": "2026-11-06T02:02:00Z",
+  "eligible_as_annual_predecessor": false,
+  "eligible_for_combined_publication": false,
+  "evidence": {
+    "release": {
+      "path": "docs/research/spatial-v1-08/receipts/real-final-spatial-release.json",
+      "sha256": "b2779a4b0466ee87c3bc54ab4fcfc20deafdb83c69019853cda797ffce0375da",
+      "bytes": 6016
+    },
+    "launch": {
+      "path": "docs/research/spatial-v1-08/receipts/real-final-spatial-launch.json",
+      "sha256": "392c2d7455d290e88d5a88d7d121630a25f3e076a3ef19ae3304a1a82e500412",
+      "bytes": 4905
+    },
+    "native_log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026.log",
+      "sha256": "e65406125b6878f4350a27aad3f0803eb051412c8e701bec979746522248f2f5",
+      "bytes": 933
+    },
+    "native_exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026-exit.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "binding_and_probe_command_review": {
+      "path": "docs/research/spatial-v1-08/reviews/real-final-spatial-failed-binding-and-probe-command-review.md",
+      "sha256": "eaf5a983cd724952e08a1993fbbf1dcffc57cf01f10ba7d3d4615b3f9e498864",
+      "bytes": 3605
+    },
+    "baseline_history_report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-spatial-history-20252026-01/audit.json",
+      "sha256": "664473874e2bb0e31a14b72cc3a38310bb447e33172c3985223754aaeb4ba4fe",
+      "bytes": 11614
+    },
+    "baseline_history_facts": {
+      "path": "docs/research/spatial-v1-08/receipts/real-spatial-history-20252026-01-checked-facts.json",
+      "sha256": "3dc8b47618d423dd0639781df20854f3f72d937c6b61aeceafbd362d2ac223ce",
+      "bytes": 18974
+    },
+    "baseline_history_review": {
+      "path": "docs/research/spatial-v1-08/reviews/real-spatial-history-20252026-01-saved-review.md",
+      "sha256": "69f9753f878027ad5cacfda89e700f63c471afe7ed8f83e861f57c1bb11499d7",
+      "bytes": 6324
+    },
+    "probe_audit_report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-final-spatial-probes-01/audit.json",
+      "sha256": "1fd73cf1fdc197a9ae6da87930c4865cb5943a9c8166c056b7b436fc331ac679",
+      "bytes": 67170
+    },
+    "probe_audit_log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-final-spatial-probes-01.log",
+      "sha256": "d177805edaabf0d381f07e101b01b5ca94e805fbeef92ef8c5b3848e99345eae",
+      "bytes": 994
+    },
+    "probe_audit_exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-final-spatial-probes-01-exit.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "probe_checked_facts": {
+      "path": "docs/research/spatial-v1-08/receipts/real-final-spatial-probes-01-checked-facts.json",
+      "sha256": "ff6259335f0f35a6dae270dfcbd948bcb05c8117732c76ad469e08739b0f08ac",
+      "bytes": 45120
+    },
+    "probe_saved_review": {
+      "path": "docs/research/spatial-v1-08/reviews/real-final-spatial-probes-01-saved-review.md",
+      "sha256": "0e74bc695d6a519508448408f254ac732f7584980814269163a4d2bd738fef53",
+      "bytes": 3789
+    }
+  },
+  "ordinary_baseline": {
+    "heads_complete": 3,
+    "history_reference_and_standardized_outputs_passed": true,
+    "standardized_players": 940,
+    "history": {
+      "volume": {
+        "entry_rows": 292,
+        "carry_rows": 2498,
+        "carry_gaps": {
+          "1": 2076,
+          "3": 92,
+          "2": 166,
+          "4": 164
+        },
+        "transitions": {
+          "age_carry": 1642,
+          "entry": 292,
+          "missing_or_changed_role": 2,
+          "age_neutral": 854
+        },
+        "fresh_supported_rows": 2382,
+        "prior_only_rows": 408,
+        "absent_anchors_retained": 1074,
+        "previous_fresh_npz_rows": 2324,
+        "previous_older_ledger_anchors": 1248,
+        "maximum_conditional_mean_difference": 0.0,
+        "maximum_absolute_age_coefficient": 0.30676870460636985,
+        "nonzero_age_adjusted_means": 1642,
+        "maximum_absolute_age_mean_shift": 0.15108981236259753,
+        "solver": {
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 4126,
+          "evaluations": 4532,
+          "objective": -394260.0157964924,
+          "options": {
+            "maxiter": 10000,
+            "ftol": 1e-15,
+            "gtol": 1e-06,
+            "maxcor": 10
+          },
+          "maxfun": 15000,
+          "maxls": 20,
+          "raw_gradient_inf_norm": 0.004556859267722757,
+          "trace_summary": {
+            "evaluations": 4532,
+            "initial": [
+              -349301.4936826633,
+              19022.397794247605
+            ],
+            "final": [
+              -394260.0157964924,
+              0.004556859267722757
+            ],
+            "minimum_objective": -394260.0157964924
+          }
+        },
+        "objective": {
+          "likelihood": -398019.8075361162,
+          "penalty": 3759.791739623847,
+          "total": -394260.0157964924
+        }
+      },
+      "shape": {
+        "entry_rows": 293,
+        "carry_rows": 2497,
+        "carry_gaps": {
+          "1": 2075,
+          "3": 91,
+          "2": 166,
+          "4": 165
+        },
+        "transitions": {
+          "age_neutral": 2497,
+          "entry": 293
+        },
+        "fresh_supported_rows": 2382,
+        "prior_only_rows": 408,
+        "absent_anchors_retained": 1072,
+        "previous_fresh_npz_rows": 2323,
+        "previous_older_ledger_anchors": 1246,
+        "maximum_conditional_mean_difference": 0.0,
+        "maximum_absolute_age_coefficient": 0.0,
+        "nonzero_age_adjusted_means": 0,
+        "maximum_absolute_age_mean_shift": 0.0,
+        "solver": {
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 1214,
+          "evaluations": 1270,
+          "objective": 646167.8945182716,
+          "options": {
+            "maxiter": 10000,
+            "ftol": 1e-15,
+            "gtol": 1e-06,
+            "maxcor": 10
+          },
+          "maxfun": 15000,
+          "maxls": 20,
+          "raw_gradient_inf_norm": 0.018706396417300653,
+          "trace_summary": {
+            "evaluations": 1270,
+            "initial": [
+              653414.5097244793,
+              2702.5411043588683
+            ],
+            "final": [
+              646167.8945182716,
+              0.018706396417300653
+            ],
+            "minimum_objective": 646167.8945182716
+          }
+        },
+        "objective": {
+          "likelihood": 643617.5897483522,
+          "penalty": 2550.3047699193685,
+          "total": 646167.8945182716
+        }
+      },
+      "quality": {
+        "entry_rows": 293,
+        "carry_rows": 2497,
+        "carry_gaps": {
+          "1": 2075,
+          "3": 91,
+          "2": 166,
+          "4": 165
+        },
+        "transitions": {
+          "age_neutral": 2497,
+          "entry": 293
+        },
+        "fresh_supported_rows": 2382,
+        "prior_only_rows": 408,
+        "absent_anchors_retained": 1072,
+        "previous_fresh_npz_rows": 2323,
+        "previous_older_ledger_anchors": 1246,
+        "maximum_conditional_mean_difference": 0.0,
+        "maximum_absolute_age_coefficient": 0.0,
+        "nonzero_age_adjusted_means": 0,
+        "maximum_absolute_age_mean_shift": 0.0,
+        "solver": {
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 3048,
+          "evaluations": 3242,
+          "objective": 18489.562749166118,
+          "options": {
+            "maxiter": 10000,
+            "ftol": 1e-15,
+            "gtol": 1e-06,
+            "maxcor": 10
+          },
+          "maxfun": 15000,
+          "maxls": 20,
+          "raw_gradient_inf_norm": 0.0008985756704142922,
+          "trace_summary": {
+            "evaluations": 3242,
+            "initial": [
+              18566.593738670952,
+              131.91668932222848
+            ],
+            "final": [
+              18489.562749166118,
+              0.0008985756704142922
+            ],
+            "minimum_objective": 18489.562749166118
+          }
+        },
+        "objective": {
+          "likelihood": 18479.555595626454,
+          "penalty": 10.00715353966321,
+          "total": 18489.562749166118
+        }
+      }
+    },
+    "projection": {
+      "players": 940,
+      "roles": 2,
+      "maximum_native_difference": 7.016609515630989e-14,
+      "maximum_scalar_difference": 2.1742607714259066e-12
+    }
+  },
+  "continuations": {
+    "volume": {
+      "native_complete": true,
+      "status": "failed",
+      "native_solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 648,
+        "evaluations": 729,
+        "objective": -394260.0157970644,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-16,
+          "gtol": 1e-07,
+          "maxcor": 10
+        },
+        "maxfun": 15000,
+        "maxls": 20,
+        "raw_gradient_inf_norm": 0.0015049986380475389,
+        "trace_summary": {
+          "evaluations": 729,
+          "initial": [
+            -394260.0157964924,
+            0.004556859267722757
+          ],
+          "final": [
+            -394260.0157970644,
+            0.0015049986380475389
+          ],
+          "minimum_objective": -394260.0157970644
+        }
+      },
+      "completed_coefficient_movement": {
+        "maximum": 0.00043763782110511906,
+        "l2": 0.0009637835927747999,
+        "scope": "completed endpoint includes age/prior-only completion; not reconstructed raw native movement"
+      },
+      "saved_objective_component_deltas": {
+        "likelihood": 0.008123906620312482,
+        "penalty": -0.008124478668833035,
+        "total": -5.720066837966442e-07
+      },
+      "comparison": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/probes/volume-comparison.json",
+        "sha256": "0e4fb977a919484a36ca2c62a9af8ce49c260527273eed71c788b1ce93fda0b5",
+        "bytes": 10928
+      },
+      "maxima": {
+        "standardized_shape_probability": {
+          "value": 0.0,
+          "limit": 1e-05,
+          "locator": {
+            "player_id": "8470613",
+            "role": "offense",
+            "cell": 0
+          }
+        },
+        "neutral_shape_probability": {
+          "value": 0.0,
+          "limit": 1e-05,
+          "locator": {
+            "kind": "neutral",
+            "cell": 0
+          }
+        },
+        "standardized_quality_probability": {
+          "value": 0.0,
+          "limit": 1e-05,
+          "locator": {
+            "player_id": "8470613",
+            "role": "offense",
+            "cell": 0
+          }
+        },
+        "neutral_quality_probability": {
+          "value": 0.0,
+          "limit": 1e-05,
+          "locator": {
+            "kind": "neutral",
+            "cell": 0
+          }
+        },
+        "standardized_scalar_per_hour": {
+          "value": 0.00046133998743602635,
+          "limit": 0.0001,
+          "locator": {
+            "player_id": "8483766",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete"
+          }
+        },
+        "standardized_native_map_l1": {
+          "value": 0.00046133998743602635,
+          "limit": 0.0001,
+          "locator": {
+            "player_id": "8483766",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete"
+          }
+        },
+        "prospective_1000_minute_goals": {
+          "value": 0.00030413950043830916,
+          "limit": 0.001,
+          "locator": {
+            "player_id": "8483766",
+            "role": "defense"
+          }
+        },
+        "shape_probability": {
+          "value": 0.0,
+          "limit": 1e-05,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 0,
+              "chunk_index": 0,
+              "source_index": null,
+              "attacking_side": "away",
+              "attacking_players": [
+                "8476473",
+                "8477450",
+                "8481624",
+                "8482703",
+                "8482807"
+              ],
+              "defending_players": [
+                "8473419",
+                "8477409",
+                "8477495",
+                "8477935",
+                "8478859"
+              ],
+              "attacking_team_id": 16,
+              "defending_team_id": 13,
+              "optional_missing": true
+            },
+            "player_id": "8473419",
+            "role": "defense",
+            "coordinate": [
+              0,
+              0
+            ]
+          }
+        },
+        "quality_probability": {
+          "value": 0.0,
+          "limit": 1e-05,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 0,
+              "chunk_index": 0,
+              "source_index": null,
+              "attacking_side": "away",
+              "attacking_players": [
+                "8476473",
+                "8477450",
+                "8481624",
+                "8482703",
+                "8482807"
+              ],
+              "defending_players": [
+                "8473419",
+                "8477409",
+                "8477495",
+                "8477935",
+                "8478859"
+              ],
+              "attacking_team_id": 16,
+              "defending_team_id": 13,
+              "optional_missing": true
+            },
+            "player_id": "8473419",
+            "role": "defense",
+            "coordinate": [
+              0,
+              0
+            ]
+          }
+        },
+        "coalition_scalar_per_hour": {
+          "value": 0.00012072646666287036,
+          "limit": 0.0001,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 1,
+              "chunk_index": 3,
+              "source_index": null,
+              "attacking_side": "home",
+              "attacking_players": [
+                "8473507",
+                "8475179",
+                "8477933",
+                "8480185",
+                "8482113"
+              ],
+              "defending_players": [
+                "8476882",
+                "8477450",
+                "8477479",
+                "8482176",
+                "8484783"
+              ],
+              "attacking_team_id": 13,
+              "defending_team_id": 16,
+              "optional_missing": true
+            },
+            "player_id": "8484783",
+            "role": "defense",
+            "coordinate": [
+              13,
+              0
+            ]
+          }
+        },
+        "coalition_native_map_l1": {
+          "value": 0.00012072646666287036,
+          "limit": 0.0001,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 1,
+              "chunk_index": 3,
+              "source_index": null,
+              "attacking_side": "home",
+              "attacking_players": [
+                "8473507",
+                "8475179",
+                "8477933",
+                "8480185",
+                "8482113"
+              ],
+              "defending_players": [
+                "8476882",
+                "8477450",
+                "8477479",
+                "8482176",
+                "8484783"
+              ],
+              "attacking_team_id": 13,
+              "defending_team_id": 16,
+              "optional_missing": true
+            },
+            "player_id": "8484783",
+            "role": "defense",
+            "coordinate": [
+              13,
+              0
+            ]
+          }
+        },
+        "allocation_scalar_per_hour": {
+          "value": 5.52124397885595e-05,
+          "limit": 0.0001,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 1,
+              "chunk_index": 3,
+              "source_index": null,
+              "attacking_side": "home",
+              "attacking_players": [
+                "8473507",
+                "8475179",
+                "8477933",
+                "8480185",
+                "8482113"
+              ],
+              "defending_players": [
+                "8476882",
+                "8477450",
+                "8477479",
+                "8482176",
+                "8484783"
+              ],
+              "attacking_team_id": 13,
+              "defending_team_id": 16,
+              "optional_missing": true
+            },
+            "player_id": "8475179",
+            "role": "offense",
+            "coordinate": [
+              1,
+              0
+            ]
+          }
+        },
+        "allocation_native_map_l1": {
+          "value": 5.52124397885595e-05,
+          "limit": 0.0001,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 1,
+              "chunk_index": 3,
+              "source_index": null,
+              "attacking_side": "home",
+              "attacking_players": [
+                "8473507",
+                "8475179",
+                "8477933",
+                "8480185",
+                "8482113"
+              ],
+              "defending_players": [
+                "8476882",
+                "8477450",
+                "8477479",
+                "8482176",
+                "8484783"
+              ],
+              "attacking_team_id": 13,
+              "defending_team_id": 16,
+              "optional_missing": true
+            },
+            "player_id": "8475179",
+            "role": "offense",
+            "coordinate": [
+              1,
+              0
+            ]
+          }
+        }
+      },
+      "failure_count": 6
+    },
+    "shape": {
+      "native_complete": true,
+      "status": "passed",
+      "native_solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 140,
+        "evaluations": 146,
+        "objective": 646167.894518171,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-16,
+          "gtol": 1e-07,
+          "maxcor": 10
+        },
+        "maxfun": 15000,
+        "maxls": 20,
+        "raw_gradient_inf_norm": 0.0016529463592860338,
+        "trace_summary": {
+          "evaluations": 146,
+          "initial": [
+            646167.8945182716,
+            0.018706396417300653
+          ],
+          "final": [
+            646167.894518171,
+            0.0016529463592860338
+          ],
+          "minimum_objective": 646167.894518171
+        }
+      },
+      "completed_coefficient_movement": {
+        "maximum": 3.3724053919992336e-06,
+        "l2": 2.3089441226748272e-05,
+        "scope": "completed endpoint includes age/prior-only completion; not reconstructed raw native movement"
+      },
+      "saved_objective_component_deltas": {
+        "likelihood": 0.00029397790785878897,
+        "penalty": -0.00029407853617158253,
+        "total": -1.0058283805847168e-07
+      },
+      "comparison": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/probes/shape-comparison.json",
+        "sha256": "38e892975fd1a9abea1a2ab9fd5289d048ab96c1e9c01b1d5406fe7c159c693a",
+        "bytes": 6791
+      },
+      "maxima": {
+        "standardized_shape_probability": {
+          "value": 3.36017549097678e-08,
+          "limit": 1e-05,
+          "locator": {
+            "player_id": "8480876",
+            "role": "offense",
+            "cell": 608
+          }
+        },
+        "neutral_shape_probability": {
+          "value": 1.0021265033077764e-09,
+          "limit": 1e-05,
+          "locator": {
+            "kind": "neutral",
+            "cell": 591
+          }
+        },
+        "standardized_quality_probability": {
+          "value": 0.0,
+          "limit": 1e-05,
+          "locator": {
+            "player_id": "8470613",
+            "role": "offense",
+            "cell": 0
+          }
+        },
+        "neutral_quality_probability": {
+          "value": 0.0,
+          "limit": 1e-05,
+          "locator": {
+            "kind": "neutral",
+            "cell": 0
+          }
+        },
+        "standardized_scalar_per_hour": {
+          "value": 1.0138101784830673e-06,
+          "limit": 0.0001,
+          "locator": {
+            "player_id": "8480876",
+            "role": "offense",
+            "quantity": "xg",
+            "kind": "complete"
+          }
+        },
+        "standardized_native_map_l1": {
+          "value": 3.064834134949153e-05,
+          "limit": 0.0001,
+          "locator": {
+            "player_id": "8480876",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "complete"
+          }
+        },
+        "prospective_1000_minute_goals": {
+          "value": 1.65990544411151e-05,
+          "limit": 0.001,
+          "locator": {
+            "player_id": "8480876",
+            "role": "offense"
+          }
+        },
+        "shape_probability": {
+          "value": 3.301751391043828e-08,
+          "limit": 1e-05,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020002",
+              "segment_index": 0,
+              "chunk_index": 0,
+              "source_index": null,
+              "attacking_side": "home",
+              "attacking_players": [
+                "8476459",
+                "8476468",
+                "8478882",
+                "8479323",
+                "8482157"
+              ],
+              "defending_players": [
+                "8471215",
+                "8471675",
+                "8471724",
+                "8484839",
+                "8485414"
+              ],
+              "attacking_team_id": 3,
+              "defending_team_id": 5,
+              "optional_missing": true
+            },
+            "player_id": "8484839",
+            "role": "defense",
+            "coordinate": [
+              11,
+              591
+            ]
+          }
+        },
+        "quality_probability": {
+          "value": 0.0,
+          "limit": 1e-05,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 0,
+              "chunk_index": 0,
+              "source_index": null,
+              "attacking_side": "away",
+              "attacking_players": [
+                "8476473",
+                "8477450",
+                "8481624",
+                "8482703",
+                "8482807"
+              ],
+              "defending_players": [
+                "8473419",
+                "8477409",
+                "8477495",
+                "8477935",
+                "8478859"
+              ],
+              "attacking_team_id": 16,
+              "defending_team_id": 13,
+              "optional_missing": true
+            },
+            "player_id": "8473419",
+            "role": "defense",
+            "coordinate": [
+              0,
+              0
+            ]
+          }
+        },
+        "coalition_scalar_per_hour": {
+          "value": 1.3587570438018473e-06,
+          "limit": 0.0001,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 2,
+              "chunk_index": 7,
+              "source_index": null,
+              "attacking_side": "home",
+              "attacking_players": [
+                "8473507",
+                "8475179",
+                "8477933",
+                "8480185",
+                "8482113"
+              ],
+              "defending_players": [
+                "8476882",
+                "8477479",
+                "8482176",
+                "8483493",
+                "8484783"
+              ],
+              "attacking_team_id": 13,
+              "defending_team_id": 16,
+              "optional_missing": true
+            },
+            "player_id": "8475179",
+            "role": "offense",
+            "coordinate": [
+              14,
+              1
+            ]
+          }
+        },
+        "coalition_native_map_l1": {
+          "value": 7.132918250567219e-05,
+          "limit": 0.0001,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 1,
+              "chunk_index": 3,
+              "source_index": null,
+              "attacking_side": "home",
+              "attacking_players": [
+                "8473507",
+                "8475179",
+                "8477933",
+                "8480185",
+                "8482113"
+              ],
+              "defending_players": [
+                "8476882",
+                "8477450",
+                "8477479",
+                "8482176",
+                "8484783"
+              ],
+              "attacking_team_id": 13,
+              "defending_team_id": 16,
+              "optional_missing": true
+            },
+            "player_id": "8475179",
+            "role": "offense",
+            "coordinate": [
+              10,
+              0
+            ]
+          }
+        },
+        "allocation_scalar_per_hour": {
+          "value": 7.705739575283689e-07,
+          "limit": 0.0001,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 0,
+              "chunk_index": 2,
+              "source_index": null,
+              "attacking_side": "away",
+              "attacking_players": [
+                "8476473",
+                "8477450",
+                "8481624",
+                "8482703",
+                "8482807"
+              ],
+              "defending_players": [
+                "8473419",
+                "8477409",
+                "8477495",
+                "8477935",
+                "8478859"
+              ],
+              "attacking_team_id": 16,
+              "defending_team_id": 13,
+              "optional_missing": true
+            },
+            "player_id": "8477450",
+            "role": "offense",
+            "coordinate": [
+              3,
+              1
+            ]
+          }
+        },
+        "allocation_native_map_l1": {
+          "value": 4.8791814177464123e-05,
+          "limit": 0.0001,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 1,
+              "chunk_index": 3,
+              "source_index": null,
+              "attacking_side": "home",
+              "attacking_players": [
+                "8473507",
+                "8475179",
+                "8477933",
+                "8480185",
+                "8482113"
+              ],
+              "defending_players": [
+                "8476882",
+                "8477450",
+                "8477479",
+                "8482176",
+                "8484783"
+              ],
+              "attacking_team_id": 13,
+              "defending_team_id": 16,
+              "optional_missing": true
+            },
+            "player_id": "8475179",
+            "role": "offense",
+            "coordinate": [
+              3,
+              0
+            ]
+          }
+        }
+      },
+      "failure_count": 0
+    },
+    "quality": {
+      "native_complete": true,
+      "status": "passed",
+      "native_solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 458,
+        "evaluations": 486,
+        "objective": 18489.562749141933,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-16,
+          "gtol": 1e-07,
+          "maxcor": 10
+        },
+        "maxfun": 15000,
+        "maxls": 20,
+        "raw_gradient_inf_norm": 0.0006435850073680527,
+        "trace_summary": {
+          "evaluations": 486,
+          "initial": [
+            18489.562749166118,
+            0.0008985756704142922
+          ],
+          "final": [
+            18489.562749141933,
+            0.0006435850073680527
+          ],
+          "minimum_objective": 18489.562749141933
+        }
+      },
+      "completed_coefficient_movement": {
+        "maximum": 7.205345907626906e-05,
+        "l2": 0.00014517766345087992,
+        "scope": "completed endpoint includes age/prior-only completion; not reconstructed raw native movement"
+      },
+      "saved_objective_component_deltas": {
+        "likelihood": -2.3818396584829316e-05,
+        "penalty": 2.3794210209260314e-05,
+        "total": -2.4185283109545708e-08
+      },
+      "comparison": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/probes/quality-comparison.json",
+        "sha256": "a2e87528618e76c79106aa435bf00f94eb5d8c57e756a9b1c7b001673f80c92b",
+        "bytes": 6794
+      },
+      "maxima": {
+        "standardized_shape_probability": {
+          "value": 0.0,
+          "limit": 1e-05,
+          "locator": {
+            "player_id": "8470613",
+            "role": "offense",
+            "cell": 0
+          }
+        },
+        "neutral_shape_probability": {
+          "value": 0.0,
+          "limit": 1e-05,
+          "locator": {
+            "kind": "neutral",
+            "cell": 0
+          }
+        },
+        "standardized_quality_probability": {
+          "value": 3.1749235607225756e-07,
+          "limit": 1e-05,
+          "locator": {
+            "player_id": "8475169",
+            "role": "defense",
+            "cell": 624
+          }
+        },
+        "neutral_quality_probability": {
+          "value": 1.2105019799729666e-07,
+          "limit": 1e-05,
+          "locator": {
+            "kind": "neutral",
+            "cell": 123
+          }
+        },
+        "standardized_scalar_per_hour": {
+          "value": 2.4949538354698206e-06,
+          "limit": 0.0001,
+          "locator": {
+            "player_id": "8475169",
+            "role": "defense",
+            "quantity": "xg",
+            "kind": "difference"
+          }
+        },
+        "standardized_native_map_l1": {
+          "value": 2.4949538354698206e-06,
+          "limit": 0.0001,
+          "locator": {
+            "player_id": "8475169",
+            "role": "defense",
+            "quantity": "xg",
+            "kind": "difference"
+          }
+        },
+        "prospective_1000_minute_goals": {
+          "value": 4.158256392449701e-05,
+          "limit": 0.001,
+          "locator": {
+            "player_id": "8475169",
+            "role": "defense"
+          }
+        },
+        "shape_probability": {
+          "value": 0.0,
+          "limit": 1e-05,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 0,
+              "chunk_index": 0,
+              "source_index": null,
+              "attacking_side": "away",
+              "attacking_players": [
+                "8476473",
+                "8477450",
+                "8481624",
+                "8482703",
+                "8482807"
+              ],
+              "defending_players": [
+                "8473419",
+                "8477409",
+                "8477495",
+                "8477935",
+                "8478859"
+              ],
+              "attacking_team_id": 16,
+              "defending_team_id": 13,
+              "optional_missing": true
+            },
+            "player_id": "8473419",
+            "role": "defense",
+            "coordinate": [
+              0,
+              0
+            ]
+          }
+        },
+        "quality_probability": {
+          "value": 5.783630142031093e-07,
+          "limit": 1e-05,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 0,
+              "chunk_index": 1,
+              "source_index": null,
+              "attacking_side": "away",
+              "attacking_players": [
+                "8476473",
+                "8477450",
+                "8481624",
+                "8482703",
+                "8482807"
+              ],
+              "defending_players": [
+                "8473419",
+                "8477409",
+                "8477495",
+                "8477935",
+                "8478859"
+              ],
+              "attacking_team_id": 16,
+              "defending_team_id": 13,
+              "optional_missing": true
+            },
+            "player_id": "8481624",
+            "role": "offense",
+            "coordinate": [
+              13,
+              624
+            ]
+          }
+        },
+        "coalition_scalar_per_hour": {
+          "value": 2.2537243661116023e-06,
+          "limit": 0.0001,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 2,
+              "chunk_index": 8,
+              "source_index": null,
+              "attacking_side": "away",
+              "attacking_players": [
+                "8476882",
+                "8477479",
+                "8482176",
+                "8483493",
+                "8484783"
+              ],
+              "defending_players": [
+                "8473507",
+                "8475179",
+                "8477933",
+                "8480185",
+                "8482113"
+              ],
+              "attacking_team_id": 16,
+              "defending_team_id": 13,
+              "optional_missing": true
+            },
+            "player_id": "8477479",
+            "role": "offense",
+            "coordinate": [
+              9,
+              1
+            ]
+          }
+        },
+        "coalition_native_map_l1": {
+          "value": 4.336656123357655e-06,
+          "limit": 0.0001,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 1,
+              "chunk_index": 3,
+              "source_index": null,
+              "attacking_side": "home",
+              "attacking_players": [
+                "8473507",
+                "8475179",
+                "8477933",
+                "8480185",
+                "8482113"
+              ],
+              "defending_players": [
+                "8476882",
+                "8477450",
+                "8477479",
+                "8482176",
+                "8484783"
+              ],
+              "attacking_team_id": 13,
+              "defending_team_id": 16,
+              "optional_missing": true
+            },
+            "player_id": "8475179",
+            "role": "offense",
+            "coordinate": [
+              14,
+              1
+            ]
+          }
+        },
+        "allocation_scalar_per_hour": {
+          "value": 1.4058406546175944e-06,
+          "limit": 0.0001,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 2,
+              "chunk_index": 8,
+              "source_index": null,
+              "attacking_side": "away",
+              "attacking_players": [
+                "8476882",
+                "8477479",
+                "8482176",
+                "8483493",
+                "8484783"
+              ],
+              "defending_players": [
+                "8473507",
+                "8475179",
+                "8477933",
+                "8480185",
+                "8482113"
+              ],
+              "attacking_team_id": 16,
+              "defending_team_id": 13,
+              "optional_missing": true
+            },
+            "player_id": "8477479",
+            "role": "offense",
+            "coordinate": [
+              3,
+              1
+            ]
+          }
+        },
+        "allocation_native_map_l1": {
+          "value": 3.119644282724713e-06,
+          "limit": 0.0001,
+          "locator": {
+            "kind": "time",
+            "key": {
+              "game_id": "2025020001",
+              "segment_index": 1,
+              "chunk_index": 3,
+              "source_index": null,
+              "attacking_side": "home",
+              "attacking_players": [
+                "8473507",
+                "8475179",
+                "8477933",
+                "8480185",
+                "8482113"
+              ],
+              "defending_players": [
+                "8476882",
+                "8477450",
+                "8477479",
+                "8482176",
+                "8484783"
+              ],
+              "attacking_team_id": 13,
+              "defending_team_id": 16,
+              "optional_missing": true
+            },
+            "player_id": "8475179",
+            "role": "offense",
+            "coordinate": [
+              3,
+              1
+            ]
+          }
+        }
+      },
+      "failure_count": 0
+    }
+  },
+  "independent_probe_audit": {
+    "bound_checks_passed": true,
+    "numerical_budgets_passed": false,
+    "exit": 1,
+    "infrastructure_exception": false,
+    "fields": {
+      "independently_replayed": [
+        "standardized_shape_probability",
+        "neutral_shape_probability",
+        "standardized_quality_probability",
+        "neutral_quality_probability",
+        "standardized_scalar_per_hour",
+        "standardized_native_map_l1",
+        "prospective_1000_minute_goals"
+      ],
+      "saved_context_only": [
+        "shape_probability",
+        "quality_probability",
+        "coalition_scalar_per_hour",
+        "coalition_native_map_l1",
+        "allocation_scalar_per_hour",
+        "allocation_native_map_l1"
+      ]
+    },
+    "literal_probability_discrepancies": {
+      "neutral_shape": -6.938893903907228e-18,
+      "neutral_quality": 6.938893903907228e-18,
+      "other_standardized_maxima": "exact agreement",
+      "probability_locators": "all agree"
+    },
+    "frozen_selection_rows": 256,
+    "requirements_dispositions": {
+      "boundary_goals": "actual",
+      "missing_optional_inputs": "actual",
+      "entries": "actual",
+      "returns": "actual",
+      "trades": "actual",
+      "sparse_support": "actual"
+    },
+    "scope": [
+      "six actual-context maxima are saved canonical evidence, not independently replayed",
+      "probability replay uses independent arithmetic; literal discrepancies/ties require root review, not a tolerance rescue",
+      "source/full design/csr/context/objective/gradient/solver/probe/actual allocation not called",
+      "whole original design/projection archives not hashed or loaded; probe rates-only archives checked individually",
+      "coefficient/native/objective descriptors do not establish new optimum or scientific support"
+    ]
+  },
+  "cost": {
+    "whole_command_wall_seconds": 20892.9,
+    "user_seconds": 20557.36,
+    "system_seconds": 115.38,
+    "maximum_resident_bytes": 25336610816,
+    "peak_memory_footprint_bytes": 62822856136,
+    "design": {
+      "design_wall_seconds": 5977.493795708986,
+      "input_read_bytes": 87054120600,
+      "time_rows": 2890490,
+      "event_rows": 116623,
+      "columns": 3141,
+      "actor_columns": 2791,
+      "context_columns": 350,
+      "design_bytes": 9512425176,
+      "input_read_wall_seconds": 200.40117279195692
+    },
+    "fit_wall_seconds": 4019.149740999914,
+    "projection_wall_seconds": 9272.305002041976,
+    "write_wall_seconds": 232.45391279191244,
+    "probe_wall_seconds": 564.8552967909491,
+    "artifact_files": 35,
+    "artifact_bytes": 11905121984,
+    "saved_history_check_wall_seconds": 3.04,
+    "saved_probe_audit_wall_seconds": 2.15
+  },
+  "acceptance": {
+    "baseline_heads_computed": 15,
+    "accepted_annual_states": 4,
+    "accepted_annual_heads": 12,
+    "required_annual_heads": 15,
+    "final_continuations_executed": 3,
+    "passed_final_continuations": 2,
+    "required_passed_final_continuations": 3,
+    "source_to_screen_real_complete": false,
+    "activation": false
+  },
+  "preservation_and_stop": "all baseline heads, all three continuation artifacts, immutable baseline, numerical inputs and earlier accepted/failed work retained; selection/composition/publication/browser acceptance/cleanup held; no retry, tolerance change, endpoint promotion or successor attempt",
+  "recovery": "server restart interrupted reporting after the saved audits had completed; existing outputs were inspected without repeating either audit; probe-audit original session/pids are unobserved in surviving evidence",
+  "next_decision": "a newly authorized bounded volume numerical repair or an explicit incomplete result is required before downstream delivery; current objective and budgets remain unchanged"
+}

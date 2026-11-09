@@ -1,0 +1,186 @@
+{
+  "kind": "spatial-v1-08-pre-event-transition-source-comparison",
+  "status": "passed_comparison",
+  "purpose": "fixture",
+  "season": "20212022",
+  "original_design": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture/20212022/design.json",
+    "sha256": "a6d44edbabe9ade1a1be0bed8b7e1ce466aa2bc22be90ab18fb66b5fc378839a"
+  },
+  "original_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture/20212022/manifest.json",
+    "sha256": "5e01cfd7ca49f8fb2ed2759fca73e71da450561885e672a0d76a7601c16fb9c7"
+  },
+  "prepared": {
+    "purpose": "fixture",
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+    "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+    "members": [
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021020001",
+        "path": "games/20212022/2021020001.json",
+        "sha256": "58996ac5ead52e7ef23236b053cf57033dd3f6a578009f2322d7f0dcb74e7e7a"
+      },
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021020454",
+        "path": "games/20212022/2021020454.json",
+        "sha256": "2a68251ea386d8ea0773ad0a215107fc703e0cb828a7e4719f210c5abfe9b016"
+      },
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021020615",
+        "path": "games/20212022/2021020615.json",
+        "sha256": "448e499d549d103fc2830de47af8bace679a456cf5dbd7fb645b42e465eb72db"
+      },
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021020617",
+        "path": "games/20212022/2021020617.json",
+        "sha256": "33ff83af95f7b569040b2ddd1df3a4bbacaced1f06b76820c26c7e174e1ec3ef"
+      },
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021020942",
+        "path": "games/20212022/2021020942.json",
+        "sha256": "668af622eb522689432823460376dc0969e5bfde854102c0d5520d38dcffe364"
+      },
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021021103",
+        "path": "games/20212022/2021021103.json",
+        "sha256": "d2ddd0694f8a7870277368ef19497a30a0ff6354ff45c9e299cf75ed93645965"
+      },
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021021179",
+        "path": "games/20212022/2021021179.json",
+        "sha256": "ef637d7cda252220acb74de163882cb63b00eb02c04dd93af37f8b02b748f18a"
+      },
+      {
+        "kind": "people",
+        "season": "20212022",
+        "game_id": null,
+        "path": "people/20212022.json",
+        "sha256": "543ca9a5240c64ea2ded1f7a9e0f0f292a55d7cc9dc8e61cbf936eb3ee876979"
+      }
+    ]
+  },
+  "old_recipe_sha256": "f75716d81582ec4a062463f81815ceea7ab517554ba0835bae5a5510edfaafe4",
+  "new_recipe_sha256": "e8f6a3ab5976fc10ff16a09a98f39a7009c591660d80ff8c741049a5f73bf6ef",
+  "new_recipe_version": "spatial-v1-08-2",
+  "compared_events": 632,
+  "changed_events": 0,
+  "changed_outcomes": {},
+  "category_pairs": {
+    "none -> none": 597,
+    "previously_advantaged -> previously_advantaged": 23,
+    "previously_shorthanded -> previously_shorthanded": 12
+  },
+  "changed_witnesses": [],
+  "games": [
+    {
+      "game_id": "2021020001",
+      "source": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/games/20212022/2021020001.json",
+        "sha256": "58996ac5ead52e7ef23236b053cf57033dd3f6a578009f2322d7f0dcb74e7e7a"
+      },
+      "retained_events": 99,
+      "changed_events": 0
+    },
+    {
+      "game_id": "2021020454",
+      "source": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/games/20212022/2021020454.json",
+        "sha256": "2a68251ea386d8ea0773ad0a215107fc703e0cb828a7e4719f210c5abfe9b016"
+      },
+      "retained_events": 102,
+      "changed_events": 0
+    },
+    {
+      "game_id": "2021020615",
+      "source": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/games/20212022/2021020615.json",
+        "sha256": "448e499d549d103fc2830de47af8bace679a456cf5dbd7fb645b42e465eb72db"
+      },
+      "retained_events": 78,
+      "changed_events": 0
+    },
+    {
+      "game_id": "2021020617",
+      "source": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/games/20212022/2021020617.json",
+        "sha256": "33ff83af95f7b569040b2ddd1df3a4bbacaced1f06b76820c26c7e174e1ec3ef"
+      },
+      "retained_events": 103,
+      "changed_events": 0
+    },
+    {
+      "game_id": "2021020942",
+      "source": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/games/20212022/2021020942.json",
+        "sha256": "668af622eb522689432823460376dc0969e5bfde854102c0d5520d38dcffe364"
+      },
+      "retained_events": 73,
+      "changed_events": 0
+    },
+    {
+      "game_id": "2021021103",
+      "source": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/games/20212022/2021021103.json",
+        "sha256": "d2ddd0694f8a7870277368ef19497a30a0ff6354ff45c9e299cf75ed93645965"
+      },
+      "retained_events": 88,
+      "changed_events": 0
+    },
+    {
+      "game_id": "2021021179",
+      "source": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/games/20212022/2021021179.json",
+        "sha256": "ef637d7cda252220acb74de163882cb63b00eb02c04dd93af37f8b02b748f18a"
+      },
+      "retained_events": 89,
+      "changed_events": 0
+    }
+  ],
+  "source": {
+    "path": "analysis/src/hockey_stats/spatial_design.py",
+    "sha256": "4252bdfdc465659bff1ca0f5bb7be7d6ad490657cd94403713ce22fe5f840db8"
+  },
+  "focused_check": {
+    "script": {
+      "path": "var/v1-08-source-checks.py",
+      "sha256": "ac282d102873069ff8e7ec5b5162c2f2acc03be535c50dd8f4ed87837efe5b31"
+    },
+    "passed": 13,
+    "red": "goal-at-chunk-left pre-event previously-shorthanded feature was zero because following elapsed state had reset",
+    "green": "event uses saved pre-event strength transition and remains unchanged when following elapsed transition changes"
+  },
+  "other_clock_audit": {
+    "workload": "elapsed markers precede every same-clock source row, so frozen prefix excludes own outcome",
+    "future_same_clock_faceoff_start_events": 0,
+    "future_same_clock_faceoff_start_witnesses": [],
+    "remaining_fields": "home/period/time band, dated coaches/rest/workload and saved member shift start/age keep their declared owners; no future same-clock faceoff anchor found among these retained event members"
+  },
+  "resources": {
+    "wall_seconds": 90.00446516700322,
+    "peak_rss_bytes": 844513280
+  },
+  "scope": "seven retained captured-fixture prepared games and exact original fit event keys; no rescoring, fit, raw-source mutation or real-season pass",
+  "command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-transition-count.py",
+  "temporary_comparison_script": {
+    "path": "var/v1-08-transition-count.py",
+    "sha256": "52641986c10be2443c49470236f9d9a5fc12daa803586dd2dacd77dcf5f0aa88"
+  },
+  "prior_source_field_receipt": "source-design-fixture.json",
+  "compatibility": "zero of the 632 saved first-year fixture transition categories change; the design recipe identity changes and this comparison does not authorize artifact migration or a predecessor substitution",
+  "source_policy": "elapsed rows consume chunk.strength_transition; event rows require event.context.strength_transition with no elapsed fallback"
+}

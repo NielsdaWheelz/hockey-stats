@@ -1,0 +1,36 @@
+{
+  "kind": "replacement-real-execution-20232024-root-release",
+  "status": "released by root; launch follows receipt",
+  "recorded_at_utc": "2026-11-01T07:35:39.419065+00:00",
+  "season": "20232024",
+  "purpose": "real",
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "previous": {
+    "season": "20222023",
+    "manifest_sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c",
+    "status": "accepted four-head annual"
+  },
+  "accepted_second_score": {
+    "manifest_sha256": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20",
+    "saved_check_sha256": "1a9a57e7b3aee6a208396af158f6aa086005bc61597f438d916f25240e095921",
+    "completion_receipt_sha256": "6a1e8e8ef52e79425ef45b4b9a8d74c2693252475c3aa7f5c176c7ac518cdd31",
+    "root_verdict": "accepted after strict accounting, source binding and independent saved-content review",
+    "review_record": "docs/research/spatial-v1-08/reviews/independent-review.md#completed-real-20222023-score"
+  },
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20232024-execution-command.sh",
+    "sha256": "261a9290524136e180eb54738f822bced0574535248fb853d4750dbce6aacc4f",
+    "bytes_equal_committed_blob": true,
+    "syntax_and_argv": "root and source_design clear",
+    "guarded_paths": 15,
+    "known_census": false,
+    "pause": false,
+    "probe": false
+  },
+  "source_check_policy": "read saved eligibility/unresolved-binding counters while solving continues; no new threshold or manual pause",
+  "execution_policy": "one heavy fit; command-bound native idle-sleep prevention; all analysis source stays untouched until exit",
+  "review_diagnostic_limit": "cross-head top-k ordering is a descriptive prompt, not a mathematical contract or new acceptance gate; other feature/history changes can outrank the start flag",
+  "scope": "fresh history consumes only exact accepted new predecessor; original fits/scores/raw/live preserved; no acquisition/activation/scientific admission/cleanup"
+}

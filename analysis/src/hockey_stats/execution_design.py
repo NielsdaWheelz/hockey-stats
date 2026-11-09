@@ -15,6 +15,7 @@ from scipy.special import logsumexp
 
 from .analysis_data import (PreparedManifest, read_prepared, read_prepared_game,
                             read_prepared_people)
+from .analysis_context import shift_start_precedes_event
 from .artifacts import require as _require
 from .captures import InputContractError
 from .chance import TYPES
@@ -38,7 +39,7 @@ TARGETS = {
     "g": "on-net, known not stopped: goal versus continuing save; auxiliary setter mixture",
 }
 DEFINITION = {
-    "version": "execution-v1-05-1", "heads": TARGETS, "families": list(FAMILIES),
+    "version": "execution-v1-05-2", "heads": TARGETS, "families": list(FAMILIES),
     "types": TYPES, "grid": "native-656-mirror-y; full native penalty",
     "origin": {"distance_ft": 20, "direction_strength": 4, "blocks": "K(contact|origin) normalized over all origins"},
     "strength": "32 membership categories, (5,5,1) reference",
@@ -55,7 +56,7 @@ DEFINITION = {
                        "unknown": "unknown clock/order/kind or censored phase remains unavailable until a supported earlier reset/anchor",
                        "transition": "shared native membership algebra at strict before-clock query; includes interval returns r<t without intervening events, excludes r==t",
                        "transition_evidence": "supported native intervals plus selected earlier source reset/clock facts; no per-event elapsed association prerequisite",
-                       "unchanged": ["focal membership", "sequence", "deployment", "shift start", "event-prefix workloads", "calendar rest", "labels"]},
+                       "unchanged": ["focal membership", "sequence", "deployment outside start-type/zone eligibility", "saved shift age", "event-prefix workloads", "calendar rest", "labels"]},
     "history": "entry OR carry; last likelihood-supported raw state; separate block/head/role age curves; no role-change reset",
     "penalties": {"base_map": .25, "type_map": 1., "neighbor": 4., "circumstance": 4.,
                   "shooter": [4., 16.], "setter": [4., 16.], "goalie": [16., 64.],
@@ -78,13 +79,18 @@ DEFINITION = {
     "family_columns": {family: _columns(family) for family in FAMILIES},
     "fixed_transforms": {family: _transform_definition(family) for family in FAMILIES},
     "adaptations": {"unit": "all actual opposing members; no known-only sums",
-                    "shift_start": "on_the_fly reference; faceoff offensive/neutral/defensive; unknown unavailable",
+                    "shift_start": "eligible on_the_fly reference; eligible faceoff offensive/neutral/defensive; unknown unavailable",
                     "recent_geometry": "candidate origin; none absent; unavailable predecessor unavailable",
                     "team_rest": "feature_history._team_rest; verified complete prepared current-season inventory only",
                     "goalie_columns": ["prefix_toi_all_seconds/3600", "prefix_on_net_faced/30", "days_7.shots_against/30", "days_14.shots_against/30",
                                        "prior_appearance_exists", "calendar_gap_days", "prior_one_date", "prior_two_date", "games_days_7", "games_days_14"],
                     "goalie_prefix": "all supported earlier actions including penalty shots; never focal or later actions",
                     "source_support": "supported segment/event membership and candidate occurrences; coaches in dated assignments"},
+    "shift_start_eligibility": {"version": "pre-event-start-1", "owner": "analysis_context.shift_start_precedes_event",
+                                "faceoff": "unique coherent player/period/start/end binding with matching kind/zone; saved anchor order strictly before focal order",
+                                "on_the_fly": "saved start clock strictly before focal clock",
+                                "unknown": "missing, ambiguous, mismatched or non-prior start is unavailable; preserve saved shift age, membership, labels and population",
+                                "raw_facts": "retrospective preparation remains unchanged; apply once in the shared fit/score feature constructor"},
     "missingness_definition": {"numeric": "head-training mean among available applicable transformed values, weighted by frozen origin mass",
                                "unavailable": "centered zero plus one shared condition indicator",
                                "structural_absence": "centered zero plus declared existence/category indicator",
@@ -123,11 +129,11 @@ DEFINITION["fixed_transforms"].update(
     recent_interactions="unchanged fixed kind×same-team and kind×delay contrasts over strict prior-clock recent record",
     recent_geometry="candidate minus strict prior-clock preceding attacking coordinates; dx,dy,hypot/100; opposite nonzero y signs",
     shift_age="original shooter and complete actual opposing-unit min,mean,max compatible shift ages/60",
-    shift_start="on_the_fly reference; faceoff offensive,neutral,defensive; unknown unavailable; last-faceoff existence,zone,age/60",
+    shift_start="pre-event eligible on_the_fly reference; eligible faceoff offensive,neutral,defensive; ineligible/unknown unavailable; last-faceoff existence,zone,age/60 unchanged",
     workload="shooter prefix toi/3600,completed shifts/30,attempts/10; complete actual opposing-unit mean,max prefix toi/3600; shooter7,14-day toi/3600,shifts/30,attempts/10",
     strength_transition="shared genuine unequal-strength→5v5 membership history evaluated strictly before focal clock; previous fewer/more and return age/60; known none zeros",
 )
-RECIPE = {"name": "experimental-v1", "version": "execution-v1-05-1",
+RECIPE = {"name": "experimental-v1", "version": DEFINITION["version"],
           "sha256": hashlib.sha256(json.dumps(DEFINITION, sort_keys=True, separators=(",", ":")).encode()).hexdigest(),
           "definition": DEFINITION}
 
@@ -262,6 +268,19 @@ def _feature_context(attempt, game, shooter, goalie, strength, coaches, team_res
     for stat in ("min", "mean", "max"):
         numeric(f"opposing_age_{stat}_seconds/60", opposing, f"age_{stat}_seconds", 60, "opposing_shift_age")
     start = _value(shooter_deployment, "start_type")
+    start_seconds = _value(shooter_deployment, "start_seconds")
+    anchor_order = None
+    if start == "faceoff":
+        shifts = [row for row in game.get("player_shifts") or [] if row["player_id"] == shooter
+                  and row["period_number"] == _value(state, "period_number")
+                  and row["start_seconds"] == start_seconds and row["end_seconds"] == _value(shooter_deployment, "end_seconds")]
+        if len(shifts) == 1 and _value(shifts[0]["start"], "kind") == start and _value(shifts[0]["start"], "zone") == _value(shooter_deployment, "start_zone"):
+            anchor = next((row for row in game.get("events") or []
+                           if row["source"]["source_index"] == _value(shifts[0]["start"], "event_source_index")), None)
+            anchor_order = _value(anchor["chronology"], "order_index") if anchor is not None else None
+    if not shift_start_precedes_event(start, start_seconds, history["cutoff"]["elapsed_seconds"],
+                                     anchor_order, history["cutoff"]["source_order"]):
+        start = None
     zone = _value(shooter_deployment, "start_zone") if start == "faceoff" else "on_the_fly" if start == "on_the_fly" else None
     categorical("shooter_start_zone", zone, ("offensive", "neutral", "defensive"), condition="shooter_shift_start")
     exists = _value(deployment, "last_faceoff_exists")
@@ -694,7 +713,8 @@ def _head_design(head, predictors, labels, people, source_actors=None):
             # fixed and dynamic coordinates are disjoint and store no zeros:
             # this is exactly the former expanded matrix's nonzero count.
             batch = {"dynamic_matrix": dynamic, "row": row, "weight": np.asarray(weight_batch, dtype=np.float64),
-                     "base_matrix_nonzeros": int(fixed_nonzeros[row].sum() + dynamic.nnz)}
+                     "base_matrix_nonzeros": int(fixed_nonzeros[row].sum() + dynamic.nnz),
+                     "origin_cell": np.asarray(cell_batch, dtype=np.int64)}
             if head == "g":
                 offsets, indices, prior = [0], [], []
                 for predictor in expanded_predictors:
@@ -723,9 +743,12 @@ def _head_design(head, predictors, labels, people, source_actors=None):
     return result
 
 
-def prepare_execution(base_prepared, coaches, recipe, season):
+def prepare_execution(base_prepared, coaches, recipe, season, *, training_heads=HEADS):
     """bind exact selected evidence, keeping every recognized attempt disposition."""
     started = perf_counter()
+    _require(isinstance(training_heads, (tuple, list)) and bool(training_heads)
+             and all(head in HEADS for head in training_heads)
+             and len(set(training_heads)) == len(training_heads), "invalid execution training heads")
     _require(recipe == RECIPE, "execution recipe differs")
     _require(isinstance(base_prepared, PreparedManifest), "execution needs a checked prepared manifest")
     purpose = base_prepared["purpose"]
@@ -943,13 +966,13 @@ def prepare_execution(base_prepared, coaches, recipe, season):
                 shot_type=shot_type if shot_type in TYPES else None)
         game_rows.append({"game_id": game_id, "game_date": inventory["game_date"], "status": game["game"]["ledger"]["status"],
                           "recognized_attempts": len(coverage_rows) - start_count, "prepared_member": next(row for row in prepared["files"] if row["kind"] == "game" and row["game_id"] == game_id)})
-    heads = {head: _head_design(head, predictors, labels, people, source_actors) for head in HEADS}
+    heads = {head: _head_design(head, predictors, labels, people, source_actors) for head in training_heads}
     selected_members = [row for row in prepared["files"] if row["season"] == season]
     prepared_ref = {"purpose": purpose, **prepared_identity, "members": selected_members}
     coach_ref = {"purpose": purpose, "path": str(coach_path), "sha256": _sha(coach_path), "selected_game_ids": list(selected["selected_game_ids"])}
     coverage = {"purpose": purpose, "season": season, "games": game_rows, "attempts": coverage_rows,
                 "heads": {head: dict(counts) for head, counts in totals.items()},
-                "optional_features": {head: heads[head]["design"]["feature_support"] for head in HEADS}}
+                "optional_features": {head: heads[head]["design"]["feature_support"] for head in training_heads}}
     return ExecutionDesign(purpose, season, prepared_ref, coach_ref, max(dates, default=None), tuple(predictors), heads, coverage, seasons, RECIPE,
                            {"design_wall_seconds": perf_counter() - started, "input_read_wall_seconds": 0.},
                            scoring_facts, {p.key:label["observed_setter"] for p,label in zip(predictors,labels,strict=True)})

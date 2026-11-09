@@ -1,0 +1,308 @@
+{
+  "kind": "replacement-first-real-execution-saved-state-acceptance",
+  "status": "root_accepted; strict numerical readback, source coverage/design proof and independent completed-annual review clear",
+  "recorded_at_utc": "2026-10-31T18:59:07.571209+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/manifest.json",
+    "sha256": "7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61"
+  },
+  "purpose": "real",
+  "season": "20212022",
+  "previous": null,
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-2",
+    "sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "strict_read": {
+    "status": "passed",
+    "invocations_here": 1,
+    "wall_seconds": 24.083687208010815,
+    "upstream_source_reads": 0
+  },
+  "heads": {
+    "u": {
+      "status": "complete",
+      "dimension": 3511,
+      "physical_attempts": 147510,
+      "positive_labels": 112345,
+      "actor_rows": 1201,
+      "prior_only_rows": 128,
+      "ledger_rows": 1073,
+      "entry_only_no_old_history": true,
+      "first_year_age_coefficients_zero": true,
+      "maximum_center_error": 2.0816681711721685e-17,
+      "current_unavailable_start_attempts": 5914,
+      "original_unavailable_start_attempts": 5850,
+      "all_source_report_counts_keys_support_weights_match": true,
+      "selected_start": "zero",
+      "prior_mean_start": "deduplicated_to_zero",
+      "objective": 63797.688148904934,
+      "original_objective": 63798.40637571713,
+      "raw_gradient_max": 0.007729297540873512,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 2497,
+      "evaluations": 2722,
+      "em_iterations": 0,
+      "em_responsibility_change": null,
+      "em_relative_objective_change": null,
+      "em_allowed_objective_increases": [],
+      "native_solve_count": 1,
+      "coefficient_comparison": {
+        "max_abs": 0.21991217654439155,
+        "l2": 0.30152419942862774,
+        "changed_coordinates": 3305,
+        "largest_coordinate": "circumstance:unavailable:shooter_shift_start",
+        "old_value": -0.05998153962892395,
+        "new_value": -0.2798937161733155,
+        "interpretation": "descriptive coordinate difference under changed start encoding; no equivalence, prediction-stability or scientific-quality margin"
+      },
+      "original_metadata_sha256": "88db37afb22a7e5812a56756451ba5134667e159aa8dcbd78413e9be14aeae25",
+      "original_arrays_sha256": "7fb7736f6dc67da81313e060a5473730f560b1db0aeb51bd48555eaeacb3d7a3"
+    },
+    "q": {
+      "status": "complete",
+      "dimension": 3656,
+      "physical_attempts": 112345,
+      "positive_labels": 82328,
+      "actor_rows": 1320,
+      "prior_only_rows": 135,
+      "ledger_rows": 1185,
+      "entry_only_no_old_history": true,
+      "first_year_age_coefficients_zero": true,
+      "maximum_center_error": 1.734723475976807e-18,
+      "current_unavailable_start_attempts": 4535,
+      "original_unavailable_start_attempts": 4491,
+      "all_source_report_counts_keys_support_weights_match": true,
+      "selected_start": "zero",
+      "prior_mean_start": "deduplicated_to_zero",
+      "objective": 61491.71899190184,
+      "original_objective": 61491.74763434308,
+      "raw_gradient_max": 0.010222252281913691,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 4472,
+      "evaluations": 4902,
+      "em_iterations": 0,
+      "em_responsibility_change": null,
+      "em_relative_objective_change": null,
+      "em_allowed_objective_increases": [],
+      "native_solve_count": 1,
+      "coefficient_comparison": {
+        "max_abs": 0.1218048871466314,
+        "l2": 0.16651840358132974,
+        "changed_coordinates": 3429,
+        "largest_coordinate": "circumstance:unavailable:shooter_shift_start",
+        "old_value": -0.07362755120206635,
+        "new_value": 0.04817733594456505,
+        "interpretation": "descriptive coordinate difference under changed start encoding; no equivalence, prediction-stability or scientific-quality margin"
+      },
+      "original_metadata_sha256": "3d95a23c4e5e64b73962ded4bf07b05885f7788e859e6076106c10f491afd821",
+      "original_arrays_sha256": "0ff5914d728c2b3b84dc2763d47d966eccb38fe813b370f1af05de46767b6e28"
+    },
+    "r": {
+      "status": "complete",
+      "dimension": 3656,
+      "physical_attempts": 82328,
+      "positive_labels": 62505,
+      "actor_rows": 1320,
+      "prior_only_rows": 145,
+      "ledger_rows": 1175,
+      "entry_only_no_old_history": true,
+      "first_year_age_coefficients_zero": true,
+      "maximum_center_error": 1.0408340855860843e-17,
+      "current_unavailable_start_attempts": 3405,
+      "original_unavailable_start_attempts": 3370,
+      "all_source_report_counts_keys_support_weights_match": true,
+      "selected_start": "zero",
+      "prior_mean_start": "deduplicated_to_zero",
+      "objective": 43428.38528531147,
+      "original_objective": 43428.52141731309,
+      "raw_gradient_max": 0.007798976460571117,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 3107,
+      "evaluations": 3425,
+      "em_iterations": 0,
+      "em_responsibility_change": null,
+      "em_relative_objective_change": null,
+      "em_allowed_objective_increases": [],
+      "native_solve_count": 1,
+      "coefficient_comparison": {
+        "max_abs": 0.08578544574767058,
+        "l2": 0.11685909278051142,
+        "changed_coordinates": 3417,
+        "largest_coordinate": "circumstance:unavailable:shooter_shift_start",
+        "old_value": 0.05573263220259208,
+        "new_value": 0.14151807795026267,
+        "interpretation": "descriptive coordinate difference under changed start encoding; no equivalence, prediction-stability or scientific-quality margin"
+      },
+      "original_metadata_sha256": "f883e219a2481d88696eb6cc435f0a6e599ed8eef6edc0be84d1d26644443e12",
+      "original_arrays_sha256": "931717b8cf38e4b24033b61e5e0deb9602d573697332249de1c279a593913e45"
+    },
+    "g": {
+      "status": "complete",
+      "dimension": 4667,
+      "physical_attempts": 62505,
+      "positive_labels": 7647,
+      "actor_rows": 2324,
+      "prior_only_rows": 159,
+      "ledger_rows": 2165,
+      "entry_only_no_old_history": true,
+      "first_year_age_coefficients_zero": true,
+      "maximum_center_error": 1.5265566588595902e-16,
+      "current_unavailable_start_attempts": 2530,
+      "original_unavailable_start_attempts": 2503,
+      "all_source_report_counts_keys_support_weights_match": true,
+      "selected_start": "zero",
+      "prior_mean_start": "deduplicated_to_zero",
+      "objective": 35037.325412425285,
+      "original_objective": 35037.2441856216,
+      "raw_gradient_max": 0.0005647157274712273,
+      "termination": "setter em objective and responsibility tolerances satisfied",
+      "iterations": 9725,
+      "evaluations": 10764,
+      "em_iterations": 9,
+      "em_responsibility_change": 6.93510528448904e-08,
+      "em_relative_objective_change": 1.2874741208933297e-14,
+      "em_allowed_objective_increases": [],
+      "native_solve_count": 9,
+      "coefficient_comparison": {
+        "max_abs": 0.35593324038879026,
+        "l2": 0.4688827434834623,
+        "changed_coordinates": 4408,
+        "largest_coordinate": "circumstance:unavailable:shooter_shift_start",
+        "old_value": 0.21159760983481768,
+        "new_value": -0.14433563055397258,
+        "interpretation": "descriptive coordinate difference under changed start encoding; no equivalence, prediction-stability or scientific-quality margin"
+      },
+      "original_metadata_sha256": "a065074db9ffd666ddc7736d6639400ab8aed94cdc9624fd20a3587d780b1fb6",
+      "original_arrays_sha256": "dd01abb31b68c21a4141b80f3155ad4978d19cac928c7e9697d44e3cc13a9449"
+    }
+  },
+  "source_report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20212022-source-check.json",
+    "sha256": "2a1e41e1b64dabe30d2e000559e49fe2106f54e494855bbd9629d7e346b025df",
+    "head_keys_counts_unavailable_weights_match_actual_saved_state": true
+  },
+  "source_design_independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-real-execution-20212022-source-metadata-review.json",
+    "sha256": "54ba20a0adc1e3d9e31126c69c8efc5f1ab3d7df73ef421d3356f38f7e52cea0",
+    "status": "clear",
+    "scope": "exact196154100bytecoverage core identity; only three start-support records and declared transform text differ; nonstart design/population/labels/actors/setter weights unchanged",
+    "limits": "no original raw context digest; no exact original shared-indicator binary-one statistic"
+  },
+  "history": {
+    "entry_only": true,
+    "no_old_coefficients_or_raw_means_used_as_priors": true,
+    "actor_support_axes_equal_original": true,
+    "supported_ledger_keys_equal_original": true,
+    "actual_supported_coefficients_are_new": true,
+    "zero_info_coefficients_zero_no_ledger": true,
+    "first_year_age_parameters_zero": true
+  },
+  "numerical_limits": {
+    "baseline": {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06,
+      "em_maxiter": 100,
+      "em_objective": 1e-08,
+      "em_responsibility": 1e-06,
+      "continuation": {
+        "ftol": 1e-16,
+        "gtol": 1e-07,
+        "em_objective": 1e-09,
+        "em_responsibility": 1e-07
+      }
+    },
+    "native_defaults": {
+      "maxfun": 15000,
+      "maxls": 20,
+      "history": 10
+    },
+    "first_year_final_probes": 0,
+    "policy": "accepted native ftol completion plus finite arrays/diagnostics; raw gradient is recorded, not rejected solely for exceeding gtol",
+    "final_real_resolution": "four fixed final20252026continuations remain required; no first-year tighter probe introduced"
+  },
+  "resources": {
+    "whole_command_wall_seconds": 6200.96,
+    "user_seconds": 5784.07,
+    "system_seconds": 34.88,
+    "maximum_resident_bytes": 18819399680,
+    "peak_memory_footprint_bytes": 20336245448,
+    "producer": {
+      "wall_seconds": 6164.072923083964,
+      "peak_memory_bytes": 18819399680,
+      "design_wall_seconds": 4395.7886806249735,
+      "input_read_wall_seconds": 1.0893137080129236,
+      "fit_wall_seconds": 1767.1949287509779,
+      "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+      "output_bytes": 202150506,
+      "origin_rows": {
+        "u": 23180585,
+        "q": 112345,
+        "r": 82328,
+        "g": 62505
+      },
+      "candidate_branches": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 568265
+      },
+      "resolution_solve_counts": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 0
+      },
+      "dimensions": {
+        "u": 3511,
+        "q": 3656,
+        "r": 3656,
+        "g": 4667
+      },
+      "solve_counts": {
+        "u": 1,
+        "q": 1,
+        "r": 1,
+        "g": 9
+      }
+    },
+    "producer_wall_scope": "before completion manifest; distinct from whole6200.96second command",
+    "saved_member_bytes": 202150506,
+    "annual_including_manifest_bytes": 202512161,
+    "readback_process_peak_rss_bytes": 967786496
+  },
+  "launch": {
+    "start": "2026-10-31T17:06:10Z",
+    "finish": "2026-10-31T18:49:31Z",
+    "exit": 0,
+    "launch_head": "c4ed1e3334ea3c2b78b09b2780278f9384713a86",
+    "producer_head": "dcd9930e2490a76e62260e79892feb50c457d490",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "analysis_clean": true,
+    "log_sha256": "b767daec2c62ab1e7ba9ea1e71934bd2163689938a53c5a245c297fb7fc982b9"
+  },
+  "limits": [
+    "in-sample objectives and coefficient deltas do not establish calibration, robust ability or causal isolation",
+    "source unavailable counters overlap and are not all timing failures; unresolved-binding scope/classification remains with its focused receipts",
+    "one completed annual is measured cost, not a remaining-campaign forecast"
+  ],
+  "scope": "one new strict saved-state read plus original four saved metadata/coefficient arrays and source-report metadata only; no fit, score, prepared game/source pass or original state admission",
+  "next": "bind actual completed manifest digest into held first score/year2scripts; root reviews and alone launches first score; year2waits fit-score parity",
+  "root_acceptance_recorded_at_utc": "2026-10-31T19:03:29.426358+00:00",
+  "completed_annual_independent_review": {
+    "owner": "external claude reviewer; result reported by root",
+    "status": "clear; no defect",
+    "scope": "completed annual saved state"
+  },
+  "source_comparison_scope": {
+    "current_report_partition": "internal consistency between current report and actual current saved coverage/support",
+    "original_population_equality": "established by source-owner0886797 exact completed-coverage core identity proof; not by old-head-metadata-only focused checks",
+    "historical_focused_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-real-execution-20212022-focused-source-acceptance.json",
+      "sha256": "d6eacdb5dede23a84799252bb06cedc5a9f40b6fad7ad9a626487fdfcc522ea7",
+      "unchanged": true
+    }
+  }
+}

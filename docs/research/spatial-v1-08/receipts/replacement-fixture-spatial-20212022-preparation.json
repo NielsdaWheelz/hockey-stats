@@ -1,0 +1,83 @@
+{
+  "kind": "replacement-first-fixture-spatial-preparation",
+  "status": "unexecuted hold; final execution score/four all-event propagations acceptance and explicit root release pending",
+  "recorded_at_utc": "2026-10-31T15:30:51.869498+00:00",
+  "purpose": "fixture",
+  "season": "20212022",
+  "family": "spatial",
+  "command_file": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/fixture-20212022-spatial-command.sh",
+    "sha256": "d3c54574c581b7ab5ab443ba033e580e313297e861f5beb58935b4860a309461",
+    "bytes": 2704
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/fixture-fit-commands.md",
+    "sha256": "d66e47793b8f46941ffea3ee46d36b4ded71771d7f515c6fb0f695f6435fdb23",
+    "block_sha256": "17f084a69423e9d923ff1a34083dc9d2560bfe5a710e30499af8cbad1db5d15f"
+  },
+  "changes_from_book": "only exact analysis-tree assertion and occupied/provenance guards for accepted valued manifest and expected design recipe; timed ordinary spatial argv unchanged",
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "uv",
+    "run",
+    "--project",
+    "analysis",
+    "hockey-stats-analysis",
+    "fit",
+    "--family",
+    "spatial",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--coaches",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "--season",
+    "20212022",
+    "--valued",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20212022"
+  ],
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20212022",
+  "previous": null,
+  "valued": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022/manifest.json",
+    "sha256": "78e029e06cfb50ebdc247117faeb3849459e291be2267c250a9c15858dac7d60",
+    "execution_recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "execution_state_sha256": "93478145e952d2378fce912b0c5daffff553ce84d2a74cce3f327e59a3320baf",
+    "status": "accepted first corrected fixture score supplied by root; metadata pin verified here"
+  },
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "spatial_design_recipe": {
+    "version": "spatial-v1-08-4",
+    "sha256": "04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b"
+  },
+  "launch_identity": "record actual head, exact analysis tree, clean analysis status, expected design recipe and actual valued manifest digest at launch; docs-only later heads allowed with identical clean analysis tree",
+  "observer": null,
+  "expected_baseline_heads": [
+    "volume",
+    "shape",
+    "quality"
+  ],
+  "final_head_continuations": 0,
+  "checks": {
+    "shell_syntax_exit": 0,
+    "timed_spatial_argv_equals_reviewed_book": true,
+    "no_predecessor": true,
+    "no_observer": true,
+    "valued_pin_verified_from_manifest_only": true,
+    "source_and_design_recipe_pinned": true,
+    "exclusive_output_log_exit_launch_receipts": true,
+    "new_output_absent": true,
+    "analysis_worktree_clean": true
+  },
+  "scope": "one accepted score manifest and git/source metadata only; no score members, arrays, strict read, source pass or fit",
+  "policy": "one heavy job at a time; analysis fixed through command exit; new external outputs only; all original fits, source evidence and prior publications preserved; no real launch or code change",
+  "launched": false,
+  "prerequisites": {
+    "five_execution_annuals_and_four_continuations": "root accepted",
+    "first_corrected_valued_score": "root accepted; exact manifest pin verified here",
+    "final_execution_score_and_four_all_event_propagations": "pending root acceptance; launch remains held",
+    "single_spatial_command_release": "pending explicit root release"
+  }
+}

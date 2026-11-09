@@ -1,0 +1,244 @@
+{
+  "kind": "replacement-fixture-execution-completion",
+  "status": "root_accepted; saved-metadata checks and independent first-annual review passed",
+  "recorded_at_utc": "2026-10-31T14:58:34.455210+00:00",
+  "purpose": "fixture",
+  "season": "20212022",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022/manifest.json",
+    "sha256": "93478145e952d2378fce912b0c5daffff553ce84d2a74cce3f327e59a3320baf"
+  },
+  "scope": "saved JSON metadata, bounded log/status receipts, file stat and the two fixed fixture input metadata hashes only; no NPZ/hash/array read, repeated strict read, source game pass or fit",
+  "heads": {
+    "u": {
+      "status": "complete",
+      "included": 771,
+      "positive": 618,
+      "dimension": 2571,
+      "actor_prior_rows": 261,
+      "entry_rows": 261,
+      "prior_only_rows": 31,
+      "ledger_rows": 230,
+      "all_ledger_year": "20212022",
+      "maximum_center_error": 8.673617379884035e-18,
+      "head_key_sha256": "324dd9612706633965e9106c2b42d30dfd033a45557c5e858d75d50b3e70c143",
+      "selected_start": "zero",
+      "prior_mean_start": "deduplicated_to_zero",
+      "iterations": 234,
+      "evaluations": 253,
+      "objective": 333.4661666636525,
+      "raw_gradient_max": 3.9275449050801825e-06,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "em_iterations": 0,
+      "resolution": "not_applicable"
+    },
+    "q": {
+      "status": "complete",
+      "included": 618,
+      "positive": 439,
+      "dimension": 2610,
+      "actor_prior_rows": 274,
+      "entry_rows": 274,
+      "prior_only_rows": 43,
+      "ledger_rows": 231,
+      "all_ledger_year": "20212022",
+      "maximum_center_error": 8.673617379884035e-18,
+      "head_key_sha256": "d5a46ef987a0229f052119b16e121bad5dfef69d8f6b833492cb7852b7a7ddec",
+      "selected_start": "zero",
+      "prior_mean_start": "deduplicated_to_zero",
+      "iterations": 256,
+      "evaluations": 279,
+      "objective": 335.40638993127936,
+      "raw_gradient_max": 1.641744337366191e-06,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "em_iterations": 0,
+      "resolution": "not_applicable"
+    },
+    "r": {
+      "status": "complete",
+      "included": 439,
+      "positive": 335,
+      "dimension": 2610,
+      "actor_prior_rows": 274,
+      "entry_rows": 274,
+      "prior_only_rows": 65,
+      "ledger_rows": 209,
+      "all_ledger_year": "20212022",
+      "maximum_center_error": 5.204170427930421e-18,
+      "head_key_sha256": "376370e389ee8ad373ad3c9c03891efb2df3aae51687b625b3d88fb6a6234c4d",
+      "selected_start": "zero",
+      "prior_mean_start": "deduplicated_to_zero",
+      "iterations": 218,
+      "evaluations": 241,
+      "objective": 212.0272261241448,
+      "raw_gradient_max": 6.253606311346083e-06,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "em_iterations": 0,
+      "resolution": "not_applicable"
+    },
+    "g": {
+      "status": "complete",
+      "included": 335,
+      "positive": 39,
+      "dimension": 2841,
+      "actor_prior_rows": 498,
+      "entry_rows": 498,
+      "prior_only_rows": 82,
+      "ledger_rows": 416,
+      "all_ledger_year": "20212022",
+      "maximum_center_error": 1.4094628242311558e-18,
+      "head_key_sha256": "613085112de974faafa072082450f87959331cf799010553c7c723547398b967",
+      "selected_start": "zero",
+      "prior_mean_start": "deduplicated_to_zero",
+      "iterations": 452,
+      "evaluations": 499,
+      "objective": 182.6790836238793,
+      "raw_gradient_max": 8.70028261656941e-07,
+      "termination": "setter em objective and responsibility tolerances satisfied",
+      "em_iterations": 5,
+      "resolution": "not_applicable",
+      "em_responsibility_change": 5.989581949861211e-08,
+      "em_relative_objective_change": 4.827753474883293e-14
+    }
+  },
+  "checks": {
+    "complete_heads": 4,
+    "entry_only_priors": true,
+    "no_previous": true,
+    "no_carry_or_old_ledger": true,
+    "ledger_exact_supported_actors": true,
+    "centers_reconstructed_from_saved_ledger_and_zero_entry_prior_means": true,
+    "maximum_center_error": 8.673617379884035e-18,
+    "source_head_counts_and_key_digests_match_saved_coverage": true,
+    "stopping_recipe_literal": {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06,
+      "em_maxiter": 100,
+      "em_objective": 1e-08,
+      "em_responsibility": 1e-06,
+      "continuation": {
+        "ftol": 1e-16,
+        "gtol": 1e-07,
+        "em_objective": 1e-09,
+        "em_responsibility": 1e-07
+      }
+    },
+    "strict_read": "producer CLI already completed; not repeated",
+    "array_limitation": "coefficient and prior-only equality were producer strict-read checks; arrays not reopened for this receipt"
+  },
+  "source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20212022-source-check.json",
+    "sha256": "b29b4bd08ecce3ee613d447a9e00d1d7e9265bb10ee45ba1719948f02e2737fa",
+    "status": "passed",
+    "source_contexts": 771,
+    "dispositions": {
+      "eligible:faceoff": 275,
+      "eligible:on_the_fly": 420,
+      "unavailable:None": 23,
+      "unavailable:unknown": 53
+    },
+    "eligibility_counts": {
+      "masked_on_the_fly": 0,
+      "masked_faceoff": 0,
+      "unresolved_binding": 0,
+      "admitted_same_clock_faceoff": 0,
+      "withheld_earlier_anchor": 0
+    },
+    "known_expected": 0,
+    "known_checked": 0,
+    "source_context_sha256": "7e3d0d4328ac626d0fa1952723f647cb64aa4926a964b594b234576cbd8c8c80",
+    "source_response_sha256": "21c0e3625f9ec3acd2ae426dd3a4cefd4e4d25d52126241e8374017c388a1e95",
+    "observer_seconds": 0.1294749450753443,
+    "observer_seconds_scope": "observe() body only; excludes response prehash/head projection and is not full wrapper overhead",
+    "scope_limit": "regression-only fixture: zero new masks and zero special counters. this annual does not exercise the corrected real chronology population; focused source controls cover the two original mechanisms, and the exact54-key barrier remains required on the real20212022 pass. residual scope remains unsized"
+  },
+  "resources": {
+    "command_wall_seconds": 22.31,
+    "user_seconds": 21.5,
+    "system_seconds": 0.2,
+    "maximum_resident_bytes": 921845760,
+    "swaps": 0,
+    "baseline_head_states": 4,
+    "final_head_continuations": 0,
+    "actual_native_solve_counts": {
+      "u": 1,
+      "q": 1,
+      "r": 1,
+      "g": 5
+    },
+    "saved_member_bytes": 3447747,
+    "annual_including_manifest_bytes": 3471417,
+    "producer": {
+      "wall_seconds": 21.943321334081702,
+      "peak_memory_bytes": 919666688,
+      "design_wall_seconds": 20.241266375000123,
+      "input_read_wall_seconds": 0.008787334023509175,
+      "fit_wall_seconds": 1.6932676250580698,
+      "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+      "output_bytes": 3447747,
+      "origin_rows": {
+        "u": 100986,
+        "q": 618,
+        "r": 439,
+        "g": 335
+      },
+      "candidate_branches": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 3061
+      },
+      "resolution_solve_counts": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 0
+      },
+      "dimensions": {
+        "u": 2571,
+        "q": 2610,
+        "r": 2610,
+        "g": 2841
+      },
+      "solve_counts": {
+        "u": 1,
+        "q": 1,
+        "r": 1,
+        "g": 5
+      }
+    }
+  },
+  "launch": {
+    "start": "2026-10-31T14:55:24Z",
+    "finish": "2026-10-31T14:55:47Z",
+    "exit": 0,
+    "git_head": "d181fcd3c1049850c20218e748e70a37ea2e905e",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "analysis_clean_at_launch_and_now": true,
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "log_sha256": "1bd5dcb149170fcc1b29c2568959304eb1daafee4a236e3577f66652d2d2b0a9"
+  },
+  "input_preservation": [
+    {
+      "kind": "prepared",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+      "unchanged": true
+    },
+    {
+      "kind": "coaches",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c",
+      "unchanged": true
+    }
+  ],
+  "preservation": "original campaigns untouched; no retry or further command launched",
+  "next": "prepare observed20222023 with exact accepted preceding manifest pin; explicit root release required",
+  "independent_review": {
+    "owner": "independent reviewer; result reported by root",
+    "status": "passed",
+    "scope": "saved arrays byte-identical to original chain-01/20212022; non-start design, support and coverage exact",
+    "repeated_here": false
+  }
+}

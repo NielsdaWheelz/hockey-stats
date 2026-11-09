@@ -1,0 +1,825 @@
+{
+  "status": "accepted_real_detached_runtime_and_selected_api_scope_browser_exports_pending",
+  "recorded_at": "2026-11-06T22:18:36.838373+00:00",
+  "publication_id": "53d900fd-7926-4841-89aa-c3a73bdf4b08",
+  "candidate_acceptance": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-spatial-publication-completion.json",
+    "sha256": "319c7df0088b8faacb81e1ad0d4b8599cddd4887de7a73104b674a610057c499",
+    "bytes": 9776
+  },
+  "release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-api-release.json",
+    "sha256": "3ccbb1b8fba8f1626b82d0a8b28b89b3ebdc2b7d0c002073254c786d52f25d3c",
+    "bytes": 4543
+  },
+  "permission_report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-paired-controls-01.json",
+    "sha256": "9e5fb132e2150605a845bfc5320e07ba0ed6e9a91c11369eb73b5aa4d20e907b",
+    "bytes": 6985
+  },
+  "permission_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-detached-permission-and-candidate-saved-review.md",
+    "sha256": "938e40b73c5888e14a35d101900cccf92e3dde03ece088bd2021277011d431b1",
+    "bytes": 1862
+  },
+  "server": {
+    "native_session_id": 62447,
+    "closed": true,
+    "closed_pids": [
+      32272,
+      32298,
+      32299
+    ],
+    "port": 3399,
+    "port_closed": true,
+    "exit": 130,
+    "exit_reason": "root intentionally sent SIGINT after all seven API cases passed because browser tools remained unavailable; startup/readiness/API success are preserved",
+    "native_whole_lifetime": {
+      "wall_seconds": 884.12,
+      "user_seconds": 454.72,
+      "system_seconds": 27.7,
+      "peak_rss_bytes": 1116307456,
+      "peak_memory_footprint_bytes": 1140927792,
+      "swaps": 0
+    },
+    "operator_start_utc": "2026-11-06T22:00:03Z",
+    "native_listener_log_time": "2026-11-06T14:07:40.212-08:00",
+    "startup_seconds_approximately": 457.212,
+    "startup_scope": "operator start through native listening log, including identity checks, initialization and complete application validation; start is recorded to whole seconds",
+    "files": {
+      ".log": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.log",
+        "sha256": "9a9f1e26ee2610cae05b0d693c93c6891d17f5e20c50576482078798a1dd9ace",
+        "bytes": 22368
+      },
+      ".exit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.exit",
+        "sha256": "f5bde7eb9f6c71611dc5726e8aca3eb4eba3e386da49e0a4ed5c295a90a73a0d",
+        "bytes": 4
+      },
+      ".shell.pid": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.shell.pid",
+        "sha256": "ff37fbffce270c710fcf77445e99ba4bf1c44cf751a2bdbc629d721c311a646c",
+        "bytes": 6
+      },
+      ".start.txt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.start.txt",
+        "sha256": "f50706cf27f9b16e34ae43acd865a8e85987002cc17481000477e18c5af2a5a4",
+        "bytes": 21
+      },
+      ".finish.txt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.finish.txt",
+        "sha256": "ecfdb0b28fe199be6bad70c2420c35c682b9f2735ed140b6201e56eac9ac4571",
+        "bytes": 21
+      },
+      ".launch-profile-sha256.txt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.launch-profile-sha256.txt",
+        "sha256": "2f8b8c7e09af7adca0aea3346752a7ed59b4ff7a5a94a70aa5b5947a060c8d2e",
+        "bytes": 154
+      },
+      ".launch-app-tree.txt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.launch-app-tree.txt",
+        "sha256": "0a51a2fc7d169b1997172584cbdbcd95c95cfc3a45c3cc33debbda6438b43cfe",
+        "bytes": 41
+      },
+      ".launch-app-status.txt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.launch-app-status.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      ".launch-entrypoint-sha256.txt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.launch-entrypoint-sha256.txt",
+        "sha256": "f5665d9123013803e60116352042f83ff1934256cf2b0b0b1b15f93a26714753",
+        "bytes": 144
+      },
+      ".accepted-database-sha256.txt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.accepted-database-sha256.txt",
+        "sha256": "428fd1a7e219ca7bc9d3e0033adaae864c6656ff4adc27ade1583e2f1cd618cf",
+        "bytes": 65
+      },
+      ".accepted-publication-id.txt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.accepted-publication-id.txt",
+        "sha256": "43fa7add1c96ad4e9e31ecd55106f136594a01d13dc9bd484dbc26ec95b64e57",
+        "bytes": 37
+      },
+      ".launch-database-stat.txt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.launch-database-stat.txt",
+        "sha256": "fbf05ec5c7fb7dca97c31052411714fb09c95725ae4fb6101f606a30c50d9dec",
+        "bytes": 23
+      },
+      ".publication-verification-sha256.txt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.publication-verification-sha256.txt",
+        "sha256": "88331a691d27e3fc57cccaca52250afc3ce86f4371299e2eb815650526660cdf",
+        "bytes": 178
+      },
+      ".launch-app-identities.json": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/detached-server-01.launch-app-identities.json",
+        "sha256": "0d0d80a365c217275192b1b5d3a86de8e10172cc0fbd5cf448560eeac94e496c",
+        "bytes": 240
+      }
+    },
+    "source_dist_identities": {
+      "dist": {
+        "bytes": 1289564,
+        "files": 38,
+        "sha256": "c4ac0c8541ed059c6a4e983498841bbb4265dce8c4072ec2f095adb78a250cb1"
+      },
+      "source": {
+        "bytes": 873415,
+        "files": 52,
+        "sha256": "0861036972ccacc7bb8cb6393b0e3cb697293d44c873f36bee0a0e5bd4223511"
+      }
+    },
+    "http_log_responses": 159,
+    "http_log_path_counts": {
+      "/": 1,
+      "/api/league": 3,
+      "/api/players/8470613": 6,
+      "/api/maps": 144,
+      "/api/players/8473507": 1,
+      "/api/players/8470621": 1,
+      "/api/players/8482479": 1,
+      "/api/players/8475253": 1,
+      "/api/players/8478173": 1
+    },
+    "http_log_parser_scope": "complete native response blocks, including multiline player responses",
+    "league_server_spans_milliseconds": [
+      2335.0,
+      2394.0,
+      2366.0
+    ]
+  },
+  "database_after_readonly_requests": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/candidate/player-analysis.sqlite",
+    "bytes": 13356376064,
+    "mtime_ns": 1794001967301147330,
+    "unchanged_from_accepted_metadata": true,
+    "no_wal_shm_journal": true,
+    "publisher_sha256": "12d738d0eee0694a76f266c5b48284a035365cc837d8de1667a765443369ef5b",
+    "hash_scope": "publisher-owned digest reused; no rehash"
+  },
+  "asset_body": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/runtime-root-01.html",
+    "sha256": "631f9108547a718f1608358134df9a4924565f26b636e096f64dbbf9f63cad3e",
+    "bytes": 2114
+  },
+  "asset_request": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/runtime-root-01.json",
+    "sha256": "fd83714fdf8b075df6a8652f06963316c0107190fab11ef7d3c41336f6f8cb2e",
+    "bytes": 65
+  },
+  "cases": [
+    {
+      "name": "discovery",
+      "report": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/discovery.json",
+        "sha256": "880a53a1bc12ed3bb29758546396fb1baaeb0a99d1a0350ec63b4b4f6be0acea",
+        "bytes": 6611
+      },
+      "stderr": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/discovery.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "exit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/discovery-exit.txt",
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "bytes": 2
+      },
+      "scope": "three actual league responses through existing public discovery composition/filter/sort/selectors; saved spatial rows and actual observed minute metadata are independent expectations; no gui/download/layout claim; real scalar/API consumer scope only",
+      "years": [
+        {
+          "season": "20232024",
+          "players": 924,
+          "selected_metric_values": 7392,
+          "api_bytes": 19501521,
+          "year_wall_milliseconds": 2757.896,
+          "filters": [
+            {
+              "selection": {
+                "q": "brent burns"
+              },
+              "rows": 1,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "q": "COREY PERRY"
+              },
+              "rows": 1,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "q": "zz-no-matching-player"
+              },
+              "rows": 0,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "position": "d"
+              },
+              "rows": 315,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "position": "f"
+              },
+              "rows": 609,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "q": "brent burns",
+                "position": "f"
+              },
+              "rows": 0,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "team": "12"
+              },
+              "rows": 29,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "q": "brent burns",
+                "position": "d",
+                "team": "12"
+              },
+              "rows": 1,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 0
+              },
+              "rows": 924,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 1
+              },
+              "rows": 922,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 300
+              },
+              "rows": 672,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 1200
+              },
+              "rows": 89,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 1201
+              },
+              "rows": 87,
+              "unknownTimeExcluded": 0
+            }
+          ],
+          "numeric_sort_orders": 16,
+          "ranked_metric_cells_default300": 5376,
+          "ranked_metric_cells_cutoff0": 7392,
+          "zero_time_prior_only_players": 0,
+          "focal_players": [
+            {
+              "player_id": "8470613",
+              "display_name": "Brent Burns",
+              "observed_seconds": 72051,
+              "spatial_seconds": 72052,
+              "prior_only": false,
+              "offense_xg": -0.17537676252523932,
+              "defense_xg": 0.20637250393518308,
+              "standing_cutoff0": {
+                "kind": "ranked",
+                "percentile": 56.666666666666664,
+                "n": 315,
+                "peerGroup": "reported defense",
+                "cutoffMinutes": 0
+              }
+            },
+            {
+              "player_id": "8470621",
+              "display_name": "Corey Perry",
+              "observed_seconds": 35392,
+              "spatial_seconds": 35392,
+              "prior_only": false,
+              "offense_xg": 0.2711883998043859,
+              "defense_xg": -0.10766729683213169,
+              "standing_cutoff0": {
+                "kind": "ranked",
+                "percentile": 42.118226600985224,
+                "n": 609,
+                "peerGroup": "reported forwards",
+                "cutoffMinutes": 0
+              }
+            }
+          ],
+          "minute_filter_owner": "actual overview observed.metrics.included_seconds",
+          "percentile_qualification_owner": "saved spatial Support.included_seconds"
+        },
+        {
+          "season": "20242025",
+          "players": 920,
+          "selected_metric_values": 7360,
+          "api_bytes": 19647264,
+          "year_wall_milliseconds": 2817.3876670000004,
+          "filters": [
+            {
+              "selection": {
+                "q": "brent burns"
+              },
+              "rows": 1,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "q": "COREY PERRY"
+              },
+              "rows": 1,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "q": "zz-no-matching-player"
+              },
+              "rows": 0,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "position": "d"
+              },
+              "rows": 319,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "position": "f"
+              },
+              "rows": 601,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "q": "brent burns",
+                "position": "f"
+              },
+              "rows": 0,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "team": "12"
+              },
+              "rows": 32,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "q": "brent burns",
+                "position": "d",
+                "team": "12"
+              },
+              "rows": 1,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 0
+              },
+              "rows": 920,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 1
+              },
+              "rows": 910,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 300
+              },
+              "rows": 652,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 1171
+              },
+              "rows": 87,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 1172
+              },
+              "rows": 85,
+              "unknownTimeExcluded": 0
+            }
+          ],
+          "numeric_sort_orders": 16,
+          "ranked_metric_cells_default300": 5216,
+          "ranked_metric_cells_cutoff0": 7280,
+          "zero_time_prior_only_players": 10,
+          "focal_players": [
+            {
+              "player_id": "8470613",
+              "display_name": "Brent Burns",
+              "observed_seconds": 70267,
+              "spatial_seconds": 70086,
+              "prior_only": false,
+              "offense_xg": -0.19655762753810516,
+              "defense_xg": 0.40318632154244755,
+              "standing_cutoff0": {
+                "kind": "ranked",
+                "percentile": 87.73885350318471,
+                "n": 314,
+                "peerGroup": "reported defense",
+                "cutoffMinutes": 0
+              }
+            },
+            {
+              "player_id": "8470621",
+              "display_name": "Corey Perry",
+              "observed_seconds": 46167,
+              "spatial_seconds": 46125,
+              "prior_only": false,
+              "offense_xg": 0.31451636852674314,
+              "defense_xg": 0.06074447335002,
+              "standing_cutoff0": {
+                "kind": "ranked",
+                "percentile": 79.78187919463087,
+                "n": 596,
+                "peerGroup": "reported forwards",
+                "cutoffMinutes": 0
+              }
+            }
+          ],
+          "minute_filter_owner": "actual overview observed.metrics.included_seconds",
+          "percentile_qualification_owner": "saved spatial Support.included_seconds"
+        },
+        {
+          "season": "20252026",
+          "players": 940,
+          "selected_metric_values": 7520,
+          "api_bytes": 19720738,
+          "year_wall_milliseconds": 2752.3321669999996,
+          "filters": [
+            {
+              "selection": {
+                "q": "brent burns"
+              },
+              "rows": 1,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "q": "COREY PERRY"
+              },
+              "rows": 1,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "q": "zz-no-matching-player"
+              },
+              "rows": 0,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "position": "d"
+              },
+              "rows": 325,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "position": "f"
+              },
+              "rows": 615,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "q": "brent burns",
+                "position": "f"
+              },
+              "rows": 0,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "team": "21"
+              },
+              "rows": 33,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "q": "brent burns",
+                "position": "d",
+                "team": "21"
+              },
+              "rows": 1,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 0
+              },
+              "rows": 940,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 1
+              },
+              "rows": 940,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 300
+              },
+              "rows": 674,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 1207
+              },
+              "rows": 95,
+              "unknownTimeExcluded": 0
+            },
+            {
+              "selection": {
+                "min": 1208
+              },
+              "rows": 92,
+              "unknownTimeExcluded": 0
+            }
+          ],
+          "numeric_sort_orders": 16,
+          "ranked_metric_cells_default300": 5384,
+          "ranked_metric_cells_cutoff0": 7520,
+          "zero_time_prior_only_players": 0,
+          "focal_players": [
+            {
+              "player_id": "8470613",
+              "display_name": "Brent Burns",
+              "observed_seconds": 72425,
+              "spatial_seconds": 72425,
+              "prior_only": false,
+              "offense_xg": -0.209496716028514,
+              "defense_xg": 0.3553852975925267,
+              "standing_cutoff0": {
+                "kind": "ranked",
+                "percentile": 87.84615384615384,
+                "n": 325,
+                "peerGroup": "reported defense",
+                "cutoffMinutes": 0
+              }
+            },
+            {
+              "player_id": "8470621",
+              "display_name": "Corey Perry",
+              "observed_seconds": 44314,
+              "spatial_seconds": 44314,
+              "prior_only": false,
+              "offense_xg": 0.2320826496708667,
+              "defense_xg": 0.04192414600930642,
+              "standing_cutoff0": {
+                "kind": "ranked",
+                "percentile": 72.27642276422765,
+                "n": 615,
+                "peerGroup": "reported forwards",
+                "cutoffMinutes": 0
+              }
+            }
+          ],
+          "minute_filter_owner": "actual overview observed.metrics.included_seconds",
+          "percentile_qualification_owner": "saved spatial Support.included_seconds"
+        }
+      ],
+      "consumer_wall_milliseconds": 8469.634583
+    },
+    {
+      "name": "burns",
+      "report": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns.json",
+        "sha256": "94d8bfeb686a431e7734902331fc247ce0f660ca5fab207510ea96f3b6300bb6",
+        "bytes": 6862
+      },
+      "stderr": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "exit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-exit.txt",
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "bytes": 2
+      },
+      "scope": "actual API scalars/quartet/support for each present selected player; both returned map rows, cell/native/display/density integrals, common scale over both roles and players; no browser/download/pixel claim",
+      "checked_player_years": 3,
+      "checked_map_rows": 24,
+      "joint_scales": 12,
+      "adversarial_guard": "not applicable to one-player check"
+    },
+    {
+      "name": "burns-petry",
+      "report": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-petry.json",
+        "sha256": "cefe3df7b12942232bc75eef681411ec3d4d7ec6505617f71951af258b955c15",
+        "bytes": 8857
+      },
+      "stderr": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-petry.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "exit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-petry-exit.txt",
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "bytes": 2
+      },
+      "scope": "actual API scalars/quartet/support for each present selected player; both returned map rows, cell/native/display/density integrals, common scale over both roles and players; no browser/download/pixel claim",
+      "checked_player_years": 6,
+      "checked_map_rows": 48,
+      "joint_scales": 12,
+      "adversarial_guard": "mutated second-player integrated value rejected"
+    },
+    {
+      "name": "burns-perry",
+      "report": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-perry.json",
+        "sha256": "b645dc73eb60e34cfcef191e061679d762d52fba7584f2caf69e222f38b66ae7",
+        "bytes": 8988
+      },
+      "stderr": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-perry.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "exit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-perry-exit.txt",
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "bytes": 2
+      },
+      "scope": "actual API scalars/quartet/support for each present selected player; both returned map rows, cell/native/display/density integrals, common scale over both roles and players; no browser/download/pixel claim",
+      "checked_player_years": 6,
+      "checked_map_rows": 48,
+      "joint_scales": 12,
+      "adversarial_guard": "mutated second-player integrated value rejected"
+    },
+    {
+      "name": "burns-kuntar",
+      "report": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-kuntar.json",
+        "sha256": "279bb3195b1097d45e3e893f3b1198fef60de6940e1d5fca293a2c26ba55eb88",
+        "bytes": 7601
+      },
+      "stderr": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-kuntar.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "exit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-kuntar-exit.txt",
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "bytes": 2
+      },
+      "scope": "actual API scalars/quartet/support for each present selected player; both returned map rows, cell/native/display/density integrals, common scale over both roles and players; no browser/download/pixel claim",
+      "checked_player_years": 4,
+      "checked_map_rows": 48,
+      "joint_scales": 12,
+      "adversarial_guard": "mutated second-player integrated value rejected"
+    },
+    {
+      "name": "burns-wilson",
+      "report": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-wilson.json",
+        "sha256": "e6858b2ddb4a45ddc42d1401b7dcd05527a50eed9246f4c07945905de26c7fbc",
+        "bytes": 7635
+      },
+      "stderr": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-wilson.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "exit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-wilson-exit.txt",
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "bytes": 2
+      },
+      "scope": "actual API scalars/quartet/support for each present selected player; both returned map rows, cell/native/display/density integrals, common scale over both roles and players; no browser/download/pixel claim",
+      "checked_player_years": 4,
+      "checked_map_rows": 48,
+      "joint_scales": 12,
+      "adversarial_guard": "mutated second-player integrated value rejected"
+    },
+    {
+      "name": "burns-hodgson",
+      "report": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-hodgson.json",
+        "sha256": "98683eeff696f0f432cccba32ad1867341026bc667c53abdb19a463721fee800",
+        "bytes": 8044
+      },
+      "stderr": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-hodgson.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "exit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01/burns-hodgson-exit.txt",
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "bytes": 2
+      },
+      "scope": "actual API scalars/quartet/support for each present selected player; both returned map rows, cell/native/display/density integrals, common scale over both roles and players; no browser/download/pixel claim",
+      "checked_player_years": 5,
+      "checked_map_rows": 48,
+      "joint_scales": 12,
+      "adversarial_guard": "mutated second-player integrated value rejected"
+    }
+  ],
+  "aggregate": {
+    "discovery_seasons": 3,
+    "discovery_players": [
+      924,
+      920,
+      940
+    ],
+    "discovery_selected_values": 22272,
+    "discovery_scope": "actual complete 5v5 spatial payloads and methods equal saved exchange; eight selected discovery columns, filters/sorts/qualification and nonmutation exercised",
+    "present_player_year_call_instances": 28,
+    "returned_map_rows": 264,
+    "provided_numeric_maps": 224,
+    "absent_map_rows": 40,
+    "joint_scale_checks": 72,
+    "second_player_mutation_guards": 5,
+    "selected_http_requests": 155,
+    "selected_http_response_bytes": 51103748,
+    "selected_max_response_bytes": 714921,
+    "selected_max_request_milliseconds": 51.24137499999998,
+    "selected_summed_request_milliseconds": 2070.0810039999997
+  },
+  "api_native": {
+    "session_id": 80601,
+    "closed": true,
+    "exit": 0,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01-run.log",
+      "sha256": "731d64f1e4ab752e19a113ce199f828a844e562277d75ce46af1a47aefc1602e",
+      "bytes": 777
+    },
+    "exit_file": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/api-01-run-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "wall_seconds": 12.1,
+    "user_seconds": 5.02,
+    "system_seconds": 0.44,
+    "peak_rss_bytes": 864747520,
+    "native_outer_shell_footprint_bytes": 1966464,
+    "scope": "seven serial API client commands; excludes independently running server. shell footprint is not the clients peak footprint"
+  },
+  "independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-api-01-saved-review.md",
+    "sha256": "68ff0e072b4a7cf4338327ae56696c4b062156fe0dd14dd2798715b5ee895e66",
+    "bytes": 2734
+  },
+  "rollback": {
+    "scope": "accepted fixture mechanism carries only under unchanged fourteen operator modules; no real-candidate rollback rerun claimed",
+    "unchanged_operator_proof": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-app-build-completion.json",
+      "sha256": "b1582eb42b42d6a7df9f5763b37e39f4a988aaa89676856d6abd132161a8af4d",
+      "bytes": 1953
+    },
+    "fixture_receipt_sha256": "6f5fca5139c410dd1f141f0bbb6e6216c92c68920f99c49402ef0388e8779ff7"
+  },
+  "limits": [
+    "selected API/source/data-consumer equality and integral checks, not a seasonwide per-event/player scientific bound",
+    "existing CSV formatter assertions are not actual downloaded CSV acceptance",
+    "native and in-app browser tools unavailable: no real 320px/wide/200-percent journey, render timing, PNG pixels or downloaded CSV checks",
+    "original failed volume precision verdict/unknown optimizer accuracy and extreme actual-context limitations remain disclosed",
+    "temporary acceptance checks remain until full browser/export acceptance; no activation or serving-file mutation"
+  ]
+}

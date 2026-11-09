@@ -1,0 +1,16 @@
+{
+  "purpose": "fixture",
+  "operation": "isolated accepted baseline api target red",
+  "server_pid": 2974,
+  "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/candidate/player-analysis.sqlite --port 3398 --api-only",
+  "pid_receipt_mtime": "2026-10-31T07:31:29.783504+00:00",
+  "stopped_at_utc": "2026-10-31T07:35:44.901923+00:00",
+  "database": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/candidate/player-analysis.sqlite",
+  "database_bytes": 837996544,
+  "publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+  "target_failure": "existing spatial family not_computed; actual request succeeded200",
+  "scope": "actual api target red only; no browser or pixel claim",
+  "serving_mutation": false,
+  "actual_shell_exit_code": 130,
+  "server_process_gone": true
+}

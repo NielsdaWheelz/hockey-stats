@@ -1112,6 +1112,12 @@ footer {
 .analysis-evidence summary {
   cursor: pointer;
 }
+.spatial-estimates {
+  min-width: 40rem;
+}
+.spatial-estimates td:nth-child(3) {
+  white-space: nowrap;
+}
 .analysis-evidence pre {
   white-space: pre-wrap;
   overflow-wrap: anywhere;

@@ -1,0 +1,60 @@
+{
+  "kind": "spatial-v1-08-fixed-target-shooter-chronology-audit",
+  "status": "passed_bounded_checks",
+  "source": {
+    "path": "analysis/src/hockey_stats/spatial_design.py",
+    "sha256": "948dcaa11c73a655a6312457491ef970b4edf4c522b20f09273ba98b52cb1f4a"
+  },
+  "design_recipe": {
+    "version": "spatial-v1-08-3",
+    "sha256": "c1ab22231f5724357ce0ea633181d84dc15e8851be224f65e0e65bb73a853cf9"
+  },
+  "commands": [
+    {
+      "argv": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-shooter-timing-target-check.py --baseline",
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "meaning": "preserved1e1b51a accepted the known non-prior upstream shooter field"
+    },
+    {
+      "argv": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-shooter-timing-target-check.py",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "meaning": "repaired source rejects it with source key and exact saved order locator"
+    },
+    {
+      "argv": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-source-checks.py",
+      "observed_exit": 0,
+      "passed_checks": 14
+    }
+  ],
+  "temporary_checks": {
+    "v1-08-source-checks.py": {
+      "path": "var/v1-08-source-checks.py",
+      "sha256": "de626d94a70d8ed3ed4c959ff54758514cca5c4132708fa859192d60ceea428d"
+    },
+    "v1-08-shooter-timing-target-check.py": {
+      "path": "var/v1-08-shooter-timing-target-check.py",
+      "sha256": "73e4cabd2ac1553161f188c0dfa7eaa0123286258e553c0a7901644815edd852"
+    }
+  },
+  "audit": {
+    "population": "retained matched spatial targets after the complete segment exclusion union",
+    "source": "existing prepared-game pass; no added bulk read",
+    "chronology": "saved event and anchor chronology.order_index only",
+    "shooter_binding": "exact saved player, period, start/end times, start type and zone against a unique coherent shift",
+    "unknown_binding": "located unresolved coverage; never infer chronology from clocks or source indices",
+    "computational_failure": "known admitted shooter faceoff input without a proved earlier anchor fails before fitting; no exclusion or target rewrite",
+    "saved_counts": [
+      "retained_targets",
+      "shooter_known_faceoff_starts",
+      "shooter_proved_earlier_starts",
+      "spatial_unknown_start_count",
+      "unresolved_shooter_binding_count"
+    ],
+    "saved_locations": "per-game event_faceoff_start_audit includes source keys, focal/anchor order, event/anchor/shift pointers and saved values"
+  },
+  "issue": "../../issues/execution-shift-start-chronology.md",
+  "result_scope": "synthetic mechanism and strict rejection only; no affected accepted-input target located and no all-season audit yet; the existing next source passes produce those counts",
+  "implementation_note": "physical skater ids are an explicit audit input; saved audit records contain only counts and located witnesses"
+}

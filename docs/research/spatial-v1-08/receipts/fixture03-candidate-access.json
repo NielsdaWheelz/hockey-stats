@@ -1,0 +1,18 @@
+{
+  "kind": "spatial-v1-08-fixture03-candidate-access-control",
+  "status": "passed one-byte access only; no runtime or api acceptance",
+  "profile_path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/detached.sb",
+  "profile_sha256": "42c21d266fd7ab0d7b83893fa4d84c17b765eddd1005fabcb919c946352f84d6",
+  "profile_sha256_after_control": "42c21d266fd7ab0d7b83893fa4d84c17b765eddd1005fabcb919c946352f84d6",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite",
+    "sha256": "6c77ed6081bfeb9e06d9d790fce48421c5672d27b5e50b6974f73085ba7ae114"
+  },
+  "database_bytes": 1369198592,
+  "outside_exit": 0,
+  "outside_stdout": "read one byte\n",
+  "sandbox_exit": 0,
+  "sandbox_stdout": "read one byte\n",
+  "server_started": false,
+  "checked_at_utc": "2026-10-31T09:28:08.029478+00:00"
+}

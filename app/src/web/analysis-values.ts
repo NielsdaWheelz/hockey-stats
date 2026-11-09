@@ -127,6 +127,7 @@ export type AnalysisDatum = {
   readonly reference_panel: Execution["reference_panel"] | null;
   readonly coefficient_support: Execution["coefficient_support"] | null;
   readonly paired_evidence: Execution["paired_evidence"] | null;
+  readonly spatial_detail: SpatialDetail | null;
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
   readonly methods: readonly Method[];
@@ -143,6 +144,13 @@ export type AnalysisDatum = {
   readonly workload: unknown;
   readonly reasonCodes: readonly string[];
   readonly observedSupport: PlayerSummary["personal"] | PlayerSummary["metrics"] | null;
+};
+
+export type SpatialDetail = {
+  readonly difference: Estimate;
+  readonly complete: Estimate;
+  readonly neutral: Estimate;
+  readonly relative_percent: Estimate;
 };
 
 // these are typed result envelopes, not a second publication schema.
@@ -171,6 +179,7 @@ type SelectedValue = {
   readonly reference_panel?: Execution["reference_panel"];
   readonly coefficient_support?: Execution["coefficient_support"];
   readonly paired_evidence?: Execution["paired_evidence"];
+  readonly spatial_detail?: SpatialDetail;
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
   readonly methodId?: string;
@@ -228,6 +237,8 @@ const definition = (
     : metric.unit === "goals_per100_attempts" ? "goals per 100 attempts"
     : metric.unit === "goals_per100_assisted_opportunities" ? "goals per 100 setup opportunities"
     : metric.unit === "minutes_per_appearance" ? "min per appearance"
+    : metric.unit === "attempts_per60" ? "attempts per 60 min"
+    : metric.unit === "xg_per60" ? "xg per 60 min"
     : metric.unit === "per60" ? "per 60 min"
     : metric.unit
 });
@@ -293,13 +304,14 @@ const spatial = spatialRoles.flatMap(([strength, roles]) =>
       "xg_relative_percent",
     ] as const).map(quantity => {
       const field = `${role}_${quantity}` as const;
+      const rateQuantity = quantity.startsWith("attempts") ? "attempts" : "xg";
       return definition({
         ...base,
         publicationFamily: "spatial",
         id: `spatial.${strength}.${field}` as AnalysisMetricId,
         quantityPath: `skater_spatial.${field}`,
         group: `spatial ${strength}`,
-        label: title(field),
+        label: `experimental ${strength} ${role} ${rateQuantity === "attempts" ? "attempt" : "xg"} ${quantity.endsWith("relative_percent") ? "relative " : ""}difference`,
         unit: quantity.endsWith("relative_percent")
           ? "%"
           : quantity === "attempts_per60"
@@ -307,16 +319,20 @@ const spatial = spatialRoles.flatMap(([strength, roles]) =>
             : "xg_per60",
         population: `${strength} ${role}`,
         qualificationLabel: `${strength} spatial support`,
-        numericReference: "published neutral spatial forecast",
+        construction: "experimental conditional seasonal estimate",
+        numericReference: "frozen hypothetical league-centered design; virtual neutral execution",
         cutoff: strength === "5v5" ? "general" : "specialty",
         select: inputs => fromResult(
           inputs.spatial(strength),
-          data => estimate(
-            data[field],
-            data.support,
-            data.method_id,
-            `spatial.${strength}.support.included_seconds`
-          )
+          data => ({
+            ...estimate(data[field], data.support, data.method_id, `spatial.${strength}.support.included_seconds`),
+            spatial_detail: {
+              difference: data[`${role}_${rateQuantity}_per60`],
+              complete: data[`${role}_${rateQuantity}_per60_complete`],
+              neutral: data[`${role}_${rateQuantity}_per60_neutral`],
+              relative_percent: data[`${role}_${rateQuantity}_relative_percent`],
+            },
+          })
         )
       });
     }),
@@ -1004,6 +1020,7 @@ function datum(
     reference_panel: selected.reference_panel ?? null,
     coefficient_support: selected.coefficient_support ?? null,
     paired_evidence: selected.paired_evidence ?? null,
+    spatial_detail: selected.spatial_detail ?? null,
     qualificationSeconds: selected.qualificationSeconds,
     qualificationBasis: selected.qualificationBasis,
     methods,

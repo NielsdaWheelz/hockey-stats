@@ -1,0 +1,94 @@
+{
+  "kind": "replacement-real-year3-score-acceptance-preparation",
+  "status": "prepared; held until accepted year 3 state, completed score and actual hashes; main not invoked",
+  "recorded_at_utc": "2026-11-01T09:15:03.808615+00:00",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20232024.py",
+    "sha256": "569be218216e2b3d481a640a4b448b1248763dc6d42af19ce53d75473d6deecc",
+    "bytes": 27533
+  },
+  "command_argv": [
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20232024.py",
+    "--expected-manifest-sha256",
+    "<actual_completed_20232024_score_manifest_sha256>",
+    "--expected-state-sha256",
+    "<root_accepted_20232024_state_manifest_sha256>",
+    "--expected-source-sha256",
+    "<root_pinned_20232024_score_source_report_sha256>",
+    "--out-check",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20232024-saved-acceptance.json"
+  ],
+  "expected_score_manifest_sha256": null,
+  "expected_state_manifest_sha256": null,
+  "expected_score_source_sha256": null,
+  "bindings": {
+    "original_score": {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024/manifest.json",
+      "sha256": "d1ca74ab35b522ed0b415004c540a332c1d7c9c75d7d2a8a8db81501b4f0e3d0"
+    },
+    "original_pin_source": "docs/research/spatial-v1-08/inputs.json",
+    "fit_source": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20232024-source-check.json",
+      "sha256": "f1d869c5b156ce4bba3f9f4ba549e1dce4a10d0828ccfb52c9f1579d43888aac"
+    },
+    "accepted_new2022_predecessor_sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "analysis_clean": true,
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "adaptation": {
+    "base": "accepted c2f5ff99 year 2 score checker",
+    "fixed_year_only": true,
+    "scalar_labels": [
+      "available_projection_pairs",
+      "scalar_absolute_change_quantiles"
+    ],
+    "event_labels_unchanged": true,
+    "generic_framework": false
+  },
+  "checks": [
+    "exit0 and root-pinned actual completed score digest before one new strict read; root-pinned current annual state and score-source report required",
+    "all eight same-year fit-score context/response/population/head fields exact, including complete head_populations; no known-key census",
+    "all old/new event identities, labels, statuses, reasons and coverage exact; nullable probability applicability preserved",
+    "setter candidates/pre-outcome weights, posterior applicability and share recipients preserved; all saved event group allocations checked using24orders and existing arithmetic bound",
+    "all native maps sum to saved scalar; current maps match strict-validated projections; coefficient support/unavailable records exact original",
+    "all seven public panel event-prefix sums reconcile to every projection under existing rounding bounds; strict reader covers all32saved panels",
+    "complete-row absolute/relative probability maxima and event-maximum quantiles with literal locators; actor, neutral, neutral-goalie and coalition movement separate",
+    "saved unavailable first witnesses versus unclassified remainder only; recognized excluded witnesses receive no invented numerical changes",
+    "all scalar/map movement, output counts/bytes and launch/implementation/input/resource scopes retained without movement, counter, ranking or top-k gates"
+  ],
+  "meaning": {
+    "prefix_u": "avoid-block probability, not goal probability",
+    "prefix_uqrg": "goal probability",
+    "coalitions": "16 integrated goal probabilities",
+    "relative": "abs(new-old)/abs(old); 0 to 0 is 0 by convention; zero baseline to nonzero has no finite relative ceiling",
+    "sensitivity": "joint recipe/history sensitivity; current masking and changed earlier raw history effects are not isolated"
+  },
+  "limits": [
+    "saved aggregate counters do not identify every newly masked key or unavailable-both membership; no classification from probability movement",
+    "source context counts and physical5v5 panel counts are distinct; named witnesses may span strengths or be excluded from complete scoring",
+    "complete-row ceilings are descriptive and give no all-player ability, calibration or causal bound",
+    "saved24-order allocation is arithmetic on saved coalition masses, not an independent source-predictor/logit/origin reconstruction",
+    "original score remains comparison evidence only; no old coefficients/means/targets or legacy-reader exception",
+    "final-year continuation/propagation is not applicable in20232024; no new numerical or scientific acceptance threshold"
+  ],
+  "preparation_checks": {
+    "python_ast": "passed",
+    "pure_controls": "48 fields, blocked nullable conditionals, terminal mass and relative-zero conventions passed",
+    "main_invocations": 0,
+    "strict_reads": 0,
+    "state_reads": 0,
+    "array_reads": 0,
+    "source_passes": 0,
+    "fits": 0,
+    "scores": 0,
+    "production_and_observer_edits": 0
+  },
+  "access": "local accepted helper, accepted original score metadata pin from docs, git/observer identity and pure in-memory controls only; no saved model/source/state/array artifact read",
+  "next": "root assigns product peer review; actual future hashes and explicit root release required before one invocation"
+}

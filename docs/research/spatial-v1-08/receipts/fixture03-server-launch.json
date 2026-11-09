@@ -1,0 +1,31 @@
+{
+  "kind": "spatial-v1-08-fixture03-server-launch",
+  "status": "one command delivered; strict reader startup/readiness pending",
+  "launched_at_utc": "2026-10-31T09:29:03.573631+00:00",
+  "command": "/bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/server.sh",
+  "script_sha256": "9cc4e6e0d21051fcd8b763cd4c88279539d19eba85415f0aa30f0c455cf8867c",
+  "profile_path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/detached.sb",
+  "profile_sha256": "42c21d266fd7ab0d7b83893fa4d84c17b765eddd1005fabcb919c946352f84d6",
+  "controls_receipt": "fixture03-detached-controls-final.json",
+  "candidate_access_receipt": "fixture03-candidate-access.json",
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite",
+  "publication_id": "e5118eea-1ccf-45e4-ba59-4ed8b5a906b5",
+  "database_sha256_from_accepted_publisher": "6c77ed6081bfeb9e06d9d790fce48421c5672d27b5e50b6974f73085ba7ae114",
+  "node": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+  "port": 3398,
+  "build_source_sha256": "359a32a081c2cc524351cf0d034b555ed7f392c777e9706f94c6119cbc866c19",
+  "build_sha256": "2b84760dacbd8d6263d19963ea21259f403ff26cb17f69ce0702b172b78f7063",
+  "server_entrypoint_sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05",
+  "terminal_handle": "t-2d0c5b412d583c0f",
+  "terminal_ref": "eyJtYWNoaW5lIjoibWgtZDk2YTM2NWI5ODMxMGVlMjIyOWQ5NWJiOTM2Nzg3NDMiLCJ0bXV4SWQiOiIkNTIiLCJpZGVudGl0eVRva2VuIjoidjEtNTMyMGFjNjBhZDllZDIzOTQ5ODEwYTQyNWY5M2VhY2IuMTE5NC4xNzkzMTY4NzQ3LjUyIiwicGFuZUlkIjoiJTYwIn0",
+  "delivery_exit_code": 0,
+  "delivery_stdout": "{\"ok\":true,\"result\":{\"method\":\"terminal\",\"outcome\":\"written\"}}\n",
+  "delivery_stderr": "",
+  "scope": "detached candidate server startup only; root owns api/browser acceptance; no activation",
+  "observed_processes": [
+    "26819 26796 Sat Oct 31 02:29:16 2026       1536 /usr/bin/time -l /usr/bin/sandbox-exec -f /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/detached.sb /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite --port 3398",
+    "26820 26819 Sat Oct 31 02:29:16 2026     742368 /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite --port 3398"
+  ],
+  "process_observed_at_utc": "2026-10-31T09:29:51.753286+00:00",
+  "script_pid": "26796"
+}

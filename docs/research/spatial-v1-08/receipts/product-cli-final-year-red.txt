@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/cli-final-year-check.py", line 27, in <module>
+    assert captured==[expected],(purpose,seasons,season,captured,expected)
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('fixture', ['20212022', '20222023', '20232024', '20242025', '20252026'], '20252026', [False], True)

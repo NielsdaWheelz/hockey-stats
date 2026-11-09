@@ -1,0 +1,114 @@
+{
+  "kind": "replacement-first-real-fit-score-source-parity-interim",
+  "status": "eight_saved_source_fields_exact; score still running, not complete or accepted",
+  "recorded_at_utc": "2026-10-31T20:22:15.503789+00:00",
+  "fit_report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20212022-source-check.json",
+    "sha256": "2a1e41e1b64dabe30d2e000559e49fe2106f54e494855bbd9629d7e346b025df",
+    "bytes": 162259
+  },
+  "score_report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20212022-source-check.json",
+    "sha256": "18d8d81d991363d5881b1dd948be012fab07d46b4280371c39b6a858be023d05",
+    "bytes": 162352,
+    "status": "passed"
+  },
+  "parity": [
+    {
+      "field": "source_context_sha256",
+      "exact": true,
+      "canonical_sha256": "3641025f49935f4212aa2e16360c81a1b1e17114bf00f9ee8cc9d0c99b65dac0"
+    },
+    {
+      "field": "source_response_sha256",
+      "exact": true,
+      "canonical_sha256": "3eac2adeb3b3bb8994c634a54bbc07dc45df8e4c54837e9fbcbae29aa1a6a3ef"
+    },
+    {
+      "field": "source_contexts",
+      "exact": true,
+      "canonical_sha256": "36d33df75c5a5dc4fe93063f59c82c37e6a2649cb6ac84ebb30d4645bd133a31"
+    },
+    {
+      "field": "dispositions",
+      "exact": true,
+      "canonical_sha256": "4aa376d082dc940678c7a9c4fa09307c74b13315fc6994e79aa9592b8952a920"
+    },
+    {
+      "field": "all_strength_dispositions",
+      "exact": true,
+      "canonical_sha256": "da9d804204c761246e4ac5a577eb203bff468e81880e2927338661146b024b7e"
+    },
+    {
+      "field": "eligibility_counts",
+      "exact": true,
+      "canonical_sha256": "00a1725f987359c30be3f3af6a182da7f1d621b267adf4b80bfba97e423b22f9"
+    },
+    {
+      "field": "head_admission",
+      "exact": true,
+      "canonical_sha256": "f57405addefe63a62de4c3ca5e64855b9b91cd743d2b29b65fa681b8806c97be"
+    },
+    {
+      "field": "head_populations",
+      "exact": true,
+      "canonical_sha256": "2d8c39ac1a6ce2244d4233e27f178dc55e9009a14b6da3b1d08df79e187af605"
+    }
+  ],
+  "known54": {
+    "exact_saved_witness_set_and_values_equal": true,
+    "known_expected": 54,
+    "known_checked": 54,
+    "all_three_start_contrasts_unavailable": true,
+    "unavailable_flag_one": true
+  },
+  "population": {
+    "source_contexts": 147510,
+    "head_physical_attempts": {
+      "u": 147510,
+      "q": 112345,
+      "r": 82328,
+      "g": 62505
+    },
+    "all_five_eligibility_counts": {
+      "masked_on_the_fly": 58,
+      "masked_faceoff": 6,
+      "unresolved_binding": 2,
+      "admitted_same_clock_faceoff": 0,
+      "withheld_earlier_anchor": 0
+    },
+    "unresolved_binding_per_head": {
+      "u": 2,
+      "q": 2,
+      "r": 2,
+      "g": 2
+    }
+  },
+  "launch": {
+    "head": "0605f0a07d0789bbdee8f4d9c01b239fb806612c",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "accepted_state_sha256": "7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61",
+    "ordinary_cli_tail_matches_prepared": true,
+    "python_pid": 18460,
+    "start": "2026-10-31T19:06:23Z"
+  },
+  "completion": {
+    "score_manifest_present": false,
+    "exit_present": false,
+    "accepted": false,
+    "year2released": false
+  },
+  "observer_timing": {
+    "fit_observe_body_seconds": 25.58574563753791,
+    "score_observe_body_seconds": 25.665560312918387,
+    "scope": "observe body only, not total wrapper overhead"
+  },
+  "limits": [
+    "eight-field parity covers consumed context/response signatures and populations, not completed score/panel values",
+    "eligibility counters overlap; unresolved2 is reported without thresholds or a timing-failure label",
+    "no year2release before completed score acceptance"
+  ],
+  "access": "saved fit/score reports, accepted state manifest identity, process and launch metadata only; no source game, arrays, strict reader, scoring or solve",
+  "next": "wait for original score completion, then completed artifact acceptance; year2 remains held"
+}

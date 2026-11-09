@@ -1,0 +1,18 @@
+# real saved spatial composition checker: source review
+
+verdict: clear as held preparation. no actual check is released before accepted displayed states, combined results, actual selection and final concrete-pin review.
+
+- checker `var/v1-08-replacement/verify_real_spatial_compose.py`: `76ec83d8a0eda9c3fb319d8c689874a38262e9186a2c320df43f177c872cf2dd`.
+- preparation `var/v1-08-replacement/real-spatial-compose-checker-preparation.json`: `ac7b14447bf15b1c77c81c4123afd4a9008daa067f6802aff0ca2664478ba9a1`.
+
+the base is accepted `3441f784`; replacement state paths include only the fresh `20222023-complete-01` alias. combined-result and selection pins remain null and refuse before target io. there is no production reader/evaluator import or top-level array import. the checker preserves all nonowned family descriptors/member bytes and people/sources/supports, retains old method tuples and requires exactly three spatial additions.
+
+source inspection against `spatial_composition._season_tables`, `_datum`, `_method` and `compose_results` finds matching contracts. all sixteen scalar Estimate dictionaries and common Support are compared with saved projections. a missing projection retains null values, unknown support, explicit missing-source explanation, person/method evidence and `not_estimated` uncertainty; zero values remain measurements. failed/no-exposure reasons retain their meanings. all four actual-context targets use the exact seven-field mapping, including residual/factual public aliases and the existing closure scale. missing-map availability, null cells and reason/support fields match the same scalar contract.
+
+published identities come from admitted skater people; fitted identities come from saved projection rows. intersection, published-only and fitted-only sets reproduce the compositor receipt exactly, including its state/source locators and hashes. added method recipe/design/history/cutoff, ordered inputs/digest and its three evidence tuples match the production mapping. no invented neutral coefficient or silent roster drop is accepted.
+
+one reporting ambiguity was corrected: `fitted_prior_only_zero_time_players` counts the full fitted projection roster, which may include unpublished people. the sole label rename leaves its value and all other bytes unchanged; reversing it reproduces original checker `2d538f78` exactly. no mathematical rule or test criterion changed.
+
+the bounded native check selects one first available offense-attempts effect map per displayed year. it decompresses only `rates.npy`, records whole-member loaded bytes, compares the selected 656 cells and native/display sums, and reports prefix-only header coverage. it does not establish all real maps, display-cell transport or densities. full archive integrity remains canonical evidence; no npz is fully hashed. fully traversed json/jsonl inputs are hashed while consumed; added method evidence may be large and is counted. inherited evidence payloads, raw sources, head/design/adjustment arrays and model evaluation remain outside scope. later real independent/runtime/product acceptance remains required.
+
+all ten local source/contract/protected references reproduce their hashes. compilation, null-pin/source-import inspection and the exact label-only inverse proof pass. the preparation records tiny source-backed metadata controls for available/missing/no-exposure/failed estimates, context/map absence, population reconciliation and consequential refusals; they were not broadened or repeated here. no actual artifact, array, production import/reader/evaluator, model, compose or cli call was performed. no core edit, launch or commit was made by this reviewer.

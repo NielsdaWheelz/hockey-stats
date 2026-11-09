@@ -1,0 +1,28 @@
+{
+  "kind": "spatial-v1-08-real2021-native-observation",
+  "status": "observed_running",
+  "pid": 27088,
+  "sample_at_local": "2026-10-31T03:19:56.457-07:00",
+  "command": [
+    "/usr/bin/sample",
+    "27088",
+    "1",
+    "-file",
+    "/tmp/hockey-v108-real2021-sample.txt"
+  ],
+  "sampling_seconds": 1,
+  "raw_output": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-native-sample.txt",
+    "bytes": 158869,
+    "sha256": "cb9a395cba3e7ef01d366b6a6c183586ff2be8aa3805bcaa154ec1104cc0540b"
+  },
+  "observed": "active python interpreter and numpy operations; no blocked main-thread io wait in this one-second sample",
+  "limit": "native symbols do not identify the python function; this does not establish preparation progress or numerical completion",
+  "physical_footprint_in_sample": "10.0G",
+  "physical_footprint_peak_in_sample": "11.7G",
+  "os_version": "macOS 27.0.1 (26A434)",
+  "run_restarted": false,
+  "source_modified": false,
+  "runtime_forecast": null,
+  "scope": "one read-only native sample; no data pass, dependency installation or code injection"
+}

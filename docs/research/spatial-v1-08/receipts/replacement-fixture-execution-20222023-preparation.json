@@ -1,0 +1,55 @@
+{
+  "kind": "replacement-next-fixture-execution-preparation",
+  "status": "unexecuted preparation; first annual independently passed and root accepted; explicit next-command release remains separate",
+  "recorded_at_utc": "2026-10-31T14:59:03.932243+00:00",
+  "purpose": "fixture",
+  "season": "20222023",
+  "family": "execution",
+  "command_file": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/fixture-20222023-fit-observed-command.sh",
+    "sha256": "0e9cb6ff2c56c00c8934e6d9c9915fd7476b1a14e94e0910c9bd27bc3e9b0864",
+    "bytes": 3471
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/fixture-fit-commands.md",
+    "sha256": "d66e47793b8f46941ffea3ee46d36b4ded71771d7f515c6fb0f695f6435fdb23",
+    "block_sha256": "c123883f4f97a55c418c780ad0e23e2ad0fc1456d1f18a137e19a2798c6fd115"
+  },
+  "change_from_book": "only add an occupied guard and recorded exact sha256 guard for newly completed previous manifest; timed observed argv unchanged",
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022/manifest.json",
+    "sha256": "93478145e952d2378fce912b0c5daffff553ce84d2a74cce3f327e59a3320baf",
+    "usage": "annual; exact new-campaign20212022 only"
+  },
+  "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20222023-source-check.json",
+  "future_score_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20222023-source-check.json",
+  "ordinary_cli_tail": [
+    "fit",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--coaches",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "--season",
+    "20222023",
+    "--previous",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20222023"
+  ],
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "execution_recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "checks": {
+    "shell_syntax_exit": 0,
+    "observed_argv_equals_reviewed_book": true,
+    "previous_manifest_hash_matches_completed_new_annual": true,
+    "known_census_omitted": true,
+    "source_check_and_all_launch_receipts_occupied_guarded": true,
+    "next_output_and_source_check_absent": true
+  },
+  "launched": false,
+  "head_continuations": 0,
+  "policy": "one command only; preserve all prior artifacts, analysis and observer frozen through exit; no old coefficients, means or targets; no execution until root release"
+}

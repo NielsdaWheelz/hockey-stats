@@ -1,0 +1,52 @@
+{
+  "kind": "replacement-real-score-20242025-root-release",
+  "status": "released by root; launch follows receipt",
+  "recorded_at_utc": "2026-11-01T18:23:58.377131+00:00",
+  "accepted_state": {
+    "season": "20242025",
+    "manifest_sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe",
+    "saved_check_sha256": "145a0f2b9ed244971113d25aeccc6a4c1494a764ff0e5d20b92d9a3cc2537e4b",
+    "completion_receipt_sha256": "98b094e89005a220986eb592efcc80fa702029aaae72498415753e48be7a3695",
+    "independent_review": "clear; no finding; exact history/source/centers; saved-order assumption retained"
+  },
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20242025-score-command.sh",
+    "sha256": "add57b9bc4512828a4e0514fb4db92bf6d009b80de0744a6114c518603e26147",
+    "committed_before_launch": "c15db5a",
+    "reviewers": [
+      "source_design",
+      "root"
+    ],
+    "bytes_equal_committed_blob": true,
+    "only_change_from_held": "exact accepted state digest",
+    "distinct_fresh_guards": 15,
+    "syntax_and_argv": "passed",
+    "census": false,
+    "pause": false,
+    "propagation": false
+  },
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "fit_source_sha256": "711c37e1507e5a5a92279f59cc990f6c8b232110ba581e1d2d166eb5d9a74a09",
+  "required_score_parity": {
+    "source_context_sha256": "ab053a16f02a6fb3b533e0f267e0b2bc3519747c1b4112a96c9c845eed0b9fac",
+    "source_response_sha256": "95c17245edf826a6e41fe424c07a0057bc196a95727ccb22008c3eefa04f933b",
+    "all_eight_fields": "must match fit report exactly"
+  },
+  "held_score_checker": {
+    "sha256": "e388d12b79fb5de752f295699735fc6991dd7a0b880b5b907f715e6291ed2b52",
+    "author": "numerical",
+    "reviewers": [
+      "product",
+      "root"
+    ],
+    "invocations": 0,
+    "scope": "all saved accounting/population/maps; descriptive witness/remainder movement; no ranking/census gate"
+  },
+  "scope": "one ordinary score command under native idle-sleep prevention; all analysis source frozen until exit; originals/raw/live preserved; no activation/scientific admission/cleanup",
+  "limits": [
+    "eleven admitted same-clock faceoffs rely on earlier saved sortOrder, not independently proved physical subsecond order; old/new diff cannot validate them",
+    "no census, pause, movement/ranking gate or year-four propagation"
+  ]
+}

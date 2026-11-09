@@ -1,0 +1,45 @@
+{
+  "kind": "replacement-real-score-20222023-root-release",
+  "status": "released by root; launch follows receipt",
+  "recorded_at_utc": "2026-11-01T02:19:46.028791+00:00",
+  "accepted_state": {
+    "season": "20222023",
+    "manifest_sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c",
+    "saved_check_sha256": "6ed6d32580ecb34eed79234a4737382a69a37d4f33ca581ae501cd4014f34e33",
+    "root_receipt": "replacement-real-execution-20222023-completion.json",
+    "independent_review": "clear; no finding; corrected checker subsequently passed"
+  },
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20222023-score-command.sh",
+    "sha256": "baee3f364bbf40a4297bcffa8d733a5f66182101358766d6c2a98162dabcbbfd",
+    "reviewers": [
+      "source_design",
+      "root"
+    ],
+    "only_change_from_held_preparation": "exact accepted state digest",
+    "distinct_fresh_guards": 15,
+    "syntax_and_exact_argv": "passed",
+    "census": false,
+    "pause": false,
+    "final_year_propagation": false
+  },
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "fit_source_sha256": "b20a9f2e4320b5826f97008c27d22b5d79c5c39bcba67c9c6750ec556ad1f983",
+  "required_score_parity": {
+    "source_context_sha256": "fa30119dd470f65de8b5d93442c080bde69be93616eb84aa952f83c60cbc0eff",
+    "source_response_sha256": "fd0fa7ef85d3f17792d626d656b191da8ffb29cd08116372d25ef10798e8da93",
+    "all_eight_fields": "must match fit report exactly"
+  },
+  "held_saved_score_checker": {
+    "sha256": "c2f5ff997f6ee215f5edc388759ffad3695647e16985e8f40e8be648123dd55f",
+    "reviewers": [
+      "product",
+      "root"
+    ],
+    "label_finding": "closed; scalar and event populations named separately",
+    "invocations": 0
+  },
+  "scope": "one ordinary score command; original states/scores/live publication preserved; all analysis source frozen until exit; no activation, scientific admission or cleanup"
+}

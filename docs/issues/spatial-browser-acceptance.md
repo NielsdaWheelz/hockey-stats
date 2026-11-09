@@ -1,0 +1,7 @@
+# real spatial browser acceptance deferred
+
+on 2026-11-08 the user requested pr, merge and task cleanup with real browser/layout/download checks deferred, not passed. [the accepted inactive candidate and detached runtime/api evidence](../research/spatial-v1-08/receipts/real-runtime-api-completion.json) remain valid within their recorded scopes. the temporary server is stopped; all fits and publications are preserved.
+
+the last observed access attempts on 2026-11-06 failed: native chrome/firefox returned `cgWindowNotFound`; browser inventory and the in-app fallback returned `The browser access host is unavailable`. delivery does not recheck or diagnose the browser host. these failures established no application or model defect.
+
+future acceptance still needs the required real scalar journeys at 320px, a wide viewport and native 200% zoom; actual csv/png downloads, exact warning/quartet/support fidelity and measured render/export costs. bind them to app source `08610369`, dist `c4ac0c85` and candidate `12d738d0`, or repeat affected checks after a changed build. the reviewed server02/profile/csv sources remain recoverable in git at `8d32568`; task cleanup retires their working copies under the new user assignment. restore an isolated build and review fresh path/profile/command bindings before resuming; do not rebuild the primary serving assets in place. no fitting, tolerance change, source acquisition or activation is assigned by this deferral.

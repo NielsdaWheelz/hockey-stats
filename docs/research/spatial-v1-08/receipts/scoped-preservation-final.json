@@ -1,0 +1,455 @@
+{
+  "kind": "spatial-v1-08-scoped-preservation-check",
+  "status": "mismatches reported; no protected file changed by this check",
+  "checked_at_utc": "2026-10-31T10:48:00.319747+00:00",
+  "baseline": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/protected-before.json",
+    "sha256": "2c7ba301ab58e873cb51a5f35f24f67813ffc6346dd5e34aa2f4c201269c8d1c",
+    "recorded_utc": "2026-10-31T07:16:25.128258+00:00",
+    "scope": "main draft and built application, upstream manifests; large files use stat and accepted prior digests"
+  },
+  "protected_files": 56,
+  "matched_sha_size_mtime": 18,
+  "hashed_protected_bytes": 3464137,
+  "max_protected_file_bytes": 382625,
+  "mismatches": [
+    {
+      "index": 7,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/server/index.js",
+      "differences": {
+        "bytes": {
+          "expected": 136265,
+          "actual": 147163
+        },
+        "mtime_ns": {
+          "expected": 1793080646190722262,
+          "actual": 1793431027132909194
+        },
+        "sha256": {
+          "expected": "905503f9e514cdc3f83bc323d91ca8032158add4775be48f17bad60327bf0a2e",
+          "actual": "fd24fc29b2ef2501cad088836c8b146abf6cdbefcd6bdeb7d8f4c5e19110e8fc"
+        }
+      }
+    },
+    {
+      "index": 8,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/index.html",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646318045731,
+          "actual": 1793431028082194216
+        },
+        "sha256": {
+          "expected": "1fa4052b9b423949e2ed665da553c6e5c47ee5c56d1ff767ea99aca8d589b168",
+          "actual": "a24a924e0be2b27e4f3b835fb0d0899787079b82dc2323b5a472b807531d8f7c"
+        }
+      }
+    },
+    {
+      "index": 9,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/player-main-rB3HlIf9.js",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/player-main-rB3HlIf9.js'"
+    },
+    {
+      "index": 10,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/descriptive-card-DCeiOC_-.js",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/descriptive-card-DCeiOC_-.js'"
+    },
+    {
+      "index": 11,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/compare-main-B5_ZYssP.js",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/compare-main-B5_ZYssP.js'"
+    },
+    {
+      "index": 12,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/player-client-loader-BOS7JX5P.js",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/player-client-loader-BOS7JX5P.js'"
+    },
+    {
+      "index": 13,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/league-client-loader-mUruS6fT.js",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/league-client-loader-mUruS6fT.js'"
+    },
+    {
+      "index": 14,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/league-main-ksv4wcze.js",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/league-main-ksv4wcze.js'"
+    },
+    {
+      "index": 15,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/jsx-runtime-Bcb-PiJy.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646130910015,
+          "actual": 1793431026843071519
+        }
+      }
+    },
+    {
+      "index": 16,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/manifest-ff3d5bd9.js",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/manifest-ff3d5bd9.js'"
+    },
+    {
+      "index": 17,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/peer-distributions-UKX3VMf0.js",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/peer-distributions-UKX3VMf0.js'"
+    },
+    {
+      "index": 18,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/root-BmeeZQ5g.js",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/root-BmeeZQ5g.js'"
+    },
+    {
+      "index": 19,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/styles-DBcIPaN6.css",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646131049891,
+          "actual": 1793431026843340439
+        }
+      }
+    },
+    {
+      "index": 20,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/client-Byy7xxq7.js",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/client-Byy7xxq7.js'"
+    },
+    {
+      "index": 21,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/explorer-DmK3JTbe.js",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/explorer-DmK3JTbe.js'"
+    },
+    {
+      "index": 22,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/entry.client-CimxyNE3.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646130327010,
+          "actual": 1793431026841257414
+        }
+      }
+    },
+    {
+      "index": 23,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/compare-client-loader-CKZ0sHZk.js",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats/app/dist/client/assets/compare-client-loader-CKZ0sHZk.js'"
+    },
+    {
+      "index": 24,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/physical-schema.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646509090061,
+          "actual": 1793431029192318578
+        }
+      }
+    },
+    {
+      "index": 25,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/analysis-publication.js",
+      "differences": {
+        "bytes": {
+          "expected": 52511,
+          "actual": 58397
+        },
+        "mtime_ns": {
+          "expected": 1793080646510369404,
+          "actual": 1793431029194407228
+        },
+        "sha256": {
+          "expected": "1bc0ca80b4c3a658779121c2bcb9ef6ba44c2355058ddf6b81b8ff157f7fdcd9",
+          "actual": "fd29eb2178ece0b14109821f884647a7b272eff158b0c445d1d08d3e84d9a0d1"
+        }
+      }
+    },
+    {
+      "index": 26,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/deployment-publication.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646509596148,
+          "actual": 1793431029189798840
+        }
+      }
+    },
+    {
+      "index": 27,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/spatial-publication.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646509538314,
+          "actual": 1793431029194625272
+        }
+      }
+    },
+    {
+      "index": 28,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/main.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646509200978,
+          "actual": 1793431029187111641
+        }
+      }
+    },
+    {
+      "index": 29,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/sql-rows.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646509019643,
+          "actual": 1793431029187352560
+        }
+      }
+    },
+    {
+      "index": 30,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/publication.js",
+      "differences": {
+        "bytes": {
+          "expected": 15420,
+          "actual": 15445
+        },
+        "mtime_ns": {
+          "expected": 1793080646509536856,
+          "actual": 1793431029195693785
+        },
+        "sha256": {
+          "expected": "4fae27a8165454a5e2c841d8095a5775d7107bed38e0314acee1dfd02ea74fa8",
+          "actual": "957d0706671eb0e3b42797084b94887230b61c7932313e46ae908d66819752e6"
+        }
+      }
+    },
+    {
+      "index": 31,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/selected-publication.js",
+      "differences": {
+        "bytes": {
+          "expected": 17567,
+          "actual": 17838
+        },
+        "mtime_ns": {
+          "expected": 1793080646509717816,
+          "actual": 1793431029189713797
+        },
+        "sha256": {
+          "expected": "ce820243289da2fab58a970944eaae85f97c69b62f494b6fcd6ae37980669e83",
+          "actual": "c2a7b7f9951823062c16b0d893ad0803aecae3b0bc63d1490977e29acc8b6de3"
+        }
+      }
+    },
+    {
+      "index": 32,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/observed-publication.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646509618148,
+          "actual": 1793431029186075837
+        }
+      }
+    },
+    {
+      "index": 33,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/shared/observed.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646509550481,
+          "actual": 1793431029186016086
+        }
+      }
+    },
+    {
+      "index": 34,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/shared/player-analysis-selections.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646509541606,
+          "actual": 1793431029189123290
+        }
+      }
+    },
+    {
+      "index": 35,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/shared/player-analysis.js",
+      "differences": {
+        "bytes": {
+          "expected": 86747,
+          "actual": 99386
+        },
+        "mtime_ns": {
+          "expected": 1793080646511173035,
+          "actual": 1793431029201127683
+        },
+        "sha256": {
+          "expected": "6a9aa4eb0139c03822ac3755a7d2b2d9d57c4a15bb459a86035e0f411f4576b8",
+          "actual": "02f35c055e7b51c08e7661b37a7163ab9b4b295af0b04a887c97a9a84ffb2e0d"
+        }
+      }
+    },
+    {
+      "index": 36,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/shared/publication.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646509177520,
+          "actual": 1793431029184944740
+        },
+        "sha256": {
+          "expected": "f9d7ef308452baeb9c6c61d6eb494ba3461c1efff3642f6e4ce54db195858b93",
+          "actual": "8741b38b41627e62b66fad77db6ff9e74edd3416b1e69ff7009c62d198abbfcd"
+        }
+      }
+    },
+    {
+      "index": 37,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/publication-cli.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646508899143,
+          "actual": 1793431029192270077
+        },
+        "sha256": {
+          "expected": "65a88c710c133c579774339b62c27a4c7e242862cea026715b1fc35f7597a5bd",
+          "actual": "e655d6633d081f8b83133b779c2850434b3c1e9a65dcaaae29662d7f3f18d7b2"
+        }
+      }
+    },
+    {
+      "index": 38,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/skating-cli.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646509265604,
+          "actual": 1793431029189692213
+        }
+      }
+    },
+    {
+      "index": 39,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/capture-season-cli.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646508753808,
+          "actual": 1793431029188148153
+        }
+      }
+    },
+    {
+      "index": 40,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/capture-report.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646508771058,
+          "actual": 1793431029186110462
+        }
+      }
+    },
+    {
+      "index": 41,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/cli.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646508978185,
+          "actual": 1793431029184285440
+        }
+      }
+    },
+    {
+      "index": 42,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/capture.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646508664058,
+          "actual": 1793431029185117492
+        }
+      }
+    },
+    {
+      "index": 43,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/capture-season.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646508598474,
+          "actual": 1793431029185480121
+        }
+      }
+    },
+    {
+      "index": 44,
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/operator/skating-capture.js",
+      "differences": {
+        "mtime_ns": {
+          "expected": 1793080646508837934,
+          "actual": 1793431029190912978
+        }
+      }
+    }
+  ],
+  "policy": "only the listed 56 small manifests, primary build files and draft files read for sha256, size and mtime; no large fit/source/game/array scope added",
+  "fixture_candidate": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite",
+    "actual_bytes": 1369198592,
+    "accepted_bytes": 1369198592,
+    "size_matches": true,
+    "current_mtime_ns": 1793438687080079899,
+    "accepted_sha256": "6c77ed6081bfeb9e06d9d790fce48421c5672d27b5e50b6974f73085ba7ae114",
+    "hash_policy": "accepted publisher digest reused; no full database read or rehash; no earlier mtime pin is claimed"
+  },
+  "fixture_profile": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/detached.sb",
+    "actual_sha256": "42c21d266fd7ab0d7b83893fa4d84c17b765eddd1005fabcb919c946352f84d6",
+    "accepted_launch_sha256": "42c21d266fd7ab0d7b83893fa4d84c17b765eddd1005fabcb919c946352f84d6",
+    "matches": true
+  },
+  "fixture_build": {
+    "actual_sha256": "2b84760dacbd8d6263d19963ea21259f403ff26cb17f69ce0702b172b78f7063",
+    "accepted_sha256": "2b84760dacbd8d6263d19963ea21259f403ff26cb17f69ce0702b172b78f7063",
+    "files": 38,
+    "matches": true
+  },
+  "server": {
+    "pid": 26820,
+    "process": [
+      "26820 26819    01:18:44   0.0 121728 /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite --port 3398"
+    ],
+    "listener_observation": "COMMAND   PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    26820 nnandal   16u  IPv4 0x296dbf6dd9dc7a0a      0t0  TCP 127.0.0.1:3398 (LISTEN)",
+    "listener_exit_code": 0,
+    "server_exit_file_present": false,
+    "scope": "process/socket observation only; no new api/gui test"
+  },
+  "jobs": {
+    "refused_fit_pid27088_present": false,
+    "active_fit_publish_summarize_commands": [],
+    "publication_mutation_sidecars": []
+  },
+  "wall_seconds": 0.17155562504194677,
+  "work_status": "incomplete: first real annual refused before fitting; upstream scope authorization and desktop access remain separate requirements",
+  "actions_not_performed": [
+    "protected overwrite",
+    "source or array expansion",
+    "fit",
+    "rescore",
+    "publication",
+    "server restart or stop",
+    "api/gui tests",
+    "activation"
+  ],
+  "classification": {
+    "scoped_files": 56,
+    "exact_sha_size_mtime": 18,
+    "exact_bytes_including_mtime_only": 36,
+    "primary_draft_files_exact": 11,
+    "upstream_pin_files_exact": 7,
+    "primary_build_old_paths_missing": 12,
+    "primary_build_existing_content_changed": 8,
+    "primary_build_mtime_only": 18,
+    "all_38_mismatches_under": "/Users/nnandal/Documents/code/hockey-stats/app/dist",
+    "per_file_evidence": "scoped-preservation-final.json contains every original mismatch and expected/current identity"
+  },
+  "primary_build_provenance_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/primary-build-preservation-provenance.json",
+    "sha256": "859d59dab37753c2a28dde5f88809aba5e1d4226d75efc702a954468d0db6c77"
+  },
+  "preservation_assessment": "the eleven primary draft files and seven upstream pins are exact; primary build replacements are documented separately as the concurrent accepted v1-06 activation; no file was restored"
+}

@@ -1,0 +1,164 @@
+{
+  "kind": "execution-spatial-replacement-score-observer-supplement",
+  "status": "unexecuted score recipes refreshed; no campaign command released or run",
+  "recorded_at_utc": "2026-10-31T14:43:48.743117+00:00",
+  "supersedes": "only the ten direct score command blocks in the original unexecuted preparation; original receipt remains historical",
+  "original_preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-product-preparation.json",
+    "bytes": 37106,
+    "sha256": "53e0482257616c62360234764cc226b7ae76999dc241cfa585af9fccb394b2e7"
+  },
+  "production_source_commit": "dfc97edd9aa7cab0092443187fbd6392d617ca88",
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "execution_recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-2",
+    "sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "spatial_recipe": {
+    "name": "experimental-v1",
+    "version": "spatial-v1-08-4",
+    "sha256": "04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b"
+  },
+  "source_proof": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/execution-start-repair-source.json",
+    "bytes": 9119,
+    "sha256": "9dc431af2479fb16b42e3515120fffa30dbc943b81c3fd4dba56614b56229a15"
+  },
+  "observer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "bytes": 11251,
+    "sha256": "7140ba0dbd5ea25dfe2cb96fa286050b6668aae3407df832c23fc5f664ef1fd5"
+  },
+  "known_real2021_census": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-non-prior-starts.json",
+    "bytes": 61595,
+    "sha256": "6fd06ffbd3143379849fd82b4598c85d4f178b14c3c9eed4b28e003f30207a96"
+  },
+  "known_real2021_keys": 54,
+  "command_change": "replace only -m hockey_stats.analysis_cli with the exact observer prefix --out-check CHECK [--known-census CENSUS] --; preserve every ordinary score argument and outer time/log/exit handling",
+  "score_checks": [
+    {
+      "purpose": "fixture",
+      "season": "20212022",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20212022-source-check.json",
+      "known_census": null,
+      "ordinary_cli_argv_unchanged": true
+    },
+    {
+      "purpose": "fixture",
+      "season": "20222023",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20222023-source-check.json",
+      "known_census": null,
+      "ordinary_cli_argv_unchanged": true
+    },
+    {
+      "purpose": "fixture",
+      "season": "20232024",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20232024-source-check.json",
+      "known_census": null,
+      "ordinary_cli_argv_unchanged": true
+    },
+    {
+      "purpose": "fixture",
+      "season": "20242025",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20242025-source-check.json",
+      "known_census": null,
+      "ordinary_cli_argv_unchanged": true
+    },
+    {
+      "purpose": "fixture",
+      "season": "20252026",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20252026-source-check.json",
+      "known_census": null,
+      "ordinary_cli_argv_unchanged": true
+    },
+    {
+      "purpose": "real",
+      "season": "20212022",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20212022-source-check.json",
+      "known_census": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-non-prior-starts.json",
+      "ordinary_cli_argv_unchanged": true
+    },
+    {
+      "purpose": "real",
+      "season": "20222023",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20222023-source-check.json",
+      "known_census": null,
+      "ordinary_cli_argv_unchanged": true
+    },
+    {
+      "purpose": "real",
+      "season": "20232024",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20232024-source-check.json",
+      "known_census": null,
+      "ordinary_cli_argv_unchanged": true
+    },
+    {
+      "purpose": "real",
+      "season": "20242025",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20242025-source-check.json",
+      "known_census": null,
+      "ordinary_cli_argv_unchanged": true
+    },
+    {
+      "purpose": "real",
+      "season": "20252026",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-source-check.json",
+      "known_census": null,
+      "ordinary_cli_argv_unchanged": true
+    }
+  ],
+  "command_books": [
+    {
+      "before": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md",
+        "bytes": 11862,
+        "sha256": "e2802674293590f005edbb3a0e0436b09714af80b1415e65db43f9f365106aab"
+      },
+      "after": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md",
+        "bytes": 13768,
+        "sha256": "bfd130a1581f79d49fc9e86be12ab467e1a1feb6d5bdbc6f345d4b68706bfe8d"
+      },
+      "non_score_blocks_unchanged": true,
+      "shell_blocks_syntax_checked": 8
+    },
+    {
+      "before": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-commands.md",
+        "bytes": 11607,
+        "sha256": "a8015b1d2ff7393bac92a935e1bbf06078a4400ebb35aa97ae14debbfd404cf6"
+      },
+      "after": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-commands.md",
+        "bytes": 13597,
+        "sha256": "2d7a78c6e7669d0d841998f0e91ec0ca9ddee255245770b347f687514a58cfee"
+      },
+      "non_score_blocks_unchanged": true,
+      "shell_blocks_syntax_checked": 8
+    }
+  ],
+  "parity_fields": [
+    "source_context_sha256",
+    "source_response_sha256",
+    "source_contexts",
+    "dispositions",
+    "all_strength_dispositions",
+    "eligibility_counts",
+    "head_admission"
+  ],
+  "acceptance": "source_construction passed before scoring, exact current recipe, all54 known real2021 keys seen and withheld before first head construction, same-season fit/score parity fields exact; final score still owns exactly four saved-probe propagations",
+  "pending_artifact_hashes": {
+    "all_annual_states": null,
+    "all_scores": null,
+    "all_selections": null,
+    "all_exchanges": null,
+    "all_databases": null
+  },
+  "campaign_exists": false,
+  "selection_written": false,
+  "score_command_run": false,
+  "production_files_changed": false,
+  "scope": "local docs/var edits plus observer/census/proof metadata reads; no source game, array, state, score or database read, no app build/restart/gui action"
+}

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/research/spatial_v1_08_checks/failure_state.py", line 27, in <module>
+    state=fit_spatial(later,previous,root/'failed')
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_rates.py", line 718, in fit_spatial
+    baseline=write_spatial_state(state,projections)
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_state.py", line 385, in write_spatial_state
+    validate_head(metadata,values,design)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_state.py", line 321, in validate_head
+    require(not arrays and metadata['centers'] is None and metadata['reference_predictor'] is None,'unavailable head has usable coefficients')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/artifacts.py", line 72, in require
+    raise InputContractError(message)
+hockey_stats.captures.InputContractError: unavailable head has usable coefficients

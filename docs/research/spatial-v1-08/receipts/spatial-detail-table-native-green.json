@@ -1,0 +1,181 @@
+{
+  "kind": "spatial-v1-08-spatial-detail-table-native-green",
+  "status": "passed native selected quartet reflow/keyboard scrolling and separately bound fresh Hamilton CSV/PNG; broader fixture browser acceptance remains open",
+  "recorded_at_utc": "2026-10-31T21:48:26.282850+00:00",
+  "observer": "root native chrome through cua; product records root observations and performed no browser action",
+  "evidence": "root accessibility states and actual native cua image outputs in the tools transcript; no separately stored screenshot file path supplied",
+  "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "database_sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+  "server_pid": 37029,
+  "base": "http://127.0.0.1:3398",
+  "app_tree": "e01418f448cbfaae517685d7927a90cd37343660",
+  "source_sha256": "0861036972ccacc7bb8cb6393b0e3cb697293d44c873f36bee0a0e5bd4223511",
+  "build_sha256": "c4ac0c8541ed059c6a4e983498841bbb4265dce8c4072ec2f095adb78a250cb1",
+  "code_commit": "ef45fdb",
+  "view": {
+    "route": "/compare",
+    "season": "20242025",
+    "players": [
+      "8476462",
+      "8475726"
+    ],
+    "selected_player": "8476462",
+    "metric": "spatial.5v5.defense_xg_per60",
+    "reference_group": "all skaters",
+    "peer_min": 0,
+    "support_expanded": true
+  },
+  "served_stylesheet": {
+    "native_devtools_styles_observed": "styles-Bv93DqZX.css",
+    "sha256": "d2afac8a1589888abe5f28011e72735ee1061aab8911936ecfefe683a13321bc",
+    "identity_scope": "current dist asset confirmed in native styles view; exact local/HTTP binding retained in server02 readiness"
+  },
+  "checks": [
+    {
+      "layout": "responsive320css pixels",
+      "action": "root rebound unlocked native chrome, reloaded, expanded selected support",
+      "values_in_single_lines": {
+        "difference": "0.164411",
+        "complete": "1.96263",
+        "neutral": "1.79822",
+        "relative_percent": "9.14302"
+      },
+      "labels_readable": true,
+      "keyboard_right": {
+        "focused_region_AX_id": 735,
+        "right_arrow_presses": 12,
+        "all_four_unavailable_reasons": "none",
+        "all_four_uncertainty_dispositions": "not estimated",
+        "visible_focus_outline": true,
+        "horizontal_scroll_observed": true
+      },
+      "keyboard_left": {
+        "left_arrow_presses": 5,
+        "units_single_line": [
+          "xg per 60 min",
+          "%"
+        ],
+        "digit_splitting": false
+      },
+      "passed": true
+    },
+    {
+      "layout": "wide desktop after closing devtools",
+      "logical_desktop_width": 1200,
+      "comparison_columns": 2,
+      "quartet_intact": true,
+      "horizontal_scroll_confined_to_existing_table_region": true,
+      "passed": true
+    },
+    {
+      "layout": "native chrome200% zoom",
+      "zoom_action": "five CmdEqual presses; chrome zoom indicator confirmed200%",
+      "comparison_columns": 1,
+      "quartet_numbers_and_units_intact": true,
+      "right_arrow_presses": 8,
+      "all_four_uncertainty_dispositions": "not estimated",
+      "visible_focus_outline": true,
+      "horizontal_scroll_observed": true,
+      "restored_zoom": "Cmd0",
+      "passed": true
+    }
+  ],
+  "closure": "the responsible five-column table now preserves readable numeric/unit tokens and exposes reason/uncertainty columns through its existing focusable keyboard-scroll region at narrow width and native zoom; wide layout also passes",
+  "resolved_issue": "docs/issues/spatial-detail-table-reflow.md",
+  "historical_red": {
+    "receipt": "spatial-detail-table-native-red.json",
+    "sha256": "23b6d642c3ce76b88b60c9b268a6a4cf5b488930e79923f16f4b1edc77c8c8bd",
+    "old_build_sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+    "literal_red_number_lines": [
+      "0.16",
+      "441",
+      "1"
+    ],
+    "native200_red_number_lines": [
+      ".1644",
+      "11"
+    ],
+    "preserved_unchanged": true
+  },
+  "limits": [
+    "earlier sourcee18/build771 journeys and CSV checks remain historical",
+    "fresh final-build Hamilton history CSV and PNG pass as separately bound below; other exports and browser journeys continue under root ownership",
+    "this does not mark whole fixture browser or real product acceptance complete",
+    "no app/source/analysis/observer/build/server mutation or browser control by product"
+  ],
+  "operator_rollback_carry": "already verified separately through byte-identical operator and strict reader; this layout result adds no rollback claim",
+  "fresh_final_build_csv": {
+    "path": "/Users/nnandal/Downloads/hockey-stats-8476462-spatial.5v5.defense_xg_per60-20232024-20252026-history (1).csv",
+    "bytes": 18555,
+    "mtime_ns": 1793483284472813910,
+    "sha256": "0490520426a5fc4319c92fcc93d3299f535b1f2fcd80c442c1351f7699413c45",
+    "provenance": "root clicked the actual Hamilton history CSV control on source086/distc4ac and supplied the completed native Chrome download path",
+    "settings": {
+      "player_id": "8476462",
+      "metric": "spatial.5v5.defense_xg_per60",
+      "years": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "reference_group": "reported defense",
+      "peer_min": 0
+    },
+    "byte_identical_to": {
+      "path": "/Users/nnandal/Downloads/hockey-stats-8476462-spatial.5v5.defense_xg_per60-20232024-20252026-history.csv",
+      "sha256": "0490520426a5fc4319c92fcc93d3299f535b1f2fcd80c442c1351f7699413c45",
+      "verification_receipt": "replacement-fixture-actual-csv-downloads.json"
+    },
+    "acceptance": "fresh actual download is byte-identical to the prior independently candidate-checked three rows, exact estimates/quartets, exported support, uncertainty dispositions and uri/digest pairs; same e742 candidate, no repeated DB query or recreated export",
+    "read_only_comparison_by_product": true
+  },
+  "fresh_final_build_png": {
+    "path": "/Users/nnandal/Downloads/hockey-stats-8476462-spatial.5v5.defense_xg_per60-20232024-20252026-history-percentile (1).png",
+    "bytes": 1354330,
+    "mtime_ns": 1793483289638379727,
+    "sha256": "ccb3358b3c530df66c3c408bf91093ca92bf412775054034436eb954d357bf9c",
+    "width_px": 1200,
+    "height_px": 3895,
+    "provenance": "root clicked the first Hamilton history PNG control on current source086/distc4ac; root viewed the actual downloaded original pixels through native tools",
+    "pixel_observer": "root; product hashed the supplied actual file and read only its PNG header",
+    "root_pixel_result": "passed selected scalar/history PNG requirements",
+    "observed_content": {
+      "title": "Dougie Hamilton; experimental5v5 defense xg difference",
+      "scale": "annual percentile",
+      "three_year_slots": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "2023_2024_line": "connected",
+      "2025_graph": "unavailable; no line bridging the gap",
+      "selected_2024": "0.164411",
+      "2025_raw_value_below_graph": "0.166543 retained with no exposure/prior-only0seconds",
+      "annual_defense_peer_n": [
+        68,
+        77,
+        48
+      ],
+      "peer_min": 0,
+      "support_seconds": [
+        972,
+        1058,
+        0
+      ],
+      "units_sign_reference": "correct xg/60, defense positive more against and virtual reference",
+      "caveats": [
+        "historical borrowing",
+        "setter and blocked origins",
+        "aggregate support does not establish every head term",
+        "prior-only magnitude/annual-centering explanation"
+      ],
+      "uncertainty": "not_estimated",
+      "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae"
+    },
+    "not_required": [
+      "full evidence receipt list",
+      "spatial quartet table"
+    ],
+    "content_acceptance_scope": "this actual selected scalar/history PNG only; no other exports, profiles or full browser acceptance inferred"
+  }
+}

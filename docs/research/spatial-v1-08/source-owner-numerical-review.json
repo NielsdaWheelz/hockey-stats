@@ -1,0 +1,82 @@
+{
+  "kind": "spatial-v1-08-independent-source-owner-numerical-review",
+  "status": "passed_bounded_review",
+  "code_commit": "ab684f49d7c796df73a124ecf7814bf1f52d3351",
+  "code": {
+    "spatial_design": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_design.py",
+      "sha256": "4d7b6fb04beabd342601b4a397adb313e72e400b01a4e98bcc47bb8ffc586241"
+    },
+    "spatial_rates": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_rates.py",
+      "sha256": "a2a952ea48b63ea4f146ea902313758049a1536aa954f62a70c1a26e86d04ad8"
+    },
+    "spatial_state": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_state.py",
+      "sha256": "c252bd97b8dc088bcd9ffc1f8ae266cc5cc2dbae2104f6e8a693eb4e63170bcf"
+    },
+    "coalitions": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/coalitions.py",
+      "sha256": "ddd7a0c47721ad9b20ed914b9dc6fa23d78411910fc8bc1c6f0f04e98e0623bf"
+    }
+  },
+  "checks": [
+    {
+      "command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python analysis/research/spatial_v1_08_checks/numerical.py",
+      "status": "passed"
+    },
+    {
+      "command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python analysis/research/spatial_v1_08_checks/state_integration.py",
+      "status": "passed"
+    },
+    {
+      "command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-independent-numerical.py",
+      "status": "passed"
+    },
+    {
+      "command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-adjustment-reference.py",
+      "status": "passed"
+    }
+  ],
+  "checked_contracts": [
+    "independent three-head objectives and finite-difference gradients",
+    "all 24 group orderings agree with exact sixteen-subset allocation",
+    "positive zero-event exposure informs volume while shape and quality remain unavailable",
+    "coach score gate with zero elapsed applicability and positive event incidence remains informed",
+    "zero-information returning player profiles to conditional age-adjusted prior mean and contributes no artificial age gradient",
+    "two-year last-supported carry uses precision 50 and last supported raw coordinates; reporting centers do not enter carry",
+    "zero-time roster actor retains available prior-only standardized projection and no-exposure actual explanation",
+    "scalar and forty-mode reporting centers transfer using actual coach-gate applicability",
+    "strict annual read works with nonexistent upstream and predecessor paths"
+  ],
+  "findings": [
+    {
+      "problem": "strict reader consumed head coefficient array omitted from manifest bindings",
+      "red": "removing only heads/volume.npz from files was accepted",
+      "repair_commit": "409bbd3",
+      "green": "independent mutation now rejected"
+    },
+    {
+      "problem": "closure alone admitted a false empty-coalition reference",
+      "red": "baseline native cell and scalar plus one, self minus one, preserved closure but was accepted",
+      "repair_commit": "ab684f4",
+      "green": "independent rehashed mutation now rejected by frozen reference identity"
+    }
+  ],
+  "temporary_scripts": {
+    "v1-08-independent-numerical.py": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-independent-numerical.py",
+      "sha256": "53269166f838ed38160e6ed497b4572e44526943ebaba49b3a29ecb85b497800"
+    },
+    "v1-08-adjustment-reference.py": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-adjustment-reference.py",
+      "sha256": "dc336b310ceb6c51389e1f53ec43bc5a048d8ae43b72d625c99fdcf1305754da"
+    }
+  },
+  "source_consumer_review": "explicit sparse actor/dense context linear and adjoint operations preserve separate event and elapsed designs; source targets and annual raw carry remain fixed during probes",
+  "limits": [
+    "bounded synthetic and captured-source verification; no real five-year state or publication acceptance",
+    "no scientific admission, uncertainty calibration or causal isolation claim",
+    "actual-context strict reading checks fixed baseline and closure; the bounded mathematical checks independently verify allocation algebra"
+  ]
+}

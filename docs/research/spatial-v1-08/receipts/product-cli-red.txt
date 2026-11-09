@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/cli-check.py", line 9, in <module>
+    assert expected in err.getvalue(),err.getvalue()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: usage: hockey-stats-analysis fit [-h] --family {execution}
+                                 --prepared DIRECTORY --coaches FILE
+                                 --season SEASON [--previous DIRECTORY]
+                                 --out DIRECTORY
+hockey-stats-analysis fit: error: argument --family: invalid choice: 'spatial' (choose from 'execution')
+

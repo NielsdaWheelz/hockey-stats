@@ -1,0 +1,633 @@
+{
+  "kind": "replacement-real-score-20232024-completion",
+  "status": "saved checks and independent binding review pass; final root acceptance pending",
+  "recorded_at_utc": "2026-11-01T15:27:07.027111+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024/manifest.json",
+    "bytes": 383426,
+    "sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238"
+  },
+  "original_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024/manifest.json",
+    "bytes": 382623,
+    "sha256": "d1ca74ab35b522ed0b415004c540a332c1d7c9c75d7d2a8a8db81501b4f0e3d0"
+  },
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20232024/manifest.json",
+    "sha256": "dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa",
+    "season": "20232024",
+    "purpose": "real",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual",
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/manifest.json",
+      "sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c"
+    }
+  },
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-2",
+    "sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "launch": {
+    "head": "e6c9d4af24dbc86921b4fdcbca7c3ede2e659066",
+    "producer_head": "9f921c6e50f006364459b601c612da07a96a33d4",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "start": "2026-11-01T10:30:03Z",
+    "finish": "2026-11-01T15:21:49Z",
+    "exit": 0,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20232024.log",
+      "bytes": 924,
+      "sha256": "3c1b89733785aeeffe24f85ce17effc5e4436f8c6908adc63fc080039c71cbd9"
+    }
+  },
+  "executed_command": {
+    "sha256": "66aa374e0b9a81163148c47b2e725ed59655b17a149a4cc1f24a87eead02d988",
+    "committed_before_launch": "8b96825",
+    "bytes_equal_committed_blob": true
+  },
+  "saved_acceptance": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20232024-saved-acceptance.json",
+    "sha256": "4c530412a5701a9ada64a0052a9e348aafd99273a51d8fbb2e51c8a232cfbaeb",
+    "bytes": 60497,
+    "checker_sha256": "569be218216e2b3d481a640a4b448b1248763dc6d42af19ce53d75473d6deecc",
+    "invocations": 1,
+    "whole_checker_seconds": 89.23
+  },
+  "strict_read": {
+    "invocations_here": 1,
+    "status": "passed",
+    "wall_seconds": 57.29862791695632,
+    "all32panels": true,
+    "upstream_source_reads": 0
+  },
+  "source_parity": {
+    "fields": {
+      "source_context_sha256": true,
+      "source_response_sha256": true,
+      "source_contexts": true,
+      "dispositions": true,
+      "all_strength_dispositions": true,
+      "eligibility_counts": true,
+      "head_admission": true,
+      "head_populations": true
+    },
+    "fit_report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20232024-source-check.json",
+      "bytes": 97377,
+      "sha256": "f1d869c5b156ce4bba3f9f4ba549e1dce4a10d0828ccfb52c9f1579d43888aac"
+    },
+    "score_report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20232024-source-check.json",
+      "bytes": 97341,
+      "sha256": "428f3dd59299b3b15eb3c5d5ee0a60e083160b829fbb8feeb0521bdae555be42"
+    }
+  },
+  "population": {
+    "recognized": 160123,
+    "complete": 158196,
+    "excluded": 1927,
+    "heads": {
+      "u": {
+        "included": 158196,
+        "class:1": 113778,
+        "class:0": 44418,
+        "excluded": 1927,
+        "physical_attempts": 158196,
+        "key_sha256": "aef04dc95cff0f937ea639854747af7f3a7bb4398ab3b46f30c4e4f3ca944c0e",
+        "eligibility_counts": {
+          "masked_on_the_fly": 7,
+          "masked_faceoff": 19,
+          "unresolved_binding": 14,
+          "admitted_same_clock_faceoff": 0,
+          "withheld_earlier_anchor": 0
+        }
+      },
+      "q": {
+        "included": 113778,
+        "class:1": 78809,
+        "class:0": 34969,
+        "excluded": 46345,
+        "physical_attempts": 113778,
+        "key_sha256": "ae957f3e43c25eb925ad1f9cfd85dcd4a33bdd12cff5196b6625c5ebab0597da",
+        "eligibility_counts": {
+          "masked_on_the_fly": 4,
+          "masked_faceoff": 15,
+          "unresolved_binding": 12,
+          "admitted_same_clock_faceoff": 0,
+          "withheld_earlier_anchor": 0
+        }
+      },
+      "r": {
+        "included": 78809,
+        "class:1": 63841,
+        "excluded": 81314,
+        "class:0": 14968,
+        "physical_attempts": 78809,
+        "key_sha256": "49169841f81d8598987d69e4f5885ee5d611ec861085ce359fb47978cd7abf55",
+        "eligibility_counts": {
+          "masked_on_the_fly": 2,
+          "masked_faceoff": 7,
+          "unresolved_binding": 5,
+          "admitted_same_clock_faceoff": 0,
+          "withheld_earlier_anchor": 0
+        }
+      },
+      "g": {
+        "included": 63841,
+        "class:0": 56234,
+        "excluded": 96282,
+        "class:1": 7607,
+        "physical_attempts": 63841,
+        "key_sha256": "0d98a3fae0813867b29b83ceb75a0779a547477d50f9685c8353b89c8c3dd718",
+        "eligibility_counts": {
+          "masked_on_the_fly": 2,
+          "masked_faceoff": 4,
+          "unresolved_binding": 4,
+          "admitted_same_clock_faceoff": 0,
+          "withheld_earlier_anchor": 0
+        }
+      }
+    },
+    "labels_statuses_reasons_identities_exact_original": true,
+    "coverage_exact_original": true,
+    "source_contexts": 158196,
+    "physical5v5_events": 125238,
+    "projections": 6461,
+    "maps": 12922,
+    "setter_branches": 1424715,
+    "share_rows": 1899303
+  },
+  "accounting": {
+    "share_closure_max": 2.498001805406602e-16,
+    "independent24order_group_error": 1.218643241873707e-16,
+    "native_map_scalar_closure": "all available old/new saved maps exact",
+    "neutral_panel_sums": "all seven published panels reconcile event sums to every projection; strict reader covers all32 saved logits"
+  },
+  "movement_definition": {
+    "absolute": "abs(new-old); quantiles of each event maximum across the named probability fields",
+    "relative": "abs(new-old)/abs(old); 0 to 0 is 0 by convention; zero baseline to nonzero cells recorded separately and have no finite relative ceiling",
+    "fields": "all saved prefix/conditional probabilities, goal masses for 16 coalitions, and terminal partitions reconstructed from prefixes; u is avoid-block, only uqrg is goal",
+    "partition": "saved unavailable first witnesses and every other complete row; no census or inference of missingness from probability movement"
+  },
+  "probability_movement": {
+    "all_complete": {
+      "rows": 158196,
+      "absolute": {
+        "key": "2023020955:320",
+        "physical_state": [
+          6,
+          5,
+          0,
+          1
+        ],
+        "field": "neutral_goalie.prefix.uq",
+        "old": 0.6767758637318637,
+        "new": 0.6034947566620971,
+        "signed_change": -0.07328110706976665,
+        "absolute_change": 0.07328110706976665
+      },
+      "relative": {
+        "key": "2023020592:302",
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "field": "coalition.13",
+        "old": 0.005013866087620632,
+        "new": 0.006805454283225712,
+        "signed_change": 0.00179158819560508,
+        "relative_change": 0.3573266944700735
+      },
+      "event_maximum_absolute_quantiles": {
+        "p50": 7.57262638849121e-05,
+        "p90": 0.0001865741989802716,
+        "p99": 0.0009250937078262129,
+        "max": 0.07328110706976665
+      },
+      "zero_baseline_to_nonzero": 0,
+      "goal_coalition_absolute": {
+        "key": "2023020995:64",
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "field": "coalition.13",
+        "old": 0.24907765765180745,
+        "new": 0.21867941088139842,
+        "signed_change": -0.030398246770409032,
+        "absolute_change": 0.030398246770409032
+      }
+    },
+    "located_unavailable_witnesses": {
+      "rows": 31,
+      "absolute": {
+        "key": "2023020955:320",
+        "physical_state": [
+          6,
+          5,
+          0,
+          1
+        ],
+        "field": "neutral_goalie.prefix.uq",
+        "old": 0.6767758637318637,
+        "new": 0.6034947566620971,
+        "signed_change": -0.07328110706976665,
+        "absolute_change": 0.07328110706976665
+      },
+      "relative": {
+        "key": "2023020955:318",
+        "physical_state": [
+          6,
+          5,
+          0,
+          1
+        ],
+        "field": "coalition.8",
+        "old": 0.018620155685119887,
+        "new": 0.024652550539689434,
+        "signed_change": 0.006032394854569547,
+        "relative_change": 0.32397123614762663
+      },
+      "event_maximum_absolute_quantiles": {
+        "p50": 0.0006041107215001285,
+        "p90": 0.027559565238306716,
+        "p99": 0.07093813666728253,
+        "max": 0.07328110706976665
+      },
+      "zero_baseline_to_nonzero": 0,
+      "goal_coalition_absolute": {
+        "key": "2023020955:320",
+        "physical_state": [
+          6,
+          5,
+          0,
+          1
+        ],
+        "field": "coalition.2",
+        "old": 0.14534447140558923,
+        "new": 0.12257322203561061,
+        "signed_change": -0.022771249369978624,
+        "absolute_change": 0.022771249369978624
+      }
+    },
+    "remainder_excluding_named_witnesses": {
+      "rows": 158165,
+      "absolute": {
+        "key": "2023020781:259",
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "field": "actor.prefix.uq",
+        "old": 0.668658871982889,
+        "new": 0.6067871988912955,
+        "signed_change": -0.06187167309159347,
+        "absolute_change": 0.06187167309159347
+      },
+      "relative": {
+        "key": "2023020592:302",
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "field": "coalition.13",
+        "old": 0.005013866087620632,
+        "new": 0.006805454283225712,
+        "signed_change": 0.00179158819560508,
+        "relative_change": 0.3573266944700735
+      },
+      "event_maximum_absolute_quantiles": {
+        "p50": 7.571577327464274e-05,
+        "p90": 0.00018640899041046932,
+        "p99": 0.0009227435328276688,
+        "max": 0.06187167309159347
+      },
+      "zero_baseline_to_nonzero": 0,
+      "goal_coalition_absolute": {
+        "key": "2023020995:64",
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "field": "coalition.13",
+        "old": 0.24907765765180745,
+        "new": 0.21867941088139842,
+        "signed_change": -0.030398246770409032,
+        "absolute_change": 0.030398246770409032
+      }
+    }
+  },
+  "standardized_scalar_movement": {
+    "finishing_goals_per100_attempts": {
+      "available_projection_pairs": 6461,
+      "absolute": {
+        "player_id": "8477903",
+        "strength": "4v5",
+        "field": "finishing_goals_per100_attempts",
+        "old": -0.48751775038075396,
+        "new": -0.4681011329336712,
+        "signed_change": 0.01941661744708273,
+        "absolute_change": 0.01941661744708273
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 0.0002722919975423066,
+        "p90": 0.0010234178241543823,
+        "p99": 0.004099335246039032,
+        "max": 0.01941661744708273
+      }
+    },
+    "setting_goals_per100_assisted_opportunities": {
+      "available_projection_pairs": 6461,
+      "absolute": {
+        "player_id": "8474062",
+        "strength": "4v3",
+        "field": "setting_goals_per100_assisted_opportunities",
+        "old": -2.7400126255343293,
+        "new": -2.7451489713481667,
+        "signed_change": -0.005136345813837373,
+        "absolute_change": 0.005136345813837373
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 0.00023454572346484626,
+        "p90": 0.001014080692069541,
+        "p99": 0.002782648411748122,
+        "max": 0.005136345813837373
+      }
+    },
+    "avoid_block_probability": {
+      "available_projection_pairs": 6461,
+      "absolute": {
+        "player_id": "8480070",
+        "strength": "5v5",
+        "field": "avoid_block_probability",
+        "old": 0.6820829110285148,
+        "new": 0.682892836722516,
+        "signed_change": 0.000809925694001179,
+        "absolute_change": 0.000809925694001179
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 7.702900717276862e-06,
+        "p90": 3.9286562717566476e-05,
+        "p99": 9.586332913587001e-05,
+        "max": 0.000809925694001179
+      }
+    },
+    "on_net_probability": {
+      "available_projection_pairs": 6461,
+      "absolute": {
+        "player_id": "8482241",
+        "strength": "5v5",
+        "field": "on_net_probability",
+        "old": 0.6578507128486791,
+        "new": 0.6584331916450992,
+        "signed_change": 0.0005824787964200384,
+        "absolute_change": 0.0005824787964200384
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 1.47748921260904e-05,
+        "p90": 3.74776200927629e-05,
+        "p99": 0.00011491619179964042,
+        "max": 0.0005824787964200384
+      }
+    },
+    "recorded_stop_probability": {
+      "available_projection_pairs": 6461,
+      "absolute": {
+        "player_id": "8476873",
+        "strength": "5v5",
+        "field": "recorded_stop_probability",
+        "old": 0.20088739404772882,
+        "new": 0.20125374481909908,
+        "signed_change": 0.00036635077137026073,
+        "absolute_change": 0.00036635077137026073
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 5.26127783395669e-06,
+        "p90": 1.464481574853238e-05,
+        "p99": 5.836728937189654e-05,
+        "max": 0.00036635077137026073
+      }
+    },
+    "conversion_probability": {
+      "available_projection_pairs": 6461,
+      "absolute": {
+        "player_id": "8475343",
+        "strength": "4v3",
+        "field": "conversion_probability",
+        "old": 0.2080114307152065,
+        "new": 0.20844057486127596,
+        "signed_change": 0.0004291441460694545,
+        "absolute_change": 0.0004291441460694545
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 8.120267937020142e-06,
+        "p90": 3.673574127219248e-05,
+        "p99": 7.14100392511878e-05,
+        "max": 0.0004291441460694545
+      }
+    },
+    "avoid_block_probability_difference": {
+      "available_projection_pairs": 6461,
+      "absolute": {
+        "player_id": "8480070",
+        "strength": "5v5",
+        "field": "avoid_block_probability_difference",
+        "old": -0.03375912320344088,
+        "new": -0.03294910313131039,
+        "signed_change": 0.0008100200721304907,
+        "absolute_change": 0.0008100200721304907
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 4.984678701802636e-06,
+        "p90": 1.9434499129888927e-05,
+        "p99": 9.690432586197905e-05,
+        "max": 0.0008100200721304907
+      }
+    },
+    "on_net_probability_difference": {
+      "available_projection_pairs": 6461,
+      "absolute": {
+        "player_id": "8482241",
+        "strength": "5v3",
+        "field": "on_net_probability_difference",
+        "old": -0.0307013607746508,
+        "new": -0.030111451474271633,
+        "signed_change": 0.0005899093003791656,
+        "absolute_change": 0.0005899093003791656
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 7.066325154791997e-06,
+        "p90": 2.483692576804586e-05,
+        "p99": 0.00011221665832490303,
+        "max": 0.0005899093003791656
+      }
+    },
+    "recorded_stop_probability_difference": {
+      "available_projection_pairs": 6461,
+      "absolute": {
+        "player_id": "8476873",
+        "strength": "5v5",
+        "field": "recorded_stop_probability_difference",
+        "old": 0.005825793245416044,
+        "new": 0.006190410058835638,
+        "signed_change": 0.00036461681341959373,
+        "absolute_change": 0.00036461681341959373
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 3.5737485412912218e-06,
+        "p90": 1.2768092732429182e-05,
+        "p99": 5.621614303139007e-05,
+        "max": 0.00036461681341959373
+      }
+    },
+    "conversion_probability_difference": {
+      "available_projection_pairs": 6461,
+      "absolute": {
+        "player_id": "8483460",
+        "strength": "4v3",
+        "field": "conversion_probability_difference",
+        "old": -0.011985794924456505,
+        "new": -0.012418695060692514,
+        "signed_change": -0.00043290013623600854,
+        "absolute_change": 0.00043290013623600854
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 4.58936271138799e-06,
+        "p90": 1.752641828747792e-05,
+        "p99": 6.957060073494717e-05,
+        "max": 0.00043290013623600854
+      }
+    }
+  },
+  "five_v_five_goal_sums": {
+    "panel_id": "execution-v1-06-1:20232024:5,5,1",
+    "events": 125238,
+    "old": {
+      "neutral.u": 89650.62468314166,
+      "neutral.uq": 61753.11507925035,
+      "neutral.uqr": 49707.45359736244,
+      "neutral.uqrg": 5206.711486153013,
+      "actor.uqrg": 5282.027945434966,
+      "neutral_goalie.uqrg": 5273.429577896988
+    },
+    "new": {
+      "neutral.u": 89650.61286341351,
+      "neutral.uq": 61753.19741755679,
+      "neutral.uqr": 49707.41279717932,
+      "neutral.uqrg": 5206.727267023246,
+      "actor.uqrg": 5282.052477873242,
+      "neutral_goalie.uqrg": 5273.447823091049
+    },
+    "signed_goal_change": {
+      "actor": 0.02453243827676488,
+      "neutral": 0.015780870233356836,
+      "neutral_goalie": 0.018245194060909853
+    }
+  },
+  "native_map_l1_movement": {
+    "finishing": {
+      "available_pairs": 6461,
+      "unavailable_pairs": 0,
+      "quantiles": {
+        "p50": 0.00037647687153586213,
+        "p90": 0.0010752188683009463,
+        "p99": 0.004099335246039046,
+        "max": 0.019416617447082715
+      },
+      "maximum": {
+        "player_id": "8477903",
+        "strength": "4v5",
+        "map_kind": "finishing",
+        "native_map_l1": 0.019416617447082715,
+        "old_integrated": -0.48751775038075396,
+        "new_integrated": -0.4681011329336712,
+        "largest_cell": 591,
+        "old_cell": -0.035478404398975955,
+        "new_cell": -0.03412468985388224
+      }
+    },
+    "setting": {
+      "available_pairs": 6461,
+      "unavailable_pairs": 0,
+      "quantiles": {
+        "p50": 0.0003961887422984832,
+        "p90": 0.0012239386156511537,
+        "p99": 0.002854212469155821,
+        "max": 0.005147819757158403
+      },
+      "maximum": {
+        "player_id": "8474062",
+        "strength": "4v3",
+        "map_kind": "setting",
+        "native_map_l1": 0.005147819757158403,
+        "old_integrated": -2.7400126255343293,
+        "new_integrated": -2.7451489713481667,
+        "largest_cell": 609,
+        "old_cell": -0.2263240170237542,
+        "new_cell": -0.22680907081820895
+      }
+    }
+  },
+  "resources": {
+    "whole_command_wall_seconds": 17505.17,
+    "user_seconds": 16366.82,
+    "system_seconds": 203.15,
+    "maximum_resident_bytes": 24937709568,
+    "peak_memory_footprint_bytes": 31598075640,
+    "producer": {
+      "complete_events": 158196,
+      "design_wall_seconds": 5514.690003625001,
+      "input_read_wall_seconds": 26.171517792041413,
+      "origin_rows": 29251986,
+      "output_bytes": 2645487679,
+      "panel_array_bytes": 1641908176,
+      "peak_memory_bytes": 24937709568,
+      "projected_skaters": 923,
+      "projection_wall_seconds": 10776.387497499993,
+      "projections": 6461,
+      "recognized_events": 160123,
+      "resolution_wall_seconds": 8.124974556267262e-06,
+      "scoring_wall_seconds": 1062.5195620000013,
+      "setter_branches": 1424715,
+      "wall_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest",
+      "wall_seconds": 17417.30907925003,
+      "write_wall_seconds": 21.845307957963087
+    },
+    "producer_wall_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest",
+    "member_bytes": 2645487679,
+    "complete_bytes": 2645871105,
+    "checker_wall_seconds": 88.85729424998863,
+    "checker_peak_rss_bytes": 3593093120
+  },
+  "reviews": {
+    "checker_author": "numerical",
+    "checker_reviewers": [
+      "product",
+      "root"
+    ],
+    "binding_review": "source_design: clear; manifest/state/launch/resources/source parity and next committed command reconcile",
+    "independent_saved_score_review": "pending; retained in reviews/independent-review.md"
+  },
+  "limits": [
+    "old/new movement is descriptive recipe/history sensitivity; current 2023 masking and changed earlier raw history effects are not isolated; no numerical-resolution or scientific-quality margin",
+    "no year 3 known-key census; aggregate counters and located saved witnesses do not identify every newly masked key or the unavailable-both stratum",
+    "all complete scored rows and nullable fields are covered; this is no all-player or individual ability error bound",
+    "saved coalition arithmetic does not independently reconstruct source predictors, logits or every origin; strict validation retains those saved-array relationships",
+    "eligibility counters overlap; missing binding and saved-witness residual limits remain; no new count or movement threshold",
+    "no final-year propagation applies in 20232024; four final execution continuations/propagations remain pending"
+  ],
+  "remaining": "eight baseline execution heads, four final continuations, two annual scores/four propagations, real execution composition and all real spatial/source-to-screen acceptance; no activation or cleanup"
+}

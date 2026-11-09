@@ -1,0 +1,155 @@
+{
+  "kind": "replacement-fixture-disposable-compatible-rollback-preparation",
+  "status": "prepared only; no copies, operator commands, profile runtime or server actions executed",
+  "recorded_at_utc": "2026-10-31T18:22:18.334847+00:00",
+  "historical_evidence": {
+    "receipt": "fixture03-rollback-completion.json",
+    "status": "passed historical copy/rotate/restore",
+    "baseline_publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+    "candidate_publication_id": "e5118eea-1ccf-45e4-ba59-4ed8b5a906b5",
+    "baseline_sha256": "d71510774e04644f04a257c6b7f4949d7d2fb5a62dbce6426ab00db12e15e774",
+    "candidate_sha256": "6c77ed6081bfeb9e06d9d790fce48421c5672d27b5e50b6974f73085ba7ae114",
+    "limit": "does not bind replacement candidate e742/95ee; built operator digest was not recorded in those rollback receipts"
+  },
+  "current_gap": "no rollback execution receipt for replacement candidate and rebuilt app771",
+  "api_reader_only_feasible_without_browser": true,
+  "api_reader_scope": "three existing operator operations each validate their incoming copy through the strict schema8 publication owner, including seasonal league responses; no listener required",
+  "current_publication": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite",
+    "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+    "accepted_sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+    "bytes": 1369219072,
+    "mtime_ns": 1793465008507751508
+  },
+  "baseline_publication": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/candidate/player-analysis.sqlite",
+    "publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+    "accepted_sha256": "d71510774e04644f04a257c6b7f4949d7d2fb5a62dbce6426ab00db12e15e774",
+    "bytes": 837996544,
+    "mtime_ns": 1793084376159779749
+  },
+  "large_file_policy": "accepted verification digests plus actual stat used in preparation; no DB payload or full hash read here. released existing operator itself hashes source/copy/predecessor as required by its contract",
+  "app_tree": "248ed5924d8b1ab944752abc578014fa4aeede0c",
+  "accepted_app_source_sha256": "e18e778f4fb388e3491a49fdad8b8868876b7165a52cea4ab49faddb6bdbef78",
+  "accepted_build_sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+  "source_build_digest_policy": "actual current small source/dist payloads recomputed and match accepted build; source app tree/status and relevant operator/reader entry hashes also guarded; no rebuild",
+  "current_guarded_members": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/operator/publication-cli.js",
+      "bytes": 5132,
+      "sha256": "e655d6633d081f8b83133b779c2850434b3c1e9a65dcaaae29662d7f3f18d7b2"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/publication.js",
+      "bytes": 15445,
+      "sha256": "957d0706671eb0e3b42797084b94887230b61c7932313e46ae908d66819752e6"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/candidate/verification.json",
+      "bytes": 15162,
+      "sha256": "b14d053bd80cb99eb5519c4036b82d444a2dedc2a13883e5855368af05ff32e3"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/verification.json",
+      "bytes": 14869,
+      "sha256": "8613ef637b8af1347fbdb39664689af583a2cff78e3171f498bcff41c8799110"
+    }
+  ],
+  "disposable_directory": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-01",
+  "disposable_absent_at_preparation": true,
+  "sequence_argv": [
+    [
+      "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/operator/publication-cli.js",
+      "activate",
+      "--candidate",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/candidate/player-analysis.sqlite",
+      "--directory",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-01"
+    ],
+    [
+      "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/operator/publication-cli.js",
+      "activate",
+      "--candidate",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite",
+      "--directory",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-01"
+    ],
+    [
+      "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/operator/publication-cli.js",
+      "restore",
+      "--directory",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-01"
+    ]
+  ],
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-rollback-command.sh",
+    "bytes": 8353,
+    "sha256": "243135f3f692c23e51a25f3d4b1925f111adafc4137817b8b212c170b9642baa",
+    "syntax_exit": 0,
+    "embedded_receipt_js_syntax_exit": 0
+  },
+  "profile": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-rollback-write-scope.sb",
+    "bytes": 178,
+    "sha256": "e6d9af56f2ece3fd5721ef920671006b377f3a6c8f4b8511f7a87745c953df20",
+    "purpose": "deny child-process writes outside the literal disposable subtree; no source-read detachment claim",
+    "runtime_checked": false
+  },
+  "expected_final_files": {
+    "active.sqlite": {
+      "publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+      "sha256": "d71510774e04644f04a257c6b7f4949d7d2fb5a62dbce6426ab00db12e15e774",
+      "bytes": 837996544
+    },
+    "previous.sqlite": {
+      "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+      "sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+      "bytes": 1369219072
+    },
+    "incoming.sqlite": "absent"
+  },
+  "resource_scope": "three ordinary incoming strict-reader passes and their required copy/hash operations; one command at a time; no forecast and no duplicate post-rotation full scan",
+  "pending_browser_acceptance": [
+    "literal typing/paste/clear and deep-link/back behavior",
+    "three-season discovery/profile/same- and mixed-position comparison/history rendering",
+    "actual csv/png downloads and pixel/content inspection",
+    "normal/narrow/native200 layout"
+  ],
+  "untouched": [
+    "current candidate and accepted baseline",
+    "main server9645 on3000",
+    "fixture server98844 on3398",
+    "original fixture03 rollback outputs/profile/logs",
+    "analysis/source/observer/app/build"
+  ],
+  "commands_executed": false,
+  "copies_created": false,
+  "server_actions": false,
+  "browser_claim": false,
+  "current_node": {
+    "path": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "version": "v24.21.0",
+    "version_checked": true,
+    "runtime_version_guard": true
+  },
+  "current_source_build": {
+    "source": {
+      "sha256": "e18e778f4fb388e3491a49fdad8b8868876b7165a52cea4ab49faddb6bdbef78",
+      "files": 52,
+      "bytes": 873260
+    },
+    "dist": {
+      "sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+      "files": 38,
+      "bytes": 1289425
+    },
+    "actual_current_recomputed": true,
+    "definition": "sha256 of compact sorted-key json of pathlib.Path-ordered {path relative repo,sha256,bytes} records; source uses git ls-files app, dist uses all actual app/dist files",
+    "app_build_frozen": true
+  },
+  "execution_overlap": "not executed. root may separately release these bounded publication reads during the running real fit; started/finished timestamps and per-command time logs will locate any actual overlap. no source-game pass occurs",
+  "strict_operator_not_http_or_browser": "the operator uses the strict publication owner and internal seasonal league calls. it neither requests the running HTTP API nor performs native browser journeys"
+}

@@ -1,0 +1,13 @@
+# actual selection and experimental admission review
+
+the actual five-state real selection `7ac43cfa0bcf72b449bc9267b19f16eb5ac7d7bf396fd08d9a98200d94549f1c` and private product admission `1f09a7c2723bb502b96938e88c4708f5ed2d544d906a5c68d74dd346ede89ce2` are internally bound. all five selected manifest identities and their season/purpose headers match; the final baseline descriptor and three comparison identities match final-manifest members. receipt references to the selection, baseline, policy, saved consequence report and independent review reproduce. comparison files reproduce their hashes and retain volume `failed`, shape and quality `passed`; the aggregate remains `failed`. analysis tree is `f71461a5496b657d27bd20ae14f77d5177fdd7e4` and its working directory is clean.
+
+the actual warning is: “original final-year volume precision check failed; saved baseline/continuation differences were immaterial for private experimental use, but do not bound remaining optimizer error; optimizer accuracy is unknown.” this explicitly states the original failure, narrow comparison and unknown remaining accuracy. actual final-year method detail, csv and png must still be checked for faithful disclosure. the receipt admits the saved baseline for private experimental integration; it does not change the failed verdict, establish scientific support or activate a publication.
+
+this review read the small selected manifests, admission and bound evidence only; it did not load model arrays or invoke a production reader, fit or numerical evaluation. composition and its exact command remain pending separate release.
+
+## exact composition command
+
+the actual held summarize command is `a94a7cdd4d43ea681d413e6d351cc6cf2ff310da7804a3e5f4529d52330322c4`. it binds the identities above, clean analysis `f71461a5496b657d27bd20ae14f77d5177fdd7e4` and accepted execution manifest `3441f784c11eb6a8eda38800806b8e4dc68e06e8587c91db24c5dffaadae4347`; it checks fresh output and all launch-record paths, records the command and input identities, and passes the actual admission receipt to spatial summarize. the guarded targets were absent at inspection. shell syntax passes. this is a source/command clearance, not execution or acceptance; root owns release.
+
+the saved composition checker `8064a17833299e92b7ce2c806bb3fac1f943a9572661079d8fcc5de7227cd6e2` has the actual selection/admission pins while the combined manifest remains withheld. held publish command `5e228d069242e498821b039133806ad7094ab18af9837c62bb2e2fcd413f9248` pins the reviewed analysis tree but retains a withheld combined manifest. no command was launched here; the later checker, publication, application and content acceptance remain separate.

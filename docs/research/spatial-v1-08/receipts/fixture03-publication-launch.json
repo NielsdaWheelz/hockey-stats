@@ -1,0 +1,29 @@
+{
+  "kind": "spatial-v1-08-fixture03-publication-launch",
+  "status": "one literal command delivered; actual completion pending",
+  "launched_at_utc": "2026-10-31T09:14:09.799877+00:00",
+  "command": "/bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/publish.sh",
+  "script_sha256": "c2de797c8b509b50f5da79181623406a77796cb6d4361a7768ae0e930fedc5b1",
+  "source_commit": "7b0f2725aebeca991d22f715ac12c04d9b3555e5",
+  "analysis_tree": "a0a926723d7c84681c6cc72fc3ca975b8b9a5f16",
+  "terminal_handle": "t-2d0c5b412d583c0f",
+  "terminal_ref": "eyJtYWNoaW5lIjoibWgtZDk2YTM2NWI5ODMxMGVlMjIyOWQ5NWJiOTM2Nzg3NDMiLCJ0bXV4SWQiOiIkNTIiLCJpZGVudGl0eVRva2VuIjoidjEtNTMyMGFjNjBhZDllZDIzOTQ5ODEwYTQyNWY5M2VhY2IuMTE5NC4xNzkzMTY4NzQ3LjUyIiwicGFuZUlkIjoiJTYwIn0",
+  "input_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/results/manifest.json",
+    "sha256": "2d2974937637e7c32dbebd6c9c43bfab05a39299f2823e116008e8d319b90b0e"
+  },
+  "observed_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json",
+    "sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37"
+  },
+  "delivery_exit_code": 0,
+  "delivery_stdout": "{\"ok\":true,\"result\":{\"method\":\"terminal\",\"outcome\":\"written\"}}\n",
+  "delivery_stderr": "",
+  "scope": "fixture publication only; no overwrite, activation or serving mutation",
+  "observed_processes": [
+    "23146 21380 Sat Oct 31 02:14:09 2026       2512 /bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/publish.sh",
+    "23147 23146 Sat Oct 31 02:14:09 2026       1536 /usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python -m hockey_stats.analysis_cli publish --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json --results /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/results --out /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate",
+    "23148 23147 Sat Oct 31 02:14:09 2026      90272 /opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -m hockey_stats.analysis_cli publish --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json --results /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/results --out /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate"
+  ],
+  "process_observed_at_utc": "2026-10-31T09:15:59.529841+00:00"
+}

@@ -1,0 +1,301 @@
+{
+  "kind": "replacement-fixture-execution-completion",
+  "status": "root_accepted; all five fixture execution annuals accepted",
+  "recorded_at_utc": "2026-10-31T15:01:38.826420+00:00",
+  "purpose": "fixture",
+  "season": "20222023",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20222023/manifest.json",
+    "sha256": "7ca3062b6676d94640d6edfae2e154948c08f168a7bd9771271af2e706f6980c"
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022/manifest.json",
+    "sha256": "93478145e952d2378fce912b0c5daffff553ce84d2a74cce3f327e59a3320baf",
+    "season": "20212022",
+    "purpose": "fixture",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual"
+  },
+  "scope": "saved JSON metadata, bounded command log/status and file stats only; no arrays/NPZ hashes, repeated strict read or source pass",
+  "heads": {
+    "u": {
+      "status": "complete",
+      "included": 585,
+      "positive": 434,
+      "dimension": 2520,
+      "actors": 210,
+      "entry_rows": 152,
+      "carry_rows": 58,
+      "transition_reasons": {
+        "entry": 152,
+        "age_carry": 52,
+        "age_neutral": 6
+      },
+      "prior_only_rows": 29,
+      "current_supported_ledger_updates": 181,
+      "preserved_prior_ledger_rows": 175,
+      "ledger_rows": 356,
+      "maximum_center_error": 1.734723475976807e-18,
+      "head_key_sha256": "dc54ddbc67e92ad0d7f1f228decdee843d4d081bdf3377f68f46ea9bb92404df",
+      "selected_start": "zero",
+      "completed_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "objective": 294.01401816470934,
+      "raw_gradient_max": 1.7980002815498608e-05,
+      "iterations": 347,
+      "evaluations": 368,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "em_iterations": 0,
+      "prior_only_carry_witness": {
+        "block": "shooter",
+        "id": "8477021",
+        "last_season": "20212022",
+        "last_raw": 0.02385029272044572,
+        "conditional_prior_mean": 0.02361972193450727,
+        "ledger_preserved": true
+      },
+      "resolution": "not_applicable"
+    },
+    "q": {
+      "status": "complete",
+      "included": 434,
+      "positive": 321,
+      "dimension": 2557,
+      "actors": 221,
+      "entry_rows": 164,
+      "carry_rows": 57,
+      "transition_reasons": {
+        "entry": 164,
+        "age_carry": 51,
+        "age_neutral": 6
+      },
+      "prior_only_rows": 38,
+      "current_supported_ledger_updates": 183,
+      "preserved_prior_ledger_rows": 179,
+      "ledger_rows": 362,
+      "maximum_center_error": 1.6940658945086007e-20,
+      "head_key_sha256": "f8c5e115eb41a6d00649a840384f14e8f7437df402d46b5b1e84c7feeecf4a00",
+      "selected_start": "prior_mean",
+      "completed_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "objective": 223.30412578984848,
+      "raw_gradient_max": 7.720569272340327e-06,
+      "iterations": 333,
+      "evaluations": 354,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "em_iterations": 0,
+      "prior_only_carry_witness": {
+        "block": "shooter",
+        "id": "8477021",
+        "last_season": "20212022",
+        "last_raw": 0.01796429121173459,
+        "conditional_prior_mean": 0.018073852180625575,
+        "ledger_preserved": true
+      },
+      "resolution": "not_applicable"
+    },
+    "r": {
+      "status": "complete",
+      "included": 321,
+      "positive": 235,
+      "dimension": 2557,
+      "actors": 221,
+      "entry_rows": 169,
+      "carry_rows": 52,
+      "transition_reasons": {
+        "entry": 169,
+        "age_carry": 46,
+        "age_neutral": 6
+      },
+      "prior_only_rows": 50,
+      "current_supported_ledger_updates": 171,
+      "preserved_prior_ledger_rows": 163,
+      "ledger_rows": 334,
+      "maximum_center_error": 1.3010426069826053e-18,
+      "head_key_sha256": "1ee12a892f2397681194456f6ad729f42099603fff60944be4ef679cdcd81cb0",
+      "selected_start": "prior_mean",
+      "completed_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "objective": 163.40608510336065,
+      "raw_gradient_max": 2.0941836442744943e-06,
+      "iterations": 351,
+      "evaluations": 377,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "em_iterations": 0,
+      "prior_only_carry_witness": {
+        "block": "shooter",
+        "id": "8477021",
+        "last_season": "20212022",
+        "last_raw": 0.02818708967737672,
+        "conditional_prior_mean": 0.028438698841241734,
+        "ledger_preserved": true
+      },
+      "resolution": "not_applicable"
+    },
+    "g": {
+      "status": "complete",
+      "included": 235,
+      "positive": 23,
+      "dimension": 2743,
+      "actors": 400,
+      "entry_rows": 300,
+      "carry_rows": 100,
+      "transition_reasons": {
+        "entry": 300,
+        "age_carry": 94,
+        "age_neutral": 6
+      },
+      "prior_only_rows": 72,
+      "current_supported_ledger_updates": 328,
+      "preserved_prior_ledger_rows": 329,
+      "ledger_rows": 657,
+      "maximum_center_error": 2.6020852139652106e-18,
+      "head_key_sha256": "7348f212e171530720822c9e401492e3a685bc7fc501177d1c5d49e69994f380",
+      "selected_start": "prior_mean",
+      "completed_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "objective": 110.19881442995232,
+      "raw_gradient_max": 2.836239507253424e-06,
+      "iterations": 728,
+      "evaluations": 792,
+      "termination": "setter em objective and responsibility tolerances satisfied",
+      "em_iterations": 4,
+      "prior_only_carry_witness": {
+        "block": "shooter",
+        "id": "8476467",
+        "last_season": "20212022",
+        "last_raw": -0.0701403711022102,
+        "conditional_prior_mean": -0.07007410327676762,
+        "ledger_preserved": true
+      },
+      "resolution": "not_applicable"
+    }
+  },
+  "checks": {
+    "complete_heads": 4,
+    "prior_anchors_exact_previous_last_supported_ledger": true,
+    "entry_and_carry_alternatives": true,
+    "carry_precision_fixed_recipe": true,
+    "last_supported_ledger_updates_only_for_current_support": true,
+    "age_basis_delta_and_role_indices_match": true,
+    "maximum_age_delta_error": 0.0,
+    "centers_from_current_supported_raw_ledger_or_conditional_prior_mean": true,
+    "maximum_center_error": 2.6020852139652106e-18,
+    "source_head_counts_and_keys_match_coverage": true,
+    "recipe_stopping": {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06,
+      "em_maxiter": 100,
+      "em_objective": 1e-08,
+      "em_responsibility": 1e-06,
+      "continuation": {
+        "ftol": 1e-16,
+        "gtol": 1e-07,
+        "em_objective": 1e-09,
+        "em_responsibility": 1e-07
+      }
+    },
+    "minimum_completed_start_selected": true,
+    "array_limitation": "current age coefficients and coefficient/prior-only equality were producer strict-read checks; no independent conditional mean recomputation from arrays here"
+  },
+  "source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20222023-source-check.json",
+    "sha256": "9bc11d95548af8cde249f74004e6f018c557fb4ed91fd378e0ee0244c2c7cc1b",
+    "status": "passed",
+    "source_contexts": 585,
+    "dispositions": {
+      "eligible:faceoff": 240,
+      "eligible:on_the_fly": 337,
+      "unavailable:None": 3,
+      "unavailable:unknown": 5
+    },
+    "eligibility_counts": {
+      "masked_on_the_fly": 0,
+      "masked_faceoff": 0,
+      "unresolved_binding": 0,
+      "admitted_same_clock_faceoff": 0,
+      "withheld_earlier_anchor": 0
+    },
+    "source_context_sha256": "dd79f06775972f60c63d52006fac847faf136a4e790307c69e92f34f00296ad2",
+    "source_response_sha256": "6db2ffcd33c1d6f45d4b94b6462ccbf5ffdfaff7701cfad9625144a76b1181a8",
+    "observer_seconds": 0.09921215596841648,
+    "observer_seconds_scope": "observe body only; not total wrapper overhead",
+    "scope_limit": "regression-only fixture with zero new masks and zero special counters; the real20212022 exact54-key barrier remains required; residual scope unsized"
+  },
+  "resources": {
+    "command_wall_seconds": 20.92,
+    "user_seconds": 20.67,
+    "system_seconds": 0.21,
+    "maximum_resident_bytes": 996884480,
+    "baseline_head_states": 4,
+    "final_head_continuations": 0,
+    "actual_native_solve_counts": {
+      "u": 2,
+      "q": 2,
+      "r": 2,
+      "g": 8
+    },
+    "saved_member_bytes": 3185527,
+    "annual_including_manifest_bytes": 3209056,
+    "producer": {
+      "wall_seconds": 20.506358375016134,
+      "peak_memory_bytes": 996884480,
+      "design_wall_seconds": 16.332050291995984,
+      "input_read_wall_seconds": 0.0040600830106996,
+      "fit_wall_seconds": 4.170248000009451,
+      "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+      "output_bytes": 3185527,
+      "origin_rows": {
+        "u": 99490,
+        "q": 434,
+        "r": 321,
+        "g": 235
+      },
+      "candidate_branches": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 2108
+      },
+      "resolution_solve_counts": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 0
+      },
+      "dimensions": {
+        "u": 2520,
+        "q": 2557,
+        "r": 2557,
+        "g": 2743
+      },
+      "solve_counts": {
+        "u": 2,
+        "q": 2,
+        "r": 2,
+        "g": 8
+      }
+    }
+  },
+  "launch": {
+    "start": "2026-10-31T14:59:33Z",
+    "finish": "2026-10-31T14:59:54Z",
+    "exit": 0,
+    "git_head": "745b741b4904419a657494658c2db509a5c578b2",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "analysis_clean_at_launch_and_now": true,
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "log_sha256": "ddebf89c9cd228b85db7d0fc0e26e44d12f5caa0b70b23d4dddc7cef30855d1e"
+  },
+  "input_preservation": "saved prepared/coach bindings match first accepted new annual; previous manifest and metadata checked unchanged; source evidence and original campaigns untouched",
+  "next": "prepare observed20232024 only; explicit root release required"
+}

@@ -1,7 +1,7 @@
 """annual execution fitting and one saved-state branch-probability interface."""
 
 from dataclasses import dataclass, replace
-from math import fsum, factorial
+from math import fsum
 from itertools import product
 from pathlib import Path
 from time import perf_counter
@@ -208,26 +208,51 @@ def _resolution_selector(design):
     return selector, ordered + tuple(fixture_probes)
 
 
-def _probability_comparison(base, variant, probes):
+def _probability_comparison(base, variant, probes, *, locators=None):
     maximum = 0.
     by_head = {head: 0. for head in HEADS}
     by_terminal = {name: 0. for name in ('block', 'miss', 'stopped', 'continuing', 'goal')}
     origins, branch_count = 0, 0
+    if locators is not None:
+        require(not locators, 'probability locator receipt must be empty')
+        locators.update(maximum_probability_change=None, head_maximum_changes={}, terminal_maximum_changes={})
+    def difference(family, name, left, right, predictor, cells, neutralize, branches):
+        nonlocal maximum
+        require(left.shape == right.shape and np.isfinite(left).all() and np.isfinite(right).all(),
+                'nonfinite or mismatched resolution probabilities')
+        changes = np.abs(left-right)
+        delta = float(np.max(changes))
+        values = by_head if family == 'head_maximum_changes' else by_terminal
+        if locators is not None:
+            index = np.unravel_index(np.argmax(changes), changes.shape)
+            branch = int(index[1]) if len(index) == 2 else None
+            location = dict(key=predictor.key,
+                            population='synthetic' if predictor.key.startswith('synthetic:') else 'fixture' if predictor.key.startswith('synthetic-resolution:') else 'actual',
+                            execution='actual' if not neutralize else 'fully_neutral', shot_type=int(predictor.shot_type),
+                            neutralize=list(neutralize), origin_cell=int(cells[index[0]]),
+                            setter_branch=branch,
+                            setter_kind=branches[branch].kind if branch is not None else None,
+                            setter_actor_id=branches[branch].actor_id if branch is not None else None,
+                            quantity=name, left=float(left[index]), right=float(right[index]), change=delta)
+            if name not in locators[family] or delta > values[name]:
+                locators[family][name] = location
+            if locators['maximum_probability_change'] is None or delta > maximum:
+                locators['maximum_probability_change'] = dict(location, family=family)
+        values[name] = max(values[name], delta)
+        maximum = max(maximum, delta)
     def compare(predictor, cells, neutralize):
         nonlocal maximum, origins, branch_count
         left = execution_branch_probabilities(base, predictor, cells, neutralize)
         right = execution_branch_probabilities(variant, predictor, cells, neutralize)
-        require(np.array_equal(left.prior_probabilities, right.prior_probabilities), 'resolution changed setter priors')
+        require(left.origin_cells == right.origin_cells and left.setter_branches == right.setter_branches
+                and np.array_equal(left.prior_probabilities, right.prior_probabilities), 'resolution changed origins or setter priors')
         origins += len(cells)
         branch_count += len(cells) * len(left.setter_branches)
         for head in HEADS:
-            delta = float(np.max(np.abs(getattr(left, head)-getattr(right, head))))
-            by_head[head] = max(by_head[head], delta)
-            maximum = max(maximum, delta)
+            difference('head_maximum_changes', head, getattr(left, head), getattr(right, head), predictor, cells, neutralize, left.setter_branches)
         for name in by_terminal:
-            delta = float(np.max(np.abs(left.terminal_probabilities[name]-right.terminal_probabilities[name])))
-            by_terminal[name] = max(by_terminal[name], delta)
-            maximum = max(maximum, delta)
+            difference('terminal_maximum_changes', name, left.terminal_probabilities[name], right.terminal_probabilities[name],
+                       predictor, cells, neutralize, left.setter_branches)
     for predictor in probes:
         cells = np.arange(656, dtype=np.int64) if predictor.blocked else np.asarray([predictor.proxy_cell], dtype=np.int64)
         for neutralize in ((), ('shooter', 'setter', 'goalie', 'coaching')):
@@ -268,7 +293,8 @@ def _resolve_final_year(design, previous, output, manifest, heads, arrays):
             heads[head]['resolution'] = dict(status=status, baseline=descriptor, probe=reference, comparison=comparison)
         else:
             heads[head]['resolution'] = dict(status='failed', baseline=descriptor,
-                                            reasons=result['reasons'], diagnostics=result.get('diagnostics', {}))
+                reasons=result['reasons'], comparison=result['comparison'],
+                diagnostics={key: result[key] for key in ('requested_starts', 'starts', 'selected_start', 'wall_seconds')})
         # this directory has no completion manifest. replace only the small head
         # metadata; the completed baseline coefficient file remains untouched.
         path = output / f'heads/{head}.json'
@@ -357,15 +383,8 @@ def execution_shapley(coalitions):
     values = np.asarray(coalitions, dtype=np.float64)
     require(values.ndim >= 1 and values.shape[0] == 16 and np.isfinite(values).all()
             and np.all((values >= 0) & (values <= 1)), 'invalid sixteen-coalition probabilities')
-    result = np.zeros((4, *values.shape[1:]), dtype=np.float64)
-    for group in range(4):
-        bit = 1 << group
-        for subset in range(16):
-            if subset & bit:
-                continue
-            size = subset.bit_count()
-            weight = factorial(size) * factorial(3-size) / 24
-            result[group] += weight * (values[subset | bit] - values[subset])
+    from .coalitions import four_group_allocation
+    result = four_group_allocation(values)
     require(np.allclose(result.sum(axis=0), values[15]-values[0], rtol=0, atol=2e-15),
             'execution allocation does not close')
     return result
@@ -1013,6 +1032,38 @@ def neutral_panel_event_masses(panel):
                              for j, name in enumerate(PREFIXES)},
                    setup_goal_mass=setup_goal,
                    neutral_on_net_goal_probability=float(np.exp(masses[3] - masses[1])))
+
+
+def iter_neutral_origins(panel):
+    """stream the checked pre-outcome joint goal probability at each origin."""
+    require(isinstance(panel, ExecutionPanel) and panel.strength == (5, 5, 1),
+            'spatial targets require the checked physical 5v5 panel with both goalies')
+    arrays = panel.arrays
+    expected = panel.support_keys.get('neutral_goal_mass')
+    require(type(expected) is dict and set(expected) == {event['key'] for event in panel.events},
+            'neutral origin panel lacks exact saved event-mass evidence')
+    previous = None
+    for index, event in enumerate(panel.events):
+        key = event['key']
+        order = tuple(map(int, key.split(':')))
+        require(previous is None or previous < order, 'neutral origin keys repeat or are unordered')
+        previous = order
+        start, end = arrays['event_offsets'][index:index + 2]
+        cells, weights = arrays['origin_cells'][start:end], arrays['origin_weights'][start:end]
+        require(len(cells) > 0 and np.isfinite(weights).all() and np.all(weights >= 0)
+                and abs(fsum(weights) - 1.) <= 1e-12, f'{key}: invalid origin mass')
+        setup = arrays['setup_weights'][index]
+        require(np.isfinite(setup).all() and np.all(setup >= 0) and abs(fsum(setup) - 1.) <= 1e-12,
+                f'{key}: invalid pre-outcome setup mass')
+        logs = _joint_log_prefixes(arrays['neutral_upstream_logits'][start:end],
+                                   arrays['neutral_goal_logits'][start:end], setup)
+        probability = np.exp(logs[:, 3])
+        require(np.isfinite(probability).all() and np.all((probability >= 0) & (probability <= 1)),
+                f'{key}: invalid neutral joint probability')
+        from .execution_scores import _near
+        require(_near(float(_weighted_probability(probability, weights, axis=0)), expected[key], len(cells)),
+                f'{key}: neutral origin probabilities differ from saved event mass')
+        yield dict(key=key, cells=cells, origin_weights=weights, neutral_goal_probability=probability)
 
 
 def _integrated_log_columns(log_prefixes, weights):

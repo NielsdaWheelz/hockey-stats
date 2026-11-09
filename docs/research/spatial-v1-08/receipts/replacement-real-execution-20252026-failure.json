@@ -1,0 +1,254 @@
+{
+  "kind": "replacement-real-final-execution-failure",
+  "status": "not accepted; final numerical resolution incomplete; score and descendants held",
+  "recorded_at_utc": "2026-11-02T03:16:37.750431+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20252026/manifest.json",
+    "sha256": "9845808a40204d244ed07f9c8f0c7569d4c727e091dcb6e4f27bd658d3a3f491",
+    "bytes": 362950
+  },
+  "source_report_sha256": "b69575bb4c5d7452152d18d295486bf7b648495a81a4e4141f7be928cb96dc63",
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json",
+    "sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe",
+    "season": "20242025",
+    "purpose": "real",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual"
+  },
+  "recipe": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "annual_heads": {
+    "u": {
+      "status": "complete",
+      "objective": 69668.42305740231,
+      "gradient_max": 0.002770559377087478,
+      "resolution": {
+        "status": "failed",
+        "baseline": {
+          "path": "resolution/baseline.json",
+          "sha256": "b470a3f20570d59c4f90a5f85871d24a22450d02ed86df6ab9f63a9921774746"
+        },
+        "reasons": [
+          "no_completed_start"
+        ],
+        "diagnostics": {}
+      }
+    },
+    "q": {
+      "status": "complete",
+      "objective": 68275.86715439045,
+      "gradient_max": 0.008168262311581439,
+      "resolution": {
+        "status": "passed",
+        "baseline": {
+          "path": "resolution/baseline.json",
+          "sha256": "b470a3f20570d59c4f90a5f85871d24a22450d02ed86df6ab9f63a9921774746"
+        },
+        "probe": {
+          "path": "resolution/q.json",
+          "sha256": "b9e61073cc3c6045c8653a8252457d25841b91df6eaad6111ad998f566528a90"
+        },
+        "comparison": {
+          "base_objective": 68275.86715439045,
+          "base_gradient_max": 0.008168262311581439,
+          "optimizer_maxiter": 10000,
+          "optimizer_ftol": 1e-16,
+          "optimizer_gtol": 1e-07,
+          "em_maxiter": 100,
+          "em_relative_tolerance": 1e-09,
+          "em_responsibility_tolerance": 1e-07,
+          "tightened_objective": 68275.86715437184,
+          "objective_change": -1.8611899577081203e-08,
+          "tightened_gradient_max": 0.0013512703917095258,
+          "gradient_max_change": 0.007495135620603107,
+          "coefficient_max_change": 5.549205536470314e-06,
+          "coefficient_l2_change": 3.530404723571509e-05,
+          "maximum_probability_change": 1.608961630594763e-06,
+          "head_maximum_changes": {
+            "u": 0.0,
+            "q": 1.608961630594763e-06,
+            "r": 0.0,
+            "g": 0.0
+          },
+          "terminal_maximum_changes": {
+            "block": 0.0,
+            "miss": 1.2252681975410962e-06,
+            "stopped": 1.8531607970384556e-07,
+            "continuing": 9.195495372926743e-07,
+            "goal": 6.717873564099364e-07
+          },
+          "evaluated_origins": 123666,
+          "evaluated_branches": 1132870
+        }
+      }
+    },
+    "r": {
+      "status": "complete",
+      "objective": 33361.71659391862,
+      "gradient_max": 0.004913061291937129,
+      "resolution": {
+        "status": "passed",
+        "baseline": {
+          "path": "resolution/baseline.json",
+          "sha256": "b470a3f20570d59c4f90a5f85871d24a22450d02ed86df6ab9f63a9921774746"
+        },
+        "probe": {
+          "path": "resolution/r.json",
+          "sha256": "1146673eab43c8d7e42bad48c83c363b41e222e56ee27d87cdda5d20bd44d307"
+        },
+        "comparison": {
+          "base_objective": 33361.71659391862,
+          "base_gradient_max": 0.004913061291937129,
+          "optimizer_maxiter": 10000,
+          "optimizer_ftol": 1e-16,
+          "optimizer_gtol": 1e-07,
+          "em_maxiter": 100,
+          "em_relative_tolerance": 1e-09,
+          "em_responsibility_tolerance": 1e-07,
+          "tightened_objective": 33361.71659390222,
+          "objective_change": -1.6400008462369442e-08,
+          "tightened_gradient_max": 0.0007246589289543488,
+          "gradient_max_change": 0.0056377202208914776,
+          "coefficient_max_change": 1.5885964363859806e-05,
+          "coefficient_l2_change": 9.150931063019577e-05,
+          "maximum_probability_change": 1.693825504300861e-06,
+          "head_maximum_changes": {
+            "u": 0.0,
+            "q": 0.0,
+            "r": 1.693825504300861e-06,
+            "g": 0.0
+          },
+          "terminal_maximum_changes": {
+            "block": 0.0,
+            "miss": 0.0,
+            "stopped": 8.301399223795136e-07,
+            "continuing": 8.26936149889157e-07,
+            "goal": 1.6219952669871418e-07
+          },
+          "evaluated_origins": 123666,
+          "evaluated_branches": 1132870
+        }
+      }
+    },
+    "g": {
+      "status": "complete",
+      "objective": 34080.36418748275,
+      "gradient_max": 0.003508930098104857,
+      "resolution": {
+        "status": "passed",
+        "baseline": {
+          "path": "resolution/baseline.json",
+          "sha256": "b470a3f20570d59c4f90a5f85871d24a22450d02ed86df6ab9f63a9921774746"
+        },
+        "probe": {
+          "path": "resolution/g.json",
+          "sha256": "2485004cf9e89ad9d589b85c6e960329fda13c5d1f2897cdd771f63af6ca56b5"
+        },
+        "comparison": {
+          "base_objective": 34080.36418748275,
+          "base_gradient_max": 0.003508930098104857,
+          "optimizer_maxiter": 10000,
+          "optimizer_ftol": 1e-16,
+          "optimizer_gtol": 1e-07,
+          "em_maxiter": 100,
+          "em_relative_tolerance": 1e-09,
+          "em_responsibility_tolerance": 1e-07,
+          "tightened_objective": 34080.36418747616,
+          "objective_change": -6.592017598450184e-09,
+          "tightened_gradient_max": 0.0003146349574906257,
+          "gradient_max_change": 0.0031942951406142314,
+          "coefficient_max_change": 1.1256853761354435e-05,
+          "coefficient_l2_change": 2.357815875229569e-05,
+          "maximum_probability_change": 1.3313157959382593e-06,
+          "head_maximum_changes": {
+            "u": 0.0,
+            "q": 0.0,
+            "r": 0.0,
+            "g": 1.3313157959382593e-06
+          },
+          "terminal_maximum_changes": {
+            "block": 0.0,
+            "miss": 0.0,
+            "stopped": 0.0,
+            "continuing": 7.114054526580205e-07,
+            "goal": 7.11405452685776e-07
+          },
+          "evaluated_origins": 123666,
+          "evaluated_branches": 1132870
+        }
+      }
+    }
+  },
+  "resource": {
+    "wall_seconds": 12048.339335040073,
+    "peak_memory_bytes": 15744499712,
+    "design_wall_seconds": 7180.629152875044,
+    "input_read_wall_seconds": 1.401372166001238,
+    "fit_wall_seconds": 4866.308809999027,
+    "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+    "output_bytes": 217491726,
+    "origin_rows": {
+      "u": 26668401,
+      "q": 110897,
+      "r": 72381,
+      "g": 58628
+    },
+    "candidate_branches": {
+      "u": 0,
+      "q": 0,
+      "r": 0,
+      "g": 530040
+    },
+    "resolution_solve_counts": {
+      "u": 1,
+      "q": 1,
+      "r": 1,
+      "g": 2
+    },
+    "dimensions": {
+      "u": 3420,
+      "q": 3544,
+      "r": 3544,
+      "g": 4491
+    },
+    "solve_counts": {
+      "u": 2,
+      "q": 2,
+      "r": 2,
+      "g": 17
+    }
+  },
+  "whole_command": {
+    "exit": 1,
+    "wall_seconds": 12156.98,
+    "user_seconds": 10984.7,
+    "system_seconds": 347.14,
+    "peak_rss_bytes": 15744499712,
+    "peak_memory_footprint_bytes": 20348436248
+  },
+  "launch": {
+    "head": "4de5dbc588089a1cfa6c4ca764544ac88a5611bc",
+    "producer_head": "39da0c49ea039241add9d5f683f59ff83b140a06",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "start": "2026-11-01T23:43:41Z",
+    "finish": "2026-11-02T03:06:18Z"
+  },
+  "established": [
+    "four baseline heads complete; q/r/g continuations passed",
+    "one u continuation returned no completed start; no u probe members or probability comparison were written",
+    "native start diagnostics and comparison existed in memory but resolver failure branch discarded them"
+  ],
+  "not_established": [
+    "native optimizer status, termination, iteration/evaluation count, failed endpoint, or cause",
+    "whether u would exceed the fixed probability budget; baseline gradient is not failed-endpoint gradient"
+  ],
+  "repair": "diagnostic retention and strict validation only, under targeted injected red/green review; source/math/controls/margins unchanged",
+  "acceptance_checker": {
+    "path": "var/v1-08-replacement/accept_real_execution_20252026.py",
+    "sha256": "462902780f77787e1b79923abd70ccc4a471b5da7a1b90d55ff7e770e61abb02",
+    "invocations": 0,
+    "reason": "known exit1 and failed final resolution do not meet its success contract"
+  },
+  "preservation": "all existing artifacts retained unchanged; no failed-start trace backfilled, no score/probe retry or threshold change",
+  "next": "complete/review diagnostic repair, then request explicit expanded numerical authorization under the fixed no-retry clause"
+}

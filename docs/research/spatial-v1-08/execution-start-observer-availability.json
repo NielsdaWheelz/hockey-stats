@@ -1,0 +1,194 @@
+{
+  "kind": "temporary-start-observer-exact-availability",
+  "status": "focused red/green passed; selected fit/score source passes pending",
+  "analysis_subtree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "scope": "temporary observer only; production remains frozen; targeted existing two-source valid variants, no additional corpus scan, fit or rescore",
+  "extends": {
+    "path": "docs/research/spatial-v1-08/execution-start-observer-head-populations.json",
+    "sha256": "dd63306c9bab7859c069057367b1d2c84cb36dac340d1921961e7d6c4974f4fd"
+  },
+  "implementation": {
+    "path": "var/v1-08-replacement/consumed_start_check.py",
+    "sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf"
+  },
+  "controller": {
+    "path": "var/v1-08-replacement/observer_overmask_check.py",
+    "sha256": "5cebf8221e1e325ad1a0a0c1a29d1b86a2fb2f720954d078caff021ff2182f87"
+  },
+  "red_evidence": {
+    "path": "var/v1-08-replacement/observer-overmask-red.json",
+    "sha256": "175265296f89bfb8cc6f174006ce65c4e8f6007ac82a128b502edae2cc5fac54"
+  },
+  "green_evidence": {
+    "path": "var/v1-08-replacement/observer-overmask-green.json",
+    "sha256": "835a200dc5ce37451a798772e6717c7f48b9e741ae6d8909118eaa36c31a8b54"
+  },
+  "hook_evidence": {
+    "path": "var/v1-08-replacement/observer-hook-o1-green.json",
+    "sha256": "3d2e1928ff75f5c7531cbc0f78c9824ec841257c98727432a9aed64b7a6271cc"
+  },
+  "expectation": {
+    "availability": "actual availability must equal the independent raw-rule expectation; flag and contrasts must agree",
+    "on_the_fly": "saved start and focal clocks known; start strictly earlier",
+    "faceoff": "unique exact player/period/start/end coherent binding, matching start kind and zone, eligible zone, known saved anchor/focal order with anchor strictly earlier",
+    "other": "unknown or unresolved evidence is unavailable",
+    "independence": "oracle uses raw clocks, bindings, zone and saved orders; never calls the shared eligibility predicate"
+  },
+  "red": {
+    "scope": "the two previously defined source-backed valid variants; no corpus scan, fit or rescore",
+    "observer_sha256": "b3811c4b0d9186daa6c59d8cf4d0931aebd4df0b5a8ab77b39c558458f6c71d7",
+    "cases": [
+      {
+        "key": "2021020002:196",
+        "control": "existing strictly-earlier-clock on-the-fly variant",
+        "valid_output_accepted": true,
+        "overmasked_output_refused": false,
+        "reason": null
+      },
+      {
+        "key": "2021020637:210",
+        "control": "existing earlier-order same-clock faceoff variant",
+        "valid_output_accepted": true,
+        "overmasked_output_refused": false,
+        "reason": null
+      }
+    ],
+    "passed": false
+  },
+  "green": {
+    "scope": "the two previously defined source-backed valid variants; no corpus scan, fit or rescore",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "cases": [
+      {
+        "key": "2021020002:196",
+        "control": "existing strictly-earlier-clock on-the-fly variant",
+        "valid_output_accepted": true,
+        "overmasked_output_refused": true,
+        "reason": "2021020002:196: start availability differs from independent raw-rule expectation (expected True, actual False)"
+      },
+      {
+        "key": "2021020637:210",
+        "control": "existing earlier-order same-clock faceoff variant",
+        "valid_output_accepted": true,
+        "overmasked_output_refused": true,
+        "reason": "2021020637:210: start availability differs from independent raw-rule expectation (expected True, actual False)"
+      }
+    ],
+    "passed": true
+  },
+  "unchanged_hook_controls": {
+    "all_required_seen": {
+      "source_contexts": 2,
+      "head_calls": 2,
+      "status": "passed",
+      "known_checked": 2,
+      "head_admission": {
+        "u": {
+          "included": 2
+        },
+        "q": {
+          "included": 1
+        }
+      },
+      "head_populations": {
+        "u": {
+          "physical_attempts": 2,
+          "key_sha256": "ae216c1b87f7d020cba4c47d950ff962d7e874c976797f63ca213a2fa7ac762a",
+          "dispositions": {
+            "unavailable:on_the_fly": 2
+          },
+          "all_strength_dispositions": {
+            "5,5,1|unavailable:on_the_fly": 2
+          },
+          "eligibility_counts": {
+            "masked_on_the_fly": 2,
+            "masked_faceoff": 0,
+            "unresolved_binding": 0,
+            "admitted_same_clock_faceoff": 0,
+            "withheld_earlier_anchor": 0
+          }
+        },
+        "q": {
+          "physical_attempts": 1,
+          "key_sha256": "a9de4f8f495b5e69c3d7464f0acbeaa5c4dc952215cb4bc2099404167104536f",
+          "dispositions": {
+            "unavailable:on_the_fly": 1
+          },
+          "all_strength_dispositions": {
+            "5,5,1|unavailable:on_the_fly": 1
+          },
+          "eligibility_counts": {
+            "masked_on_the_fly": 1,
+            "masked_faceoff": 0,
+            "unresolved_binding": 0,
+            "admitted_same_clock_faceoff": 0,
+            "withheld_earlier_anchor": 0
+          }
+        }
+      },
+      "error": null
+    },
+    "missing_required": {
+      "source_contexts": 1,
+      "head_calls": 0,
+      "status": "source_construction_incomplete",
+      "known_checked": 1,
+      "head_admission": null,
+      "head_populations": {},
+      "error": "known timing witnesses missing before head construction: synthetic-1:7"
+    },
+    "residual_later_faceoff": {
+      "raw_kind": "faceoff",
+      "eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 1,
+        "unresolved_binding": 1,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 1
+      },
+      "head_eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 1,
+        "unresolved_binding": 1,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 1
+      }
+    },
+    "residual_unknown": {
+      "raw_kind": null,
+      "eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 0,
+        "unresolved_binding": 0,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 1
+      },
+      "head_eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 0,
+        "unresolved_binding": 0,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 1
+      }
+    },
+    "admitted_same_clock_faceoff": {
+      "raw_kind": "faceoff",
+      "eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 0,
+        "unresolved_binding": 0,
+        "admitted_same_clock_faceoff": 1,
+        "withheld_earlier_anchor": 0
+      },
+      "head_eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 0,
+        "unresolved_binding": 0,
+        "admitted_same_clock_faceoff": 1,
+        "withheld_earlier_anchor": 0
+      }
+    }
+  },
+  "residual_limit": "withheld_earlier_anchor counts only its previously stated saved-coherent-evidence population. zero does not size the path where an earlier same-clock faceoff may hold the shooter but no saved start kind or anchor supports that alternative; that path remains unsized, cannot be admitted by this rule, and is not reconstructed",
+  "invocation_and_parity": "unchanged; head_populations and aggregate source/context/response comparisons remain required for same-season fit/score; real20212022 still requires all54 existing located keys before first head construction"
+}

@@ -1,0 +1,104 @@
+{
+  "kind": "replacement-first-real-score-preparation",
+  "status": "HOLD; first fit computational acceptance clear and exact accepted-state digest bound; root score-command review/release pending",
+  "recorded_at_utc": "2026-10-31T18:35:40.925871+00:00",
+  "purpose": "real",
+  "season": "20212022",
+  "family": "execution",
+  "command_file": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20212022-score-command.sh",
+    "sha256": "eaa0ee53c72a18c78732ddadc2287808992f3e1cb9f88677c1288d4e551801b7",
+    "bytes": 7600
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-commands.md",
+    "sha256": "747ce2fa11d3228f2c0856b9a853b16eade01170bf788876efc7ad6339243681",
+    "block_sha256": "a5f407634be84cd31134c7ca2728389c99209f2ba7a82c89c7764d6a7f615949"
+  },
+  "changes": "shell-only guarded start/finish/pid and input/state digest receipts plus missing-state presence guard; complete timed observed argv and ordinary CLI tail unchanged",
+  "ordinary_cli_tail": [
+    "score",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--coaches",
+    "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "--state",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022"
+  ],
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/manifest.json",
+    "sha256": "7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61",
+    "exists_at_preparation": false,
+    "release_requirement": "root reviews and releases the exact pinned first-score command",
+    "runtime_hash": "record and assert exact accepted7c740083manifest digest",
+    "exists_at_binding": true
+  },
+  "source": {
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "execution_recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "python": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "pythonpath": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src"
+  },
+  "inputs": [
+    {
+      "kind": "prepared",
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+    },
+    {
+      "kind": "coaches",
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+    },
+    {
+      "kind": "known-census",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-non-prior-starts.json",
+      "sha256": "6fd06ffbd3143379849fd82b4598c85d4f178b14c3c9eed4b28e003f30207a96"
+    }
+  ],
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022",
+  "score_source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20212022-source-check.json",
+  "fit_source_check": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20212022-source-check.json",
+    "sha256": "2a1e41e1b64dabe30d2e000559e49fe2106f54e494855bbd9629d7e346b025df"
+  },
+  "parity_fields": [
+    "source_context_sha256",
+    "source_response_sha256",
+    "source_contexts",
+    "dispositions",
+    "all_strength_dispositions",
+    "eligibility_counts",
+    "head_admission",
+    "head_populations"
+  ],
+  "checks": {
+    "shell_syntax_exit": 0,
+    "complete_timed_argv_equals_reviewed_book": true,
+    "ordinary_cli_tail_unchanged": true,
+    "state_digest_unset": false,
+    "exact_real2021_known54_census": true,
+    "no_new_cli_flags": true,
+    "source_and_observer_guards": true,
+    "pinned_python_and_absolute_pythonpath": true,
+    "distinct_occupied_guards": 16,
+    "score_output_log_source_check_and_launch_paths_absent": true,
+    "score_exit_status_preserved": true,
+    "accepted_state_expected_hash_guard_bound": true
+  },
+  "workflow": "root intends first fit then first score and real-scale eight-field fit-score parity before adding year2history; one expensive compute command at a time;2022fit remains held",
+  "propagations": 0,
+  "launched": false,
+  "scope": "local reviewed books, existing fit report identity, source/git/path metadata only; no real game, array, strict reader, source pass or optimization",
+  "policy": "no source/production/observer edits, new CLI flow, pause or runtime forecast; root alone releases scoring",
+  "updated_at_utc": "2026-10-31T19:02:20.865876+00:00",
+  "acceptance_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-real-execution-20212022-completion.json",
+    "sha256": "787404b782ac1fb17c79a05214ddf8c267a8676e7b0de9f35ab7b91b82c9af99"
+  }
+}

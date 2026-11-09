@@ -1,0 +1,44 @@
+{
+  "kind": "replacement-real-score-20222023-source-parity",
+  "status": "passed before numerical scoring; completed saved outputs pending",
+  "recorded_at_utc": "2026-11-01T03:54:02.483382+00:00",
+  "score_report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20222023-source-check.json",
+    "sha256": "b80843a70f1ab174ea7e1cb3d6cf3087a6ed8b331fef0083ab848cc3e7770037",
+    "bytes": 92822
+  },
+  "fit_report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20222023-source-check.json",
+    "sha256": "b20a9f2e4320b5826f97008c27d22b5d79c5c39bcba67c9c6750ec556ad1f983"
+  },
+  "fields": {
+    "source_context_sha256": true,
+    "source_response_sha256": true,
+    "source_contexts": true,
+    "dispositions": true,
+    "all_strength_dispositions": true,
+    "eligibility_counts": true,
+    "head_admission": true,
+    "head_populations": true
+  },
+  "source_contexts": 151540,
+  "source_context_sha256": "fa30119dd470f65de8b5d93442c080bde69be93616eb84aa952f83c60cbc0eff",
+  "source_response_sha256": "fd0fa7ef85d3f17792d626d656b191da8ffb29cd08116372d25ef10798e8da93",
+  "eligibility_counts": {
+    "masked_on_the_fly": 12,
+    "masked_faceoff": 7,
+    "unresolved_binding": 1,
+    "admitted_same_clock_faceoff": 0,
+    "withheld_earlier_anchor": 0
+  },
+  "unavailable_by_head": {
+    "u": 2362,
+    "q": 1786,
+    "r": 1278,
+    "g": 938
+  },
+  "observer_body_seconds": 29.013706547557376,
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "scope": "ordinary score source construction only; counters overlap, masks are not all timing failures, no census/pause/threshold/source pass added; numerical score/accounting/resources still pending"
+}

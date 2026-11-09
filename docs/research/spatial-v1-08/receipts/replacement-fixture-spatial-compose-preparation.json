@@ -1,0 +1,126 @@
+{
+  "kind": "replacement-fixture-combined-spatial-compose-preparation",
+  "status": "all five states/three probes and strict selection accepted; standalone prepared, root execution release/review pending; unexecuted",
+  "recorded_at_utc": "2026-10-31T16:15:49.196196+00:00",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-compose-spatial-command.sh",
+    "bytes": 5110,
+    "sha256": "2e08f4e7565ab3c37ee0164d372d05002bd16b26993a9d0b72f2832adff156d5"
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md",
+    "bytes": 24693,
+    "sha256": "e17826b40ef478df78af41d668c9ce79bb4730531a464aaac941d62e1f75c742"
+  },
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "summarize",
+    "--family",
+    "spatial",
+    "--results",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution-results",
+    "--states",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/states-selection.json",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results"
+  ],
+  "checks": {
+    "sh_n_exit": 0,
+    "whole_spatial_cli_argv_equals_initial": true,
+    "all7_fresh_pin_receipts_guarded": true,
+    "actual_selection_hash_and_five_exact_rows": true,
+    "purpose_and_preparation_match_base": true,
+    "no_dataset_or_native_transport_change": true
+  },
+  "execution_base": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution-results/manifest.json",
+    "bytes": 17435,
+    "sha256": "82f0b55fac5fa66d3edbac201365710103bc78df36d59b64c856a93b26d2c6df"
+  },
+  "states_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/states-selection.json",
+    "bytes": 1452,
+    "sha256": "bdee26d0119f71cbc55a0df7eb900588e8bc5fa96da0dd00c1ddf6a7f5af9b05"
+  },
+  "pinned_states": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20212022/manifest.json",
+      "sha256": "91ccca92782e4c156cb6ebe55952b6ded7c20d865ce4efcc323267b674d11465"
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20222023/manifest.json",
+      "sha256": "8444b539b8cf6bc61ac4ca78ab5c4dec9e4e885a1452b72da24fdf9ae1eccba1"
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20232024/manifest.json",
+      "sha256": "000b36e473a22b458acfefe4331ca88fe6780bba370fe0834841b4143e31ef4e"
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20242025/manifest.json",
+      "sha256": "c9fe5fb27c13dda61c8062104b8c977bd462931170f023d2fa48834a04b56416"
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20252026/manifest.json",
+      "sha256": "af7cf9250b55d6a33e9badee037bd230604795c399846464c0853c0aba6d8b6a"
+    }
+  ],
+  "selection_writer": "numerical owner only; no duplicate product writer",
+  "selection_owner_result": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/fixture-spatial-selection-write-result.json",
+    "bytes": 873,
+    "sha256": "8543fba3c6171a2984236b77e2c17c90be1766525ab75375a8686b8475d3ce3f"
+  },
+  "selection_owner_helper_sha256": "d73a61c3ef66323eff0424e5c78f932d7d26387cf79b2f2075bcb492d511a84e",
+  "selection_owner_metadata_gates": {
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "prepared_sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+    "coaches_sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c",
+    "recipe_sha256": "04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b",
+    "basis_identity": {
+      "sha256": "f70933a396c86b819ea65b420ff736c03d968047dd8b6e7294e048e9b7c02cc6",
+      "array_sha256": "4fa1d565e939dae706a7f3fa0d060b06b647602ba32d2850174b80c6267fa42b",
+      "reference": "uniform-native-656",
+      "modes": 40
+    },
+    "array_reads": 0,
+    "repeated_strict_reads": 0
+  },
+  "required_preservation": {
+    "all_nonowned_family_rows": 27,
+    "inherited_table_members": 45,
+    "inherited_table_bytes": 789227228,
+    "people_sources_catalogs_exact": true,
+    "existing_methods_supports_records_exact": true,
+    "only_owned_spatial_members_and_catalog_additions_change": true,
+    "copy_contract": "existing narrow streaming composition; preserve each non-owned family/member byte-for-byte from accepted82f0 base"
+  },
+  "freeze": {
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "production_observer_changed": false
+  },
+  "fresh_pin_receipts": [
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-spatial-launch-head.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-spatial-launch-analysis-tree.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-spatial-launch-analysis-status.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-spatial-launch-observer-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-spatial-expected-recipe-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-spatial-execution-results-manifest-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-spatial-states-selection-sha256.txt"
+  ],
+  "future_combined_manifest_sha256": null,
+  "composition_launched": false,
+  "publication_launched": false,
+  "scope": "actual accepted selection/base metadata and owner proof only; no source game/array/strict state reread, model, publication, server or app build action"
+}

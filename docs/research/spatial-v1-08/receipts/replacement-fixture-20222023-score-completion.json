@@ -1,0 +1,161 @@
+{
+  "kind": "replacement-fixture-20222023-score-completion",
+  "status": "completed; root accepted score and exact eight-field source parity",
+  "recorded_at_utc": "2026-10-31T15:09:12.532656+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20222023/manifest.json",
+    "bytes": 44848,
+    "sha256": "69bf4a4dede3a7ca3f0c0cca9897caaadd2330d40a2a2acbd5c902cf6484bdad"
+  },
+  "input_bindings": {
+    "prepared": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df"
+    },
+    "coaches": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c"
+    },
+    "state": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20222023/manifest.json",
+      "sha256": "7ca3062b6676d94640d6edfae2e154948c08f168a7bd9771271af2e706f6980c"
+    }
+  },
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-2",
+    "sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "state_previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022/manifest.json",
+    "sha256": "93478145e952d2378fce912b0c5daffff553ce84d2a74cce3f327e59a3320baf"
+  },
+  "implementation": {
+    "git_commit": "95b682fde1106e84570945707808210153721b3c",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "exit": 0,
+  "cost": {
+    "wall_seconds": 37.61,
+    "peak_rss_bytes": 1010352128,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20222023.log",
+      "bytes": 930,
+      "sha256": "722908bf83bfec2925249f048454c046b9feb87f54b28c0400c11b285195f689"
+    },
+    "manifest_wall_seconds": 36.87909179198323,
+    "manifest_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest"
+  },
+  "saved_accounting": {
+    "recognized": 596,
+    "complete": 585,
+    "excluded": 11,
+    "games": 5,
+    "panels": 32,
+    "projections": 1253,
+    "skaters": 179,
+    "origin_rows": 99490,
+    "setter_branches": 5335,
+    "reason_counts_overlap": true,
+    "member_files": 73,
+    "member_bytes": 32517736,
+    "bytes_with_manifest": 32562584,
+    "files_by_role": {
+      "event": 1,
+      "setter": 1,
+      "share": 1,
+      "person": 1,
+      "coach": 1,
+      "panel_events": 32,
+      "panel_arrays": 32,
+      "projection": 1,
+      "map": 1,
+      "resolution": 1,
+      "coverage": 1
+    }
+  },
+  "resolution": {
+    "status": "not_applicable",
+    "explanation": "bounded propagation applies only to the final annual state"
+  },
+  "parity": {
+    "fit_check": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20222023-source-check.json",
+      "bytes": 28086,
+      "sha256": "9bc11d95548af8cde249f74004e6f018c557fb4ed91fd378e0ee0244c2c7cc1b"
+    },
+    "score_check": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20222023-source-check.json",
+      "bytes": 28050,
+      "sha256": "f2b6c5f0beb42297714f49cfeaeafa013cc6498c5e70d3c89946b7a7989359e2"
+    },
+    "fields": {
+      "source_context_sha256": true,
+      "source_response_sha256": true,
+      "source_contexts": true,
+      "dispositions": true,
+      "all_strength_dispositions": true,
+      "eligibility_counts": true,
+      "head_admission": true,
+      "head_populations": true
+    },
+    "same_eight_field_canonical_sha256": "71bb836cf596b79b9f26365dd4edd01fa4cb84c7561429da4bc99174265e9e4f",
+    "source_contexts": 585,
+    "physical_attempts_by_head": {
+      "u": 585,
+      "q": 434,
+      "r": 321,
+      "g": 235
+    }
+  },
+  "bounded_saved_checks": {
+    "event_key": "2022020001:4",
+    "event_line": 1,
+    "prefix_terminal_partitions": {
+      "neutral": {
+        "sum": 1.0,
+        "minimum": 0.032336801999606375
+      },
+      "neutral_goalie": {
+        "sum": 1.0,
+        "minimum": 0.031171462316326136
+      },
+      "actor": {
+        "sum": 1.0,
+        "minimum": 0.03072773913713466
+      }
+    },
+    "stored_conditionals_checked": 5,
+    "coalition_endpoints_and_probability_bounds": true,
+    "projection_player": "8470966",
+    "projection_strength": "5v5",
+    "projection_line": 1,
+    "projection_opportunities": 466,
+    "projection_setup_weight": 372.8,
+    "all10_projection_values_reconstructed": true,
+    "map_line": 1,
+    "native_map_cells": 656,
+    "native_map_integrated": -0.11779576938082106,
+    "native_map_sum": -0.11779576938082106,
+    "native_scalar_closure": true,
+    "scope": "one saved complete event, first projection and matching native map; no populationwide independent numerical claim"
+  },
+  "strict_validation_scope": "producer strict validation completed before manifest and was not repeated; no source pass, solve, rescore or head/panel array read",
+  "small_member_identities": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20222023/coverage.json",
+      "bytes": 4645,
+      "sha256": "fd77657d49bc802e40cd1da6490005f7f9e32a3137ed295ee868330c451c9a0a"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20222023/resolution.json",
+      "bytes": 112,
+      "sha256": "58bf2be68cff444802ca7ed35b3626aa82c98e91dfdb8d50a87b9744766cb9e0"
+    }
+  ],
+  "next_score_released": false
+}

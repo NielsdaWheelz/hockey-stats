@@ -1,0 +1,52 @@
+{
+  "status": "released_single_real_spatial_composition",
+  "recorded_at": "2026-11-06T18:18:31.601989+00:00",
+  "analysis_tree": "f71461a5496b657d27bd20ae14f77d5177fdd7e4",
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-spatial-summarize-command.sh.held",
+    "sha256": "a94a7cdd4d43ea681d413e6d351cc6cf2ff310da7804a3e5f4529d52330322c4"
+  },
+  "source_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results/manifest.json",
+    "sha256": "3441f784c11eb6a8eda38800806b8e4dc68e06e8587c91db24c5dffaadae4347"
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/states-selection.json",
+    "sha256": "7ac43cfa0bcf72b449bc9267b19f16eb5ac7d7bf396fd08d9a98200d94549f1c"
+  },
+  "product_admission": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial-product-admission.json",
+    "sha256": "1f09a7c2723bb502b96938e88c4708f5ed2d544d906a5c68d74dd346ede89ce2"
+  },
+  "root_decision": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/experimental-use-decision.md",
+    "sha256": "dc567ef354930e74f2f74d8f618a297992439bb65c62b8f81630146a2060c3f7"
+  },
+  "review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/experimental-use-actual-admission-and-command-review.md",
+    "sha256": "e978e3ccb3d0507448b3dc663768be3e70e176ff395dfea8851d34fb2bc66474"
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results",
+  "selector": {
+    "source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/write_real_spatial_selection.py",
+      "sha256": "9b955d93ae1594dcee11eead859398ee7e29d5de21e3b135f471b810d689ad81"
+    },
+    "native_session_id": 33627,
+    "native_exit": 0,
+    "native_session_closed": true,
+    "whole_wall_seconds": 0.8,
+    "peak_resident_bytes": 22298624,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/states-selection-write.log",
+      "sha256": "680a7a8231e2abe1b6a11b1b944e5c362d6bcd2e8e9a59215afd66efd8ca278f"
+    },
+    "exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/states-selection-write-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "actual_admission_reference_validation": "passed without state reader or output invocation",
+  "boundary": "saved baseline composition and normal strict saved-state/result construction validation; no raw-source reconstruction, fit, new continuation or activation",
+  "remaining": "saved composition check, inactive candidate publication, detached runtime, final-build browser/export acceptance and cleanup"
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "spatial-v1-08-disposable-rollback-step",
+  "status": "passed",
+  "exit_code": 0,
+  "argv": [
+    "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "app/dist/node/operator/publication-cli.js",
+    "restore",
+    "--directory",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/rollback-check"
+  ],
+  "publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+  "purpose": "fixture",
+  "action": "restore",
+  "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/rollback-check/active.sqlite",
+  "predecessor": {
+    "sha256": "6c77ed6081bfeb9e06d9d790fce48421c5672d27b5e50b6974f73085ba7ae114",
+    "bytes": 1369198592
+  },
+  "available_seasons": [
+    "20252026",
+    "20242025",
+    "20232024"
+  ],
+  "raw_output": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/rollback-receipts/fixture03-rollback-restored.json",
+    "sha256": "dfa39a720036b4f448a4ee721f1bff0999f6a0621a04df254cd853b1ac038780",
+    "bytes": 997380
+  },
+  "scope": "existing operator validates every incoming candidate through the current strict schema8 reader; disposable directory only"
+}

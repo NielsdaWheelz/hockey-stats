@@ -1,0 +1,46 @@
+{
+  "kind": "replacement-fixture-five-score-selection-preparation",
+  "status": "root accepted all five scores and explicitly released exclusive selection write; helper prepared, not yet executed at receipt creation",
+  "recorded_at_utc": "2026-10-31T15:41:14.466286+00:00",
+  "helper": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/prepare-fixture-score-selection.py",
+    "bytes": 1994,
+    "sha256": "62ee19dc34a542da8991b0599a7c43e3f519da6c15dadde37a8f68338db16e2a"
+  },
+  "expected_manifest_pins": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022/manifest.json",
+      "sha256": "78e029e06cfb50ebdc247117faeb3849459e291be2267c250a9c15858dac7d60"
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20222023/manifest.json",
+      "sha256": "69bf4a4dede3a7ca3f0c0cca9897caaadd2330d40a2a2acbd5c902cf6484bdad"
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20232024/manifest.json",
+      "sha256": "fb1d1ad1f3c5437eb050da0ebdc22cd6fca972af8756aa53c452c60d340df604"
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20242025/manifest.json",
+      "sha256": "1f6ac613aa064692ce842c9a0c6bf144e7081c1cd762aff5143b741e7ab8e149"
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20252026/manifest.json",
+      "sha256": "80f61f0dc1941042c5bf1e3488fdaaed9cc0fb303670f6780558ff11a603072a"
+    }
+  ],
+  "expected_selection_sha256": "9c35a98ee4b5032084c4a7017d84960b4f57d3b9f256d272f92df27b59ce139d",
+  "expected_bytes": 1447,
+  "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores-selection.json",
+  "prepared_sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+  "coaches_sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "checks": "all5 exact manifest digests, common recipe/prepared/coaches, exact annual predecessor continuity, final passed resolution; metadata only",
+  "code_ast_parse": true,
+  "no_member_payload_read": true
+}

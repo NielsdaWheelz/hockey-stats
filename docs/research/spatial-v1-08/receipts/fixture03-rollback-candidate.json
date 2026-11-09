@@ -1,0 +1,33 @@
+{
+  "kind": "spatial-v1-08-disposable-rollback-step",
+  "status": "passed",
+  "exit_code": 0,
+  "argv": [
+    "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "app/dist/node/operator/publication-cli.js",
+    "activate",
+    "--candidate",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite",
+    "--directory",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/rollback-check"
+  ],
+  "publication_id": "e5118eea-1ccf-45e4-ba59-4ed8b5a906b5",
+  "purpose": "fixture",
+  "action": "activate",
+  "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/rollback-check/active.sqlite",
+  "predecessor": {
+    "sha256": "d71510774e04644f04a257c6b7f4949d7d2fb5a62dbce6426ab00db12e15e774",
+    "bytes": 837996544
+  },
+  "available_seasons": [
+    "20252026",
+    "20242025",
+    "20232024"
+  ],
+  "raw_output": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/rollback-receipts/fixture03-rollback-candidate.json",
+    "sha256": "da6745ecba0abededc0346d1bda4bdd87c82a96a53d6fed4740d52b312dd4c36",
+    "bytes": 997083
+  },
+  "scope": "existing operator validates every incoming candidate through the current strict schema8 reader; disposable directory only"
+}

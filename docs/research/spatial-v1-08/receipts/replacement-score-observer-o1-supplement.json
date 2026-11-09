@@ -1,0 +1,79 @@
+{
+  "kind": "execution-spatial-replacement-score-observer-o1-supplement",
+  "status": "prepared only; production review clear, explicit root execution release still required",
+  "recorded_at_utc": "2026-10-31T14:50:47.458942+00:00",
+  "supersedes": "latest observer identity and residual acceptance wording only; historical preparations remain intact",
+  "previous_identity_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-score-observer-head-supplement.json",
+    "bytes": 3135,
+    "sha256": "f3e14b0acac0585b6b37ea34bbcdbcb9cb15c83856aa6868863f33d9edc7fdb4"
+  },
+  "observer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "bytes": 13248,
+    "sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf"
+  },
+  "prior_observer_sha256": "b3811c4b0d9186daa6c59d8cf4d0931aebd4df0b5a8ab77b39c558458f6c71d7",
+  "cli_changed": false,
+  "command_books": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md",
+      "bytes": 13768,
+      "sha256": "bfd130a1581f79d49fc9e86be12ab467e1a1feb6d5bdbc6f345d4b68706bfe8d"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-commands.md",
+      "bytes": 13597,
+      "sha256": "2d7a78c6e7669d0d841998f0e91ec0ca9ddee255245770b347f687514a58cfee"
+    }
+  ],
+  "command_books_rewritten": false,
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "production_analysis_changed": false,
+  "exact_same_season_fit_score_parity_fields": [
+    "source_context_sha256",
+    "source_response_sha256",
+    "source_contexts",
+    "dispositions",
+    "all_strength_dispositions",
+    "eligibility_counts",
+    "head_admission",
+    "head_populations"
+  ],
+  "head_populations_contract": {
+    "head_keys": [
+      "u",
+      "q",
+      "r",
+      "g"
+    ],
+    "per_head_fields": [
+      "physical_attempts",
+      "key_sha256",
+      "dispositions",
+      "all_strength_dispositions",
+      "eligibility_counts"
+    ],
+    "grain": "physical attempt rows selected by each returned head design; compact observed flags, no origin expansion",
+    "comparison": "compare the entire head_populations object exactly between same-season fit and score"
+  },
+  "availability_oracle": "actual consumed start availability must equal the independent raw clock/zone/unique binding/order expectation, checking eligible and unavailable contexts; catches valid starts that were overmasked as well as invalid admission",
+  "o1_source_proof": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/execution-start-observer-availability.json",
+    "bytes": 7510,
+    "sha256": "f12979b65e541f9c053641c58e226b343d48ad3c13e594f14ffcdfb61b5638a0",
+    "commit": "9bf7ad6"
+  },
+  "o1_proof_status": "source-backed valid on-the-fly and faceoff controls accepted; old observer red accepted both overmasked variants, O1 green refuses both; hook/per-head controls remain passed",
+  "residual_acceptance": {
+    "reviewer_additional_count_request": "withdrawn; do not broaden",
+    "limit": "current coherent-only residual counts do not size later same-clock faceoff withholding when saved kind/anchor is absent",
+    "zero_claim": "a zero coherent-only count is not a population-size result for the absent-anchor path",
+    "status": "unsized withholding limitation accepted by root; no new count or source pass introduced"
+  },
+  "root_execution_release_granted": false,
+  "score_command_run": false,
+  "selection_written": false,
+  "future_artifact_hashes": null,
+  "scope": "local metadata/hash review only; no command rewrite, production/app/build/server edit, source-game/array/state/score/database read or model/gui launch"
+}

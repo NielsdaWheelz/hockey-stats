@@ -1,0 +1,182 @@
+{
+  "kind": "real-compatible-execution-composition-completion",
+  "status": "accepted_execution_exchange_for_spatial_composition",
+  "recorded_at_utc": "2026-11-04T13:21:35.626494+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results/manifest.json",
+    "bytes": 17491,
+    "sha256": "3441f784c11eb6a8eda38800806b8e4dc68e06e8587c91db24c5dffaadae4347"
+  },
+  "eligible_as_spatial_composition_base": true,
+  "source": {
+    "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+    "launch_head": "0e86ecae9643074a90a469af09f567357b2e1e17",
+    "producer": {
+      "git_commit": "f83e0f8e4fae042a515f4e470e986b5a6e50d8af",
+      "git_dirty": false,
+      "python_version": "3.14.8"
+    },
+    "freeze_ended_at_utc": "2026-11-04T13:17:02Z"
+  },
+  "release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-execution-composition-release.json",
+    "bytes": 2095,
+    "sha256": "8c9f88d5f548a38b4d716c44a38832ddde3a8f13bf7d4aae37a30ff8689f4fb7"
+  },
+  "launch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-execution-composition-launch.json",
+    "bytes": 4976,
+    "sha256": "b7dddde34f31f9da424c37caa740d58358321baa39903e155ad78e2c1528295a"
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores-selection.json",
+    "bytes": 1429,
+    "sha256": "588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e8c000f9450"
+  },
+  "facts": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json",
+    "bytes": 13870,
+    "sha256": "786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb"
+  },
+  "observed": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "bytes": 711,
+    "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9"
+  },
+  "saved_check": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-composition-saved-check-01.json",
+    "bytes": 11281,
+    "sha256": "5d8c4437bb28893d8e2844eede59d10cb014eca1abf472a7d5c22f84797842dd"
+  },
+  "independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-execution-composition-saved-review.md",
+    "bytes": 4846,
+    "sha256": "d4f3faab552f83d672bba63c60c35eb700bbd678a23bfa2ad3a85cc7a72e89e8"
+  },
+  "calls": {
+    "execution_summarize": 1,
+    "canonical_validation": "inside the ordinary producer",
+    "saved_copy_accounting_check": 1,
+    "additional_strict_readers": 0,
+    "source_replays": 0,
+    "npz_loads": 0,
+    "model_evaluations": 0
+  },
+  "preservation": {
+    "unchanged_tables": 15,
+    "unchanged_table_rows": 13418115,
+    "retained_factual_methods": 3,
+    "retained_supports": 12,
+    "pending_families": [
+      [
+        "20232024",
+        "goalie"
+      ],
+      [
+        "20232024",
+        "ledger"
+      ],
+      [
+        "20232024",
+        "penalties"
+      ],
+      [
+        "20232024",
+        "shootiness"
+      ],
+      [
+        "20232024",
+        "spatial"
+      ],
+      [
+        "20232024",
+        "territory"
+      ],
+      [
+        "20242025",
+        "goalie"
+      ],
+      [
+        "20242025",
+        "ledger"
+      ],
+      [
+        "20242025",
+        "penalties"
+      ],
+      [
+        "20242025",
+        "shootiness"
+      ],
+      [
+        "20242025",
+        "spatial"
+      ],
+      [
+        "20242025",
+        "territory"
+      ],
+      [
+        "20252026",
+        "goalie"
+      ],
+      [
+        "20252026",
+        "ledger"
+      ],
+      [
+        "20252026",
+        "penalties"
+      ],
+      [
+        "20252026",
+        "shootiness"
+      ],
+      [
+        "20252026",
+        "spatial"
+      ],
+      [
+        "20252026",
+        "territory"
+      ]
+    ]
+  },
+  "counts": {
+    "source_attempt_rows": 468478,
+    "numerical_only_attempt_rows": 2021,
+    "copied_projections_exact": 19481,
+    "factual_only_unavailable_projections": 7,
+    "copied_native_maps_exact": 38962
+  },
+  "cost": {
+    "whole_command_wall_seconds": 18572.44,
+    "producer_log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/compose-execution.log",
+      "bytes": 917,
+      "sha256": "f4500bbf5e4cc1453381c0663ba107eeeceff4ed9f1d18ff0751a2c6533c1ee8"
+    },
+    "producer_peak_rss_bytes": 17235165184,
+    "producer_peak_footprint_bytes": 17230443288,
+    "checker_wall_seconds": 139.99720658303704,
+    "checker_peak_rss_bytes": 258228224,
+    "checker_whole_wall_seconds": 140.15,
+    "checker_peak_footprint_bytes": 248201888,
+    "checker_log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-composition-saved-check-01.log",
+      "bytes": 4790,
+      "sha256": "eb3f67d2243da5c8ad592abb04e1d5775c3fa52ca43af34ad476ed43d38c6065"
+    }
+  },
+  "size": {
+    "complete_artifact_bytes": 12357809487
+  },
+  "limits": [
+    "saved-row copy/accounting and source-score joins only; no raw game or predictor reconstruction, NPZ load or new strict artifact read",
+    "every copied native map/projection value and support is joined to its accepted saved score row; upstream numerical map-scalar and derived display-transform math retain existing producer validation and later real API checks",
+    "recorded assist annotations are restricted to matching factual goal evidence; official source-assist chronology is not independently rederived here",
+    "factual-only projections remain explicitly unavailable; raw-only score rows are reported; no scientific admission, ability bound, activation or spatial pin cutover"
+  ],
+  "next": "review/apply only seven compositor admission literals; refresh year-two code-identity pins and review before its release",
+  "remaining": "twelve spatial annual heads, three final probes, combined publication and real source-to-screen acceptance; no activation"
+}

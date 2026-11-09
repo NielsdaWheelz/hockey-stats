@@ -1,0 +1,894 @@
+{
+  "kind": "replacement-real-execution-20222023-completion",
+  "status": "accepted by root after saved-state and independent annual review",
+  "recorded_at_utc": "2026-11-01T02:18:41.113436+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/manifest.json",
+    "bytes": 362029,
+    "sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c"
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/manifest.json",
+    "bytes": 361655,
+    "sha256": "7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61"
+  },
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-2",
+    "sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "launch": {
+    "head": "a4f23016bad6722e66cfbdabe7e3ccf6b65e8b5e",
+    "producer_head": "eaae48cd47e03b5d8f7a30fe7761d7fcf8b1378a",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "start": "2026-10-31T23:40:35Z",
+    "finish": "2026-11-01T02:13:07Z",
+    "exit": 0,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023.log",
+      "bytes": 894,
+      "sha256": "554de99cbbfa3d1fdf0c260f13e84a51e9377454ba62862f7c6f441269ea761b"
+    }
+  },
+  "saved_acceptance": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20222023-saved-acceptance-02.json",
+    "sha256": "6ed6d32580ecb34eed79234a4737382a69a37d4f33ca581ae501cd4014f34e33",
+    "bytes": 28223,
+    "status": "passed all four heads"
+  },
+  "source": {
+    "report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20222023-source-check.json",
+      "bytes": 92858,
+      "sha256": "b20a9f2e4320b5826f97008c27d22b5d79c5c39bcba67c9c6750ec556ad1f983"
+    },
+    "source_contexts": 151540,
+    "known_expected": 0,
+    "known_checked": 0,
+    "dispositions": {
+      "eligible:faceoff": 61005,
+      "eligible:on_the_fly": 88173,
+      "unavailable:None": 1120,
+      "unavailable:faceoff": 7,
+      "unavailable:no_same_clock_faceoff": 1,
+      "unavailable:on_the_fly": 12,
+      "unavailable:unknown": 1222
+    },
+    "eligibility_counts": {
+      "masked_on_the_fly": 12,
+      "masked_faceoff": 7,
+      "unresolved_binding": 1,
+      "admitted_same_clock_faceoff": 0,
+      "withheld_earlier_anchor": 0
+    },
+    "source_context_sha256": "fa30119dd470f65de8b5d93442c080bde69be93616eb84aa952f83c60cbc0eff",
+    "source_response_sha256": "fd0fa7ef85d3f17792d626d656b191da8ffb29cd08116372d25ef10798e8da93",
+    "observer_seconds": 30.850061436649412,
+    "observer_scope": "observe body only, not total wrapper overhead"
+  },
+  "heads": {
+    "u": {
+      "status": "complete",
+      "actors": 1124,
+      "dimension": 3434,
+      "counts": {
+        "entry": 259,
+        "prior_only": 119,
+        "supported_current": 1005,
+        "carry": 865,
+        "incoming_absent_current": 208,
+        "preserved_incoming_ledger": 219,
+        "ledger_rows": 1224
+      },
+      "transition_reasons": {
+        "entry": 259,
+        "age_carry": 812,
+        "missing_or_changed_role": 1,
+        "age_neutral": 52
+      },
+      "observed_carry_year_gaps": {
+        "1": 865
+      },
+      "witnesses": {
+        "prior_only_entry": {
+          "block": "shooter",
+          "id": "8467950",
+          "last_supported": null,
+          "conditional_prior_mean": 0.0,
+          "current_raw": 0.0,
+          "outgoing_ledger": null
+        },
+        "supported_entry": {
+          "block": "shooter",
+          "id": "8470595",
+          "last_supported": null,
+          "conditional_prior_mean": 0.0,
+          "current_raw": -0.19799748885815255,
+          "outgoing_ledger": {
+            "block": "shooter",
+            "id": "8470595",
+            "coefficient": -0.19799748885815255,
+            "season": "20222023",
+            "role": "F",
+            "age": 38.259512515657406
+          }
+        },
+        "supported_carry": {
+          "block": "shooter",
+          "id": "8470600",
+          "last_supported": {
+            "block": "shooter",
+            "id": "8470600",
+            "coefficient": -0.08465899482920529,
+            "season": "20212022",
+            "role": "D",
+            "age": 37.03019226951957
+          },
+          "conditional_prior_mean": -0.08584327848700156,
+          "current_raw": -0.1836030330816902,
+          "outgoing_ledger": {
+            "block": "shooter",
+            "id": "8470600",
+            "coefficient": -0.1836030330816902,
+            "season": "20222023",
+            "role": "D",
+            "age": 38.02952832707037
+          }
+        },
+        "prior_only_carry": {
+          "block": "shooter",
+          "id": "8475772",
+          "last_supported": {
+            "block": "shooter",
+            "id": "8475772",
+            "coefficient": 0.10758057933109731,
+            "season": "20212022",
+            "role": "F",
+            "age": 30.155307774971423
+          },
+          "conditional_prior_mean": 0.09933142792911018,
+          "current_raw": 0.09933142792911018,
+          "outgoing_ledger": {
+            "block": "shooter",
+            "id": "8475772",
+            "coefficient": 0.10758057933109731,
+            "season": "20212022",
+            "role": "F",
+            "age": 30.155307774971423
+          }
+        },
+        "absent_current_preserved": {
+          "block": "attacking_coach",
+          "id": "coach-alain-vigneault",
+          "coefficient": 0.010508883275082271,
+          "season": "20212022",
+          "role": null,
+          "age": null
+        }
+      },
+      "incoming_raw_ledger_and_outgoing_updates_exact": true,
+      "maximum_conditional_age_adjustment": 0.018466358383965487,
+      "maximum_incoming_anchor_change_vs_original": 0.009484917225988376,
+      "centers": {
+        "shooter": -0.05665949994625035,
+        "goalie": 0.0,
+        "setter": 0.0,
+        "attacking_coach": 0.00479613711384186,
+        "defending_coach": 0.0044023884672673265
+      },
+      "source_key_sha256": "4d4f0423ad0a02299098a6e92818d186067951eb75b3f7a3280a302d32b876f5",
+      "physical_attempts": 151540,
+      "positive": 113179,
+      "unavailable_start_attempts": 2362,
+      "original_unavailable_start_attempts": 2343,
+      "changed_feature_support": [
+        "shooter_start_zone:offensive",
+        "shooter_start_zone:neutral",
+        "shooter_start_zone:defensive"
+      ],
+      "nonstart_design_and_population_exact_original": true,
+      "source_eligibility_counts": {
+        "masked_on_the_fly": 12,
+        "masked_faceoff": 7,
+        "unresolved_binding": 1,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "selected_start": "prior_mean",
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 67892.66290800828,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "native_solves": 1
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 67892.66290798796,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "native_solves": 1
+        }
+      ],
+      "objective": 67892.66290798796,
+      "raw_gradient_max": 0.004964810924156543,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 2260,
+      "evaluations": 2497,
+      "em_iterations": 0,
+      "native_solves": 2,
+      "age_coefficients": {
+        "shooter": {
+          "F": [
+            -0.10086160105402667,
+            0.025055269872771707
+          ],
+          "D": [
+            -0.11395417028691,
+            0.048482820583828044
+          ],
+          "G": [
+            0.00025304250962064135,
+            0.0002654770071467252
+          ]
+        }
+      }
+    },
+    "q": {
+      "status": "complete",
+      "actors": 1231,
+      "dimension": 3567,
+      "counts": {
+        "entry": 281,
+        "prior_only": 127,
+        "supported_current": 1104,
+        "carry": 950,
+        "incoming_absent_current": 235,
+        "preserved_incoming_ledger": 247,
+        "ledger_rows": 1351
+      },
+      "transition_reasons": {
+        "entry": 281,
+        "age_carry": 897,
+        "missing_or_changed_role": 1,
+        "age_neutral": 52
+      },
+      "observed_carry_year_gaps": {
+        "1": 950
+      },
+      "witnesses": {
+        "prior_only_entry": {
+          "block": "shooter",
+          "id": "8467950",
+          "last_supported": null,
+          "conditional_prior_mean": 0.0,
+          "current_raw": 0.0,
+          "outgoing_ledger": null
+        },
+        "supported_entry": {
+          "block": "shooter",
+          "id": "8470595",
+          "last_supported": null,
+          "conditional_prior_mean": 0.0,
+          "current_raw": 0.037137528261033365,
+          "outgoing_ledger": {
+            "block": "shooter",
+            "id": "8470595",
+            "coefficient": 0.037137528261033365,
+            "season": "20222023",
+            "role": "F",
+            "age": 38.259512515657406
+          }
+        },
+        "supported_carry": {
+          "block": "shooter",
+          "id": "8470600",
+          "last_supported": {
+            "block": "shooter",
+            "id": "8470600",
+            "coefficient": -0.37146057090661205,
+            "season": "20212022",
+            "role": "D",
+            "age": 37.03019226951957
+          },
+          "conditional_prior_mean": -0.36872458232857097,
+          "current_raw": -0.4285432718624652,
+          "outgoing_ledger": {
+            "block": "shooter",
+            "id": "8470600",
+            "coefficient": -0.4285432718624652,
+            "season": "20222023",
+            "role": "D",
+            "age": 38.02952832707037
+          }
+        },
+        "prior_only_carry": {
+          "block": "shooter",
+          "id": "8475772",
+          "last_supported": {
+            "block": "shooter",
+            "id": "8475772",
+            "coefficient": 0.2151613848384534,
+            "season": "20212022",
+            "role": "F",
+            "age": 30.155307774971423
+          },
+          "conditional_prior_mean": 0.21132757469261437,
+          "current_raw": 0.21132757469261437,
+          "outgoing_ledger": {
+            "block": "shooter",
+            "id": "8475772",
+            "coefficient": 0.2151613848384534,
+            "season": "20212022",
+            "role": "F",
+            "age": 30.155307774971423
+          }
+        },
+        "absent_current_preserved": {
+          "block": "attacking_coach",
+          "id": "coach-alain-vigneault",
+          "coefficient": -0.025090224391119863,
+          "season": "20212022",
+          "role": null,
+          "age": null
+        }
+      },
+      "incoming_raw_ledger_and_outgoing_updates_exact": true,
+      "maximum_conditional_age_adjustment": 0.026912084547514224,
+      "maximum_incoming_anchor_change_vs_original": 0.0014001401525146895,
+      "centers": {
+        "shooter": 0.019380890082349066,
+        "goalie": -0.0011911104994565991,
+        "setter": 0.0,
+        "attacking_coach": -0.006347229902517584,
+        "defending_coach": -0.005847606355683399
+      },
+      "source_key_sha256": "0354ff8233c59b34a03c540da1b43fde79394416c4ca212911501f4a8710b936",
+      "physical_attempts": 113179,
+      "positive": 81400,
+      "unavailable_start_attempts": 1786,
+      "original_unavailable_start_attempts": 1777,
+      "changed_feature_support": [
+        "shooter_start_zone:offensive",
+        "shooter_start_zone:neutral",
+        "shooter_start_zone:defensive"
+      ],
+      "nonstart_design_and_population_exact_original": true,
+      "source_eligibility_counts": {
+        "masked_on_the_fly": 7,
+        "masked_faceoff": 2,
+        "unresolved_binding": 1,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "selected_start": "zero",
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 63949.301882533204,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "native_solves": 1
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 63949.30188254042,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "native_solves": 1
+        }
+      ],
+      "objective": 63949.301882533204,
+      "raw_gradient_max": 0.007678566749055685,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 3801,
+      "evaluations": 4172,
+      "em_iterations": 0,
+      "native_solves": 2,
+      "age_coefficients": {
+        "shooter": {
+          "F": [
+            0.059940826929886566,
+            -0.13448023307280957
+          ],
+          "D": [
+            0.023205684375716934,
+            0.001981212829447797
+          ],
+          "G": [
+            0.0001359433485155499,
+            0.0001426235985389133
+          ]
+        },
+        "goalie": {
+          "F": [
+            0.0,
+            0.0
+          ],
+          "D": [
+            0.0,
+            0.0
+          ],
+          "G": [
+            0.011682898971657595,
+            0.039200107349508025
+          ]
+        }
+      }
+    },
+    "r": {
+      "status": "complete",
+      "actors": 1231,
+      "dimension": 3567,
+      "counts": {
+        "entry": 284,
+        "prior_only": 135,
+        "supported_current": 1096,
+        "carry": 947,
+        "incoming_absent_current": 228,
+        "preserved_incoming_ledger": 244,
+        "ledger_rows": 1340
+      },
+      "transition_reasons": {
+        "entry": 284,
+        "age_carry": 894,
+        "missing_or_changed_role": 1,
+        "age_neutral": 52
+      },
+      "observed_carry_year_gaps": {
+        "1": 947
+      },
+      "witnesses": {
+        "prior_only_entry": {
+          "block": "shooter",
+          "id": "8467950",
+          "last_supported": null,
+          "conditional_prior_mean": 0.0,
+          "current_raw": 0.0,
+          "outgoing_ledger": null
+        },
+        "supported_entry": {
+          "block": "shooter",
+          "id": "8470595",
+          "last_supported": null,
+          "conditional_prior_mean": 0.0,
+          "current_raw": 0.12207010956588299,
+          "outgoing_ledger": {
+            "block": "shooter",
+            "id": "8470595",
+            "coefficient": 0.12207010956588299,
+            "season": "20222023",
+            "role": "F",
+            "age": 38.259512515657406
+          }
+        },
+        "supported_carry": {
+          "block": "shooter",
+          "id": "8470600",
+          "last_supported": {
+            "block": "shooter",
+            "id": "8470600",
+            "coefficient": 0.09268648606151515,
+            "season": "20212022",
+            "role": "D",
+            "age": 37.03019226951957
+          },
+          "conditional_prior_mean": 0.09551180913280317,
+          "current_raw": -0.022562650277983255,
+          "outgoing_ledger": {
+            "block": "shooter",
+            "id": "8470600",
+            "coefficient": -0.022562650277983255,
+            "season": "20222023",
+            "role": "D",
+            "age": 38.02952832707037
+          }
+        },
+        "prior_only_carry": {
+          "block": "shooter",
+          "id": "8475772",
+          "last_supported": {
+            "block": "shooter",
+            "id": "8475772",
+            "coefficient": -0.3062490017166827,
+            "season": "20212022",
+            "role": "F",
+            "age": 30.155307774971423
+          },
+          "conditional_prior_mean": -0.3114624919534105,
+          "current_raw": -0.3114624919534105,
+          "outgoing_ledger": {
+            "block": "shooter",
+            "id": "8475772",
+            "coefficient": -0.3062490017166827,
+            "season": "20212022",
+            "role": "F",
+            "age": 30.155307774971423
+          }
+        },
+        "absent_current_preserved": {
+          "block": "attacking_coach",
+          "id": "coach-alain-vigneault",
+          "coefficient": -2.0801598440287945e-05,
+          "season": "20212022",
+          "role": null,
+          "age": null
+        }
+      },
+      "incoming_raw_ledger_and_outgoing_updates_exact": true,
+      "maximum_conditional_age_adjustment": 0.014807412698882028,
+      "maximum_incoming_anchor_change_vs_original": 0.0047148584985707565,
+      "centers": {
+        "shooter": 0.006778305409269438,
+        "goalie": 0.00952199170001545,
+        "setter": 0.0,
+        "attacking_coach": 0.0031195207678706917,
+        "defending_coach": -0.0027895827305847716
+      },
+      "source_key_sha256": "750406be46142816aa3fff72947c281e823c3b0e58b8c7dff4443c4aa94740e7",
+      "physical_attempts": 81400,
+      "positive": 62077,
+      "unavailable_start_attempts": 1278,
+      "original_unavailable_start_attempts": 1272,
+      "changed_feature_support": [
+        "shooter_start_zone:offensive",
+        "shooter_start_zone:neutral",
+        "shooter_start_zone:defensive"
+      ],
+      "nonstart_design_and_population_exact_original": true,
+      "source_eligibility_counts": {
+        "masked_on_the_fly": 5,
+        "masked_faceoff": 1,
+        "unresolved_binding": 0,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "selected_start": "prior_mean",
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 42931.93597575852,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "native_solves": 1
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 42931.93597571797,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "native_solves": 1
+        }
+      ],
+      "objective": 42931.93597571797,
+      "raw_gradient_max": 0.005317611766790962,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 3076,
+      "evaluations": 3330,
+      "em_iterations": 0,
+      "native_solves": 2,
+      "age_coefficients": {
+        "shooter": {
+          "F": [
+            -0.049390263361286095,
+            -0.003802045112397322
+          ],
+          "D": [
+            0.051834308375166685,
+            -0.011188328245937308
+          ],
+          "G": [
+            5.437676050689e-05,
+            5.704883206914521e-05
+          ]
+        },
+        "goalie": {
+          "F": [
+            0.0,
+            0.0
+          ],
+          "D": [
+            0.0,
+            0.0
+          ],
+          "G": [
+            0.006243076367578882,
+            0.04997024682507924
+          ]
+        }
+      }
+    },
+    "g": {
+      "status": "complete",
+      "actors": 2182,
+      "dimension": 4525,
+      "counts": {
+        "entry": 426,
+        "prior_only": 144,
+        "supported_current": 2038,
+        "carry": 1756,
+        "incoming_absent_current": 409,
+        "preserved_incoming_ledger": 429,
+        "ledger_rows": 2467
+      },
+      "transition_reasons": {
+        "entry": 426,
+        "age_carry": 1702,
+        "missing_or_changed_role": 2,
+        "age_neutral": 52
+      },
+      "observed_carry_year_gaps": {
+        "1": 1756
+      },
+      "witnesses": {
+        "prior_only_entry": {
+          "block": "shooter",
+          "id": "8467950",
+          "last_supported": null,
+          "conditional_prior_mean": 0.0,
+          "current_raw": 0.0,
+          "outgoing_ledger": null
+        },
+        "supported_entry": {
+          "block": "shooter",
+          "id": "8470595",
+          "last_supported": null,
+          "conditional_prior_mean": 0.0,
+          "current_raw": 0.14277134691990784,
+          "outgoing_ledger": {
+            "block": "shooter",
+            "id": "8470595",
+            "coefficient": 0.14277134691990784,
+            "season": "20222023",
+            "role": "F",
+            "age": 38.259512515657406
+          }
+        },
+        "supported_carry": {
+          "block": "shooter",
+          "id": "8470600",
+          "last_supported": {
+            "block": "shooter",
+            "id": "8470600",
+            "coefficient": 0.0316342726612048,
+            "season": "20212022",
+            "role": "D",
+            "age": 37.03019226951957
+          },
+          "conditional_prior_mean": 0.031909868500268515,
+          "current_raw": 0.021707266642267454,
+          "outgoing_ledger": {
+            "block": "shooter",
+            "id": "8470600",
+            "coefficient": 0.021707266642267454,
+            "season": "20222023",
+            "role": "D",
+            "age": 38.02952832707037
+          }
+        },
+        "prior_only_carry": {
+          "block": "shooter",
+          "id": "8475772",
+          "last_supported": {
+            "block": "shooter",
+            "id": "8475772",
+            "coefficient": -0.025782968987006875,
+            "season": "20212022",
+            "role": "F",
+            "age": 30.155307774971423
+          },
+          "conditional_prior_mean": -0.03501211949464747,
+          "current_raw": -0.03501211949464747,
+          "outgoing_ledger": {
+            "block": "shooter",
+            "id": "8475772",
+            "coefficient": -0.025782968987006875,
+            "season": "20212022",
+            "role": "F",
+            "age": 30.155307774971423
+          }
+        },
+        "absent_current_preserved": {
+          "block": "attacking_coach",
+          "id": "coach-alain-vigneault",
+          "coefficient": -0.013386696662928632,
+          "season": "20212022",
+          "role": null,
+          "age": null
+        }
+      },
+      "incoming_raw_ledger_and_outgoing_updates_exact": true,
+      "maximum_conditional_age_adjustment": 0.027137163578784818,
+      "maximum_incoming_anchor_change_vs_original": 0.006923183552660542,
+      "centers": {
+        "shooter": 0.04323859180856652,
+        "goalie": -0.056924658201919366,
+        "setter": 0.07206833157397544,
+        "attacking_coach": 0.00807186114809595,
+        "defending_coach": -0.0007887685322017283
+      },
+      "source_key_sha256": "e146452fd0d605bcc3d00976f8089f1eeeab60ca32c5028ffb0447051b2c7f8a",
+      "physical_attempts": 62077,
+      "positive": 7778,
+      "unavailable_start_attempts": 938,
+      "original_unavailable_start_attempts": 933,
+      "changed_feature_support": [
+        "shooter_start_zone:offensive",
+        "shooter_start_zone:neutral",
+        "shooter_start_zone:defensive"
+      ],
+      "nonstart_design_and_population_exact_original": true,
+      "source_eligibility_counts": {
+        "masked_on_the_fly": 5,
+        "masked_faceoff": 0,
+        "unresolved_binding": 0,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "selected_start": "prior_mean",
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 35810.287154852034,
+          "termination": "setter em objective and responsibility tolerances satisfied",
+          "native_solves": 8
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 35810.287154846716,
+          "termination": "setter em objective and responsibility tolerances satisfied",
+          "native_solves": 8
+        }
+      ],
+      "objective": 35810.287154846716,
+      "raw_gradient_max": 0.0017920753228946736,
+      "termination": "setter em objective and responsibility tolerances satisfied",
+      "iterations": 6695,
+      "evaluations": 7313,
+      "em_iterations": 8,
+      "native_solves": 16,
+      "age_coefficients": {
+        "shooter": {
+          "F": [
+            -0.06278928912284726,
+            -0.04044285721687166
+          ],
+          "D": [
+            0.04879585804442478,
+            -0.021860721479747904
+          ],
+          "G": [
+            -2.66223845360872e-05,
+            -2.7930607313157326e-05
+          ]
+        },
+        "goalie": {
+          "F": [
+            0.0,
+            0.0
+          ],
+          "D": [
+            0.0,
+            0.0
+          ],
+          "G": [
+            0.001754445737461708,
+            0.08064231988313869
+          ]
+        },
+        "setter": {
+          "F": [
+            0.017618189145223513,
+            -0.13071591494738855
+          ],
+          "D": [
+            0.02244396338386475,
+            -0.058940009206281826
+          ],
+          "G": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "coverage": {
+    "original_core_exact": true,
+    "optional_start_support_matches_actual_head_metadata": true,
+    "recognized": 153348,
+    "games": 1312
+  },
+  "resources": {
+    "whole_command_wall_seconds": 9150.92,
+    "user_seconds": 8511.82,
+    "system_seconds": 119.77,
+    "maximum_resident_bytes": 17682644992,
+    "peak_memory_footprint_bytes": 20255423512,
+    "producer": {
+      "wall_seconds": 9090.170668999024,
+      "peak_memory_bytes": 17682644992,
+      "design_wall_seconds": 5673.011284707987,
+      "input_read_wall_seconds": 1.565346417017281,
+      "fit_wall_seconds": 3415.5940378740197,
+      "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+      "output_bytes": 208696533,
+      "origin_rows": {
+        "u": 25277995,
+        "q": 113179,
+        "r": 81400,
+        "g": 62077
+      },
+      "candidate_branches": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 563846
+      },
+      "resolution_solve_counts": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 0
+      },
+      "dimensions": {
+        "u": 3434,
+        "q": 3567,
+        "r": 3567,
+        "g": 4525
+      },
+      "solve_counts": {
+        "u": 2,
+        "q": 2,
+        "r": 2,
+        "g": 16
+      }
+    },
+    "producer_wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+    "member_bytes": 208696533,
+    "complete_bytes": 209058562,
+    "checker_wall_seconds": 29.802046833036,
+    "checker_peak_rss_bytes": 1443282944
+  },
+  "validation_costs": {
+    "strict_reads_this_acceptance": 2,
+    "first_successful_strict_seconds": 29.55482708400814,
+    "corrected_strict_seconds": 28.335230875003617,
+    "first_checker_exit": 1,
+    "first_whole_checker_seconds": 32.31,
+    "corrected_whole_checker_seconds": 30.01,
+    "first_failure_preserved": true,
+    "correction": "replacement-real-execution-20222023-center-checker-correction.json",
+    "reason": "checker float cast selected a different sum path; only cast removed, exact equality retained; no production or artifact change"
+  },
+  "reviews": {
+    "checker_author": "numerical",
+    "checker_reviewers": [
+      "product",
+      "root"
+    ],
+    "corrected_checker_sha256": "88d88420c6575333f105e378f5fda2c2bc12ef4206219ef6112af541637cc7b7",
+    "independent_annual": "reviews/independent-review.md#completed-real-20222023-annual",
+    "verdict": "clear; no finding"
+  },
+  "limits": [
+    "ftol/EM accepted stopping is not a gtol-only or optimum-distance claim",
+    "year2 incoming gaps are one year; longer-gap exercise remains later",
+    "source counters overlap; no all-masks-timing or exact masked-key classification",
+    "coefficient and recipe movement is not ability-effect or scientific-quality evidence",
+    "later execution history, final continuations/propagations and real spatial/source-to-screen acceptance remain required"
+  ],
+  "next": "pin accepted annual in ordinary year2 score command; root review then launch; no activation or cleanup"
+}

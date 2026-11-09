@@ -1,0 +1,125 @@
+{
+  "kind": "replacement-real-year5-score-acceptance-preparation",
+  "status": "prepared; held for peer review, accepted final annual, completed score and actual hashes; main unrun",
+  "recorded_at_utc": "2026-11-01T18:36:01.744266+00:00",
+  "season": "20252026",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20252026.py",
+    "sha256": "c12e0b8d1b191b16868482a880d4e81f72159153785bc4a7bd4819b8eedc25b0",
+    "bytes": 38275
+  },
+  "base_checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20242025.py",
+    "sha256": "e388d12b79fb5de752f295699735fc6991dd7a0b880b5b907f715e6291ed2b52",
+    "bytes": 27532
+  },
+  "command_argv": [
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20252026.py",
+    "--expected-manifest-sha256",
+    "<actual_completed_20252026_score_manifest_sha256>",
+    "--expected-state-sha256",
+    "<root_accepted_20252026_state_manifest_sha256>",
+    "--expected-source-sha256",
+    "<root_pinned_20252026_score_source_report_sha256>",
+    "--expected-fit-source-sha256",
+    "<root_pinned_20252026_fit_source_report_sha256>",
+    "--out-check",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-saved-acceptance.json"
+  ],
+  "expected_score_manifest_sha256": null,
+  "expected_state_manifest_sha256": null,
+  "expected_score_source_sha256": null,
+  "expected_fit_source_sha256": null,
+  "bindings": {
+    "original_score": {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026/manifest.json",
+      "sha256": "580f85fb2844fabf1d05d26e707438600e9e504fe005410406dd790c2e2ba56c"
+    },
+    "original_pin_source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/inputs.json",
+      "sha256": "5a5f87451661fc190ab86ced4957f785a2857e820ecc65ae982cd45deaa3e097",
+      "bytes": 2747
+    },
+    "original_accepted_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/execution-v1-06/real/scoring-current-04-20252026-acceptance-2026-10-30.json",
+      "sha256": "58d416bcb511b84e3581ae87ac0442072a2e28fbdec029fdd09974e152136326",
+      "bytes": 31669
+    },
+    "original_acceptance_decision": "docs/research/execution-v1-06/verification.md#all-five-real-annual-scores-accepted--2026-10-30",
+    "unaccepted_current03_final": "preserved interrupted partial, excluded from every comparison and prior",
+    "accepted_new2024_predecessor_sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "retained_checks": [
+    "all eight fit-score fields exact, including head populations and overlapping observational counters; no year1 census, counter-zero or ranking gate",
+    "all original/current event labels, identities, statuses, reasons, nullable applicability, coverage, setter priors and allocation recipients preserved",
+    "independent24order share accounting and closure, every native map/scalar relationship and all published projection support/unavailability",
+    "literal complete-row probability movement and corrected scalar summary labels; named unavailable first witnesses and unclassified remainder do not identify the full masking population",
+    "input/launch/code/observer pins, counts, bytes, scoped resources and exactly one default full score strict read covering all32 panels"
+  ],
+  "final_only_checks": [
+    "four ordered passed propagations bind the actual accepted annual manifest, frozen baseline descriptor and each manifest-bound head/probe JSON; no coefficient or probe array read",
+    "annual event keys/requirements and synthetic witnesses/6x656 geometry remain distinct from score focal pairs/45requirements; score pair lists match its own selector, not an old recipe selector",
+    "during the existing event stream, retain at most256 frozen current events and independently sum actor/neutral/neutral-goalie goal mass and baseline danger bins",
+    "all32 exact panel ids/order/counts and neutral baseline prefix masses match the existing full event sums under the unchanged rounding owner; signed variant-minus-baseline and repeated pair panel deltas are exact",
+    "selected-pair membership, scalar/map nullability and saved comparison budgets checked; stage/per100/map maxima independently reaggregated from saved pair summaries",
+    "existing probability1e-5 and per100/map_l1 1e-3 budgets unchanged; unavailable focal requirements retained, posterior diagnostic recorded without a threshold"
+  ],
+  "reporting_limits": [
+    "probability maxima, posterior sensitivity, variant sums, per-pair scalar deltas/map l1 and danger crossings are producer-saved predictor-dependent records; their source/prediction evaluation is not independently replayed",
+    "independent work here covers saved-record arithmetic, baseline event/panel sums and pair-summary aggregation, not unsaved variant predictions/maps",
+    "all-event scope is neutral panel sums only; per-event actual/synthetic probes and focal pairs give no seasonwide actor or all-player bound",
+    "original final scores are accepted comparison evidence, never an incoming history state or fallback; new source/history sensitivity is not isolated by old/new movement"
+  ],
+  "focused_verification": {
+    "controls": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/final-score-reporting-controls.json",
+      "sha256": "935b079ef7fac0d23c2f10facdfbeb341b4ec9d5ef7ae627c5e6e986bc665775",
+      "bytes": 2564
+    },
+    "script": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_final_score_reporting.py",
+      "sha256": "d279cd515133cfa95b12e2de48d786a3fee32520fa751e08967765d3fb7092ad",
+      "bytes": 6284
+    },
+    "green": {
+      "heads": 4,
+      "neutral_panels_per_head": 32,
+      "actual_keys": 256,
+      "synthetic_witnesses": 2,
+      "distinct_focal_pairs": 38,
+      "requirements": 45,
+      "unavailable_focal_requirements": 5,
+      "malformed_refusals": [
+        "probability_budget",
+        "annual_binding",
+        "probe_binding",
+        "panel_delta",
+        "pair_maximum",
+        "pair_nullability",
+        "pair_order"
+      ]
+    },
+    "wall_seconds": 0.27717587497318164,
+    "scope": "actual accepted fixture resolution/selector metadata plus synthetic baseline input scaffolding; reporting arithmetic, joins and refusal controls only; not independent fixture event/projection or predictor validation",
+    "python_ast": "passed",
+    "strict_score_calls_in_main": 1,
+    "state_or_probe_reader_calls": 0,
+    "numpy_load_calls": 0,
+    "main_invocations": 0,
+    "full_fixture_strict_reads": 0,
+    "real_artifact_reads": 0,
+    "source_passes": 0,
+    "fits": 0,
+    "scores": 0,
+    "analysis_and_observer_edits": 0
+  },
+  "access": "checker/contracts and accepted repository metadata; saved final fixture manifest/resolution/selector and illustrative probe JSON only; controls use synthetic baseline scaffolding and never claim independent fixture event/projection validation",
+  "next": "root and numerical review this fixed temporary helper before an explicitly released real invocation; all future digests remain pending"
+}

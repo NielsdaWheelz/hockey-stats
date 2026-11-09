@@ -1,0 +1,18 @@
+{
+  "status": "released_fresh_task_app_typecheck_build",
+  "recorded_at": "2026-11-06T18:25:30.463629+00:00",
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-app-build-command.sh.held",
+    "sha256": "1a0ffa6a16a07de07fa650992d95dcce25121ab0a23076b4078fdae60eae26fc"
+  },
+  "review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-app-build-source-review.md",
+    "sha256": "0b8db91bb36cf40a27f00c3c03720d214e61b3c49c79cad806ef2cb9517a135d"
+  },
+  "app_tree": "e01418f448cbfaae517685d7927a90cd37343660",
+  "source_sha256": "0861036972ccacc7bb8cb6393b0e3cb697293d44c873f36bee0a0e5bd4223511",
+  "node": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+  "records_stem": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/app-typecheck-build-01",
+  "boundary": "typecheck then remove only rebuildable task app/dist then build; no source edits, primary serving files, data artifacts, database, API, browser or activation",
+  "other_work": "composition42857 running; analysis f71461a5496b657d27bd20ae14f77d5177fdd7e4 untouched"
+}

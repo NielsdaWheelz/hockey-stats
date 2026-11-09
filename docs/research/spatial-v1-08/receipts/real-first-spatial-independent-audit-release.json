@@ -1,0 +1,55 @@
+{
+  "kind": "first-real-spatial-independent-saved-audit-release",
+  "status": "released_once_not_yet_launched",
+  "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+  "producer_exit": 0,
+  "producer_owned_canonical_read": "completed within successful ordinary fit command; no second production reader authorized",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+    "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509"
+  },
+  "metadata_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022-resume-01-saved-metadata-acceptance.json",
+    "sha256": "2d7d2d3de7f96e617677b4b13293cbbf29d5c8be6dbb5cf1adae6cbf55bbd71e"
+  },
+  "audit": {
+    "path": "var/v1-08-replacement/independent_first_spatial_audit.py",
+    "sha256": "6ebe300de7821343a3533c147871043a814e41617240358ca5674229ba581483"
+  },
+  "review": {
+    "path": "docs/research/spatial-v1-08/reviews/real-first-spatial-audit-source-review.md",
+    "sha256": "8cc77d9af11998479714142ed4321c61813f08cb279a9927d830eb84e66db075"
+  },
+  "protocol": {
+    "path": "docs/research/spatial-v1-08/reviews/real-first-spatial-audit-protocol.md",
+    "sha256": "cb23a28470bbd8e0eeba82f35e5fa165d800e5f133489fd063cd12e1147177b8"
+  },
+  "argv": [
+    "analysis/.venv/bin/python",
+    "var/v1-08-replacement/independent_first_spatial_audit.py",
+    "--input",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022",
+    "--expected-manifest-sha256",
+    "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509",
+    "--purpose",
+    "real",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/independent-first-spatial-audit-01"
+  ],
+  "allowed_calls": {
+    "independent_objective_full_gradient": {
+      "volume": 1,
+      "shape": 1,
+      "quality": 1
+    },
+    "all_standardized_roster_projections": true,
+    "actual_context_examples": "smallest positive exposure per role, then player id, all selected rows and direct 24 orders",
+    "source": 0,
+    "production_reader": 0,
+    "production_evaluator": 0,
+    "fit": 0,
+    "continuation": 0
+  },
+  "scope": "one reviewed saved-artifact audit and gradient/checked-fact outputs; no copied fitted coefficients or raw inputs",
+  "holds": "no other heavy job or successor until actual independent audit and root first-year resource acceptance; no retry or new numerical gate"
+}

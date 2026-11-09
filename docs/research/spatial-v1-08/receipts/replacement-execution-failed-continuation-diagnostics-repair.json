@@ -1,0 +1,91 @@
+{
+  "kind": "replacement-execution-failed-continuation-diagnostics-repair",
+  "status": "focused non-numerical red/green passed; no rerun authorized",
+  "scope": "only failed resolution serialization and strict validation; no source preparation, fit, optimizer, objective, continuation or score execution; all synthetic numerical results injected",
+  "original_failed_real": {
+    "manifest_sha256": "9845808a40204d244ed07f9c8f0c7569d4c727e091dcb6e4f27bd658d3a3f491",
+    "disposition": "immutable; actual native failure cause remains unknown; historical empty diagnostics are rejected, not reconstructed or adapted"
+  },
+  "red": {
+    "command": "env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python var/v1-08-replacement/check_failed_continuation.py --out var/v1-08-replacement/failed-continuation-red",
+    "exit_code": 1,
+    "observed": "actual resolution writer and strict saved-state round trip accepted no_completed_start but returned diagnostics={}; retention assertion failed for u",
+    "synthetic_state": {
+      "path": "var/v1-08-replacement/failed-continuation-red/manifest.json",
+      "bytes": 21832,
+      "sha256": "7f4a93dfca18f3d6586a7f306dde3c142ae484c1bb563b5295e6ca6272ebfcfc"
+    },
+    "test_stage": "initial check before production edits; later temporary-only mutation writer/byte-restore corrections and two-inner setter control do not alter the reproduced u loss"
+  },
+  "green": {
+    "command": "env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python var/v1-08-replacement/check_failed_continuation.py --out var/v1-08-replacement/failed-continuation-green-05",
+    "exit_code": 0,
+    "wall_seconds": 0.498929834,
+    "output": {
+      "path": "var/v1-08-replacement/failed-continuation-green-05.json",
+      "bytes": 3077,
+      "sha256": "be6afc5b46161b313f6e350740a68d976cd7020f660717b6f8490320fe686f82"
+    },
+    "heads": [
+      "u",
+      "q",
+      "r",
+      "g"
+    ],
+    "negative_controls": 23,
+    "native_solve_counts": {
+      "u": 1,
+      "q": 1,
+      "r": 1,
+      "g": 2
+    },
+    "baseline_npz_bytes_unchanged": true,
+    "nonconverged_probe_members": 0,
+    "converged_failed_with_probe_control": "accepted unchanged contract"
+  },
+  "failed_record": {
+    "fields": [
+      "status",
+      "baseline",
+      "reasons",
+      "diagnostics",
+      "comparison"
+    ],
+    "diagnostics_fields": [
+      "requested_starts",
+      "starts",
+      "selected_start",
+      "wall_seconds"
+    ],
+    "comparison": "exact returned eight baseline/objective/control fields; no invented tightened coefficient or probability comparisons",
+    "validation": "one non-deduplicated nonconverged continuation; existing solve record, literal controls, baseline binding, finite metrics, nonnegative wall time, native resource counts; setter failure has at least one inner solve"
+  },
+  "unchanged": [
+    "successful probe record shape and validation",
+    "native solver controls and starts",
+    "recipe/input/design/objective definitions",
+    "annual baseline coefficients and metadata outside resolution",
+    "observer 286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf"
+  ],
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "files": [
+    {
+      "path": "analysis/src/hockey_stats/execution.py",
+      "bytes": 63318,
+      "sha256": "6c6cb32070eda38a144d5d9cb769b57b691ee39730a936c1ce025fa52a20d3c1"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "bytes": 66194,
+      "sha256": "ce747313c1f2e9c699d51198f25597f7b164c01a07b63917d959e37c020d90b6"
+    },
+    {
+      "path": "var/v1-08-replacement/check_failed_continuation.py",
+      "bytes": 17696,
+      "sha256": "69c7b66ffd8256fd0b6c3dc87725af0f00f173e7154c5fe959356113be028fe9"
+    }
+  ],
+  "verification": "git diff --check passed; final focused script passed after peer review added the zero-inner setter guard; no full source or analytical campaign was run",
+  "limitations": "synthetic injections establish diagnostic retention and rejection contracts, not numerical recovery or adequacy; failed real u remains unresolved; no continuation retry, scoring, target replacement, pin cutover or activation authorized",
+  "temporary_retention": "keep checker, its compact green result and scratch saved states under var until full acceptance; no retained regression harness assigned"
+}

@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/composition-interface-check.py", line 58, in <module>
+    manifest=c.compose_results(facts.directory,selection,out)
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_composition.py", line 284, in compose_results
+    publication._read_results(output, 'manifest.json.incomplete')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/analysis_publication.py", line 1782, in _read_results
+    for row in result.rows(member,table,family['family']):
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/analysis_publication.py", line 1710, in rows
+    validate_row(table,row,family,self.catalogs,self.people)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/analysis_publication.py", line 1665, in validate_row
+    _method_supports(result['data'],row['season'],catalogs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/analysis_publication.py", line 2275, in _method_supports
+    _method_supports(item,row_season,catalogs,method_id)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/analysis_publication.py", line 2273, in _method_supports
+    require(priors <= set(method['fit_seasons']) and priors <= input_seasons, 'support prior seasons are not bound to method inputs and fit seasons')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/artifacts.py", line 72, in require
+    raise InputContractError(message)
+hockey_stats.captures.InputContractError: support prior seasons are not bound to method inputs and fit seasons

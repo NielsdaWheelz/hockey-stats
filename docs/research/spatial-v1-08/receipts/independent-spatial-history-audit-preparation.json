@@ -1,0 +1,73 @@
+{
+  "kind": "remaining-real-spatial-independent-history-audit-preparation",
+  "status": "source_and_tiny_controls_passed_actual_checks_held",
+  "consumers": [
+    "20222023",
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+  "audit": {
+    "path": "var/v1-08-replacement/independent_spatial_history_audit.py",
+    "sha256": "ed289155196ed2cd143cdcdf0f72bb06ee56ffc230a146b01f1424f6667f1621",
+    "bytes": 19694
+  },
+  "primitive_source": {
+    "path": "var/v1-08-replacement/independent_first_spatial_audit.py",
+    "sha256": "6ebe300de7821343a3533c147871043a814e41617240358ca5674229ba581483",
+    "bytes": 30408
+  },
+  "protocol": {
+    "path": "docs/research/spatial-v1-08/reviews/real-spatial-history-audit-protocol.md",
+    "sha256": "9c64f4793ff2f6b1dc3d93b8a0c2399b4bdbb558a2f12a6f42897b3214a096c3",
+    "bytes": 7060
+  },
+  "independent_source_review": {
+    "path": "docs/research/spatial-v1-08/reviews/real-spatial-history-audit-source-review.md",
+    "sha256": "fa024930d66625ddd5ee5ac32b3b306489a5ffef16257dff15a30405a76e4cb7",
+    "bytes": 4034
+  },
+  "control": {
+    "path": "var/v1-08-replacement/check_independent_spatial_history.py",
+    "sha256": "d89c27e96214e639bb2f1b59e1037282abf740b01e3d859959e77e0091e88588",
+    "bytes": 11037
+  },
+  "control_result": {
+    "path": "var/v1-08-replacement/independent-spatial-history-control.json",
+    "sha256": "b7c019e53c6838e8b12e7af4e736871426dbd534657120c9b15c61bad0ff178e",
+    "bytes": 2681
+  },
+  "first_year_induction_base": {
+    "path": "docs/research/spatial-v1-08/reviews/real-first-spatial-saved-review.md",
+    "sha256": "afde0bfbb7ac71064db6547d30f14dd61229835c293b91c5f38206ad6321bce2",
+    "bytes": 8398
+  },
+  "preparation_reads": {
+    "saved_real": 0,
+    "saved_fixture": 0,
+    "source_artifact": 0,
+    "production_evaluator": 0,
+    "fit": 0,
+    "probe": 0
+  },
+  "authorized_later_scope": "one separately released saved check per remaining annual after producer exit, canonical validation and metadata pass",
+  "input_scope": [
+    "current and previous small manifest/head json and six small head coefficient npz archives",
+    "current reference json and standardized projections jsonl",
+    "current basis.npy and rates.npy selected archive members only"
+  ],
+  "checked_contracts": [
+    "previous fresh ledger rows bind previous raw npz; older raw anchors bind accepted previous ledger without substituting profiled coordinates",
+    "current supported raw npz rows advance ledger; prior-only and absent anchors retain exact incoming records",
+    "entry/carry/gap precision, support chronology, packed volume age curves, conditional/profiled means at existing rtol=atol=1e-13",
+    "centers, applicability and reference from head included_seconds at existing rtol=atol=1e-12",
+    "all standardized native rates/scalars using unchanged accepted first-year primitive math and tolerances"
+  ],
+  "limits": [
+    "selected basis/rates bytes are digested; whole-archive integrity remains canonical validation evidence",
+    "source/exposure/age truth and full design/objective/gradient/actual-allocation proofs are not repeated",
+    "no new gradient gate, continuation, scientific admission or successor release"
+  ],
+  "release_owner": "root; no actual annual data read or execution is authorized by this preparation receipt"
+}

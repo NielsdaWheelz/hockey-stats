@@ -84,7 +84,7 @@ def _method(year, annual, prepared, facts, source_sha, inputs, family):
                   + [f'attempt_value.{field}' for field in publication.ESTIMATE_FIELDS['attempt_value']]) if family == 'execution' else ['skater_microstats.reference_xg_per60']
     evidence = [dict(uri=str(annual.path),sha256=_sha(annual.path)),
                 dict(uri=str(facts.directory/'manifest.json'),sha256=source_sha)]
-    return dict(method_id=method_id,family=family,recipe_id=annual.manifest['recipe']['name']+':execution-v1-06-1',
+    return dict(method_id=method_id,family=family,recipe_id=annual.manifest['recipe']['name']+':'+annual.manifest['recipe']['version'],
         design_sha256=_sha(annual.path),input_sha256=hashlib.sha256(publication.json_bytes(inputs)).hexdigest(),
         fit_seasons=[r['season'] for r in prepared['seasons'] if r['season'] <= year],
         training_cutoff=annual.manifest['training_cutoff'],target='common-panel execution contrasts' if family == 'execution' else 'personal reference-valued observed opportunity per60',

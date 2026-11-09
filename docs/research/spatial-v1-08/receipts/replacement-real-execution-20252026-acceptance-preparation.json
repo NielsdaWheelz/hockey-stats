@@ -1,0 +1,73 @@
+{
+  "kind": "replacement-real-final-state-probe-acceptance-preparation",
+  "status": "prepared and unrun; actual final annual/source hashes and root release required",
+  "recorded_at_utc": "2026-11-01T18:28:16.784419+00:00",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026.py",
+    "sha256": "462902780f77787e1b79923abd70ccc4a471b5da7a1b90d55ff7e770e61abb02",
+    "bytes": 25529
+  },
+  "command_argv": [
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026.py",
+    "--expected-manifest-sha256",
+    "<actual_completed_20252026_manifest_sha256>",
+    "--expected-source-sha256",
+    "<root_pinned_20252026_source_report_sha256>",
+    "--out-check",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-saved-acceptance.json"
+  ],
+  "expected_manifest_sha256": null,
+  "expected_source_report_sha256": null,
+  "bindings": {
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json",
+      "sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe"
+    },
+    "original_fit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/manifest.json",
+      "sha256": "c736f1feb26df018465eb0032d51611ac07846e64de053bdd6a99e18026379be",
+      "pin_source": "docs/research/execution-v1-05/real-accepted-content.json"
+    },
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "analysis_clean": true,
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "scope": "fixed final-year adaptation of reviewed c9fa8482; unchanged raw history/age/prior-only/update/original-comparison checks, exact numpy centers and native baseline controls; admissible actual carry gaps1 through4 with actual-only witnesses",
+  "final_section": {
+    "one_strict_saved_read": true,
+    "probe_arrays": "existing strict reader alone loads/checks all four probe arrays and recalculates coefficient maximum/l2 deltas",
+    "additional_reads": "baseline plus four bound probe JSON documents only; no extra probe-array load or read_execution_probe call",
+    "reports": "four continuation starts, native solves, exact baseline/selector/input bindings, saved component maxima/statuses and fixed literal tighter controls",
+    "probability_claim": "saved comparisons only; no independent predictor/source/probability replay or all-season/player bound",
+    "margin": 1e-05,
+    "optimizer": {
+      "maxiter": 10000,
+      "ftol": 1e-16,
+      "gtol": 1e-07
+    },
+    "setter_em": {
+      "maxiter": 100,
+      "objective": 1e-09,
+      "responsibility": 1e-07
+    },
+    "failure_policy": "unavailable/failed heads or probes remain failures; no reselection, tolerance change or extra continuation",
+    "baseline_coefficients": "remain the annual estimates; probe coefficients never promoted",
+    "selector_review": "redundant all-nonunavailable assertion removed; four passed resolutions remain authoritative, including the strict reader coverage rule; disposition counts retained"
+  },
+  "validation": {
+    "python_ast": "passed",
+    "four_year_pure_history_control": "passed with fixed carry precision",
+    "strict_read_call_sites": 1,
+    "explicit_np_load_call_sites": 0,
+    "explicit_read_execution_probe_call_sites": 0,
+    "main_invocations": 0,
+    "actual_artifact_or_source_reads": 0,
+    "analysis_or_observer_edits": 0
+  },
+  "provenance_limit": "accepted original final fit is the v1-05 artifact above. no final-score current-03 partial is used; the separate accepted original final score is current-04/580f85fb and remains product-owned",
+  "next": "product peer review, then explicit root release only after the final ordinary fit and its existing four continuations complete; no campaign invocation follows preparation"
+}

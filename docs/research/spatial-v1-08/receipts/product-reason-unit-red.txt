@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/reason-unit-check.py", line 18, in <module>
+    assert data['support']['reason_counts']==[], 'missing roster projection has no measured excluded-game count'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: missing roster projection has no measured excluded-game count

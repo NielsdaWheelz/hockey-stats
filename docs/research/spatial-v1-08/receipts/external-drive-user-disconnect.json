@@ -1,0 +1,30 @@
+{
+  "kind": "user-requested-external-drive-disconnect",
+  "status": "safely_ejected_work_paused",
+  "recorded_utc": "2026-11-03T16:38:29.816975+00:00",
+  "authorization": "external drive \u2014 stop the job safely",
+  "spatial_interruption": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-first-spatial-user-interruption.json",
+    "sha256": "f8a1d09e05ee4c24bb39ccea64032347042e8e3c4d005351d47029c917110bda"
+  },
+  "stopped_model_pid": 3438,
+  "stopped_wrapper_pid": 3346,
+  "model_exit_code": 130,
+  "auditor_external_calls_held": true,
+  "volume_open_file_inventory": "no open file was listed before eject",
+  "eject": {
+    "command": [
+      "/usr/sbin/diskutil",
+      "eject",
+      "/Volumes/Expansion"
+    ],
+    "exit_code": 0,
+    "stdout": "Disk /Volumes/Expansion ejected\n",
+    "forced": false
+  },
+  "accepted_execution_complete": true,
+  "first_spatial_completed_heads": 0,
+  "composition_launched": false,
+  "resume": "wait for drive reconnection and explicit user resume; preserve interrupted log/exit evidence and use a fresh guarded wrapper for first spatial annual",
+  "activation": false
+}

@@ -1,0 +1,7 @@
+# real server02 source review
+
+clear as a held source-only restart command. `var/v1-08-replacement/real-isolated-server-02-command.sh.held`, sha256 `c498bfddd0ff4e86db6ba482e8ca0a3fe88e7855ff65843ad25d290f8f3328da`, is exactly reviewed server01 source `961a875e6a717ae2c943438a69a377bf19ee0cd5dac3012dbd96e5dacf5bd1c3` with one `detached-server-01` → `detached-server-02` literal replacement. reversing it reproduces every predecessor byte and the complete hash. no other code changed.
+
+the fourteen distinct guarded record suffixes therefore all use the fresh `real/detached-server-02` prefix. collision refusal, noclobber, source/dist identity checks, candidate stat/verification checks, `3399` occupancy refusal and exact node24/sandbox/server argv remain unchanged. profile `6964a1c0`, app tree `e01418f4`, source `08610369`, dist `c4ac0c85`, entrypoint `9efd1fd2` and all accepted database/publication pins retain the exact values cleared by [the concrete pin review](real-detached-concrete-pin-review.md). this is static source continuity, not a fresh compiled-file or database check.
+
+shell syntax and embedded-python syntax pass. no command, port probe, sandbox, database/stat/hash, http, source artifact, model, server or browser was accessed or run. root's reported intentional server01 shutdown and completed api checks retain their own evidence. server02 remains held until native browser access is restored and root explicitly releases this exact command; no old native acceptance is carried into a new observation.

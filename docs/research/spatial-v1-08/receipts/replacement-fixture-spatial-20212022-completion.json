@@ -1,0 +1,145 @@
+{
+  "kind": "replacement-first-fixture-spatial-completion",
+  "status": "root_accepted; independent saved-array/output comparison and local metadata checklist passed",
+  "recorded_at_utc": "2026-10-31T15:47:42.319875+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20212022/manifest.json",
+    "sha256": "91ccca92782e4c156cb6ebe55952b6ded7c20d865ce4efcc323267b674d11465"
+  },
+  "comparison_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/20212022/manifest.json",
+    "sha256": "a0fc5f45458bc48d5e03ab582d7cc4669d69a38d702997514a7dddd1093944dd"
+  },
+  "purpose": "fixture",
+  "season": "20212022",
+  "previous": null,
+  "valued": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022/manifest.json",
+    "sha256": "78e029e06cfb50ebdc247117faeb3849459e291be2267c250a9c15858dac7d60",
+    "season": "20212022",
+    "purpose": "fixture"
+  },
+  "scope": "local checks use saved json metadata, bounded command receipts, file stats and declared member digests; independent reviewer already performed all required saved-array comparisons, not repeated here",
+  "numeric_input_comparison": {
+    "owner": "independent reviewer; root reported passed",
+    "design_members": 16,
+    "array_contracts_and_digest_equal_here": true,
+    "byte_identical": true,
+    "heads": 3,
+    "coefficient_arrays_byte_identical": true,
+    "projection_arrays_and_rows_adjustments_support_reference_byte_identical": true,
+    "raw_array_loads_here": 0,
+    "no_source_pass_or_strict_read_or_projection_rerun": true
+  },
+  "metadata_comparison": {
+    "heads": {
+      "volume": {
+        "status": "complete",
+        "entry_prior_rows": 980,
+        "prior_only_rows": 404,
+        "supported_ledger_rows": 576,
+        "metadata_exact_old_except_resources": true,
+        "reference_predictor_width": 1,
+        "objective": {
+          "likelihood": -2137.0668133793242,
+          "penalty": 48.73320473647476,
+          "total": -2088.3336086428494
+        },
+        "iterations": 392,
+        "evaluations": 442,
+        "raw_gradient_inf_norm": 2.2235668047709822e-05,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "head_wall_seconds": 0.7362498749862425
+      },
+      "shape": {
+        "status": "complete",
+        "entry_prior_rows": 980,
+        "prior_only_rows": 418,
+        "supported_ledger_rows": 562,
+        "metadata_exact_old_except_resources": true,
+        "reference_predictor_width": 40,
+        "objective": {
+          "likelihood": 2946.809159084036,
+          "penalty": 131.25655536110253,
+          "total": 3078.0657144451384
+        },
+        "iterations": 162,
+        "evaluations": 171,
+        "raw_gradient_inf_norm": 2.12807380375879e-05,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "head_wall_seconds": 1.2208319590426981
+      },
+      "quality": {
+        "status": "complete",
+        "entry_prior_rows": 980,
+        "prior_only_rows": 418,
+        "supported_ledger_rows": 562,
+        "metadata_exact_old_except_resources": true,
+        "reference_predictor_width": 41,
+        "objective": {
+          "likelihood": 119.10307940863359,
+          "penalty": 0.4990714369360045,
+          "total": 119.6021508455696
+        },
+        "iterations": 448,
+        "evaluations": 480,
+        "raw_gradient_inf_norm": 5.117051444722409e-06,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "head_wall_seconds": 2.7669357499689795
+      }
+    },
+    "annual_offsets_axes_rows_and_actor_facts_exact": true,
+    "coverage_exact_after_only_removed_top_and_pergame_event_shift_start_audit": true,
+    "recipe_definition_change_only": "event_shift_start saved-age wording",
+    "other_definition_changes": [
+      "new valued binding",
+      "derived design digest"
+    ],
+    "maximum_recomputed_center_mean_error": 2.6020852139652106e-18,
+    "maximum_recomputed_applicability_error": 8.881784197001252e-16,
+    "reference_exact": true,
+    "reference_id": "369dd6147f0c2c125b2a12eb6168638671f2b2fd314f0ce0a36be9978acc20f1",
+    "three_complete_heads": true,
+    "first_year_entry_only_no_carry_or_age_borrowing": true,
+    "projection_rows": 224,
+    "adjustment_rows": 448,
+    "first_year_probes": 0
+  },
+  "resources": {
+    "command_wall_seconds": 66.36,
+    "user_seconds": 64.94,
+    "system_seconds": 0.35,
+    "maximum_resident_bytes": 756137984,
+    "design_wall_seconds": 17.7489102500258,
+    "input_read_wall_seconds": 0.0038770409882999957,
+    "head_fit_and_head_write_wall_seconds": 5.1617165000061505,
+    "projection_wall_seconds": 40.95580875000451,
+    "annual_write_wall_seconds": 1.526234499993734,
+    "head_times_scope": "each head metadata reports its own fit boundary; producer fit includes head writes; do not sum nested scopes twice",
+    "time_rows": 12962,
+    "event_rows": 632,
+    "actor_columns": 981,
+    "context_columns": 350,
+    "design_bytes": 42690092,
+    "input_read_bytes": 342457465,
+    "saved_member_bytes": 108838571,
+    "annual_including_manifest_bytes": 108856210,
+    "scope": "ordinary shared-desktop command; no isolated benchmark or runtime forecast"
+  },
+  "launch": {
+    "start": "2026-10-31T15:39:22Z",
+    "finish": "2026-10-31T15:40:29Z",
+    "exit": 0,
+    "head": "3a887a48862607b0cf7b6b64353e6777decdd104",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "analysis_clean_at_launch_and_now": true,
+    "log_sha256": "a869c98ed767ffb67e16befac4611851e556487f9cfc57a90059efeb5b817848"
+  },
+  "limitations": [
+    "fixture equality is computational preservation, not real timing-mask population evidence or scientific admission",
+    "execution propagation covers panel sums plus38prospective pairs; no per-event seasonwide bound",
+    "array comparisons and coefficient/projection replay were independent work, not repeated by this metadata readback"
+  ],
+  "preservation": "both completed spatial annuals, accepted execution chain/scores and factual/source inputs preserved",
+  "next": "prepare guarded20222023 command only; execution composition must exit and root must release next fit"
+}

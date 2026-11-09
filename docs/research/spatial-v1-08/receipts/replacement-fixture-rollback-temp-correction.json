@@ -1,0 +1,143 @@
+{
+  "kind": "replacement-fixture-disposable-rollback-temp-directory-correction",
+  "status": "01 operator failure preserved; focused scratch red/green passed; 02 prepared only",
+  "recorded_at_utc": "2026-10-31T18:30:41.267173+00:00",
+  "failed01": {
+    "script_sha256": "243135f3f692c23e51a25f3d4b1925f111adafc4137817b8b212c170b9642baa",
+    "profile_sha256": "e6d9af56f2ece3fd5721ef920671006b377f3a6c8f4b8511f7a87745c953df20",
+    "session": 56843,
+    "exit": 1,
+    "baseline_wall_seconds": 22.7,
+    "baseline_peak_rss_bytes": 527286272,
+    "error_code": 6410,
+    "error_name": "SQLITE_IOERR_GETTEMPPATH",
+    "rotation_started": false,
+    "active_exists": false,
+    "previous_exists": false,
+    "incoming": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-01/incoming.sqlite",
+      "bytes": 837996544,
+      "mtime_ns": 1793471202574181401,
+      "full_hash_recomputed": false
+    },
+    "evidence": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-01/started-at.txt",
+        "bytes": 21,
+        "sha256": "db4cc1c71c8da2841a0b2bcd8fe30141c84c28a2da15a41c7dfe2d68b68c2800"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-01/01-baseline.json",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-01/01-baseline.cost.txt",
+        "bytes": 4380,
+        "sha256": "bd72317bc1cae7ea83096836453d3e38662c51471cea0050c334bfb6900c798d"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-01/01-baseline.exit",
+        "bytes": 2,
+        "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+      }
+    ],
+    "real_fit_overlap": "root reported real fit724 continued while this operator command ran; started-at receipt fixes interval; no serving action",
+    "started_at_utc": "2026-10-31T18:26:30Z",
+    "exit_receipt_mtime_utc": "2026-10-31T18:26:53.641528+00:00"
+  },
+  "diagnosis": {
+    "local_header": "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sqlite3.h:541",
+    "local_macro": "#define SQLITE_IOERR_GETTEMPPATH (SQLITE_IOERR | (25<<8))",
+    "arithmetic": "10 | (25 << 8) = 6410",
+    "meaning": "VFS could not determine a suitable temp-file directory; same scratch operation is repaired by a permitted SQLITE_TMPDIR under unchanged write confinement",
+    "limit": "this is evidence of the recipe environment error, not a diagnosis of physical drive failure or general drive health",
+    "sources": [
+      {
+        "url": "https://sqlite.org/rescode.html#ioerr_gettemppath",
+        "supports": "extended error meaning"
+      },
+      {
+        "url": "https://www.sqlite.org/tempfiles.html",
+        "supports": "unix SQLITE_TMPDIR search and FILE-temp spill after cache fills"
+      }
+    ]
+  },
+  "focused_control": {
+    "raw": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/sqlite-temp-red-green-01.json",
+      "bytes": 7532,
+      "sha256": "9e1cb62e86d45570e1a78a5c388a982e6a6d4ec020fb8fc1c90aed959e7324e4"
+    },
+    "script": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/sqlite-temp-spill-check.mjs",
+      "bytes": 1531,
+      "sha256": "d2c07527a7b65ba27063acedaa1a23ecaf54545e53d103de53d016dd364d33be"
+    },
+    "runtime": {
+      "node": "v24.21.0",
+      "sqlite": "3.53.4",
+      "adapter": "same node:sqlite DatabaseSync used by @effect/sql-sqlite-node"
+    },
+    "red": {
+      "exit": 1,
+      "error_code": 6410,
+      "SQLITE_TMPDIR": null,
+      "wall_seconds": 0.03500891703879461,
+      "peak_rss_bytes": 50298880
+    },
+    "green": {
+      "exit": 0,
+      "SQLITE_TMPDIR": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-01/temp-control-01",
+      "wall_seconds": 0.22515583399217576,
+      "rows": 4096,
+      "payload_bytes": 16777216,
+      "temp_store": 1,
+      "temp_cache_pages": 8,
+      "temp_page_count": 4610,
+      "temp_page_size": 4096,
+      "open_file_path_proof": "not claimed; lsof under the sandbox returned exit1",
+      "peak_rss_bytes": 50659328
+    },
+    "only_environment_difference": "SQLITE_TMPDIR set to the existing allowed scratch directory; SQL/code/profile/cwd and inherited TMPDIR unchanged",
+    "profile_before": "e6d9af56f2ece3fd5721ef920671006b377f3a6c8f4b8511f7a87745c953df20",
+    "profile_after": "e6d9af56f2ece3fd5721ef920671006b377f3a6c8f4b8511f7a87745c953df20",
+    "failed01_files_unchanged": true,
+    "scratch_only": true,
+    "publications_opened": false,
+    "operator_commands_run": false,
+    "scratch_directory_empty_after_close": true
+  },
+  "prepared02": {
+    "directory": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02",
+    "directory_absent": true,
+    "script": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-rollback-02-command.sh",
+      "bytes": 8795,
+      "sha256": "7784afbcd4991427d295ca4a8943db445836370b282065a25edaad5eb42c1d1a",
+      "shell_syntax_exit": 0,
+      "embedded_receipt_js_syntax_exit": 0
+    },
+    "profile": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-rollback-02-write-scope.sb",
+      "bytes": 178,
+      "sha256": "a209506db352be5c16aadb8d71f4b45aab9d728a39fefe1f756b21cd4f42fa0a",
+      "runtime_checked": false
+    },
+    "fix": "create /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/sqlite-temp and export SQLITE_TMPDIR to that path before the three unchanged ordinary operator commands",
+    "operator_tails_equal_except_disposable_directory": true,
+    "old_inputs_and_node_app_source_build_hash_pins_unchanged": true,
+    "root_release_required": true,
+    "launched": false
+  },
+  "unchanged": [
+    "app/source/build",
+    "analysis",
+    "frozen observer286",
+    "baseline and replacement candidates",
+    "failed01 logs/incoming/profile/script",
+    "main9645/fixture98844 listeners and serving files"
+  ],
+  "scope": "scratch SQLite environment control and unexecuted operator-only copy/rotate/restore recipe; no HTTP/browser journey, new publication read, source pass or serving mutation",
+  "browser_acceptance": "still pending environment access; this correction does not cover typing/navigation/download/layout"
+}

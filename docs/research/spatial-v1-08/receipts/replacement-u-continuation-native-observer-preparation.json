@@ -1,0 +1,225 @@
+{
+  "kind": "replacement-u-continuation-native-observer-preparation",
+  "status": "temporary extension and focused red/green complete; source contract/diff peer clear; final root/numerical binding review pending; no ordinary numerical invocation",
+  "recorded_at_utc": "2026-11-02T04:05:55.730504+00:00",
+  "observer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "bytes": 19868,
+    "sha256": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4"
+  },
+  "base_observer": {
+    "commit": "10d3620a6748cff2f787d9ab353c75e79ea1738e",
+    "sha256": "526f6465e5c54bb3928d0fe8686600062106116d725754267f29ecbfaf3b2bd9"
+  },
+  "original286_snapshot": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check-286.py",
+    "bytes": 13248,
+    "sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf"
+  },
+  "interface": {
+    "argument": [
+      "--u-continuation-native",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-u-continuation-native.json"
+    ],
+    "placement": "temporary observer flag before --; ordinary fit CLI unchanged",
+    "kind": "temporary-u-continuation-native-result",
+    "identity_fields": [
+      "purpose",
+      "season",
+      "head",
+      "recipe_sha256",
+      "analysis_tree",
+      "dimension",
+      "command",
+      "source_check"
+    ],
+    "source_check_fields": [
+      "path",
+      "sha256"
+    ],
+    "requested_solver_fields": [
+      "method",
+      "jac",
+      "options"
+    ],
+    "native_result_fields": [
+      "success",
+      "status",
+      "message",
+      "nit",
+      "nfev",
+      "fun",
+      "fun_classification"
+    ],
+    "fun_classifications": [
+      "finite",
+      "nan",
+      "posinf",
+      "neginf"
+    ],
+    "fun_rule": "literal raw OptimizeResult.fun; finite values retained as float, nonfinite values null with exact classification; guaranteed native fields required, malformed/missing shape fails visibly",
+    "scope": "native return before chance.solve_logistic translation and _solve_start recomputation; finite fun does not establish all internal trials were finite; no last-trial or failure-mechanism claim",
+    "coefficients": "none persisted; original x/result object and fit result unchanged",
+    "hook": "existing explicit-signature fit wrapper; only real20252026u with initial notNone and tightenedTrue scopes chance.minimize patch; original minimize called once with identical args/options and its exact OptimizeResult returned; requested method/jac/options copied before original call; exclusive side file written immediately after raw return, before any outer postcheck or exception; existing patch contexts restore",
+    "early_guards": "wrong command/family/season/purpose and occupied or overlapping source/gap/native outputs refused before model execution"
+  },
+  "source_integrity": {
+    "analysis_tree": "59813412b3ef66bb66ae60f5daf930716d00073e",
+    "analysis_edits": 0,
+    "source_report_fields_unchanged": true,
+    "oracle_bytecode_unchanged": [
+      "encoded",
+      "responses",
+      "main.<locals>.option",
+      "main.<locals>.save",
+      "main.<locals>.context",
+      "main.<locals>.head",
+      "main.<locals>.prepare",
+      "StartCheck.__init__",
+      "StartCheck.observe",
+      "StartCheck.observe.<locals>.<genexpr>",
+      "StartCheck.close",
+      "StartCheck.head",
+      "StartCheck.report"
+    ],
+    "StartCheck_ast_unchanged": true,
+    "baseline_gap_shape_and_rules_unchanged": true
+  },
+  "red": {
+    "exit": 1,
+    "log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-continuation-native-red.log",
+      "bytes": 546,
+      "sha256": "1edf8872700521a5d5a7c8dc317b69e9344b73ec0795efe753e6fa3f588e6d96"
+    },
+    "exit_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-continuation-native-red.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "observed": "old526 hook refuses proposed native_destination interface; no native side capture exists",
+    "test_stage": "initial focused test before later guard controls; no optimizer/objective/model/source call"
+  },
+  "green": {
+    "native_controls": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-continuation-native-controls-03.json",
+      "bytes": 2250,
+      "sha256": "a0d6676221144b26853d4309fa5d296feaff828b5d15dd65ea704a78545d29e5"
+    },
+    "native_control_source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_u_continuation_native.py",
+      "bytes": 8210,
+      "sha256": "fd854667dafd468ff1fe28cc6a4fa52d9cbca787d08fca77a1d912ee3843dc1f"
+    },
+    "native_wall_seconds": 0.01134808297501877,
+    "modes": [
+      {
+        "mode": "finite",
+        "fun_classification": "finite",
+        "raw_result_identity": true,
+        "fit_result_identity": true,
+        "native_calls": 1,
+        "capture_before_postcheck": true
+      },
+      {
+        "mode": "nan",
+        "fun_classification": "nan",
+        "raw_result_identity": true,
+        "fit_result_identity": true,
+        "native_calls": 1,
+        "capture_before_postcheck": true
+      },
+      {
+        "mode": "posinf",
+        "fun_classification": "posinf",
+        "raw_result_identity": true,
+        "fit_result_identity": true,
+        "native_calls": 1,
+        "capture_before_postcheck": true
+      },
+      {
+        "mode": "neginf",
+        "fun_classification": "neginf",
+        "raw_result_identity": true,
+        "fit_result_identity": true,
+        "native_calls": 1,
+        "capture_before_postcheck": true
+      },
+      {
+        "mode": "success_then_postcheck_failure",
+        "fun_classification": "finite",
+        "raw_result_identity": true,
+        "fit_result_identity": true,
+        "native_calls": 1,
+        "capture_before_postcheck": true
+      },
+      {
+        "mode": "outer_raise",
+        "fun_classification": "finite",
+        "raw_result_identity": true,
+        "fit_result_identity": false,
+        "native_calls": 1,
+        "capture_before_postcheck": true
+      },
+      {
+        "mode": "native_options_mutation",
+        "fun_classification": "finite",
+        "raw_result_identity": true,
+        "fit_result_identity": true,
+        "native_calls": 1,
+        "capture_before_postcheck": true
+      }
+    ],
+    "bypasses": [
+      "non_u",
+      "baseline",
+      "not_tightened",
+      "unrequested"
+    ],
+    "early_refusals": [
+      "score",
+      "family",
+      "season",
+      "occupied",
+      "same_source",
+      "same_gap"
+    ],
+    "malformed_native_result_refused": true,
+    "real_purpose_checked_before_original": true,
+    "log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-continuation-native-green-03.log",
+      "bytes": 2250,
+      "sha256": "a0d6676221144b26853d4309fa5d296feaff828b5d15dd65ea704a78545d29e5"
+    },
+    "exit_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-continuation-native-green-03.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "baseline_and_oracle_controls": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-baseline-start-gap-controls-03.json",
+      "bytes": 2797,
+      "sha256": "bcb91b248a10b6161e08371897bd3845919a4709313c8cd8fdd1673caea36783"
+    },
+    "baseline_control_source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_u_baseline_start_gap.py",
+      "bytes": 9124,
+      "sha256": "dfb23d48965baaf21ee44187ede3b92039a4e052b58aa9803e484968d51132f0"
+    },
+    "baseline_wall_seconds": 0.1856123329489492,
+    "intermediate_control_note": "after adding explicit early-guard cases, all assertions passed but the control receipt x-write met its earlier path; failure log preserved, then only the control receipt destination changed to fresh03 and passed"
+  },
+  "peer_review": {
+    "source_design": "current ef4995 observer contract/diff clear; controls inspected without rerun",
+    "root": "final binding review pending",
+    "numerical": "consumer/shell pins remain held until observer review"
+  },
+  "downstream": "numerical owns adding required actual native-side SHA, exact bindings and17th fresh shell guard; no shell/outcome edit or launch by this author",
+  "limits": [
+    "native success is separate from later production converged; raw successTrue can become false after finite checks/recomputation; consumer must not equate them",
+    "status/message/nit/nfev bind native return; native fun is independent from recomputed saved objective",
+    "available or zero completed-baseline gap and any native record are diagnostic only; no new threshold, policy for incomplete endpoints, promotion or substitute for prescribed resolution",
+    "no actual SciPy optimizer, mathematical objective, source context, prepared/corpus/state array, fit/continuation or ordinary analysis_main call; invalid argument guards only used tiny local paths",
+    "all old526/286 receipts and original failed984 artifacts stay untouched; temporary checks/results/scratch retained until full acceptance"
+  ]
+}

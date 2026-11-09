@@ -1,0 +1,224 @@
+{
+  "kind": "replacement-fixture-server-02-readiness",
+  "status": "current source/dist runtime and quick HTTP publication identity passed; native table/layout/export green remains pending",
+  "recorded_at_utc": "2026-10-31T21:25:02.942548+00:00",
+  "launched_by": "root",
+  "unified_session": 91669,
+  "processes": {
+    "shell_pid": 37003,
+    "time_pid": 37028,
+    "node_pid": 37029,
+    "parent_child_chain_verified": true
+  },
+  "base": "http://127.0.0.1:3398",
+  "started_at_utc": "2026-10-31T21:20:18Z",
+  "listen_log_literal": "[14:21:25.466] INFO (#1): Listening on http://127.0.0.1:3398",
+  "server_log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-02.log",
+  "initial_connection_refusals": "startup not ready yet; not counted as readiness failures or success",
+  "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "accepted_database_sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+  "database_bytes": 1369219072,
+  "database_identity_policy": "accepted digest reused with exact producer verification8613 and recorded unchanged size/mtime; no full DB rehash",
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "app_tree": "e01418f448cbfaae517685d7927a90cd37343660",
+  "source": {
+    "bytes": 873415,
+    "files": 52,
+    "sha256": "0861036972ccacc7bb8cb6393b0e3cb697293d44c873f36bee0a0e5bd4223511"
+  },
+  "dist": {
+    "bytes": 1289564,
+    "files": 38,
+    "sha256": "c4ac0c8541ed059c6a4e983498841bbb4265dce8c4072ec2f095adb78a250cb1"
+  },
+  "digest_definition": "sha256 of compact sorted-key json of pathlib.Path-ordered {path relative to repository,sha256,bytes} records; source is git ls-files app; build is every actual app/dist file",
+  "actual_source_dist_guard_passed": true,
+  "launch_script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-server-02-command.sh",
+    "bytes": 8216,
+    "sha256": "ec2a14cde3e437c808515532712ec20d5a2944252e8bfe9a8bef08d4b8fc782e"
+  },
+  "profile": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-detached.sb",
+    "bytes": 2735,
+    "sha256": "f86d93780a7603109230f68db1ded030de98bd163d508bb77541160f569d0199"
+  },
+  "launch_receipts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-02.shell.pid",
+      "bytes": 6,
+      "sha256": "26eed6123ab7a26d0c02a5cfc245675aa58f142ec5965a5bd73ed163307170ee"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-02.start.txt",
+      "bytes": 21,
+      "sha256": "48d7cac6dc779f3717cdfdf26b3acb7772b0b8692bdb323a9c27141c0380a2fc"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-02.launch-profile-sha256.txt",
+      "bytes": 165,
+      "sha256": "1e716c9b74f7e942493e85763024cc338b507fb5fc74ae06e47c0202d5c0b34e"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-02.launch-app-tree.txt",
+      "bytes": 41,
+      "sha256": "0a51a2fc7d169b1997172584cbdbcd95c95cfc3a45c3cc33debbda6438b43cfe"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-02.launch-app-status.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-02.launch-app-identities.json",
+      "bytes": 240,
+      "sha256": "0d0d80a365c217275192b1b5d3a86de8e10172cc0fbd5cf448560eeac94e496c"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-02.launch-entrypoint-sha256.txt",
+      "bytes": 144,
+      "sha256": "f5665d9123013803e60116352042f83ff1934256cf2b0b0b1b15f93a26714753"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-02.accepted-database-sha256.txt",
+      "bytes": 65,
+      "sha256": "3b630df124d882bcac4ef2a295da18e59b3d571873d132704732c7bc6c0787d3"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-02.accepted-publication-id.txt",
+      "bytes": 37,
+      "sha256": "1d2056a8452719b6e137e193e3212c68ff8dd2970557d9a62d194355cf01f393"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-02.launch-database-stat.txt",
+      "bytes": 22,
+      "sha256": "c56eafbcd75f1fe924e6134eff51c4b9cf05568784dc9045c57a89b032ddcbbc"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-02.publication-verification-sha256.txt",
+      "bytes": 181,
+      "sha256": "728b4c4eed0b4116627514993902f44afb98b9dd6b46b357b5329cd45bec5fc2"
+    }
+  ],
+  "http_root_reported_by_root": {
+    "status": 200,
+    "wall_seconds": 0.007625,
+    "bytes": 2114,
+    "scope": "actual HTTP root only, no native rendering claim"
+  },
+  "html_assets": [
+    {
+      "http_path": "/assets/entry.client-CimxyNE3.js",
+      "local_current_dist": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/client/assets/entry.client-CimxyNE3.js",
+        "bytes": 214675,
+        "sha256": "f123592f11d56cc3c499149ae7c2b8ef315cfbadf89ad6c66dd6a55ea1f22785"
+      },
+      "http_status": 200,
+      "http_bytes_equal_local": true,
+      "comparison_observer": "root; full HTTP/local byte comparisons reported in assignment; product independently hashes the named local files and confirms logged paths"
+    },
+    {
+      "http_path": "/assets/explorer-E_2MyrJJ.js",
+      "local_current_dist": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/client/assets/explorer-E_2MyrJJ.js",
+        "bytes": 259225,
+        "sha256": "62a2b1b72f4659aca4524bd1e6bfaf3a3c4dd8b3087e43b98f7ce74eedd025af"
+      },
+      "http_status": 200,
+      "http_bytes_equal_local": true,
+      "comparison_observer": "root; full HTTP/local byte comparisons reported in assignment; product independently hashes the named local files and confirms logged paths"
+    },
+    {
+      "http_path": "/assets/jsx-runtime-Bcb-PiJy.js",
+      "local_current_dist": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/client/assets/jsx-runtime-Bcb-PiJy.js",
+        "bytes": 121191,
+        "sha256": "124bc89765020c2632a94bba506ddbc28f0ad97a82a099ee96c4459d56a89f2e"
+      },
+      "http_status": 200,
+      "http_bytes_equal_local": true,
+      "comparison_observer": "root; full HTTP/local byte comparisons reported in assignment; product independently hashes the named local files and confirms logged paths"
+    },
+    {
+      "http_path": "/assets/manifest-0ca74aef.js",
+      "local_current_dist": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/client/assets/manifest-0ca74aef.js",
+        "bytes": 2228,
+        "sha256": "b826ecb3d7765174abf9f1534e2a0e1ae7f32dcef54dbb6b19beb2b837484318"
+      },
+      "http_status": 200,
+      "http_bytes_equal_local": true,
+      "comparison_observer": "root; full HTTP/local byte comparisons reported in assignment; product independently hashes the named local files and confirms logged paths"
+    },
+    {
+      "http_path": "/assets/root-C9ufGTDx.js",
+      "local_current_dist": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/client/assets/root-C9ufGTDx.js",
+        "bytes": 3627,
+        "sha256": "ee0a1a3db64e13eb79e8263c5223bcfbccb66d215b815ec378ad5496b063d307"
+      },
+      "http_status": 200,
+      "http_bytes_equal_local": true,
+      "comparison_observer": "root; full HTTP/local byte comparisons reported in assignment; product independently hashes the named local files and confirms logged paths"
+    },
+    {
+      "http_path": "/assets/styles-Bv93DqZX.css",
+      "local_current_dist": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/client/assets/styles-Bv93DqZX.css",
+        "bytes": 22132,
+        "sha256": "d2afac8a1589888abe5f28011e72735ee1061aab8911936ecfefe683a13321bc"
+      },
+      "http_status": 200,
+      "http_bytes_equal_local": true,
+      "comparison_observer": "root; full HTTP/local byte comparisons reported in assignment; product independently hashes the named local files and confirms logged paths"
+    }
+  ],
+  "quick_publication_identity": {
+    "url": "http://127.0.0.1:3398/api/players/8476462?season=20242025",
+    "status": 200,
+    "wall_seconds": 0.06154829199658707,
+    "bytes": 1212060,
+    "sha256": "e658bde562a6fc9281f724df4bef27e7d16df0bd78e2a593cef0d0610dd199b8",
+    "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+    "purpose": "fixture",
+    "schema_version": 8,
+    "scope": "one publication identity response only; scalar/maps/cohorts not revalidated"
+  },
+  "api_identity_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/server-02-publication-identity.json",
+    "bytes": 426,
+    "sha256": "648d7d99ca12472e0a71db8bf659a1b296bab22627d58a2d9107dc999a1fc7da"
+  },
+  "operator_rollback_carry": {
+    "prior_receipt": "replacement-fixture-rollback-completion.json",
+    "condition": "operator and strict publication reader remain byte-identical",
+    "condition_verified_now": true,
+    "operator_sha256": "e655d6633d081f8b83133b779c2850434b3c1e9a65dcaaae29662d7f3f18d7b2",
+    "reader_sha256": "957d0706671eb0e3b42797084b94887230b61c7932313e46ae908d66819752e6",
+    "claim": "scoped operator copy/hash/strict-read/rename rollback proof only; no new rollback run or browser inference"
+  },
+  "old_build_evidence": "sourcee18/dist771 native and actual CSV receipts remain tied to that prior build. new source086/distc4ac still requires root native320/wide/200% table checks and a fresh actual export; old checks are not relabeled",
+  "native_browser": {
+    "latest_root_attempt": "cgWindowNotFound after rebuild; getAX/rebind failed and in-app browser host unavailable",
+    "user_unlock_requested_again": true,
+    "native_green_on_new_build": false,
+    "open_issue": "docs/issues/spatial-detail-table-reflow.md"
+  },
+  "preservation": {
+    "main_server": "9645 on3000 untouched",
+    "real_score": "18460 untouched; bounded HTTP work only overlaps its running interval",
+    "previous_server01": "root TERM exit130 retained; old logs/profile unchanged",
+    "app_build": "frozen after accepted rebuild"
+  },
+  "actions_by_product": {
+    "quick_HTTP_requests": 1,
+    "HTTP_asset_requests": 0,
+    "full_live_checkers": 0,
+    "server_starts_stops": 0,
+    "browser_controls": 0,
+    "DB_hashes_scans_or_source_passes": 0
+  },
+  "claim_limit": "new runtime, explicit source/dist identity, root-reported six asset byte comparisons and one quick API publication-identity response. no new native, layout, downloaded export, model or real-product completion claim"
+}

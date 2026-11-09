@@ -1,0 +1,15 @@
+AssertionError [ERR_ASSERTION]: 20242025: spatial family must be provided
++ actual - expected
+
++ 'not_computed'
+- 'provided'
+
+    at main (/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/live-check.ts:13:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'not_computed',
+  expected: 'provided',
+  operator: 'strictEqual',
+  diff: 'simple'
+}

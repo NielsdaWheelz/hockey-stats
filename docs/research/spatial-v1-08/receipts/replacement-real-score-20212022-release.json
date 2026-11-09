@@ -1,0 +1,31 @@
+{
+  "kind": "replacement-first-real-score-release",
+  "status": "root_released; supersedes preparation HOLD for this score only",
+  "recorded_at_utc": "2026-10-31T19:06:06.998657+00:00",
+  "state_manifest_sha256": "7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61",
+  "state_acceptance": "replacement-real-execution-20212022-completion.json",
+  "script": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20212022-score-command.sh",
+  "script_sha256": "eaa0ee53c72a18c78732ddadc2287808992f3e1cb9f88677c1288d4e551801b7",
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "census_sha256": "6fd06ffbd3143379849fd82b4598c85d4f178b14c3c9eed4b28e003f30207a96",
+  "ordinary_setup": [
+    "mkdir",
+    "-p",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores"
+  ],
+  "command_wrapper": [
+    "/usr/bin/caffeinate",
+    "-i",
+    "/bin/sh",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20212022-score-command.sh"
+  ],
+  "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20212022-source-check.json",
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022",
+  "review": "root and independent source-owner command review clear; exact reviewed ordinary argv, sixteen distinct fresh guarded paths, accepted state assertion, no extra flags",
+  "sequencing": "first real score before year two; one expensive compute command at a time; 20222023 fit remains held until completed score and exact eight-field fit/score source parity pass",
+  "inspection": "read source report as it appears while scoring; automatic54-key barrier and independent availability equality remain; no manual pause or count threshold",
+  "preservation": "production/observer stay frozen; source artifacts, original fits/scores and both serving publications unchanged; no activation",
+  "limits": "first real score outcome, propagation effects and resources pending; no final-year probes in this annual; browser acceptance still blocked"
+}

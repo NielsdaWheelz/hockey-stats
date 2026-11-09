@@ -1,0 +1,45 @@
+{
+  "kind": "replacement-real-execution-20242025-root-release",
+  "status": "released by root; launch follows receipt",
+  "recorded_at_utc": "2026-11-01T15:32:25.251903+00:00",
+  "season": "20242025",
+  "purpose": "real",
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "previous": {
+    "season": "20232024",
+    "manifest_sha256": "dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa",
+    "status": "accepted raw four-head annual; sole history input"
+  },
+  "accepted_third_score": {
+    "manifest_sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238",
+    "saved_check_sha256": "4c530412a5701a9ada64a0052a9e348aafd99273a51d8fbb2e51c8a232cfbaeb",
+    "completion_receipt_sha256": "86fef0c0fb2ab08940a95a004c8ebf507d37387ca50a78f234fadc8b6e16c2c6",
+    "root_verdict": "accepted after strict accounting, source/binding and independent saved-content review",
+    "review_record": "docs/research/spatial-v1-08/reviews/independent-review.md#completed-real-20232024-score",
+    "usage": "completed downstream evidence; not an input to fourth execution fit"
+  },
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20242025-execution-command.sh",
+    "sha256": "7c4b42f4955258c31c7ab8c7978762cd20c9326591e6797df61956e62fbfcb86",
+    "bytes_equal_committed_blob": true,
+    "syntax_and_argv": "root and source_design clear",
+    "guarded_paths": 15,
+    "census": false,
+    "pause": false,
+    "probe": false
+  },
+  "state_checker": {
+    "sha256": "c9fa848253125b29ae4736b70dfa7328cb17d2342d03e41d2e065a48f16ca506",
+    "reviewers": [
+      "product",
+      "root"
+    ],
+    "current_state_and_source_digests": "required when completed; unset now",
+    "invocations": 0
+  },
+  "source_check_policy": "read saved counters while solving continues; no new threshold/census/pause/ranking gate",
+  "execution_policy": "one heavy ordinary fit under native command-bound idle-sleep prevention; all analysis source untouched until exit",
+  "scope": "original fits/scores/raw/live preserved; no score-to-fit inheritance, activation, scientific admission or cleanup"
+}

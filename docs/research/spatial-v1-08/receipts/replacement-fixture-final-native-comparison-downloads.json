@@ -1,0 +1,99 @@
+{
+  "kind": "replacement-fixture-final-native-comparison-gap-and-csv",
+  "status": "passed actual new-build same-position/absent-year journeys and exact fresh download bytes; final search regression and whole fixture browser decision remain pending",
+  "recorded_at_utc": "2026-10-31T22:04:10.066700+00:00",
+  "observer": "root native chrome via cua; product records root observations and independently compares the actual downloaded files only",
+  "evidence": "root tools transcript and supplied completed download paths; no separate native screenshot path supplied",
+  "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "database_accepted_sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+  "source_sha256": "0861036972ccacc7bb8cb6393b0e3cb697293d44c873f36bee0a0e5bd4223511",
+  "build_sha256": "c4ac0c8541ed059c6a4e983498841bbb4265dce8c4072ec2f095adb78a250cb1",
+  "native_same_position_comparison": {
+    "route": "/compare",
+    "season": "20242025",
+    "a": "8476462",
+    "b": "8477504",
+    "metric": "spatial.5v5.defense_xg_per60",
+    "reference_group": "reported defense",
+    "peer_min": 0,
+    "peer_n": 77,
+    "Hamilton": {
+      "reported_value": ".164411",
+      "percentile": 81.2,
+      "matched_seconds": 1058
+    },
+    "Morrissey": {
+      "reported_value": ".0616183",
+      "percentile": 63.0,
+      "matched_seconds": 1168
+    },
+    "shared_raw_scale": [
+      "-.375279",
+      ".718684"
+    ],
+    "same_virtual_reference": true
+  },
+  "native_absent_year_navigation": {
+    "action": "click first history2023 season link from comparison",
+    "settled_comparison_URL_preserves": {
+      "a": "8476462",
+      "b": "8477504",
+      "season": "20232024"
+    },
+    "explicit_absent_player": "no published skater record for8477504",
+    "followed_actual_link": "profile and published history",
+    "profile_route": "/players/8477504",
+    "selected_season": "20232024",
+    "historical_name": "Josh Morrissey",
+    "selected_value": "unavailable",
+    "history": {
+      "20232024": "absent, not zero",
+      "20242025": 0.06161825503093588,
+      "20252026": "absent, not zero"
+    },
+    "raw_history_gaps_visible": true
+  },
+  "fresh_actual_downloads": [
+    {
+      "artifact": "distribution",
+      "path": "/Users/nnandal/Downloads/hockey-stats-8476462-8477504-spatial.5v5.defense_xg_per60-20242025-distribution (1).csv",
+      "bytes": 449210,
+      "sha256": "eca9b639bd3f122ec12ff72a264790c6675e63f75d6b413077574533ff063caf",
+      "mtime_ns": 1793484182360383248,
+      "mtime_utc": "2026-10-31T22:03:02.360383+00:00",
+      "actual_download_observer": "root native chrome on source086/distc4ac; product performed read-only byte comparison",
+      "byte_identical_to": {
+        "path": "/Users/nnandal/Downloads/hockey-stats-8476462-8477504-spatial.5v5.defense_xg_per60-20242025-distribution.csv",
+        "sha256": "eca9b639bd3f122ec12ff72a264790c6675e63f75d6b413077574533ff063caf",
+        "candidate_verification_receipt": "replacement-fixture-actual-csv-downloads.json"
+      },
+      "rows_previously_verified": 77,
+      "reused_validation": "exact candidate values, full selected quartet Estimate objects, exported support/reasons/uncertainty, method/reference and uri/digest pairs; distribution exact77defense peers and gap history2absent rows",
+      "DB_requery_performed": false
+    },
+    {
+      "artifact": "morrissey_gap_history",
+      "path": "/Users/nnandal/Downloads/hockey-stats-8477504-spatial.5v5.defense_xg_per60-20232024-20252026-history (1).csv",
+      "bytes": 9776,
+      "sha256": "c5e16ea76d8d3ca59efb718bf078c3d7d038decc001106d86b5dead782797c18",
+      "mtime_ns": 1793484201444719096,
+      "mtime_utc": "2026-10-31T22:03:21.444719+00:00",
+      "actual_download_observer": "root native chrome on source086/distc4ac; product performed read-only byte comparison",
+      "byte_identical_to": {
+        "path": "/Users/nnandal/Downloads/hockey-stats-8477504-spatial.5v5.defense_xg_per60-20232024-20252026-history.csv",
+        "sha256": "c5e16ea76d8d3ca59efb718bf078c3d7d038decc001106d86b5dead782797c18",
+        "candidate_verification_receipt": "replacement-fixture-actual-csv-downloads.json"
+      },
+      "rows_previously_verified": 3,
+      "reused_validation": "exact candidate values, full selected quartet Estimate objects, exported support/reasons/uncertainty, method/reference and uri/digest pairs; distribution exact77defense peers and gap history2absent rows",
+      "DB_requery_performed": false
+    }
+  ],
+  "verification_method": "read original and fresh actual download bytes and compare exact hashes/length/content to earlier independently candidate-validated artifacts. no recreated CSV, full file scan of database, DB query, source/model pass or browser control",
+  "limits": [
+    "earlier build771 files remain historical; the new actual source086/buildc4ac downloads are separately bound here",
+    "root still repeats search regression on the current build; no automatic old-build carry",
+    "whole fixture browser acceptance and real product completion are not asserted",
+    "no app/analysis/observer/build/server or download mutation"
+  ]
+}

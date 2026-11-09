@@ -1,0 +1,75 @@
+{
+  "kind": "spatial-v1-08-fixture03-composition-accounting",
+  "status": "passed",
+  "source_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/results/manifest.json",
+    "sha256": "499acc1f9363d136d7e148d12af045fcf17b7f27b018b2e11612447ccb992d8d"
+  },
+  "result_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/results/manifest.json",
+    "sha256": "2d2974937637e7c32dbebd6c9c43bfab05a39299f2823e116008e8d319b90b0e"
+  },
+  "preserved_nonspatial_families": 27,
+  "preserved_nonspatial_members": 45,
+  "preserved_method_records": 9,
+  "unchanged_content_proof": "nonspatial member descriptors exactly match; production copy verifies streaming hashes and final strict reader verifies actual bytes; no third independent unchanged-family hash scan",
+  "years": [
+    {
+      "season": "20232024",
+      "published_skaters": 201,
+      "fitted_roster": 201,
+      "published_only": 0,
+      "fitted_only": 0,
+      "exact_saved_scalar_values": 3216,
+      "exact_saved_adjustment_values": 5628,
+      "map_sample_player_ids": [
+        "8470600",
+        "8475726",
+        "8476462",
+        "8478104",
+        "8484325"
+      ],
+      "map_sample_rows": 40,
+      "map_file_sha256": "eaf1fdf9ce1cd8e32f7175495661aefe106dfe5b3de8a32a277ecb87efacce3c"
+    },
+    {
+      "season": "20242025",
+      "published_skaters": 245,
+      "fitted_roster": 245,
+      "published_only": 0,
+      "fitted_only": 0,
+      "exact_saved_scalar_values": 3920,
+      "exact_saved_adjustment_values": 6860,
+      "map_sample_player_ids": [
+        "8470613",
+        "8475726",
+        "8476462",
+        "8479370",
+        "8484911"
+      ],
+      "map_sample_rows": 40,
+      "map_file_sha256": "3e8620a5aead7448b3ab18531f0b54cbbc0785197a6d36f9c202b782ea0b9908"
+    },
+    {
+      "season": "20252026",
+      "published_skaters": 277,
+      "fitted_roster": 277,
+      "published_only": 0,
+      "fitted_only": 0,
+      "exact_saved_scalar_values": 4432,
+      "exact_saved_adjustment_values": 7756,
+      "map_sample_player_ids": [
+        "8470613",
+        "8475726",
+        "8476462",
+        "8479316",
+        "8485493"
+      ],
+      "map_sample_rows": 40,
+      "map_file_sha256": "910949e15c20bffccb97cc8e64cd8df9a588d9dc1964a25226940809f9ce3768"
+    }
+  ],
+  "wall_seconds": 0.9950535839889199,
+  "peak_rss_bytes": 138182656,
+  "scope": "all saved spatial scalar/support and adjustment rows; exact native-cell and scalar/display/density-integral checks for five selected players per year; no independent original-source or scientific assessment"
+}

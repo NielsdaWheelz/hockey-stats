@@ -1,0 +1,296 @@
+{
+  "kind": "execution-u-capture-diagnosis-completion",
+  "recorded_utc": "2026-11-03T08:20:21.326660+00:00",
+  "status": "arithmetic_repair_permitted_not_qualified",
+  "exit_code": 0,
+  "started_utc": "2026-11-03T06:00:47Z",
+  "finished_utc": "2026-11-03T08:00:12Z",
+  "launch_head": "17791dd73223ab0046b40ecf1674ca8f5f6c562e",
+  "completed_analysis_tree": "54e41d821b1cc12fb262be4c42d6898a610c37fe",
+  "capture_reconstruction_count": 1,
+  "diagnostic_evaluations": {
+    "full": 208,
+    "full_cap": 256,
+    "native": 19,
+    "native_cap": 64
+  },
+  "refs": {
+    "inputs/manifest.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/inputs/manifest.json",
+      "sha256": "031975b95114fbe62c0e468ebdf16d6170c27f15407b7df71ff0b08e18517a6c",
+      "bytes": 6908564
+    },
+    "source-check.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/source-check.json",
+      "sha256": "9f1351a2cf619e32a7ebeb487a4dda4b3892dcb005b7f2ded917a71354509aa7",
+      "bytes": 88090
+    },
+    "capture-start.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/capture-start.json",
+      "sha256": "88a33e431f0d30f2d1c5252f1b8ddd92f3db1827d128e91f7e074f21face0b6c",
+      "bytes": 1958
+    },
+    "capture-reloaded.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/capture-reloaded.json",
+      "sha256": "a10365297148c215f764bb2cde5178602a5eda13563fca36f6345bfd4f7fb9f6",
+      "bytes": 854
+    },
+    "diagnosis/diagnosis.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/diagnosis/diagnosis.json",
+      "sha256": "115da4fe4c18912b74b1970f1825a4338f0f54c6ccd9f0cfb3f7e10dfa026af1",
+      "bytes": 145704
+    },
+    "diagnosis/raw-native-result.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/diagnosis/raw-native-result.json",
+      "sha256": "9be3e879ac0747942fcd17ca7ee92fed01e1460738c228e3b7d7adfc3728b803",
+      "bytes": 364
+    },
+    "diagnosis/native-identity.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/diagnosis/native-identity.json",
+      "sha256": "64eb8485c0edaed7026ee0882c90df705c532e47134cb3c1980f2f590715bc1b",
+      "bytes": 296
+    },
+    "diagnosis/direction-evidence.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/diagnosis/direction-evidence.json",
+      "sha256": "9694a3f4c766337946dcd94242cec43edc715fbbe871c6202c5fc81c778b61ea",
+      "bytes": 131167
+    },
+    "diagnosis/trial-evidence.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/diagnosis/trial-evidence.json",
+      "sha256": "f039190f76014db88c8720c89f2ee3d48a63fbb4eafcff3ae19791f1ddcf166d",
+      "bytes": 48643
+    }
+  },
+  "command_log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01.log",
+    "sha256": "6d3fa0fe0e0b9fc3d4f2a4bef7229862b76164569e403ff4282933aecf35a529",
+    "bytes": 1784
+  },
+  "finish": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-finish.txt",
+    "sha256": "4280c95aec5b53d43336d736a37d18d8fbe821e5a21d709626dcf3b4030f7587",
+    "bytes": 21
+  },
+  "exit": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-exit.txt",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "bytes": 2
+  },
+  "independent_saved_review": {
+    "path": "docs/research/spatial-v1-08/reviews/u-diagnosis-saved-review.md",
+    "sha256": "2e04c4a6331c2a36f176e0e307b0f520a5255d19cb23513935f13da9b80ecdbd",
+    "bytes": 7214
+  },
+  "root_verdict": "accept frozen outer-arithmetic witness; permit only approved exact-sum repair after source/command review",
+  "checked_bundle": {
+    "manifest_sha256": "031975b95114fbe62c0e468ebdf16d6170c27f15407b7df71ff0b08e18517a6c",
+    "physical_rows": 151381,
+    "dimension": 3420,
+    "batches": 6748,
+    "expanded_rows": 26668401,
+    "payload_bytes": 1856985404,
+    "fixed_csr_dtypes": {
+      "data": "<f8",
+      "indices": "<i4",
+      "indptr": "<i4"
+    },
+    "frozen_actual_probes": 256,
+    "frozen_fixture_probes": 1,
+    "frozen_requirements": 48,
+    "unavailable_requirements": 0
+  },
+  "capture_validation": {
+    "status": "checked_reloaded_anchors",
+    "bundle_manifest_sha256": "031975b95114fbe62c0e468ebdf16d6170c27f15407b7df71ff0b08e18517a6c",
+    "objective": {
+      "hex": "0x1.10246c4d7d6b4p+16",
+      "classification": "finite"
+    },
+    "gradient_max": {
+      "hex": "0x1.6b248bd51a600p-9",
+      "classification": "finite"
+    },
+    "objective_bits": "b4d6d7c44602f140",
+    "gradient_max_bits": "00a651bd48b2663f"
+  },
+  "original_native": {
+    "success": false,
+    "status": 2,
+    "message": "ABNORMAL: ",
+    "nit": 0,
+    "nfev": 19,
+    "njev": 19,
+    "fun": {
+      "hex": "0x1.10246c4d7d6b4p+16",
+      "classification": "finite"
+    },
+    "endpoint_sha256": "0fe58c2cf3456ed1c304b46c5530b4e4050a26affa1470ff425a4d7e781c0574",
+    "raw_displacement_max": {
+      "hex": "0x0.0p+0",
+      "classification": "finite"
+    }
+  },
+  "gradient_resolved_steps": [
+    1e-05,
+    1e-06
+  ],
+  "unresolved_derivative_directions": [],
+  "first_positive_witness": {
+    "positive_witness": true,
+    "associated": true,
+    "displaced": true,
+    "step": {
+      "hex": "0x1.093d123843fcep-17",
+      "classification": "finite"
+    },
+    "gdold": {
+      "hex": "-0x1.2c47d868286fep-15",
+      "classification": "finite"
+    },
+    "gd": {
+      "hex": "0x1.b273e9703d05bp-16",
+      "classification": "finite"
+    },
+    "gtest": {
+      "hex": "-0x1.337cc5064e458p-25",
+      "classification": "finite"
+    },
+    "original_thresholds": [
+      {
+        "hex": "0x1.10246c4d7d6b4p+16",
+        "classification": "finite"
+      },
+      {
+        "hex": "0x1.10246c4d7d6b4p+16",
+        "classification": "finite"
+      }
+    ],
+    "rounded_reference_thresholds": [
+      {
+        "hex": "0x1.10246c4d7d6cap+16",
+        "classification": "finite"
+      },
+      {
+        "hex": "0x1.10246c4d7d6cap+16",
+        "classification": "finite"
+      }
+    ],
+    "original_margins": [
+      {
+        "hex": "0x1.0000000000000p-31",
+        "classification": "finite"
+      },
+      {
+        "hex": "0x1.0000000000000p-31",
+        "classification": "finite"
+      }
+    ],
+    "rounded_margins": [
+      {
+        "hex": "-0x1.8000000000000p-35",
+        "classification": "finite"
+      },
+      {
+        "hex": "-0x1.8000000000000p-35",
+        "classification": "finite"
+      }
+    ],
+    "exact_decrease": {
+      "numerator": "-1475652847297",
+      "denominator": "37778931862957161709568",
+      "rounded": "-0x1.5793c386c1000p-35"
+    },
+    "exact_limit": {
+      "numerator": "-1577551674393352229295871497837",
+      "denominator": "5575186299632655785383929568162090376495104",
+      "rounded": "-0x1.3e958290d4558p-42"
+    },
+    "exact_margin": {
+      "numerator": "-216190371651435133235788829157779",
+      "denominator": "5575186299632655785383929568162090376495104",
+      "rounded": "-0x1.551698819f575p-35"
+    },
+    "curvature_margin": {
+      "hex": "0x1.a835a39362424p-18",
+      "classification": "finite"
+    },
+    "signed_accumulation_discrepancy": {
+      "numerator": "6953260055953",
+      "denominator": "37778931862957161709568",
+      "rounded": "0x1.94bba61f64400p-33"
+    },
+    "start_accumulation_discrepancy": {
+      "numerator": "-757161177235",
+      "denominator": "2361183241434822606848",
+      "rounded": "-0x1.6094a56126000p-32"
+    },
+    "search_start_evaluation": 188,
+    "request_event": 2,
+    "consumption_event": 3,
+    "response_evaluation": 190
+  },
+  "preserved_donor_npz": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026/heads/u.npz",
+      "sha256": "06a83004aeabb08dcd285a786c8efebde1cbf5ce4287d8a6641b45e8002ff74b",
+      "bytes": 27638
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026/heads/q.npz",
+      "sha256": "d3d6c46290b7b3e232f0d2daa953cca055b239f13ac86a067c84c273c7c30f35",
+      "bytes": 28630
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026/heads/r.npz",
+      "sha256": "795f72cd0d34696fe9908250cb1f45b7f20390eeb17d7473d823d037479c9111",
+      "bytes": 28630
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026/heads/g.npz",
+      "sha256": "f9c1c0be9ec31f82825ee7217f1b773cd8c02b4724f230263437fcb35968774d",
+      "bytes": 36206
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026/resolution/q.npz",
+      "sha256": "09f4b548f0c3709f5773315850d29eddc0b595587d00d4bc94aba91c9ac8452d",
+      "bytes": 28630
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026/resolution/r.npz",
+      "sha256": "91b738eb326781d6a7a2926b5d370689cd5b12f2654ef481add0a79f5711e333",
+      "bytes": 28630
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026/resolution/g.npz",
+      "sha256": "c2418065fda278bd785de3814a17ebea3289821f8fcf77307830521d67ce40ff",
+      "bytes": 36206
+    }
+  ],
+  "diagnostic_endpoint_eligible": false,
+  "repair_attempts_used": 0,
+  "probability_budget_evaluated": false,
+  "assembly_performed": false,
+  "scoring_spatial": "held",
+  "activation": false,
+  "resources": {
+    "command_wall_seconds": 7163.67,
+    "user_seconds": 6254.76,
+    "system_seconds": 266.2,
+    "maximum_resident_bytes": 19359678464,
+    "peak_footprint_bytes": 20272201328,
+    "capture_and_first_reload_seconds": 7021.025644916983,
+    "first_reload_seconds": 37.10902158304816,
+    "diagnosis_including_its_reload_seconds": 140.70747062499868,
+    "input_payload_bytes": 1856985404,
+    "trace_bytes_excluding_final_receipt": 64194026,
+    "campaign_directory_file_bytes": 1928324600,
+    "scope": "actual completed capture/diagnosis only; sibling log/launch receipts excluded from directory bytes"
+  },
+  "limits": [
+    "outer accumulation relevance, not unique native-failure cause",
+    "inner arithmetic errors remain unbounded",
+    "no native diagnostic endpoint qualifies",
+    "one repaired solve and unchanged 1e-5 qualification still required",
+    "no source rebuild or successor automatically authorized"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "replacement-real-score-20222023-launch",
+  "status": "running; source parity and completed score pending",
+  "recorded_at_utc": "2026-11-01T02:20:36.583619+00:00",
+  "launch": {
+    "start": "2026-11-01T02:20:00Z",
+    "launch-head": "34d37290e0a4d7eec1b87be219dbdb74ffcbfcf2",
+    "launch-analysis-tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "launch-analysis-status": "",
+    "launch-observer-sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf  var/v1-08-replacement/consumed_start_check.py",
+    "expected-recipe-sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "launch-prepared-sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c  /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "launch-coaches-sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0  /Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "launch-state-sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/manifest.json"
+  },
+  "python_pid": 82779,
+  "time_pid": 82777,
+  "unified_exec_session": 54394,
+  "command_sha256": "baee3f364bbf40a4297bcffa8d733a5f66182101358766d6c2a98162dabcbbfd",
+  "release": "replacement-real-score-20222023-release.json",
+  "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20222023-source-check.json",
+  "source_policy": "require all eight fields identical to fitb20; no census/pause/threshold in2022",
+  "scope": "one heavy ordinary score command under native command-bound idle-sleep prevention; all analysis source stays untouched until exit; no acquisition/activation/scientific admission/cleanup"
+}

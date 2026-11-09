@@ -1,0 +1,60 @@
+{
+  "kind": "spatial-v1-08-constant-context-regression",
+  "status": "passed",
+  "source": {
+    "path": "analysis/src/hockey_stats/spatial_design.py",
+    "sha256": "4d7b6fb04beabd342601b4a397adb313e72e400b01a4e98bcc47bb8ffc586241"
+  },
+  "command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-source-checks.py",
+  "temporary_checks": {
+    "path": "var/v1-08-source-checks.py",
+    "sha256": "e28a5ea3debf937dadbf93577778925da3892f86e7690f220ab1d0abfb9a426f"
+  },
+  "passed_checks": 12,
+  "red": {
+    "raw_elapsed": [
+      0.2,
+      0.2,
+      0.2
+    ],
+    "exposure": [
+      1.0,
+      2.0,
+      3.0
+    ],
+    "actual_transformed": [
+      -1.0,
+      -1.0,
+      -1.0
+    ],
+    "failure": "constant continuous context acquired tiny positive numerical variance instead of unit scale"
+  },
+  "green": {
+    "transformed_elapsed": [
+      [
+        0.0
+      ],
+      [
+        0.0
+      ],
+      [
+        0.0
+      ]
+    ],
+    "transformed_event": [
+      [
+        0.09999999999999998
+      ]
+    ],
+    "moments": [
+      {
+        "location": 0.2,
+        "scale": 1.0,
+        "available_hours": 6.0,
+        "missing_hours": 0.0
+      }
+    ]
+  },
+  "repair": "calculate weighted mean around first present raw value; identical values retain exact location and zero variance; no epsilon threshold",
+  "scope": "bounded computational regression; updated retained source-field receipt pending"
+}

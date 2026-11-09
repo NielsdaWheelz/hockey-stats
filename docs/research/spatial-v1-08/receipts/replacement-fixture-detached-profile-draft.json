@@ -1,0 +1,382 @@
+{
+  "kind": "replacement-fixture-detached-profile-draft",
+  "status": "draft profile/syntax/paired-read plan only; no runtime detachment established",
+  "recorded_at_utc": "2026-10-31T16:10:50.524436+00:00",
+  "profile": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-detached.sb",
+    "bytes": 2735,
+    "sha256": "f86d93780a7603109230f68db1ded030de98bd163d508bb77541160f569d0199"
+  },
+  "profile_text": "(version 1)\n(allow default)\n; bulk analytical payloads are unavailable except the selected finished database.\n; metadata remains available for native path resolution and sqlite startup.\n(deny file-read-data\n (require-all\n  (subpath \"/Volumes/Expansion/hockey-stats\")\n  (require-not (literal \"/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite\"))))\n; sibling checkouts and local scientific sources are unavailable to the app.\n(deny file-read*\n (subpath \"/Users/nnandal/Documents/code/hockey-stats\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-03b-review\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-03e-runs\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-03f\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-03f-runs\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-03g-runs\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-03h-runs\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-03i-runs\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-03j-runs\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-03p\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-04a\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-04b\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-04c\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-04f\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-04i\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-04j\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-04k\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-04l\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-04m\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-04o\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-local\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-raw\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-runs\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-v1-01\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-v1-05\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-v1-05-factor\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-v1-06\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-worktrees\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-v1-08/fixtures\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-v1-08/docs\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-v1-08/var\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-v1-08/.reference\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-v1-08/.git\")\n (subpath \"/Users/nnandal/Documents/code/hockey-stats-v1-08/app/src\")\n)\n",
+  "original_profile": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/detached.sb",
+    "sha256_before": "42c21d266fd7ab0d7b83893fa4d84c17b765eddd1005fabcb919c946352f84d6",
+    "sha256_after": "42c21d266fd7ab0d7b83893fa4d84c17b765eddd1005fabcb919c946352f84d6",
+    "unchanged": true
+  },
+  "bulk_payload_rule": {
+    "denied_data_root": "/Volumes/Expansion/hockey-stats",
+    "sole_literal_data_exception": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite",
+    "metadata": "file-read-metadata remains available under bulk root; source payloads and candidate sidecars/copies remain denied",
+    "coverage": [
+      "all new campaign fixture and real execution/scores/spatial states",
+      "execution-results/results and both selections",
+      "all other old/new expensive outputs, raw/prepared/factual/references/chance/archive/coaches/corpora/captures",
+      "old candidate databases and unfinished/new candidate sidecars, copied sources/results/receipts"
+    ],
+    "directory_list_dependency": false
+  },
+  "local_sources": {
+    "whole_sibling_roots": [
+      "/Users/nnandal/Documents/code/hockey-stats",
+      "/Users/nnandal/Documents/code/hockey-stats-03b-review",
+      "/Users/nnandal/Documents/code/hockey-stats-03e-runs",
+      "/Users/nnandal/Documents/code/hockey-stats-03f",
+      "/Users/nnandal/Documents/code/hockey-stats-03f-runs",
+      "/Users/nnandal/Documents/code/hockey-stats-03g-runs",
+      "/Users/nnandal/Documents/code/hockey-stats-03h-runs",
+      "/Users/nnandal/Documents/code/hockey-stats-03i-runs",
+      "/Users/nnandal/Documents/code/hockey-stats-03j-runs",
+      "/Users/nnandal/Documents/code/hockey-stats-03p",
+      "/Users/nnandal/Documents/code/hockey-stats-04a",
+      "/Users/nnandal/Documents/code/hockey-stats-04b",
+      "/Users/nnandal/Documents/code/hockey-stats-04c",
+      "/Users/nnandal/Documents/code/hockey-stats-04f",
+      "/Users/nnandal/Documents/code/hockey-stats-04i",
+      "/Users/nnandal/Documents/code/hockey-stats-04j",
+      "/Users/nnandal/Documents/code/hockey-stats-04k",
+      "/Users/nnandal/Documents/code/hockey-stats-04l",
+      "/Users/nnandal/Documents/code/hockey-stats-04m",
+      "/Users/nnandal/Documents/code/hockey-stats-04o",
+      "/Users/nnandal/Documents/code/hockey-stats-local",
+      "/Users/nnandal/Documents/code/hockey-stats-raw",
+      "/Users/nnandal/Documents/code/hockey-stats-runs",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-01",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-05",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+      "/Users/nnandal/Documents/code/hockey-stats-worktrees"
+    ],
+    "current_task_denied_sources": [
+      "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-08/fixtures",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-08/var",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-08/.reference",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-08/.git",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/src"
+    ],
+    "current_built_assets": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist",
+    "current_runtime_dependencies": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/node_modules",
+    "node_modules_is_symlink": false
+  },
+  "syntax": {
+    "command": [
+      "/usr/bin/sandbox-exec",
+      "-f",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-detached.sb",
+      "/usr/bin/true"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "scope": "profile parse/command permission only; no protected input or candidate read"
+  },
+  "paired_read_plan": {
+    "node": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "javascript": "const fs=require('node:fs');const fd=fs.openSync(process.argv[1],'r');const bytes=fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd);if(bytes!==1)throw new Error('expected one byte');process.stdout.write('one_byte_read_success\\n');",
+    "outside_argv": [
+      "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+      "-e",
+      "const fs=require('node:fs');const fd=fs.openSync(process.argv[1],'r');const bytes=fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd);if(bytes!==1)throw new Error('expected one byte');process.stdout.write('one_byte_read_success\\n');",
+      "<target>"
+    ],
+    "inside_argv": [
+      "/usr/bin/sandbox-exec",
+      "-f",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-detached.sb",
+      "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+      "-e",
+      "const fs=require('node:fs');const fd=fs.openSync(process.argv[1],'r');const bytes=fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd);if(bytes!==1)throw new Error('expected one byte');process.stdout.write('one_byte_read_success\\n');",
+      "<target>"
+    ],
+    "conditions": [
+      "root first accepts this exact profile and finished candidate",
+      "bind actual profile digest before and after controls",
+      "each target must be an existing nonempty file, outside read must succeed",
+      "negative inside result must be EACCES/EPERM permission refusal, never absence or unrelated failure",
+      "positive finished database and both built assets must read one byte inside and outside",
+      "absent future targets are pending until publication; no invented replacement file or skipped acceptance",
+      "source/control success precedes a separately released strict detached server startup; GUI/API acceptance remains separate"
+    ],
+    "controls": [
+      {
+        "role": "raw",
+        "path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2025021108/landing/body.bin",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 12537,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "factual",
+        "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/facts.stdout",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 109,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "references",
+        "path": "/Volumes/Expansion/hockey-stats/references/20252026/season-games/body.bin",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 327491,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "chance",
+        "path": "/Volumes/Expansion/hockey-stats/chance/03b-20260930/assessments/confirmation-stronger_origin_prior.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 55954618,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "archive",
+        "path": "/Volumes/Expansion/hockey-stats/archive/local-research-20261020/duplicate-verified.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 1428,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "corpora",
+        "path": "/Volumes/Expansion/hockey-stats/corpora/03b-20260930-capacity-20232024/corpus.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 2469009,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "prepared",
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-native-support-check.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 3818,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "captures",
+        "path": "/Volumes/Expansion/hockey-stats/captures/2025021108/play-report/body.bin",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 1186023,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "local_preparation",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 113142,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "local_coaches",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 218717,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "analytical_source",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_composition.py",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 21914,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "local_fixture",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/fixtures/README.md",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 109108,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "local_results_copy",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/synthetic-state-interface/exchange/manifest.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 16914,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "new_execution",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022/manifest.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 23670,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "new_scores",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022/manifest.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 45147,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "new_spatial",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20212022/manifest.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 17639,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "new_execution_exchange",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution-results/manifest.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 17435,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "new_scores_selection",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores-selection.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 1447,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "new_states_selection",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/states-selection.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": false,
+        "bytes_at_preparation": null,
+        "skip_absent_until_created": true
+      },
+      {
+        "role": "new_combined_results",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results/manifest.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": false,
+        "bytes_at_preparation": null,
+        "skip_absent_until_created": true
+      },
+      {
+        "role": "candidate_result_copy",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/results/manifest.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": false,
+        "bytes_at_preparation": null,
+        "skip_absent_until_created": true
+      },
+      {
+        "role": "candidate_season_receipt",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/seasons/20232024/verification.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": false,
+        "bytes_at_preparation": null,
+        "skip_absent_until_created": true
+      },
+      {
+        "role": "candidate_selection_copy",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/selection.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": false,
+        "bytes_at_preparation": null,
+        "skip_absent_until_created": true
+      },
+      {
+        "role": "candidate_verification_copy",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/verification.json",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": false,
+        "bytes_at_preparation": null,
+        "skip_absent_until_created": true
+      },
+      {
+        "role": "old_fixture03_database",
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 1369198592,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "primary_checkout_source",
+        "path": "/Users/nnandal/Documents/code/hockey-stats/app/src/server/main.ts",
+        "expected_inside": "permission_denied",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 8106,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "finished_candidate",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite",
+        "expected_inside": "one_byte_read_success",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": false,
+        "bytes_at_preparation": null,
+        "skip_absent_until_created": true
+      },
+      {
+        "role": "built_node_entry",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js",
+        "expected_inside": "one_byte_read_success",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 8073,
+        "skip_absent_until_created": false
+      },
+      {
+        "role": "built_client_asset",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/client/assets/league-main-COAbxYGL.js",
+        "expected_inside": "one_byte_read_success",
+        "phase": "after candidate publication/root control release",
+        "exists_at_preparation": true,
+        "bytes_at_preparation": 20276,
+        "skip_absent_until_created": false
+      }
+    ],
+    "controls_executed": false
+  },
+  "candidate_exists_at_preparation": false,
+  "server_launched": false,
+  "publication_launched": false,
+  "production_observer_changed": false,
+  "combined_spatial_composition_launched": false
+}

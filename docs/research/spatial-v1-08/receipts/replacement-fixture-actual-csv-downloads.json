@@ -1,0 +1,360 @@
+{
+  "kind": "replacement-fixture-actual-native-csv-download-check",
+  "status": "passed exact actual downloaded Hamilton history, defense distribution and Morrissey gap history CSVs",
+  "recorded_at_utc": "2026-10-31T21:14:00.678025+00:00",
+  "provenance": "root supplied completed native chrome downloads from current fixture journeys; product read the existing files, did not regenerate exports or control the browser",
+  "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite",
+    "accepted_sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+    "bytes": 1369219072,
+    "mtime_ns": 1793465008507751508,
+    "connection": "mode=ro&immutable=1",
+    "digest_reused_not_recomputed": true
+  },
+  "app_source_sha256": "e18e778f4fb388e3491a49fdad8b8868876b7165a52cea4ab49faddb6bdbef78",
+  "build_sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+  "actual_downloads": {
+    "hamilton_history": {
+      "path": "/Users/nnandal/Downloads/hockey-stats-8476462-spatial.5v5.defense_xg_per60-20232024-20252026-history.csv",
+      "bytes": 18555,
+      "mtime_ns": 1793480859832909503,
+      "sha256": "0490520426a5fc4319c92fcc93d3299f535b1f2fcd80c442c1351f7699413c45"
+    },
+    "defense_distribution": {
+      "path": "/Users/nnandal/Downloads/hockey-stats-8476462-8477504-spatial.5v5.defense_xg_per60-20242025-distribution.csv",
+      "bytes": 449210,
+      "mtime_ns": 1793481093265480171,
+      "sha256": "eca9b639bd3f122ec12ff72a264790c6675e63f75d6b413077574533ff063caf"
+    },
+    "morrissey_gap_history": {
+      "path": "/Users/nnandal/Downloads/hockey-stats-8477504-spatial.5v5.defense_xg_per60-20232024-20252026-history.csv",
+      "bytes": 9776,
+      "mtime_ns": 1793481143601388584,
+      "sha256": "c5e16ea76d8d3ca59efb718bf078c3d7d038decc001106d86b5dead782797c18"
+    }
+  },
+  "row_counts": {
+    "hamilton_history": 3,
+    "defense_distribution": 77,
+    "morrissey_gap_history": 3
+  },
+  "provided_rows_checked": 81,
+  "absent_rows_checked": 2,
+  "exact_quartet_estimate_records_checked": 324,
+  "distribution_membership": {
+    "unique_players": 77,
+    "position": "D",
+    "peer_min": 0,
+    "exact_candidate_membership": true,
+    "both_selected_players_included": true,
+    "reference_id": "spatial-league-centered-virtual-v1",
+    "common_method_id": "spatial-v1-08-20242025"
+  },
+  "checks": [
+    "exact native/display values and all four complete Estimate objects, including null reasons/reason_detail and uncertainty",
+    "included/qualification/excluded seconds, gap/prior/current flags, prior seasons, inferred inputs and reason counts exactly match candidate Support",
+    "exact methods, virtual reference/support policy, method limitations and evidence uri/sha pairs",
+    "actual person names/position/teams and annual corpus identities",
+    "independent midpoint percentiles from candidate defense values; zero-time prior-only value retained without percentile",
+    "absent publication years retain null value/support/quartet/uncertainty and explicit absent reasons, not zero"
+  ],
+  "selected_player_years": [
+    {
+      "season": "20232024",
+      "player_id": "8476462",
+      "value": 0.14938862846803325,
+      "quartet": {
+        "difference": 0.14938862846803325,
+        "complete": 1.4529656917797624,
+        "neutral": 1.3035770633117292,
+        "relative_percent": 11.459900045227275
+      },
+      "exported_support": {
+        "included_seconds": 972.0,
+        "known_excluded_seconds": 0.0,
+        "unquantified_gap": true,
+        "prior_only": false,
+        "current_season_information": true,
+        "prior_seasons": [],
+        "inferred_inputs": [
+          "blocked_origin",
+          "setter"
+        ],
+        "reason_counts": []
+      },
+      "uncertainty": {
+        "kind": "not_estimated"
+      },
+      "percentile": 86.02941176470588,
+      "standing_reason": null,
+      "peer_n": 68,
+      "method_id": "spatial-v1-08-20232024"
+    },
+    {
+      "season": "20242025",
+      "player_id": "8476462",
+      "value": 0.16441126359108796,
+      "quartet": {
+        "difference": 0.16441126359108796,
+        "complete": 1.9626278891232678,
+        "neutral": 1.7982166255321799,
+        "relative_percent": 9.143017657421039
+      },
+      "exported_support": {
+        "included_seconds": 1058.0,
+        "known_excluded_seconds": 27.0,
+        "unquantified_gap": false,
+        "prior_only": false,
+        "current_season_information": true,
+        "prior_seasons": [
+          "20232024"
+        ],
+        "inferred_inputs": [
+          "blocked_origin",
+          "historical_borrowing",
+          "setter"
+        ],
+        "reason_counts": [
+          {
+            "code": "unmatched_report_attempt",
+            "count": 1
+          }
+        ]
+      },
+      "uncertainty": {
+        "kind": "not_estimated"
+      },
+      "percentile": 81.16883116883118,
+      "standing_reason": null,
+      "peer_n": 77,
+      "method_id": "spatial-v1-08-20242025"
+    },
+    {
+      "season": "20252026",
+      "player_id": "8476462",
+      "value": 0.1665425174629435,
+      "quartet": {
+        "difference": 0.1665425174629435,
+        "complete": 1.8454166742096743,
+        "neutral": 1.6788741567467305,
+        "relative_percent": 9.919892851627685
+      },
+      "exported_support": {
+        "included_seconds": 0.0,
+        "known_excluded_seconds": 0.0,
+        "unquantified_gap": true,
+        "prior_only": true,
+        "current_season_information": false,
+        "prior_seasons": [
+          "20232024",
+          "20242025"
+        ],
+        "inferred_inputs": [
+          "historical_borrowing"
+        ],
+        "reason_counts": []
+      },
+      "uncertainty": {
+        "kind": "not_estimated"
+      },
+      "percentile": null,
+      "standing_reason": "no exposure",
+      "peer_n": 48,
+      "method_id": "spatial-v1-08-20252026"
+    },
+    {
+      "season": "20242025",
+      "player_id": "8477504",
+      "value": 0.06161825503093588,
+      "quartet": {
+        "difference": 0.06161825503093588,
+        "complete": 1.859834880563116,
+        "neutral": 1.7982166255321799,
+        "relative_percent": 3.4266313722185746
+      },
+      "exported_support": {
+        "included_seconds": 1168.0,
+        "known_excluded_seconds": 46.0,
+        "unquantified_gap": true,
+        "prior_only": false,
+        "current_season_information": true,
+        "prior_seasons": [
+          "20212022"
+        ],
+        "inferred_inputs": [
+          "blocked_origin",
+          "historical_borrowing",
+          "setter"
+        ],
+        "reason_counts": [
+          {
+            "code": "strength_conflict",
+            "count": 1
+          }
+        ]
+      },
+      "uncertainty": {
+        "kind": "not_estimated"
+      },
+      "percentile": 62.98701298701299,
+      "standing_reason": null,
+      "peer_n": 77,
+      "method_id": "spatial-v1-08-20242025"
+    }
+  ],
+  "absent_rows": [
+    {
+      "artifact": "morrissey_gap_history",
+      "season": "20232024",
+      "player_id": "8477504",
+      "status": "absent",
+      "reason": "player is absent from selected season",
+      "standing_reason": "absent season",
+      "value": null,
+      "spatial_detail": null,
+      "uncertainty": null
+    },
+    {
+      "artifact": "morrissey_gap_history",
+      "season": "20252026",
+      "player_id": "8477504",
+      "status": "absent",
+      "reason": "player is absent from selected season",
+      "standing_reason": "absent season",
+      "value": null,
+      "spatial_detail": null,
+      "uncertainty": null
+    }
+  ],
+  "method_evidence": [
+    {
+      "method_id": "spatial-v1-08-20232024",
+      "evidence": [
+        {
+          "sha256": "000b36e473a22b458acfefe4331ca88fe6780bba370fe0834841b4143e31ef4e",
+          "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20232024/manifest.json"
+        },
+        {
+          "sha256": "a8d5e9856330f4de58cf41a53d8b26bb8063dd8fa50ff3ec3e32dd3f80c575c5",
+          "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20232024/coefficient-support.jsonl"
+        },
+        {
+          "sha256": "1771bf28fa0100a6020d773f12d2d761c26bedaf4b62b3b538647dce2f045bce",
+          "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results/20232024-spatial-composition.json"
+        }
+      ]
+    },
+    {
+      "method_id": "spatial-v1-08-20242025",
+      "evidence": [
+        {
+          "sha256": "c9fe5fb27c13dda61c8062104b8c977bd462931170f023d2fa48834a04b56416",
+          "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20242025/manifest.json"
+        },
+        {
+          "sha256": "a400299ac226bcdf6ca691b13022aff1c2d9c2fea357506f6798cb5b94c0e49b",
+          "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20242025/coefficient-support.jsonl"
+        },
+        {
+          "sha256": "c3fb808755afcce7768a9ef7788e34ca52822f1ca2a0445043c4b10b3ecade63",
+          "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results/20242025-spatial-composition.json"
+        }
+      ]
+    },
+    {
+      "method_id": "spatial-v1-08-20252026",
+      "evidence": [
+        {
+          "sha256": "af7cf9250b55d6a33e9badee037bd230604795c399846464c0853c0aba6d8b6a",
+          "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20252026/manifest.json"
+        },
+        {
+          "sha256": "508f1a7b6fe38f196b4183743a007139cde3b12a2bd2e95eb0de22f640c9156d",
+          "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20252026/coefficient-support.jsonl"
+        },
+        {
+          "sha256": "9f17393fefb064583dfb5ec551a4c910a5f880a1ede051c780d78f55c6a7e15a",
+          "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results/20252026-spatial-composition.json"
+        }
+      ]
+    }
+  ],
+  "generic_strength_contract": "spatial_strength is exactly5v5; the pre-existing generic api_strength field is null for these spatial selectors. the initial checker incorrectly required generic api_strength5v5 and was corrected against the existing selector/export contract; no artifact or source changed",
+  "png_contract_review": {
+    "spec": "docs/specs/v1-08-positive-attribution.md publication/content paragraphs",
+    "required": [
+      "season",
+      "5v5 strength",
+      "experimental status",
+      "direction",
+      "reference",
+      "support",
+      "absent uncertainty"
+    ],
+    "full_receipt_list_required": false,
+    "spatial_quartet_required_in_png": false,
+    "quartet_and_exact_evidence_required_in_detail_csv": true,
+    "actual_png_inspected_by_product": false,
+    "root_png_inspection_pending": "/Users/nnandal/Downloads/hockey-stats-8477504-spatial.5v5.defense_xg_per60-20232024-20252026-history-percentile.png",
+    "limit": "requirements review, not PNG pixel acceptance"
+  },
+  "native_observations_reported_by_root": {
+    "Hamilton2024_eight_dropdown_values": {
+      "offense_attempts_difference": "8.56103",
+      "offense_xg_difference": ".37678",
+      "offense_attempts_relative_percent": "20.0088%",
+      "offense_xg_relative_percent": "20.953%",
+      "defense_attempts_difference": "3.55646",
+      "defense_xg_difference": ".164411",
+      "defense_attempts_relative_percent": "8.31214%",
+      "defense_xg_relative_percent": "9.14302%"
+    },
+    "support_seconds": 1058,
+    "defense_peer_n": 77,
+    "reported_percentiles": {
+      "offense": "98.1",
+      "defense_attempts": "79.9",
+      "defense_xg": "81.2"
+    },
+    "same_position_comparison": {
+      "Hamilton": {
+        "value": ".164411",
+        "percentile": "81.2",
+        "support_seconds": 1058
+      },
+      "Morrissey": {
+        "value": ".0616183",
+        "percentile": "63.0",
+        "support_seconds": 1168
+      },
+      "peer_min": 0,
+      "defense_peer_n": 77,
+      "shared_scale": [
+        "-.375279",
+        ".718684"
+      ],
+      "same_virtual_construction": true
+    },
+    "Morrissey_history": "2023/25 absent, not zero;2024 .06161825503093588",
+    "absent_year_navigation": "comparison retains a8476462/b8477504 and explicitly no published skater record; link opens historical identity with unavailable selected year and gaps",
+    "evidence_scope": "root native observations supplied in assignments; actual CSV validation above is independently against selected saved candidate rows"
+  },
+  "temporary_checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/actual-csv-download-check.py",
+    "bytes": 15310,
+    "mtime_ns": 1793481240620301040,
+    "sha256": "9632e63eb5ecf60a3d77d243dca19bee54c243a3c55c02db109922ac168353d5"
+  },
+  "cost": {
+    "wall_seconds": 0.015897749981377274,
+    "peak_rss_bytes": 29818880
+  },
+  "limits": [
+    "no new browser action by product",
+    "no PNG pixel inspection by product",
+    "no broad layout/full browser or real product completion claim",
+    "no model/source pass, state-array read, repeated strict DB scan, DB rehash or mutation"
+  ],
+  "actual_downloads_and_database_stat_unchanged": true
+}

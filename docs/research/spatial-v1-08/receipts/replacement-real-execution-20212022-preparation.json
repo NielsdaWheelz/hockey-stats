@@ -1,0 +1,193 @@
+{
+  "kind": "replacement-first-real-execution-preparation",
+  "status": "HOLD: fresh fixture combined publication/API readiness and explicit root release pending; unexecuted",
+  "recorded_at_utc": "2026-10-31T16:24:33.510823+00:00",
+  "purpose": "real",
+  "season": "20212022",
+  "family": "execution",
+  "command_file": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20212022-execution-command.sh",
+    "sha256": "acdf0c013c9d7d1631eb9613bdc26e4810d0a8bc63eb15de452efc833ac834ba",
+    "bytes": 4260
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-fit-commands.md",
+    "sha256": "4b421777212ccf753c368012bcc8741cc6a6858526400626a00c6eb3e0c745d1",
+    "block_sha256": "1961ab261956a2c29c8d6aded8c9e2e881da6313b9456af7e97434f7760d573a"
+  },
+  "command_change": "only add occupied and actual digest guards/launch receipts for prepared manifest, coaches artifact and exact old54-key census",
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "--out-check",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20212022-source-check.json",
+    "--known-census",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-non-prior-starts.json",
+    "--",
+    "fit",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--coaches",
+    "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "--season",
+    "20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022"
+  ],
+  "ordinary_cli_tail": [
+    "fit",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--coaches",
+    "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "--season",
+    "20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022"
+  ],
+  "source": {
+    "production_commit": "dfc97edd9aa7cab0092443187fbd6392d617ca88",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "preparation_head": "cf136b7a370cd27ea32896e5522e3ed9ce0d18a7",
+    "analysis_clean": true,
+    "execution_recipe_version": "execution-v1-05-2",
+    "execution_recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "observer": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+      "sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf"
+    },
+    "python": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "pythonpath": "analysis/src",
+    "freeze": "analysis and observer fixed from actual launch through whole-command exit; docs-only heads may differ with identical analysis tree"
+  },
+  "inputs": [
+    {
+      "kind": "prepared",
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+      "bytes": 18633830,
+      "verification": "current metadata bytes hashed; purpose real and fixed five-season selection checked"
+    },
+    {
+      "kind": "coaches",
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+      "bytes": 39341670,
+      "verification": "current artifact bytes streamed for exact accepted metadata identity; no repeated full coach validation"
+    },
+    {
+      "kind": "known-census",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-non-prior-starts.json",
+      "sha256": "6fd06ffbd3143379849fd82b4598c85d4f178b14c3c9eed4b28e003f30207a96",
+      "bytes": 61595,
+      "verification": "current existing54-key census bytes hashed; exact54unique keys checked"
+    }
+  ],
+  "prepared_scope": {
+    "purpose": "real",
+    "seasons": [
+      {
+        "season": "20212022",
+        "selected_games": 1312
+      },
+      {
+        "season": "20222023",
+        "selected_games": 1312
+      },
+      {
+        "season": "20232024",
+        "selected_games": 1312
+      },
+      {
+        "season": "20242025",
+        "selected_games": 1312
+      },
+      {
+        "season": "20252026",
+        "selected_games": 1312
+      }
+    ],
+    "file_bindings": 6566,
+    "first_selected_year": true
+  },
+  "known_census": {
+    "unique_keys": 54,
+    "scope": "exact historical54target witnesses, not a complete execution population census",
+    "before_fit": "existing observer requires all54known keys present and start-unavailable before first head construction"
+  },
+  "paths": {
+    "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022",
+    "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022.log",
+    "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20212022-source-check.json",
+    "real_directory_exists": false,
+    "occupied_guard_paths": 15
+  },
+  "checks": {
+    "metadata_pins": "passed",
+    "shell_syntax_exit": 0,
+    "observed_argv_equals_reviewed_book": true,
+    "no_previous": true,
+    "no_valued": true,
+    "no_new_cli_flag": true,
+    "no_review_source_or_pause_flag": true,
+    "known_census_exact": true,
+    "source_analysis_and_observer_hash_guards": true,
+    "prepared_coaches_census_digest_guards": true,
+    "exclusive_output_log_exit_source_check_and_launch_receipts": true,
+    "new_real_output_root_absent": true,
+    "final_shell_status_preserves_fit_exit": true
+  },
+  "authorization": {
+    "approved_real_campaign_baseline_heads": 20,
+    "approved_final_head_continuations": 4,
+    "this_command_baseline_heads": 4,
+    "this_command_final_continuations": 0,
+    "this_command_scope": "first annual only; no successor or manual probe command authorized by this preparation"
+  },
+  "prerequisites": {
+    "fixture_execution_spatial_numerics": "root accepted",
+    "fresh_combined_fixture_publication_api_readiness": "pending root acceptance",
+    "single_command_release": "pending explicit root release"
+  },
+  "browser_disposition": "browser may remain environment-blocked; root will decide that disposition explicitly at release",
+  "early_source_report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20212022-source-check.json",
+    "timing": "read as soon as complete valid report exists while original solves continue; no extra source pass or new invocation",
+    "report": [
+      "status/purpose/season/recipe",
+      "known_expected54 and known_checked54",
+      "before_head_construction",
+      "source_contexts and admission counts",
+      "unresolved_binding globally and in each head population",
+      "all5overlapping eligibility counts, all-strength dispositions and located witnesses"
+    ],
+    "unresolved_binding_policy": "report literal counts and scope without thresholds or silently dropping cases; root decides any response",
+    "observer_seconds_scope": "observe body only, not complete wrapper overhead; whole time-l measurement includes wrapper",
+    "no_pause_or_review_source_flow": true
+  },
+  "launch": {
+    "launched": false,
+    "pid": null,
+    "start": null,
+    "actual_head": null,
+    "provenance": "ordinary command records actual head/tree/clean status/observer/input digests/start/finish/exit when root launches; actual producer head may differ only through docs commits"
+  },
+  "preservation": {
+    "new_real_games_read": 0,
+    "new_real_arrays_read": 0,
+    "new_prepared_member_reads": 0,
+    "new_real_output_directories": 0,
+    "acquisition_or_reprep": false,
+    "original_inputs_fits_and_refusal_records": "preserved"
+  },
+  "cost_scope": "historical42.1hours is expenditure, not forecast. complete replacement budget is accepted without proof of minimality. no remaining-runtime projection before a completed first real annual.",
+  "monitoring": "prepare only; no process, polling service, runner or future command started"
+}

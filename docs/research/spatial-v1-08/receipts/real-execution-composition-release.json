@@ -1,0 +1,34 @@
+{
+  "kind": "real-compatible-execution-composition-release",
+  "status": "released_once_not_yet_launched",
+  "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+  "first_spatial_resource_acceptance": {
+    "path": "docs/research/spatial-v1-08/receipts/real-first-spatial-completion.json",
+    "sha256": "54ca302a29bff57fd1dba7cea8dd2cfd89e869a97eba00d2ad0a4a6af5809ed7"
+  },
+  "command": {
+    "path": "var/v1-08-product/replacement/real-compose-execution-command.sh",
+    "sha256": "c4db37fdc8167112061e71fba226aad2051d7b75d202b929345f4f3b011f367a"
+  },
+  "checker": {
+    "path": "var/v1-08-product/replacement/verify-real-execution-compose.py",
+    "sha256": "bbf7c5f2cf751f8103103c3ab0337c4de0844b48ffaa57321fd871ebbfd23c60"
+  },
+  "review": {
+    "path": "docs/research/spatial-v1-08/reviews/real-execution-compose-final-pin-review.md",
+    "sha256": "916d4f52f65241c93054fe6c58ab9b5345d2531156fb521b729b4e78f0eb9dfc"
+  },
+  "scores_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores-selection.json",
+    "sha256": "588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e8c000f9450"
+  },
+  "command_argv": [
+    "/bin/zsh",
+    "var/v1-08-product/replacement/real-compose-execution-command.sh"
+  ],
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results",
+  "scope": "one compatible execution summarize and its already-reviewed saved-output preservation/accounting check; no fitting, scoring, preparation, factual rebuild, publication or activation",
+  "inputs": "the five accepted replacement execution scores, retained facts-04 and observed selection; exact input pins and all nineteen occupied-path guards are in the reviewed command",
+  "resource_decision": "keep heavy work serial despite measured headroom; this gives up composition/fit overlap and keeps drive contention and memory use predictable",
+  "freeze": "analysis, command and checker unchanged through exit; no successor before composition result and root year-two concrete-pin release"
+}

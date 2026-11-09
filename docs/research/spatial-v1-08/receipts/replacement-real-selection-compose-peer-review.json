@@ -1,0 +1,53 @@
+{
+  "kind": "replacement-real-selection-compose-peer-review",
+  "recorded_at_utc": "2026-11-02T01:36:49.866310+00:00",
+  "status": "clear; preparation only",
+  "files": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/prepare-real-score-selection.py",
+      "sha256": "fd70049b934108d43808a02e79a7a5fd3b06bda8fcc9b287ddbb0b59ffbd8939",
+      "reviewers": [
+        "source_design",
+        "root"
+      ],
+      "status": "clear; held, main unrun"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-compose-execution-command.sh",
+      "sha256": "2bf9a5be67495bb9d20bfc410e3d3fd38e47a535032a55a059a96e62b19cecf0",
+      "reviewers": [
+        "source_design",
+        "root"
+      ],
+      "status": "clear; held, main unrun"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/verify-real-execution-compose.py",
+      "sha256": "1600ddd40af1b8eee43c1eb7d0f7d43726992bf2c464d4c46dc9a0a6a86a4dc7",
+      "reviewers": [
+        "numerical",
+        "root"
+      ],
+      "status": "clear; held, main unrun"
+    }
+  ],
+  "source_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "contracts": [
+    "fixed five-score schema and exact accepted chain; future final state/score/selection pins refuse before artifact access",
+    "ordinary compose CLI tail, retained inputs, twelve guarded outputs and source pins match reviewed recipe",
+    "map/projection key offset catalogs reconcile distinct file orders; every factual skater and all seven strengths required, raw-only source rows counted",
+    "native cells, scalars, references, units, support and null reasons join accepted saved rows",
+    "immutable factual evidence descriptors must remain exact before byte validation; owned interval/coverage and reference-xg fields have separate checks",
+    "one-game source/score/value/setter/share merges exhaust streams and key partitions; no full-map array retention or new strict upstream read"
+  ],
+  "corrections": [
+    "added whole-player and whole-strength completeness, with two tiny omission refusals",
+    "required unchanged evidence descriptors rather than trusting descriptors already declared unchanged; tiny corruption refused"
+  ],
+  "limits": [
+    "derived display transport and upstream map-scalar math retain prior producer/geometry verification and later selected real API checks",
+    "official assist and physical source-status derivations are not rederived by this saved-row checker",
+    "no source/predictor/array replay, real artifact pass, selection write or composition invocation in this preparation"
+  ],
+  "next": "root binds actual accepted final artifacts and separately releases selection, composition and saved check; spatial pin cutover remains separate"
+}

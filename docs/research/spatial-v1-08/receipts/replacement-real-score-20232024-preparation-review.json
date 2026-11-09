@@ -1,0 +1,19 @@
+{
+  "kind": "replacement-real-score-20232024-preparation-review",
+  "status": "clear held preparation; no invocation or release",
+  "recorded_at_utc": "2026-11-01T08:44:52.172847+00:00",
+  "command": {
+    "path": "var/v1-08-replacement/real-20232024-score-command.sh",
+    "sha256": "4528d15aa75c256e8a134196201161ec1655aab7544134790d69001227b9e21f",
+    "author": "source_design",
+    "reviewer": "root",
+    "committed_bytes_equal_worktree": true,
+    "reconstructed_accepted2022command_sha256": "baee3f364bbf40a4297bcffa8d733a5f66182101358766d6c2a98162dabcbbfd",
+    "syntax": "passed",
+    "pending_state_digest_occurrences": 1,
+    "guarded_paths": 15
+  },
+  "contract": "only year/path and pending-state substitutions; same ordinary score argv, frozen pins and prewrite refusal; no census/pause/final-year propagation",
+  "before_launch": "accept actual annual, replace only state literal, refresh hash, commit exact final bytes, review pins/guards, then root release",
+  "scope": "third fit remains sole heavy command; no source/state/array read, numerical action or analysis edit"
+}

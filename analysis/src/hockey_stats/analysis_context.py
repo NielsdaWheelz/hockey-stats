@@ -24,6 +24,15 @@ from .shot_origins import in_rink
 AGE_CUTS = (0, 10, 20, 40, 60, 90)
 
 
+def shift_start_precedes_event(kind, start_seconds, focal_seconds, anchor_order, focal_order):
+    """qualify retrospective start facts without changing saved shift age."""
+    if kind == 'faceoff':
+        return anchor_order is not None and focal_order is not None and anchor_order < focal_order
+    if kind == 'on_the_fly':
+        return start_seconds is not None and focal_seconds is not None and start_seconds < focal_seconds
+    return False
+
+
 def unit_workload(ids, prefixes, evidence):
     """complete actual-unit aggregates exclude individual partial lower bounds."""
     values = [

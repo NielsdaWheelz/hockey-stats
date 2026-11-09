@@ -1,0 +1,47 @@
+{
+  "status": "released_single_saved_output_consequence_review",
+  "recorded_at": "2026-11-06T18:09:43.658409+00:00",
+  "analysis_tree": "38ec706cb505ea3d9936518dd119869e7695200b",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/experimental-use-policy.md",
+      "sha256": "4c0f136c46735f48ef76f8202f75388969d5484947faa33d868718b8ff2b0bbb"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/experimental-use-consequence-review.md",
+      "sha256": "e7be8b277996039e6a675c10a86e5153a564f01e9751f16b25477e8fd8f73b98"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/experimental-use-policy-review.md",
+      "sha256": "84141a218c18320586d0578b9add6f2a73a27aec04f7555a6dc459a4e9c24495"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/experimental-use-consequence-source-command-review.md",
+      "sha256": "dd65729f87e89e18ffca49e2ae797514a10c469143e9c10088deaf8be393f411"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/review_spatial_experimental_consequences.py",
+      "sha256": "8c1602039fc616ca7f8b26df950800bf9a53b6951b4024e995e26fa42c0315ec"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_spatial_experimental_consequences.py",
+      "sha256": "ec6d405e74a9b8e42d64fcabacd1b5f9dcab8115f2fa59b52f9a1ff6a4159e92"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consequence-command.sh.held",
+      "sha256": "0c1d22d00948606ec03a40c75e8a65b4f15e75ffb6b54e5aeb9647fbe3c98707"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consequence-review-preparation.json",
+      "sha256": "acf2f8bb8613c26442c36a15279ad068a30169c46babd9a2386c64915e31fae6"
+    }
+  ],
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01",
+  "runtime": {
+    "python": "3.14.8",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "boundary": "one actual saved-only census and fixed figures, then independent materiality review; no model, fit, objective, gradient, extra continuation, activation or automatic successor",
+  "admission": "not yet decided"
+}

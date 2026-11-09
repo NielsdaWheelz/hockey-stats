@@ -1,0 +1,99 @@
+{
+  "kind": "replacement-real-execution-20232024-source-check-read-during-fit",
+  "status": "passed source construction; four fitted heads pending",
+  "recorded_at_utc": "2026-11-01T09:13:00.422085+00:00",
+  "report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20232024-source-check.json",
+    "sha256": "f1d869c5b156ce4bba3f9f4ba549e1dce4a10d0828ccfb52c9f1579d43888aac",
+    "bytes": 97377,
+    "written_at_utc": "2026-11-01T09:11:44.882554+00:00"
+  },
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "source_contexts": 158196,
+  "dispositions": {
+    "eligible:faceoff": 60610,
+    "eligible:on_the_fly": 87720,
+    "unavailable:None": 4561,
+    "unavailable:faceoff": 19,
+    "unavailable:no_same_clock_faceoff": 14,
+    "unavailable:on_the_fly": 7,
+    "unavailable:unknown": 5265
+  },
+  "eligibility_counts": {
+    "masked_on_the_fly": 7,
+    "masked_faceoff": 19,
+    "unresolved_binding": 14,
+    "admitted_same_clock_faceoff": 0,
+    "withheld_earlier_anchor": 0
+  },
+  "head_populations": {
+    "u": {
+      "physical_attempts": 158196,
+      "key_sha256": "aef04dc95cff0f937ea639854747af7f3a7bb4398ab3b46f30c4e4f3ca944c0e",
+      "unavailable_start_attempts": 9866,
+      "positive": 113778,
+      "eligibility_counts": {
+        "masked_on_the_fly": 7,
+        "masked_faceoff": 19,
+        "unresolved_binding": 14,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      }
+    },
+    "q": {
+      "physical_attempts": 113778,
+      "key_sha256": "ae957f3e43c25eb925ad1f9cfd85dcd4a33bdd12cff5196b6625c5ebab0597da",
+      "unavailable_start_attempts": 7056,
+      "positive": 78809,
+      "eligibility_counts": {
+        "masked_on_the_fly": 4,
+        "masked_faceoff": 15,
+        "unresolved_binding": 12,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      }
+    },
+    "r": {
+      "physical_attempts": 78809,
+      "key_sha256": "49169841f81d8598987d69e4f5885ee5d611ec861085ce359fb47978cd7abf55",
+      "unavailable_start_attempts": 4927,
+      "positive": 63841,
+      "eligibility_counts": {
+        "masked_on_the_fly": 2,
+        "masked_faceoff": 7,
+        "unresolved_binding": 5,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      }
+    },
+    "g": {
+      "physical_attempts": 63841,
+      "key_sha256": "0d98a3fae0813867b29b83ceb75a0779a547477d50f9685c8353b89c8c3dd718",
+      "unavailable_start_attempts": 3981,
+      "positive": 7607,
+      "eligibility_counts": {
+        "masked_on_the_fly": 2,
+        "masked_faceoff": 4,
+        "unresolved_binding": 4,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      }
+    }
+  },
+  "source_context_sha256": "3ecbbdab473d72bf4b7516caafb2253f8a0c310468b9aecdda6e359e5e1e4688",
+  "source_response_sha256": "15c393bc54edcedacf84dba4ad98309ceccb5cd226276496ef6b36b20fcbb070",
+  "observer_body_seconds": 30.478463109000586,
+  "known_census": "not applicable; zero expected and checked",
+  "count_contract": "dispositions partition source contexts; eligibility counts overlap; withheld_earlier_anchor is residual withholding, not an admission requirement",
+  "residual_scope": "withheld non-on-the-fly record with a saved coherent faceoff start on the exact player/period/start/end binding and earlier saved anchor; cannot detect alternatives absent from coherent saved evidence",
+  "limits": [
+    "eligibility counts overlap; masks are not all timing failures",
+    "selected first witnesses do not identify the complete masked-key population",
+    "zero coherent residual does not size withholding outside saved coherent evidence",
+    "no new count threshold, pause, source pass, fit or partial-state read; ordinary solve continues",
+    "observer body time is not full design/wrapper overhead; no runtime forecast"
+  ],
+  "python_pid": 26846
+}

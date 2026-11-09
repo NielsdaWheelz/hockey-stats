@@ -1,0 +1,161 @@
+{
+  "kind": "replacement-fixture-20242025-score-completion",
+  "status": "completed; root accepted fourth state/score and eight exact source parity fields",
+  "recorded_at_utc": "2026-10-31T15:30:34.694379+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20242025/manifest.json",
+    "bytes": 45897,
+    "sha256": "1f6ac613aa064692ce842c9a0c6bf144e7081c1cd762aff5143b741e7ab8e149"
+  },
+  "input_bindings": {
+    "prepared": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df"
+    },
+    "coaches": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c"
+    },
+    "state": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20242025/manifest.json",
+      "sha256": "d94dba43f942de71db4aa1380a7590678fe417809a0ac539ada35e0b8917715c"
+    }
+  },
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-2",
+    "sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "state_previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20232024/manifest.json",
+    "sha256": "85438d8488de33d2c31a7a2a200ca0efdf6c9011d0edc9ffb34018445fd8894b"
+  },
+  "implementation": {
+    "git_commit": "7f527be3f684f08b0b6bac061daa07bff1d44d39",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "exit": 0,
+  "cost": {
+    "wall_seconds": 68.62,
+    "peak_rss_bytes": 1223131136,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20242025.log",
+      "bytes": 930,
+      "sha256": "18448f35e12dc30c13d464ba5a1d19e1de94d764f4b4df6d3c8e289a7d745603"
+    },
+    "manifest_wall_seconds": 67.57694420899497,
+    "manifest_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest"
+  },
+  "saved_accounting": {
+    "recognized": 1092,
+    "complete": 1062,
+    "excluded": 30,
+    "games": 9,
+    "panels": 32,
+    "projections": 1715,
+    "skaters": 245,
+    "origin_rows": 202147,
+    "setter_branches": 9087,
+    "reason_counts_overlap": true,
+    "member_files": 73,
+    "member_bytes": 55514033,
+    "bytes_with_manifest": 55559930,
+    "files_by_role": {
+      "event": 1,
+      "setter": 1,
+      "share": 1,
+      "person": 1,
+      "coach": 1,
+      "panel_events": 32,
+      "panel_arrays": 32,
+      "projection": 1,
+      "map": 1,
+      "resolution": 1,
+      "coverage": 1
+    }
+  },
+  "resolution": {
+    "status": "not_applicable",
+    "explanation": "bounded propagation applies only to the final annual state"
+  },
+  "parity": {
+    "fit_check": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20242025-source-check.json",
+      "bytes": 36539,
+      "sha256": "0c9e6b0661139fdc6c1ade345d258a348c0f001026b9a2defeceb4d5592daa49"
+    },
+    "score_check": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20242025-source-check.json",
+      "bytes": 36503,
+      "sha256": "0aca599be8f645db73496a7b1fc63cc0d21c95a84ef177c3ebeda5177ff0808e"
+    },
+    "fields": {
+      "source_context_sha256": true,
+      "source_response_sha256": true,
+      "source_contexts": true,
+      "dispositions": true,
+      "all_strength_dispositions": true,
+      "eligibility_counts": true,
+      "head_admission": true,
+      "head_populations": true
+    },
+    "same_eight_field_canonical_sha256": "065eaf3a48a38725bf7382e0c11f8087ef87e06e2d18f9c2108df34c1399fd29",
+    "source_contexts": 1062,
+    "physical_attempts_by_head": {
+      "u": 1062,
+      "q": 755,
+      "r": 494,
+      "g": 390
+    }
+  },
+  "bounded_saved_checks": {
+    "event_key": "2024020001:3",
+    "event_line": 1,
+    "prefix_terminal_partitions": {
+      "neutral": {
+        "sum": 1.0,
+        "minimum": 0.018951703666891046
+      },
+      "neutral_goalie": {
+        "sum": 1.0,
+        "minimum": 0.018307239680265763
+      },
+      "actor": {
+        "sum": 1.0,
+        "minimum": 0.020884958404300807
+      }
+    },
+    "stored_conditionals_checked": 5,
+    "coalition_endpoints_and_probability_bounds": true,
+    "projection_player": "8470613",
+    "projection_strength": "5v5",
+    "projection_line": 1,
+    "projection_opportunities": 801,
+    "projection_setup_weight": 640.8000000000001,
+    "all10_projection_values_reconstructed": true,
+    "map_line": 1,
+    "native_map_cells": 656,
+    "native_map_integrated": -0.17778587097807416,
+    "native_map_sum": -0.17778587097807416,
+    "native_scalar_closure": true,
+    "scope": "one saved complete event, first projection and matching native map; no populationwide independent numerical claim"
+  },
+  "strict_validation_scope": "producer strict validation completed before manifest and was not duplicated; no source pass, fitting/rescoring or head/panel array read",
+  "small_member_identities": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20242025/coverage.json",
+      "bytes": 5168,
+      "sha256": "48ed85e910e2ebd414896ae2227c8cfebe4dc1e6b2b1e422060731cb0be5afcb"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20242025/resolution.json",
+      "bytes": 112,
+      "sha256": "58bf2be68cff444802ca7ed35b3626aa82c98e91dfdb8d50a87b9744766cb9e0"
+    }
+  ],
+  "next_score_released": false
+}

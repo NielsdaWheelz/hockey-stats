@@ -109,6 +109,13 @@ function executionCoefficientRows(coefficients: NonNullable<AnalysisDatum["coeff
   ];
 }
 
+export const spatialDirection = (datum: AnalysisDatum): string | null => datum.metric.publicationFamily === "spatial"
+  ? datum.metric.id.includes(".defense_")
+    ? "positive means more against; higher percentile means higher rate"
+    : "positive means more for; higher percentile means higher rate"
+  : null;
+export const spatialSupportMeaning = "aggregate support describes the common matched 5v5 population and any contributing focal information; it does not establish current evidence for each volume, shape or quality term. spatial support reason counts are games with a located excluded segment, counted once per reason code; codes can overlap within a game. a prior-only magnitude comes from the prior; raw zero can become nonzero after annual centering, and borrowed values can remain large without current matched exposure";
+
 export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
   const [hasOpened, setHasOpened] = useState(false);
   return (
@@ -148,6 +155,24 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
           {JSON.stringify(datum.support.reason_counts)}.
         </p>
       )}
+      {datum.spatial_detail && <div>
+        <p>{spatialDirection(datum)}.</p>
+        <p>the complete focal rate inserts this player into one role jointly in volume, shape and quality. the neutral rate uses the frozen hypothetical league-centered design and virtual neutral execution. this reference is not an average actual lineup or a forecast.</p>
+        <div className="table-scroll" role="region" tabIndex={0} aria-label="selected spatial estimates, scroll horizontally for all columns">
+          <table className="spatial-estimates">
+            <caption>saved experimental estimates; conditional historical borrowing and inferred blocked origins can affect every term</caption>
+            <thead><tr><th scope="col">estimate</th><th scope="col">value</th><th scope="col">unit</th><th scope="col">unavailable reason</th><th scope="col">uncertainty</th></tr></thead>
+            <tbody>{Object.entries(datum.spatial_detail).map(([key, value]) => <tr key={key}>
+              <th scope="row">{key === "complete" ? "complete focal rate" : key === "neutral" ? "neutral rate" : key.replaceAll("_", " ")}</th>
+              <td className="numeric">{displayNumber(value.value)}</td>
+              <td>{key === "relative_percent" ? "%" : datum.metric.id.includes("attempts") ? "attempts per 60 min" : "xg per 60 min"}</td>
+              <td>{value.unavailable_reason ?? "none"}{value.reason_detail && `: ${value.reason_detail.explanation}`}</td>
+              <td>{value.uncertainty.kind === "not_estimated" ? "not estimated" : `${value.uncertainty.level * 100}% interval: ${displayNumber(value.uncertainty.lower)} to ${displayNumber(value.uncertainty.upper)}; ${value.uncertainty.method}; conditional on ${value.uncertainty.conditional_on.join(", ")}`}</td>
+            </tr>)}</tbody>
+          </table>
+        </div>
+        <p>{spatialSupportMeaning}. the bound head-support receipt retains the detailed evidence; structured head and actual-context adjustment presentation follows separately.</p>
+      </div>}
       {datum.reference_panel && (
         <div>
           <p>
@@ -234,6 +259,9 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
           {method.limitations.map((text) => (
             <p key={text}>{text}</p>
           ))}
+          {method.evidence.map((receipt) => <pre key={`${receipt.uri}:${receipt.sha256}`}>
+            {`evidence uri: ${receipt.uri}\nsha-256: ${receipt.sha256}`}
+          </pre>)}
         </div>
       ))}
       {datum.findings.map((finding, i) => (
@@ -324,6 +352,11 @@ export const analysisCsvHeaders = [
   "reference_panel",
   "coefficient_support",
   "paired_evidence",
+  "spatial_detail",
+  "spatial_strength",
+  "direction",
+  "spatial_support_meaning",
+  "method_evidence",
 ] as const;
 export function analysisCsvRow(
   publication: Publication,
@@ -407,6 +440,11 @@ export function analysisCsvRow(
     JSON.stringify(datum.reference_panel),
     JSON.stringify(datum.coefficient_support),
     JSON.stringify(datum.paired_evidence),
+    JSON.stringify(datum.spatial_detail),
+    datum.metric.publicationFamily === "spatial" ? datum.metric.id.split(".")[1] : null,
+    spatialDirection(datum),
+    datum.metric.publicationFamily === "spatial" ? spatialSupportMeaning : null,
+    JSON.stringify(datum.methods.map(method => ({ method_id: method.method_id, evidence: method.evidence }))),
   ];
 }
 
@@ -744,6 +782,11 @@ function historySvg(view: HistoryView): string {
           `inferred inputs: ${datum.support.inferred_inputs.join(", ") || "none"}; current-season information: ${datum.support.current_season_information}; prior seasons: ${datum.support.prior_seasons.join(", ") || "none"}`,
           20,
         );
+      if (datum.metric.publicationFamily === "spatial") {
+        text(spatialDirection(datum)!, 20);
+        text(spatialSupportMeaning, 20);
+        text("conditional seasonal estimate with historical borrowing and inferred blocked origins; no calibrated uncertainty", 20);
+      }
       if (datum.reference_panel) {
         const panel = datum.reference_panel;
         text(`common reference panel ${panel.panel_id}: ${panel.opportunities} physical opportunities; setup weight ${panel.setup_weight}`, 20);

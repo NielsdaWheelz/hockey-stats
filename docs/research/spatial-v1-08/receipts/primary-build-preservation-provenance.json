@@ -1,0 +1,322 @@
+{
+  "kind": "spatial-v1-08-primary-build-preservation-provenance",
+  "status": "readonly evidence; no restoration or protected-file mutation",
+  "checked_at_utc": "2026-10-31T10:52:23.869808+00:00",
+  "baseline": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/protected-before.json",
+    "sha256": "2c7ba301ab58e873cb51a5f35f24f67813ffc6346dd5e34aa2f4c201269c8d1c",
+    "recorded_utc": "2026-10-31T07:16:25.128258+00:00",
+    "scope": "main draft and built application, upstream manifests; large files use stat and accepted prior digests"
+  },
+  "classification": {
+    "scoped_files": 56,
+    "exact_sha_size_mtime": 18,
+    "exact_bytes_including_mtime_only": 36,
+    "primary_draft_files_exact": 11,
+    "upstream_pin_files_exact": 7,
+    "primary_build_old_paths_missing": 12,
+    "primary_build_existing_content_changed": 8,
+    "primary_build_mtime_only": 18,
+    "all_38_mismatches_under": "/Users/nnandal/Documents/code/hockey-stats/app/dist",
+    "per_file_evidence": "scoped-preservation-final.json contains every original mismatch and expected/current identity"
+  },
+  "build_digest_definition": "sha256 of compact sorted-key json of pathlib.Path-ordered {path relative to repository,sha256,bytes} records; current builds include every actual app/dist file; baseline uses the 38 scoped original app/dist records",
+  "builds": {
+    "primary_baseline": {
+      "sha256": "602dd7711c7ed19841277ac5d62e56c5ae6bf6eb162a4ff20be7f07028810ca1",
+      "files": 38,
+      "bytes": 1235429,
+      "mtime_min_utc": "2026-10-27T05:57:26.130071+00:00",
+      "mtime_max_utc": "2026-10-27T05:57:26.511173+00:00"
+    },
+    "primary_current": {
+      "sha256": "b4aaf410631d45327fa7d7bfeb511aec2e4cc4cf97f8cc9351bf53af846a3706",
+      "files": 38,
+      "bytes": 1284415,
+      "mtime_min_utc": "2026-10-31T07:17:06.840568+00:00",
+      "mtime_max_utc": "2026-10-31T07:17:09.201128+00:00"
+    },
+    "task_current": {
+      "sha256": "2b84760dacbd8d6263d19963ea21259f403ff26cb17f69ce0702b172b78f7063",
+      "files": 38,
+      "bytes": 1289449,
+      "mtime_min_utc": "2026-10-31T09:14:47.754274+00:00",
+      "mtime_max_utc": "2026-10-31T09:14:48.156245+00:00",
+      "matches_accepted_task_build": true
+    }
+  },
+  "current_primary_vs_task": {
+    "common_paths": 26,
+    "byte_identical_common_paths": 24,
+    "different_common_paths": [
+      "app/dist/client/index.html",
+      "app/dist/server/index.js"
+    ],
+    "only_primary_paths": [
+      "app/dist/client/assets/client-DrnbQfYM.js",
+      "app/dist/client/assets/compare-client-loader-qd0jkNh_.js",
+      "app/dist/client/assets/compare-main-VNo5gR4M.js",
+      "app/dist/client/assets/descriptive-card-CZP7SGDv.js",
+      "app/dist/client/assets/explorer-BwkgQfus.js",
+      "app/dist/client/assets/league-client-loader-CQ7CpLfD.js",
+      "app/dist/client/assets/league-main-DnVjqvyt.js",
+      "app/dist/client/assets/manifest-43be76d2.js",
+      "app/dist/client/assets/peer-distributions-qO0Os7mj.js",
+      "app/dist/client/assets/player-client-loader-BgtgO6VN.js",
+      "app/dist/client/assets/player-main-DBfKCNrk.js",
+      "app/dist/client/assets/root-OsyQwkgO.js"
+    ],
+    "only_task_paths": [
+      "app/dist/client/assets/client-CwZTGL02.js",
+      "app/dist/client/assets/compare-client-loader-BzreZbOk.js",
+      "app/dist/client/assets/compare-main-C8Rth6_O.js",
+      "app/dist/client/assets/descriptive-card-BdoxpsSZ.js",
+      "app/dist/client/assets/explorer-E_2MyrJJ.js",
+      "app/dist/client/assets/league-client-loader-BCCV4jhx.js",
+      "app/dist/client/assets/league-main-BOB-sXEZ.js",
+      "app/dist/client/assets/manifest-37ba176e.js",
+      "app/dist/client/assets/peer-distributions-DLQDPwcf.js",
+      "app/dist/client/assets/player-client-loader-BlUBi2jI.js",
+      "app/dist/client/assets/player-main-BkZ4GwM2.js",
+      "app/dist/client/assets/root-NcvU83y3.js"
+    ]
+  },
+  "current_directories": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app",
+      "is_symlink": false,
+      "is_directory": true,
+      "resolved_path": "/Users/nnandal/Documents/code/hockey-stats/app",
+      "inode": 97599996,
+      "device": 16777233,
+      "birth_utc": "2026-09-29T23:33:08.770643+00:00",
+      "mtime_utc": "2026-10-31T07:17:06.840215+00:00"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist",
+      "is_symlink": false,
+      "is_directory": true,
+      "resolved_path": "/Users/nnandal/Documents/code/hockey-stats/app/dist",
+      "inode": 191938280,
+      "device": 16777233,
+      "birth_utc": "2026-10-31T07:17:06.840202+00:00",
+      "mtime_utc": "2026-10-31T07:17:09.183716+00:00"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app",
+      "is_symlink": false,
+      "is_directory": true,
+      "resolved_path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app",
+      "inode": 191917616,
+      "device": 16777233,
+      "birth_utc": "2026-10-31T07:13:14.825616+00:00",
+      "mtime_utc": "2026-10-31T09:14:47.754072+00:00"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist",
+      "is_symlink": false,
+      "is_directory": true,
+      "resolved_path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist",
+      "inode": 191991023,
+      "device": 16777233,
+      "birth_utc": "2026-10-31T09:14:47.754065+00:00",
+      "mtime_utc": "2026-10-31T09:14:48.153039+00:00"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/node_modules",
+      "is_symlink": false,
+      "is_directory": true,
+      "resolved_path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/node_modules",
+      "inode": 191938335,
+      "device": 16777233,
+      "birth_utc": "2026-10-31T07:17:09.053708+00:00",
+      "mtime_utc": "2026-10-31T07:19:54.147303+00:00"
+    }
+  ],
+  "task_output_configuration": {
+    "react_router": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/react-router.config.ts",
+      "bytes": 200,
+      "sha256": "a2dd6bb64ff2602d9d585158d12d83f5ecbae130dcd5c6514efdc2313a35db30",
+      "mtime_ns": 1793430794826350594,
+      "mtime_utc": "2026-10-31T07:13:14.826351+00:00"
+    },
+    "vite": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/vite.config.ts",
+      "bytes": 1934,
+      "sha256": "29049a179d2363002272cd0cab13f800b81878e8c1a6e7e2f8c3c5f53aaa6385",
+      "mtime_ns": 1793430794841772445,
+      "mtime_utc": "2026-10-31T07:13:14.841773+00:00"
+    },
+    "package": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/package.json",
+      "bytes": 1156,
+      "sha256": "a6c6b5deadbc1f76e98038ea048d03719643f6f95bef9ed0e07a0611195b7980",
+      "mtime_ns": 1793430794826231884,
+      "mtime_utc": "2026-10-31T07:13:14.826232+00:00"
+    },
+    "build_directory": "dist",
+    "node_emit_directory": "dist/node",
+    "vite_root": "directory of local vite.config.ts via import.meta.url",
+    "current_alias_to_primary": false,
+    "historical_limit": "current lstat/config observations do not prove the absence of every historical symlink; the initial task node_modules symlink was removed before task npm ci and was not a dist symlink"
+  },
+  "task_build_invocation_evidence": {
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app",
+    "first_build_exec_session": 78338,
+    "later_build_exec_session": 79005,
+    "final_n3_build_exec_session": 98698,
+    "evidence_scope": "cwd/session ids from actual tool invocations; retained build logs do not themselves print cwd",
+    "first_saved_build_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/product-build.txt",
+      "bytes": 2032,
+      "sha256": "25d7fe637cb3ed43cbb73057860250e03af2b3ea6165f56e091b6b75ac0316b7",
+      "mtime_ns": 1793431554129846234,
+      "mtime_utc": "2026-10-31T07:25:54.129846+00:00"
+    },
+    "final_saved_build_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-app-build.txt",
+      "bytes": 2031,
+      "sha256": "0d3d305b17780f28e79266aa65e1d83354f61a9688796b476efdb2a57865b228",
+      "mtime_ns": 1793438087943560242,
+      "mtime_utc": "2026-10-31T09:14:47.943560+00:00"
+    },
+    "final_build_binding": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-app-build-bindings.json",
+      "bytes": 1338,
+      "sha256": "7b7b08c659d2a4e95afbd719d37b494cc1d2f3882c7917f133ba8e9f237abb05",
+      "mtime_ns": 1793438804350571069,
+      "mtime_utc": "2026-10-31T09:26:44.350571+00:00"
+    }
+  },
+  "concurrent_primary_activation": {
+    "main_head": "c288b4c38e39d3aa8b1606646a53e2bbfa209747",
+    "documentation_commit": "c288b4c38e39d3aa8b1606646a53e2bbfa209747",
+    "source_build_commit": "0e0f5694721bb2f25b64c6dff905209a5feea93f",
+    "evidence_root": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/activation-20261031",
+    "receipts": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/activation-20261031/preflight.json",
+        "bytes": 4777,
+        "sha256": "b49a3f97907dd580ff7f17b632e0ccfd235ba0286904d9cba044eb474d9b3d7e",
+        "mtime_ns": 1793431046962411137,
+        "mtime_utc": "2026-10-31T07:17:26.962411+00:00"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/activation-20261031/build.json",
+        "bytes": 1355,
+        "sha256": "7d80bd2690e65b37aaf23ce6d6b0347da3947a88ca934eee42b28f1119c8db8f",
+        "mtime_ns": 1793431211148642449,
+        "mtime_utc": "2026-10-31T07:20:11.148643+00:00"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/activation-20261031/build.log",
+        "bytes": 2809,
+        "sha256": "42760a00a90c2d9dc0f41d2c3feb4074f45e63825b8f3b5ea4c6111b66c9881a",
+        "mtime_ns": 1793431029223147155,
+        "mtime_utc": "2026-10-31T07:17:09.223147+00:00"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/activation-20261031/delivery.json",
+        "bytes": 4690,
+        "sha256": "8d9fcdce3888aa85a5350584b1e465cfff0f7259ca7e3a14bc5322bf0904c584",
+        "mtime_ns": 1793435963669099340,
+        "mtime_utc": "2026-10-31T08:39:23.669099+00:00"
+      }
+    ],
+    "activation_document": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/research/execution-v1-06/activation.md",
+      "bytes": 9010,
+      "sha256": "3bbb2820f75299b473bb71a0cff381077e9ee0849ea1d79cda634b52c77a73b3",
+      "mtime_ns": 1793435752961813933,
+      "mtime_utc": "2026-10-31T08:35:52.961814+00:00"
+    },
+    "recorded_build": {
+      "checked_at_utc": "2026-10-31T07:20:11.080721+00:00",
+      "source_head": "0e0f5694721bb2f25b64c6dff905209a5feea93f",
+      "node_version": "24.21.0",
+      "commands": [
+        {
+          "name": "npm-ci",
+          "exit_code": 0,
+          "wall_seconds": 9.87,
+          "peak_rss_bytes": 482459648,
+          "log": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/activation-20261031/npm-ci.log",
+          "sha256": "f8618f8787a77e2eea4143b83d406615e0478dedc715ae82ca9d2db9f5ca7da4"
+        },
+        {
+          "name": "typecheck",
+          "exit_code": 0,
+          "wall_seconds": 4.16,
+          "peak_rss_bytes": 400048128,
+          "log": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/activation-20261031/typecheck.log",
+          "sha256": "7e061536cf0b9af577bd96d8a8033d77de7ce068572dab2e3568b83a58881bed"
+        },
+        {
+          "name": "build",
+          "exit_code": 0,
+          "wall_seconds": 5.61,
+          "peak_rss_bytes": 574554112,
+          "log": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/activation-20261031/build.log",
+          "sha256": "42760a00a90c2d9dc0f41d2c3feb4074f45e63825b8f3b5ea4c6111b66c9881a"
+        }
+      ],
+      "source_changed": false,
+      "verification_scope": "fresh pinned dependencies, type generation/non-emitting typechecks and serving build; no analytical recalculation",
+      "actual_exec_session": 38147,
+      "actual_final_exit_code": 0
+    },
+    "logged_output_paths": [
+      "dist/client/.vite/manifest.json",
+      "dist/client/assets/client-DrnbQfYM.js",
+      "dist/client/assets/compare-client-loader-qd0jkNh_.js",
+      "dist/client/assets/compare-main-VNo5gR4M.js",
+      "dist/client/assets/descriptive-card-CZP7SGDv.js",
+      "dist/client/assets/entry.client-CimxyNE3.js",
+      "dist/client/assets/explorer-BwkgQfus.js",
+      "dist/client/assets/jsx-runtime-Bcb-PiJy.js",
+      "dist/client/assets/league-client-loader-CQ7CpLfD.js",
+      "dist/client/assets/league-main-DnVjqvyt.js",
+      "dist/client/assets/peer-distributions-qO0Os7mj.js",
+      "dist/client/assets/player-client-loader-BgtgO6VN.js",
+      "dist/client/assets/player-main-DBfKCNrk.js",
+      "dist/client/assets/root-OsyQwkgO.js",
+      "dist/client/assets/styles-DBcIPaN6.css",
+      "dist/server/.vite/manifest.json",
+      "dist/server/assets/styles-DBcIPaN6.css",
+      "dist/server/index.js"
+    ],
+    "logged_output_paths_present": [
+      "dist/client/assets/client-DrnbQfYM.js",
+      "dist/client/assets/compare-client-loader-qd0jkNh_.js",
+      "dist/client/assets/compare-main-VNo5gR4M.js",
+      "dist/client/assets/descriptive-card-CZP7SGDv.js",
+      "dist/client/assets/entry.client-CimxyNE3.js",
+      "dist/client/assets/explorer-BwkgQfus.js",
+      "dist/client/assets/jsx-runtime-Bcb-PiJy.js",
+      "dist/client/assets/league-client-loader-CQ7CpLfD.js",
+      "dist/client/assets/league-main-DnVjqvyt.js",
+      "dist/client/assets/peer-distributions-qO0Os7mj.js",
+      "dist/client/assets/player-client-loader-BgtgO6VN.js",
+      "dist/client/assets/player-main-DBfKCNrk.js",
+      "dist/client/assets/root-OsyQwkgO.js",
+      "dist/client/assets/styles-DBcIPaN6.css",
+      "dist/server/index.js"
+    ],
+    "logged_output_paths_absent": [
+      "dist/client/.vite/manifest.json",
+      "dist/server/.vite/manifest.json",
+      "dist/server/assets/styles-DBcIPaN6.css"
+    ],
+    "absent_log_explanation": "three paths named in the build log are absent now: both .vite manifests and the server stylesheet. the receipts do not establish when those derived paths were removed; no restoration or extra build was attempted",
+    "primary_build_timestamp_within_activation_preflight": true,
+    "documented_ownership": "the activation document states that the primary serving dependencies/build were retained and that no activation worktree or duplicate environment was created"
+  },
+  "assessment": {
+    "observation": "the primary build was regenerated about 42 seconds after the protected snapshot, before this task\u2019s first saved build; 15 of 18 named activation build outputs remain at the logged paths, and its current digest differs from this task\u2019s accepted build",
+    "attribution": "the separate primary v1-06 activation is the supported explanation for the replacements; its receipts and document directly record the rebuild, source identity and retained primary build",
+    "limit": "the activation build receipt does not freeze a complete per-file build digest or cwd, so these records do not independently prove every current primary file byte was produced by that particular process",
+    "preservation_action": "none; all primary files, both builds, source inputs, databases and servers were left intact"
+  },
+  "work_status": "incomplete: real first-year output refused; upstream scope authorization and desktop access remain unresolved; no new fit, campaign, publication or application test was run by this inspection"
+}

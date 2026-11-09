@@ -1,0 +1,674 @@
+{
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20242025/manifest.json",
+    "bytes": 383422,
+    "sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de"
+  },
+  "original_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025/manifest.json",
+    "bytes": 382625,
+    "sha256": "c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0"
+  },
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json",
+    "sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe",
+    "season": "20242025",
+    "purpose": "real",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual",
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20232024/manifest.json",
+      "sha256": "dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa"
+    }
+  },
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-2",
+    "sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "launch": {
+    "head": "b025d69ed8efc310a843849c24f371d7c7dcd064",
+    "producer_head": "a0b82f7097dfbaf1f86e950b789d6a76a209ad97",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "start": "2026-11-01T18:24:18Z",
+    "finish": "2026-11-01T23:35:12Z",
+    "exit": 0,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20242025.log",
+      "bytes": 924,
+      "sha256": "469c15f5896900502ad0e734e756db69c91b70600fba3e739be1db9f06431bc9"
+    }
+  },
+  "strict_read": {
+    "invocations_here": 1,
+    "status": "passed",
+    "wall_seconds": 64.53237395803444,
+    "all32panels": true,
+    "upstream_source_reads": 0
+  },
+  "source_parity": {
+    "fields": {
+      "source_context_sha256": true,
+      "source_response_sha256": true,
+      "source_contexts": true,
+      "dispositions": true,
+      "all_strength_dispositions": true,
+      "eligibility_counts": true,
+      "head_admission": true,
+      "head_populations": true
+    },
+    "fit_report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20242025-source-check.json",
+      "bytes": 97149,
+      "sha256": "711c37e1507e5a5a92279f59cc990f6c8b232110ba581e1d2d166eb5d9a74a09"
+    },
+    "score_report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20242025-source-check.json",
+      "bytes": 97113,
+      "sha256": "8075f473baaed3b7204e7e6a530ad399f47e0ae1dbe8897c5363a2033457179a"
+    }
+  },
+  "population": {
+    "recognized": 156622,
+    "complete": 154720,
+    "excluded": 1902,
+    "heads": {
+      "u": {
+        "included": 154720,
+        "class:1": 111130,
+        "class:0": 43590,
+        "excluded": 1902,
+        "physical_attempts": 154720,
+        "key_sha256": "6554517008fe40aea51c5a04575b1a0ca7fba1fe4c08dea0bb043a71a4b52dbf",
+        "eligibility_counts": {
+          "masked_on_the_fly": 6,
+          "masked_faceoff": 4,
+          "unresolved_binding": 3,
+          "admitted_same_clock_faceoff": 11,
+          "withheld_earlier_anchor": 0
+        }
+      },
+      "q": {
+        "included": 111130,
+        "class:1": 73539,
+        "class:0": 37591,
+        "excluded": 45492,
+        "physical_attempts": 111130,
+        "key_sha256": "d756997e90bdfd6ba4f32817d66975721c582d372563bfbc85adf30014a53e25",
+        "eligibility_counts": {
+          "masked_on_the_fly": 4,
+          "masked_faceoff": 3,
+          "unresolved_binding": 2,
+          "admitted_same_clock_faceoff": 6,
+          "withheld_earlier_anchor": 0
+        }
+      },
+      "r": {
+        "included": 73539,
+        "class:1": 59504,
+        "excluded": 83083,
+        "class:0": 14035,
+        "physical_attempts": 73539,
+        "key_sha256": "9e9dbb179e0a086b20dadfa402ab5e671139999e6f50d936640f649b86a1876b",
+        "eligibility_counts": {
+          "masked_on_the_fly": 2,
+          "masked_faceoff": 3,
+          "unresolved_binding": 2,
+          "admitted_same_clock_faceoff": 3,
+          "withheld_earlier_anchor": 0
+        }
+      },
+      "g": {
+        "included": 59504,
+        "class:0": 52155,
+        "excluded": 97118,
+        "class:1": 7349,
+        "physical_attempts": 59504,
+        "key_sha256": "c1e113bd8a0b2f434d85bc70a1cfe8cb4da62e67c88e0eac0bbc13a49585b24e",
+        "eligibility_counts": {
+          "masked_on_the_fly": 2,
+          "masked_faceoff": 3,
+          "unresolved_binding": 2,
+          "admitted_same_clock_faceoff": 3,
+          "withheld_earlier_anchor": 0
+        }
+      }
+    },
+    "labels_statuses_reasons_identities_exact_original": true,
+    "coverage_exact_original": true,
+    "source_contexts": 154720,
+    "physical5v5_events": 125351,
+    "projections": 6440,
+    "maps": 12880,
+    "setter_branches": 1404927,
+    "share_rows": 1869087
+  },
+  "accounting": {
+    "share_closure_max": 2.7755575615628914e-16,
+    "independent24order_group_error": 1.3877787807814457e-16,
+    "native_map_scalar_closure": "all available old/new saved maps exact",
+    "neutral_panel_sums": "all seven published panels reconcile event sums to every projection; strict reader covers all32 saved logits"
+  },
+  "movement_definition": {
+    "absolute": "abs(new-old); quantiles of each event maximum across the named probability fields",
+    "relative": "abs(new-old)/abs(old); 0 to 0 is 0 by convention; zero baseline to nonzero cells recorded separately and have no finite relative ceiling",
+    "fields": "all saved prefix/conditional probabilities, goal masses for 16 coalitions, and terminal partitions reconstructed from prefixes; u is avoid-block, only uqrg is goal",
+    "partition": "saved unavailable first witnesses and every other complete row; no census or inference of missingness from probability movement"
+  },
+  "native_map_l1_movement": {
+    "finishing": {
+      "available_pairs": 6440,
+      "unavailable_pairs": 0,
+      "quantiles": {
+        "p50": 0.00020148224361822692,
+        "p90": 0.0007672490786740313,
+        "p99": 0.0037921897729049437,
+        "max": 0.020242935051765804
+      },
+      "maximum": {
+        "player_id": "8477903",
+        "strength": "5v3",
+        "map_kind": "finishing",
+        "native_map_l1": 0.020242935051765804,
+        "old_integrated": 0.06551294137546848,
+        "new_integrated": 0.08575587642723428,
+        "largest_cell": 591,
+        "old_cell": -0.0034264985659307346,
+        "new_cell": -0.0027090360504718617
+      }
+    },
+    "setting": {
+      "available_pairs": 6440,
+      "unavailable_pairs": 0,
+      "quantiles": {
+        "p50": 0.00020476854764162956,
+        "p90": 0.0007505801905186206,
+        "p99": 0.002232402094166388,
+        "max": 0.00933706194182767
+      },
+      "maximum": {
+        "player_id": "8478439",
+        "strength": "5v3",
+        "map_kind": "setting",
+        "native_map_l1": 0.00933706194182767,
+        "old_integrated": 5.774522652940104,
+        "new_integrated": 5.765185590998277,
+        "largest_cell": 608,
+        "old_cell": 0.37998120470846786,
+        "new_cell": 0.3794205201309128
+      }
+    }
+  },
+  "resources": {
+    "whole_command_wall_seconds": 18652.86,
+    "user_seconds": 17111.53,
+    "system_seconds": 478.26,
+    "maximum_resident_bytes": 23972298752,
+    "peak_memory_footprint_bytes": 30578629000,
+    "producer": {
+      "complete_events": 154720,
+      "design_wall_seconds": 5641.0078420419595,
+      "input_read_wall_seconds": 30.780683708027937,
+      "origin_rows": 28706170,
+      "output_bytes": 2622632251,
+      "panel_array_bytes": 1611259056,
+      "peak_memory_bytes": 23972298752,
+      "projected_skaters": 920,
+      "projection_wall_seconds": 11794.67366500001,
+      "projections": 6440,
+      "recognized_events": 156622,
+      "resolution_wall_seconds": 1.1625001206994057e-05,
+      "scoring_wall_seconds": 1053.3649662079988,
+      "setter_branches": 1404927,
+      "wall_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest",
+      "wall_seconds": 18559.69633483299,
+      "write_wall_seconds": 22.424219083972275
+    },
+    "producer_wall_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest",
+    "member_bytes": 2622632251,
+    "complete_bytes": 2623015673,
+    "checker_wall_seconds": 96.61598779202905,
+    "checker_peak_rss_bytes": 3534192640
+  },
+  "limits": [
+    "old/new movement is descriptive recipe/history sensitivity; current 2024 masking and changed earlier raw history effects are not isolated; no numerical-resolution or scientific-quality margin",
+    "no year 4 known-key census; aggregate counters and located saved witnesses do not identify every newly masked key or the unavailable-both stratum",
+    "all complete scored rows and nullable fields are covered; this is no all-player or individual ability error bound",
+    "saved coalition arithmetic does not independently reconstruct source predictors, logits or every origin; strict validation retains those saved-array relationships",
+    "eligibility counters overlap; missing binding and saved-witness residual limits remain; no new count or movement threshold",
+    "no final-year propagation applies in 20242025; four final execution continuations/propagations remain pending"
+  ],
+  "kind": "replacement-real-score-20242025-completion",
+  "status": "saved checks and metadata bindings pass; independent saved review and final root acceptance pending",
+  "recorded_at_utc": "2026-11-01T23:38:16.175350+00:00",
+  "executed_command": {
+    "sha256": "add57b9bc4512828a4e0514fb4db92bf6d009b80de0744a6114c518603e26147",
+    "committed_before_launch": "c15db5a",
+    "bytes_equal_committed_blob": true
+  },
+  "saved_acceptance": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20242025-saved-acceptance.json",
+    "bytes": 59934,
+    "sha256": "e686a7e03554ccf0ca1cdeb94f94ac651d92821a4b94543544d93a4690ab7552",
+    "checker_sha256": "e388d12b79fb5de752f295699735fc6991dd7a0b880b5b907f715e6291ed2b52",
+    "invocations": 1,
+    "whole_checker_seconds": 97.14,
+    "whole_checker_peak_rss_bytes": 3534192640,
+    "whole_checker_peak_memory_footprint_bytes": 3513748408
+  },
+  "probability_movement": {
+    "all_complete": {
+      "rows": 154720,
+      "absolute": {
+        "key": "2024020851:132",
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "field": "neutral.prefix.uqr",
+        "old": 0.334648601682175,
+        "new": 0.39871055773403613,
+        "signed_change": 0.06406195605186116,
+        "absolute_change": 0.06406195605186116
+      },
+      "relative": {
+        "key": "2024021154:128",
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "field": "coalition.14",
+        "old": 0.009090057807675033,
+        "new": 0.012769374116469619,
+        "signed_change": 0.0036793163087945856,
+        "relative_change": 0.4047626964140996
+      },
+      "event_maximum_absolute_quantiles": {
+        "p50": 4.145346131984029e-05,
+        "p90": 0.00010149298519298025,
+        "p99": 0.00035653343569446214,
+        "max": 0.06406195605186116
+      },
+      "zero_baseline_to_nonzero": 0,
+      "goal_coalition_absolute": {
+        "key": "2024021217:315",
+        "physical_state": [
+          6,
+          4,
+          0,
+          1
+        ],
+        "field": "coalition.3",
+        "old": 0.2207578187168598,
+        "new": 0.25681393590236096,
+        "signed_change": 0.03605611718550117,
+        "absolute_change": 0.03605611718550117
+      }
+    },
+    "located_unavailable_witnesses": {
+      "rows": 33,
+      "absolute": {
+        "key": "2024020844:73",
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "field": "neutral.prefix.uqr",
+        "old": 0.35857982385777626,
+        "new": 0.4176077082998226,
+        "signed_change": 0.05902788444204632,
+        "absolute_change": 0.05902788444204632
+      },
+      "relative": {
+        "key": "2024020288:63",
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "field": "coalition.1",
+        "old": 0.006147699299520917,
+        "new": 0.008323221125256497,
+        "signed_change": 0.0021755218257355794,
+        "relative_change": 0.3538757703886258
+      },
+      "event_maximum_absolute_quantiles": {
+        "p50": 0.00023824754669399262,
+        "p90": 0.01502183576566023,
+        "p99": 0.05783531577162734,
+        "max": 0.05902788444204632
+      },
+      "zero_baseline_to_nonzero": 0,
+      "goal_coalition_absolute": {
+        "key": "2024021217:315",
+        "physical_state": [
+          6,
+          4,
+          0,
+          1
+        ],
+        "field": "coalition.3",
+        "old": 0.2207578187168598,
+        "new": 0.25681393590236096,
+        "signed_change": 0.03605611718550117,
+        "absolute_change": 0.03605611718550117
+      }
+    },
+    "remainder_excluding_named_witnesses": {
+      "rows": 154687,
+      "absolute": {
+        "key": "2024020851:132",
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "field": "neutral.prefix.uqr",
+        "old": 0.334648601682175,
+        "new": 0.39871055773403613,
+        "signed_change": 0.06406195605186116,
+        "absolute_change": 0.06406195605186116
+      },
+      "relative": {
+        "key": "2024021154:128",
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "field": "coalition.14",
+        "old": 0.009090057807675033,
+        "new": 0.012769374116469619,
+        "signed_change": 0.0036793163087945856,
+        "relative_change": 0.4047626964140996
+      },
+      "event_maximum_absolute_quantiles": {
+        "p50": 4.144550731066676e-05,
+        "p90": 0.00010139366667497038,
+        "p99": 0.00035414573765464537,
+        "max": 0.06406195605186116
+      },
+      "zero_baseline_to_nonzero": 0,
+      "goal_coalition_absolute": {
+        "key": "2024020909:126",
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "field": "coalition.0",
+        "old": 0.13603840310427745,
+        "new": 0.1670576190068075,
+        "signed_change": 0.03101921590253004,
+        "absolute_change": 0.03101921590253004
+      }
+    }
+  },
+  "standardized_scalar_movement": {
+    "finishing_goals_per100_attempts": {
+      "available_projection_pairs": 6440,
+      "absolute": {
+        "player_id": "8477903",
+        "strength": "5v3",
+        "field": "finishing_goals_per100_attempts",
+        "old": 0.06551294137546848,
+        "new": 0.08575587642723428,
+        "signed_change": 0.020242935051765804,
+        "absolute_change": 0.020242935051765804
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 0.00016594878631953636,
+        "p90": 0.0007621703282909009,
+        "p99": 0.0037921897729049163,
+        "max": 0.020242935051765804
+      }
+    },
+    "setting_goals_per100_assisted_opportunities": {
+      "available_projection_pairs": 6440,
+      "absolute": {
+        "player_id": "8478439",
+        "strength": "5v3",
+        "field": "setting_goals_per100_assisted_opportunities",
+        "old": 5.774522652940104,
+        "new": 5.765185590998277,
+        "signed_change": -0.009337061941827152,
+        "absolute_change": 0.009337061941827152
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 0.0001428869043448161,
+        "p90": 0.0006948054482842418,
+        "p99": 0.0021873841635596707,
+        "max": 0.009337061941827152
+      }
+    },
+    "avoid_block_probability": {
+      "available_projection_pairs": 6440,
+      "absolute": {
+        "player_id": "8481491",
+        "strength": "5v5",
+        "field": "avoid_block_probability",
+        "old": 0.7070876557630795,
+        "new": 0.7062803798487215,
+        "signed_change": -0.0008072759143580299,
+        "absolute_change": 0.0008072759143580299
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 4.296421280802765e-06,
+        "p90": 1.4622210802517357e-05,
+        "p99": 0.00013907411228695834,
+        "max": 0.0008072759143580299
+      }
+    },
+    "on_net_probability": {
+      "available_projection_pairs": 6440,
+      "absolute": {
+        "player_id": "8481491",
+        "strength": "5v5",
+        "field": "on_net_probability",
+        "old": 0.633782539913399,
+        "new": 0.6326878273164761,
+        "signed_change": -0.0010947125969228422,
+        "absolute_change": 0.0010947125969228422
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 5.813673702781408e-06,
+        "p90": 1.6653688261847327e-05,
+        "p99": 7.808336728188884e-05,
+        "max": 0.0010947125969228422
+      }
+    },
+    "recorded_stop_probability": {
+      "available_projection_pairs": 6440,
+      "absolute": {
+        "player_id": "8483460",
+        "strength": "5v5",
+        "field": "recorded_stop_probability",
+        "old": 0.1907644401917026,
+        "new": 0.19104656101163087,
+        "signed_change": 0.000282120819928261,
+        "absolute_change": 0.000282120819928261
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 3.7755537560801855e-06,
+        "p90": 1.0181809141401879e-05,
+        "p99": 4.8535929672555405e-05,
+        "max": 0.000282120819928261
+      }
+    },
+    "conversion_probability": {
+      "available_projection_pairs": 6440,
+      "absolute": {
+        "player_id": "8483460",
+        "strength": "5v3",
+        "field": "conversion_probability",
+        "old": 0.21162487284930623,
+        "new": 0.21111562271000545,
+        "signed_change": -0.000509250139300782,
+        "absolute_change": 0.000509250139300782
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 5.2832802596922135e-06,
+        "p90": 2.465063971915094e-05,
+        "p99": 6.764491592967391e-05,
+        "max": 0.000509250139300782
+      }
+    },
+    "avoid_block_probability_difference": {
+      "available_projection_pairs": 6440,
+      "absolute": {
+        "player_id": "8481491",
+        "strength": "5v5",
+        "field": "avoid_block_probability_difference",
+        "old": -0.0076102717812752685,
+        "new": -0.00841738112277457,
+        "signed_change": -0.0008071093414993014,
+        "absolute_change": 0.0008071093414993014
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 3.993271188440506e-06,
+        "p90": 1.3863280721881922e-05,
+        "p99": 0.00013939802556592174,
+        "max": 0.0008071093414993014
+      }
+    },
+    "on_net_probability_difference": {
+      "available_projection_pairs": 6440,
+      "absolute": {
+        "player_id": "8481491",
+        "strength": "5v5",
+        "field": "on_net_probability_difference",
+        "old": -0.022400253082070165,
+        "new": -0.023495376179460736,
+        "signed_change": -0.0010951230973905712,
+        "absolute_change": 0.0010951230973905712
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 4.461892612828144e-06,
+        "p90": 1.4643628174959573e-05,
+        "p99": 8.229093433782383e-05,
+        "max": 0.0010951230973905712
+      }
+    },
+    "recorded_stop_probability_difference": {
+      "available_projection_pairs": 6440,
+      "absolute": {
+        "player_id": "8483460",
+        "strength": "5v5",
+        "field": "recorded_stop_probability_difference",
+        "old": -0.004554567925398378,
+        "new": -0.004272376434315522,
+        "signed_change": 0.000282191491082856,
+        "absolute_change": 0.000282191491082856
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 2.5533267343155752e-06,
+        "p90": 9.0526126372531e-06,
+        "p99": 4.556650006683579e-05,
+        "max": 0.000282191491082856
+      }
+    },
+    "conversion_probability_difference": {
+      "available_projection_pairs": 6440,
+      "absolute": {
+        "player_id": "8483460",
+        "strength": "5v3",
+        "field": "conversion_probability_difference",
+        "old": -0.011460815220616566,
+        "new": -0.011974567622354687,
+        "signed_change": -0.0005137524017381212,
+        "absolute_change": 0.0005137524017381212
+      },
+      "scalar_absolute_change_quantiles": {
+        "p50": 2.889010092689548e-06,
+        "p90": 1.4537556152496857e-05,
+        "p99": 6.568622528005855e-05,
+        "max": 0.0005137524017381212
+      }
+    }
+  },
+  "aggregate_missingness": {
+    "eligibility_counts": {
+      "masked_on_the_fly": 6,
+      "masked_faceoff": 4,
+      "unresolved_binding": 3,
+      "admitted_same_clock_faceoff": 11,
+      "withheld_earlier_anchor": 0
+    },
+    "unavailable_by_head": {
+      "u": 10295,
+      "q": 7443,
+      "r": 4899,
+      "g": 3982
+    },
+    "exact_newly_masked_key_stratum_available": false,
+    "unavailable_both_key_stratum_available": false,
+    "located_witnesses": {
+      "named": 33,
+      "recognized": 33,
+      "complete": 33,
+      "excluded": 0,
+      "definition": "saved first unavailable witnesses only; the remainder is unclassified, not a supported or unchanged-start stratum"
+    }
+  },
+  "five_v_five_goal_sums": {
+    "panel_id": "execution-v1-06-1:20242025:5,5,1",
+    "events": 125351,
+    "old": {
+      "neutral.u": 89588.09991561242,
+      "neutral.uq": 58786.169621783614,
+      "neutral.uqr": 47304.113280253405,
+      "neutral.uqrg": 5097.2057822900915,
+      "actor.uqrg": 5169.758329399157,
+      "neutral_goalie.uqrg": 5159.8054356745715
+    },
+    "new": {
+      "neutral.u": 89588.079035538,
+      "neutral.uq": 58786.19269658703,
+      "neutral.uqr": 47304.13600259679,
+      "neutral.uqrg": 5097.177835230199,
+      "actor.uqrg": 5169.744311678708,
+      "neutral_goalie.uqrg": 5159.791307537183
+    },
+    "signed_goal_change": {
+      "actor": -0.014017720449373883,
+      "neutral": -0.027947059892539983,
+      "neutral_goalie": -0.014128137388979667
+    }
+  },
+  "reviews": {
+    "checker_author": "numerical",
+    "checker_reviewers": [
+      "product",
+      "root"
+    ],
+    "metadata_binding_review": "product: manifest/state/launch/committed-command/resource/source-report metadata reconcile; no new arithmetic or payload scan",
+    "independent_saved_score_review": "pending; root owns acceptance decision"
+  },
+  "scope": {
+    "provenance": "all accounting, map, scalar and movement results above are copied from the single pinned saved checker; this completion pass independently checks small metadata/hash/report bindings and member sizes only",
+    "meaning_of_largest_movement": "neutral.prefix.uqr is joint unblocked, on-net, not-recorded-stopped prefix; uqrg is goal",
+    "same_clock_admissions": "eleven overall and11/6/3/3 by head are admitted saved sortOrder observations, not independent physical subsecond chronology; no counter-zero gate",
+    "no_new_strict_read": true,
+    "no_new_source_pass": true,
+    "no_array_or_bulk_payload_read": true
+  },
+  "remaining": "four baseline execution heads, four final continuations, one annual score/four propagations, real execution composition and all real spatial/source-to-screen acceptance; no activation or cleanup",
+  "saved_artifact_size": {
+    "bound_members": 73,
+    "member_bytes": 2622632251,
+    "manifest_bytes": 383422,
+    "complete_bytes": 2623015673,
+    "panel_array_bytes": 1611259056
+  }
+}

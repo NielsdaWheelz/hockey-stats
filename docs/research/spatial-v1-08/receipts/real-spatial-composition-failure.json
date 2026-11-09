@@ -1,0 +1,86 @@
+{
+  "status": "failed_real_spatial_composition",
+  "recorded_at": "2026-11-06T19:25:15.618149+00:00",
+  "native_session_id": 42857,
+  "native_exit": 1,
+  "native_session_closed": true,
+  "closed_pids": [
+    94076,
+    94167,
+    94168
+  ],
+  "launch_head": "b3ccd7fa4dd59f7b9531786c91c83cab5ad71e01",
+  "analysis_tree": "f71461a5496b657d27bd20ae14f77d5177fdd7e4",
+  "release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-spatial-composition-release.json",
+    "sha256": "1ed95822ae3dd4d39820abc8a065a528e2aeeaad165ec9fdf9f522c7a874c5ef",
+    "bytes": 2977
+  },
+  "error": "adjustment residual exceeds expression arithmetic tolerance",
+  "incomplete_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/manifest.json.incomplete",
+    "sha256": "f5c467767a45d0b9152a0308e1fc7e407da0d5b465ffdd743baae10918c44521",
+    "bytes": 19148
+  },
+  "producer": {
+    "git_commit": "7f50eda48e4232ae0eef1b352ea875eabdc0d0c5",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "original_admission": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial-product-admission.json",
+    "sha256": "1f09a7c2723bb502b96938e88c4708f5ed2d544d906a5c68d74dd346ede89ce2",
+    "bytes": 2582
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/states-selection.json",
+    "sha256": "7ac43cfa0bcf72b449bc9267b19f16eb5ac7d7bf396fd08d9a98200d94549f1c",
+    "bytes": 1446
+  },
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/compose-spatial.log",
+    "sha256": "c4f6a0434bae75249d1e25ac59a389fa3f6284b233d56743eff4715d72c2a078",
+    "bytes": 855
+  },
+  "exit": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/compose-spatial-exit.txt",
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "bytes": 2
+  },
+  "start": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/compose-spatial-start.txt",
+    "sha256": "f416e35d0ee9093410965d0787b3cd8ecf22fc112c5b8ecd2dd5ae204c23280a",
+    "bytes": 21
+  },
+  "finish": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/compose-spatial-finish.txt",
+    "sha256": "0db4f027d55a5514aaf214ca52edce832341483c1e4fce97fbb2198828c6e2c1",
+    "bytes": 21
+  },
+  "saved_diagnosis": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial-adjustment-diagnosis-01.json",
+    "sha256": "21dcafc4dd56bbac4a6687c872874c3462990dc1dfaf8d971c14dfd7ed059fff",
+    "bytes": 23090
+  },
+  "independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-adjustment-contract-failure-review.md",
+    "sha256": "fc0fcb0db7c4ea6af6a0d88c263e77473c5b38800b28d7d7f508f51846cfba77",
+    "bytes": 3801
+  },
+  "resources": {
+    "wall_seconds": 3029.6,
+    "user_seconds": 2382.83,
+    "system_seconds": 39.82,
+    "peak_resident_bytes": 23042998272,
+    "peak_footprint_bytes": 27845316840,
+    "swaps": 0
+  },
+  "preservation": {
+    "original_incomplete_graph_unchanged": true,
+    "final_manifest_absent": true,
+    "numeric_members_retained": true,
+    "existing_files": 62,
+    "physical_file_bytes": 14365599019
+  },
+  "disposition": "publication held; contract repair and separate actual-context disclosure reviewed before additive finalization; no state rebuild, predictor, fit, solver or extra continuation"
+}

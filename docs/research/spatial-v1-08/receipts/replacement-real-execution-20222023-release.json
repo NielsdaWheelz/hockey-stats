@@ -1,0 +1,44 @@
+{
+  "kind": "replacement-real-execution-20222023-root-release",
+  "status": "released by root; launch follows this receipt",
+  "recorded_at_utc": "2026-10-31T23:40:06.000420+00:00",
+  "season": "20222023",
+  "purpose": "real",
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "coaches_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+  "previous": {
+    "season": "20212022",
+    "manifest_sha256": "7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61",
+    "status": "accepted four-head annual"
+  },
+  "accepted_first_score": {
+    "manifest_sha256": "37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d",
+    "saved_check_sha256": "51e95dcf113de5ddf92c39a62aa0ee1e7f929157c8e357f9de8190133f96b952",
+    "completion_receipt_sha256": "7dbd5500d0565f622d53eeed4aac0859e6e69e03348e1af6fff08d4161105294",
+    "root_verdict": "accepted after independent computational, artifact and binding review",
+    "review_record": "docs/research/spatial-v1-08/reviews/independent-review.md#completed-real-20212022-score"
+  },
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20222023-execution-command.sh",
+    "sha256": "93877a0b23e04a74549276c7a82178594dae26c498ccdb9a1a33464d0db2eba0",
+    "syntax_and_argv": "root and source_design clear",
+    "guarded_paths": 15,
+    "previous_bound": true,
+    "known_census": false,
+    "pause": false,
+    "probe": false
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023",
+  "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20222023-source-check.json",
+  "source_check_policy": "read and report saved eligibility/unresolved-binding counters when written while solving continues; no new threshold or manual pause",
+  "execution_policy": "one heavy numerical command; command-bound native idle-sleep prevention; all analysis source stays untouched until exit",
+  "limits": [
+    "first-year probability movement is recipe sensitivity, not a numerical-resolution or scientific-quality margin",
+    "31 located unavailable witnesses are not a masked stratum; only four have a maskable raw kind",
+    "remaining real execution/spatial/probe/publication/application acceptance is still required",
+    "no acquisition, source pass beyond the ordinary fit, automatic retries, activation or test cleanup"
+  ]
+}

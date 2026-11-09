@@ -1,0 +1,105 @@
+{
+  "kind": "replacement-real-year4-score-acceptance-preparation",
+  "status": "prepared; held until accepted year 4 state, completed score and actual hashes; no invocation",
+  "recorded_at_utc": "2026-11-01T17:09:13.959379+00:00",
+  "season": "20242025",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20242025.py",
+    "sha256": "e388d12b79fb5de752f295699735fc6991dd7a0b880b5b907f715e6291ed2b52",
+    "bytes": 27532
+  },
+  "command_argv": [
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20242025.py",
+    "--expected-manifest-sha256",
+    "<actual_completed_20242025_score_manifest_sha256>",
+    "--expected-state-sha256",
+    "<root_accepted_20242025_state_manifest_sha256>",
+    "--expected-source-sha256",
+    "<root_pinned_20242025_score_source_report_sha256>",
+    "--out-check",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20242025-saved-acceptance.json"
+  ],
+  "expected_score_manifest_sha256": null,
+  "expected_state_manifest_sha256": null,
+  "expected_score_source_sha256": null,
+  "bindings": {
+    "original_score": {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025/manifest.json",
+      "sha256": "c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0"
+    },
+    "original_pin_source": "docs/research/spatial-v1-08/inputs.json",
+    "fit_source": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20242025-source-check.json",
+      "sha256": "711c37e1507e5a5a92279f59cc990f6c8b232110ba581e1d2d166eb5d9a74a09"
+    },
+    "accepted_new2023_predecessor_sha256": "dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "analysis_clean": true,
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "adaptation": {
+    "base": "reviewed569be218 year 3 score checker",
+    "fixed_year_only": true,
+    "generic_framework": false,
+    "corrected_scalar_labels": [
+      "available_projection_pairs",
+      "scalar_absolute_change_quantiles"
+    ],
+    "event_labels_unchanged": true
+  },
+  "checks": [
+    "exit0 and actual completed score digest before one new strict read; actual accepted annual state and score-source hashes required",
+    "all eight fit-score fields exact, including context/response signatures, full head populations and all observational counters",
+    "old/new event identities, labels, statuses, reasons, coverage and nullable applicability preserved",
+    "setter identities/pre-outcome weights, posterior applicability and share recipients preserved; full saved group allocation checked through24orders under the existing arithmetic bound",
+    "all original/current maps integrate to their saved scalar; current scalar binding and original projection support/unavailability exact",
+    "seven published panel event-prefix sums reconcile to every projection under existing rounding bounds; strict reader checks all32saved panels",
+    "all complete rows contribute literal absolute/relative maxima and quantiles; actor/neutral/neutral-goalie and goal-coalition movement distinct",
+    "named unavailable first witnesses plus unclassified complete remainder; recognized excluded named witnesses have no invented numerical changes",
+    "output counts/bytes and scoped launch/input/history/resources recorded; no census, ranking, top-k or counter-zero gate"
+  ],
+  "source_observation_scope": {
+    "root_reported_source_contexts": 154720,
+    "root_reported_eligibility_counts": {
+      "masked_on_the_fly": 6,
+      "masked_faceoff": 4,
+      "unresolved_binding": 3,
+      "admitted_same_clock_faceoff": 11
+    },
+    "meaning": "root metadata only; counters overlap and same-clock faceoff admission is a valid observed class, not a zero-count gate; actual score parity will compare the complete report",
+    "this_preparation_read_source_report": false
+  },
+  "meaning": {
+    "u": "avoid-block prefix, not goal",
+    "uqrg": "goal prefix",
+    "coalitions": "16 integrated goal probabilities",
+    "relative": "abs(new-old)/abs(old); 0 to 0 is 0 by convention; zero baseline to nonzero has no finite relative ceiling",
+    "movement": "descriptive recipe/history sensitivity; current masking and changed earlier history effects are not isolated"
+  },
+  "limits": [
+    "aggregate counters and named first witnesses do not provide every newly masked key or unavailable-both membership; no classification from probability movement",
+    "source context counts, complete scoring counts and physical5v5 panel counts remain distinct",
+    "complete-row changes are not a numerical-resolution margin, calibration result or all-player ability error bound",
+    "saved coalition arithmetic does not independently rebuild raw predictors/logits/origins; original scores remain comparison evidence only",
+    "no final-year continuation or propagation in20242025; no fit, rescore or new source pass"
+  ],
+  "preparation_checks": {
+    "python_ast": "passed",
+    "pure_controls": "48 fields, blocked nullability, terminal mass and relative-zero conventions passed",
+    "main_invocations": 0,
+    "strict_reads": 0,
+    "state_reads": 0,
+    "array_reads": 0,
+    "source_passes": 0,
+    "fits": 0,
+    "scores": 0,
+    "analysis_and_observer_edits": 0
+  },
+  "access": "local reviewed checker, original accepted score pin from repository metadata docs, git/observer identity and pure controls only; no source/model/state/array artifact read",
+  "next": "root assigns product peer review; actual future hashes and explicit root release required before one invocation"
+}

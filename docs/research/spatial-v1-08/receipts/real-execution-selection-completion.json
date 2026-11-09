@@ -1,0 +1,58 @@
+{
+  "kind": "real-execution-score-selection-completion",
+  "status": "accepted",
+  "recorded_utc": "2026-11-03T16:18:31.120054+00:00",
+  "release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-execution-selection-release.json",
+    "sha256": "96878a1347186fdb2a01034912e399692c7d6bc1844ef2c8ae1618300465b9b4",
+    "bytes": 1744
+  },
+  "writer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/prepare-real-score-selection.py",
+    "sha256": "376cbefc521cb8c67318841166c29f8ddb35121bdc4ccb1c725dbcec1bc41ac4",
+    "bytes": 4394
+  },
+  "launch_head": "7f3f4363c4ca4db327823e84df128a5649a50197",
+  "actual_calls": 1,
+  "exit_code": 0,
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores-selection.json",
+    "sha256": "588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e8c000f9450",
+    "bytes": 1429
+  },
+  "stored_payload": {
+    "schema_version": 1,
+    "purpose": "real",
+    "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "scores": [
+      {
+        "season": "20212022",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022/manifest.json",
+        "sha256": "37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d"
+      },
+      {
+        "season": "20222023",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/manifest.json",
+        "sha256": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20"
+      },
+      {
+        "season": "20232024",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024/manifest.json",
+        "sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238"
+      },
+      {
+        "season": "20242025",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20242025/manifest.json",
+        "sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de"
+      },
+      {
+        "season": "20252026",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026/manifest.json",
+        "sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc"
+      }
+    ]
+  },
+  "scope": "five manifest/receipt metadata only; no source, strict state/score reader, model arrays or numerical call",
+  "composition_released": false,
+  "activation": false
+}

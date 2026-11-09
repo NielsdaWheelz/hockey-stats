@@ -1,0 +1,119 @@
+{
+  "kind": "spatial-v1-08-fixture03-product-recipes",
+  "status": "prepared only; no composition, publication or app launch",
+  "source_commit_when_prepared": "4276f3928e3ce63b2cbd9a7bc3b0fdaf800b4d9d",
+  "analysis_tree": "f74e9b83caa6bceb6551f9d92010f5b6e7f64993",
+  "bindings": {
+    "execution_results": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/results/manifest.json",
+      "sha256": "499acc1f9363d136d7e148d12af045fcf17b7f27b018b2e11612447ccb992d8d",
+      "bytes": 17435
+    },
+    "observed_selection": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json",
+      "sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37",
+      "bytes": 768
+    },
+    "execution_scores_selection": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores-selection.json",
+      "sha256": "58f7820080e6dc283af7ba6b9731122c24803523407e6a23857029b327a8f44d",
+      "bytes": 1432
+    },
+    "accepted_states": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/20212022/manifest.json",
+        "sha256": "a0fc5f45458bc48d5e03ab582d7cc4669d69a38d702997514a7dddd1093944dd",
+        "bytes": 17638
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/20222023/manifest.json",
+        "sha256": "04bae620926b2ce11733b63e64d942b87caec7c4f778411195a581f679b771da",
+        "bytes": 17391
+      }
+    ]
+  },
+  "scripts": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/prepare-selection.py",
+      "sha256": "9e36b477d7f9f0ee962a2823810643186697e3d3bd3033b00176cd8bc50b37e2",
+      "bytes": 1138
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/summarize.sh",
+      "sha256": "961ac18d122b3fa5a87765232c8cba22a4d3f0a14b77a12bd424d92f887ca215",
+      "bytes": 1189
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/publish.sh",
+      "sha256": "c2de797c8b509b50f5da79181623406a77796cb6d4361a7768ae0e930fedc5b1",
+      "bytes": 1173
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/detached.sb",
+      "sha256": "6f06173da127c8565ad1b2134bcffecdd1216995a3488194adaee4030a9fc85b",
+      "bytes": 1676
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/server.sh",
+      "sha256": "9cc4e6e0d21051fcd8b763cd4c88279539d19eba85415f0aa30f0c455cf8867c",
+      "bytes": 1185
+    }
+  ],
+  "syntax_checks": {
+    "shell": "three sh -n checks passed",
+    "selection": "ast.parse passed; script not executed",
+    "sandbox_profile": "sandbox-exec profile accepted with /usr/bin/true; no detached input control or app run"
+  },
+  "pending": [
+    "root acceptance of all five fixture03 annual states and three final probes",
+    "exclusive explicit five-state selection write and root review",
+    "separate root release of composition, publication and application checks"
+  ],
+  "outputs": {
+    "states-selection.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/states-selection.json",
+      "absent": true
+    },
+    "results": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/results",
+      "absent": true
+    },
+    "summarize.log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/summarize.log",
+      "absent": true
+    },
+    "summarize.exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/summarize.exit",
+      "absent": true
+    },
+    "candidate": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate",
+      "absent": true
+    },
+    "publish.log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/publish.log",
+      "absent": true
+    },
+    "publish.exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/publish.exit",
+      "absent": true
+    },
+    "server.log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/server.log",
+      "absent": true
+    },
+    "server.exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/server.exit",
+      "absent": true
+    },
+    "server.shell.pid": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/server.shell.pid",
+      "absent": true
+    }
+  },
+  "checkpoint_content_correction": {
+    "commit": "3f9f90c",
+    "status": "passed focused red-to-green unknown-projection/schema and selector/csv checks plus pinned typecheck",
+    "source_change": "two production files, three added lines and two removed lines; no numerical/source/cli change"
+  }
+}

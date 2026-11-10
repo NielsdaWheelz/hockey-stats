@@ -14,6 +14,14 @@ all nine dedicated spatial selections, shared choices/revalidation, focal role/s
 
 node24 typecheck and build pass with isolated locked dependencies. all original 79 named public-helper cases pass. the raw first failure was a stale nested reference assertion; exactly two temporary assertions now check the declared datum/csv owners, retaining every other test byte. independent review verifies original/updated hashes, exits 1 then 0, all 79 unique cases and no weakened reference assertion. [the receipt](../receipts/frontend-source-handoff-01.json) records source identities, commands, costs and evidence scope. tests remain temporary until final assigned acceptance. this leaf imports no fixture data correction or shared/numerical parent and grants no resource release.
 
+### goalie frontend followups
+
+only `765628d2eaa1fbf635ae842c690da49f9cb44d39`, then `333f6a74592315f1c431296ae30382743fac4b38`, were applied as `09d635e9e2df51b0661d9c891f378e9fea15333e` and `405e03c72a0c3f52811a0551fdb197a51fe4f0ba`. exactly three web paths change: goalie metric meanings in `analysis-values.ts`, selected-strength identity in `analysis-history.tsx`, and execution-map narrowing in `explorer.ts`. all three blobs and the full web tree match the final donor. analysis/shared/server/operator trees remain unchanged; the detached producer remains clean at `ba41c2b8`.
+
+independent source review checks 26 ev/pk goalie selectors: seven levels and six differences per population, common masses pooled before normalization, neutral saved-shot weighting, neutral-minus-focal stopping, focal-minus-neutral fractional differences and percentage-point display. csv prefers selected strength while preserving spatial semantics. execution maps use existing `Schema.is(ExecutionStrength)` without a cast or wider map contract. the final wording limits next-recorded-attempt proxy language to reattempt/follow-up danger quantities. actual reference ids remain attached.
+
+node24 typecheck/build and all 79 unchanged st cases pass. the provider's 26 meaning/csv checks, three annual oracles, fourteen map selections and namespace checks remain separately attributed; they were not rerun here. [the successor receipt](../receipts/frontend-source-handoff-02.json) binds both ordered transfers, exact source blobs, unchanged trees, logs and limits. no data patch, numerical work, runtime/server/startup or real goalie/specialty acceptance follows. v1-18 retains the heavy slot; our annual and bulk fixture jobs remain held.
+
 ## original bounded merge findings
 
 the following findings record the earlier comparison; the source refresh above supersedes their unresolved status.

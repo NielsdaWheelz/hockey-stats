@@ -1,0 +1,66 @@
+{
+  "status": "explicit_G_fit_boundary_release_to_one_reserved_ST_retry",
+  "recorded_at_utc": "2026-11-10T12:15:56.957326+00:00",
+  "owner_releasing": "v1-07",
+  "season": "20232024",
+  "producer": "dc75b9c7d4b2e5a844a045926360e2cc20ed94c5",
+  "analysis_tree": "0aba863d0efaf5ace3f0e96ab87920540b669e11",
+  "native_session_id": 59603,
+  "native_exit_code": 0,
+  "native_pids_absent": true,
+  "native_wall_seconds": 5463.8,
+  "native_peak_resident_bytes": 21148712960,
+  "native_peak_footprint_bytes": 21622292320,
+  "artifact_member_bytes": 82944727,
+  "state_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20232024/manifest.json",
+    "sha256": "9ff479053abb700954831a932d414cb40adf92cfef6758de0c92dcc3be84be40"
+  },
+  "fit_review_sha256": "f53c2c6977423edf191532daf76113816d3acdeac4d72dc8993dc51577aba45b",
+  "inventory_sha256": "ad80535186042ce13d5246afac4f43a18e46714a571149b49c5a22f8772bf25b",
+  "heads": {
+    "h": {
+      "status": "complete",
+      "rows": 71202,
+      "positive": 9897
+    },
+    "d": {
+      "status": "complete",
+      "rows": 9877,
+      "response_mass": 940.1089484417294
+    }
+  },
+  "native_baseline_solves": {
+    "h": 2,
+    "d": 2
+  },
+  "probe_solves": {
+    "h": 0,
+    "d": 0
+  },
+  "numerical_accuracy": "ftol completion above gtol; unassessed, no extra solve",
+  "target_inventory": {
+    "source_rows": 160123,
+    "games": 1312,
+    "groups": 1728,
+    "coverage_reads": 1,
+    "coverage_bytes": 78035622,
+    "coverage_sha256": "22c14f3136e24df90fcb1036faedbde5347f1abae57555bf97b346556b861162",
+    "missing_d_positives": 20,
+    "source_only_candidate_packets": 0
+  },
+  "original_event_proofs": "three remain unfulfilled; no new proof claimed",
+  "next_owner": "v1-09",
+  "next_scope": "ONLY reserved20212022 retry on producer02,three sequential baselines/no probe,full projection/accounting/readback; no fixture/other annual/converter/base rerun",
+  "retry_pins": {
+    "producer": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "script_sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf",
+    "preflight_sha256": "ab33a95c58371d2c65574fab0265f4da7394cecf120c93cb392af5a95133e750"
+  },
+  "launch_precondition": "owner freshly checks output/log/exit absence before dispatch; actual launch acknowledgement follows",
+  "G20232024_score": "held through retry native boundary, bounded adjudication and explicit return to both",
+  "complete_ST_cost": "unknown; failed70.66s is not a forecast",
+  "chain_reservation": false,
+  "activation": false
+}

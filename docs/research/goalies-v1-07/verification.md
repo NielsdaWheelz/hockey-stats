@@ -7,7 +7,7 @@ status: implementation and final fixture acceptance pass; real acceptance remain
 | five-year fixture chain and final score | ten completed baseline heads, two assessed probes, all three variants and current detached reader pass |
 | real `20212022` | both heads, score, target inventory and independent saved arithmetic pass |
 | real `20222023` | both heads, score and ledger/target/small score-metadata reviews pass on `34eba0a` |
-| real `20232024` | both heads, ledger and one target inventory pass; annual score pending after reserved ST retry |
+| real `20232024` | both heads, ledger and one target inventory pass; annual score preflight assigned after checked ST return |
 | real `20242025`–`20252026` | annual fits/scores and final bounded probes pending |
 | original-event evidence | eight selected checks pass; invalid intervening event, unknown terminal and known goalie-change witnesses remain unfulfilled |
 | combined exchange and inactive publication | pending the complete annual chain |
@@ -201,3 +201,9 @@ v1-09 acknowledges actual single-retry launch at `2026-11-10T12:17:10Z`, python7
 commit `d1275fb` integrates the three synthetic map-support corrections from v1-18, preserving goalie breakdown `914d41ff…`, all original captures and source admission. normal local fixture reading passes before and after; the three actual scalar/history selector controls fail on old support equality and pass after the correction; quantities, methods and geometry remain unchanged. [checked facts](receipts/local-analytical-fixture-integration.json) and [independent review](receipts/local-analytical-fixture-independent-review.json) bind the exact scoped changes. reviewed current exchange3/schema9 contract clauses and their authoritative document links are integrated; 224 local targets/anchors pass. imported v1-18 evidence remains explicitly attributed, including its older shared-guard snapshot. the resolved local fixture integration issue is removed.
 
 [the current app build](receipts/current-app-build.json) passes on node24.21.0: 1.32 seconds and600,211,456 peak resident bytes, app tree `51f4f39c…`. compiled client bytes contain the reviewed rebound-only proxy clause. this local build opens no external data or server and establishes no real runtime/browser acceptance. numerical analysis tree remains `0aba863d…`; STretry retains exclusive heavy ownership until checked return.
+
+## special-teams retry checked return
+
+v1-09 explicitly releases the completed single20212022 retry. root checks only its small release `39d55526…` and independent adjudication `95b611bd…`: native exit0,5,091.46 seconds,5,325,340,672 peak resident bytes and1,577,314,784 declared payload bytes. the one nine-annual-JSON audit reads49,100,690 logical bytes in0.604833 seconds at164,397,056 peak resident bytes; native canonical full readback is not repeated. the metadata collector’s nonexistent size-field assumption is a retained controller failure, corrected with no numerical or audit rerun. three ST heads complete, with precision and first-year sensitivity unassessed; no full ST/product/scientific acceptance follows.
+
+[the queue record](receipts/sibling-ready-queue.json) binds the actual launch `e828eec6…` separately from fresh preflight `c46c4822…`, correcting the earlier attribution. root confirms only G20232024 scoring and bounded metadata review to both sessions. no additional ST annual or chain is reserved. complete public predecessor remains `8b32c23e…`; ST state `7ec561e9…` is numerical output only. final G score preflight and actual launch remain pending.

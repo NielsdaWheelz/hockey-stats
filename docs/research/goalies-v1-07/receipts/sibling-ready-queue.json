@@ -1,36 +1,14 @@
 {
-  "status": "v1-09_one_reserved_retry_running",
+  "status": "v1-07_20232024_score_preflight",
   "current": {
-    "owner": "v1-09",
-    "scope": "ONE20212022 retry,3sequential baselines/no first-year probe,full projections/accounting/readback; no fixture/other annual/base rerun/converter",
-    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
-    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
-    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
-    "local_launch_pins": [
-      {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/first-real-fit-02.sh",
-        "sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf",
-        "bytes": 1507
-      },
-      {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-preflight-04.json",
-        "sha256": "ab33a95c58371d2c65574fab0265f4da7394cecf120c93cb392af5a95133e750",
-        "bytes": 4165
-      }
-    ],
-    "boundary": "actual retry launched; native exit/measured wall/rss/member bytes, bounded adjudication and explicit release to both required",
-    "launch_at_utc": "2026-11-10T12:17:10Z",
-    "native_python_pid": 70935,
-    "native_time_pid": 70934,
-    "shell_pid": 70931,
-    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
-    "native_log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/logs/20212022-fit.log",
-    "actual_launch_receipt": {
-      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-actual-launch-01.json",
-      "sha256": "c46c4822bcc5aa5d6a7fd9d39030686487718f72713171330ad5244b87b15ed2"
-    },
-    "fresh_output_log_exit_absence_checked": true,
-    "child_three_single_thread_variables_confirmed": true
+    "owner": "v1-07",
+    "scope": "20232024 goalie SCORE then bounded four-document metadata review; accepted9ff state reused, no fit or probe",
+    "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20232024",
+    "analysis_tree": "0aba863d0efaf5ace3f0e96ab87920540b669e11",
+    "boundary": "checked ST39d555 release accepted; actual source/runtime/seven-binding/fresh-output preflight precedes dispatch",
+    "thread_environment": "six numerical variables unset",
+    "owner_confirmation_to_both": "both guarded sends written; provider acceptance unconfirmed",
+    "dispatch": false
   },
   "queue": [
     {
@@ -42,7 +20,7 @@
       "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
       "scope": "saved-only donor conversion, one ordinary inactive publication, one strict startup41919",
       "release_condition": "completed checked conversion/publication and one normal strict startup; explicit release to the next agreed owner",
-      "cost": "conversion2100.827s/552878080peakRSS; publication6335.505s/3332374528peakRSS; startup not yet accepted",
+      "cost": "conversion2100.827s/552878080peakRSS; publication6335.505s/3332374528peakRSS; strict startup766.080017042s/1152319488peakRSS",
       "previous_ready_scopes": [
         {
           "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope.json",
@@ -91,13 +69,13 @@
     },
     {
       "owner": "v1-07",
-      "scope": "next20232024 goalie annual after both explicit releases",
+      "scope": "20232024 goalie SCORE then bounded four-document metadata review; accepted9ff state reused, no fit or probe",
       "thread_environment": "the same six-unset protocol; no sibling environment mutation here",
-      "status": "current_owner_fit_preflight"
+      "status": "current_owner_score_preflight"
     }
   ],
   "checks": "small v1-18 ready receipt bytes/hash and local v1-09 preflight/script hashes/frozen git identities checked; no numerical input or candidate body opened",
-  "dispatch": true,
+  "dispatch": false,
   "activation": false,
   "ownership": "confirm explicit owner to both sibling sessions before each handoff; no concurrent large i/o or blanket annual-chain reservation",
   "parent_adoption": "exact accepted exchange3/schema9 successor plus donor-bound producer receipt required; numerical state-v1/score-v1 contracts unchanged",
@@ -217,39 +195,6 @@
     "next_owner": "v1-07",
     "owner_confirmation_to_both": "both guarded sends written, provider acknowledgement pending"
   },
-  "next_reserved_scope": {
-    "owner": "v1-09",
-    "status": "one_reserved_retry_actually_running",
-    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
-    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
-    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
-    "analysis_clean": true,
-    "local_pins_checked": [
-      {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/first-real-fit-02.sh",
-        "sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf",
-        "bytes": 1507
-      },
-      {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-preflight-04.json",
-        "sha256": "ab33a95c58371d2c65574fab0265f4da7394cecf120c93cb392af5a95133e750",
-        "bytes": 4165
-      }
-    ],
-    "scope": "ONE20212022 retry,3sequential baselines/no first-year probe,full projections/accounting/readback; no fixture/other annual/base rerun/converter",
-    "output_run": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02",
-    "prepared_games": 1312,
-    "declared_prepared_bytes": 63710567455,
-    "launch_precondition": "actual fresh output/log/exit checks and explicit owner confirmation to both after G native exit, bounded state review and ONEtarget inventory",
-    "complete_cost": "unknown; failed70.66s is not an annual forecast",
-    "thread_environment": {
-      "OPENBLAS_NUM_THREADS": "1",
-      "OMP_NUM_THREADS": "1",
-      "VECLIB_MAXIMUM_THREADS": "1"
-    },
-    "tradeoff": "delays G20232024 scoring to give ST another first-annual attempt; no blanket chain reservation",
-    "owner_acknowledged_reservation_only": true
-  },
   "v1_18_final_scope_owner_report": {
     "head": "23027d7b212a7e6c8a8959837bd46b16f81261fc",
     "tree": "199ba18d672d1ce233904296f97bce613bc65f58",
@@ -295,5 +240,142 @@
     "both_guarded_sends_written": true,
     "provider_launch_acknowledgement": true
   },
-  "next_after_current_retry": "G20232024 score after measured retry boundary, bounded adjudication and explicit return to both; no blanket chain reservation"
+  "next_after_current_retry": "current G20232024 score window; no further ST annual or chain reserved",
+  "v1_09_retry_boundary": {
+    "owner": "v1-09",
+    "scope": "ONE20212022 retry,3sequential baselines/no first-year probe,full projections/accounting/readback; no fixture/other annual/base rerun/converter",
+    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "local_launch_pins": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/first-real-fit-02.sh",
+        "sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf",
+        "bytes": 1507
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-preflight-04.json",
+        "sha256": "ab33a95c58371d2c65574fab0265f4da7394cecf120c93cb392af5a95133e750",
+        "bytes": 4165
+      }
+    ],
+    "boundary": "actual retry launched; native exit/measured wall/rss/member bytes, bounded adjudication and explicit release to both required",
+    "launch_at_utc": "2026-11-10T12:17:10Z",
+    "native_python_pid": 70935,
+    "native_time_pid": 70934,
+    "shell_pid": 70931,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "native_log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/logs/20212022-fit.log",
+    "actual_launch_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-actual-launch-01.json",
+      "bytes": 3356,
+      "sha256": "e828eec6917aa689c0b525e1eb476ce8ec536f9a9acb260825773fdded522e28"
+    },
+    "fresh_output_log_exit_absence_checked": true,
+    "child_three_single_thread_variables_confirmed": true,
+    "status": "native_and_bounded_review_passed_explicitly_released",
+    "release_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-boundary-release-01.json",
+      "sha256": "39d555266d091793c6cb360d7f08ad41be2ee55691ed9f4a6e866c3166acd4bb",
+      "bytes": 7165
+    },
+    "native": {
+      "exit_status": 0,
+      "wall_seconds": 5091.46,
+      "peak_rss_bytes": 5325340672,
+      "peak_footprint_bytes": 4730622608,
+      "log_and_exit": [
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-fit-01.log",
+          "bytes": 864,
+          "sha256": "8d25cfe1a9225973378244f729ddf0d8cc56ba69f1b10fbf5ca4795e28426270"
+        },
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-fit-01.exit",
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      ],
+      "declared_payloads_statted": 15,
+      "actual_payload_bytes": 1577314784,
+      "resources_output_bytes": 1577314784,
+      "manifest_and_logs_excluded_from_payload_sum": true,
+      "full_readback": "completed by frozen native command; no second canonical reader",
+      "metadata": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-metadata-02.json",
+        "bytes": 29086,
+        "sha256": "24ab2e16cfad3554268c9f0f875ec378b73090ee11f9af4720c6039f8ba7788c"
+      }
+    },
+    "saved_json_audit": {
+      "status": "passed",
+      "executions": 1,
+      "auditor_path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-real-saved-audit-temporary.py",
+      "auditor_sha256": "ee0e66e62d3952d3124c8c0bc8d1dd781f8143a60bfeef65f20e5268074476af",
+      "annual_json_bodies": 9,
+      "local_preflight_bodies": 1,
+      "wall_seconds": 0.604833000106737,
+      "logical_input_body_read_bytes": 49100690,
+      "peak_rss_bytes": 164397056,
+      "receipt": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-01.json",
+        "bytes": 4181,
+        "sha256": "b3434950ca8a3968d6921a7043202f4b2c29e14383982615dc2677ec27ed159f"
+      },
+      "log": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-run-01.log",
+        "bytes": 248,
+        "sha256": "081ed266fa68339ff7e29d10e8fd824aef5d043e298a4a0755af9bac3732ab4e"
+      },
+      "exit": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-run-01.exit",
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      }
+    },
+    "independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-independent-adjudication-01.json",
+      "bytes": 6308,
+      "sha256": "95b611bdd787dc4ab9e07c76a1957910af8abb707bd99a7e6bddc865293e35ec"
+    },
+    "fresh_launch_preflight": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-launch-preflight-01.json",
+      "bytes": 1722,
+      "sha256": "c46c4822bcc5aa5d6a7fd9d39030686487718f72713171330ad5244b87b15ed2"
+    }
+  },
+  "last_completed_reserved_scope": {
+    "owner": "v1-09",
+    "status": "completed_and_explicitly_released",
+    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "analysis_clean": true,
+    "local_pins_checked": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/first-real-fit-02.sh",
+        "sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf",
+        "bytes": 1507
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-preflight-04.json",
+        "sha256": "ab33a95c58371d2c65574fab0265f4da7394cecf120c93cb392af5a95133e750",
+        "bytes": 4165
+      }
+    ],
+    "scope": "ONE20212022 retry,3sequential baselines/no first-year probe,full projections/accounting/readback; no fixture/other annual/base rerun/converter",
+    "output_run": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02",
+    "prepared_games": 1312,
+    "declared_prepared_bytes": 63710567455,
+    "launch_precondition": "actual fresh output/log/exit checks and explicit owner confirmation to both after G native exit, bounded state review and ONEtarget inventory",
+    "complete_cost": "native5091.46s/5325340672peakRSS/1577314784payload bytes; saved JSON audit separately measured",
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "tradeoff": "delays G20232024 scoring to give ST another first-annual attempt; no blanket chain reservation",
+    "owner_acknowledged_reservation_only": true
+  },
+  "next_reserved_scope": null
 }

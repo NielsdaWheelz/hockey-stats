@@ -393,7 +393,7 @@ original `2025020001`, `2025020614`, `2024020186` and `2024021235` exercise reta
 
 ## v1-13 typed publication checks
 
-[publication-v1-13](publication-v1-13/README.md) retains the complete compact schema-7 exchange, source/method/support catalogs and independently checked analytical constants. analytical records are synthetic; the preserved observed side reuses six original complete captures across the three displayed seasons. original captured bodies and receipts remain unchanged. the fixture exercises all fixed families, explicit unfinished work, source gaps, a failed-fit record, historical borrowing, actual-state goalie evidence, probability bins, event-key joins and distinct context populations. its sqlite candidate and temporary controllers are not committed fixtures.
+[publication-v1-13](publication-v1-13/README.md) retains the compact typed exchange, source/method/support catalogs and independently checked analytical constants. its original schema7 handoff is historical; v1-06 and v1-18 amend the current fixture to exchange3/publication schema9. analytical records are synthetic; the preserved observed side reuses six original complete captures across the three displayed seasons. original captured bodies and receipts remain unchanged. the fixture exercises all fixed families, explicit unfinished work, source gaps, a failed-fit record, historical borrowing, actual-state goalie evidence, probability bins, event-key joins and distinct context populations. v1-18 additionally retains explicit saved spatial evidence and separate complete/zero/long-name rendering data. its sqlite candidate and temporary controllers are not committed fixtures.
 
 ## v1-01 individual-participation overlap check — 2026-10-22
 

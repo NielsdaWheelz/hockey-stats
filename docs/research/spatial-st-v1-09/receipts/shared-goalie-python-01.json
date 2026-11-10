@@ -1,0 +1,54 @@
+{
+  "kind": "paired-python-goalie-publication-validator-integration",
+  "status": "passed",
+  "development_head": "f522bbfdcf3430ca1547b2bb0bef97fcf248862d",
+  "donor_commit": "dc75b9c7d4b2e5a844a045926360e2cc20ed94c5",
+  "source_before_sha256": "cb33292281122ee1fbdfe6019bee17dc932ded19fd8affd192975205b97ab93f",
+  "source_after_sha256": "edf433cb8425a0849a6527675b2f63d7dfb1c015cda9b96bf38073ec3fde7387",
+  "source_after_blob": "d5f3c263d9da807482447d0f5016da1c89a00019",
+  "changed_locations": [
+    "_source_counts",
+    "_goalie_summary",
+    "validate_payload goalie execution_breakdown tail",
+    "_goalie_actual_states count reduction"
+  ],
+  "all_four_goalie_hunks_exact_donor": true,
+  "all_bytes_outside_goalie_hunks_unchanged": true,
+  "preserved_contracts": [
+    "ST exact state weight1 and complete/neutral requirements",
+    "ST scalar/map/reciprocal/annual mixtures and scalar-first full reader",
+    "native/display guards",
+    "EV admission and source contracts",
+    "Python existing derived-null and known-zero strictness",
+    "imports/schema/artifact versions"
+  ],
+  "typescript_shared_blob_unchanged": "30f12cec988dda9f576ca7604c3087f14c18f8f3",
+  "prior_typescript_35_case_test_sha256_unchanged": "58e0b8941f2ac4d252538429a0c6dd689c67b0d1b3d4792a23e507d0c3c5e9a5",
+  "test_source_unchanged_red_to_green": true,
+  "python_test_sha256": "45b6677ef7ca39ce4428510e56b9c1b3e3837f51ab28520ac2a5fce410f1f67a",
+  "typescript_pair_test_sha256": "7a2cd7f6b7241716233bbf39db0f66ccae45197940ac2373929ad4458a884007",
+  "red_exit": 1,
+  "red_python_passed": 14,
+  "red_python_failed": 11,
+  "green_exit": 0,
+  "green_python_passed": 25,
+  "green_python_failed": 0,
+  "same_wire_vectors_typescript_passed_red_and_green": 25,
+  "public_boundaries": [
+    "analysis_publication.validate_payload",
+    "GoalieObserved",
+    "GoalieExecutionBreakdown"
+  ],
+  "scope": "small deterministic in-memory payload vectors and synthetic catalogs only; Node24 receives the same JSON vectors on stdin; no private helper tests, fixture/source bodies, model, solver, numerical arrays, full reader, database, candidate, startup, typecheck or build",
+  "frozen_producers": "untouched; publication validator integration does not adopt or repin numerical fit source",
+  "future_fixture_binding": "development analysis tree changes; separate future fixture construction needs its own reviewed binding before execution",
+  "logs": {
+    "red.log": "a44ca9a30953529bd653aa63f9fe5b8b57b3a05bc4bbc4fbc2a26b93d23ef9a1",
+    "green.log": "93e052730a1ef0608519ffea358b911bc08c4daeba34baa2f977a62e79ab9f2b"
+  },
+  "not_proven": [
+    "real goalie/ST corpus acceptance",
+    "ordinary full exchange/publication/runtime acceptance",
+    "numerical correctness or fit acceptance"
+  ]
+}

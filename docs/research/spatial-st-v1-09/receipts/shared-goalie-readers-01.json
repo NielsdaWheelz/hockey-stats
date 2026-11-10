@@ -1,0 +1,56 @@
+{
+  "kind": "paired-shared-goalie-reader-integration",
+  "status": "source_and_in_memory_contracts_passed",
+  "commit": "971c8968f84899b8f3051b0d8a92618bc1d57261",
+  "donor": "dc75b9c7d4b2e5a844a045926360e2cc20ed94c5",
+  "production_paths": [
+    "analysis/src/hockey_stats/analysis_publication.py",
+    "app/src/shared/player-analysis.ts"
+  ],
+  "scope": "goalie-only guard hunks; public wire shapes, imports, versions, fit kernels, source/body data, numerical artifacts and frozen producers unchanged",
+  "independent_review": "all bytes outside four python and three typescript goalie regions unchanged; server and ST guards retained; source/test/log snapshots verified",
+  "typescript": {
+    "controls": 35,
+    "red_passed": 21,
+    "red_failed": 14,
+    "green_passed": 35,
+    "unchanged_st_controls": 8,
+    "receipt": "shared-goalie-validators-01.json",
+    "sha256": "e509e2047d1087b5dba18770d86eeaedefb138458f5f1f042c089d94c736250d"
+  },
+  "paired": {
+    "vectors": 25,
+    "python_red_passed": 14,
+    "python_red_failed": 11,
+    "python_green_passed": 25,
+    "typescript_verdicts_correct_before_and_after": 25,
+    "receipt": "shared-goalie-python-01.json",
+    "sha256": "626a3abd9679939311f3f4ffaf9bf9a654ba69d9a6aec05df1c113f0fa63acfb"
+  },
+  "checks": {
+    "typecheck": {
+      "node": "24.21.0",
+      "command": "npm run typecheck",
+      "exit": 0,
+      "wall_seconds": 0.89,
+      "native_maximum_rss_bytes": 419561472,
+      "log": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/shared-goalie-node24-typecheck-01.log",
+      "sha256": "44443658de7c0f80f5a8404414a65d03bee79d221854c345a19681c660a2bdc9"
+    },
+    "build": {
+      "node": "24.21.0",
+      "command": "npm run build",
+      "exit": 0,
+      "wall_seconds": 1.02,
+      "native_maximum_rss_bytes": 634306560,
+      "log": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/shared-goalie-node24-build-01.log",
+      "sha256": "cba495ba32a61feedcbf19db3a09acff0b6883a055c1e0ece845791ffad56ef3"
+    }
+  },
+  "frozen_numerical_producers": "unchanged: active goalie dc75b9c7 and reserved fit-only st74d12c2/aa346929; reserved f446/ab33 artifacts unchanged",
+  "not_proven": [
+    "real goalie/st corpus",
+    "saved exchange/publication/runtime validation",
+    "numerical or scientific acceptance"
+  ]
+}

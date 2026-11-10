@@ -1,20 +1,20 @@
 {
-  "status": "v1-18_publication_accepted_strict_startup_incomplete_owner_retains_slot",
+  "status": "v1-18_one_actual_strict_startup_running_under_reviewed_ready04",
   "current": {
     "owner": "v1-18",
-    "ready_receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-03.json",
-    "ready_receipt_sha256": "2cc6d4f969d7d7548c0537ab086999cc70d589ee7b209d204d90b46e8236b9be",
+    "ready_receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-04.json",
+    "ready_receipt_sha256": "350156933b41a5c362a0e438789077bc56e8e33eee968f796dd58021fb3c2f34",
     "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
-    "boundary": "ordinary inactive publication exit0 accepted; first launcher exited134 before javascript/sqlite/meter output; owner adjudicates bounded node boot probes, then the required normal strict startup. no release",
+    "boundary": "publication accepted; independently checked stdio metadata cause repaired; one actual ordinary detached strict validation dispatched under ready04. no release",
     "owner_acknowledged_conversion_started": true
   },
   "queue": [
     {
       "owner": "v1-18",
       "contact": "t-16b64d1338b85a48 on macbook",
-      "receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-03.json",
-      "sha256": "2cc6d4f969d7d7548c0537ab086999cc70d589ee7b209d204d90b46e8236b9be",
-      "receipt_bytes": 7721,
+      "receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-04.json",
+      "sha256": "350156933b41a5c362a0e438789077bc56e8e33eee968f796dd58021fb3c2f34",
+      "receipt_bytes": 9204,
       "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
       "scope": "saved-only donor conversion, one ordinary inactive publication, one strict startup41919",
       "release_condition": "completed checked conversion/publication and one normal strict startup; explicit release to the next agreed owner",
@@ -29,6 +29,11 @@
           "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-02.json",
           "sha256": "f2dfd59562971c07c2ee8dfd21f962432c3abfc46021637c2f2e845b82b999d9",
           "reason": "superseded only for single-startup measurement and original-input denial; publication/numerical pins unchanged"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-03.json",
+          "sha256": "2cc6d4f969d7d7548c0537ab086999cc70d589ee7b209d204d90b46e8236b9be",
+          "reason": "native startup aborted before javascript/sqlite because redirected exact log metadata was denied; failed bytes retained, one exact-log metadata permission repaired after causal boot probes"
         }
       ]
     },
@@ -88,7 +93,7 @@
     "evidence_bytes": 13712940,
     "native_wall_seconds": 2100.827,
     "peak_resident_bytes": 552878080,
-    "publication_and_runtime_acceptance": "publication accepted by owner; runtime not accepted, no release"
+    "publication_and_runtime_acceptance": "publication accepted; one actual ordinary runtime validation running under ready04; no release"
   },
   "publication_owner_report": {
     "exit_code": 0,
@@ -107,6 +112,9 @@
     "javascript_sqlite_or_meter_output": false,
     "complete_strict_validation_pass_observed": false,
     "listener_exists": false,
-    "status": "owner adjudicating node boot instrumentation before the required normal startup; no duplicate dispatch or release"
+    "status": "one actual ordinary detached strict validation dispatched under ready04; source, server, inputs and database unchanged",
+    "causal_diagnosis_review_sha256": "4416c9d914c6391287397420f00aee47e188230dba38759ca82bc9af6bdd7d86",
+    "ready04_independent_review_sha256": "05838300a1343fa6450a0069a11dbda5a60a72faa49c57223f96c09506576733",
+    "repair": "only file-read-metadata for exact startup.log; log contents and original input data/metadata remain denied"
   }
 }

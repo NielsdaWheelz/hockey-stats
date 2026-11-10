@@ -210,8 +210,8 @@ export type AnalyticalCardModel = {
   readonly replacement: CardField;
   readonly supports: readonly {
     readonly key: string;
+    readonly population: string;
     readonly support: Support;
-    readonly slots: readonly string[];
   }[];
   readonly methods: readonly {
     readonly key: string;
@@ -237,9 +237,25 @@ const name = (model: AnalyticalCardModel) =>
       ? `${playerName(model.historicalPerson)} · historical identity`
       : `player ${model.playerId}`;
 const supportText = (entry: AnalyticalCardModel["supports"][number]) =>
-  `${entry.key} (${entry.slots.join(", ")}): ${entry.support.included_seconds === null ? "unknown" : displayNumber(entry.support.included_seconds / 60)} included min; ${entry.support.known_excluded_seconds === null ? "unknown" : displayNumber(entry.support.known_excluded_seconds / 60)} excluded min; ${entry.support.prior_only ? "prior-only / hypothetical" : entry.support.current_season_information ? "some current focal information" : "no current focal information"}${entry.support.unquantified_gap ? "; unquantified gaps" : ""}`;
+  `${entry.key} · ${entry.population} · included/excluded min ${entry.support.included_seconds === null ? "unknown" : displayNumber(entry.support.included_seconds / 60)}/${entry.support.known_excluded_seconds === null ? "unknown" : displayNumber(entry.support.known_excluded_seconds / 60)} · ${entry.support.prior_only ? "prior-only / hypothetical" : entry.support.current_season_information ? "some current focal information" : "no current focal information"}${entry.support.unquantified_gap ? "; unquantified gaps" : ""}`;
+
+function supportPopulation(metric: AnalysisMetricId): string {
+  const [family, strength, field] = metric.split(".");
+  if (family === "spatial") return `${strength} spatial`;
+  if (family === "shootiness") return "shootiness";
+  if (family === "penalties") return "ordinary-minor penalties";
+  if (family === "territory") return "inferred territory";
+  if (family === "execution" && field === "finishing_goals_per100_attempts")
+    return "finishing";
+  if (
+    family === "execution" &&
+    field === "setting_goals_per100_assisted_opportunities"
+  )
+    return "inferred setting";
+  throw new Error(`no analytical-sheet support population for ${metric}`);
+}
 const cautions = [
-  "experimental estimates; calibrated player uncertainty is unknown. empirical population spread is not uncertainty.",
+  "calibrated player uncertainty is unknown; empirical population spread is not uncertainty.",
   "reference execution: virtual neutral shooter, inferred setter and goalie. complete maps insert one focal player, not actual deployment.",
   "workload: 1,000 5v5 / 100 pp / 100 pk min. pp/pk use league-time mixtures; specialty time may be hypothetical or prior-only.",
   "attempt integrals differ from xg insets. positive against is more against; positive taking contrasts are more penalties.",
@@ -323,18 +339,18 @@ export function prepareAnalyticalCards(
     return { slotId, label, metricId, cohort, domain };
   });
   return selected.map(({ profile, year, overview }, index) => {
-    const supports: { key: string; support: Support; slots: string[] }[] = [];
+    const supports: { key: string; population: string; support: Support }[] =
+      [];
     const supportKeys = new Map<string, string>();
-    const supportKey = (support: Support, slot: string) => {
-      const identity = JSON.stringify(support);
+    const supportKey = (support: Support, metric: AnalysisMetricId) => {
+      const population = supportPopulation(metric);
+      const identity = JSON.stringify([population, support]);
       let key = supportKeys.get(identity);
       if (!key) {
         key = `s${supports.length + 1}`;
-        supports.push({ key, support, slots: [] });
+        supports.push({ key, population, support });
         supportKeys.set(identity, key);
       }
-      const entry = supports.find((entry) => entry.key === key)!;
-      if (!entry.slots.includes(slot)) entry.slots.push(slot);
       return key;
     };
     const fields: CardField[] = prepared[index].map(
@@ -367,14 +383,24 @@ export function prepareAnalyticalCards(
             slotId === "i22" || slotId === "i23"
               ? []
               : [
-                  ...new Set(
-                    [
-                      ...(row.datum.support ? [row.datum.support] : []),
-                      ...Object.values(row.datum.componentSupport).flatMap(
-                        (entry) => (entry.support ? [entry.support] : []),
-                      ),
-                    ].map((support) => supportKey(support, slotId)),
-                  ),
+                  ...new Set([
+                    ...(row.datum.support
+                      ? [supportKey(row.datum.support, metricId)]
+                      : []),
+                    ...Object.entries(row.datum.componentSupport).flatMap(
+                      ([term, entry]) => {
+                        if (!entry.support) return [];
+                        const component = ledgerPresentation.find(
+                          ([, name]) => name === term,
+                        );
+                        if (!component)
+                          throw new Error(
+                            `unknown analytical ledger support ${term}`,
+                          );
+                        return [supportKey(entry.support, component[2])];
+                      },
+                    ),
+                  ]),
                 ],
         };
       },
@@ -407,7 +433,9 @@ export function prepareAnalyticalCards(
         map,
         attempt: field(slot.attemptId),
         xg: field(slot.xgId),
-        supportKey: map.support ? supportKey(map.support, slot.slotId) : null,
+        supportKey: map.support
+          ? supportKey(map.support, slot.attemptId)
+          : null,
         stateWeights:
           summary?.availability === "provided"
             ? summary.data.state_weights
@@ -422,9 +450,15 @@ export function prepareAnalyticalCards(
     const visibleFields = fields.filter(
       (field) => field.slotId !== "i22" && field.slotId !== "i23",
     );
+    const constructionFields = ledgerPresentation.flatMap(([, term, detail]) =>
+      field(`ledger.${term}.league_goals`).row.datum.value === null
+        ? []
+        : [field(detail)],
+    );
+    const methodFields = [...visibleFields, ...constructionFields];
     const methods = [
       ...new Map(
-        visibleFields
+        methodFields
           .flatMap((field) => field.row.datum.methods)
           .map((method) => [method.method_id, method]),
       ).values(),
@@ -494,7 +528,7 @@ export function prepareAnalyticalCards(
       })),
       findings: [
         ...new Set(
-          visibleFields.flatMap((field) =>
+          methodFields.flatMap((field) =>
             field.row.datum.findings.map((finding) => finding.summary),
           ),
         ),
@@ -912,14 +946,14 @@ export function analyticalCardSvg(model: AnalyticalCardModel): string {
       text(`${panel.label} · attempt effect`, x, top, 22, 'font-weight="700"');
       if (panel.map.integral !== null)
         parts.push(
-          `<svg x="${x}" y="${top + 20}" width="238" height="562">${analyticalMapDrawingSvg(panel.map, `map-${panel.slotId}`)}</svg>`,
+          `<svg x="${x}" y="${top + 20}" width="204" height="480">${analyticalMapDrawingSvg(panel.map, `map-${panel.slotId}`)}</svg>`,
         );
       else
         wrap(
           `${panel.map.availability}: ${panel.map.reason ?? "map unavailable"}`,
           x,
           top + 70,
-          235,
+          204,
           20,
         );
       let inset = top + 52;
@@ -932,10 +966,10 @@ export function analyticalCardSvg(model: AnalyticalCardModel): string {
         `density: ${panel.map.densityLabel}`,
         `levels (3 sig figs): ${panel.map.levels.map((value) => Number(value.toPrecision(3))).join(" ")}`,
       ];
-      for (const line of lines) inset += wrap(line, x + 260, inset, 280) + 10;
+      for (const line of lines) inset += wrap(line, x + 234, inset, 306) + 10;
       panel.map.legend.forEach((level, i) =>
         parts.push(
-          `<rect x="${x + 260 + (i * 280) / panel.map.legend.length}" y="${inset}" width="${280 / panel.map.legend.length}" height="18" fill="${level.fill}"/>`,
+          `<rect x="${x + 234 + (i * 306) / panel.map.legend.length}" y="${inset}" width="${306 / panel.map.legend.length}" height="18" fill="${level.fill}"/>`,
         ),
       );
       const legendHeight = wrap(
@@ -944,12 +978,12 @@ export function analyticalCardSvg(model: AnalyticalCardModel): string {
           : panel.map.maximum === 0
             ? "all-zero scale: neutral fill"
             : `neutral: magnitude < ${Number((panel.map.maximum / 4).toPrecision(3))}; not zero`,
-        x + 260,
+        x + 234,
         inset + 48,
-        280,
+        306,
         20,
       );
-      const orientationY = Math.max(top + 610, inset + 48 + legendHeight + 12);
+      const orientationY = Math.max(top + 528, inset + 48 + legendHeight + 12);
       const orientationHeight = wrap(
         panel.map.direction === "offense"
           ? "+x up / +y right; attack above"
@@ -975,23 +1009,23 @@ export function analyticalCardSvg(model: AnalyticalCardModel): string {
     .join(" · ");
   y += wrap(shootiness, 44, y, 1112) + 15;
   const distributionTop = y;
+  let distributionBottom = y;
   model.distributions.forEach((distribution, i) => {
-    const x = 44 + (i % 2) * 570,
-      top = distributionTop + Math.floor(i / 2) * 210;
+    const x = 44 + i * 284;
     const { row, group, domain } = distribution;
-    text(distribution.label, x, top, 23, 'font-weight="700"');
+    wrap(distribution.label, x, distributionTop, 260, 22, 'font-weight="700"');
     wrap(
       `${disposition(row)} ${row.datum.metric.displayUnit} · ${distribution.supportKeys.join("/")}`,
       x,
-      top + 29,
-      540,
+      distributionTop + 58,
+      260,
     );
     const toX = (value: number) =>
-      x + 24 + (490 * (value - domain![0])) / (domain![1] - domain![0]);
-    const rugY = top + 82;
+      x + 20 + (220 * (value - domain![0])) / (domain![1] - domain![0]);
+    const rugY = distributionTop + 130;
     if (domain) {
       parts.push(
-        `<path d="M${x + 24} ${rugY + 15}h490" stroke="#7d898a"/><path d="M${toX(0)} ${rugY - 20}v48" stroke="#59676d" stroke-dasharray="3 3"/>`,
+        `<path d="M${x + 20} ${rugY + 15}h220" stroke="#7d898a"/><path d="M${toX(0)} ${rugY - 20}v48" stroke="#59676d" stroke-dasharray="3 3"/>`,
       );
       for (const peer of group.members)
         parts.push(
@@ -1001,12 +1035,12 @@ export function analyticalCardSvg(model: AnalyticalCardModel): string {
         parts.push(
           `<circle cx="${toX(displayValue(row.datum)!)}" cy="${rugY}" r="7" fill="#193f47" stroke="#fbfaf6" stroke-width="2"/>`,
         );
-      text(displayNumber(domain[0]), x + 24, top + 124, 20);
-      text("0 effect", toX(0), top + 149, 20, 'text-anchor="middle"');
+      text(displayNumber(domain[0]), x + 20, rugY + 48, 20);
+      text("0 effect", toX(0), rugY + 73, 20, 'text-anchor="middle"');
       text(
         displayNumber(domain[1]),
-        x + 514,
-        top + 124,
+        x + 240,
+        rugY + 48,
         20,
         'text-anchor="end"',
       );
@@ -1014,18 +1048,22 @@ export function analyticalCardSvg(model: AnalyticalCardModel): string {
       wrap(
         "no eligible peers or selected estimate; no invented distribution",
         x,
-        top + 82,
-        540,
+        distributionTop + 130,
+        260,
       );
-    wrap(
-      `${group.peerGroup}; n=${group.members.length}; ≥${group.cutoffMinutes ?? "?"} min${row.datum.value !== null && !row.member ? "; outsider" : ""}`,
+    let contextY = rugY + 102;
+    contextY += wrap(group.peerGroup, x, contextY, 260);
+    contextY += wrap(
+      `n=${group.members.length}; ≥${group.cutoffMinutes ?? "?"} min`,
       x,
-      top + 173,
-      540,
-      20,
+      contextY,
+      260,
     );
+    if (row.datum.value !== null && !row.member)
+      contextY += wrap("selected outsider", x, contextY, 260);
+    distributionBottom = Math.max(distributionBottom, contextY + 18);
   });
-  y = distributionTop + 425;
+  y = distributionBottom;
   text(
     "ten supplied league-relative contributions",
     44,
@@ -1087,7 +1125,7 @@ export function analyticalCardSvg(model: AnalyticalCardModel): string {
   mapPair(model.maps.slice(2));
   text("construction, support and limitations", 44, y, 22, 'font-weight="700"');
   y += 30;
-  for (const line of cautions) y += wrap(line, 44, y, 1112, 18) + 2;
+  for (const line of cautions) y += wrap(line, 44, y, 1112, 18) + 1;
   for (const panel of model.maps.filter(
     (panel) => panel.map.strength === "pp" || panel.map.strength === "pk",
   ))
@@ -1098,9 +1136,9 @@ export function analyticalCardSvg(model: AnalyticalCardModel): string {
         y,
         1112,
         18,
-      ) + 2;
+      ) + 1;
   for (const entry of model.supports)
-    y += wrap(supportText(entry), 44, y, 1112, 18) + 2;
+    y += wrap(supportText(entry), 44, y, 1112, 18) + 1;
   for (const method of model.methods)
     y +=
       wrap(
@@ -1109,8 +1147,8 @@ export function analyticalCardSvg(model: AnalyticalCardModel): string {
         y,
         1112,
         18,
-      ) + 2;
-  for (const finding of model.findings) y += wrap(finding, 44, y, 1112, 18) + 2;
+      ) + 1;
+  for (const finding of model.findings) y += wrap(finding, 44, y, 1112, 18) + 1;
   y +=
     wrap(
       `publication ${model.publication.publication_id} · ${model.publication.purpose}${model.companion ? `; shared scales with comparison player ${model.companion}` : ""}`,

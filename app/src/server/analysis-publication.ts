@@ -38,6 +38,7 @@ export const summarySchemas = {
   skater_context: A.SkaterContextResult,
   skater_microstats: A.SkaterMicrostatsResult,
   skater_spatial: A.SkaterSpatialResult,
+  spatial_evidence: A.SpatialEvidenceResult,
   skater_execution: A.SkaterExecutionResult,
   skater_shootiness: A.SkaterShootinessResult,
   skater_penalties: A.SkaterPenaltiesResult,
@@ -66,7 +67,7 @@ export const tableFamily = (
           ? "territory"
           : "spatial";
   if (table === "execution_breakdown") return kind === "goalie" ? "goalie" : "execution";
-  if (table === "adjustment_decomposition") return "spatial";
+  if (table === "adjustment_decomposition" || table === "spatial_evidence") return "spatial";
   if (table === "value_ledger") return "ledger";
   if (table.startsWith("goalie_")) return "goalie";
   if (table === "skater_context") return "descriptive";
@@ -138,8 +139,8 @@ export const validatePhysical = (sql: SqliteClient) =>
     yield* Effect.try(() => {
       if (JSON.stringify(integrity) !== '[{"integrity_check":"ok"}]' || foreign.length !== 0)
         throw new Error("publication integrity or foreign-key check failed");
-      if (JSON.stringify(version) !== '[{"user_version":8}]')
-        throw new Error("incompatible publication version; schema 8 is required");
+      if (JSON.stringify(version) !== '[{"user_version":9}]')
+        throw new Error("incompatible publication version; schema 9 is required");
       if (JSON.stringify(journal) !== '[{"journal_mode":"delete"}]')
         throw new Error("publication requires delete journal mode");
       const actual = tables.filter((table) => !table.name.startsWith("sqlite_"));
@@ -153,7 +154,7 @@ export const validatePhysical = (sql: SqliteClient) =>
             !(table.name in physicalSchema),
         )
       )
-        throw new Error("publication requires the fixed strict schema-7 tables");
+        throw new Error("publication requires the fixed strict schema-9 tables");
     });
     for (const [table, expected] of Object.entries(physicalSchema)) {
       const columns = yield* sql.unsafe<{
@@ -478,7 +479,7 @@ export const validateAnalysis = (
             row.player_id,
             table.startsWith("skater_") ||
               table === "value_ledger" ||
-              table === "adjustment_decomposition"
+              table === "adjustment_decomposition" || table === "spatial_evidence"
               ? "skater"
               : table.startsWith("goalie_")
                 ? "goalie"
@@ -500,7 +501,7 @@ export const validateAnalysis = (
                 ? table === "goalie_result"
                   ? A.GoalieStrength
                   : A.EvidenceStrength
-                : table === "skater_spatial" || table === "adjustment_decomposition"
+                : table === "skater_spatial" || table === "adjustment_decomposition" || table === "spatial_evidence"
                   ? A.SpatialStrength
                   : table === "analysis_map"
                     ? Schema.Union([A.SpatialStrength, A.GoalieStrength])
@@ -707,6 +708,43 @@ export const validateAnalysis = (
     yield* validateRequiredRows(sql, people, catalogs.families);
     yield* validateCrossRecords(sql, grids);
     yield* validateRepeatedFacts(sql);
+    const spatialReferences = new Map<string, string>(), spatialBaselines = new Map<string, string>();
+    yield* forEachRow(sql, "spatial_evidence", (row) =>
+      Effect.gen(function* () {
+        const summaries = yield* sql.unsafe<Record<string, unknown>>(
+          "SELECT * FROM skater_spatial WHERE season=? AND player_id=? AND strength=?",
+          [String(row.season), String(row.player_id), String(row.strength)],
+        );
+        const decompositions = yield* sql.unsafe<Record<string, unknown>>(
+          "SELECT * FROM adjustment_decomposition WHERE season=? AND player_id=? AND strength=? ORDER BY CASE target WHEN 'for_attempts_per60' THEN 0 WHEN 'against_attempts_per60' THEN 1 WHEN 'for_xg_per60' THEN 2 WHEN 'against_xg_per60' THEN 3 END",
+          [String(row.season), String(row.player_id), String(row.strength)],
+        );
+        yield* Effect.try(() => {
+          if (summaries.length !== 1) throw new Error("spatial evidence lacks its selected summary");
+          const evidence = resultFromRow("spatial_evidence", row);
+          if (!A.validateSpatialEvidenceSelection({season: String(row.season), strength: String(row.strength),
+            summary: resultFromRow("skater_spatial", summaries[0]), evidence,
+            adjustments: decompositions.map((entry) => ({target: decode(A.AdjustmentTarget, entry.target),
+              result: resultFromRow("adjustment_decomposition", entry)})), methods: catalogs.methods}))
+            throw new Error("spatial evidence role/state/reference/support or adjustment identity differs");
+          if (evidence.availability !== "provided") return;
+          const value = evidence.data, key = value.annual_state.sha256;
+          const referenceKey = `${row.season}:${value.method_id}`;
+          const reference = JSON.stringify([value.fit_family, value.annual_state.uri, key, value.reference_sha256]);
+          const previousReference = spatialReferences.get(referenceKey);
+          if (previousReference !== undefined && previousReference !== reference)
+            throw new Error("spatial annual numerical reference differs between selected rows");
+          spatialReferences.set(referenceKey, reference);
+          for (const state of value.state_support) {
+            const stateKey = `${key}:${state.state}`, baseline = JSON.stringify(state);
+            const previous = spatialBaselines.get(stateKey);
+            if (previous !== undefined && previous !== baseline)
+              throw new Error("spatial annual state-baseline evidence differs between selected rows");
+            spatialBaselines.set(stateKey, baseline);
+          }
+        });
+      }),
+    );
     return { people, grids };
   });
 
@@ -771,7 +809,7 @@ const requiredSelectors = (
           : [{ strength, population }],
       ),
     );
-  if (table === "skater_spatial")
+  if (table === "skater_spatial" || table === "spatial_evidence")
     return A.SpatialStrength.literals.map((strength) => ({ strength }));
   if (table === "skater_execution" || table === "skater_shootiness")
     return A.ExecutionStrength.literals.map((strength) => ({ strength }));
@@ -784,7 +822,7 @@ const requiredSelectors = (
 const familyTables: Readonly<Record<A.Family, readonly SummaryTable[]>> = {
   descriptive: ["skater_descriptive", "skater_context"],
   microstats: ["skater_microstats"],
-  spatial: ["skater_spatial", "analysis_map", "adjustment_decomposition"],
+  spatial: ["skater_spatial", "spatial_evidence", "analysis_map", "adjustment_decomposition"],
   execution: ["skater_execution", "analysis_map", "execution_breakdown"],
   shootiness: ["skater_shootiness"],
   penalties: ["skater_penalties"],

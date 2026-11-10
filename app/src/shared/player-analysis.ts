@@ -1070,6 +1070,118 @@ export const SkaterSpatial = Schema.Struct({
       ),
     ),
   );
+const spatialState = Schema.Literals(["5v5", "5v4", "5v3", "4v3"]);
+const headStateSupport = Schema.Struct({
+  state: spatialState,
+  included_seconds: Rate,
+  likelihood_events: Count,
+  eligible_origin_weight: Rate,
+});
+const spatialHeadSupport = Schema.Struct({
+  available: Schema.Boolean,
+  included_seconds: Schema.NullOr(Rate),
+  likelihood_events: Schema.NullOr(Count),
+  eligible_origin_weight: Schema.NullOr(Rate),
+  current_season_information: Schema.NullOr(Schema.Boolean),
+  prior_only: Schema.NullOr(Schema.Boolean),
+  prior_kind: Schema.NullOr(Schema.Literals(["entry", "carry"])),
+  prior_anchor_season: Schema.NullOr(Season),
+  prior_seasons: Schema.Array(Season).check(Schema.makeFilter(sortedStrings)),
+  state_support: Schema.NullOr(Schema.Array(headStateSupport)),
+  reason: Schema.NullOr(Text),
+}).check(Schema.makeFilter((value) => {
+  const counts = [value.included_seconds, value.likelihood_events, value.eligible_origin_weight];
+  if (!value.available)
+    return counts.every((count) => count === null) && value.current_season_information === null &&
+      value.prior_only === null && value.prior_kind === null && value.prior_anchor_season === null &&
+      value.prior_seasons.length === 0 && value.state_support === null && value.reason !== null;
+  if (counts.some((count) => count === null) || value.reason !== null || value.state_support === null ||
+      value.current_season_information === null || value.prior_only !== !value.current_season_information)
+    return false;
+  return (value.prior_kind === "entry"
+    ? value.prior_anchor_season === null && value.prior_seasons.length === 0
+    : value.prior_kind === "carry" && value.prior_seasons.length > 0 &&
+      value.prior_anchor_season === value.prior_seasons.at(-1)) &&
+    value.state_support.reduce((sum, row) => sum + row.likelihood_events, 0) === value.likelihood_events &&
+    close(value.state_support.reduce((sum, row) => sum + row.included_seconds, 0), value.included_seconds!) &&
+    close(value.state_support.reduce((sum, row) => sum + row.eligible_origin_weight, 0), value.eligible_origin_weight!);
+}));
+const spatialActualContext = Schema.Struct({
+  available: Schema.Boolean,
+  included_seconds: Schema.NullOr(Rate),
+  states: Schema.NullOr(Schema.Array(Schema.Struct({state: spatialState, seconds: Rate, weight: Probability}))),
+  reason: Schema.NullOr(Text),
+}).check(Schema.makeFilter((value) => {
+  if (!value.available)
+    return value.reason !== null && value.states === null &&
+      (value.reason === "no_exposure" ? value.included_seconds === 0 : value.included_seconds === null);
+  return value.reason === null && value.included_seconds !== null && value.included_seconds > 0 &&
+    value.states !== null && value.states.length > 0 &&
+    close(value.states.reduce((sum, row) => sum + row.seconds, 0), value.included_seconds) &&
+    close(value.states.reduce((sum, row) => sum + row.weight, 0), 1) &&
+    value.states.every((row) => close(row.weight, row.seconds / value.included_seconds!));
+}));
+export const SpatialEvidence = Schema.Struct({
+  fit_family: Schema.Literals(["ev", "st"]),
+  annual_state: Receipt,
+  reference_sha256: Digest,
+  state_support: Schema.Array(Schema.Struct({
+    state: spatialState,
+    physical_seconds: Rate,
+    directed_seconds: Rate,
+    attempts: Count,
+    origin_weight: Rate,
+    baseline_current_information: Schema.Struct({volume: Schema.Boolean, shape: Schema.Boolean, quality: Schema.Boolean}),
+  })),
+  roles: Schema.Array(Schema.Struct({
+    role: Schema.Literals(["offense", "defense"]),
+    coefficient_support: Schema.Struct({volume: spatialHeadSupport, shape: spatialHeadSupport, quality: spatialHeadSupport}),
+    actual_context: spatialActualContext,
+  })),
+  method_id: Text,
+}).check(Schema.makeFilter((value) => {
+  const fittedStates = value.fit_family === "ev" ? ["5v5"] : ["5v4", "5v3", "4v3"];
+  const selectedStates = value.state_support.map((row) => row.state);
+  if (selectedStates.length === 0 || !unique(selectedStates) ||
+      selectedStates.some((state, index) => !fittedStates.includes(state) ||
+        (index > 0 && fittedStates.indexOf(selectedStates[index - 1]) >= fittedStates.indexOf(state))))
+    return false;
+  if (value.fit_family === "ev"
+    ? value.roles.length !== 2 || value.roles[0].role !== "offense" || value.roles[1].role !== "defense"
+    : value.roles.length !== 1)
+    return false;
+  for (const row of value.state_support) {
+    if (!close(row.directed_seconds, row.physical_seconds * (value.fit_family === "ev" ? 2 : 1)) ||
+        row.baseline_current_information.volume !== (row.directed_seconds > 0 || row.attempts > 0) ||
+        row.baseline_current_information.shape !== (row.origin_weight > 0) ||
+        row.baseline_current_information.quality !== (row.origin_weight > 0))
+      return false;
+  }
+  for (const role of value.roles) {
+    for (const kind of ["volume", "shape", "quality"] as const) {
+      const head = role.coefficient_support[kind];
+      if (!head.available) continue;
+      if (JSON.stringify(head.state_support!.map((row) => row.state)) !== JSON.stringify(fittedStates) ||
+          head.current_season_information !== (kind === "volume"
+            ? head.included_seconds! > 0 || head.likelihood_events! > 0
+            : head.eligible_origin_weight! > 0))
+        return false;
+    }
+    if (role.actual_context.available && JSON.stringify(role.actual_context.states!.map((row) => row.state)) !== JSON.stringify(selectedStates))
+      return false;
+    if (role.actual_context.available)
+      for (const state of role.actual_context.states!)
+        for (const head of Object.values(role.coefficient_support))
+          if (head.available && !close(head.state_support!.find((row) => row.state === state.state)!.included_seconds, state.seconds))
+            return false;
+    if (role.actual_context.reason === "no_exposure")
+      for (const head of Object.values(role.coefficient_support))
+        if (head.available && head.state_support!.some((row) => selectedStates.includes(row.state) && row.included_seconds !== 0))
+          return false;
+  }
+  return true;
+}));
+export type SpatialEvidence = typeof SpatialEvidence.Type;
 const executionStages = {
   avoid_block_probability: ProbabilityEstimate,
   on_net_probability: ProbabilityEstimate,
@@ -1868,22 +1980,25 @@ export const AdjustmentDecomposition = Schema.Struct({
   method_id: Text,
 }).check(
   Schema.makeFilter((value) => {
-    const terms = [
+    const estimates = [
       value.baseline,
       value.self,
       value.teammates,
       value.opponents,
       value.coaching_other_context,
       value.numerical_residual,
-    ].map((estimate) => estimate.value);
-    return (
-      value.factual_prediction.value === null ||
-      (terms.every((term) => term !== null) &&
-        close(
-          value.factual_prediction.value,
-          terms.reduce<number>((sum, term) => sum + (term ?? 0), 0),
-        ))
-    );
+      value.factual_prediction,
+    ];
+    const missing = estimates.filter((estimate) => estimate.value === null);
+    if (missing.length > 0)
+      return missing.every((estimate) => estimate.unavailable_reason === missing[0].unavailable_reason);
+    const terms = estimates.slice(0, 5).map((estimate) => estimate.value!);
+    const factual = value.factual_prediction.value!, residual = value.numerical_residual.value!;
+    const tolerance = 1e-10 * (1 + Math.abs(factual) + terms.reduce((sum, term) => sum + Math.abs(term), 0));
+    const unadjusted = terms.reduce((sum, term) => sum + term, 0);
+    return Number.isFinite(tolerance) && Number.isFinite(unadjusted) &&
+      Math.abs(unadjusted + residual - factual) <= tolerance &&
+      Math.abs(residual - (factual - unadjusted)) <= tolerance && Math.abs(residual) <= tolerance;
   }),
 );
 const evidenceMass = Schema.Struct({ goals: Count, expected_goals: Rate, attempts: Count }).check(
@@ -2045,6 +2160,7 @@ export const SkaterDescriptiveResult = result(SkaterDescriptive);
 export const SkaterContextResult = result(SkaterContext);
 export const SkaterMicrostatsResult = result(SkaterMicrostats);
 export const SkaterSpatialResult = result(SkaterSpatial);
+export const SpatialEvidenceResult = result(SpatialEvidence);
 export const SkaterExecutionResult = result(SkaterExecution);
 export const SkaterShootinessResult = result(SkaterShootiness);
 export const SkaterPenaltiesResult = result(SkaterPenalties);
@@ -2060,6 +2176,73 @@ export const ExecutionBreakdownResult = result(ExecutionBreakdown);
 export const AdjustmentDecompositionResult = result(AdjustmentDecomposition);
 export const GoalieEvidenceMapResult = result(GoalieEvidenceMap);
 export const GoalieDangerResult = result(GoalieDanger);
+export const SpatialAdjustment = Schema.Struct({target: AdjustmentTarget, result: AdjustmentDecompositionResult});
+export const SpatialEvidenceData = Schema.Struct({
+  summary: SkaterSpatialResult,
+  evidence: SpatialEvidenceResult,
+  adjustments: Schema.Array(SpatialAdjustment),
+});
+export const validateSpatialEvidenceSelection = (value: {
+  readonly season: string;
+  readonly strength: string;
+  readonly summary: typeof SkaterSpatialResult.Type;
+  readonly evidence: typeof SpatialEvidenceResult.Type;
+  readonly adjustments: readonly (typeof SpatialAdjustment.Type)[];
+  readonly methods: Readonly<Record<string, Method>>;
+}): boolean => {
+  const offense = ["5v4", "5v3", "4v3", "pp"].includes(value.strength);
+  const roles = value.strength === "5v5" ? ["offense", "defense"] : [offense ? "offense" : "defense"];
+  const selectedStates = value.strength === "pp" || value.strength === "pk"
+    ? ["5v4", "5v3", "4v3"]
+    : [{"4v5":"5v4", "3v5":"5v3", "3v4":"4v3"}[value.strength] ?? value.strength];
+  const targets = AdjustmentTarget.literals.filter((target) => value.strength === "5v5" ||
+    (offense ? target.startsWith("for_") : target.startsWith("against_")));
+  if (!SpatialStrength.literals.includes(value.strength as typeof SpatialStrength.Type) ||
+      JSON.stringify(value.adjustments.map((row) => row.target)) !== JSON.stringify(targets) ||
+      value.summary.availability !== value.evidence.availability)
+    return false;
+  if (value.evidence.availability !== "provided")
+    return value.adjustments.every((row) => row.result.availability === "not_computed");
+  if (value.summary.availability !== "provided") return false;
+  const evidence = value.evidence.data, summary = value.summary.data;
+  const method = value.methods[evidence.method_id];
+  const summaryStates = value.strength === "pp" ? ["5v4", "5v3", "4v3"]
+    : value.strength === "pk" ? ["4v5", "3v5", "3v4"] : [value.strength];
+  if (summary.method_id !== evidence.method_id || method === undefined || method.family !== "spatial" ||
+      !method.fit_seasons.includes(value.season as Season) ||
+      !method.evidence.some((receipt) => receipt.uri === evidence.annual_state.uri && receipt.sha256 === evidence.annual_state.sha256) ||
+      !method.inputs.some((input) => input.role === "annual_state" && input.sha256 === evidence.annual_state.sha256 &&
+        input.seasons.length === 1 && input.seasons[0] === value.season) ||
+      evidence.fit_family !== (value.strength === "5v5" ? "ev" : "st") ||
+      JSON.stringify(summary.state_weights.map((row) => row.strength).sort()) !== JSON.stringify(summaryStates.sort()) ||
+      JSON.stringify(evidence.state_support.map((row) => row.state)) !== JSON.stringify(selectedStates) ||
+      JSON.stringify(evidence.roles.map((row) => row.role)) !== JSON.stringify(roles))
+    return false;
+  for (const role of evidence.roles) {
+    for (const head of Object.values(role.coefficient_support))
+      if (head.prior_seasons.some((year) => year >= value.season || !method.fit_seasons.includes(year) ||
+          !method.inputs.some((input) => input.role === "annual_state" && input.seasons.includes(year))))
+        return false;
+    const context = role.actual_context;
+    if (context.included_seconds !== null && summary.support.included_seconds !== null &&
+        !close(context.included_seconds, summary.support.included_seconds))
+      return false;
+    for (const row of value.adjustments.filter((row) => role.role === "offense" ? row.target.startsWith("for_") : row.target.startsWith("against_"))) {
+      if (row.result.availability !== "provided" || row.result.data.method_id !== evidence.method_id)
+        return false;
+      const adjustment = row.result.data;
+      const estimates = [adjustment.baseline, adjustment.self, adjustment.teammates, adjustment.opponents,
+        adjustment.coaching_other_context, adjustment.numerical_residual, adjustment.factual_prediction];
+      const reasons = context.reason === "no_exposure" ? ["no_exposure"]
+        : context.reason === "incomplete_annual_family" ? ["failed_fit"]
+        : context.reason === "not_evaluated" ? ["missing_source", "not_computed"] : ["missing_source"];
+      if (context.available ? estimates.some((estimate) => estimate.value === null)
+        : estimates.some((estimate) => estimate.value !== null || !reasons.includes(estimate.unavailable_reason!)))
+        return false;
+    }
+  }
+  return true;
+};
 export const SupportDescriptor = SupportDefinition;
 export const FamilyDisposition = FamilyAvailability;
 export const AttemptKey = Schema.Struct({ season: Season, game_id: GameId, source_index: Count });
@@ -2625,13 +2808,14 @@ export const EvidenceSelection = Schema.Struct({
   family: Schema.Literals([
     "personal_shots",
     "execution",
+    "spatial",
     "goalie",
     "goalie_evidence",
     "penalties",
     "territory",
     "microstats",
   ]),
-  strength: Schema.NullOr(EvidenceStrength),
+  strength: Schema.NullOr(Schema.Union([EvidenceStrength, SpatialStrength])),
   population: Schema.NullOr(EvidencePopulation),
   type: Schema.NullOr(EvidenceType),
   outcome: Schema.NullOr(Schema.Literals(["all_unblocked", "on_net", "goal", "save", "miss"])),
@@ -2663,6 +2847,12 @@ const breakdownRow = <S extends Schema.Top>(schema: S) => Schema.Struct({
   result: schema,
 });
 export const EvidenceResponse = Schema.Union([
+  Schema.Struct({
+    ...Envelope.fields,
+    family: Schema.Literal("spatial"),
+    selection: EvidenceSelection,
+    result: ApiResult(SpatialEvidenceData),
+  }),
   Schema.Struct({
     ...Envelope.fields,
     family: Schema.Literal("personal_shots"),
@@ -2733,7 +2923,10 @@ export const EvidenceResponse = Schema.Union([
   Schema.makeFilter(
     (response) =>
       response.family === response.selection.family &&
-      response.selection.season === response.season.season,
+      response.selection.season === response.season.season &&
+      (response.family !== "spatial" || response.result.availability !== "provided" ||
+        validateSpatialEvidenceSelection({...response.result.data, season: response.season.season,
+          strength: response.selection.strength!, methods: response.methods})),
   ),
 );
 export type EvidenceResponse = typeof EvidenceResponse.Type;

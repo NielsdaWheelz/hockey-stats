@@ -1,12 +1,12 @@
 {
-  "status": "v1-18_one_actual_strict_startup_running_under_reviewed_ready05",
+  "status": "v1-09_reserved_one_annual_owner_confirmed_awaiting_launch_ack",
   "current": {
-    "owner": "v1-18",
-    "ready_receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-05.json",
-    "ready_receipt_sha256": "3673ff6d32c9d894b6a7566058058c254b8266abe90c0344045e47cd9c0900f9",
-    "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
-    "boundary": "publication accepted; two launch failures before ordinary strict validation; ready05 data-denial candidate exclusion and ordinary metadata controls independently pass; one actual strict validation dispatched. no release",
-    "owner_acknowledged_conversion_started": true
+    "owner": "v1-09",
+    "source_commit": "ba41c2b8fe89977618fe4f0d3826592b60641f8e",
+    "analysis_tree": "856575a97f2ff6e004888e04f400b77834566f20",
+    "script_sha256": "016249ee5c0de1b5bb1604f29f94dc6996a41db633ee1a16bb17a222fb8e1322",
+    "preflight_sha256": "1c4b8f112ea31fbc521386d11ffd8898ede2997d8092149de8eeb68d76d70de9",
+    "boundary": "root explicitly confirms ONLY frozen20212022 annual to both sessions after checked v1-18 release; guarded messages written, provider acknowledgement pending; owner performs fresh-output/log preflight before launch"
   },
   "queue": [
     {
@@ -40,7 +40,8 @@
           "sha256": "350156933b41a5c362a0e438789077bc56e8e33eee968f796dd58021fb3c2f34",
           "reason": "second launcher entered javascript but failed sqlite client acquisition before ordinary strict queries; bounded controls select exact candidate exclusion inside data denial, metadata allowed"
         }
-      ]
+      ],
+      "status": "checked_scope_complete_explicitly_released"
     },
     {
       "owner": "v1-09",
@@ -61,7 +62,8 @@
         "OMP_NUM_THREADS": "1",
         "VECLIB_MAXIMUM_THREADS": "1"
       },
-      "cost": "unmeasured; no short fixture forecast"
+      "cost": "unmeasured; no short fixture forecast",
+      "status": "sole_owner_confirmed_awaiting_launch_ack"
     },
     {
       "owner": "v1-07",
@@ -98,7 +100,7 @@
     "evidence_bytes": 13712940,
     "native_wall_seconds": 2100.827,
     "peak_resident_bytes": 552878080,
-    "publication_and_runtime_acceptance": "publication accepted; one actual ordinary runtime validation running under ready05; no release"
+    "publication_and_runtime_acceptance": "accepted complete existing-family exchange3/schema9 predecessor; own goalie composition/publication/api/browser remain pending"
   },
   "publication_owner_report": {
     "exit_code": 0,
@@ -117,7 +119,7 @@
     "javascript_sqlite_or_meter_output": false,
     "complete_strict_validation_pass_observed": false,
     "listener_exists": false,
-    "status": "one actual ordinary strict validation dispatched under ready05; both earlier failures performed zero ordinary full validations; no additional publication/fit/source/input/database change",
+    "status": "one actual ordinary strict startup passed under ready05 and independently adjudicated; two failed launchers performed zero ordinary full validations",
     "causal_diagnosis_review_sha256": "4416c9d914c6391287397420f00aee47e188230dba38759ca82bc9af6bdd7d86",
     "ready04_independent_review_sha256": "05838300a1343fa6450a0069a11dbda5a60a72faa49c57223f96c09506576733",
     "repair": "exact candidate exclusion inside external file-read-data denial; ordinary metadata allowed; original source/log contents denied",
@@ -131,5 +133,39 @@
     "ready05_independent_review_sha256": "49f3aa63fae1cc929d2ce4f15ee92b195aca278a394460bd5a24b715faa52a3c",
     "profile_sha256": "305c54592b4d5a11b39e04cb5c1c0ab0477a6de57f2436c19c28229a94177952",
     "profile_bytes": 234
+  },
+  "v1_18_release": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/heavy-slot-release.json",
+    "sha256": "339a33db0459ec05bcd0b4dd8875060c2d9ba453dbe29c99455c36cfbc49231f",
+    "bytes": 4938,
+    "root_small_receipt_hash_checked": true,
+    "actual_startup_receipt_sha256": "7fd73a25d7a42d68edfbc86a3e470fd33484b40042d02143437fef227546d04e",
+    "independent_startup_and_reconciliation_sha256": "481605a0bb96d382020f4d2eee5f6389f5178a34394b4ccef2462074515689cf",
+    "strict_startup_wall_seconds": 766.080017042,
+    "strict_startup_peak_resident_bytes": 1152319488,
+    "ordinary_strict_passes": 1,
+    "failed_launch_full_passes": 0,
+    "remaining_owner_scope": "existing pid7640 bounded selected api/browser then teardown; no further heavy command or bulk fixture reservation",
+    "activation": false
+  },
+  "v1_09_owner_confirmation": {
+    "explicit_scope": "only frozen20212022 triple baseline annual, no continuation/hidden bulk fixture/other annual",
+    "frozen_local_head_tree_script_preflight_rechecked": true,
+    "analysis_clean": true,
+    "sent_to_both": true,
+    "terminal_delivery": "both guarded sends exit0 written; provider acceptance unconfirmed",
+    "launch_acknowledged": false,
+    "goalies_20232024": "held until measured annual boundary, bounded adjudication and explicit return to both"
+  },
+  "saved_api_reconciliation_owner_report": {
+    "sha256": "4795dec4f744ebfe57d0bb16023258755612f0df5e1de070b1589b7689ce09ea",
+    "skater_seasons": 2784,
+    "scalars": 44544,
+    "heads": 16704,
+    "adjustment_values": 77952,
+    "maps": 24,
+    "paired_map_responses": 12,
+    "evidence_joins": 6,
+    "scope": "existing skater family acceptance; no own goalie runtime/browser pass inferred"
   }
 }

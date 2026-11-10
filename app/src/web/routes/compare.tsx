@@ -15,6 +15,7 @@ import { loadComparison } from "../client";
 import PlayerPicker from "../player-picker";
 import {
   readMapMode,
+  readMapRender,
   readView,
   readPeerSettings,
   readMetric,
@@ -31,6 +32,9 @@ import MicrostatCard from "../microstat-card";
 import { prepareMicrostatCard } from "../microstat-values";
 import DescriptiveCard, { descriptiveScales } from "../descriptive-card";
 import { buildDescriptiveCard } from "../descriptive-values";
+import AnalyticalCard, { prepareAnalyticalCards } from "../analytical-card";
+import AnalyticalDetails from "../analytical-details";
+import ExecutionEvidence from "../execution-evidence";
 import PeerDistributions, { PeerControls } from "../peer-distributions";
 import {
   selectLeagueValues,
@@ -96,8 +100,9 @@ export default function Compare() {
   const { view, search: viewNormalized } = readView(search);
   const { settings, search: peerNormalized } = readPeerSettings(viewNormalized);
   const { mode, search: mapNormalized } = readMapMode(peerNormalized);
+  const { render, search: renderNormalized } = readMapRender(mapNormalized);
   const { metric, search: metricNormalized } = readMetric(
-    mapNormalized,
+    renderNormalized,
     "skater",
   );
   const { scale, search: normalized } = readHistoryScale(metricNormalized, metric);
@@ -109,6 +114,7 @@ export default function Compare() {
   if (settings.specialtyMin !== 50)
     viewQuery.set("specialtyMin", String(settings.specialtyMin));
   if (mode === "absolute") viewQuery.set("map", "absolute");
+  if (view === "analytical" && render === "rectangles") viewQuery.set("render", render);
   if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
   if (settings.peerMin !== 300)
     viewQuery.set("peerMin", String(settings.peerMin));
@@ -154,6 +160,12 @@ export default function Compare() {
       state: location.state,
       flushSync: true,
     });
+  };
+  const changeRender = (value: "contours" | "rectangles") => {
+    const next = viewSearch(location, navigation.location);
+    if (value === "rectangles") next.set("render", value);
+    else next.delete("render");
+    setSearch(next, { preventScrollReset: true, state: location.state, flushSync: true });
   };
   const changeScale = (nextScale: HistoryScale) => {
     const next = viewSearch(location, navigation.location);
@@ -239,6 +251,9 @@ export default function Compare() {
       ? data.profiles.map(profile => prepareMicrostatCard(profile, settings)) : null,
     [data.profiles, view, settings.peers, settings.peerMin, settings.specialtyMin],
   );
+  const analyticalCards = useMemo(() => view === "analytical" && data.profiles
+    ? prepareAnalyticalCards(data.profiles, settings, data.coreMaps) : null,
+  [data.profiles, data.coreMaps, view, settings.peers, settings.peerMin, settings.specialtyMin]);
   const scalarHistories = useMemo(
     () => data.profiles?.map(profile => ({
       playerId: profile.player_id,
@@ -294,10 +309,10 @@ export default function Compare() {
             shots. attempts include scored, saved, missed and blocked shots.
           </p>
         )}
-        <p>both player searches use this season's published records.</p>
+        <p>{view === "analytical" ? "known identities can name an absent player; every value retains its selected season." : "both player searches use this season's published records."}</p>
       </section>
       <nav className="comparative-view-nav" aria-label="comparison view">
-        {(["comparative", "observed", "microstats"] as const).map((choice) => {
+        {(["comparative", "observed", "microstats", "analytical"] as const).map((choice) => {
           const next = seasonSearch(search, data.season.season);
           if (choice !== "comparative") next.set("view", choice);
           else next.delete("view");
@@ -310,7 +325,7 @@ export default function Compare() {
             >
               {choice === "comparative"
                 ? "comparative cards"
-                : choice === "observed" ? "observed results" : "microstat cards"}
+                : choice === "observed" ? "observed results" : choice === "analytical" ? "analytical sheet" : "microstat cards"}
             </Link>
           );
         })}
@@ -429,6 +444,19 @@ export default function Compare() {
           </div>
         </section>
       )}
+      {analyticalCards && data.profiles && <section aria-label="analytical sheet comparison">
+        <PeerControls settings={settings} onChange={changePeers} allCutoffs />
+        <div className="analytical-pair">{analyticalCards.map((model, index) => <div key={model.playerId}>
+          <AnalyticalCard model={model} detailLink={id => {
+            const next = seasonSearch(search, data.season.season);
+            next.set("metric", id);
+            return { to: `${location.pathname}?${next}`, state: location.state };
+          }} />
+          <AnalyticalDetails profile={data.profiles![index]} metric={metric} render={render} mode={mode}
+            onRenderChange={changeRender} onModeChange={changeMode} onMetricChange={changeMetric} />
+        </div>)}</div>
+      </section>}
+      {data.profiles?.map(profile => profile.executionEvidence && <ExecutionEvidence key={profile.player_id} evidence={profile.executionEvidence} playerId={profile.player_id} />)}
       {view === "observed" && comparison && (
         <section aria-label="included player comparison">
           <h3>recorded 5v5 comparison · observed reference</h3>

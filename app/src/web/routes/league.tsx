@@ -47,7 +47,7 @@ import {
 } from "../analysis-history";
 import { PeerControls } from "../peer-distributions";
 import { downloadCsv } from "../export";
-import { analysisMetric } from "../analysis-values";
+import { analysisMetric, spatialStrengths } from "../analysis-values";
 
 export const clientLoader = ({ request }: ClientLoaderFunctionArgs) =>
   loadLeague(request.signal, new URL(request.url).searchParams);
@@ -57,6 +57,7 @@ export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) => {
   const selections = [args.currentUrl, args.nextUrl].map(url => readTableSelection(url.searchParams).selection);
   const needsExactFamily =
     selections.some(selection => selection.table === "descriptive" ||
+      selection.table === "spatial" ||
       (selection.table === "execution" || selection.table === "shootiness") &&
       selection.strength !== "5v5");
   return shouldRevalidateView(args, [
@@ -221,7 +222,7 @@ export default function League() {
       </nav>
       {selection.strength !== null && (
         <div className="strength-control">
-          <label htmlFor="table-strength">exact table strength</label>
+          <label htmlFor="table-strength">{selection.table === "spatial" ? "strength or reference mixture" : "exact table strength"}</label>
           <select
             id="table-strength"
             value={selection.strength}
@@ -238,7 +239,7 @@ export default function League() {
             }}
           >
             {(selection.table === "spatial"
-              ? ["5v5", "pp", "pk"]
+              ? spatialStrengths
               : ["5v5", "5v4", "5v3", "4v3", "4v5", "3v5", "3v4"]
             ).map(strength => <option key={strength}>{strength}</option>)}
           </select>
@@ -332,7 +333,7 @@ export default function League() {
           }}
         >
           <label htmlFor="discovery-min">
-            minimum on-ice included 5v5 minutes
+            {selection.table === "spatial" ? `minimum actual qualifying ${selection.strength} minutes` : "minimum on-ice included 5v5 minutes"}
           </label>
           <div className="minute-input">
             <input

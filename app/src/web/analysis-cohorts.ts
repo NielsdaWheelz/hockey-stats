@@ -48,6 +48,14 @@ export type AnalysisPeerGroup = {
 
 export type AnalysisCohort = { readonly groups: readonly AnalysisPeerGroup[] };
 
+export function compatibleAnalysisCohort(cohort: AnalysisCohort): boolean {
+  const meanings = new Set(cohort.groups.flatMap(group => [
+    ...group.members.map(datum => datum.semanticKey),
+    ...group.selected.filter(({ datum }) => datum.value !== null).map(({ datum }) => datum.semanticKey),
+  ]));
+  return meanings.size <= 1;
+}
+
 export const positionGroup = (position: string | null): "f" | "d" | null =>
   position === "D"
     ? "d"

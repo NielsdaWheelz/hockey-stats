@@ -13,6 +13,7 @@ import type { Person } from "../../shared/player-analysis";
 import { loadProfile } from "../client";
 import {
   readMapMode,
+  readMapRender,
   readView,
   readPeerSettings,
   readMetric,
@@ -36,6 +37,8 @@ import { buildDescriptiveCard } from "../descriptive-values";
 import ComparativeCard, { prepareComparativeCard } from "../comparative-card";
 import MicrostatCard from "../microstat-card";
 import { prepareMicrostatCard } from "../microstat-values";
+import AnalyticalCard, { prepareAnalyticalCards } from "../analytical-card";
+import AnalyticalDetails from "../analytical-details";
 import DeploymentTables from "../deployment-tables";
 import {
   CoverageDetail,
@@ -131,8 +134,9 @@ export default function Player() {
   const observedView = data.kind === "goalie" || view === "observed";
   const { settings, search: peerNormalized } = readPeerSettings(viewNormalized);
   const { mode, search: mapNormalized } = readMapMode(peerNormalized);
+  const { render, search: renderNormalized } = readMapRender(mapNormalized);
   const { metric, search: metricNormalized } = readMetric(
-    mapNormalized,
+    renderNormalized,
     data.kind,
   );
   const { scale, search: normalized } = readHistoryScale(metricNormalized, metric);
@@ -149,6 +153,7 @@ export default function Player() {
   if (settings.specialtyMin !== 50)
     viewQuery.set("specialtyMin", String(settings.specialtyMin));
   if (mode === "absolute") viewQuery.set("map", "absolute");
+  if (view === "analytical" && render === "rectangles") viewQuery.set("render", render);
   if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
   if (settings.peerMin !== 300)
     viewQuery.set("peerMin", String(settings.peerMin));
@@ -194,6 +199,12 @@ export default function Player() {
       state: location.state,
       flushSync: true,
     });
+  };
+  const changeRender = (value: "contours" | "rectangles") => {
+    const next = viewSearch(location, navigation.location);
+    if (value === "rectangles") next.set("render", value);
+    else next.delete("render");
+    setSearch(next, { preventScrollReset: true, state: location.state, flushSync: true });
   };
   const scalarViews = useMemo(
     () =>
@@ -245,6 +256,9 @@ export default function Player() {
       ? prepareMicrostatCard(data, settings) : null,
     [data, view, settings.peers, settings.peerMin, settings.specialtyMin],
   );
+  const analytical = useMemo(() => data.kind === "skater" && view === "analytical"
+    ? prepareAnalyticalCards([data], settings, data.coreMaps)[0] : null,
+  [data, view, settings.peers, settings.peerMin, settings.specialtyMin]);
   const comparisonQuery = new URLSearchParams(viewQuery);
   comparisonQuery.set("a", data.player_id);
   const profileLink = (playerId: string) => ({
@@ -298,7 +312,7 @@ export default function Player() {
       </section>
       {data.kind === "skater" && (
         <nav className="comparative-view-nav" aria-label="player view">
-          {(["comparative", "observed", "microstats"] as const).map((choice) => {
+          {(["comparative", "observed", "microstats", "analytical"] as const).map((choice) => {
             const next = seasonSearch(search, season.season);
             if (choice !== "comparative") next.set("view", choice);
             else next.delete("view");
@@ -311,7 +325,7 @@ export default function Player() {
               >
                 {choice === "comparative"
                   ? "comparative card"
-                  : choice === "observed" ? "observed results" : "microstat card"}
+                  : choice === "observed" ? "observed results" : choice === "analytical" ? "analytical sheet" : "microstat card"}
               </Link>
             );
           })}
@@ -370,7 +384,18 @@ export default function Player() {
           />
         </>
       )}
+      {analytical && <>
+        <PeerControls settings={settings} onChange={changePeers} allCutoffs />
+        <AnalyticalCard model={analytical} detailLink={id => {
+          const next = seasonSearch(search, season.season);
+          next.set("metric", id);
+          return { to: `${location.pathname}?${next}`, state: location.state };
+        }} />
+        <AnalyticalDetails profile={data} metric={metric} render={render} mode={mode}
+          onRenderChange={changeRender} onModeChange={changeMode} onMetricChange={changeMetric} />
+      </>}
       <PeerDistributions
+        exportValues={view === "analytical"}
         metricIds={microstats ? [...microstatMetricIds, ...microstatComponentIds] : undefined}
         showPeerControls={observedView && metric.standingPolicy !== "raw_only"}
         cohort={selectedScalar.cohort}

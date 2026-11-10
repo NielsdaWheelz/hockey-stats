@@ -137,7 +137,7 @@ export function discoveryPreset(table: DiscoveryTable, strength: string | null) 
           .map(metric => metric.id),
       ];
       defaultSort =
-        `spatial.${selected}.${selected === "pk" ? "defense" : "offense"}_xg_per60` as AnalysisMetricId;
+        `spatial.${selected}.${["pk", "4v5", "3v5", "3v4"].includes(selected) ? "defense" : "offense"}_xg_per60` as AnalysisMetricId;
       break;
     }
     case "execution":
@@ -182,7 +182,8 @@ export function discoveryPreset(table: DiscoveryTable, strength: string | null) 
     defaultSort,
     columns: ids.map(id => ({
       id,
-      label: analysisMetric(id)?.label ?? metadataLabels[id as MetadataId],
+      label: table === "spatial" && id === "minutes" ? `actual qualifying ${strength ?? "5v5"} min`
+        : analysisMetric(id)?.label ?? metadataLabels[id as MetadataId],
     })),
   };
 }
@@ -193,6 +194,24 @@ function metadataValue(
   id: MetadataId,
   selectedCohort: LeagueResponse,
 ): MetadataValue {
+  if (id === "minutes" && selectedCohort.family === "spatial") {
+    const result = selectedCohort.players.find(member => member.person.player_id === row.person.player_id)?.result;
+    const data = result?.availability === "provided" ? result.data : null;
+    const method = data ? selectedCohort.methods[data.method_id] : null;
+    if (data && !method) throw new Error(`unresolved method ${data.method_id}`);
+    const support = data?.support ?? null;
+    return {
+      value: support?.included_seconds ?? null,
+      unit: "seconds", displayScale: 1 / 60, displayUnit: "minutes",
+      status: support?.included_seconds === null || !support ? "unavailable" : "provided",
+      reason: support?.included_seconds === null || !support ? result?.explanation ?? "actual qualifying time is unavailable" : null,
+      support, observedSupport: null, source: null, original: null,
+      evidence: { support, method_id: data?.method_id ?? null, state_weights: data?.state_weights ?? null },
+      semanticKey: JSON.stringify([id, selectedCohort.strength, method?.support_policy_id]),
+      semanticIdentityKnown: Boolean(method),
+      definition: `actual retained focal ${selectedCohort.strength} role/state seconds; common pp/pk uses the physical role-time union, not league-reference mixture weights`,
+    };
+  }
   if (id === "evScoringMinutes" || id === "ppScoringMinutes") {
     if (selectedCohort.kind !== "skater" || selectedCohort.family !== "descriptive")
       throw new Error("scoring exposure requires the descriptive cohort");

@@ -1,10 +1,14 @@
 # application integration review with v1-18
 
-scope: read-only comparison of the six shared web owners in `hockey-stats-v1-09` and `hockey-stats-v1-18`, following the schema9/exchange3 coordination. no production file was copied or changed by this review. exact file digests are in `/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/application-v1-18-comparison.json`.
+scope: read-only comparison of the six shared web owners in `hockey-stats-v1-09` and `hockey-stats-v1-18`, following the schema9/exchange3 coordination. no production file was copied or changed by this review. the original comparison digests are in `/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/application-v1-18-comparison.json`.
+
+subsequent independent source refresh: all gaps listed below are now closed in the current v1-18 working tree. all nine spatial selections use the dedicated family/strength transport, shared strength list and revalidation; discovery uses selected support seconds; detail/history/export retain four values, state weights, role support and rate-first mixture meaning. wrong-strength requests and missing provided history rows are contract errors. raw pk signs and optimizer disclosures remain. [six file digests](../receipts/application-shared-source-02.json) were stable across two source passes. these changes are uncommitted beyond inspected v1-18 head `afa16b6156a13fda2e522cefda33c77a79e94934`. integrate the owner's final reviewed commit, preserving analytical rendering; do not reapply v1-09's older six-file patch. this is source evidence, not runtime acceptance.
 
 v1-18 already implements forty role-valid spatial selectors, the twenty-four exact-state additions, a dedicated spatial-family selection branch, state weights in ui-only detail, explicit iteration over four estimates and reciprocal pk defensive sorting. retain that implementation as the shared owner. its analytical view, saved-evidence requests, map rendering and new hazard selectors are separate additions that must survive integration.
 
-## required bounded merges
+## original bounded merge findings
+
+the following findings record the earlier comparison; the source refresh above supersedes their unresolved status.
 
 | owner | observed v1-18 gap | integration recommendation |
 |---|---|---|
@@ -26,4 +30,4 @@ the final sentence describing structured head/adjustment detail must follow v1-1
 
 the surviving schema8 synthetic build is retained only as scoped software evidence. its first candidate failed correctly because the canonical demonstration ledger contains old synthetic pp/pk components and complete totals, incompatible with newly fitted specialty references. production ledger validators remain strict. a separately attributed saved-results successor changes only that synthetic ledger disposition to pending; it preserves all other referenced member bytes and does not fit, probe or recompute maps.
 
-candidate02 may finish under schema8, but server/browser/download acceptance is held until the coordinated schema9 consumers and producer are integrated. the prepared live/browser controllers have not passed against a server. no real capability, final schema9 acceptance, activation or scientific support follows from this review.
+candidate02 completed under schema8; its server/browser/download checks were not run. final acceptance remains held until the coordinated schema9 consumers and producer are integrated and exercised. the prepared live/browser controllers have not passed against a server. no real capability, final schema9 acceptance, activation or scientific support follows from this review.

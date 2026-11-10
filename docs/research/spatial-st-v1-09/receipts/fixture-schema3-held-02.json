@@ -1,0 +1,237 @@
+{
+  "status": "prepared_held_not_executed",
+  "purpose": "fixture",
+  "allowed_work": "code and small metadata inspection only; no bulk members read or copied",
+  "writer": "analysis_publication.write_results(selection,catalogs,family_rows,output), schema3; ordinary build_publication targets schema9",
+  "canonical": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/fixtures/publication-v1-13/results/manifest.json",
+    "sha256": "38c35b8c40b4e4e592d48710cd47c7b624467f56ac0168c949c7dccbc9901c02"
+  },
+  "support_correction": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/fixtures/publication-v1-13/analytical-v1-18-support-correction.json",
+    "sha256": "6743983f4e57243b71995c9f97f9e83aa3e54281445efee13cddff2db1dee49d",
+    "changes": [
+      {
+        "after": {
+          "current_season_information": true,
+          "eligible_weight": null,
+          "events": 2,
+          "included_seconds": 600,
+          "inferred_inputs": [],
+          "known_excluded_seconds": 0,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason_counts": [],
+          "unquantified_gap": false
+        },
+        "before": {
+          "current_season_information": true,
+          "eligible_weight": 3,
+          "events": 3,
+          "included_seconds": 100,
+          "inferred_inputs": [],
+          "known_excluded_seconds": 3500,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason_counts": [],
+          "unquantified_gap": false
+        },
+        "map_kind": "finishing",
+        "player_id": "9000001",
+        "season": "20232024",
+        "strength": "5v5",
+        "view": "effect"
+      },
+      {
+        "after": {
+          "current_season_information": true,
+          "eligible_weight": 5,
+          "events": 5,
+          "included_seconds": 600,
+          "inferred_inputs": [],
+          "known_excluded_seconds": 0,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason_counts": [],
+          "unquantified_gap": false
+        },
+        "before": {
+          "current_season_information": true,
+          "eligible_weight": 3,
+          "events": 3,
+          "included_seconds": 100,
+          "inferred_inputs": [],
+          "known_excluded_seconds": 3500,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason_counts": [],
+          "unquantified_gap": false
+        },
+        "map_kind": "offense_attempts",
+        "player_id": "9000001",
+        "season": "20232024",
+        "strength": "5v5",
+        "view": "effect"
+      },
+      {
+        "after": {
+          "current_season_information": true,
+          "eligible_weight": 5,
+          "events": 5,
+          "included_seconds": 600,
+          "inferred_inputs": [],
+          "known_excluded_seconds": 0,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason_counts": [],
+          "unquantified_gap": false
+        },
+        "before": {
+          "current_season_information": true,
+          "eligible_weight": 3,
+          "events": 3,
+          "included_seconds": 100,
+          "inferred_inputs": [],
+          "known_excluded_seconds": 3500,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason_counts": [],
+          "unquantified_gap": false
+        },
+        "map_kind": "ice_won",
+        "player_id": "9000001",
+        "season": "20232024",
+        "strength": "5v5",
+        "view": "effect"
+      }
+    ]
+  },
+  "saved_st_public_parent": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/results-ledger-pending/manifest.json",
+    "sha256": "7511d91b96e74baacf849b6cc37ac5992b2a89c3340fe276bd8917862563cea1"
+  },
+  "alias_selection": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01-selection.json",
+    "sha256": "35600061f73327383c5af0ee0feb050506de437f90c7cfa52de9bf7057a767c2",
+    "states": [
+      {
+        "season": "20232024",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20232024/manifest.json",
+        "sha256": "cb6aba976e8e25a93661d73987898d385857f15848df74c4798ecd7c02381c3b"
+      },
+      {
+        "season": "20242025",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20242025/manifest.json",
+        "sha256": "00ab728f3752d9cf143679b8f4915753e80c3e2fc45d39ac6f0222a0d6b2a7a3"
+      },
+      {
+        "season": "20252026",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20252026/manifest.json",
+        "sha256": "7e8a863734aa2c1e33b2b07e0fd29e4fd10afd84f52be5df44bfadcb92fa979a"
+      }
+    ]
+  },
+  "observed_selection": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/observed-selection.json",
+    "sha256": "d53cc2255c1beba187e76f9b83e1a3838f27ad7116c301c3132be14487d11210"
+  },
+  "controller": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/application-st-schema3-held.py",
+    "sha256": "e099d7e16981b5daf9c03262afc939617b240ce0c0fb417888da7d99233c34f2"
+  },
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/application-st-schema3-held.sh",
+    "sha256": "a849ff0ca801b75dc5186aa467beedd3234eb1c52deed4a5fc6099b0369f786b"
+  },
+  "expected_analysis_tree": "91be929cd034514e3be85173ca4bad08b0c6af67",
+  "bounded_ev_comparison": {
+    "old_definition": "git08b5294 original v1-13 ev rows, already proved unchanged in saved fixture stage->results",
+    "scalar_changed_rows": 0,
+    "adjustment_changes": [
+      {
+        "table": "adjustment_decomposition",
+        "key": {
+          "season": "20232024",
+          "player_id": "9000001",
+          "strength": "5v5",
+          "target": "against_attempts_per60"
+        },
+        "before_availability": "not_computed",
+        "after_availability": "provided",
+        "after_values": {
+          "baseline": 1,
+          "coaching_other_context": 5,
+          "factual_prediction": 15,
+          "numerical_residual": 0,
+          "opponents": 4,
+          "self": 2,
+          "teammates": 3
+        }
+      },
+      {
+        "table": "adjustment_decomposition",
+        "key": {
+          "season": "20232024",
+          "player_id": "9000001",
+          "strength": "5v5",
+          "target": "against_xg_per60"
+        },
+        "before_availability": "not_computed",
+        "after_availability": "provided",
+        "after_values": {
+          "baseline": 1,
+          "coaching_other_context": 5,
+          "factual_prediction": 15,
+          "numerical_residual": 0,
+          "opponents": 4,
+          "self": 2,
+          "teammates": 3
+        }
+      },
+      {
+        "table": "adjustment_decomposition",
+        "key": {
+          "season": "20232024",
+          "player_id": "9000001",
+          "strength": "5v5",
+          "target": "for_xg_per60"
+        },
+        "before_availability": "not_computed",
+        "after_availability": "provided",
+        "after_values": {
+          "baseline": 1,
+          "coaching_other_context": 5,
+          "factual_prediction": 15,
+          "numerical_residual": 0,
+          "opponents": 4,
+          "self": 2,
+          "teammates": 3
+        }
+      }
+    ],
+    "spatial_evidence": "new current canonical ev evidence consumed verbatim; no old table exists",
+    "mixed_old_maps": "not read; runtime stream compares ev rows and records exact before/after hashes/support",
+    "canonical_maps": "not read; owner support-correction receipt supplies three declared support changes until runtime verification"
+  },
+  "declared_spatial_input_member_bytes": 739799844,
+  "scope": "one streaming current-writer construction and ordinary inactive publication; source hash checked while consumed; shared saved evidence only; no fit/probe/rate evaluation/array load/old exchange reader",
+  "cost": "167.12-second former composition and375.745-second former publication are historical only; new cost not_run",
+  "hold": "all bulk fixture io and output directory creation await a separate explicit window; current one-annual reservation does not authorize this",
+  "outputs_absent": true,
+  "predecessor_preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-schema3-preparation-01.json",
+    "sha256": "31f26aa608d728753de2be97a25005f97ffdb0d1aafb7d4ec90d8b23329f9359",
+    "original_command": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/application-st-schema3-held.sh",
+      "sha256": "8dde52e8854531cf63cb4f7fc6e85e02ce9b10bd901dd0bbdc7bf151bf94dfc6"
+    }
+  },
+  "shell_successor_reason": "capture controller stdout/stderr and native time output in one exclusively acquired log, retain actual child status in the log and exclusive exit receipt, return that status without retries",
+  "durable_command_evidence": {
+    "log": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-schema3-01-command.log",
+    "exit": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-schema3-01-command.exit",
+    "acquisition": "shell noclobber; one log descriptor acquired before the command; exit write failure fails the wrapper",
+    "child_argv_env_pins": "unchanged",
+    "actual_execution": "not_run"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "purpose": "fixture",
+  "annuals": [
+    {
+      "season": "20232024",
+      "players": 84,
+      "projections": 672,
+      "head_support": 504,
+      "adjustments": 672,
+      "reference_sha256": "c40d34cdcf70d5800fcf1fbce189ce21cfd4c4bc06ebbb931343b47bb2eefe4b"
+    },
+    {
+      "season": "20242025",
+      "players": 84,
+      "projections": 672,
+      "head_support": 504,
+      "adjustments": 672,
+      "reference_sha256": "6654c9736cff14c693a620917e161c9cf01cf63f7143025bf684db8e00d5ad1a"
+    },
+    {
+      "season": "20252026",
+      "players": 84,
+      "projections": 672,
+      "head_support": 504,
+      "adjustments": 672,
+      "reference_sha256": "2f6f823cb07a86b375b8f27964f9054cd4bd077cfebc0ebb247ed17e51b771e8"
+    }
+  ],
+  "wall_seconds": 0.14246658305637538,
+  "unique_read_paths": [
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20232024/adjustments.jsonl",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20232024/coefficient-support.jsonl",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20232024/coverage.json",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20232024/manifest.json",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20232024/projections.jsonl",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20232024/reference.json",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20242025/adjustments.jsonl",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20242025/coefficient-support.jsonl",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20242025/coverage.json",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20242025/manifest.json",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20242025/projections.jsonl",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20242025/reference.json",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20252026/adjustments.jsonl",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20252026/coefficient-support.jsonl",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20252026/coverage.json",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20252026/manifest.json",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20252026/projections.jsonl",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fixture-e2e-01/states-evidence-01/20252026/reference.json"
+  ],
+  "read_calls": 33,
+  "array_loads": 0,
+  "design_reads": 0,
+  "source_input_reads": 0,
+  "numerical_evaluations": 0,
+  "new_fits": 0,
+  "scope": "current canonical saved-only st evidence read; no publication/browser or real source acceptance"
+}

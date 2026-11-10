@@ -1290,3 +1290,57 @@ footer {
 .microstat-pair { display: grid; gap: 1rem; }
 @media (max-width: 750px) { .microstat-groups { grid-template-columns: 1fr; } .microstat-component-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 420px) { .microstat-component-grid { grid-template-columns: 1fr; } .microstat-columns, .microstat-field { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr); gap: .4rem; } }
+
+.analytical-card { container-type: inline-size; min-width: 0; max-width: 1200px; margin: 1.2rem auto; padding: 1.2rem; color: #242b2d; background: #fbfaf6; border: 1px solid var(--rule); }
+.analytical-card p { margin: .4rem 0; overflow-wrap: anywhere; }
+.analytical-card header { border-bottom: 2px solid #193f47; padding-bottom: .8rem; }
+.analytical-card header h3 { margin: .3rem 0; font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.15; overflow-wrap: anywhere; }
+.analytical-kicker { font-weight: 650; color: #145a66; letter-spacing: .04em; }
+.analytical-map-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin: 1.2rem 0; }
+.analytical-core-map { margin: 0; min-width: 0; }
+.analytical-core-map figcaption, .analytical-distribution figcaption { font-size: 1.05rem; font-weight: 650; }
+.analytical-core-map-body { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: .7rem; align-items: start; margin-top: .7rem; }
+.analytical-rink { width: 100%; max-height: 650px; display: block; }
+.analytical-map-inset { min-width: 0; font-size: .88rem; }
+.analytical-map-inset strong { font-size: 1.15rem; }
+.analytical-map-missing { min-height: 21rem; display: grid; align-content: center; padding: .8rem; border: 1px dashed var(--rule); overflow-wrap: anywhere; }
+.analytical-map-scale { font-size: .82rem; }
+.analytical-density-legend { display: flex; gap: .3rem .7rem; flex-wrap: wrap; margin: .7rem 0; font-size: .82rem; }
+.analytical-density-legend > span { display: inline-flex; align-items: center; gap: .25rem; }
+.analytical-density-legend i { display: inline-block; width: 1rem; height: .8rem; border: 1px solid #a5adae; }
+.analytical-density-legend p { width: 100%; }
+.analytical-skill-belt { border-top: 2px solid #bbc9c7; padding-top: .8rem; }
+.analytical-card h4 { margin: .3rem 0 .7rem; font-size: 1.2rem; }
+.analytical-shootiness { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; padding: .4rem 0; }
+.analytical-distributions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; }
+.analytical-distribution { min-width: 0; margin: .6rem 0; padding: .5rem 0; border-bottom: 1px solid var(--rule); font-size: .88rem; }
+.analytical-distribution svg { display: block; width: 100%; max-height: 4rem; }
+.analytical-distribution-domain { word-spacing: .25rem; font-variant-numeric: tabular-nums; }
+.analytical-accounting { margin: 1rem 0; padding: 1rem 0; border-top: 2px solid #bbc9c7; border-bottom: 2px solid #bbc9c7; }
+.analytical-ledger { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem 1.5rem; padding: .7rem 0; position: relative; }
+.analytical-ledger::before { content: ""; position: absolute; left: 50%; top: 1.6rem; bottom: -.5rem; border-left: 1px solid #bdc8c5; }
+.analytical-ledger-term { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem .8rem; border-bottom: 1px solid var(--rule); padding-bottom: .5rem; background: #fbfaf6; }
+.analytical-ledger-term::after { content: ""; position: absolute; top: .8rem; width: .75rem; border-top: 1px solid #bdc8c5; }
+.analytical-ledger-term:nth-child(odd)::after { left: 100%; }
+.analytical-ledger-term:nth-child(even)::after { right: 100%; }
+.analytical-ledger-term > span:last-child { grid-column: 1 / -1; color: var(--muted); font-size: .8rem; }
+.analytical-ledger-term strong { font-weight: 650; max-width: 17rem; overflow-wrap: anywhere; }
+.analytical-totals { display: flex; flex-wrap: wrap; gap: 1rem 2rem; background: #e7ede5; padding: .6rem 1rem; }
+.analytical-totals strong { display: block; font-size: 1.4rem; }
+.analytical-card footer { border-top: 1px solid var(--rule); padding-top: .8rem; color: #4c5d60; font-size: .87rem; }
+.analytical-card .card-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1rem; }
+.analytical-card .card-actions p { flex-basis: 100%; }
+.analytical-map { margin: 1rem 0; padding: 1rem; background: #fbfaf6; border: 1px solid var(--rule); min-width: 0; }
+.analytical-map > .analytical-rink { max-width: 320px; margin: 1rem auto; }
+.analytical-map > figcaption { font-size: 1.15rem; font-weight: 650; }
+.analytical-map p, .analytical-warning { overflow-wrap: anywhere; }
+.analytical-map details { margin: 1rem 0; }
+.analytical-warning { border-left: 3px solid #a97b3c; padding-left: .6rem; }
+.analytical-pair { display: grid; gap: 1.5rem; }
+.analytical-pair > div, .analytical-details { min-width: 0; }
+.analytical-details p, .analytical-details code { overflow-wrap: anywhere; }
+.analytical-details .analysis-controls { display: flex; flex-wrap: wrap; gap: .7rem 1rem; }
+.analytical-details .analysis-controls label { min-width: 0; max-width: 100%; }
+.analytical-details .analysis-controls select { max-width: 100%; }
+@container (max-width: 850px) { .analytical-map-pair { grid-template-columns: 1fr; } .analytical-core-map-body { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); } .analytical-core-map-body > .analytical-rink { max-width: 280px; } }
+@container (max-width: 500px) { .analytical-core-map-body, .analytical-distributions, .analytical-ledger { grid-template-columns: 1fr; } .analytical-core-map-body > .analytical-rink { width: 260px; max-width: 100%; margin: 0 auto; } .analytical-map-inset { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem .9rem; font-size: .9rem; } .analytical-density-legend { grid-column: 1 / -1; } .analytical-ledger { padding-left: 1.25rem; } .analytical-ledger::before { left: .5rem; } .analytical-ledger-term { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); } .analytical-ledger-term:nth-child(n)::after { left: auto; right: 100%; } }

@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-11-10T07:09:33.412656+00:00",
+  "scope": "source/metadata-only review of measurement addendum; no server startup or candidate read",
+  "ready02": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-02.json",
+    "sha256": "f2dfd59562971c07c2ee8dfd21f962432c3abfc46021637c2f2e845b82b999d9"
+  },
+  "ready03": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-03.json",
+    "sha256": "2cc6d4f969d7d7548c0537ab086999cc70d589ee7b209d204d90b46e8236b9be"
+  },
+  "checked_instrumentation": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-runtime.mjs",
+      "sha256": "6cfa806b4e6827218c65fdb39f0edfb59ae7b72b4c27b4f51f19df7930f2e2bc",
+      "bytes": 1105
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-detached.sb",
+      "sha256": "e94a9634dcd1ca1fa6e3c84eafbd31d3e4c2e23ae57e72544fd60410c13d5e14",
+      "bytes": 221
+    }
+  ],
+  "preserved": "all ready02 numerical/shared/server/operator source pins, inputs, conversion/publication commands, output/log paths and one startup; exact normal node arguments after script path",
+  "measurement": "one import of normal compiled main; net.Server listening41919 intercept restored before forwarding; no validation or query added; elapsed excludes boot/static meter imports, kernel maxRSS includes process lifetime and is converted from kibibytes to bytes",
+  "detachment": "same production profile hash as paired deny/allow control; only the exact candidate SQLite exception under the denied external hockey-stats subtree",
+  "activation": false
+}

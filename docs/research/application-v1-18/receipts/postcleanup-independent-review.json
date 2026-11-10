@@ -1,0 +1,79 @@
+{
+  "status": "PASSED",
+  "recorded_at": "2026-11-10T10:57:06.871155+00:00",
+  "scope": "independent metadata, scoped-absence, source and protected-file checks after the exact reviewed cleanup; no runtime or numerical revalidation",
+  "cleanup": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/temporary-check-cleanup.json",
+    "bytes": 10554,
+    "sha256": "172ba82da202d7ab5ee8b41d51c0c55b343680c0606fcf0271ab2cb7fbc2974b"
+  },
+  "plan": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/final-cleanup-plan-02.json",
+    "bytes": 10266,
+    "sha256": "a00b95549747faeb03c8e3d900b69c55897c6832b5a25bc01d376163d776422f"
+  },
+  "pre_cleanup_independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/final-cleanup-independent-review.json",
+    "bytes": 4865,
+    "sha256": "acb4bcdeb6ffed6af362e1f1bea348ab58ff5e570e10b38aa4217228fb631d6e"
+  },
+  "cleanup_receipt_copies": "LOCAL, repository and external RUN receipts are byte-identical",
+  "independently_checked": {
+    "exact_planned_files_absent": 37,
+    "exact_planned_directories_absent": 8,
+    "unlisted_app_v1_18_temporary_files": 0,
+    "frozen_FR03_source_files_sha256_exact": 32,
+    "protected_primary_dist_active_previous_size_mtime_pairs_exact": 40,
+    "primary_original_context_document_sha256_exact": 13,
+    "normal_task_node_modules_dist_and_canonical_fixture_directories_present": true,
+    "candidate_bytes_by_stat_only": 13370183680,
+    "pid7640_and_port41919": "absent in read-only OS/process metadata",
+    "primary3000_listener": "node PID9645 remains listening"
+  },
+  "source_proof": {
+    "frozen_source_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/frozen-production-source-03.json",
+      "bytes": 9129,
+      "sha256": "2917bc35f1218c030ffd4661e2ee17af6bf060294f1031bd33324079ce73ab1b"
+    },
+    "protected_metadata_snapshot": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/preflight.json",
+      "bytes": 9397,
+      "sha256": "6ef86059c4bb508233359ffedde14e91edbbaeadd3874b1c9e320f91fa052f20"
+    },
+    "frontend_reference": "333f6a74592315f1c431296ae30382743fac4b38",
+    "frontend_git_objects": {
+      "app/src/web": "2ce0bce3906744a87a1d09c5d7eb38bd72fd8236",
+      "app/package.json": "5e88ff1cedd24a5df4da735266a7112aa876e161",
+      "app/package-lock.json": "8ff320e40275e05106a128694f813d3033ced2b1"
+    },
+    "core_reference": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
+    "core_git_trees": {
+      "analysis": "d3d9ba599e23a517e9bf18130b48a867559f9673",
+      "app/src/shared": "2fdc0f4135883dfc2c59868e32272de563b90972",
+      "app/src/server": "29a88cbc39d96206718437026180473cafb53219",
+      "app/src/operator": "cefd9f6da4532ba8a675ef39af08afaa76dc804b"
+    },
+    "working_source_paths": "clean; no tracked differences or untracked source files under the compared frontend/package and four core paths",
+    "contract_conclusion": "the full tested frontend/package and pinned analysis/shared/server/operator implementations are unchanged; strict ordinary decoding, validators, numerical contracts and selector behavior were not weakened by cleanup"
+  },
+  "reported_runtime_shutdown": {
+    "pid": 7640,
+    "command_session": 72531,
+    "signal": "SIGTERM",
+    "intentional_post_acceptance_exit_code": 130,
+    "evidence": "bound cleanup receipt; present absence and preserved primary listener independently checked"
+  },
+  "preservation": "approved deletions are task temporary sources, isolated test-only runtime/profiles and exact converter bytecode only. external results/candidate/receipts/downloads and expensive fit/source roots are outside that deletion set; branch/worktree, normal dependencies/build and canonical fixtures remain.",
+  "review_actions": {
+    "tests": 0,
+    "browser_or_server_launches": 0,
+    "HTTP_requests": 0,
+    "database_opens_queries_or_body_hashes": 0,
+    "saved_numerical_member_reads": 0,
+    "production_edits": 0,
+    "read_only_process_and_listener_metadata": true
+  },
+  "remaining_cleanup_findings": [],
+  "acceptance_limits": "cleanup preserves the previously recorded available-output acceptance and pending whole-card/future-family/scientific/activation limits; it does not broaden them"
+}

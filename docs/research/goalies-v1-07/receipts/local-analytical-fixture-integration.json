@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "kind": "goalie-local-analytical-fixture-integration",
+  "status": "local_fixture_and_document_contracts_passed",
+  "fixture_source_commit": "1abe84725e168d54c9d0049fb7506a8919e9f9dc",
+  "document_source_commit": "23027d7b212a7e6c8a8959837bd46b16f81261fc",
+  "data_changes": {
+    "player_id": "9000001",
+    "season": "20232024",
+    "strength": "5v5",
+    "view": "effect",
+    "maps": [
+      {
+        "path": "fixtures/publication-v1-13/results/20232024-execution-analysis_map.jsonl",
+        "changed_rows": 1,
+        "sha256": "6c45b1226b43097df9798dfabe93e9524dc25f7f5837f89f62a4daee74b47f49"
+      },
+      {
+        "path": "fixtures/publication-v1-13/results/20232024-spatial-analysis_map.jsonl",
+        "changed_rows": 1,
+        "sha256": "f2319e64a75f7194628ec1df878e2721c436edfdb2e6a74815241d48b7318925"
+      },
+      {
+        "path": "fixtures/publication-v1-13/results/20232024-territory-analysis_map.jsonl",
+        "changed_rows": 1,
+        "sha256": "a6ddea39042f9310381cd791643419b41ef51e50c002fa1bb11d00fdb19a06e2"
+      }
+    ],
+    "support_copied_from_matching_canonical_scalar": true,
+    "all_other_selected_row_data_equal": true,
+    "other_member_bytes_equal": true,
+    "manifest": {
+      "path": "fixtures/publication-v1-13/results/manifest.json",
+      "sha256": "b2d22b814521029dcf95dcd70dae17be7a1f446463308f9e171f730564a70990",
+      "changed_descriptors": 3,
+      "goalie_breakdown_preserved": {
+        "path": "20232024-goalie-execution_breakdown.jsonl",
+        "sha256": "914d41ff7bfc53d4726928418c24f41399cf719490c4a47134ee1f56fbde38d8",
+        "rows": 198
+      }
+    },
+    "goalie_breakdown_protection": {
+      "path": "fixtures/publication-v1-13/results/20232024-goalie-execution_breakdown.jsonl",
+      "sha256": "914d41ff7bfc53d4726928418c24f41399cf719490c4a47134ee1f56fbde38d8",
+      "effect": 0.16666666666666666,
+      "support": {
+        "current_season_information": true,
+        "eligible_weight": 3,
+        "events": 3,
+        "included_seconds": null,
+        "inferred_inputs": [],
+        "known_excluded_seconds": 0,
+        "prior_only": false,
+        "prior_seasons": [],
+        "reason_counts": [],
+        "unquantified_gap": false
+      }
+    }
+  },
+  "verification": {
+    "red": {
+      "status": "actual_support_equalities_failed",
+      "normal_fixture_read_passed": true,
+      "controls": [
+        {
+          "metric_id": "execution.5v5.finishing_goals_per100_attempts",
+          "exact_support_equal": false
+        },
+        {
+          "metric_id": "spatial.5v5.offense_attempts_per60",
+          "exact_support_equal": false
+        },
+        {
+          "metric_id": "territory.ice_won_goals_per_basket",
+          "exact_support_equal": false
+        }
+      ],
+      "native_read_seconds": 0.61,
+      "native_read_peak_bytes": 102236160,
+      "native_selector_seconds": 0.59,
+      "native_selector_peak_bytes": 145424384
+    },
+    "green": {
+      "status": "passed",
+      "normal_fixture_read_passed": true,
+      "controls": [
+        {
+          "metric_id": "execution.5v5.finishing_goals_per100_attempts",
+          "exact_support_equal": true
+        },
+        {
+          "metric_id": "spatial.5v5.offense_attempts_per60",
+          "exact_support_equal": true
+        },
+        {
+          "metric_id": "territory.ice_won_goals_per_basket",
+          "exact_support_equal": true
+        }
+      ],
+      "native_read_seconds": 0.63,
+      "native_read_peak_bytes": 102252544,
+      "native_selector_seconds": 0.29,
+      "native_selector_peak_bytes": 151207936
+    },
+    "selector": "production analysisMetric/selectHistoryValue; selected literal scalar/map values and method ids agree before/after",
+    "test_only_envelopes": "unselected families contain explicit not-computed envelopes; selected scalar/map/person/catalog records are literal normal-reader outputs",
+    "links": {
+      "markdown_files": 7,
+      "checked": 224,
+      "missing": [],
+      "bad_anchors": []
+    },
+    "first_link_failure": "the imported v1-18 spec referenced an absent current spatial-evidence anchor; resolved by reviewed canonical application-spec hunks and exact required v1-09 spec, not an unrelated/historical contract substitute",
+    "full_before_after_support_record": "fixtures/publication-v1-13/analytical-v1-18-support-correction.json"
+  },
+  "documents": {
+    "canonical_application_spec": {
+      "path": "docs/specs/experimental-application.md",
+      "before_sha256": "5a0c9f5702c8854a59050ec860e615828922a203f42c723aa4ebb81f3f6e4aac",
+      "after_sha256": "1d557380ccad393c54764a94517f73f506a8ff6fac51d3f71c7a90e8b49e7aa2",
+      "reviewed_hunks": 7,
+      "insertions": 52,
+      "deletions": 6,
+      "goalie_body_preserved": true,
+      "operator_restore_activation_body_preserved": true,
+      "historical_schema8_anchor_preserved": true
+    },
+    "historical_guard_record": {
+      "original_path": "docs/issues/shared-goalie-guard-integration.md",
+      "source_commit": "23027d7b212a7e6c8a8959837bd46b16f81261fc",
+      "original_sha256": "e4e58d1ca150debb185a0c292062405fc9b24ef6880102e67c111f4b6aa5d912",
+      "relocated_path": "docs/research/application-v1-18/receipts/shared-goalie-guard-integration-historical.md",
+      "relocated_sha256": "e4e58d1ca150debb185a0c292062405fc9b24ef6880102e67c111f4b6aa5d912"
+    },
+    "verification_adjustment": "only historical guard-note link relocated plus brief v1-07 integrated-guard clarification",
+    "existing_application_contract_merged_with_review": true,
+    "v1_07_fixture_amendment_preserved": true,
+    "capture_files_modified": false,
+    "imported_provenance": {
+      "source_commit": "23027d7b212a7e6c8a8959837bd46b16f81261fc",
+      "byte_exact_paths": [
+        "docs/research/application-v1-18/receipts/postcleanup-independent-review.json",
+        "docs/research/application-v1-18/receipts/temporary-check-cleanup.json",
+        "docs/research/application-v1-18/receipts/real-native-capture-adjudication.json",
+        "docs/research/application-v1-18/receipts/real-native-card-pixels-02.json",
+        "docs/research/application-v1-18/receipts/real-card-pixels-01.json",
+        "docs/research/application-v1-18/receipts/independent-real-pixel-review-completion.json",
+        "docs/research/application-v1-18/receipts/independent-real-pixel-review.json",
+        "docs/research/application-v1-18/receipts/real-browser-checked-facts.json",
+        "docs/research/application-v1-18/receipts/real-ready03-independent-review.json",
+        "docs/research/application-v1-18/receipts/real-ready-scope-03.json",
+        "docs/research/application-v1-18/receipts/real-conversion-independent-adjudication.json",
+        "docs/research/application-v1-18/receipts/real-exchange-conversion.json",
+        "docs/research/application-v1-18/receipts/shared-goalie-guard-integration-historical.md",
+        "docs/research/application-v1-18/receipts/frozen-production-source-03.json",
+        "docs/research/application-v1-18/receipts/independent-333f6a7-review.json",
+        "docs/research/application-v1-18/receipts/frozen-production-source-02.json",
+        "docs/research/application-v1-18/receipts/module-interface-independent-review.json",
+        "docs/specs/v1-18-analytical-skater-sheet.md",
+        "docs/specs/v1-09-special-teams.md"
+      ],
+      "source_paths": "same as destination except the explicitly relocated historical guard issue",
+      "hashes": "file_sha256 below binds each exact imported body",
+      "modified_verification": {
+        "source_commit": "23027d7b212a7e6c8a8959837bd46b16f81261fc",
+        "source_path": "docs/research/application-v1-18/verification.md",
+        "source_sha256": "cd0b2862f15258e5e900ff22633f36708bc312283ad53b29c14dec26e0fd6602",
+        "destination": "docs/research/application-v1-18/verification.md",
+        "destination_sha256": "ff215550b7ee6830a4ee354b7e81b715972d5bad89e94a84972858b462418eac",
+        "exact_bytes": false
+      }
+    },
+    "existing_documents_replaced_wholesale": false
+  },
+  "changed_paths": [
+    "fixtures/README.md",
+    "fixtures/publication-v1-13/README.md",
+    "fixtures/publication-v1-13/results/20232024-execution-analysis_map.jsonl",
+    "fixtures/publication-v1-13/results/20232024-spatial-analysis_map.jsonl",
+    "fixtures/publication-v1-13/results/20232024-territory-analysis_map.jsonl",
+    "fixtures/publication-v1-13/results/manifest.json",
+    "fixtures/publication-v1-13/analytical-v1-18-map-input.json",
+    "fixtures/publication-v1-13/analytical-v1-18-rendering-scenarios.json",
+    "fixtures/publication-v1-13/analytical-v1-18-support-correction.json",
+    "docs/research/application-v1-18/verification.md",
+    "docs/research/application-v1-18/receipts/postcleanup-independent-review.json",
+    "docs/research/application-v1-18/receipts/temporary-check-cleanup.json",
+    "docs/research/application-v1-18/receipts/real-native-capture-adjudication.json",
+    "docs/research/application-v1-18/receipts/real-native-card-pixels-02.json",
+    "docs/research/application-v1-18/receipts/real-card-pixels-01.json",
+    "docs/research/application-v1-18/receipts/independent-real-pixel-review-completion.json",
+    "docs/research/application-v1-18/receipts/independent-real-pixel-review.json",
+    "docs/research/application-v1-18/receipts/real-browser-checked-facts.json",
+    "docs/research/application-v1-18/receipts/real-ready03-independent-review.json",
+    "docs/research/application-v1-18/receipts/real-ready-scope-03.json",
+    "docs/research/application-v1-18/receipts/real-conversion-independent-adjudication.json",
+    "docs/research/application-v1-18/receipts/real-exchange-conversion.json",
+    "docs/research/application-v1-18/receipts/shared-goalie-guard-integration-historical.md",
+    "docs/research/application-v1-18/receipts/frozen-production-source-03.json",
+    "docs/research/application-v1-18/receipts/independent-333f6a7-review.json",
+    "docs/research/application-v1-18/receipts/frozen-production-source-02.json",
+    "docs/research/application-v1-18/receipts/module-interface-independent-review.json",
+    "docs/specs/v1-18-analytical-skater-sheet.md",
+    "docs/specs/experimental-application.md",
+    "docs/specs/v1-09-special-teams.md"
+  ],
+  "removed_resolved_issue": "docs/issues/goalie-shared-fixture-integration.md",
+  "file_sha256": {
+    "fixtures/README.md": "e4febe3cde912d07aeba2c4594f321f416633c860a09898a5877a58e8b4921f3",
+    "fixtures/publication-v1-13/README.md": "591ab8e845826b32fea16bffb2e0af2a090f0311158a1e32ed18678b6d88386a",
+    "fixtures/publication-v1-13/results/20232024-execution-analysis_map.jsonl": "6c45b1226b43097df9798dfabe93e9524dc25f7f5837f89f62a4daee74b47f49",
+    "fixtures/publication-v1-13/results/20232024-spatial-analysis_map.jsonl": "f2319e64a75f7194628ec1df878e2721c436edfdb2e6a74815241d48b7318925",
+    "fixtures/publication-v1-13/results/20232024-territory-analysis_map.jsonl": "a6ddea39042f9310381cd791643419b41ef51e50c002fa1bb11d00fdb19a06e2",
+    "fixtures/publication-v1-13/results/manifest.json": "b2d22b814521029dcf95dcd70dae17be7a1f446463308f9e171f730564a70990",
+    "fixtures/publication-v1-13/analytical-v1-18-map-input.json": "192c39743068bf71d6e1711c3dbd23c89c1ff2a7c096cc496acf444b4aa20496",
+    "fixtures/publication-v1-13/analytical-v1-18-rendering-scenarios.json": "93105a16e8704399d5fc52addd371a56c7e8c5f90ed78a7a91e2a035c7abb940",
+    "fixtures/publication-v1-13/analytical-v1-18-support-correction.json": "6743983f4e57243b71995c9f97f9e83aa3e54281445efee13cddff2db1dee49d",
+    "docs/research/application-v1-18/verification.md": "ff215550b7ee6830a4ee354b7e81b715972d5bad89e94a84972858b462418eac",
+    "docs/research/application-v1-18/receipts/postcleanup-independent-review.json": "c7a4df5067ba2274ca6d1c16f4d212b5cc529453b8eba71cabdb15d210e3ee34",
+    "docs/research/application-v1-18/receipts/temporary-check-cleanup.json": "172ba82da202d7ab5ee8b41d51c0c55b343680c0606fcf0271ab2cb7fbc2974b",
+    "docs/research/application-v1-18/receipts/real-native-capture-adjudication.json": "8deadfb1b9a5e018f4fd901359abd6ed3bce6f184c7ac3cec7e1aeed2fe1e980",
+    "docs/research/application-v1-18/receipts/real-native-card-pixels-02.json": "84b62e3c778c3f4ad82f21fed8e6221267c36aab9e299f5651a2c51be7ca75e9",
+    "docs/research/application-v1-18/receipts/real-card-pixels-01.json": "13a0a6d8510b87a2a91c423e0cb040fc25b4ecaeba1ccde6095f9da3cf743e5d",
+    "docs/research/application-v1-18/receipts/independent-real-pixel-review-completion.json": "1d358027a4fae8ad36ee554721dd961bf6d6d7f823f2152fec4c5bd0826554fb",
+    "docs/research/application-v1-18/receipts/independent-real-pixel-review.json": "4627b7347ddf751a853d2227584d9ec75ecef3b7b69f27bf2f0e3c9f2ebd117d",
+    "docs/research/application-v1-18/receipts/real-browser-checked-facts.json": "6fd59f24b35b3b805a7880d256f8199229c60ed02f32fa2460c4f31b8ccda250",
+    "docs/research/application-v1-18/receipts/real-ready03-independent-review.json": "ca382b3e612c94cc0df22a1afe2fa6c1ed1689fea299fcb1765566e4789d4d00",
+    "docs/research/application-v1-18/receipts/real-ready-scope-03.json": "2cc6d4f969d7d7548c0537ab086999cc70d589ee7b209d204d90b46e8236b9be",
+    "docs/research/application-v1-18/receipts/real-conversion-independent-adjudication.json": "1cb1d49b4fb8c1f2bbd8f6a91cda93adc08e87506c3db7b5397add03ca8b53ea",
+    "docs/research/application-v1-18/receipts/real-exchange-conversion.json": "c68cd39613f23b42c6c558913d2ab6965b3ff53dc406b005f424cda47efef535",
+    "docs/research/application-v1-18/receipts/shared-goalie-guard-integration-historical.md": "e4e58d1ca150debb185a0c292062405fc9b24ef6880102e67c111f4b6aa5d912",
+    "docs/research/application-v1-18/receipts/frozen-production-source-03.json": "2917bc35f1218c030ffd4661e2ee17af6bf060294f1031bd33324079ce73ab1b",
+    "docs/research/application-v1-18/receipts/independent-333f6a7-review.json": "13c7e247bd06268f4e65f0e68f3159821869e787bc07eceec3b564c4e66755fa",
+    "docs/research/application-v1-18/receipts/frozen-production-source-02.json": "9501d167a4dc3a06f2138ed36edc54241e6215e5cb851c57c19784788f143521",
+    "docs/research/application-v1-18/receipts/module-interface-independent-review.json": "30af6e5b5f4057b37d46af6c07e828a8328f022ade45c04ad8354a54f044e79a",
+    "docs/specs/v1-18-analytical-skater-sheet.md": "2c5526542da817626e863df2e399d3bea63aab5249055a1c7955ba35153fe5a6",
+    "docs/specs/experimental-application.md": "1d557380ccad393c54764a94517f73f506a8ff6fac51d3f71c7a90e8b49e7aa2",
+    "docs/specs/v1-09-special-teams.md": "4cfe1ae73d5510f397612b39501f009e6c1d786b61c9677552b9c3121f2f2b66"
+  },
+  "scope": "repo-local fixture/doc integration; no fixture publication, database, browser/server, acquisition, fit/projection/source replay or external input read; no analysis/shared/server/web/package source change",
+  "temporary_checks": "owned under /tmp/goalie-v1-07-checks/fixture-map-support* until final acceptance cleanup; no retained harness"
+}

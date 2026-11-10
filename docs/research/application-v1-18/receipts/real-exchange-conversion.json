@@ -1,0 +1,359 @@
+{
+  "status": "passed_exchange3_saved_evidence_conversion",
+  "recorded_at": "2026-11-10T07:04:58.088107+00:00",
+  "projection_receipt": {
+    "uri": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-evidence-projection.json",
+    "sha256": "803f9bc1260f8d666426dc6272ff6256cf79db803ec1cfcb806e61b57684d9b5"
+  },
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+    "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee"
+  },
+  "methods": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/methods.jsonl",
+    "sha256": "6246062a05a4a4b27b3d59eec5087f737ab2d8bc0cc94ce56d369af186631da2",
+    "rows": 12
+  },
+  "inherited_members": [
+    {
+      "path": "people.jsonl",
+      "sha256": "d3448bdde7e927357ac5296274d47e60af43031ce91eeb6b73c4e45ebba01d41",
+      "bytes": 10254671
+    },
+    {
+      "path": "sources.jsonl",
+      "sha256": "a6a71595226d720ccc1e604454cfdbeadf74445d09075f0c159b96f7bf32c3de",
+      "bytes": 22464
+    },
+    {
+      "path": "supports.jsonl",
+      "sha256": "fbcd7ac8bde28d6a3a6c17a6c1892cec0d419e2e92c072ee1c3f8072bf7bcc79",
+      "bytes": 6747
+    },
+    {
+      "path": "20232024-descriptive-skater_descriptive.jsonl",
+      "sha256": "cadbc63631c47d990ccf00fbbfb5b78ff429a85b14b713b6cd6adff6fbbacf58",
+      "bytes": 34512490
+    },
+    {
+      "path": "20232024-descriptive-skater_context.jsonl",
+      "sha256": "7ce2623f5fa751b232b1909223ab5f6f087f683e657cd4f5fd9879aeb03ef171",
+      "bytes": 4954667
+    },
+    {
+      "path": "20232024-evidence-attempt_fact.jsonl",
+      "sha256": "d495b91607903e17dfa4960fa126d6d0b8d09818afa9ba57bab21eb640707145",
+      "bytes": 102706498
+    },
+    {
+      "path": "20232024-evidence-dressed_game.jsonl",
+      "sha256": "705561a45ddc4da77057592fd69d138f934c4f6c861d7ff6fe1eff87b7989fdc",
+      "bytes": 6963487
+    },
+    {
+      "path": "20232024-evidence-interval_fact.jsonl",
+      "sha256": "8062b0a62c723da8aa539c4f053bdb649477455a6846d5f61ccea85dd3d7de77",
+      "bytes": 1450305697
+    },
+    {
+      "path": "20232024-evidence-interval_player.jsonl",
+      "sha256": "8c738d03080721ce1da0bfb5eef067a59adaccf15e7a75b6682dfd656fc26bdb",
+      "bytes": 460866020
+    },
+    {
+      "path": "20232024-evidence-interval_location.jsonl",
+      "sha256": "2d384f8ebc4da4364f6873c52ac88f987709a8e47238a6f682b64a945cdf0642",
+      "bytes": 63679165
+    },
+    {
+      "path": "20232024-evidence-context_coverage.jsonl",
+      "sha256": "f19f0f3d2df1a7e4efe3e5a369c198cc7078cc8650c068f49e227219770a4d80",
+      "bytes": 2000165
+    },
+    {
+      "path": "20232024-execution-skater_execution.jsonl",
+      "sha256": "40995561bb5623ffcaae34393deec26fc923deb1b02d52fbf59926415d611d97",
+      "bytes": 40987719
+    },
+    {
+      "path": "20232024-execution-execution_breakdown.jsonl",
+      "sha256": "0d97fd7a68b2d3214cae8770f7ed45ed717f13256eb0b723e01de5a944694b4a",
+      "bytes": 75210725
+    },
+    {
+      "path": "20232024-execution-analysis_map.jsonl",
+      "sha256": "42b81b24c03317344d3d2eadf1055c5ca8cc15b87403a905a2f5bf3657ab74d7",
+      "bytes": 1151995876
+    },
+    {
+      "path": "20232024-execution-attempt_value.jsonl",
+      "sha256": "745bead0987f2da9b1cc25d5060b1ec21a1b4fc5694aa9b57e5cd8caff539fae",
+      "bytes": 180382205
+    },
+    {
+      "path": "20232024-execution-attempt_setter.jsonl",
+      "sha256": "62852437e1fa46b2767d633fd2adbb2fc1a80a3ad9a54fb3b6ef89316895dc70",
+      "bytes": 263272183
+    },
+    {
+      "path": "20232024-execution-attempt_execution_share.jsonl",
+      "sha256": "4913b558597f766cffd6b3dadbdf5183a3f91ea34d12aec2415ebe098b5945ea",
+      "bytes": 253525284
+    },
+    {
+      "path": "20232024-microstats-skater_microstats.jsonl",
+      "sha256": "660b5f87ac6999cc95f7ed3b67cd7966a227b6d3301df4e68b7b21d16cb8e922",
+      "bytes": 21835972
+    },
+    {
+      "path": "20232024-spatial-skater_spatial.jsonl",
+      "sha256": "f06e168353f613cfd31a4c84a880de649a6486ef772e48a4b811a4665f002965",
+      "bytes": 3991930
+    },
+    {
+      "path": "20232024-spatial-analysis_map.jsonl",
+      "sha256": "1d56fa988c66cb6ef2a68c422019432f0b2816e0604e7c7d78f7ebc1b19df50d",
+      "bytes": 664437878
+    },
+    {
+      "path": "20232024-spatial-adjustment_decomposition.jsonl",
+      "sha256": "38bd9a8cce589263d12338618fd24fac2943fdb7c763a9e519c815796ac1024d",
+      "bytes": 7113786
+    },
+    {
+      "path": "20242025-descriptive-skater_descriptive.jsonl",
+      "sha256": "9e3a1b7cfc0436549dcfb969b0f80ea40de21c324a162c265b9ebcb3d2036333",
+      "bytes": 34410189
+    },
+    {
+      "path": "20242025-descriptive-skater_context.jsonl",
+      "sha256": "155de572afc3380418a08976f8568f3c9e9cc901ad871ab34be92015ee11cf6b",
+      "bytes": 5120532
+    },
+    {
+      "path": "20242025-evidence-attempt_fact.jsonl",
+      "sha256": "6e4183b9c8a753ce81bf445a2072dc5c4356bfcd80339a1aacaae4789192791a",
+      "bytes": 100827530
+    },
+    {
+      "path": "20242025-evidence-dressed_game.jsonl",
+      "sha256": "3a429c5b69d312ef6af54c48ca329cef3d9cf8d10e3016fd333289579402493d",
+      "bytes": 6964149
+    },
+    {
+      "path": "20242025-evidence-interval_fact.jsonl",
+      "sha256": "47bb803555cb1fa5192c7c83e48fd03d5d9bca6a906253fc99d9b2814e35829e",
+      "bytes": 1427146026
+    },
+    {
+      "path": "20242025-evidence-interval_player.jsonl",
+      "sha256": "ff5c436d34aa4e66db881212988eb769aa773cdbef6a550fc4f5a80d5212e9d9",
+      "bytes": 453684315
+    },
+    {
+      "path": "20242025-evidence-interval_location.jsonl",
+      "sha256": "2cd14b619c9accc2fe6924c7cb7873624393a269b5084495968857b7278e9629",
+      "bytes": 61167366
+    },
+    {
+      "path": "20242025-evidence-context_coverage.jsonl",
+      "sha256": "388cf3475a7fe7392dde8c4efc41b438e4e75ee363f3e02010dd5dcc2d5c7b8c",
+      "bytes": 2075447
+    },
+    {
+      "path": "20242025-execution-skater_execution.jsonl",
+      "sha256": "2806731aaeeb92f0f2076d6e3430fa008f6e11cbe9eaf7424af3c6ac9d30a0f2",
+      "bytes": 40883965
+    },
+    {
+      "path": "20242025-execution-execution_breakdown.jsonl",
+      "sha256": "5033dddd1b8dde9cc9247eae20093b349def283db0408e69bffec8da45b2c7fb",
+      "bytes": 74948688
+    },
+    {
+      "path": "20242025-execution-analysis_map.jsonl",
+      "sha256": "eee5adf57278fd5b5c265b91e21c573905ad67b69fab8bbf754593e48a34cb93",
+      "bytes": 1170653938
+    },
+    {
+      "path": "20242025-execution-attempt_value.jsonl",
+      "sha256": "feeedb86b5969dbaca8d2b6d05e41af5b8ba1d5f175fc63ab28b868eecf5a4c5",
+      "bytes": 177870193
+    },
+    {
+      "path": "20242025-execution-attempt_setter.jsonl",
+      "sha256": "fb6ec0525c927c9f6be0825f885aec7d4e8129f5237340348c57c12218d4c81f",
+      "bytes": 259577694
+    },
+    {
+      "path": "20242025-execution-attempt_execution_share.jsonl",
+      "sha256": "b707202ec56eee770dbd6f52741ab2f5f85da36f6778df242bcdf8ae801477a6",
+      "bytes": 249551240
+    },
+    {
+      "path": "20242025-microstats-skater_microstats.jsonl",
+      "sha256": "1f07b34c788e30f6c855eb804a364fa3d99ebb87b7f5ac9cfdaa4cb1fe31f7e2",
+      "bytes": 21803353
+    },
+    {
+      "path": "20242025-spatial-skater_spatial.jsonl",
+      "sha256": "f9b8a4b8e1c1bddff7ce89b4551349806cab1e75b06683343b241cc1df504701",
+      "bytes": 3973550
+    },
+    {
+      "path": "20242025-spatial-analysis_map.jsonl",
+      "sha256": "62ba0386531745fa81b0679aca65dfa685742bd7dec9f53f14d8d5fedc0bff77",
+      "bytes": 661522618
+    },
+    {
+      "path": "20242025-spatial-adjustment_decomposition.jsonl",
+      "sha256": "e055b39faf8dacc9d2da6fe89539d7b111d44898faa95906ed1aacac5e767fbc",
+      "bytes": 7117047
+    },
+    {
+      "path": "20252026-descriptive-skater_descriptive.jsonl",
+      "sha256": "50e8661a4c9f20d3b133acd94d1dd44ebd5d00bae88c92c0f1c500b9ba682941",
+      "bytes": 34873327
+    },
+    {
+      "path": "20252026-descriptive-skater_context.jsonl",
+      "sha256": "5d27d824eb67974f5a9e91bb80aa8cd5ca2a53f05c183370418deb23b15ae67b",
+      "bytes": 4994860
+    },
+    {
+      "path": "20252026-evidence-attempt_fact.jsonl",
+      "sha256": "82309a64e049d2e67d82b4adc9bd6f48e903a65ccfe840a303329bf1e1cd44c0",
+      "bytes": 98760172
+    },
+    {
+      "path": "20252026-evidence-dressed_game.jsonl",
+      "sha256": "f54d4841086d7984a7ee755e385c9aaa7a42d58e27cdb6cab44a0797ac7566c2",
+      "bytes": 6964814
+    },
+    {
+      "path": "20252026-evidence-interval_fact.jsonl",
+      "sha256": "c924e17db14f59717489a6b7b280b34828abd6992dd0fbfe09218c37f3f36437",
+      "bytes": 1461052307
+    },
+    {
+      "path": "20252026-evidence-interval_player.jsonl",
+      "sha256": "827491d93e004c5fa5f85f59cefc810b90966b032f4042d31d0ab2275cd89568",
+      "bytes": 464343155
+    },
+    {
+      "path": "20252026-evidence-interval_location.jsonl",
+      "sha256": "60a31af6a85d017d838fe8abebaad6912ecbf97d5640c8912a1f0c33bc63aa71",
+      "bytes": 62325360
+    },
+    {
+      "path": "20252026-evidence-context_coverage.jsonl",
+      "sha256": "b5b9341a4579b0bf86f44da9730141dbd2a72e84dd02cbeb89693586bd2fdfa3",
+      "bytes": 1999216
+    },
+    {
+      "path": "20252026-execution-skater_execution.jsonl",
+      "sha256": "2ae29b741afef3b92f02c76472dc9e33bcec2729ebce8accee4bbe844b0e461d",
+      "bytes": 41537458
+    },
+    {
+      "path": "20252026-execution-execution_breakdown.jsonl",
+      "sha256": "cd0de7fbb81096146f71d9aef354d7abefbcb02c6085a157a04ce24f2b21b664",
+      "bytes": 76530748
+    },
+    {
+      "path": "20252026-execution-analysis_map.jsonl",
+      "sha256": "53ba720171f359444cbcda480f21d4d954e293bcaeeddfe623a5eafff031bbca",
+      "bytes": 1173028241
+    },
+    {
+      "path": "20252026-execution-attempt_value.jsonl",
+      "sha256": "4f0174e6c4c0cce78c461dc1b196b9f0db68aa53cfb8ae2faae3db3e6d1c6d7e",
+      "bytes": 173858967
+    },
+    {
+      "path": "20252026-execution-attempt_setter.jsonl",
+      "sha256": "8901b8678c2d189aed734c1ff0fa310ba4bbe7634d5c2af560a81ada930e4342",
+      "bytes": 253559824
+    },
+    {
+      "path": "20252026-execution-attempt_execution_share.jsonl",
+      "sha256": "c13b3faa8233bee5503fad1d5233c89a18463c80fbe2f8f7f56816859b2ed83d",
+      "bytes": 243672045
+    },
+    {
+      "path": "20252026-microstats-skater_microstats.jsonl",
+      "sha256": "aff04ffc0cdb0ba224979f392a112881524d0f8cacd502d0e40d8b38e20c703e",
+      "bytes": 22169838
+    },
+    {
+      "path": "20252026-spatial-skater_spatial.jsonl",
+      "sha256": "a03616f6610499cd105d884fa8c0494d6c6bc2f0209563f7cf6f20b53d018869",
+      "bytes": 4064239
+    },
+    {
+      "path": "20252026-spatial-analysis_map.jsonl",
+      "sha256": "b2132267061380791d5bc52a7037183611d79e673aa6786fce4f40229c657e90",
+      "bytes": 676192930
+    },
+    {
+      "path": "20252026-spatial-adjustment_decomposition.jsonl",
+      "sha256": "c4139365e5d5f496bd404e479aae8e0ce96b5afe99333199d27b47abc0aa733c",
+      "bytes": 7236337
+    }
+  ],
+  "evidence_members": [
+    {
+      "season": "20232024",
+      "path": "20232024-spatial-spatial_evidence.jsonl",
+      "sha256": "5883af386dd15efa7a602f1300292953cccdd3972083d8f6b1c2eacf74d34ab2",
+      "rows": 8316,
+      "bytes": 4519144
+    },
+    {
+      "season": "20242025",
+      "path": "20242025-spatial-spatial_evidence.jsonl",
+      "sha256": "edf67e50f8a498ff93764d87b588d34197aa6c0ec52e0258022456afa60caa0e",
+      "rows": 8280,
+      "bytes": 4520960
+    },
+    {
+      "season": "20252026",
+      "path": "20252026-spatial-spatial_evidence.jsonl",
+      "sha256": "02dc64f3fb52d1384a3fc93c052eac6bc4828f5ff170f8f9afc3fb88202cc6e1",
+      "rows": 8460,
+      "bytes": 4672836
+    }
+  ],
+  "unchanged_nonowned_members": true,
+  "changed_method_ids": [
+    "spatial-v1-08-20232024",
+    "spatial-v1-08-20242025",
+    "spatial-v1-08-20252026"
+  ],
+  "metadata_diff": {
+    "method_ids": [
+      "spatial-v1-08-20232024",
+      "spatial-v1-08-20242025",
+      "spatial-v1-08-20252026"
+    ],
+    "field": "limitations",
+    "old": "head support is saved in the bound receipt; structured head and actual-context adjustment presentation remain separate work",
+    "new": "structured spatial evidence exposes saved head support and actual-context adjustments; aggregate qualification does not establish information for every head"
+  },
+  "evidence_bytes": 13712940,
+  "output_bytes": 14379274548,
+  "donor_validation_seconds": 924.2673836250324,
+  "copy_seconds": 225.70561820897274,
+  "strict_successor_seconds": 933.7511521670967,
+  "wall_seconds": 2100.8267490419094,
+  "peak_rss_bytes": 552878080,
+  "forbidden_work": {
+    "acquisition": 0,
+    "preparation": 0,
+    "fits": 0,
+    "rescoring": 0,
+    "projection_recomputations": 0,
+    "design_or_fit_arrays": 0
+  },
+  "activation": false
+}

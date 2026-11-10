@@ -1,6 +1,6 @@
 # typed publication fixture
 
-[results/manifest.json](results/manifest.json) identifies the prospective schema2 three-season exchange, amended by v1-06. every member is `fixture`; analytical people, quantities, failures and missing-source scenarios are synthetic. [checked-facts.json](checked-facts.json) contains independently calculated expectations. the two coach files are dated synthetic inputs, not acquired coaching observations.
+[results/manifest.json](results/manifest.json) identifies the current exchange3 three-season fixture for publication schema9, amended by v1-06 and v1-18. analytical quantities, failures and missing-source scenarios are synthetic; captured identities retain the source evidence described below. [checked-facts.json](checked-facts.json) contains the original independently calculated expectations. the two coach files are dated synthetic inputs, not acquired coaching observations.
 
 the observed side uses six existing complete captures: `2023020001`, `2023020012`, `2024020001`, `2024020022`, `2025020001` and `2025020006`. `results/sources.jsonl` records their original body and receipt hashes under `fixture_captured_people`. their existing observed identities retain their exact name, position and team evidence; separate synthetic identities cite `fixture_source`. no captured payload was changed.
 
@@ -23,3 +23,11 @@ source-backed attacking goalie `8477424` (Juuse Saros, nsh) is the sole added pe
 ## v1-07 prospective amendment
 
 the one provided synthetic goalie breakdown now obeys paired-unblocked arithmetic: three attempts, one goal and 1.5 expected goals yield probability .5 and saved-goal effect `1/6` per attempt. its support carries three events, weight three and null elapsed seconds. the old placeholder effect3 and unrelated five-event/600-second support are removed from the current fixture. frozen historical checked facts and accepted external artifacts remain unchanged. this is transport evidence, not a real goalie estimate or complete paired-strata example.
+
+## v1-18 saved evidence and analytical rendering
+
+[spatial checked facts](spatial-v1-18-checked-facts.json) bind the finite saved-evidence amendment: nine explicit spatial strength keys, role/head/state/prior support and actual-context adjustments. the [support correction](analytical-v1-18-support-correction.json) records three historical map supports copied from their matching canonical scalar records. substantive numerical values are unchanged; live client reconciliation correctly rejected the original mismatch.
+
+[rendering scenarios](analytical-v1-18-rendering-scenarios.json) retain literal complete/zero/long-name wire inputs, eight field populations, seven method rows and exact spatial/head/context/adjustment records. [map input](analytical-v1-18-map-input.json) retains the asymmetric signed and complete vectors, geometry and independent conservation expectations used by those scenarios. valid boundary cells without native atoms retain pooled mass; nonexistent raster padding stays separate. these are attributed wire/rendering examples, not fitted ability or an underlying coefficient-generative proof.
+
+[v1-18 verification](../../docs/research/application-v1-18/verification.md) records ordinary fixture publication, strict candidate reads, browser journeys, actual downloads and independent pixel/csv review. scenario data and checked facts remain after temporary controllers are deleted; no additional exchange converter or normal fixture runtime is introduced.

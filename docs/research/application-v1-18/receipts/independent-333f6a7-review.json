@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-11-10T08:55:14.509072+00:00",
+  "scope": "independent closure of one frontend construction sentence; no repeated controls, build, data/candidate read or startup",
+  "leaf": "333f6a74592315f1c431296ae30382743fac4b38",
+  "parent": "765628d2eaa1fbf635ae842c690da49f9cb44d39",
+  "owner_verification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/goalie-frontend-adoption/followup-verified.json",
+    "sha256": "03546a959bce34041e53f2a82574e99b25bd6e5da1022867a494580f476f46b4"
+  },
+  "checked_blobs": [
+    {
+      "path": "app/src/web/analysis-values.ts",
+      "sha256": "6807b73a56918b2a328980092ec6fa8e547a5952acac055dee2e1e242cf229c1"
+    },
+    {
+      "path": "app/src/web/analysis-history.tsx",
+      "sha256": "b86c4565872127990f158023fca42aaa408729745bea963d2e041712f03f595c"
+    },
+    {
+      "path": "app/src/web/explorer.ts",
+      "sha256": "da819693509377658c1500e9ef9e42cfc783633947dbdbf7039d4ae8d32bf346"
+    }
+  ],
+  "other_frozen_source_files_unchanged": 29,
+  "content_finding": "closed: only reattempt and follow-up danger quantities are described as next-recorded-attempt proxies; stopping/miss/recorded-stop/conversion retain their independently defined meanings",
+  "exact_delta": "one string replacement only; surrounding caveats and all numerical/selection/control-flow logic unchanged",
+  "task_head_and_index": "original afa16b6 head and original index hash unchanged; four AF critical trees unchanged and clean",
+  "preserved_clearance": "independent26 meanings,26 csv plus3 annual oracles and14 strict execution-map selections from765 remain applicable; no repeat warranted by one sentence change",
+  "separate_shared_schema_control": "still owned on the goalie branch; not included in this frontend clearance or claimed green",
+  "next": "clear for root build, FR03 and fast-forward of only the separate frontend handoff ref; no producer acceptance or heavy-slot release implied"
+}

@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "reviewers": [
+    "root",
+    "api_verification"
+  ],
+  "implementation_receipt": {
+    "path": "docs/research/goalies-v1-07/receipts/local-analytical-fixture-integration.json",
+    "sha256": "8ae1d829a4ebecea71aadf05d5f085c4a9f33558b7b75080c916bcbfd07a8bb6"
+  },
+  "scope": "static local diff and checked-facts review; no additional reader, runtime, publication, external payload or numerical invocation",
+  "findings": [
+    "exactly one Support object per map and three manifest hashes change; scalar quantities, method ids and geometry remain exact",
+    "goalie breakdown 914d41ff7bfc53d4726928418c24f41399cf719490c4a47134ee1f56fbde38d8, original captures and source admission remain exact",
+    "normal local reader and actual production selector red/green establish all three support equalities",
+    "canonical schema9/evidence/selector/contour clauses match current source; goalie and operating bodies remain preserved",
+    "imported v1-18 evidence retains attribution; resolved guard text is verbatim historical evidence, not an open v1-07 issue",
+    "224 checked local paths/anchors close; required v1-09 spec is the exact owner document",
+    "current plan distinguishes accepted states/scores, pending original proofs and current exclusive sibling ownership"
+  ],
+  "held_score_dispatch_review": {
+    "path": "/tmp/hockey-goalie-v1-07-checks/score-20232024-dispatch-preparation.md",
+    "status": "source_contract_passed",
+    "checked": "cli argv, seven input bindings, six-unset environment and current metadata reviewer field contract",
+    "pending": "explicit sibling release; actual clean launch producer/runtime, path freshness, native identity and completion costs"
+  },
+  "root_inspection_correction": "an initial static assertion expected result.support; the actual provided envelope is result.data.support. inspecting actual nested differences confirmed only the twelve expected support leaves. no artifact failure or reader retry occurred.",
+  "acceptance_limit": "local fixture/doc/build and held command contracts only; real goalie composition, publication, normal strict runtime, api, browser and exports remain pending"
+}

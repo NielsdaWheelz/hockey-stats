@@ -1024,16 +1024,19 @@ def _counterparts(value, catalogs, *, bands=None):
             require(value['known_slot_seconds'] > 0 and close(value['mean_band_index']['value'], sum(item['band']*item['slot_seconds'] for item in value['bands'])/value['known_slot_seconds']), 'mean band differs')
 
 
-def _source_counts(value, catalogs):
+def _source_counts(value, catalogs, *, reported=False):
     fields(value, ('unblocked_attempts', 'misses', 'shots_on_goal', 'saves', 'goals_against', 'save_percentage', 'support', 'provenance'))
     source_reference(value['provenance'],catalogs)
     for key in ('unblocked_attempts', 'misses', 'shots_on_goal', 'saves', 'goals_against'):
         number(value[key], minimum=0, integer=True, nullable=True)
     support(value['support'])
     estimate(value['save_percentage'], catalogs, probability=True)
-    for total, left, right in (('unblocked_attempts','misses','shots_on_goal'), ('shots_on_goal','saves','goals_against')):
-        if value[left] is not None and value[right] is not None:
-            require(value[total] == value[left]+value[right], 'goalie count closure differs')
+    partial_reports = reported and value['support']['unquantified_gap'] and any(
+        row['code'] == 'source_unavailable' for row in value['support']['reason_counts'])
+    if not partial_reports:
+        for total, left, right in (('unblocked_attempts','misses','shots_on_goal'), ('shots_on_goal','saves','goals_against')):
+            if value[left] is not None and value[right] is not None:
+                require(value[total] == value[left]+value[right], 'goalie count closure differs')
     if value['save_percentage']['value'] is not None:
         require(value['shots_on_goal'] is not None and value['shots_on_goal'] > 0 and value['saves'] is not None and close(value['save_percentage']['value'], value['saves']/value['shots_on_goal']), 'save fraction differs')
 
@@ -1089,8 +1092,8 @@ def _goalie_summary(value, catalogs, *, game=False):
             ids.append(row['game_id'])
         require(len(ids) == len(set(ids)), 'duplicate goalie game')
     source_reference(value['provenance'],catalogs)
-    for key in ('source_counts','reported_boxscore_counts'):
-        _source_counts(value[key], catalogs)
+    _source_counts(value['source_counts'], catalogs)
+    _source_counts(value['reported_boxscore_counts'], catalogs, reported=True)
     _paired(value['on_net_evidence'], catalogs, on_net=True)
     _paired(value['unblocked_evidence'], catalogs)
     _goalie_actual_states(value,catalogs)
@@ -1608,12 +1611,23 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
         _available_method(value['method_id'],catalogs)
         fields(value, ('events','eligible_weight','observed_successes','expected_successes','probability','effect','support','method_id'))
         number(value['events'], minimum=0, integer=True)
-        for key in ('eligible_weight','observed_successes','expected_successes'):
+        for key in ('eligible_weight','expected_successes'):
             number(value[key], minimum=0)
+        number(value['observed_successes'], minimum=0, integer=True)
+        require(value['eligible_weight'] == value['events'], 'goalie breakdown weight differs from paired count')
         require(value['observed_successes'] <= value['eligible_weight'] and value['expected_successes'] <= value['eligible_weight'], 'breakdown exceeds denominator')
         estimate(value['probability'], catalogs, probability=True)
         estimate(value['effect'], catalogs)
         support(value['support'])
+        require(value['support']['events'] == value['events'] and value['support']['eligible_weight'] == value['events']
+                and value['support']['included_seconds'] is None, 'goalie breakdown support differs from paired count')
+        n = value['events']
+        probability, effect = value['probability']['value'], value['effect']['value']
+        if n:
+            require(probability is not None and close(probability, value['expected_successes']/n), 'goalie breakdown probability differs')
+            require(effect is not None and close(effect, (value['expected_successes']-value['observed_successes'])/n), 'goalie breakdown saved goals differ')
+        else:
+            require(probability is None and effect is None, 'empty goalie breakdown has a defined rate')
         _method(value['method_id'], catalogs)
     elif table == 'adjustment_decomposition':
         names = ('baseline','self','teammates','opponents','coaching_other_context','numerical_residual','factual_prediction')
@@ -2582,9 +2596,13 @@ def _goalie_actual_states(value, catalogs):
         _paired(row['unblocked_evidence'],catalogs)
         _goalie_stages(row['stage_evidence'])
     require(len(identities) == len(set(identities)), 'duplicate goalie summary actual state')
-    for key in ('unblocked_attempts','misses','shots_on_goal','saves','goals_against'):
+    count_fields = ('unblocked_attempts','misses','shots_on_goal','saves','goals_against')
+    missing_collection = (not rows and all(value['source_counts'][key] is None for key in count_fields)
+        and value['source_counts']['support']['unquantified_gap'] and any(
+            row['code'] == 'source_unavailable' for row in value['source_counts']['support']['reason_counts']))
+    for key in count_fields:
         values = [row['source_counts'][key] for row in rows]
-        expected = sum(values) if all(item is not None for item in values) else None
+        expected = None if missing_collection or any(item is None for item in values) else sum(values)
         require(value['source_counts'][key] == expected, 'actual-state source counts do not close')
     for name in ('on_net_evidence','unblocked_evidence'):
         for key in ('attempts','goals','expected_goals'):

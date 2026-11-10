@@ -1305,6 +1305,8 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
             require(len(states) == len(set(states)) and close(sum(item['weight'] for item in value['state_weights']),1), 'state weights differ')
             expected_states = ('5v4','5v3','4v3') if row['strength'] == 'pp' else ('4v5','3v5','3v4') if row['strength'] == 'pk' else (row['strength'],)
             require(set(states) == set(expected_states), 'state mixture differs from selector')
+            require(len(expected_states) != 1 or value['state_weights'][0]['weight'] == 1,
+                    'exact spatial state requires weight one')
             for role in ('offense','defense'):
                 if row['strength'] in (('5v4','5v3','4v3','pp') if role == 'defense' else ('4v5','3v5','3v4','pk')):
                     require(all(value[key]['value'] is None and value[key]['unavailable_reason'] == 'not_applicable' for key in ESTIMATE_FIELDS[table] if key.startswith(role+'_')), 'inapplicable spatial role carries an estimate')

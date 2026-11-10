@@ -682,8 +682,9 @@ def _validate_special_teams_adjustments(state):
             require(all(abs(row[quantity][name] - float(values[k].sum())) <= 1e-11 * (1 + abs(row[quantity][name]))
                         for k, name in enumerate(ADJUSTMENTS)), 'specialty adjustment map/scalar identity differs')
             if s == 0:
-                mixture = sum(weight['weight'] * maps[i, t + 1, r, qi] for t, weight in enumerate(weights))
-                require(np.all(np.abs(values - mixture) <= 1e-10 * (1 + np.abs(values) + np.abs(mixture))),
+                terms = np.asarray([weight['weight'] * maps[i, t + 1, r, qi] for t, weight in enumerate(weights)])
+                mixture = terms.sum(axis=0)
+                require(np.all(np.abs(values - mixture) <= 1e-10 * (1 + np.abs(values) + np.abs(terms).sum(axis=0))),
                         'common specialty adjustments differ from focal-time exact-state mixture')
             residual = values[6] - values[:5].sum(axis=0)
             require(np.all(np.abs(residual - values[5]) <= 1e-10 * (1 + np.abs(values[6]) + np.abs(values[:6]).sum(axis=0))),

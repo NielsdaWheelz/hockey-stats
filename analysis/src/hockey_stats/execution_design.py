@@ -828,6 +828,7 @@ def prepare_execution_sources(base_prepared, coaches, season, *, game_reducer=No
     scoring_facts = {}
     source_rows = []
     source_games = []
+    centers, _ = grid()
     # team history was computed but not serialized by v1-01. reuse its arithmetic
     # only over a verified complete prepared inventory; sparse fixture dates do
     # not prove that a team had no earlier game.
@@ -930,9 +931,9 @@ def prepare_execution_sources(base_prepared, coaches, season, *, game_reducer=No
                              "block contact frame unavailable")
                     sign = 1 if side == "home" else -1
                     x, y = _value(contact, "x_ft"), _value(contact, "y_ft")
-                    proxy = cell_id((sign * x, sign * y)) if x is not None and y is not None else cell_id((None, None))
+                    proxy = cell_id((sign * x, sign * y), centers) if x is not None and y is not None else cell_id((None, None), centers)
                 else:
-                    proxy = cell_id((_value(geometry, "x"), _value(geometry, "y")))
+                    proxy = cell_id((_value(geometry, "x"), _value(geometry, "y")), centers)
             except (InputContractError, TypeError):
                 reasons.append("location_or_frame_unavailable"); proxy = None
             stop = _value(attempt["immediate_outcomes"], "recorded_goalie_stop")

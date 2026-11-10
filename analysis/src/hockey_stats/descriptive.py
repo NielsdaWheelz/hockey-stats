@@ -306,7 +306,7 @@ def reduce_goalie_game(game: PreparedGame) -> dict:
     """source-only attribution, usage and exposure; no numerical score prerequisite."""
     from .execution_design import resolve_goalie_identity
     from .execution_history import _value
-    from .shot_origins import cell_id
+    from .shot_origins import cell_id, grid
 
     inventory = game['game']['inventory']
     identity = game['game']['identity']
@@ -316,6 +316,7 @@ def reduce_goalie_game(game: PreparedGame) -> dict:
     events = {row['source']['source_index']:(position,row) for position,row in enumerate(source_events)}
     require(len(events) == len(source_events), 'duplicate goalie source-event key')
     rows = []
+    centers, _ = grid()
     for position, attempt in enumerate(game['attempts'] or []):
         index = attempt['source_index']
         event_position, event = events.get(index,(None,None))
@@ -344,7 +345,7 @@ def reduce_goalie_game(game: PreparedGame) -> dict:
         geometry = attempt['feature_facts']['geometry']
         recorded = _value(geometry,'recorded') or {}
         x,y = _value(geometry,'x'),_value(geometry,'y')
-        origin = cell_id((x,y)) if outcome != 'block' and x is not None and y is not None and in_rink(x,y) else None
+        origin = cell_id((x,y),centers) if outcome != 'block' and x is not None and y is not None and in_rink(x,y) else None
         immediate = attempt['immediate_outcomes']
         stop, again = _value(immediate,'recorded_goalie_stop'),_value(immediate,'reattempt_within_5s')
         rows.append(dict(season=game['season'],game_id=game['game_id'],source_index=index,

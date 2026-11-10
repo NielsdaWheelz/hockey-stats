@@ -17,6 +17,10 @@ REFERENCE = 'spatial-league-centered-virtual-v1'
 POLICY = 'ordinary-attempt-segment-valued-two-direction-v1'
 ACCEPTED_RESULTS = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results')
 ACCEPTED_RESULTS_SHA256 = '3441f784c11eb6a8eda38800806b8e4dc68e06e8587c91db24c5dffaadae4347'
+ACCEPTED_ST_SOURCE = Path('/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01')
+ACCEPTED_ST_SOURCE_SHA256 = '8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee'
+ACCEPTED_ST_CONVERSION_SHA256 = '1cb1d49b4fb8c1f2bbd8f6a91cda93adc08e87506c3db7b5397add03ca8b53ea'
+ACCEPTED_ST_RELEASE_SHA256 = '339a33db0459ec05bcd0b4dd8875060c2d9ba453dbe29c99455c36cfbc49231f'
 ACCEPTED_VALUED = dict(zip(YEARS, (
     '37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d',
     '296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20',
@@ -369,31 +373,34 @@ def _season_tables(year, state, people, method):
                 spatial_evidence=spatial_evidence_rows(year,state.evidence,people,method))
 
 
-def _accepted_st_source(results):
-    if results.manifest['purpose'] != 'real':
-        return
-    directory = Path('/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results')
+def _accepted_st_source(directory):
+    """pin the complete parent before its ordinary full read; no ancestry inference."""
     path = directory / 'manifest.json'
-    require(identity(path)['sha256'] == '38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8',
-            'special-teams combined donor identity differs')
-    donor = strict_json(path.read_bytes())
-    for key in ('purpose','seasons','observed_bindings','prepared_sha256'):
-        require(results.manifest[key] == donor[key], f'special-teams inherited {key} differs')
-    require(results.manifest['catalogs']['people'] == donor['catalogs']['people'],
-            'special-teams inherited people differ')
-    inherited = {(row['season'],row['family']): row for row in results.manifest['families']}
-    for row in donor['families']:
-        actual = inherited[row['season'],row['family']]
-        require(actual == row or row['family'] == 'goalie' and row['availability'] != 'provided'
-                and actual['availability'] == 'provided', 'special-teams donor family differs')
-    for name,catalog,key in (('sources','source','source_id'),('supports','support','support_id'),('methods','method','method_id')):
-        member = donor['catalogs'][name]
-        require(identity(directory/member['path'])['sha256'] == member['sha256'], f'donor {name} identity differs')
-        with (directory/member['path']).open('rb') as stream:
-            for line in stream:
-                row = strict_json(line)
-                require(results.catalogs[catalog].get(row[key]) == row,
-                        f'special-teams inherited {catalog} differs, including accepted ev and corrected reference-xg')
+    header = strict_json(path.read_bytes())
+    if type(header) is not dict or header.get('purpose') != 'real':
+        return []
+    require(identity(path)['sha256'] == ACCEPTED_ST_SOURCE_SHA256,
+            'selected special-teams complete parent digest differs')
+    conversion_path = ACCEPTED_ST_SOURCE / 'receipts/real-conversion-independent-adjudication.json'
+    release_path = ACCEPTED_ST_SOURCE / 'receipts/heavy-slot-release.json'
+    evidence = []
+    for receipt, digest in ((conversion_path, ACCEPTED_ST_CONVERSION_SHA256), (release_path, ACCEPTED_ST_RELEASE_SHA256)):
+        require(identity(receipt)['sha256'] == digest, 'accepted special-teams parent receipt digest differs')
+        evidence.append(dict(uri=str(receipt), sha256=digest))
+    conversion = strict_json(conversion_path.read_bytes())
+    release = strict_json(release_path.read_bytes())
+    require(conversion['status'] == 'passed' and conversion['output_manifest_sha256'] == ACCEPTED_ST_SOURCE_SHA256
+            and conversion['donor_sha256'] == '38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8'
+            and conversion['retained_correction_sha256'] == 'a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4',
+            'accepted special-teams conversion provenance differs')
+    require(release['status'] == 'explicit_heavy_slot_release_by_v1_18'
+            and release['accepted_complete_existing_family_predecessor']['sha256'] == ACCEPTED_ST_SOURCE_SHA256
+            and release['transport'] == dict(exchange=3, publication_schema=9)
+            and release['donor']['sha256'] == conversion['donor_sha256']
+            and release['donor']['retained_correction_receipt_sha256'] == conversion['retained_correction_sha256']
+            and any(row['path'] == str(conversion_path) and row['sha256'] == ACCEPTED_ST_CONVERSION_SHA256 for row in release['proofs']),
+            'accepted special-teams complete-parent acceptance differs')
+    return evidence
 
 
 def _special_teams_method(year, state, annuals, purpose, source_sha, receipt):
@@ -517,9 +524,11 @@ def _compose_results(existing_results, state_selection, output, *, family, produ
     from .chance_cli import output_path
 
     started = perf_counter()
+    source_evidence = _accepted_st_source(Path(existing_results)) if family == 'st' else []
     existing = publication.read_results(Path(existing_results))
     admission = _product_admission(product_admission, state_selection, existing.manifest['purpose']) if family == 'ev' else None
-    (_accepted_source if family == 'ev' else _accepted_st_source)(existing)
+    if family == 'ev':
+        _accepted_source(existing)
     selection, annuals = _states(state_selection, existing, admission, family=family)
     for record in existing.manifest['families']:
         if record['family'] == 'spatial' and record['availability'] == 'provided':
@@ -573,6 +582,8 @@ def _compose_results(existing_results, state_selection, output, *, family, produ
                        state=dict(path=str(state.path / 'manifest.json'), sha256=identity(state.path / 'manifest.json')['sha256']),
                        intersection=sorted(published & fitted), published_only=sorted(published - fitted), fitted_only=sorted(fitted - published),
                        missing_projection='every required published skater is emitted; absence retains a located unavailable reason, never a neutral player')
+        if source_evidence:
+            receipt['accepted_source_evidence'] = source_evidence
         receipt_path = output / f'{year}-spatial-composition.json'
         write_json(receipt_path, receipt)
         evidence = dict(uri=str(receipt_path), sha256=identity(receipt_path)['sha256'])

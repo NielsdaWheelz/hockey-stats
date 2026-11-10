@@ -10,7 +10,7 @@ actual support is saved separately by player, role and state. common support is 
 
 ## artifact contract
 
-st uses the distinct schema1 `spatial_st_state` kind. ev remains schema1 `spatial_state`; its closed design fields, recipes and artifact identities are unchanged. current readers enforce expected family, contained member identities, raw coefficient/history support, exact-state offsets and physical membership. exact state support is independently reconciled against sparse incidence; common adjustment maps reconcile against focal-time exact-state mixtures.
+st uses the distinct schema1 `spatial_st_state` kind. ev remains schema1 `spatial_state`; its closed design fields, recipes and artifact identities are unchanged. current readers enforce expected family, contained member identities, raw coefficient/history support, exact-state offsets and physical membership. exact state support is independently reconciled against sparse incidence; common adjustment maps reconcile against focal-time exact-state mixtures, with term-scaled tolerance so signed cancellation does not create a false accounting failure.
 
 basis import validates the donor's small manifest, completed head declarations, exact recipe/year/purpose and native basis shape, finite values, centered uniform orthonormality and array digest. real input also requires the pinned first ev manifest and basis-array digests. only the archive's basis member is loaded; the archive digest is declared provenance, not a new full-archive hash. no ev coefficient is imported.
 

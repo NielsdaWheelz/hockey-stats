@@ -10,6 +10,7 @@ import type {
   PlayerFamilies,
   LeagueSelection,
   SkaterSpatial,
+  SpatialStrength,
   SkaterExecution,
   SkaterShootiness,
   SkaterPenalties,
@@ -28,6 +29,7 @@ import type { PlayerSummary } from "../shared/observed";
 import { observedMetrics, type ObservedRateKey } from "./observed-comparison";
 
 type Spatial = typeof SkaterSpatial.Type;
+type SpatialState = typeof SpatialStrength.Type;
 type Execution = typeof SkaterExecution.Type;
 type Shootiness = typeof SkaterShootiness.Type;
 type Penalties = typeof SkaterPenalties.Type;
@@ -62,8 +64,8 @@ export type AnalysisMetricId = ObservedRateKey
   | `ledger.${"league" | "replacement"}_total`
   | `ledger.${LedgerTerm | "penalties_combined"}.${"league" | "replacement"}_goals`
   | `spatial.5v5.${"offense" | "defense"}_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
-  | `spatial.pp.offense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
-  | `spatial.pk.defense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
+  | `spatial.${"pp" | "5v4" | "5v3" | "4v3"}.offense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
+  | `spatial.${"pk" | "4v5" | "3v5" | "3v4"}.defense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
   | `execution.${typeof strengths[number]}.${typeof executionFields[number]}`
   | `shootiness.${typeof strengths[number]}.${"probability" | "difference"}`
   | `penalties.${"drawn_per60" | "taken_per60" | "drawn_value_per60" | "taken_value_per60"}`
@@ -151,12 +153,14 @@ export type SpatialDetail = {
   readonly complete: Estimate;
   readonly neutral: Estimate;
   readonly relative_percent: Estimate;
+  readonly state_weights: Spatial["state_weights"];
+  readonly reference_id: string;
 };
 
 // these are typed result envelopes, not a second publication schema.
 type ValueInputs = {
   observed: Result<PlayerSummary>;
-  spatial: (strength: "5v5" | "pp" | "pk") => Result<Spatial>;
+  spatial: (strength: SpatialState) => Result<Spatial>;
   execution: Result<Execution>;
   shootiness: Result<Shootiness>;
   penalties: Result<Penalties>;
@@ -179,7 +183,7 @@ type SelectedValue = {
   readonly reference_panel?: Execution["reference_panel"];
   readonly coefficient_support?: Execution["coefficient_support"];
   readonly paired_evidence?: Execution["paired_evidence"];
-  readonly spatial_detail?: SpatialDetail;
+  readonly spatial_detail?: Omit<SpatialDetail, "reference_id">;
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
   readonly methodId?: string;
@@ -294,7 +298,14 @@ const spatialRoles = [
   ["5v5", ["offense", "defense"]],
   ["pp", ["offense"]],
   ["pk", ["defense"]],
+  ["5v4", ["offense"]],
+  ["5v3", ["offense"]],
+  ["4v3", ["offense"]],
+  ["4v5", ["defense"]],
+  ["3v5", ["defense"]],
+  ["3v4", ["defense"]],
 ] as const;
+export const spatialStrengths: readonly SpatialState[] = spatialRoles.map(([strength]) => strength);
 
 const spatial = spatialRoles.flatMap(([strength, roles]) =>
   roles.flatMap(role =>
@@ -308,6 +319,8 @@ const spatial = spatialRoles.flatMap(([strength, roles]) =>
       const rateQuantity = quantity.startsWith("attempts") ? "attempts" : "xg";
       return definition({
         ...base,
+        family: "spatial",
+        strength,
         publicationFamily: "spatial",
         id: `spatial.${strength}.${field}` as AnalysisMetricId,
         quantityPath: `skater_spatial.${field}`,
@@ -319,7 +332,7 @@ const spatial = spatialRoles.flatMap(([strength, roles]) =>
             ? "attempts_per60"
             : "xg_per60",
         population: `${strength} ${role}`,
-        qualificationLabel: `${strength} spatial support`,
+        qualificationLabel: `actual retained ${strength} ${role} minutes`,
         construction: "experimental conditional seasonal estimate",
         numericReference: "frozen hypothetical league-centered design; virtual neutral execution",
         cutoff: strength === "5v5" ? "general" : "specialty",
@@ -332,6 +345,7 @@ const spatial = spatialRoles.flatMap(([strength, roles]) =>
               complete: data[`${role}_${rateQuantity}_per60_complete`],
               neutral: data[`${role}_${rateQuantity}_per60_neutral`],
               relative_percent: data[`${role}_${rateQuantity}_relative_percent`],
+              state_weights: data.state_weights,
             },
           })
         )
@@ -1139,7 +1153,8 @@ function datum(
     reference_panel: selected.reference_panel ?? null,
     coefficient_support: selected.coefficient_support ?? null,
     paired_evidence: selected.paired_evidence ?? null,
-    spatial_detail: selected.spatial_detail ?? null,
+    spatial_detail: selected.spatial_detail
+      ? { ...selected.spatial_detail, reference_id: referenceId } : null,
     qualificationSeconds: selected.qualificationSeconds,
     qualificationBasis: selected.qualificationBasis,
     methods,
@@ -1220,7 +1235,11 @@ export function selectLeagueValues(
         const data = row.result.data;
         return make(row.person, {
           observed: data.observed,
-          spatial: strength => data.spatial[strength === "5v5" ? "five_on_five" : strength],
+          spatial: strength => {
+            if (strength === "5v5") return data.spatial.five_on_five;
+            if (strength === "pp" || strength === "pk") return data.spatial[strength];
+            throw new Error("exact spatial states require the spatial endpoint");
+          },
           execution: data.execution,
           shootiness: data.shootiness,
           penalties: data.penalties,
@@ -1249,6 +1268,15 @@ export function selectLeagueValues(
       return response.players.map(row => make(row.person, {
         ...emptyInputs(),
         observed: row.result
+      }));
+    case "spatial":
+      return response.players.map(row => make(row.person, {
+        ...emptyInputs(),
+        spatial: strength => {
+          if (strength !== response.strength)
+            throw new Error("strength differs from the selected spatial response");
+          return row.result;
+        },
       }));
     case "execution":
       return response.players.map(row => make(row.person, {

@@ -552,7 +552,7 @@ export const loadLeague = (signal: AbortSignal, query: URLSearchParams) =>
     });
     const { table, strength } = readTableSelection(query).selection;
     const extra = table === "descriptive" ? descriptiveRequest(overview.season.season)
-      : (table === "execution" || table === "shootiness") && strength !== "5v5"
+      : table === "spatial" || (table === "execution" || table === "shootiness") && strength !== "5v5"
       ? {
           season: overview.season.season,
           kind: "skater",

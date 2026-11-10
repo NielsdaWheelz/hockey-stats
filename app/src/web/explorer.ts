@@ -12,6 +12,7 @@ import {
   defaultAnalysisMetric,
   microstatMetricIds,
   microstatComponentIds,
+  spatialStrengths,
   type AnalysisMetric,
   type AnalysisMetricId,
 } from "./analysis-values";
@@ -79,7 +80,7 @@ export function readTableSelection(search: URLSearchParams): {
   const strengths = search.getAll("strength");
   const rawStrength = strengths.length === 1 ? strengths[0] : undefined;
   const choices = table === "spatial"
-    ? ["5v5", "pp", "pk"] as const
+    ? spatialStrengths
     : table === "execution" || table === "shootiness"
       ? ["5v5", "5v4", "5v3", "4v3", "4v5", "3v5", "3v4"] as const
       : [];

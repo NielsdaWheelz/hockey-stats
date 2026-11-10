@@ -71,6 +71,16 @@ def main(argv=None) -> int:
                 summarize.error(f"{args.family} summarize requires --{flag}")
 
     try:
+        if args.command == "fit" and args.family == "spatial-st":
+            from .chance_cli import output_path
+
+            roots = []
+            for name in ("prepared", "coaches", "valued", "previous", "basis"):
+                value = getattr(args, name)
+                if value is not None:
+                    path = Path(value).resolve()
+                    roots.append(str(path if path.is_dir() else path.parent))
+            output_path(args.out, roots)
         if args.command == "prepare":
             from .analysis_data import prepare_analysis
 

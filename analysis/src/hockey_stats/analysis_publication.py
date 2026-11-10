@@ -1319,8 +1319,9 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
                     complete = value[f'{role}_{quantity}_per60_complete']['value']
                     neutral = value[f'{role}_{quantity}_per60_neutral']['value']
                     relative = value[f'{role}_{quantity}_relative_percent']['value']
-                    if all(item is not None for item in (effect,complete,neutral)):
-                        require(close(effect,complete-neutral), 'spatial contrast differs')
+                    if effect is not None:
+                        require(complete is not None and neutral is not None and close(effect,complete-neutral),
+                                'spatial contrast lacks its complete/neutral rates or differs')
                     if relative is not None:
                         require(effect is not None and neutral is not None and neutral > 0 and close(relative,100*effect/neutral), 'spatial relative contrast differs')
         elif table == 'skater_shootiness':

@@ -323,21 +323,21 @@ def _accepted_st_source(results):
     donor = strict_json(path.read_bytes())
     for key in ('purpose','seasons','observed_bindings','prepared_sha256'):
         require(results.manifest[key] == donor[key], f'special-teams inherited {key} differs')
-    for name in ('people','sources','supports'):
-        require(results.manifest['catalogs'][name] == donor['catalogs'][name],
-                f'special-teams inherited {name} differs')
+    require(results.manifest['catalogs']['people'] == donor['catalogs']['people'],
+            'special-teams inherited people differ')
     inherited = {(row['season'],row['family']): row for row in results.manifest['families']}
     for row in donor['families']:
         actual = inherited[row['season'],row['family']]
         require(actual == row or row['family'] == 'goalie' and row['availability'] != 'provided'
                 and actual['availability'] == 'provided', 'special-teams donor family differs')
-    member = donor['catalogs']['methods']
-    require(identity(directory/member['path'])['sha256'] == member['sha256'], 'donor methods identity differs')
-    with (directory/member['path']).open('rb') as stream:
-        for line in stream:
-            row = strict_json(line)
-            require(results.catalogs['method'].get(row['method_id']) == row,
-                    'special-teams inherited method differs, including accepted ev and corrected reference-xg')
+    for name,catalog,key in (('sources','source','source_id'),('supports','support','support_id'),('methods','method','method_id')):
+        member = donor['catalogs'][name]
+        require(identity(directory/member['path'])['sha256'] == member['sha256'], f'donor {name} identity differs')
+        with (directory/member['path']).open('rb') as stream:
+            for line in stream:
+                row = strict_json(line)
+                require(results.catalogs[catalog].get(row[key]) == row,
+                        f'special-teams inherited {catalog} differs, including accepted ev and corrected reference-xg')
 
 
 def _special_teams_method(year, state, annuals, purpose, source_sha, receipt):

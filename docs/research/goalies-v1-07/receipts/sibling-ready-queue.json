@@ -1,12 +1,21 @@
 {
-  "status": "v1-09_reserved_one_annual_owner_confirmed_awaiting_launch_ack",
+  "status": "v1-09_frozen_one_annual_running",
   "current": {
     "owner": "v1-09",
     "source_commit": "ba41c2b8fe89977618fe4f0d3826592b60641f8e",
     "analysis_tree": "856575a97f2ff6e004888e04f400b77834566f20",
     "script_sha256": "016249ee5c0de1b5bb1604f29f94dc6996a41db633ee1a16bb17a222fb8e1322",
     "preflight_sha256": "1c4b8f112ea31fbc521386d11ffd8898ede2997d8092149de8eeb68d76d70de9",
-    "boundary": "root explicitly confirms ONLY frozen20212022 annual to both sessions after checked v1-18 release; guarded messages written, provider acknowledgement pending; owner performs fresh-output/log preflight before launch"
+    "boundary": "frozen20212022 annual actually launched; native exit, measured wall/rss/member bytes, bounded adjudication and explicit return to both required",
+    "launch_at_utc": "2026-11-10T10:10:15Z",
+    "native_python_pid": 16998,
+    "native_time_pid": 16997,
+    "shell_pid": 16994,
+    "operator": "t-796454dbbecf0889 on macbook",
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer",
+    "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-01/real/states/20212022",
+    "native_log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-01/logs/20212022-fit.log",
+    "native_exit_receipt": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-01/logs/20212022-fit.exit"
   },
   "queue": [
     {
@@ -63,7 +72,7 @@
         "VECLIB_MAXIMUM_THREADS": "1"
       },
       "cost": "unmeasured; no short fixture forecast",
-      "status": "sole_owner_confirmed_awaiting_launch_ack"
+      "status": "one_frozen_annual_running"
     },
     {
       "owner": "v1-07",
@@ -153,9 +162,11 @@
     "frozen_local_head_tree_script_preflight_rechecked": true,
     "analysis_clean": true,
     "sent_to_both": true,
-    "terminal_delivery": "both guarded sends exit0 written; provider acceptance unconfirmed",
-    "launch_acknowledged": false,
-    "goalies_20232024": "held until measured annual boundary, bounded adjudication and explicit return to both"
+    "terminal_delivery": "both guarded sends written; v1-09 provider explicitly acknowledges actual launch",
+    "launch_acknowledged": true,
+    "goalies_20232024": "held until measured annual boundary, bounded adjudication and explicit return to both",
+    "fresh_output_log_exit_paths": true,
+    "thread_environment_confirmed_in_child_native_argv": true
   },
   "saved_api_reconciliation_owner_report": {
     "sha256": "4795dec4f744ebfe57d0bb16023258755612f0df5e1de070b1589b7689ce09ea",

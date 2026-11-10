@@ -17,6 +17,7 @@ import {
 } from "./analysis-values";
 import {
   buildAnalysisCohort,
+  compatibleAnalysisCohort,
   rawOnlyStanding,
   type AnalysisPeerGroup,
 } from "./analysis-cohorts";
@@ -178,6 +179,7 @@ type Distribution = {
   readonly row: AnalysisRow;
   readonly group: AnalysisPeerGroup;
   readonly domain: readonly [number, number] | null;
+  readonly domainReason: string | null;
   readonly supportKeys: readonly string[];
 };
 export type AnalyticalCardModel = {
@@ -335,8 +337,15 @@ export function prepareAnalyticalCards(
       .filter(
         (value): value is number => value !== null && Number.isFinite(value),
       );
-    const domain = values.length ? plotDomain([0, ...values]) : null;
-    return { slotId, label, metricId, cohort, domain };
+    const compatible = compatibleAnalysisCohort(cohort);
+    const domain =
+      compatible && values.length ? plotDomain([0, ...values]) : null;
+    const domainReason = domain
+      ? null
+      : compatible
+        ? "no eligible peers or selected estimate; no invented distribution"
+        : "incompatible numerical references; no shared plot";
+    return { slotId, label, metricId, cohort, domain, domainReason };
   });
   return selected.map(({ profile, year, overview }, index) => {
     const supports: { key: string; population: string; support: Support }[] =
@@ -509,6 +518,7 @@ export function prepareAnalyticalCards(
           row: item.row,
           group,
           domain: distribution.domain,
+          domainReason: distribution.domainReason,
           supportKeys: item.supportKeys,
         };
       }),
@@ -599,7 +609,7 @@ function EmpiricalDistribution({
           </p>
         </>
       ) : (
-        <p>no eligible peers or selected estimate; no invented distribution</p>
+        <p>{distribution.domainReason}</p>
       )}
       <p>
         {group.peerGroup} · n={group.members.length} ·{" "}
@@ -860,7 +870,7 @@ export default function AnalyticalCard({
   );
 }
 
-export function analyticalCardCsv(model: AnalyticalCardModel): string {
+function analyticalCardCsv(model: AnalyticalCardModel): string {
   return csvText(
     ["section", "slot_id", ...analysisCsvHeaders],
     model.fields.map((field) => [
@@ -871,7 +881,7 @@ export function analyticalCardCsv(model: AnalyticalCardModel): string {
   );
 }
 
-export function analyticalCardSvg(model: AnalyticalCardModel): string {
+function analyticalCardSvg(model: AnalyticalCardModel): string {
   const parts: string[] = [];
   const xml = (value: string | number) =>
     String(value)
@@ -1014,7 +1024,7 @@ export function analyticalCardSvg(model: AnalyticalCardModel): string {
     const x = 44 + i * 284;
     const { row, group, domain } = distribution;
     wrap(distribution.label, x, distributionTop, 260, 22, 'font-weight="700"');
-    wrap(
+    const valueHeight = wrap(
       `${disposition(row)} ${row.datum.metric.displayUnit} · ${distribution.supportKeys.join("/")}`,
       x,
       distributionTop + 58,
@@ -1022,7 +1032,10 @@ export function analyticalCardSvg(model: AnalyticalCardModel): string {
     );
     const toX = (value: number) =>
       x + 20 + (220 * (value - domain![0])) / (domain![1] - domain![0]);
-    const rugY = distributionTop + 130;
+    const rugY = Math.max(
+      distributionTop + 130,
+      distributionTop + 58 + valueHeight + 20,
+    );
     if (domain) {
       parts.push(
         `<path d="M${x + 20} ${rugY + 15}h220" stroke="#7d898a"/><path d="M${toX(0)} ${rugY - 20}v48" stroke="#59676d" stroke-dasharray="3 3"/>`,
@@ -1044,13 +1057,7 @@ export function analyticalCardSvg(model: AnalyticalCardModel): string {
         20,
         'text-anchor="end"',
       );
-    } else
-      wrap(
-        "no eligible peers or selected estimate; no invented distribution",
-        x,
-        distributionTop + 130,
-        260,
-      );
+    } else wrap(distribution.domainReason!, x, rugY, 260);
     let contextY = rugY + 102;
     contextY += wrap(group.peerGroup, x, contextY, 260);
     contextY += wrap(

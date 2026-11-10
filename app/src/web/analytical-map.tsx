@@ -269,10 +269,24 @@ export function prepareAnalyticalMap(
   };
 }
 
-export const analyticalMapSupport = (model: AnalyticalMapModel): string =>
+const analyticalMapSupport = (model: AnalyticalMapModel): string =>
   model.support
     ? `${model.support.included_seconds === null ? "unknown" : displayNumber(model.support.included_seconds / 60)} included min; ${model.support.prior_only ? "prior-only hypothetical estimate" : model.support.current_season_information ? "some current focal information" : "no current focal information"}; ${model.support.known_excluded_seconds === null ? "unknown" : displayNumber(model.support.known_excluded_seconds / 60)} excluded min; ${model.support.unquantified_gap ? "unquantified gaps" : "declared included population"}`
     : (model.reason ?? "map support unavailable");
+
+function legendMeaning(model: AnalyticalMapModel): string {
+  if (model.integral === null) return "map unavailable";
+  if (model.maximum === 0) return "all-zero map; neutral fill";
+  const first = model.levels.find((value) => value > 0)!;
+  return model.view === "complete"
+    ? `complete nonnegative density; neutral fill denotes density < ${displayNumber(first)}`
+    : `central neutral band: |density| < ${displayNumber(first)}, not exact zero`;
+}
+
+const againstMeaning = (model: AnalyticalMapModel): string =>
+  model.view === "complete"
+    ? "higher complete density means more against; stored signs are unchanged."
+    : "positive differences mean more against; stored signs are unchanged.";
 
 export function AnalyticalMapDrawing({
   model,
@@ -331,14 +345,7 @@ export function AnalyticalMapLegend({
         </span>
       ))}
       <p>
-        {model.densityLabel};{" "}
-        {model.integral === null
-          ? "map unavailable"
-          : model.maximum === 0
-            ? "all-zero map"
-            : model.view === "complete"
-              ? "complete nonnegative density"
-              : `central neutral band: |density| < ${displayNumber(model.maximum / 4)}, not exact zero`}
+        {model.densityLabel}; {legendMeaning(model)}
       </p>
     </div>
   );
@@ -375,14 +382,8 @@ export function AnalyticalMapFigure({
       </p>
       <AnalyticalMapLegend model={model} />
       <p className="analytical-map-levels">
-        legend levels: {model.levels.map(displayNumber).join(" · ")}
-        {model.integral === null
-          ? " · map unavailable"
-          : model.maximum === 0
-            ? " · all-zero map: neutral fill"
-            : model.view === "effect"
-              ? `; neutral band: magnitude below ${displayNumber(model.maximum / 4)}, not exact zero`
-              : ""}
+        legend levels: {model.levels.map(displayNumber).join(" · ")};{" "}
+        {legendMeaning(model)}
       </p>
       <p>
         reference: {model.reference ?? "unavailable"}.{" "}
@@ -395,8 +396,7 @@ export function AnalyticalMapFigure({
         precision.{" "}
         {model.view === "complete" &&
           "one focal player in the virtual reference; not recorded on-ice results or actual deployment."}
-        {model.direction === "defense" &&
-          " positive differences mean more against."}
+        {model.direction === "defense" && ` ${againstMeaning(model)}`}
       </p>
       {model.warnings.map((warning) => (
         <p className="analytical-warning" key={warning}>
@@ -529,7 +529,7 @@ export function analyticalMapDrawingSvg(
   return `<svg viewBox="-1 -1 87 202" width="100%" height="100%"><title>${xml(model.title)}</title><desc>${xml(model.orientation)}</desc><defs><clipPath id="${id}"><rect width="85" height="200" rx="28"/></clipPath></defs><g clip-path="url(#${id})"><rect width="85" height="200" fill="${neutral}"/>${render === "rectangles" ? model.rectangles.map((cell) => `<rect x="${cell.x}" y="${cell.y}" width="${cell.width}" height="${cell.height}" fill="${cell.fill}"/>`).join("") : model.contours.map((contour) => `<path d="${contour.path}" fill="${contour.fill}" fill-rule="evenodd"/>`).join("")}<g fill="none" stroke="#64767b" stroke-width="0.3"><path d="M0 75H85M0 125H85M0 100H85"/><circle cx="42.5" cy="100" r="15"/><path d="M39.5 11H45.5M39.5 189H45.5"/></g></g><rect width="85" height="200" rx="28" fill="none" stroke="#59676d" stroke-width="0.6"/></svg>`;
 }
 
-export function analyticalMapSvg(
+function analyticalMapSvg(
   model: AnalyticalMapModel,
   render: "contours" | "rectangles" = "contours",
 ): string {
@@ -568,7 +568,8 @@ export function analyticalMapSvg(
   for (const line of [
     model.orientation,
     `integral ${displayNumber(model.integral)} ${model.unitLabel}; density ${model.densityLabel}`,
-    `shared legend levels: ${model.levels.map(displayNumber).join(" · ")}; ${model.integral === null ? "map unavailable" : model.maximum === 0 ? "all-zero map" : "neutral band below first signed threshold"}`,
+    `shared legend levels: ${model.levels.map(displayNumber).join(" · ")}; ${legendMeaning(model)}`,
+    ...(model.direction === "defense" ? [againstMeaning(model)] : []),
     ...(model.companion
       ? [
           `shared comparison scale with player ${model.companion}; selected player ${model.playerId}`,
@@ -590,7 +591,7 @@ export function analyticalMapSvg(
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="${y + 30}" viewBox="0 0 1200 ${y + 30}" font-family="system-ui,sans-serif" fill="#242b2d"><rect width="1200" height="${y + 30}" fill="#fbfaf6"/>${parts.join("")}</svg>`;
 }
 
-export function analyticalMapCsv(model: AnalyticalMapModel): string {
+function analyticalMapCsv(model: AnalyticalMapModel): string {
   const context = [
     model.publication.publication_id,
     model.publication.purpose,

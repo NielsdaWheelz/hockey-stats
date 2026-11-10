@@ -1341,6 +1341,7 @@ footer {
 .analytical-details p, .analytical-details code { overflow-wrap: anywhere; }
 .analytical-details .analysis-controls { display: flex; flex-wrap: wrap; gap: .7rem 1rem; }
 .analytical-details .analysis-controls label { min-width: 0; max-width: 100%; }
-.analytical-details .analysis-controls select { max-width: 100%; }
+.analytical-details .analysis-controls > div { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; max-width: 100%; }
+.analytical-details .analysis-controls select { min-width: 0; max-width: 100%; }
 @container (max-width: 850px) { .analytical-map-pair { grid-template-columns: 1fr; } .analytical-core-map-body { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); } .analytical-core-map-body > .analytical-rink { max-width: 280px; } }
 @container (max-width: 500px) { .analytical-core-map-body, .analytical-distributions, .analytical-ledger { grid-template-columns: 1fr; } .analytical-core-map-body > .analytical-rink { width: 260px; max-width: 100%; margin: 0 auto; } .analytical-map-inset { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem .9rem; font-size: .9rem; } .analytical-density-legend { grid-column: 1 / -1; } .analytical-ledger { padding-left: 1.25rem; } .analytical-ledger::before { left: .5rem; } .analytical-ledger-term { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); } .analytical-ledger-term:nth-child(n)::after { left: auto; right: 100%; } }

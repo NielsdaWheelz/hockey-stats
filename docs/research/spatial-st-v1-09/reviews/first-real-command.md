@@ -1,6 +1,6 @@
 # first real annual command review
 
-status: the held shell command passes source and syntax review after the two evidence-preservation corrections below. real execution is NOT_RUN. this review does not release the v1-07 heavy slot or establish real source, numerical, publication or browser acceptance.
+historical command review: the command below passed source/syntax review, then its authorized frozen run exited `1` before any baseline on an ev-only neutral-origin guard. [measured failure and release](../receipts/first-real-failure-release-01.json) preserve its source, log and exit. the following sections retain their as-reviewed scope. the original producer/script remain unchanged. [retry readiness](../receipts/first-real-retry-held-04.json) supersedes this launch proposal with repaired source and a fresh run root; a later reservation grants only the next checked window, with explicit ownership handoff still required. no real annual, publication or browser acceptance follows from either command review.
 
 ## concrete command and scope
 

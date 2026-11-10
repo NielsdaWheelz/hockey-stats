@@ -1,0 +1,50 @@
+{
+  "kind": "first-st-annual-failed-boundary-release",
+  "status": "failed",
+  "season": "20212022",
+  "exit_status": 1,
+  "wall_seconds": 70.66,
+  "peak_rss_bytes": 3707977728,
+  "failure": "fit failed: spatial targets require the checked physical 5v5 panel with both goalies",
+  "files": [
+    {
+      "path": "logs/20212022-fit.exit",
+      "bytes": 2
+    },
+    {
+      "path": "logs/20212022-fit.log",
+      "bytes": 862
+    }
+  ],
+  "artifact_member_bytes": 0,
+  "log_bytes": 862,
+  "log_sha256": "91a99daada4204bd84cc3677aaf3219389b3f9b893779559de1d5bbe252c6312",
+  "exit_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+  "annual_manifest_present": false,
+  "output_root": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-01",
+  "new_fits_completed": 0,
+  "scope": "native log and exit plus new output file metadata only; no full state/source/array/candidate read; no retry",
+  "release_utc": "2026-11-10T10:21:10Z",
+  "release": "explicit heavy-slot release to both v1-07 and v1-18",
+  "source_commit": "ba41c2b8fe89977618fe4f0d3826592b60641f8e",
+  "analysis_tree": "856575a97f2ff6e004888e04f400b77834566f20",
+  "script_sha256": "016249ee5c0de1b5bb1604f29f94dc6996a41db633ee1a16bb17a222fb8e1322",
+  "preflight_sha256": "1c4b8f112ea31fbc521386d11ffd8898ede2997d8092149de8eeb68d76d70de9",
+  "start_utc": "2026-11-10T10:10:15Z",
+  "native_pids": [
+    16997,
+    16998
+  ],
+  "native_pids_absent_at_release": true,
+  "boundary_receipt_sha256": "1af15299155832c1abde1be97639ed28b1e56ec07ba6af0944d36b2caea9e192",
+  "independent_adjudication": {
+    "status": "passed as truthful failure only",
+    "reviewer": "/root/st_publication_review",
+    "evidence": "native log/exit/costs and output metadata agree; frozen source calls prepare_spatial targets before fit_spatial, so no baseline optimizer ran"
+  },
+  "next_owner": "v1-07",
+  "next_scope": "previously coordinated G20232024 fit",
+  "st_retry": "not reserved; new reviewed source and command pins plus separate resource handoff required",
+  "forecast": "failed source-contract cost; no completed annual forecast",
+  "frozen_producer_and_failure_artifacts": "preserved"
+}

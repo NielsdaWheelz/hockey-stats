@@ -1,0 +1,52 @@
+{
+  "kind": "coordination_report",
+  "source": "user-supplied v1-18 conversion and measurement update",
+  "local_artifact_acceptance_repeated": false,
+  "heavy_owner": "v1-18",
+  "run_root": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01",
+  "ready03": {
+    "sha256": "2cc6d4f969d7d7548c0537ab086999cc70d589ee7b209d204d90b46e8236b9be",
+    "bytes": 7721,
+    "change": "measurement only; ready02 source, inputs and three-command scope unchanged",
+    "ready02_sha256": "f2dfd59562971c07c2ee8dfd21f962432c3abfc46021637c2f2e845b82b999d9",
+    "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd"
+  },
+  "conversion": {
+    "exit_status": 0,
+    "schema_version": 3,
+    "manifest_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "projection_sha256": "803f9bc1260f8d666426dc6272ff6256cf79db803ec1cfcb806e61b57684d9b5",
+    "completion_sha256": "c68cd39613f23b42c6c558913d2ab6965b3ff53dc406b005f424cda47efef535",
+    "exact_inherited_members": 57,
+    "added_evidence_size_reported": "13.7MB",
+    "wall_seconds": 2100.827,
+    "peak_rss_bytes": 552878080,
+    "independent_metadata_adjudication": "passed",
+    "adjudication_receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-conversion-independent-adjudication.json",
+      "sha256": "1cb1d49b4fb8c1f2bbd8f6a91cda93adc08e87506c3db7b5397add03ca8b53ea"
+    },
+    "adjudicated_preservation": "57 inherited member descriptors, original correction bindings and exact three-method whitelist",
+    "converter_disposition_reported": "removed after acceptance; exact source, diff and invocation retained"
+  },
+  "publication": {
+    "status": "running",
+    "command": "unchanged ready02 ordinary inactive publication",
+    "log": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/publish.log",
+    "sole_heavy_command": true
+  },
+  "remaining_v1_18_scope": [
+    "complete ordinary inactive publication",
+    "one normal strict startup on port 41919 after successful publication"
+  ],
+  "measurement": "same compiled server imported once by reviewed listening-event meter; operating-system read denial for original external paths except candidate sqlite; no second read or bypass",
+  "measurement_independent_review": {
+    "status": "passed",
+    "sha256": "ca382b3e612c94cc0df22a1afe2fa6c1ed1689fea299fcb1765566e4789d4d00"
+  },
+  "accepted_complete_predecessor": false,
+  "st_annual": "held until explicit v1-18 release to both sessions and v1-07 confirmation of unchanged pins",
+  "bulk_fixture_jobs": "held; no additional reservation",
+  "final_composition": "serial g/st composers pin the actual already accepted complete predecessor and preserve all nonowned tables/catalogs and annual/base-score bindings",
+  "activation": "not_assigned"
+}

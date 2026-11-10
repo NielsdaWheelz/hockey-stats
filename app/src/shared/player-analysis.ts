@@ -1176,7 +1176,8 @@ export const SpatialEvidence = Schema.Struct({
             return false;
     if (role.actual_context.reason === "no_exposure")
       for (const head of Object.values(role.coefficient_support))
-        if (head.available && head.state_support!.some((row) => selectedStates.includes(row.state) && row.included_seconds !== 0))
+        if (head.available && !close(head.state_support!.filter((row) => selectedStates.includes(row.state))
+          .reduce((sum, row) => sum + row.included_seconds, 0), 0))
           return false;
   }
   return true;

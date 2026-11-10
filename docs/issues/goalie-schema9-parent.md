@@ -1,0 +1,9 @@
+# goalie composition needs the accepted schema9 parent
+
+v1-18’s shared-owner chain through `af6c62bff843734422b2fde2b08f299a67e3b2dd` changes exchange2/schema8 to exchange3/schema9, adds `spatial_evidence` and changes its spatial method disclosure. the current goalie compositor compares the original `a40ca1c0` non-goalie family/catalog records exactly, except for three attributed reference-xg corrections. it therefore rejects the legitimate new spatial successor. the new strict results reader also rejects the old exchange2 parent.
+
+independent static reviews find the six goalie table/key/row contracts and their numerical validators unchanged. goalie state-v1 and score-v1 remain valid; no fit, rescore, numerical-artifact rewrite, old-public-schema fallback or second converter is needed. the existing member-copy loop already preserves the new spatial evidence.
+
+resolution: after the running scorer stops and v1-18 supplies accepted successor/receipt identities, adopt the coordinated exchange3/schema9 owners, preserving this branch’s goalie validators and fixture corrections. pin the exact checked inherited manifest, with the producer receipt binding the corrected v1-17 donor and its correction receipt; replace the obsolete ancestor comparison rather than expanding method exceptions. retain the immutable five annual execution-score selection and annual/person/method binding checks. any later special-teams/goalie composition must pin the actual complete predecessor and preserve all earlier non-owned families.
+
+the app must be rebuilt for schema9, and the temporary api/controllers must require exact exchange3/schema9. the required ordinary composition read of the preserved first score, inactive publication, detached normal startup and real api/browser/export acceptance prove resolution. no new parent is accepted yet; current numerical source stays fixed during pid74993.

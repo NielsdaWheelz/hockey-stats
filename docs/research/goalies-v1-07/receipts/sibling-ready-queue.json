@@ -1,0 +1,68 @@
+{
+  "status": "v1-18_owns_conversion_publication_one_startup",
+  "current": {
+    "owner": "v1-18",
+    "ready_receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-02.json",
+    "ready_receipt_sha256": "f2dfd59562971c07c2ee8dfd21f962432c3abfc46021637c2f2e845b82b999d9",
+    "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
+    "boundary": "saved-only conversion, ordinary inactive publication, one strict startup41919",
+    "owner_acknowledged_conversion_started": true
+  },
+  "queue": [
+    {
+      "owner": "v1-18",
+      "contact": "t-16b64d1338b85a48 on macbook",
+      "receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-02.json",
+      "sha256": "f2dfd59562971c07c2ee8dfd21f962432c3abfc46021637c2f2e845b82b999d9",
+      "receipt_bytes": 6016,
+      "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
+      "scope": "saved-only donor conversion, one ordinary inactive publication, one strict startup41919",
+      "release_condition": "completed checked conversion/publication and one normal strict startup; explicit release to the next agreed owner",
+      "cost": "conversion unmeasured; publication6555s/startup474s historical context only",
+      "superseded_ready_receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope.json",
+        "sha256": "1cae7da772aa4a4d9d782620bd6ed941497a7bb32c25a05efc1770cd8c686d52",
+        "reason": "user reports final spatial API response completeness strengthening; numerical inputs/converter/commands unchanged"
+      }
+    },
+    {
+      "owner": "v1-09",
+      "contact": "t-b0f21da1ddb96760 on macbook",
+      "preflight": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-preflight-03.json",
+      "sha256": "1c4b8f112ea31fbc521386d11ffd8898ede2997d8092149de8eeb68d76d70de9",
+      "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer",
+      "producer_commit": "ba41c2b8fe89977618fe4f0d3826592b60641f8e",
+      "analysis_tree": "856575a97f2ff6e004888e04f400b77834566f20",
+      "analysis_clean_when_checked": true,
+      "script": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/first-real-fit.sh",
+      "script_sha256": "016249ee5c0de1b5bb1604f29f94dc6996a41db633ee1a16bb17a222fb8e1322",
+      "scope": "one20212022 spatial-st annual, three sequential baselines, no first-year continuation",
+      "prepared_games": 1312,
+      "prepared_member_bytes": 63710567455,
+      "thread_environment": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1"
+      },
+      "cost": "unmeasured; no short fixture forecast"
+    },
+    {
+      "owner": "v1-07",
+      "scope": "next20232024 goalie annual after both explicit releases",
+      "thread_environment": "the same six-unset protocol; no sibling environment mutation here"
+    }
+  ],
+  "checks": "small v1-18 ready receipt bytes/hash and local v1-09 preflight/script hashes/frozen git identities checked; no numerical input or candidate body opened",
+  "dispatch": true,
+  "activation": false,
+  "ownership": "confirm explicit owner to both sibling sessions before each handoff; no concurrent large i/o or blanket annual-chain reservation",
+  "parent_adoption": "exact accepted exchange3/schema9 successor plus donor-bound producer receipt required; numerical state-v1/score-v1 contracts unchanged",
+  "previous_score_adjudication": {
+    "native_session": 72245,
+    "exit_code": 0,
+    "score_sha256": "15d959531ea2561660eb65151a19a007506fffff102b12f96aadc82000091253",
+    "metadata_review_sha256": "95ea3ed60eaa7a6e2cc314510315eb7ca0ef41ce9b09d7ae92e10be0ebc8cb7e",
+    "all_owned_heavy_pids_absent": true,
+    "both_sessions_notified": true
+  }
+}

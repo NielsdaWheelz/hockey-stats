@@ -130,12 +130,14 @@ export function discoveryPreset(table: DiscoveryTable, strength: string | null) 
       break;
     case "spatial": {
       const selected = strength ?? "5v5";
-      const metrics = analysisMetrics.filter(metric => metric.id.startsWith(`spatial.${selected}.`));
       ids = [
         "minutes",
-        ...metrics.map(metric => metric.id),
+        ...analysisMetrics
+          .filter(metric => metric.id.startsWith(`spatial.${selected}.`))
+          .map(metric => metric.id),
       ];
-      defaultSort = metrics.find(metric => metric.id.endsWith("_xg_per60"))!.id;
+      defaultSort =
+        `spatial.${selected}.${["pk", "4v5", "3v5", "3v4"].includes(selected) ? "defense" : "offense"}_xg_per60` as AnalysisMetricId;
       break;
     }
     case "execution":
@@ -200,16 +202,10 @@ function metadataValue(
     const support = data?.support ?? null;
     return {
       value: support?.included_seconds ?? null,
-      unit: "seconds",
-      displayScale: 1 / 60,
-      displayUnit: "minutes",
+      unit: "seconds", displayScale: 1 / 60, displayUnit: "minutes",
       status: support?.included_seconds === null || !support ? "unavailable" : "provided",
-      reason: support?.included_seconds === null || !support
-        ? result?.explanation ?? "actual qualifying time is unavailable" : null,
-      support,
-      observedSupport: null,
-      source: null,
-      original: null,
+      reason: support?.included_seconds === null || !support ? result?.explanation ?? "actual qualifying time is unavailable" : null,
+      support, observedSupport: null, source: null, original: null,
       evidence: { support, method_id: data?.method_id ?? null, state_weights: data?.state_weights ?? null },
       semanticKey: JSON.stringify([id, selectedCohort.strength, method?.support_policy_id]),
       semanticIdentityKnown: Boolean(method),

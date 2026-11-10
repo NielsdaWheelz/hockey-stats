@@ -29,7 +29,6 @@ import type { PlayerSummary } from "../shared/observed";
 import { observedMetrics, type ObservedRateKey } from "./observed-comparison";
 
 type Spatial = typeof SkaterSpatial.Type;
-type SpatialState = typeof SpatialStrength.Type;
 type Execution = typeof SkaterExecution.Type;
 type Shootiness = typeof SkaterShootiness.Type;
 type Penalties = typeof SkaterPenalties.Type;
@@ -68,9 +67,13 @@ export type AnalysisMetricId = ObservedRateKey
   | `spatial.${"pk" | "4v5" | "3v5" | "3v4"}.defense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
   | `execution.${typeof strengths[number]}.${typeof executionFields[number]}`
   | `shootiness.${typeof strengths[number]}.${"probability" | "difference"}`
+  | "shootiness.5v5.neutral_probability"
   | `penalties.${"drawn_per60" | "taken_per60" | "drawn_value_per60" | "taken_value_per60"}`
   | `territory.${"ice_won_goals_per_basket" | "ice_lost_goals_per_basket"}`
   | `territory.${"exit_offense" | "entry_offense" | "zone_retention" | "entry_prevention"}.one_second_probability`
+  | `territory.${"exit_offense" | "entry_offense"}.hazard_per_second`
+  | "territory.zone_retention.opponent_exit_hazard_per_second"
+  | "territory.entry_prevention.opponent_entry_hazard_per_second"
   | `context.${"teammates" | "opponents"}.usage_minutes_per_appearance`
   | "descriptive.usage.minutes_per_appearance"
   | `descriptive.scoring.${"ev" | "pp"}.primary_points_per60`
@@ -154,13 +157,12 @@ export type SpatialDetail = {
   readonly neutral: Estimate;
   readonly relative_percent: Estimate;
   readonly state_weights: Spatial["state_weights"];
-  readonly reference_id: string;
 };
 
 // these are typed result envelopes, not a second publication schema.
 type ValueInputs = {
   observed: Result<PlayerSummary>;
-  spatial: (strength: SpatialState) => Result<Spatial>;
+  spatial: (strength: typeof SpatialStrength.Type) => Result<Spatial>;
   execution: Result<Execution>;
   shootiness: Result<Shootiness>;
   penalties: Result<Penalties>;
@@ -183,7 +185,7 @@ type SelectedValue = {
   readonly reference_panel?: Execution["reference_panel"];
   readonly coefficient_support?: Execution["coefficient_support"];
   readonly paired_evidence?: Execution["paired_evidence"];
-  readonly spatial_detail?: Omit<SpatialDetail, "reference_id">;
+  readonly spatial_detail?: SpatialDetail;
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
   readonly methodId?: string;
@@ -243,6 +245,9 @@ const definition = (
     : metric.unit === "minutes_per_appearance" ? "min per appearance"
     : metric.unit === "attempts_per60" ? "attempts per 60 min"
     : metric.unit === "xg_per60" ? "xg per 60 min"
+    : metric.unit === "penalties_per60" ? "penalties per 60 min"
+    : metric.unit === "goals_per60" ? "goals per 60 min"
+    : metric.unit === "per_second" ? "per second"
     : metric.unit === "per60" ? "per 60 min"
     : metric.unit === "xga_saved_per100_plays" ? "xga saved per 100 plays"
     : metric.unit
@@ -305,7 +310,8 @@ const spatialRoles = [
   ["3v5", ["defense"]],
   ["3v4", ["defense"]],
 ] as const;
-export const spatialStrengths: readonly SpatialState[] = spatialRoles.map(([strength]) => strength);
+
+export const spatialStrengths: readonly (typeof SpatialStrength.Type)[] = spatialRoles.map(([strength]) => strength);
 
 const spatial = spatialRoles.flatMap(([strength, roles]) =>
   roles.flatMap(role =>
@@ -319,9 +325,9 @@ const spatial = spatialRoles.flatMap(([strength, roles]) =>
       const rateQuantity = quantity.startsWith("attempts") ? "attempts" : "xg";
       return definition({
         ...base,
+        publicationFamily: "spatial",
         family: "spatial",
         strength,
-        publicationFamily: "spatial",
         id: `spatial.${strength}.${field}` as AnalysisMetricId,
         quantityPath: `skater_spatial.${field}`,
         group: `spatial ${strength}`,
@@ -438,6 +444,24 @@ const shootiness = strengths.flatMap(strength =>
   })),
 );
 
+const shootinessNeutral = definition({
+  ...base,
+  publicationFamily: "shootiness",
+  id: "shootiness.5v5.neutral_probability",
+  quantityPath: "skater_shootiness.neutral_probability",
+  standingPolicy: "raw_only",
+  selectionStrength: "5v5",
+  group: "shootiness 5v5",
+  label: "shootiness neutral probability",
+  unit: "fraction",
+  population: "5v5 shooting opportunities",
+  qualificationLabel: "5v5 shootiness support",
+  numericReference: "supplied neutral shootiness probability",
+  select: inputs => fromResult(inputs.shootiness, data => estimate(
+    data.neutral_probability, data.support, data.method_id, "shootiness.5v5.support.included_seconds",
+  )),
+});
+
 const penalties = ([
   "drawn_per60",
   "taken_per60",
@@ -495,7 +519,8 @@ const territory = [
     unit: "fraction",
     population: `territory ${title(field)} opportunities`,
     qualificationLabel: `territory ${title(field)} support`,
-    numericReference: "one second transition probability",
+    numericReference: field === "zone_retention" || field === "entry_prevention"
+      ? "one second opponent-transition avoidance probability" : "one second transition probability",
     select: inputs => fromResult(
       inputs.territory,
       data => estimate(
@@ -506,6 +531,30 @@ const territory = [
       )
     )
   })),
+  ...(["exit_offense", "entry_offense", "zone_retention", "entry_prevention"] as const).map(field => {
+    const hazard = field === "zone_retention" ? "opponent_exit_hazard_per_second"
+      : field === "entry_prevention" ? "opponent_entry_hazard_per_second" : "hazard_per_second";
+    return definition({
+      ...base,
+      publicationFamily: "territory",
+      id: `territory.${field}.${hazard}` as AnalysisMetricId,
+      quantityPath: `skater_territory.${field}.${hazard}` as typeof QuantityPath.Type,
+      standingPolicy: "raw_only",
+      group: "territory",
+      label: `${title(field)} ${title(hazard)}`,
+      unit: "per_second",
+      population: `territory ${title(field)} opportunities`,
+      qualificationLabel: `territory ${title(field)} support`,
+      numericReference: "published transition hazard; not reconstructed from rounded probability",
+      select: inputs => fromResult(inputs.territory, data => {
+        const transition = data[field];
+        const value = "hazard_per_second" in transition ? transition.hazard_per_second
+          : "opponent_exit_hazard_per_second" in transition ? transition.opponent_exit_hazard_per_second
+          : transition.opponent_entry_hazard_per_second;
+        return estimate(value, transition.support, data.method_id, `territory.${field}.support.included_seconds`);
+      }),
+    });
+  }),
 ];
 
 const context = (["teammates", "opponents"] as const).map(field => definition({
@@ -990,6 +1039,7 @@ export const analysisMetrics: readonly AnalysisMetric[] = [
   ...spatial,
   ...execution,
   ...shootiness,
+  shootinessNeutral,
   ...penalties,
   ...territory,
   ...context,
@@ -1053,9 +1103,12 @@ function historyInputs(families: PlayerFamilies, metric: AnalysisMetric): ValueI
   };
   return {
     observed: families.observed,
-    spatial: strength => families.spatial.availability === "provided"
-      ? families.spatial.data.find(row => row.strength === strength)?.result ?? pending("strength is not computed")
-      : families.spatial,
+    spatial: strength => {
+      if (families.spatial.availability !== "provided") return families.spatial;
+      const row = families.spatial.data.find(row => row.strength === strength);
+      if (!row) throw new Error("provided spatial family lacks its required strength row");
+      return row.result;
+    },
     execution: families.execution.availability === "provided"
       ? families.execution.data.find(
           row => row.strength === (metric.selectionStrength ?? "5v5"),
@@ -1153,8 +1206,7 @@ function datum(
     reference_panel: selected.reference_panel ?? null,
     coefficient_support: selected.coefficient_support ?? null,
     paired_evidence: selected.paired_evidence ?? null,
-    spatial_detail: selected.spatial_detail
-      ? { ...selected.spatial_detail, reference_id: referenceId } : null,
+    spatial_detail: selected.spatial_detail ?? null,
     qualificationSeconds: selected.qualificationSeconds,
     qualificationBasis: selected.qualificationBasis,
     methods,
@@ -1238,7 +1290,7 @@ export function selectLeagueValues(
           spatial: strength => {
             if (strength === "5v5") return data.spatial.five_on_five;
             if (strength === "pp" || strength === "pk") return data.spatial[strength];
-            throw new Error("exact spatial states require the spatial endpoint");
+            throw new Error("exact spatial states require the selected spatial family");
           },
           execution: data.execution,
           shootiness: data.shootiness,
@@ -1269,19 +1321,18 @@ export function selectLeagueValues(
         ...emptyInputs(),
         observed: row.result
       }));
-    case "spatial":
-      return response.players.map(row => make(row.person, {
-        ...emptyInputs(),
-        spatial: strength => {
-          if (strength !== response.strength)
-            throw new Error("strength differs from the selected spatial response");
-          return row.result;
-        },
-      }));
     case "execution":
       return response.players.map(row => make(row.person, {
         ...emptyInputs(),
         execution: row.result
+      }));
+    case "spatial":
+      return response.players.map(row => make(row.person, {
+        ...emptyInputs(),
+        spatial: strength => {
+          if (strength !== response.strength) throw new Error("spatial strength differs from its selected family");
+          return row.result;
+        },
       }));
     case "shootiness":
       return response.players.map(row => make(row.person, {

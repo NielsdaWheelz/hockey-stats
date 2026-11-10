@@ -120,8 +120,6 @@ export const spatialSupportMeaning = (datum: AnalysisDatum): string =>
     : "qualifying minutes describe actual retained focal role/state time; current-season information can come from any state in the shared special-teams family, in the same focal role. pooled information does not establish current evidence for a rare state's baseline; a zero-minute exact-state estimate may use another state's information") +
   "; aggregate support does not establish current evidence for each volume, shape or quality term. spatial support reason counts are games with a located excluded segment, counted once per reason code; codes can overlap within a game. a prior-only magnitude comes from the prior; raw zero can become nonzero after annual centering, and borrowed values can remain large without current matched exposure";
 
-const spatialEstimateKeys = ["difference", "complete", "neutral", "relative_percent"] as const;
-
 export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
   const [hasOpened, setHasOpened] = useState(false);
   return (
@@ -165,26 +163,26 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
         <p>{spatialDirection(datum)}.</p>
         <p>actual qualifying {datum.metric.population} minutes: {displayNumber(datum.qualificationSeconds === null ? null : datum.qualificationSeconds / 60)}.</p>
         <p>the complete focal rate inserts this player into one role jointly in volume, shape and quality. the neutral rate uses the frozen hypothetical league-centered design and virtual neutral execution. this reference is not an average actual lineup or a forecast.</p>
-        <p>annual reference {datum.spatial_detail.reference_id}; league state weights: {datum.spatial_detail.state_weights.map(row => `${row.strength}=${row.weight}`).join(", ")}. {datum.metric.strength === "pp" || datum.metric.strength === "pk"
-          ? "neutral and focal native rates are mixed with these common league physical-time weights before differences and relative percentages; these are not this player's usage weights."
-          : "this exact-state reference has weight one."}</p>
         <div className="table-scroll" role="region" tabIndex={0} aria-label="selected spatial estimates, scroll horizontally for all columns">
           <table className="spatial-estimates">
             <caption>saved experimental estimates; conditional historical borrowing and inferred blocked origins can affect every term</caption>
             <thead><tr><th scope="col">estimate</th><th scope="col">value</th><th scope="col">unit</th><th scope="col">unavailable reason</th><th scope="col">uncertainty</th></tr></thead>
-            <tbody>{spatialEstimateKeys.map(key => {
+            <tbody>{(["difference", "complete", "neutral", "relative_percent"] as const).map(key => {
               const value = datum.spatial_detail![key];
               return <tr key={key}>
-                <th scope="row">{key === "complete" ? "complete focal rate" : key === "neutral" ? "neutral rate" : key.replaceAll("_", " ")}</th>
-                <td className="numeric">{displayNumber(value.value)}</td>
-                <td>{key === "relative_percent" ? "%" : datum.metric.id.includes("attempts") ? "attempts per 60 min" : "xg per 60 min"}</td>
-                <td>{value.unavailable_reason ?? "none"}{value.reason_detail && `: ${value.reason_detail.explanation}`}</td>
-                <td>{value.uncertainty.kind === "not_estimated" ? "not estimated" : `${value.uncertainty.level * 100}% interval: ${displayNumber(value.uncertainty.lower)} to ${displayNumber(value.uncertainty.upper)}; ${value.uncertainty.method}; conditional on ${value.uncertainty.conditional_on.join(", ")}`}</td>
-              </tr>;
+              <th scope="row">{key === "complete" ? "complete focal rate" : key === "neutral" ? "neutral rate" : key.replaceAll("_", " ")}</th>
+              <td className="numeric">{displayNumber(value.value)}</td>
+              <td>{key === "relative_percent" ? "%" : datum.metric.id.includes("attempts") ? "attempts per 60 min" : "xg per 60 min"}</td>
+              <td>{value.unavailable_reason ?? "none"}{value.reason_detail && `: ${value.reason_detail.explanation}`}</td>
+              <td>{value.uncertainty.kind === "not_estimated" ? "not estimated" : `${value.uncertainty.level * 100}% interval: ${displayNumber(value.uncertainty.lower)} to ${displayNumber(value.uncertainty.upper)}; ${value.uncertainty.method}; conditional on ${value.uncertainty.conditional_on.join(", ")}`}</td>
+            </tr>;
             })}</tbody>
           </table>
         </div>
-        <p>{spatialSupportMeaning(datum)}. the bound head-support receipt retains the detailed evidence; structured head and actual-context adjustment presentation follows separately.</p>
+        <p>annual reference {datum.referenceId}; standardized state weights: {JSON.stringify(datum.spatial_detail.state_weights)}. {datum.metric.strength === "pp" || datum.metric.strength === "pk"
+          ? "neutral and focal native rates use these common league physical-time weights before differences and relative percentages; these are not this player's usage weights."
+          : "this exact-state reference has weight one."}</p>
+        <p>{spatialSupportMeaning(datum)}. selected spatial detail exposes structured head information and actual-context adjustments from the same publication.</p>
       </div>}
       {datum.reference_panel && (
         <div>
@@ -799,11 +797,11 @@ function historySvg(view: HistoryView): string {
         text(spatialDirection(datum)!, 20);
         text(spatialSupportMeaning(datum), 20);
         if (datum.spatial_detail) {
-          text(`annual reference ${datum.spatial_detail.reference_id}; league state weights ${datum.spatial_detail.state_weights.map(row => `${row.strength}=${row.weight}`).join(", ")}`, 20);
+          text(`annual reference ${datum.referenceId}; standardized state weights ${datum.spatial_detail.state_weights.map(row => `${row.strength}=${row.weight}`).join(", ")}`, 20);
           text(datum.metric.strength === "pp" || datum.metric.strength === "pk"
             ? "common physical league-time mixture of neutral/focal native rates; differences and ratios follow mixing, not this player's usage"
             : "exact-state reference, weight one", 20);
-          for (const key of spatialEstimateKeys) {
+          for (const key of ["difference", "complete", "neutral", "relative_percent"] as const) {
             const value = datum.spatial_detail[key];
             text(`${key.replaceAll("_", " ")}: ${displayNumber(value.value)} ${key === "relative_percent" ? "%" : datum.metric.id.includes("attempts") ? "attempts per 60 min" : "xg per 60 min"}; ${value.unavailable_reason ?? "available"}${value.reason_detail ? `: ${value.reason_detail.explanation}` : ""}`, 20);
           }

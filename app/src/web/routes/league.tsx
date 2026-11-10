@@ -56,7 +56,8 @@ export const ErrorBoundary = LoadError;
 export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) => {
   const selections = [args.currentUrl, args.nextUrl].map(url => readTableSelection(url.searchParams).selection);
   const needsExactFamily =
-    selections.some(selection => selection.table === "descriptive" || selection.table === "spatial" ||
+    selections.some(selection => selection.table === "descriptive" ||
+      selection.table === "spatial" ||
       (selection.table === "execution" || selection.table === "shootiness") &&
       selection.strength !== "5v5");
   return shouldRevalidateView(args, [
@@ -332,9 +333,7 @@ export default function League() {
           }}
         >
           <label htmlFor="discovery-min">
-            {selection.table === "spatial"
-              ? `minimum actual qualifying ${selection.strength} minutes`
-              : "minimum on-ice included 5v5 minutes"}
+            {selection.table === "spatial" ? `minimum actual qualifying ${selection.strength} minutes` : "minimum on-ice included 5v5 minutes"}
           </label>
           <div className="minute-input">
             <input

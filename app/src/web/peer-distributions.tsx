@@ -10,6 +10,7 @@ import {
 } from "./analysis-values";
 import {
   midpointPercentile,
+  compatibleAnalysisCohort,
   type AnalysisCohort,
   type AnalysisPeerGroup,
 } from "./analysis-cohorts";
@@ -25,7 +26,7 @@ import {
   standingText,
   type AnalysisRow,
 } from "./analysis-history";
-import { downloadCsv } from "./export";
+import { downloadBlob, downloadCsv, svgPng } from "./export";
 import { fixtureNotice } from "./presentation";
 
 export function PeerControls({
@@ -243,6 +244,78 @@ function distributionRows(group: AnalysisPeerGroup): readonly AnalysisRow[] {
   return [...members, ...outsiders];
 }
 
+const zeroEffect = (metric: AnalysisMetric) =>
+  metric.publicationFamily === "spatial" || metric.publicationFamily === "ledger" ||
+  metric.publicationFamily === "penalties" || metric.id.endsWith("difference") ||
+  metric.id.includes("finishing_goals_per100") || metric.id.includes("setting_goals_per100") ||
+  metric.id.includes("stopping_goals_per100");
+
+export function distributionDomain(cohort: AnalysisCohort, metric: AnalysisMetric) {
+  if (!compatibleAnalysisCohort(cohort)) return null;
+  const values = cohort.groups.flatMap(distributionRows).map(({ datum }) => displayValue(datum))
+    .filter((value): value is number => value !== null && Number.isFinite(value));
+  return plotDomain(values.length && zeroEffect(metric) ? [0, ...values] : values);
+}
+
+export function distributionSvg(cohort: AnalysisCohort, metric: AnalysisMetric, publication: Publication, season: SeasonEvidence): string {
+  const domain = distributionDomain(cohort, metric);
+  const mismatch = !compatibleAnalysisCohort(cohort);
+  const parts: string[] = [];
+  const xml = (value: string | number) => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
+  let y = 46;
+  const text = (value: string, size = 20) => {
+    let line = "";
+    for (const token of value.split(/\s+/).flatMap(word => word.match(/.{1,88}/g) ?? [])) {
+      if (line.length + token.length > 88) {
+        parts.push(`<text x="44" y="${y}" font-size="${size}">${xml(line)}</text>`);
+        y += 28;
+        line = "";
+      }
+      line += `${line ? " " : ""}${token}`;
+    }
+    if (line) { parts.push(`<text x="44" y="${y}" font-size="${size}">${xml(line)}</text>`); y += 28; }
+  };
+  text(`${publication.purpose === "fixture" ? "synthetic fixture · " : ""}${season.season} · empirical distribution`);
+  text(metric.label);
+  text(`native quantity shown in ${metric.displayUnit}; empirical spread is not uncertainty`);
+  if (mismatch) text("incompatible quantity definitions or numerical references; no shared plot. raw values and separate references follow.");
+  const x = (value: number) => 100 + 1000 * (value - domain![0]) / (domain![1] - domain![0]);
+  for (const group of cohort.groups) {
+    y += 12;
+    text(`${group.peerGroup}; n=${group.members.length}; cutoff ${group.cutoffMinutes ?? "unavailable"} min; ${group.incompatiblePeerCount} incompatible peers excluded`);
+    if (!group.members.length) text("no eligible reference players");
+    if (group.members.length === 1) text("one eligible reference player; midpoint rank 50");
+    if (domain) {
+      parts.push(`<path d="M100 ${y+18}H1100" fill="none" stroke="#777"/>`);
+      if (zeroEffect(metric)) parts.push(`<path d="M${x(0)} ${y}V${y+36}" stroke="#222" stroke-dasharray="4 3"/>`);
+      for (const datum of group.members)
+        parts.push(`<path d="M${x(displayValue(datum)!)} ${y+6}V${y+30}" stroke="#648794" stroke-width="2"/>`);
+      y += 56;
+    } else if (!mismatch) text("no available value; no selected marker");
+    for (const selection of group.selected) {
+        const value = displayValue(selection.datum);
+        if (domain && value !== null) parts.push(selection.slot === 0
+          ? `<circle cx="${x(value)}" cy="${y}" r="7" fill="#193b4b"/>`
+          : `<path d="M${x(value)} ${y-8}l8 8-8 8-8-8Z" fill="#193b4b"/>`);
+        y += 32;
+        text(`${selection.slot === 0 ? "circle" : "diamond"}: ${datumName(selection.datum)} · ${valueText(selection.datum)} ${metric.displayUnit} · ${standingText(selection.standing)}`);
+    }
+  }
+  if (domain) text(`shared raw scale ${displayNumber(domain[0])} to ${displayNumber(domain[1])} ${metric.displayUnit}${zeroEffect(metric) ? "; dashed reference: zero effect" : ""}`);
+  for (const selection of cohort.groups.flatMap(group => group.selected)) {
+    const datum = selection.datum;
+    text(`${datumName(datum)}: ${datum.construction}; ${datum.population}; ${datum.numericReference}`);
+    text(`support ${datum.qualificationSeconds ?? "unknown"} matching seconds; ${datum.qualificationBasis}; ${datum.reason ?? "published value"}`);
+    if (datum.support) text(`prior only ${datum.support.prior_only}; current information ${datum.support.current_season_information}; prior years ${datum.support.prior_seasons.join(", ") || "none"}; known excluded seconds ${datum.support.known_excluded_seconds ?? "unknown"}; unquantified gap ${datum.support.unquantified_gap}`);
+    for (const method of datum.methods) {
+      text(`method ${method.method_id}; recipe ${method.recipe_id}; reference ${method.reference_id}; support ${method.support_policy_id}`);
+    }
+    for (const finding of datum.findings) text(finding.summary);
+  }
+  text(`publication ${publication.publication_id}; season ${season.season}; calibrated uncertainty unknown; exact values/support retained in distribution csv`);
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="${y+30}" viewBox="0 0 1200 ${y+30}" font-family="system-ui,sans-serif" fill="#242b2d"><rect width="1200" height="${y+30}" fill="#fbfaf6"/>${parts.join("")}</svg>`;
+}
+
 export default function PeerDistributions({
   cohort,
   metric,
@@ -274,15 +347,7 @@ export default function PeerDistributions({
   const id = useId();
   const [status, setStatus] = useState("");
   const selected = cohort.groups.flatMap((group) => group.selected);
-  const meanings = new Set(
-    cohort.groups.flatMap((group) => [
-      ...group.members.map((datum) => datum.semanticKey),
-      ...group.selected
-        .filter(({ datum }) => datum.value !== null)
-        .map(({ datum }) => datum.semanticKey),
-    ]),
-  );
-  const mismatch = meanings.size > 1;
+  const mismatch = !compatibleAnalysisCohort(cohort);
   const selectedFamily = publication.families.find(
     (family) =>
       family.season === season.season &&
@@ -290,11 +355,7 @@ export default function PeerDistributions({
   );
   const rawOnly = metric.standingPolicy === "raw_only";
   const allRows = rawOnly ? [] : cohort.groups.flatMap(distributionRows);
-  const domain = plotDomain(
-    allRows
-      .map(({ datum }) => displayValue(datum))
-      .filter((value): value is number => value !== null),
-  );
+  const domain = distributionDomain(cohort, metric);
   const x = (value: number) =>
     `${8 + (84 * (value - domain![0])) / (domain![1] - domain![0])}%`;
   const grouped = new Map<string, AnalysisMetric[]>();
@@ -462,6 +523,7 @@ export default function PeerDistributions({
                       className="peer-mark"
                     />
                   ))}
+                  {zeroEffect(metric) && <line x1={x(0)} x2={x(0)} y1="0" y2="36" stroke="currentColor" strokeDasharray="4 3" />}
                 </svg>
               )}
               {group.selected.map(({ datum, slot, standing }) => (
@@ -540,6 +602,7 @@ export default function PeerDistributions({
             empirical spread is not an uncertainty interval. ranks use exact
             native values and count half of exact ties. partial support may
             qualify; missing qualification cannot manufacture a rank.
+            {zeroEffect(metric) && " the dashed reference is zero effect, not the empirical median."}
           </figcaption>
         </figure>
       )}
@@ -622,6 +685,15 @@ export default function PeerDistributions({
       ))}
       {exportValues && !rawOnly && (
         <div className="card-actions">
+          <button type="button" onClick={async () => {
+            const snapshot = { cohort, metric, publication, season, players: selected.map(({ datum }) => datum.playerId) };
+            try {
+              const svg = distributionSvg(snapshot.cohort, snapshot.metric, snapshot.publication, snapshot.season);
+              const blob = await svgPng(svg);
+              downloadBlob(blob, `hockey-stats-${snapshot.players.join("-")}-${snapshot.metric.id}-${snapshot.season.season}-distribution.png`);
+              setStatus("distribution png prepared");
+            } catch { setStatus("export failed; retry the download."); }
+          }}>download distribution png</button>
           <button
             type="button"
             onClick={() => {

@@ -426,7 +426,7 @@ export function analysisCsvRow(
     JSON.stringify(datum.support?.reason_counts ?? null),
     JSON.stringify(datum.methods.flatMap((method) => method.limitations)),
     JSON.stringify(datum.person?.teams ?? []),
-    datum.metric.strength,
+    datum.metric.selectionStrength ?? datum.metric.strength,
     JSON.stringify(datum.support?.inferred_inputs ?? null),
     datum.support?.current_season_information ?? null,
     JSON.stringify(datum.support?.prior_seasons ?? null),

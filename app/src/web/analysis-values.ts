@@ -114,7 +114,7 @@ export type AnalysisMetric = {
   readonly qualificationLabel: string;
   readonly observedPopulation?: "personal" | "onIce";
   readonly quantityPath?: typeof QuantityPath.Type;
-  readonly selectionStrength?: typeof import("../shared/player-analysis").ExecutionStrength.Type;
+  readonly selectionStrength?: typeof import("../shared/player-analysis").ExecutionStrength.Type | "ev" | "pk";
   readonly select: (inputs: ValueInputs) => SelectedValue;
 };
 
@@ -242,6 +242,7 @@ const definition = (
     : metric.unit === "goals_per_reference_basket" ? "goals per common workload"
     : metric.unit === "goals_per100_attempts" ? "goals per 100 attempts"
     : metric.unit === "goals_per100_assisted_opportunities" ? "goals per 100 setup opportunities"
+    : metric.unit === "goals_per100_on_net" ? "goals per 100 common on-net opportunities"
     : metric.unit === "minutes_per_appearance" ? "min per appearance"
     : metric.unit === "attempts_per60" ? "attempts per 60 min"
     : metric.unit === "xg_per60" ? "xg per 60 min"
@@ -837,21 +838,65 @@ const goalieFields = [
   "followup_danger_difference",
 ] as const;
 
+const goalieMeanings = {
+  stopping_goals_per100_on_net: {
+    label: "experimental stopping",
+    conditioning: "common on-net opportunities; neutral u/q weights, focal r/g only",
+    reference: "neutral minus focal goals allowed; positive means favorable stopping",
+  },
+  miss_probability: {
+    label: "miss probability",
+    conditioning: "given an unblocked opportunity",
+    reference: "focal goalie probability of a recorded miss",
+  },
+  recorded_stop_probability: {
+    label: "recorded stop probability",
+    conditioning: "given an on-net opportunity; immediate recorded stopped-save proxy",
+    reference: "focal goalie probability of a recorded stop; distinct from ordinary save percentage",
+  },
+  conversion_probability: {
+    label: "goal probability after no recorded stop",
+    conditioning: "given an on-net opportunity with no recorded stop",
+    reference: "focal goalie conditional goal probability; increasing means more goals allowed",
+  },
+  recorded_reattempt_probability: {
+    label: "next recorded same-team attempt probability",
+    conditioning: "given a neutral saved-shot reference opportunity; immediately next recorded same-team attempt within five seconds",
+    reference: "focal goalie probability under fixed neutral saved-shot weighting",
+  },
+  reattempt_neutral_goal_probability: {
+    label: "next-attempt neutral danger",
+    conditioning: "conditional on recorded reattempt; fully neutral successor all-attempt goal opportunity",
+    reference: "focal goalie h-weighted successor danger under fixed neutral saved-shot weighting",
+  },
+  followup_danger: {
+    label: "joint follow-up danger",
+    conditioning: "per neutral saved-shot reference opportunity; joint reattempt probability × next-attempt neutral danger inside each branch",
+    reference: "focal goalie joint h × d under fixed neutral saved-shot weighting",
+  },
+} as const;
+
 const goalie = (["ev", "pk"] as const).flatMap(strength =>
-  goalieFields.map(field => definition({
+  goalieFields.map(field => {
+    const difference = field.endsWith("_difference");
+    const name = (difference ? field.slice(0, -"_difference".length) : field) as keyof typeof goalieMeanings;
+    const meaning = goalieMeanings[name];
+    return definition({
     ...base,
     publicationFamily: "goalie",
     id: `goalie.${strength}.${field}`,
     quantityPath: `goalie_result.${field}`,
+    selectionStrength: strength,
     kind: "goalie",
     group: `goalie ${strength}`,
-    label: title(field),
+    label: `${meaning.label}${difference ? " difference" : ""}`,
     unit: field === "stopping_goals_per100_on_net" ? "goals_per100_on_net" : "fraction",
-    population: `goalie ${strength} conditional opportunities`,
-    qualificationLabel: `goalie ${strength} ${title(field)} support`,
-    numericReference: field.endsWith("difference") || field === "stopping_goals_per100_on_net"
-      ? "published neutral goalie forecast"
-      : "conditional probability",
+    population: `goalie ${strength === "ev" ? "ev (5v5/4v4/3v3)" : "pk (defending 4v5/3v5/3v4)"}; constituent common-panel masses pooled before normalization; ${meaning.conditioning}`,
+    qualificationLabel: `current-season supported goalie ${strength} elapsed minutes; coefficient information is separate`,
+    construction: "experimental season-level estimate; a next-recorded-attempt proxy, not proven physical rebound control; head-specific point priors may supply partial or prior-only estimates; h/d optimizer sensitivity is diagnostic and remaining accuracy may be unknown; no calibrated intervals",
+    numericReference: difference
+      ? "focal minus fully neutral probability, stored as a fraction; displayed in percentage points"
+      : meaning.reference,
     cutoff: strength === "ev" ? "general" : "specialty",
     select: inputs => fromResult(
       inputs.goalie(strength),
@@ -862,7 +907,8 @@ const goalie = (["ev", "pk"] as const).flatMap(strength =>
         `goalie.${strength}.support.${field}.included_seconds`
       )
     )
-  })),
+    });
+  }),
 );
 
 const ledgerTerms = [
@@ -1162,8 +1208,12 @@ function datum(
       : method?.support_policy_id ?? `selected_field.${metric.id}.published_support.v1`;
   const referenceId = method?.reference_id ?? "";
   const construction = selected.construction ?? source?.construction ?? metric.construction;
-  const population = source?.population ?? method?.population ?? metric.population;
-  const numericReference = method?.reference ?? metric.numericReference;
+  const population = metric.kind === "goalie"
+    ? metric.population
+    : source?.population ?? method?.population ?? metric.population;
+  const numericReference = metric.kind === "goalie"
+    ? metric.numericReference
+    : method?.reference ?? metric.numericReference;
   const semanticKey = JSON.stringify([
     metric.id,
     metric.unit,

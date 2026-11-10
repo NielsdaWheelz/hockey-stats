@@ -7,7 +7,7 @@ import {
   type ShouldRevalidateFunctionArgs,
 } from "react-router";
 import { HockeyId, type Team } from "../shared/observed";
-import type { SpatialStrength } from "../shared/player-analysis";
+import { ExecutionStrength, type SpatialStrength } from "../shared/player-analysis";
 import {
   analysisMetric,
   defaultAnalysisMetric,
@@ -303,10 +303,13 @@ export function analyticalMapSelection(metric: AnalysisMetric): {
     return { family: families[field], strength: metric.strength as typeof SpatialStrength.Type };
   }
   if (metric.publicationFamily === "execution") {
+    const strength = metric.selectionStrength;
+    if (!Schema.is(ExecutionStrength)(strength))
+      throw new Error("execution maps require an exact execution strength");
     if (metric.id.endsWith(".finishing_goals_per100_attempts"))
-      return { family: "finishing", strength: metric.selectionStrength! };
+      return { family: "finishing", strength };
     if (metric.id.endsWith(".setting_goals_per100_assisted_opportunities"))
-      return { family: "setting", strength: metric.selectionStrength! };
+      return { family: "setting", strength };
   }
   if (metric.id === "territory.ice_won_goals_per_basket") return { family: "ice_won", strength: "5v5" };
   if (metric.id === "territory.ice_lost_goals_per_basket") return { family: "ice_lost", strength: "5v5" };

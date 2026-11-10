@@ -124,7 +124,8 @@ def read_saved_spatial_evidence(path, expected_purpose, *, expected_family='ev',
     coverage_keys = ('purpose','season','games','players','player_reason_count_unit','physical_included_hours',
         'directed_included_hours','attempts','origin_mass','neutral_chance_mass','supported_players',
         'zero_information_roster_players','optional_missingness','unassigned_gap_game_ids')
-    _closed(coverage,(*coverage_keys,'state_support') if st else coverage_keys,'saved spatial coverage')
+    _closed(coverage,(*coverage_keys,'states','attacking_slot_hours','defending_slot_hours',
+        'ignored_shorthanded_attempts','state_support') if st else coverage_keys,'saved spatial coverage')
     require(coverage['purpose'] == expected_purpose and coverage['season'] == manifest['season'],
             'saved spatial coverage identity differs')
     for key in ('physical_included_hours','directed_included_hours','attempts','origin_mass','neutral_chance_mass'):
@@ -132,6 +133,41 @@ def read_saved_spatial_evidence(path, expected_purpose, *, expected_family='ev',
     require(publication.close(coverage['directed_included_hours'],coverage['physical_included_hours']*(1 if st else 2)),
             'saved spatial coverage directed/physical time differs')
     require(type(coverage['players']) is dict and type(coverage['games']) is list,'invalid saved spatial coverage collections')
+    if st:
+        raw_states = coverage['states']
+        require(type(raw_states) is list and [item.get('state') for item in raw_states] == list(publication.SPATIAL_STATES),
+                'saved specialty coverage states differ')
+        require(type(coverage['state_support']) is list and len(coverage['state_support']) == 3,'saved specialty baseline states missing')
+        publication.number(coverage['ignored_shorthanded_attempts'],minimum=0,integer=True)
+        for item,baseline,attackers,defenders in zip(raw_states,coverage['state_support'],(5,5,4),(4,3,3),strict=True):
+            _closed(item,('state','included_hours','attacking_slot_hours','defending_slot_hours','origin_mass',
+                'neutral_chance_mass','attempts','state_extrapolated'),'saved specialty raw state coverage')
+            for key in ('included_hours','attacking_slot_hours','defending_slot_hours','origin_mass','neutral_chance_mass','attempts'):
+                publication.number(item[key],minimum=0,integer=key == 'attempts')
+            require(type(item['state_extrapolated']) is bool and item['state_extrapolated'] == (item['included_hours'] == 0)
+                    and (item['included_hours'] > 0 or item['attempts'] == 0),'saved specialty state extrapolation/attempt support differs')
+            require(publication.close(item['attacking_slot_hours'],attackers*item['included_hours'])
+                    and publication.close(item['defending_slot_hours'],defenders*item['included_hours']),
+                    'saved specialty state skater-slot exposure differs')
+            seconds,origin = item['included_hours']*3600,item['origin_mass']
+            expected = dict(state=item['state'],physical_seconds=seconds,directed_seconds=seconds,
+                attempts=item['attempts'],origin_weight=origin,baseline_current_information=dict(
+                    volume=seconds > 0 or item['attempts'] > 0,shape=origin > 0,quality=origin > 0))
+            _closed(baseline,expected,'saved specialty baseline evidence')
+            _closed(baseline['baseline_current_information'],HEADS,'saved specialty baseline information')
+            for key in ('physical_seconds','directed_seconds','origin_weight','attempts'):
+                publication.number(baseline[key],minimum=0,integer=key == 'attempts')
+            require(all(type(flag) is bool for flag in baseline['baseline_current_information'].values()),
+                    'invalid saved specialty baseline information flags')
+            require(baseline['state'] == expected['state'] and baseline['attempts'] == expected['attempts']
+                    and baseline['baseline_current_information'] == expected['baseline_current_information']
+                    and all(publication.close(baseline[key],expected[key]) for key in ('physical_seconds','directed_seconds','origin_weight')),
+                    'saved specialty baseline differs from raw state coverage')
+        for raw_key,total_key in (('included_hours','physical_included_hours'),('attacking_slot_hours','attacking_slot_hours'),
+                ('defending_slot_hours','defending_slot_hours'),('origin_mass','origin_mass'),('neutral_chance_mass','neutral_chance_mass')):
+            publication.number(coverage[total_key],minimum=0)
+            require(publication.close(sum(item[raw_key] for item in raw_states),coverage[total_key]),'saved specialty coverage state sums differ')
+        require(sum(item['attempts'] for item in raw_states) == coverage['attempts'],'saved specialty attempt state counts differ')
     reference = read_json(root/'reference.json')
     _finite(reference,'saved spatial reference')
     _closed(reference,('kind','units','states','player_slots_by_state','context','basis_identity','annual_offsets','state_weights','heads','sha256')
@@ -197,7 +233,9 @@ def read_saved_spatial_evidence(path, expected_purpose, *, expected_family='ev',
     expected_support = {(player,role,head) for player in players for role in ROLES for head in HEADS}
     require({(item['player_id'],item.get('role'),item.get('head')) for item in supports} == expected_support
             and len(supports) == len(expected_support),'saved spatial head support missing/duplicate')
+    support_by_role = {}
     for item in supports:
+        support_by_role.setdefault((item['player_id'],item['role']),[]).append(item)
         _closed(item,('season','player_id','role','head','available','included_seconds','likelihood_events',
             'eligible_origin_weight','current_season_information','prior_only','prior_kind','prior_anchor_season','prior_seasons','reason',
             *(('state_support',) if st else ())), 'saved spatial head support')
@@ -214,6 +252,11 @@ def read_saved_spatial_evidence(path, expected_purpose, *, expected_family='ev',
         for strength in ((('pp','5v4','5v3','4v3') if role == 'offense' else ('pk','4v5','3v5','3v4')) if st else (None,))}
     require({(item['player_id'],item.get('role'),item.get('strength')) for item in adjustments} == expected_adjustments
             and len(adjustments) == len(expected_adjustments),'saved spatial adjustments missing/duplicate')
+    for item in projections:
+        if item['available']:
+            for role in ((item['role'],) if st else ROLES):
+                require(all(head['available'] for head in support_by_role[item['player_id'],role]),
+                        'saved available focal projection lacks a required coefficient head')
     for item in adjustments:
         _closed(item,('season','player_id','role','available','reason','exposure_seconds','map_index','attempts','xg',
             *(('strength','states') if st else ())), 'saved spatial adjustment')
@@ -229,10 +272,38 @@ def read_saved_spatial_evidence(path, expected_purpose, *, expected_family='ev',
         if item['available']:
             require(item['reason'] is None and item['exposure_seconds'] is not None and item['exposure_seconds'] > 0,
                     'saved available actual context lacks elapsed exposure')
+            require(all(head['available'] for head in support_by_role[item['player_id'],item['role']]),
+                    'saved available actual context lacks a required coefficient head')
         else:
             publication.text(item['reason'])
             require(item['exposure_seconds'] == (0 if item['reason'] == 'no_exposure' else None),
                     'saved unavailable actual context fabricates exposure')
+        selected_states = publication.spatial_selection(item['strength'])[1] if st else ('5v5',)
+        if st:
+            if item['available']:
+                require(type(item['states']) is list and [state.get('state') for state in item['states']] == list(selected_states),
+                        'saved specialty actual-context states differ')
+                for state in item['states']:
+                    _closed(state,('state','seconds','weight'),'saved specialty actual state')
+                    publication.number(state['seconds'],minimum=0)
+                    publication.number(state['weight'],minimum=0,maximum=1)
+                    require(publication.close(state['weight'],state['seconds']/item['exposure_seconds']),
+                            'saved specialty actual state weight differs')
+                require(publication.close(sum(state['seconds'] for state in item['states']),item['exposure_seconds'])
+                        and publication.close(sum(state['weight'] for state in item['states']),1),
+                        'saved specialty actual state exposure/weights do not close')
+            else:
+                require(item['states'] is None,'saved unavailable specialty context fabricates state weights')
+        for head in support_by_role[item['player_id'],item['role']]:
+            if not head['available']:
+                continue
+            source = head['state_support'] if st else [dict(state='5v5',included_seconds=head['included_seconds'])]
+            total = sum(state['included_seconds'] for state in source if state['state'] in selected_states)
+            if item['available'] or item['reason'] == 'no_exposure':
+                require(publication.close(total,item['exposure_seconds']), 'saved actual context and same-role head exposure differ')
+            if st and item['available']:
+                require(all(publication.close(state['seconds'],next(part['included_seconds'] for part in source if part['state'] == state['state']))
+                    for state in item['states']), 'saved specialty actual state and head exposure differ')
         for quantity in ('attempts','xg'):
             _closed(item[quantity],ADJUSTMENTS,'saved actual-context values')
             for value in item[quantity].values():

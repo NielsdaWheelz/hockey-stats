@@ -591,7 +591,7 @@ def build_publication(selection_path: Path, results_path: Path, output: Path) ->
         connection.execute("PRAGMA foreign_keys=ON")
         connection.execute("PRAGMA journal_mode=DELETE")
         connection.executescript(_SCHEMA + _SPATIAL_SCHEMA + analysis.SCHEMA)
-        connection.execute("PRAGMA user_version=8")
+        connection.execute("PRAGMA user_version=9")
         with connection:
             _insert(connection, "publication", metadata)
         for item, corpus_path in zip(selection["corpora"], paths):
@@ -660,7 +660,7 @@ def build_publication(selection_path: Path, results_path: Path, output: Path) ->
         require([tuple(r) for r in connection.execute("PRAGMA integrity_check")] == [("ok",)], "sqlite integrity check failed")
         require(not connection.execute("PRAGMA foreign_key_check").fetchall(), "sqlite foreign key check failed")
         require(connection.execute("PRAGMA journal_mode").fetchone()[0] == "delete", "publication requires delete journal mode")
-        require(connection.execute("PRAGMA user_version").fetchone()[0] == 8, "publication requires schema 8")
+        require(connection.execute("PRAGMA user_version").fetchone()[0] == 9, "publication requires schema 9")
         require(dict(connection.execute("SELECT * FROM publication").fetchone()) == metadata, "publication metadata read-back differs")
         require([r[0] for r in connection.execute("SELECT season FROM season ORDER BY season")] == [r["season"] for r in selection["corpora"]],
                 "stored season catalog differs")

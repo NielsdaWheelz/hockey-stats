@@ -1341,7 +1341,7 @@ def validate_spatial_evidence(value, row, catalogs):
     fields(value,('fit_family','annual_state','reference_sha256','state_support','roles','method_id'))
     _method(value['method_id'],catalogs)
     method = catalogs['method'][value['method_id']]
-    require(method['family'] == 'spatial', 'spatial evidence method family differs')
+    require(method['family'] == 'spatial' and row['season'] in method['fit_seasons'], 'spatial evidence method family/year differs')
     roles, states = spatial_selection(row['strength'])
     family_states = ('5v5',) if row['strength'] == '5v5' else SPATIAL_STATES
     require(value['fit_family'] == ('ev' if row['strength'] == '5v5' else 'st'), 'spatial evidence fit family differs')
@@ -1382,9 +1382,15 @@ def validate_spatial_evidence(value, row, catalogs):
             text(context['reason'])
             require(context['states'] is None and context['included_seconds'] == (0 if context['reason'] == 'no_exposure' else None),
                     'unavailable actual context fabricates exposure/weights')
+            if context['reason'] == 'no_exposure':
+                require(all(not head['available'] or close(sum(item['included_seconds'] for item in head['state_support']
+                        if item['state'] in states),0) for head in role['coefficient_support'].values()),
+                        'zero actual context has positive same-role/state head exposure')
             continue
         number(context['included_seconds'],minimum=0)
         require(context['reason'] is None and context['included_seconds'] > 0, 'available actual context lacks elapsed exposure')
+        require(all(head['available'] for head in role['coefficient_support'].values()),
+                'available actual context lacks a required coefficient head')
         actual = context['states']
         require(type(actual) is list and [item.get('state') for item in actual] == list(states), 'actual-context states differ')
         for item in actual:
@@ -1411,9 +1417,16 @@ def validate_spatial_evidence_selection(summary, evidence, adjustments, row, cat
     data = evidence['data']
     validate_spatial_evidence(data,row,catalogs)
     require(summary['data']['method_id'] == data['method_id'], 'spatial summary/evidence method differs')
+    states = ('5v4','5v3','4v3') if row['strength'] == 'pp' else ('4v5','3v5','3v4') if row['strength'] == 'pk' else (row['strength'],)
+    require(sorted(item['strength'] for item in summary['data']['state_weights']) == sorted(states),
+            'spatial summary standardized state selection differs')
     seconds = summary['data']['support']['included_seconds']
     for role in data['roles']:
         context = role['actual_context']
+        focal_values = [summary['data'][f"{role['role']}_{quantity}_{field}"]['value']
+            for quantity in ('attempts','xg') for field in ('per60','per60_complete','relative_percent')]
+        require(not any(value is not None for value in focal_values) or all(head['available'] for head in role['coefficient_support'].values()),
+                'available focal spatial projection lacks a required coefficient head')
         if seconds is not None and context['included_seconds'] is not None:
             require(close(seconds,context['included_seconds']), 'spatial summary and actual role time differ')
         prefix = 'for_' if role['role'] == 'offense' else 'against_'
@@ -1432,6 +1445,15 @@ def validate_spatial_evidence_selection(summary, evidence, adjustments, row, cat
                 require(all(estimate['value'] is None and estimate['reason_detail'] is not None
                         and bool(estimate['reason_detail']['explanation'].strip()) and estimate['unavailable_reason'] in reasons for estimate in values),
                         'unavailable actual-context adjustment reasons differ')
+
+
+def _spatial_evidence_binding(data, references, baselines):
+    reference = (data['fit_family'],data['annual_state']['uri'],data['annual_state']['sha256'],data['reference_sha256'])
+    require(references.setdefault(data['method_id'],reference) == reference, 'spatial method numerical reference differs between rows')
+    for state in data['state_support']:
+        key = (data['annual_state']['sha256'],state['state'])
+        baseline = json_bytes(state)
+        require(baselines.setdefault(key,baseline) == baseline, 'spatial annual baseline evidence differs between rows')
 
 
 def validate_payload(table, value, row, catalogs, *, person_kind=None):
@@ -1608,6 +1630,9 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
             require(abs(unadjusted+residual-factual) <= tolerance, 'adjustment does not close')
             require(abs(residual-(factual-unadjusted)) <= tolerance and abs(residual) <= tolerance,
                     'adjustment residual exceeds expression arithmetic tolerance')
+        else:
+            require(len({value[key]['unavailable_reason'] for key in names if value[key]['value'] is None}) == 1,
+                    'partial unavailable adjustment reasons differ')
     elif table in ('goalie_evidence_map','goalie_danger'):
         _goalie_distribution(table,value,catalogs)
         _actual_selection(value['actual_states'],row['strength'])
@@ -1956,7 +1981,7 @@ def _read_results(directory, manifest_name):
                 people_count = sum(person['season'] == family['season'] and ((person['kind'] == 'goalie') == (family['family'] == 'goalie')) for person in people.values())
                 require(member['rows'] == people_count * len(required_keys(table,family['family'])), f'{table}: missing promised person/selector rows')
         if spatial:
-            references = {}
+            references, baselines = {}, {}
             for key,evidence in spatial['spatial_evidence'].items():
                 year,player,strength = key
                 summary = spatial['skater_spatial'][key]
@@ -1964,9 +1989,7 @@ def _read_results(directory, manifest_name):
                     for selected,target in required_keys('adjustment_decomposition','spatial') if selected == strength]
                 validate_spatial_evidence_selection(summary,evidence,adjustments,dict(season=year,strength=strength),catalogs)
                 if evidence['availability'] == 'provided':
-                    data = evidence['data']
-                    reference = (data['fit_family'],data['annual_state']['uri'],data['annual_state']['sha256'],data['reference_sha256'])
-                    require(references.setdefault(data['method_id'],reference) == reference, 'spatial method numerical reference differs between rows')
+                    _spatial_evidence_binding(evidence['data'],references,baselines)
     require(inventory == sorted(set(inventory)) and set(inventory) == {(year,family) for year in manifest['seasons'] for family in FAMILY_TABLES}, 'missing/duplicate/unordered family dispositions')
     return result
 
@@ -2287,7 +2310,7 @@ def check_results(connection, results):
 
 
 def _check_spatial_evidence(connection, catalogs):
-    references = {}
+    references, baselines = {}, {}
     for row in connection.execute('SELECT * FROM spatial_evidence ORDER BY season,player_id,strength'):
         key = tuple(row[name] for name in ('season','player_id','strength'))
         summary = connection.execute('SELECT * FROM skater_spatial WHERE season=? AND player_id=? AND strength=?',key).fetchone()
@@ -2302,9 +2325,7 @@ def _check_spatial_evidence(connection, catalogs):
         evidence = stored_result(row)
         validate_spatial_evidence_selection(stored_result(summary),evidence,adjustments,row,catalogs)
         if evidence['availability'] == 'provided':
-            data = evidence['data']
-            reference = (data['fit_family'],data['annual_state']['uri'],data['annual_state']['sha256'],data['reference_sha256'])
-            require(references.setdefault(data['method_id'],reference) == reference,'spatial method numerical reference differs between stored rows')
+            _spatial_evidence_binding(evidence['data'],references,baselines)
 
 
 def _check_execution_evidence(connection):

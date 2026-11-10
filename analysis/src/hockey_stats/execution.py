@@ -1036,8 +1036,10 @@ def neutral_panel_event_masses(panel):
 
 def iter_neutral_origins(panel):
     """stream the checked pre-outcome joint goal probability at each origin."""
-    require(isinstance(panel, ExecutionPanel) and panel.strength == (5, 5, 1),
-            'spatial targets require the checked physical 5v5 panel with both goalies')
+    from .execution_scores import PANEL_STATES
+    require(isinstance(panel, ExecutionPanel) and all(type(value) is int for value in panel.strength)
+            and panel.strength in PANEL_STATES and panel.strength[2] == 1,
+            'spatial targets require a checked physical panel with both goalies')
     arrays = panel.arrays
     expected = panel.support_keys.get('neutral_goal_mass')
     require(type(expected) is dict and set(expected) == {event['key'] for event in panel.events},

@@ -1,0 +1,52 @@
+{
+  "status": "held_pending_explicit_heavy_slot_handoff",
+  "season": "20212022",
+  "source_commit": "ba41c2b8fe89977618fe4f0d3826592b60641f8e",
+  "analysis_tree": "856575a97f2ff6e004888e04f400b77834566f20",
+  "selected_games": 1312,
+  "prepared_member_bytes": 63710567455,
+  "score": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022/manifest.json",
+    "sha256": "37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d"
+  },
+  "basis": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+    "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509"
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-01/real/states/20212022",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/first-real-fit.sh",
+    "sha256": "016249ee5c0de1b5bb1604f29f94dc6996a41db633ee1a16bb17a222fb8e1322"
+  },
+  "scope": "one annual prepared pass, saved score validation, basis-only import, three baseline heads, full projections/accounting and strict read; no final-year continuations",
+  "new_execution_fits": 0,
+  "new_execution_scores": 0,
+  "new_preparations": 0,
+  "actual_runtime": "not_run; measure first complete triple before forecasting later years",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "hold": "v1-07 score20222023 pid74993 exit, four-small-document review and explicit handoff required",
+  "supersedes": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-preflight-02.json",
+    "sha256": "c5c4f6795935c99ff0061f8667dcbe180b2f3f0746207b667d4439bafa6dca98",
+    "reason": "canonical evidence metadata and isolated frozen producer source; no input rescan or numerical rerun"
+  },
+  "producer_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer",
+  "logs": {
+    "native_resource_log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-01/logs/20212022-fit.log",
+    "native_exit": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-01/logs/20212022-fit.exit"
+  },
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "coaches": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+  },
+  "basis_array_sha256": "4fa1d565e939dae706a7f3fa0d060b06b647602ba32d2850174b80c6267fa42b",
+  "queue": "after ready v1-18 one publication/strict startup, otherwise next released boundary; before goalie20232024; explicit ownership handoff required"
+}

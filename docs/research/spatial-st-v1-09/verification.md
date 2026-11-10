@@ -2,6 +2,12 @@
 
 status: implementation and bounded synthetic acceptance are in progress. real execution, the combined real exchange, inactive candidate and real browser acceptance remain pending. activation and scientific admission are separate and unassigned. [the plan](../../plan.md#current-boundary) owns assignment and sequencing.
 
+## coordinated schema9 handoff
+
+the user subsequently assigned final composition to v1-18's exchange3/schema9 hard cut. v1-18 owns the finite `spatial_evidence` projection, saved-only reader, converter for the frozen exchange2 donor and final shared exact-state selectors/client/history/table integration. v1-09 aligns its current st producer with the canonical attacker-oriented coverage/head/actual-context state records before real execution. this changes evidence transport, not the likelihood, raw history, fitted coefficients, reference vectors or native rates. normal readers must have one current version; no parallel exchange converter or backward-compatible serving path is added here.
+
+the existing nine synthetic heads, their three continuations and original artifacts remain preserved. schema8 checks below retain their original software scope and do not establish final schema9 acceptance. an attributed saved-only metadata handoff may reuse those fits; no fitting or map recalculation is required to resolve the protocol. the first synthetic candidate failed correctly because its historical demonstration ledger contained unrelated pp/pk values; production ledger checks stay strict. a separately attributed saved-results successor marks that synthetic ledger pending for v1-12 and copies other members unchanged. the failed candidate remains evidence.
+
 ## implementation boundary
 
 branch `implement/v1-09-special-teams`, worktree `/Users/nnandal/Documents/code/hockey-stats-v1-09`, base `08b5294`. commit `2da1da9` preserves the eleven supplied working documentation files; the primary checkout remains untouched. native subagents own source/state, numerical execution and application consumers. root integrates commands, composition and strict publication readers. each owner receives independent review before real execution.

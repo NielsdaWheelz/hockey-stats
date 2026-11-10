@@ -2471,7 +2471,9 @@ export const Envelope = Schema.Struct({
   supports: keyedSupports,
 });
 const spatialSummaries = result(
-  Schema.Array(Schema.Struct({ strength: SpatialStrength, result: SkaterSpatialResult })),
+  Schema.Array(Schema.Struct({ strength: SpatialStrength, result: SkaterSpatialResult })).check(
+    Schema.makeFilter(rows => rows.length === SpatialStrength.literals.length && unique(rows.map(row => row.strength))),
+  ),
 );
 const executionSummaries = result(
   Schema.Array(Schema.Struct({ strength: ExecutionStrength, result: SkaterExecutionResult })),

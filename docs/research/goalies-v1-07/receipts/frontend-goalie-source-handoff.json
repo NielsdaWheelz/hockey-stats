@@ -33,5 +33,24 @@
   },
   "numerical_read_or_rerun": false,
   "activation": false,
-  "scope": "source/software only; no runtime, real browser or heavy ownership release"
+  "scope": "source/software only; no runtime, real browser or heavy ownership release",
+  "content_followup": {
+    "status": "one_string_independently_reviewed",
+    "leaf": "333f6a74592315f1c431296ae30382743fac4b38",
+    "parent": "765628d2eaa1fbf635ae842c690da49f9cb44d39",
+    "source_worktree_head": "6556c9be18f3feba69095e9da2d319a9edcf503f",
+    "changed_paths": [
+      "app/src/web/analysis-values.ts"
+    ],
+    "sha256": "6807b73a56918b2a328980092ec6fa8e547a5952acac055dee2e1e242cf229c1",
+    "patch": {
+      "path": "/tmp/goalie-v1-07-checks/frontend-goalie-construction-followup.patch",
+      "sha256": "c26c47571ec34037d31cb8b7dd49f7b8678005e8d63759adde4b1e92ae0673ee",
+      "bytes": 1472
+    },
+    "reason": "the former global construction sentence incorrectly classified stopping/miss/recorded-stop/conversion as next-recorded-attempt proxies",
+    "replacement_clause": "reattempt and follow-up danger quantities use next-recorded-attempt proxies, not proven physical rebound control",
+    "checks": "author, independent api reviewer and root content review; exact one-string diff and whitespace pass; no unrelated rerun",
+    "runtime_build": "rebuild current source before the required final runtime journey"
+  }
 }

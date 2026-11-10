@@ -13,48 +13,8 @@ from .captures import strict_json
 from .chance_cli import identity, output_path
 
 YEARS = ('20212022','20222023','20232024','20242025','20252026')
-ACCEPTED_ROOT = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real')
-ACCEPTED_RESULTS_SHA256 = 'a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5'
+SELECTED_RESULTS_SHA256 = '8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee'
 ACCEPTED_SCORES_SHA256 = '588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e8c000f9450'
-
-
-def _accepted_source(results):
-    """pin combined spatial/execution facts, permitting compatible added families."""
-    if results.manifest['purpose'] != 'real':
-        return None
-    path = ACCEPTED_ROOT/'results'/'manifest.json'
-    require(identity(path)['sha256'] == ACCEPTED_RESULTS_SHA256, 'accepted combined result manifest digest differs')
-    accepted = strict_json(path.read_bytes())
-    for field in ('purpose','seasons','observed_bindings','prepared_sha256'):
-        require(results.manifest[field] == accepted[field], 'accepted combined '+field+' differs')
-    require(results.manifest['catalogs']['people'] == accepted['catalogs']['people'], 'accepted combined person identities differ')
-    families = {(row['season'],row['family']):row for row in results.manifest['families']}
-    for row in accepted['families']:
-        if row['family'] != 'goalie' and row['availability'] == 'provided':
-            require(families[row['season'],row['family']] == row, 'accepted non-goalie '+row['family']+' differs')
-    corrections = []
-    correction_ids = {'reference-xg-v1-06-'+year for year in accepted['seasons']}
-    for name,catalog,key in (('sources','source','source_id'),('methods','method','method_id'),('supports','support','support_id')):
-        member = accepted['catalogs'][name]
-        source = publication.member_path(path.parent,member)
-        require(identity(source)['sha256'] == member['sha256'], 'accepted combined '+name+' digest differs')
-        with source.open('rb') as stream:
-            for line in stream:
-                row = strict_json(line)
-                actual = results.catalogs[catalog].get(row[key])
-                if catalog == 'method' and row['method_id'] in correction_ids and actual != row:
-                    from .execution_composition import check_reference_xg_correction
-
-                    require(actual is not None, 'accepted combined reference-xg method missing')
-                    check_reference_xg_correction(row,actual)
-                    corrections.append(actual['evidence'][-1])
-                else:
-                    require(actual == row, 'accepted combined '+key+' differs')
-    require(not corrections or len(corrections) == len(accepted['seasons']) and all(item == corrections[0] for item in corrections),
-            'accepted combined reference-xg correction is incomplete or inconsistent')
-    selection_path = ACCEPTED_ROOT/'scores-selection.json'
-    require(identity(selection_path)['sha256'] == ACCEPTED_SCORES_SHA256, 'accepted execution selection digest differs')
-    return {row['season']:row['sha256'] for row in strict_json(selection_path.read_bytes())['scores']}
 
 
 def _annuals(selection_path, existing, prepared, base_scores):
@@ -121,13 +81,22 @@ def compose_goalie(prepared, combined_results, annual_goalie_scores, output):
     """copy inherited bytes, replace only goalie rows, and complete one strict exchange."""
     started = perf_counter()
     output = output_path(str(output),[])
-    existing = publication.read_results(Path(combined_results))
+    combined_results = Path(combined_results)
+    parent = combined_results/'manifest.json'
+    header = strict_json(parent.read_bytes())
+    if type(header) is dict and header.get('purpose') == 'real':
+        require(identity(parent)['sha256'] == SELECTED_RESULTS_SHA256, 'selected goalie composition parent digest differs')
+    existing = publication.read_results(combined_results)
     prepared = read_prepared(prepared,existing.manifest['purpose'])
     require(identity(prepared.directory/'manifest.json')['sha256'] == existing.manifest['prepared_sha256'], 'goalie composition preparation differs')
     prepared_selection = strict_json((prepared.directory/'selection.json').read_bytes())
     corpus = {row['season']:row['sha256'] for row in prepared_selection['seasons']}
     require(all(corpus.get(row['season']) == row['corpus_sha256'] for row in existing.manifest['observed_bindings']), 'goalie composition observed/source binding differs')
-    base_scores = _accepted_source(existing)
+    base_scores = None
+    if existing.manifest['purpose'] == 'real':
+        selection_path = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores-selection.json')
+        require(identity(selection_path)['sha256'] == ACCEPTED_SCORES_SHA256, 'accepted execution selection digest differs')
+        base_scores = {row['season']:row['sha256'] for row in strict_json(selection_path.read_bytes())['scores']}
     selection,annuals = _annuals(annual_goalie_scores,existing,prepared,base_scores)
     require(not any(output.is_relative_to(root) for root in
         [existing.directory,prepared.directory,*[annual.path.parent for annual in annuals.values()]]), 'goalie output must be outside input directories')

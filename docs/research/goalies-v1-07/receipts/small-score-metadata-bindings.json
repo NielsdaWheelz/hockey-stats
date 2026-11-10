@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "reason": "explicitly bind the six previously reviewed small metadata documents to both accepted manifests after finding missing member checks in the next temporary reviewer",
+  "scope": "two small manifests plus six small metadata members; hashes only; no JSON reductions, state coverage, source/body/array/evaluator or normal score reader",
+  "seasons": [
+    {
+      "season": "20212022",
+      "manifest_sha256": "086a70c4ca0b41329d6879ea83e9d61a02787f7885f5fee89afb2dee1fb7948f",
+      "members": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20212022/coverage.json",
+          "bytes": 2245469,
+          "sha256": "29553c90baf2a93009955e6d57a1fa1706ca6f57dd4ae8904a1f668dbfa86468"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20212022/catalogs.json",
+          "bytes": 12829,
+          "sha256": "3d07f5a6561e1ca6d8f7ab765bf31963898fde44509c567b9786895b3576cb1b"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20212022/sensitivity.json",
+          "bytes": 129,
+          "sha256": "fb153e2d868367da13a65aa037223e5868e306758c6d215aea5569d476507401"
+        }
+      ]
+    },
+    {
+      "season": "20222023",
+      "manifest_sha256": "15d959531ea2561660eb65151a19a007506fffff102b12f96aadc82000091253",
+      "members": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20222023/coverage.json",
+          "bytes": 2124608,
+          "sha256": "6a02178fda84775ffe35f50315c27a547dc94fc9721c71fdc776b9c8dbf0d551"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20222023/catalogs.json",
+          "bytes": 13097,
+          "sha256": "0520e382b395d67911ca517db4cb0cf2300ae153eb65f7b968e5c311df78aac6"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20222023/sensitivity.json",
+          "bytes": 129,
+          "sha256": "fb153e2d868367da13a65aa037223e5868e306758c6d215aea5569d476507401"
+        }
+      ]
+    }
+  ]
+}

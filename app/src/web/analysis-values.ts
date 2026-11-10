@@ -893,7 +893,7 @@ const goalie = (["ev", "pk"] as const).flatMap(strength =>
     unit: field === "stopping_goals_per100_on_net" ? "goals_per100_on_net" : "fraction",
     population: `goalie ${strength === "ev" ? "ev (5v5/4v4/3v3)" : "pk (defending 4v5/3v5/3v4)"}; constituent common-panel masses pooled before normalization; ${meaning.conditioning}`,
     qualificationLabel: `current-season supported goalie ${strength} elapsed minutes; coefficient information is separate`,
-    construction: "experimental season-level estimate; a next-recorded-attempt proxy, not proven physical rebound control; head-specific point priors may supply partial or prior-only estimates; h/d optimizer sensitivity is diagnostic and remaining accuracy may be unknown; no calibrated intervals",
+    construction: "experimental season-level estimate; reattempt and follow-up danger quantities use next-recorded-attempt proxies, not proven physical rebound control; head-specific point priors may supply partial or prior-only estimates; h/d optimizer sensitivity is diagnostic and remaining accuracy may be unknown; no calibrated intervals",
     numericReference: difference
       ? "focal minus fully neutral probability, stored as a fraction; displayed in percentage points"
       : meaning.reference,

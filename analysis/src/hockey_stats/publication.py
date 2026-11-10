@@ -83,7 +83,7 @@ _METRICS = """
 _SCHEMA = """
 CREATE TABLE publication (
     id INTEGER PRIMARY KEY CHECK(id=1),
-    schema_version INTEGER NOT NULL CHECK(schema_version=8),
+    schema_version INTEGER NOT NULL CHECK(schema_version=9),
     kind TEXT NOT NULL CHECK(kind='player_analysis'),
     publication_id TEXT NOT NULL,
     purpose TEXT NOT NULL CHECK(purpose IN ('real','fixture')),
@@ -575,7 +575,7 @@ def build_publication(selection_path: Path, results_path: Path, output: Path) ->
     }
     publication_id = str(uuid.uuid4())
     metadata = {
-        "id": 1, "schema_version": 8, "kind": "player_analysis", "publication_id": publication_id,
+        "id": 1, "schema_version": 9, "kind": "player_analysis", "publication_id": publication_id,
         "purpose": selection["purpose"], "game_type": 2,
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "population_version": "matched_attempts_v2", "personal_population_version": "matched_personal_credits_v2",

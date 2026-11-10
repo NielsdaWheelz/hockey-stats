@@ -48,6 +48,208 @@ class SpatialState:
         return dict(status='passed' if all(c['status']=='passed' for c in comparisons.values()) else 'failed',heads=comparisons)
 
 
+@dataclass(frozen=True)
+class SavedSpatialEvidence:
+    path: Path
+    manifest: dict
+    coverage: dict
+    reference: dict
+    projections: list
+    adjustments: list
+    coefficient_support: list
+
+
+def read_saved_spatial_evidence(path, expected_purpose, *, expected_family='ev', expected_recipe=None):
+    """read only bound saved evidence; source locators are provenance, never io."""
+    from . import analysis_publication as publication
+
+    root = Path(path).resolve(strict=True)
+    if root.is_file():
+        require(root.name == 'manifest.json','expected spatial manifest')
+        root = root.parent
+    require(expected_family in ('ev','st'),'invalid spatial evidence family')
+    st = expected_family == 'st'
+    manifest = read_json(root/'manifest.json')
+    _closed(manifest,MANIFEST_KEYS + (['family','basis_source'] if st else []),'saved spatial manifest')
+    _finite(manifest,'saved spatial manifest')
+    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 1
+            and manifest['kind'] == ('spatial_st_state' if st else 'spatial_state')
+            and manifest['purpose'] == expected_purpose and expected_purpose in ('real','fixture'),
+            'saved spatial schema/purpose differs')
+    year = _season(manifest['season'])
+    recipe = expected_recipe if st else RECIPE
+    require(recipe is not None and manifest['recipe_id'] == 'experimental-v1' and manifest['recipe'] == recipe,
+            'saved spatial recipe differs')
+    if st:
+        require(manifest['family'] == 'st','saved specialty family differs')
+        _binding(manifest['basis_source'],'saved specialty basis')
+    digest(manifest['design_identity'])
+    for key in ('prepared','coaches','valued'):
+        _binding(manifest[key],key)
+        require(manifest[key].get('purpose',expected_purpose) == expected_purpose,'saved spatial input purpose differs')
+        require(manifest[key].get('season',manifest['season']) == manifest['season'],'saved spatial target year differs')
+    previous = manifest['previous']
+    if previous is not None:
+        _closed(previous,('path','sha256','season','purpose','usage'),'saved spatial predecessor')
+        _binding(previous,'saved spatial predecessor')
+        require(previous['purpose'] == expected_purpose and previous['season'] == f'{year-1}{year}'
+                and previous['usage'] == 'annual','saved spatial predecessor differs')
+    else:
+        require(expected_purpose != 'real' or manifest['season'] == '20212022','saved real spatial predecessor missing')
+    require(type(manifest['heads']) is list and [item.get('head') for item in manifest['heads']] == list(HEADS),
+            'saved spatial head descriptors differ')
+    for item in manifest['heads']:
+        _closed(item,('head','status','arrays'),'saved spatial head descriptor')
+        require(item['status'] in ('complete','unavailable','failed'),'invalid saved spatial head status')
+        require(type(item['arrays']) is dict,'invalid saved spatial array identities')
+    head_status = {item['head']:item['status'] for item in manifest['heads']}
+    consumed = {'coefficient-support.jsonl':'coefficient_support','projections.jsonl':'projections',
+                'adjustments.jsonl':'adjustments','reference.json':'reference','coverage.json':'coverage'}
+    require(type(manifest['files']) is list,'missing saved spatial member list')
+    members = {}
+    for item in manifest['files']:
+        _closed(item,('role','path','sha256'),'saved spatial member')
+        digest(item['sha256'])
+        part = Path(item['path'])
+        require(type(item['path']) is str and item['path'] and not part.is_absolute()
+                and part.as_posix() == item['path'] and all(p not in ('.','..') for p in part.parts)
+                and item['path'] not in members,'invalid/duplicate saved spatial member')
+        members[item['path']] = item
+    require(consumed.keys() <= members.keys(),'missing saved spatial evidence member')
+    for name,role in consumed.items():
+        require(members[name]['role'] == role,'saved spatial member role differs')
+        require(identity(_member(root,name))['sha256'] == members[name]['sha256'],'saved spatial evidence digest differs')
+    coverage = read_json(root/'coverage.json')
+    _finite(coverage,'saved spatial coverage')
+    coverage_keys = ('purpose','season','games','players','player_reason_count_unit','physical_included_hours',
+        'directed_included_hours','attempts','origin_mass','neutral_chance_mass','supported_players',
+        'zero_information_roster_players','optional_missingness','unassigned_gap_game_ids')
+    _closed(coverage,(*coverage_keys,'state_support') if st else coverage_keys,'saved spatial coverage')
+    require(coverage['purpose'] == expected_purpose and coverage['season'] == manifest['season'],
+            'saved spatial coverage identity differs')
+    for key in ('physical_included_hours','directed_included_hours','attempts','origin_mass','neutral_chance_mass'):
+        publication.number(coverage[key],minimum=0,integer=key == 'attempts')
+    require(publication.close(coverage['directed_included_hours'],coverage['physical_included_hours']*(1 if st else 2)),
+            'saved spatial coverage directed/physical time differs')
+    require(type(coverage['players']) is dict and type(coverage['games']) is list,'invalid saved spatial coverage collections')
+    reference = read_json(root/'reference.json')
+    _finite(reference,'saved spatial reference')
+    _closed(reference,('kind','units','states','player_slots_by_state','context','basis_identity','annual_offsets','state_weights','heads','sha256')
+            if st else ('kind','units','player_slots_per_role','context','basis_identity','annual_offsets','heads','sha256'),
+            'saved spatial reference')
+    digest(reference['sha256'])
+    body = {key:value for key,value in reference.items() if key != 'sha256'}
+    require(hashlib.sha256(json.dumps(body,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest() == reference['sha256'],
+            'saved spatial numerical reference digest differs')
+    require(reference['units'] == 'per_hour' and reference['basis_identity'] == manifest['basis_identity'],
+            'saved spatial reference units/basis differs')
+    projections = list(rows(root/'projections.jsonl'))
+    supports = list(rows(root/'coefficient-support.jsonl'))
+    adjustments = list(rows(root/'adjustments.jsonl'))
+    for values in (projections,supports,adjustments):
+        for item in values:
+            _finite(item,'saved spatial evidence row')
+            require(item.get('season') == manifest['season'],'saved spatial row year differs')
+            publication.identifier(item.get('player_id'))
+    players = list(dict.fromkeys(item['player_id'] for item in projections))
+    require(players == sorted(players) and set(players) == set(coverage['players']), 'saved spatial roster/order differs')
+    projection_keys = ('season','player_id','available','reason','values','support','reference_id','units','uncertainty')
+    for item in projections:
+        _closed(item,(*projection_keys,'strength','role','state_weights','map_index') if st else projection_keys,'saved spatial projection')
+        require(item['reference_id'] == reference['sha256'] and item['units'] == 'per_hour'
+                and item['uncertainty'] == 'not_estimated' and type(item['available']) is bool,
+                'saved spatial projection reference/units/availability differs')
+        require(item['available'] == all(status == 'complete' for status in head_status.values()),
+                'saved spatial projection availability differs from heads')
+        if item['available']:
+            require(item['reason'] is None,'available saved spatial projection has a reason')
+        else:
+            publication.text(item['reason'])
+        publication.support(item['support'])
+        _closed(item['values'],ROLES,'saved spatial projection values')
+        if st:
+            require(item['strength'] in publication.SPATIAL_STRENGTHS and item['strength'] != '5v5'
+                    and publication.spatial_selection(item['strength'])[0] == (item['role'],), 'saved specialty projection role differs')
+        for role,values in item['values'].items():
+            _closed(values,('attempts','xg'),'saved spatial quantities')
+            available = item['available'] and (not st or item['role'] == role)
+            for value in values.values():
+                _closed(value,('difference','complete','neutral','relative_percent'),'saved spatial scalar projection')
+                for key in value:
+                    publication.number(value[key],nullable=True,minimum=0 if key in ('complete','neutral') else None)
+                require((value['difference'] is not None) == available and (value['complete'] is not None) == available
+                        and (value['neutral'] is not None) == available and (available or value['relative_percent'] is None),
+                        'saved spatial projection value availability differs')
+                if available:
+                    require(publication.close(value['difference'],value['complete']-value['neutral']), 'saved spatial scalar contrast differs')
+                    require(value['relative_percent'] is None if value['neutral'] == 0 else value['relative_percent'] is not None
+                            and publication.close(value['relative_percent'],100*value['difference']/value['neutral']),
+                            'saved spatial relative percent differs')
+            if available:
+                for suffix in ('complete','neutral'):
+                    require(values['xg'][suffix] <= values['attempts'][suffix], 'saved spatial xg exceeds attempts')
+    selectors = ('pp','5v4','5v3','4v3','pk','4v5','3v5','3v4') if st else (None,)
+    key = lambda item: (item['player_id'],item.get('strength'))
+    require(len(projections) == len(players)*len(selectors) and len({key(item) for item in projections}) == len(projections),
+            'saved spatial projection keys are missing/duplicate')
+    if st:
+        require({item['strength'] for item in projections} == set(selectors),'saved specialty projection selectors differ')
+    expected_support = {(player,role,head) for player in players for role in ROLES for head in HEADS}
+    require({(item['player_id'],item.get('role'),item.get('head')) for item in supports} == expected_support
+            and len(supports) == len(expected_support),'saved spatial head support missing/duplicate')
+    for item in supports:
+        _closed(item,('season','player_id','role','head','available','included_seconds','likelihood_events',
+            'eligible_origin_weight','current_season_information','prior_only','prior_kind','prior_anchor_season','prior_seasons','reason',
+            *(('state_support',) if st else ())), 'saved spatial head support')
+        value = {k:v for k,v in item.items() if k not in ('season','player_id','role','head')}
+        require(not item['available'] or head_status[item['head']] == 'complete', 'saved spatial support is available for an incomplete head')
+        if not st:
+            value['state_support'] = [dict(state='5v5',**{k:item[k] for k in
+                ('included_seconds','likelihood_events','eligible_origin_weight')})] if item['available'] else None
+        publication._spatial_head_support(value,manifest['season'],publication.SPATIAL_STATES if st else ('5v5',))
+        if item['available']:
+            informed = item['included_seconds'] > 0 or item['likelihood_events'] > 0 if item['head'] == 'volume' else item['eligible_origin_weight'] > 0
+            require(item['current_season_information'] == informed,'saved spatial head information flag differs')
+    expected_adjustments = {(player,role,strength) for player in players for role in ROLES
+        for strength in ((('pp','5v4','5v3','4v3') if role == 'offense' else ('pk','4v5','3v5','3v4')) if st else (None,))}
+    require({(item['player_id'],item.get('role'),item.get('strength')) for item in adjustments} == expected_adjustments
+            and len(adjustments) == len(expected_adjustments),'saved spatial adjustments missing/duplicate')
+    for item in adjustments:
+        _closed(item,('season','player_id','role','available','reason','exposure_seconds','map_index','attempts','xg',
+            *(('strength','states') if st else ())), 'saved spatial adjustment')
+        index = players.index(item['player_id'])
+        role_index = ROLES.index(item['role'])
+        if st:
+            family = ('pp','5v4','5v3','4v3') if item['role'] == 'offense' else ('pk','4v5','3v5','3v4')
+            require(item['map_index'] == [index,family.index(item['strength']),role_index], 'saved specialty adjustment index differs')
+        else:
+            require(item['map_index'] == [index,role_index], 'saved spatial adjustment index differs')
+        require(type(item['available']) is bool,'invalid saved spatial adjustment availability')
+        publication.number(item['exposure_seconds'],minimum=0,nullable=True)
+        if item['available']:
+            require(item['reason'] is None and item['exposure_seconds'] is not None and item['exposure_seconds'] > 0,
+                    'saved available actual context lacks elapsed exposure')
+        else:
+            publication.text(item['reason'])
+            require(item['exposure_seconds'] == (0 if item['reason'] == 'no_exposure' else None),
+                    'saved unavailable actual context fabricates exposure')
+        for quantity in ('attempts','xg'):
+            _closed(item[quantity],ADJUSTMENTS,'saved actual-context values')
+            for value in item[quantity].values():
+                publication.number(value,nullable=True)
+            require(all((value is not None) == item['available'] for value in item[quantity].values()),
+                    'saved actual-context value availability differs')
+            if item['available']:
+                terms = [item[quantity][name] for name in ADJUSTMENTS[:5]]
+                factual,residual = item[quantity]['factual'],item[quantity]['residual']
+                tolerance = 1e-10*(1+abs(factual)+sum(abs(term) for term in terms))
+                total = sum(terms)
+                require(math.isfinite(tolerance) and math.isfinite(total) and abs(total+residual-factual) <= tolerance
+                        and abs(residual-(factual-total)) <= tolerance and abs(residual) <= tolerance,
+                        'saved actual-context closure/residual differs')
+    return SavedSpatialEvidence(root,manifest,coverage,reference,projections,adjustments,supports)
+
+
 def _closed(value, keys, label):
     require(type(value) is dict and set(value)==set(keys), f'{label}: invalid fields')
 

@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "kind": "player_analysis_results",
   "purpose": "fixture",
   "seasons": [
@@ -40,8 +40,8 @@
     },
     "methods": {
       "path": "methods.jsonl",
-      "sha256": "88528afd0fe300c9725f011998a785b1119e197e609c22400df7731c5595caed",
-      "rows": 9
+      "sha256": "76771d0fa0819bb8e495fa90ffcf01b1ae24d3424ab60c3010e5044b30bd1bae",
+      "rows": 10
     },
     "supports": {
       "path": "supports.jsonl",
@@ -242,7 +242,7 @@
       "tables": {
         "skater_spatial": {
           "path": "20232024-spatial-skater_spatial.jsonl",
-          "sha256": "1fa2d27daa6446339f903fb957c52771be48e823a1ec5272ffcd4fbe019f8d96",
+          "sha256": "13e2a435ca1937db206b127f71149cc223e6c5236d79b3950f9869bdd3b1330a",
           "rows": 756
         },
         "analysis_map": {
@@ -252,8 +252,13 @@
         },
         "adjustment_decomposition": {
           "path": "20232024-spatial-adjustment_decomposition.jsonl",
-          "sha256": "c672ab44c6649875781b849304e207b49ed8a7e1f49ea6b12f4c801377357069",
+          "sha256": "028d81a26b29160b5e581f03014670f0db87e5f93d7cc0eb914e41865742b769",
           "rows": 1680
+        },
+        "spatial_evidence": {
+          "path": "20232024-spatial-spatial_evidence.jsonl",
+          "rows": 756,
+          "sha256": "437c0fd2a4fa44a811075041d6040c4e6ba048bd85459475aec4425ea8938cdc"
         }
       }
     },

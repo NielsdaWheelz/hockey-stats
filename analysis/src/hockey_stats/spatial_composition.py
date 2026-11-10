@@ -33,6 +33,7 @@ class _AnnualProjection:
     projections: list
     projection_arrays: dict
     adjustments: list
+    evidence: object = None
 
 
 
@@ -116,7 +117,7 @@ def _product_admission(path, selection_path, purpose):
 
 
 def _states(selection_path, results, admission=None):
-    from .spatial_state import read_spatial_state
+    from .spatial_state import SavedSpatialEvidence, read_spatial_state
 
     selection = strict_json(Path(selection_path).read_bytes())
     require((admission is not None) == (results.manifest['purpose'] == 'real'), 'spatial product admission purpose differs')
@@ -156,7 +157,8 @@ def _states(selection_path, results, admission=None):
         display = item['season'] in results.manifest['seasons']
         annuals[item['season']] = _AnnualProjection(state.path, manifest,
             state.projections if display else [], state.projection_arrays if display else {},
-            state.adjustments if display else [])
+            state.adjustments if display else [], SavedSpatialEvidence(state.path,manifest,state.design.coverage,
+                state.reference,state.projections,state.adjustments,state.coefficient_support) if display else None)
         # the detached reader checked the design and heads; publication only
         # retains their saved projections. release each design before the next.
         del state
@@ -185,6 +187,60 @@ def _datum(value, method, person, *, reason=None):
     if value is None:
         result['reason_detail']['evidence'] = [dict(kind='method', id=method), *person['source']]
     return result
+
+
+def spatial_evidence_rows(year, state, people, method_id):
+    """project saved support; no design, coefficient arrays or rate evaluation."""
+    require(state.manifest['season'] == year,'spatial evidence projection year differs')
+    st = state.manifest['kind'] == 'spatial_st_state'
+    support = {(item['player_id'],item['role'],item['head']):item for item in state.coefficient_support}
+    adjustments = {(item['player_id'],item['role'],item.get('strength')):item for item in state.adjustments}
+    pending = dict(availability='not_computed',explanation='special-team spatial estimation awaits v1-09',data=None)
+    annual = dict(uri=str(state.path/'manifest.json'),sha256=identity(state.path/'manifest.json')['sha256'])
+    if st:
+        baseline = state.coverage['state_support']
+    else:
+        seconds = state.coverage['directed_included_hours']*3600
+        origin = state.coverage['origin_mass']
+        baseline = [dict(state='5v5',physical_seconds=state.coverage['physical_included_hours']*3600,
+            directed_seconds=seconds,attempts=state.coverage['attempts'],origin_weight=origin,
+            baseline_current_information=dict(volume=seconds > 0 or state.coverage['attempts'] > 0,shape=origin > 0,quality=origin > 0))]
+    for person in people:
+        player = person['player_id']
+        for strength in sorted(publication.SPATIAL_STRENGTHS):
+            if st and strength == '5v5':
+                continue
+            if not st and strength != '5v5':
+                yield dict(season=year,player_id=player,strength=strength,result=pending)
+                continue
+            roles, states = publication.spatial_selection(strength)
+            role_evidence = []
+            for role in roles:
+                heads = {}
+                for head in ('volume','shape','quality'):
+                    saved = support.get((player,role,head))
+                    if saved is None:
+                        heads[head] = dict(available=False,included_seconds=None,likelihood_events=None,eligible_origin_weight=None,
+                            current_season_information=None,prior_only=None,prior_kind=None,prior_anchor_season=None,
+                            prior_seasons=[],state_support=None,reason='published skater has no saved prepared-roster coefficient; no neutral substitution')
+                        continue
+                    value = {key:value for key,value in saved.items() if key not in ('season','player_id','role','head')}
+                    if not st:
+                        value['state_support'] = [dict(state='5v5',**{key:saved[key] for key in
+                            ('included_seconds','likelihood_events','eligible_origin_weight')})] if saved['available'] else None
+                    heads[head] = value
+                saved = adjustments.get((player,role,strength if st else None))
+                if saved is None:
+                    context = dict(available=False,included_seconds=None,states=None,
+                        reason='published skater has no saved actual-context projection')
+                else:
+                    seconds = saved['exposure_seconds']
+                    context = dict(available=saved['available'],included_seconds=seconds,reason=saved['reason'],
+                        states=saved['states'] if st else [dict(state='5v5',seconds=seconds,weight=1.)] if saved['available'] else None)
+                role_evidence.append(dict(role=role,coefficient_support=heads,actual_context=context))
+            value = dict(fit_family='st' if st else 'ev',annual_state=annual,reference_sha256=state.reference['sha256'],
+                state_support=[item for item in baseline if item['state'] in states],roles=role_evidence,method_id=method_id)
+            yield dict(season=year,player_id=player,strength=strength,result=dict(availability='provided',explanation=None,data=value))
 
 
 def _method(year, state, annuals, purpose, source_sha, receipt, admission=None):
@@ -227,7 +283,7 @@ def _method(year, state, annuals, purpose, source_sha, receipt, admission=None):
                              'defensive positive differences mean more against; higher percentiles mean higher rates, not greater benefit',
                              'aggregate support is the common matched physical-time population and any contributing focal information; it does not establish current evidence for each volume, shape or quality term',
                              'spatial support reason counts are games with a located excluded segment, counted once per reason code; codes can overlap within a game',
-                             'head support is saved in the bound receipt; structured head and actual-context adjustment presentation remain separate work', *warning],
+                             'structured spatial evidence exposes saved head support and actual-context adjustments; aggregate qualification does not establish information for every head', *warning],
                 evidence=evidence, purpose=purpose, inputs=inputs, reference_id=REFERENCE, support_policy_id=POLICY,
                 assessment=dict(status='experimental', findings=findings))
 
@@ -300,7 +356,9 @@ def _season_tables(year, state, people, method):
                                                      ('coaching_other_context', 'coaching_other_context'), ('numerical_residual', 'residual'), ('factual_prediction', 'factual'))}
                     result = dict(availability='provided', explanation=None, data=values | dict(method_id=method))
                 yield dict(season=year, player_id=person['player_id'], strength=strength, target=target, result=result)
-    return dict(skater_spatial=scalars(), analysis_map=maps(), adjustment_decomposition=decomposition())
+    require(state.evidence is not None,'spatial composition lacks saved support evidence')
+    return dict(skater_spatial=scalars(), analysis_map=maps(), adjustment_decomposition=decomposition(),
+                spatial_evidence=spatial_evidence_rows(year,state.evidence,people,method))
 
 
 def compose_results(existing_results, state_selection, output, *, product_admission=None):

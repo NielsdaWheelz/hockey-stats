@@ -49,7 +49,7 @@ const Producer = Schema.Struct({
 const PublicationRow = Schema.Struct({
   prepared_sha256: Schema.NullOr(A.Digest),
   id: Schema.Literal(1),
-  schema_version: Schema.Literal(8),
+  schema_version: Schema.Literal(9),
   kind: Schema.Literal("player_analysis"),
   publication_id: A.Publication.fields.publication_id,
   purpose: A.Purpose,
@@ -135,7 +135,7 @@ export const publicationLayer = (filename: string) =>
       const metadata = yield* Effect.try(() =>
         decode(A.Publication, {
           publication_id: stored.publication_id,
-          schema_version: 8,
+          schema_version: 9,
           kind: stored.kind,
           purpose: stored.purpose,
           generated_at: stored.generated_at,

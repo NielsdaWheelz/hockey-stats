@@ -1,0 +1,99 @@
+{
+  "kind": "temporary-st-saved-json-audit",
+  "status": "passed",
+  "inputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/manifest.json",
+      "sha256": "7ec561e9c273b833339b8446d7e1a2bb6d0c422d536f72c2c534f71930e16c61",
+      "bytes": 366247
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/docs/research/spatial-st-v1-09/receipts/first-real-retry-held-04.json",
+      "sha256": "ab33a95c58371d2c65574fab0265f4da7394cecf120c93cb392af5a95133e750",
+      "bytes": 4165
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/heads/volume.json",
+      "sha256": "99d8b83f87d66f5230e7c5a26f65d701f2d0e920df995b23a1f378e17cbddeb7",
+      "bytes": 2204157
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/heads/shape.json",
+      "sha256": "1fbee9d038a6e0e8a29c6cd76e2afac7c73fb1fe113d1b4da8ddb6fea9b1a815",
+      "bytes": 7616816
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/heads/quality.json",
+      "sha256": "563dce98ec0e80a9f6de890acd63220da35f5d885ea2f596e0dc7a578f0045b9",
+      "bytes": 7737174
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/coverage.json",
+      "sha256": "3c80e55968d9d469b01b09b9dfddb780eada467364982b8e66f71f3429f94a04",
+      "bytes": 12898639
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/reference.json",
+      "sha256": "ffbc90b70e74336ee3779290346c91582c6ca50e5c06639e3a5290aed6d909c9",
+      "bytes": 923870
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/coefficient-support.jsonl",
+      "sha256": "0491d77bec14fdda526d30bc169418b64b60b285f7ba0a8e5316ef63de4cee0b",
+      "bytes": 3745989,
+      "complete": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/projections.jsonl",
+      "sha256": "0426a5cf218b39214d3d2be802b471339c60189fb23bbe0fc34818e081eee764",
+      "bytes": 8652937,
+      "complete": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/adjustments.jsonl",
+      "sha256": "6067e01d2489df2a9a82b5d2f1847d15ec7bf0f86b3720437ee38c367ed5aefd",
+      "bytes": 4950696,
+      "complete": true
+    }
+  ],
+  "season": "20212022",
+  "players": 1004,
+  "baseline_heads": 3,
+  "state_weights": {
+    "5v4": 0.9706402695282834,
+    "5v3": 0.017586748472435305,
+    "4v3": 0.011772981999281144
+  },
+  "reference_sha256": "e849b05e373e44c01935a927fe64a4e11394029e449f77f8c3aab4ad99a271c3",
+  "basis_source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+    "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509",
+    "archive": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/design.npz",
+      "sha256": "daa879d5e036b77c85957952cea642a7883750db48d5aca6ac4c9f7508f12a5a"
+    }
+  },
+  "producer": {
+    "git_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "diagnostics": {
+    "status": "unassessed",
+    "reason": "earlier_annual_not_assessed"
+  },
+  "gradient_inf_norms": {
+    "volume": 0.002603422661195509,
+    "shape": 0.0023276264506222333,
+    "quality": 0.00016855091694711888
+  },
+  "scope": "saved-json arithmetic, bindings, raw history, center transfers, scalar mixtures and accounting; no source, arrays, model/evaluator, objective, native-map proof or scientific admission",
+  "resources": {
+    "wall_seconds": 0.604833000106737,
+    "read_bytes": 49100690,
+    "peak_rss_bytes": 164397056
+  }
+}

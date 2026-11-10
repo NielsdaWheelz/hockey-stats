@@ -1,0 +1,919 @@
+{
+  "kind": "st-first-real-retry-native-boundary-metadata",
+  "checked_at_utc": "2026-11-10T13:45:22.950040+00:00",
+  "output_root": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02",
+  "season": "20212022",
+  "native_exit_status": 0,
+  "native_wall_seconds": 5091.46,
+  "native_user_seconds": 4677.6,
+  "native_sys_seconds": 30.49,
+  "native_peak_rss_bytes": 5325340672,
+  "native_peak_footprint_bytes": 4730622608,
+  "preserved_native_evidence": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-fit-01.log",
+      "bytes": 864,
+      "sha256": "8d25cfe1a9225973378244f729ddf0d8cc56ba69f1b10fbf5ca4795e28426270"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-fit-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ],
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/manifest.json",
+    "bytes": 366247,
+    "sha256": "7ec561e9c273b833339b8446d7e1a2bb6d0c422d536f72c2c534f71930e16c61"
+  },
+  "manifest_keys": [
+    "schema_version",
+    "kind",
+    "purpose",
+    "season",
+    "recipe_id",
+    "recipe",
+    "design_identity",
+    "implementation",
+    "prepared",
+    "coaches",
+    "valued",
+    "previous",
+    "basis_identity",
+    "training_cutoff",
+    "heads",
+    "files",
+    "resources",
+    "family",
+    "basis_source"
+  ],
+  "manifest_header": {
+    "kind": "spatial_st_state",
+    "purpose": "real",
+    "family": "st",
+    "season": "20212022",
+    "status": null,
+    "implementation": {
+      "git_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+      "git_dirty": false,
+      "python_version": "3.14.8",
+      "numpy_version": "2.5.3",
+      "scipy_version": "1.18.1",
+      "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    },
+    "resources": {
+      "design": {
+        "design_wall_seconds": 4029.761336666066,
+        "input_read_bytes": 63680984808,
+        "time_rows": 166994,
+        "event_rows": 19270,
+        "columns": 2443,
+        "actor_columns": 2141,
+        "context_columns": 302,
+        "design_bytes": 548565780,
+        "input_read_wall_seconds": 1.1738849580287933
+      },
+      "fit_wall_seconds": 517.6128331248183,
+      "peak_rss_bytes": 4439703552,
+      "projection": {
+        "wall_seconds": 490.8556293330621,
+        "players": 1004,
+        "actual_context": true,
+        "population": "every identified annual roster skater, each specialist role, exact states and common league mixture",
+        "reference_id": "e849b05e373e44c01935a927fe64a4e11394029e449f77f8c3aab4ad99a271c3",
+        "assessment": "in-sample construction diagnostics; no held-out performance claim",
+        "peak_rss_bytes": 4439703552,
+        "extreme_projections": [
+          {
+            "player_id": "8476453",
+            "strength": "4v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 84.5140414092695
+          },
+          {
+            "player_id": "8477433",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 84.64098002619731
+          },
+          {
+            "player_id": "8471284",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 84.7190419868286
+          },
+          {
+            "player_id": "8476975",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 84.77764100871211
+          },
+          {
+            "player_id": "8479980",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 85.01413680118061
+          },
+          {
+            "player_id": "8478975",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 85.0411525845042
+          },
+          {
+            "player_id": "8477425",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 85.08859205130571
+          },
+          {
+            "player_id": "8478506",
+            "strength": "4v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 85.79179668040878
+          },
+          {
+            "player_id": "8477506",
+            "strength": "4v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 85.8469110285996
+          },
+          {
+            "player_id": "8478506",
+            "strength": "pk",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 85.93617199754419
+          },
+          {
+            "player_id": "8478146",
+            "strength": "4v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 86.07873409544409
+          },
+          {
+            "player_id": "8477482",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 86.35711587584105
+          },
+          {
+            "player_id": "8477330",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 86.46505446157197
+          },
+          {
+            "player_id": "8474688",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 86.69092691775379
+          },
+          {
+            "player_id": "8479980",
+            "strength": "4v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 87.3105862823314
+          },
+          {
+            "player_id": "8475794",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 87.81706814113289
+          },
+          {
+            "player_id": "8477330",
+            "strength": "4v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 88.80069694324911
+          },
+          {
+            "player_id": "8478506",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 89.73724244729114
+          },
+          {
+            "player_id": "8475794",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 90.18923197360841
+          },
+          {
+            "player_id": "8478506",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "complete",
+            "value": 92.16127510364713
+          },
+          {
+            "player_id": "8477482",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 21.796538419931107
+          },
+          {
+            "player_id": "8474688",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 22.13034946184385
+          },
+          {
+            "player_id": "8479980",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 22.15163641603962
+          },
+          {
+            "player_id": "8477330",
+            "strength": "5v4",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 22.564828885319127
+          },
+          {
+            "player_id": "8477330",
+            "strength": "pp",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 22.60280226333987
+          },
+          {
+            "player_id": "8479980",
+            "strength": "4v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 22.750008826421453
+          },
+          {
+            "player_id": "8477330",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 23.602554076430977
+          },
+          {
+            "player_id": "8475794",
+            "strength": "4v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 23.857399055102817
+          },
+          {
+            "player_id": "8475794",
+            "strength": "pk",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 23.897547643754447
+          },
+          {
+            "player_id": "8477330",
+            "strength": "4v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 24.24011948733918
+          },
+          {
+            "player_id": "8475794",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 24.954567755991896
+          },
+          {
+            "player_id": "8475794",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 25.628654517698475
+          },
+          {
+            "player_id": "8480035",
+            "strength": "5v4",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": -25.659170595278223
+          },
+          {
+            "player_id": "8478506",
+            "strength": "4v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 25.69314973310739
+          },
+          {
+            "player_id": "8480035",
+            "strength": "pp",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": -25.702351307601152
+          },
+          {
+            "player_id": "8478506",
+            "strength": "pk",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 25.736387627456924
+          },
+          {
+            "player_id": "8480035",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": -26.83920027088899
+          },
+          {
+            "player_id": "8478506",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 26.874742062150155
+          },
+          {
+            "player_id": "8480035",
+            "strength": "4v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": -27.564195781703017
+          },
+          {
+            "player_id": "8478506",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "kind": "difference",
+            "value": 27.600697647737196
+          }
+        ],
+        "largest_allocation_cancellations": [
+          {
+            "player_id": "8477962",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 149.71804561927289,
+            "factual_per_hour": 8.250439620940574,
+            "cancellation_per_hour": 141.46760599833232
+          },
+          {
+            "player_id": "8475176",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 148.1083134865685,
+            "factual_per_hour": 4.844737210463021,
+            "cancellation_per_hour": 143.26357627610548
+          },
+          {
+            "player_id": "8478458",
+            "strength": "4v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 150.14707687813754,
+            "factual_per_hour": 4.438665089911292,
+            "cancellation_per_hour": 145.70841178822624
+          },
+          {
+            "player_id": "8478911",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 153.23137946022268,
+            "factual_per_hour": 5.1993164014986135,
+            "cancellation_per_hour": 148.03206305872408
+          },
+          {
+            "player_id": "8481600",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 153.38635567131,
+            "factual_per_hour": 5.1993164014986135,
+            "cancellation_per_hour": 148.1870392698114
+          },
+          {
+            "player_id": "8481481",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 153.48878116951204,
+            "factual_per_hour": 5.1993164014986135,
+            "cancellation_per_hour": 148.28946476801343
+          },
+          {
+            "player_id": "8478047",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 153.63459926404255,
+            "factual_per_hour": 5.1993164014986135,
+            "cancellation_per_hour": 148.43528286254394
+          },
+          {
+            "player_id": "8479482",
+            "strength": "pp",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 153.30190429101557,
+            "factual_per_hour": 3.462533388287032,
+            "cancellation_per_hour": 149.83937090272855
+          },
+          {
+            "player_id": "8479482",
+            "strength": "5v4",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 153.30190429101557,
+            "factual_per_hour": 3.462533388287032,
+            "cancellation_per_hour": 149.83937090272855
+          },
+          {
+            "player_id": "8476473",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 161.3796285714553,
+            "factual_per_hour": 7.8601735862709825,
+            "cancellation_per_hour": 153.51945498518432
+          },
+          {
+            "player_id": "8481598",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 172.69814082830337,
+            "factual_per_hour": 18.46545161478075,
+            "cancellation_per_hour": 154.2326892135226
+          },
+          {
+            "player_id": "8476907",
+            "strength": "pp",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 161.32143853568897,
+            "factual_per_hour": 1.6931608359082633,
+            "cancellation_per_hour": 159.6282776997807
+          },
+          {
+            "player_id": "8476907",
+            "strength": "5v4",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 161.32143853568897,
+            "factual_per_hour": 1.6931608359082633,
+            "cancellation_per_hour": 159.6282776997807
+          },
+          {
+            "player_id": "8479320",
+            "strength": "pk",
+            "role": "defense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 177.9932573640534,
+            "factual_per_hour": 15.68946856733564,
+            "cancellation_per_hour": 162.30378879671775
+          },
+          {
+            "player_id": "8479320",
+            "strength": "4v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 177.9932573640534,
+            "factual_per_hour": 15.68946856733564,
+            "cancellation_per_hour": 162.30378879671775
+          },
+          {
+            "player_id": "8479977",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 175.88095531563846,
+            "factual_per_hour": 7.356783526877231,
+            "cancellation_per_hour": 168.52417178876124
+          },
+          {
+            "player_id": "8479370",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 192.50895235310864,
+            "factual_per_hour": 4.012217239832575,
+            "cancellation_per_hour": 188.49673511327606
+          },
+          {
+            "player_id": "8479439",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 192.65035873690036,
+            "factual_per_hour": 4.012217239832575,
+            "cancellation_per_hour": 188.63814149706778
+          },
+          {
+            "player_id": "8471707",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 192.81525902829762,
+            "factual_per_hour": 4.012217239832575,
+            "cancellation_per_hour": 188.80304178846504
+          },
+          {
+            "player_id": "8478013",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "absolute_terms_per_hour": 193.20016698716879,
+            "factual_per_hour": 4.012217239832575,
+            "cancellation_per_hour": 189.1879497473362
+          }
+        ],
+        "largest_absolute_allocation_terms": [
+          {
+            "player_id": "8481178",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 154.61773069644536
+          },
+          {
+            "player_id": "8470775",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 154.7877627499001
+          },
+          {
+            "player_id": "8477215",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 155.55774203137858
+          },
+          {
+            "player_id": "8473512",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 155.7387032311117
+          },
+          {
+            "player_id": "8481553",
+            "strength": "4v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 157.02320923778774
+          },
+          {
+            "player_id": "8474040",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 157.88194051856047
+          },
+          {
+            "player_id": "8478062",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 158.94097035020408
+          },
+          {
+            "player_id": "8475171",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 160.10837938173572
+          },
+          {
+            "player_id": "8471686",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 163.5225656726476
+          },
+          {
+            "player_id": "8476463",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 165.25996712194532
+          },
+          {
+            "player_id": "8477205",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 169.21013184296274
+          },
+          {
+            "player_id": "8481606",
+            "strength": "4v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 171.94991914605384
+          },
+          {
+            "player_id": "8477846",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 173.60518379348568
+          },
+          {
+            "player_id": "8479382",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 183.9441920526497
+          },
+          {
+            "player_id": "8476960",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 199.33453195523788
+          },
+          {
+            "player_id": "8475714",
+            "strength": "3v4",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 209.3912438540821
+          },
+          {
+            "player_id": "8480849",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 215.13965058325104
+          },
+          {
+            "player_id": "8482655",
+            "strength": "3v5",
+            "role": "defense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 215.1462404669191
+          },
+          {
+            "player_id": "8481523",
+            "strength": "5v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 221.80326913295082
+          },
+          {
+            "player_id": "8477500",
+            "strength": "4v3",
+            "role": "offense",
+            "quantity": "attempts",
+            "term": "coaching_other_context",
+            "value": 249.10600392730387
+          }
+        ]
+      },
+      "output_bytes": 1577314784,
+      "write_wall_seconds": 33.745732416864485
+    },
+    "basis_source": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+      "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509",
+      "archive": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/design.npz",
+        "sha256": "daa879d5e036b77c85957952cea642a7883750db48d5aca6ac4c9f7508f12a5a"
+      }
+    },
+    "basis_identity": {
+      "sha256": "f70933a396c86b819ea65b420ff736c03d968047dd8b6e7294e048e9b7c02cc6",
+      "array_sha256": "4fa1d565e939dae706a7f3fa0d060b06b647602ba32d2850174b80c6267fa42b",
+      "reference": "uniform-native-656",
+      "modes": 40
+    },
+    "previous": null
+  },
+  "payloads": [
+    {
+      "declared": {
+        "role": "design",
+        "path": "design.json",
+        "sha256": "0cc829f9a39b47ecaef0dda2569d605a0de06ea6a71859beb1f4516dfbccd1c9"
+      },
+      "actual_bytes": 123839443,
+      "mtime_ns": 1794318098227071004
+    },
+    {
+      "declared": {
+        "role": "design_arrays",
+        "path": "design.npz",
+        "sha256": "617d9affb0ed3a2112702ec90bff98238ade87e4c3ca0e32ab73973e8e44167c"
+      },
+      "actual_bytes": 560085118,
+      "mtime_ns": 1794318096786798038
+    },
+    {
+      "declared": {
+        "role": "coverage",
+        "path": "coverage.json",
+        "sha256": "3c80e55968d9d469b01b09b9dfddb780eada467364982b8e66f71f3429f94a04"
+      },
+      "actual_bytes": 12898639,
+      "mtime_ns": 1794318098365515867
+    },
+    {
+      "declared": {
+        "role": "reference",
+        "path": "reference.json",
+        "sha256": "ffbc90b70e74336ee3779290346c91582c6ca50e5c06639e3a5290aed6d909c9"
+      },
+      "actual_bytes": 923870,
+      "mtime_ns": 1794318098392539608
+    },
+    {
+      "declared": {
+        "role": "projection_diagnostics",
+        "path": "diagnostics.json",
+        "sha256": "5bab20753d27e7b251afb0fe6c23719176009edbd6b0325a1263809950d51f0d"
+      },
+      "actual_bytes": 17201,
+      "mtime_ns": 1794318098522568008
+    },
+    {
+      "declared": {
+        "role": "projections",
+        "path": "projections.jsonl",
+        "sha256": "0426a5cf218b39214d3d2be802b471339c60189fb23bbe0fc34818e081eee764"
+      },
+      "actual_bytes": 8652937,
+      "mtime_ns": 1794318098708640994
+    },
+    {
+      "declared": {
+        "role": "adjustments",
+        "path": "adjustments.jsonl",
+        "sha256": "6067e01d2489df2a9a82b5d2f1847d15ec7bf0f86b3720437ee38c367ed5aefd"
+      },
+      "actual_bytes": 4950696,
+      "mtime_ns": 1794318098843514737
+    },
+    {
+      "declared": {
+        "role": "coefficient_support",
+        "path": "coefficient-support.jsonl",
+        "sha256": "0491d77bec14fdda526d30bc169418b64b60b285f7ba0a8e5316ef63de4cee0b"
+      },
+      "actual_bytes": 3745989,
+      "mtime_ns": 1794318098912906712
+    },
+    {
+      "declared": {
+        "role": "projection_arrays",
+        "path": "projections.npz",
+        "sha256": "88fe7e28db7e6b83b3a077f86d7cb5b87355d893a4784d7ba0e6bca50cb72e86"
+      },
+      "actual_bytes": 843039238,
+      "mtime_ns": 1794318103458076122
+    },
+    {
+      "declared": {
+        "role": "head_metadata",
+        "path": "heads/volume.json",
+        "sha256": "99d8b83f87d66f5230e7c5a26f65d701f2d0e920df995b23a1f378e17cbddeb7"
+      },
+      "actual_bytes": 2204157,
+      "mtime_ns": 1794317099622991350
+    },
+    {
+      "declared": {
+        "role": "head_arrays",
+        "path": "heads/volume.npz",
+        "sha256": "8fb6083366ca2fb6415c145a70685dbd471992e63906b5fa4c82f77f919bc25d"
+      },
+      "actual_bytes": 19886,
+      "mtime_ns": 1794317099856008260
+    },
+    {
+      "declared": {
+        "role": "head_metadata",
+        "path": "heads/shape.json",
+        "sha256": "1fbee9d038a6e0e8a29c6cd76e2afac7c73fb1fe113d1b4da8ddb6fea9b1a815"
+      },
+      "actual_bytes": 7616816,
+      "mtime_ns": 1794317262914432087
+    },
+    {
+      "declared": {
+        "role": "head_arrays",
+        "path": "heads/shape.npz",
+        "sha256": "cd65e11e3a27c7f7daff1ee2b5660e342e1eb97b81c98fd266276fdab0efde7d"
+      },
+      "actual_bytes": 782038,
+      "mtime_ns": 1794317276900789331
+    },
+    {
+      "declared": {
+        "role": "head_metadata",
+        "path": "heads/quality.json",
+        "sha256": "563dce98ec0e80a9f6de890acd63220da35f5d885ea2f596e0dc7a578f0045b9"
+      },
+      "actual_bytes": 7737174,
+      "mtime_ns": 1794317580039988477
+    },
+    {
+      "declared": {
+        "role": "head_arrays",
+        "path": "heads/quality.npz",
+        "sha256": "ce85e5a087e5b329e6b842c8f7edfff0682288412f83e362998b317a6bdb2690"
+      },
+      "actual_bytes": 801582,
+      "mtime_ns": 1794317580044063312
+    }
+  ],
+  "declared_payload_count": 15,
+  "actual_payload_bytes": 1577314784,
+  "resources_output_bytes": 1577314784,
+  "resource_bytes_match": true,
+  "collection_body_read_bytes": 366247,
+  "preserved_local_evidence_read_bytes": 866,
+  "predecessor_controller_manifest_read_bytes": 366247,
+  "scope": "native log and exit copied byte-for-byte; one manifest metadata read; declared payload stat only; no payload bodies, arrays, evaluator, inputs, fit or second canonical reader",
+  "acceptance": "not_assessed",
+  "slot_release": false
+}

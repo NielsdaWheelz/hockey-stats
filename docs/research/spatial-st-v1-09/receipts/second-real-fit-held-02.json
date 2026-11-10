@@ -1,0 +1,135 @@
+{
+  "kind": "st-second-real-annual-source-only-readiness",
+  "status": "held_not_reserved_not_dispatched",
+  "prepared_at_utc": "2026-11-10T13:55:06.610572+00:00",
+  "season": "20222023",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/second-real-fit-held-01.sh",
+    "sha256": "45223aab1da873acdd9de9d8526bb96a4395b3ba0fddcdd55510cdde968df248",
+    "derived_from": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/first-real-fit-02.sh",
+      "sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf"
+    }
+  },
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "coaches": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+  },
+  "score": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/manifest.json",
+    "sha256": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20"
+  },
+  "previous": {
+    "directory": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022",
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/manifest.json",
+      "bytes": 366247,
+      "sha256": "7ec561e9c273b833339b8446d7e1a2bb6d0c422d536f72c2c534f71930e16c61"
+    },
+    "assessment": "accepted through the retained first-annual native, independent saved-json audit, adjudication and release receipts; no live recheck in this preparation"
+  },
+  "basis": {
+    "cli_argument": null,
+    "source": "inherited from explicit accepted predecessor",
+    "source_manifest_sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509",
+    "array_sha256": "4fa1d565e939dae706a7f3fa0d060b06b647602ba32d2850174b80c6267fa42b"
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-03/real/states/20222023",
+  "logs": {
+    "native_resource_log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-03/logs/20222023-fit.log",
+    "native_exit": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-03/logs/20222023-fit.exit"
+  },
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "scope": "one 20222023 annual prepared pass, saved accepted-score validation, full accepted predecessor read and raw history, three fresh baseline heads, full projections/accounting and native strict readback; no basis import or continuation probes",
+  "excluded": [
+    "other annual",
+    "fixture",
+    "new base fit",
+    "rescore",
+    "converter",
+    "publication",
+    "activation"
+  ],
+  "accepted_predecessor_evidence": {
+    "native_metadata": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-metadata-02.json",
+      "sha256": "24ab2e16cfad3554268c9f0f875ec378b73090ee11f9af4720c6039f8ba7788c",
+      "bytes": 29086
+    },
+    "saved_json_audit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-01.json",
+      "sha256": "b3434950ca8a3968d6921a7043202f4b2c29e14383982615dc2677ec27ed159f",
+      "bytes": 4181
+    },
+    "independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-independent-adjudication-01.json",
+      "sha256": "95b611bdd787dc4ab9e07c76a1957910af8abb707bd99a7e6bddc865293e35ec",
+      "bytes": 6308
+    },
+    "release": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-boundary-release-01.json",
+      "sha256": "39d555266d091793c6cb360d7f08ad41be2ee55691ed9f4a6e866c3166acd4bb",
+      "bytes": 7165
+    },
+    "release_delivery": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-release-delivery-01.json",
+      "sha256": "17e59139e1daac554875f4356d788617d8eac7bf542150542d588766b8037a2e",
+      "bytes": 1383
+    }
+  },
+  "external_checks": {
+    "prepared_and_coaches": "identities inherited from reviewed local receipts; fresh external identity checks pending",
+    "score": "exact accepted pin declared by owner; fresh external identity check pending",
+    "previous": "exact locally accepted manifest pin; fresh external identity check pending",
+    "mount": "pending; not inspected",
+    "fresh_run_output_log_exit_absence": "pending; no live stat",
+    "selected_game_count": "pending next-year metadata review",
+    "annual_prepared_member_bytes": "pending next-year metadata review",
+    "external_reads_or_stats_in_this_preparation": 0
+  },
+  "observational_cost_context": {
+    "first_annual_native_wall_seconds": 5091.46,
+    "first_annual_native_peak_rss_bytes": 5325340672,
+    "first_annual_declared_payload_bytes": 1577314784,
+    "next_annual_runtime": "unknown; not a forecast, estimate or budget promise",
+    "next_annual_cost_difference": "includes a full predecessor read and raw actor history; population and fitted solve costs can differ",
+    "next_annual_source_bytes": null
+  },
+  "actual_execution": "not_run",
+  "reservation": "not_reserved",
+  "chain_reservation": false,
+  "current_heavy_owner": "v1-07 G 20232024 score; this preparation changes no ownership",
+  "no_source_changes": true,
+  "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+  "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+  "producer_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+  "source_local_verification": {
+    "git_clean_checked": true,
+    "scope": "local git metadata only; no external input or output checks"
+  },
+  "readiness": "pending_bounded_annual_metadata_and_source_review",
+  "pending_readiness_review": [
+    "bounded next-year annual metadata review for selected game count and declared source bytes",
+    "independent source/script/preflight contract review"
+  ],
+  "dispatch_preconditions": [
+    "separate explicit future heavy-slot handoff and reservation",
+    "fresh local frozen-source and script pin verification",
+    "fresh owner mount, input identity and exact predecessor binding checks",
+    "fresh absence checks for selected external run, annual output, log and exit paths"
+  ],
+  "predecessor_preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-fit-preparation-01.json",
+    "sha256": "9b5859840d86d3b79b175c160e33763e8ae67f655f43535c1bc0c1f82812f7b9",
+    "status": "preserved draft; never dispatched"
+  },
+  "successor_reason": "preparation-only consumer repair: draft01 nested the producer identity and omitted source_commit required by the existing saved-json auditor preflight; successor reuses the existing flat source_commit, analysis_tree, producer_worktree, season and output contract. readiness review and future dispatch ownership/launch preconditions are separated. no script, numerical code or execution change"
+}

@@ -1,0 +1,205 @@
+{
+  "kind": "real-goalie-annual-fit-preflight",
+  "status": "native_exit0_independent_review_pending",
+  "recorded_at_utc": "2026-11-10T10:26:20.678820+00:00",
+  "season": "20232024",
+  "launch_commit": "dc75b9c7d4b2e5a844a045926360e2cc20ed94c5",
+  "analysis_tree": "0aba863d0efaf5ace3f0e96ab87920540b669e11",
+  "analysis_clean": true,
+  "producer": {
+    "git_commit": "dc75b9c7d4b2e5a844a045926360e2cc20ed94c5",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "coaches": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+  },
+  "execution_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores-selection.json",
+    "sha256": "588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e8c000f9450"
+  },
+  "base_scores": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024/manifest.json",
+    "sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238"
+  },
+  "base_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20232024/manifest.json",
+    "sha256": "dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa"
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20222023/manifest.json",
+    "sha256": "a1327e656ddc21658acd02d1f0095ceda9cd875cbc24a651003204ab55ee8f3e"
+  },
+  "previous_base_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/manifest.json",
+    "sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c"
+  },
+  "previous_heads": {
+    "h": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20222023/heads/h.json",
+      "sha256": "33c4be50686cf7c9fd3c4fc474eae43b125ba067f93639afd28811fd237d213b"
+    },
+    "d": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20222023/heads/d.json",
+      "sha256": "995d189f66cc217b36781307f16c88cf728ca17a597bb2e42da245d41f2f6e08"
+    }
+  },
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "VECLIB_MAXIMUM_THREADS": null,
+    "NUMEXPR_NUM_THREADS": null,
+    "BLIS_NUM_THREADS": null
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20232024",
+  "log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/fit-20232024-01.log",
+  "output_absent": true,
+  "log_absent": true,
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+  "native_argv": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "-u",
+    "OPENBLAS_NUM_THREADS",
+    "-u",
+    "OMP_NUM_THREADS",
+    "-u",
+    "MKL_NUM_THREADS",
+    "-u",
+    "VECLIB_MAXIMUM_THREADS",
+    "-u",
+    "NUMEXPR_NUM_THREADS",
+    "-u",
+    "BLIS_NUM_THREADS",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "fit",
+    "--family",
+    "goalie",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--coaches",
+    "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "--valued",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024",
+    "--season",
+    "20232024",
+    "--previous",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20222023",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20232024"
+  ],
+  "cli_argv": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "fit",
+    "--family",
+    "goalie",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--coaches",
+    "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "--valued",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024",
+    "--season",
+    "20232024",
+    "--previous",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20222023",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20232024"
+  ],
+  "native_session_id": 59603,
+  "expected_probe_solves": {
+    "h": 0,
+    "d": 0
+  },
+  "small_inputs_checked": [
+    {
+      "name": "prepared",
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+      "bytes": 18633830
+    },
+    {
+      "name": "coaches",
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+      "bytes": 39341670
+    },
+    {
+      "name": "execution_selection",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores-selection.json",
+      "sha256": "588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e8c000f9450",
+      "bytes": 1429
+    },
+    {
+      "name": "base_scores",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024/manifest.json",
+      "sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238",
+      "bytes": 383426
+    },
+    {
+      "name": "base_state",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20232024/manifest.json",
+      "sha256": "dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa",
+      "bytes": 362029
+    },
+    {
+      "name": "previous",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20222023/manifest.json",
+      "sha256": "a1327e656ddc21658acd02d1f0095ceda9cd875cbc24a651003204ab55ee8f3e",
+      "bytes": 345276
+    },
+    {
+      "name": "previous_base_state",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/manifest.json",
+      "sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c",
+      "bytes": 362029
+    }
+  ],
+  "full_reader_calls": 0,
+  "arrays_opened": 0,
+  "source_bodies_opened": 0,
+  "source_frozen_until_native_boundary": true,
+  "activation": false,
+  "source_refresh": {
+    "recorded_at_utc": "2026-11-10T10:33:00.951278+00:00",
+    "prelaunch_snapshot_path": "/tmp/goalie-v1-07-checks/real-fit-20232024-preflight-before-guard.json",
+    "prelaunch_snapshot_sha256": "b1555c454217fb739eaab587ada227d2de5d819b5e8ed40ba55f337647184296",
+    "previous_launch_commit": "b0d246042bb1570e62ab57a79407353e502a74f8",
+    "previous_analysis_tree": "18c5188d0f939a77819b59afaedbbd26eba68d0d",
+    "source_only_owner_commit": "0d670607ea3fe344de31540c0a8d2de79339f305",
+    "picked_commit": "03a2322f4086a48429045a7d37f14ead6c6af77d",
+    "immutable_input_checks_reused": true,
+    "input_or_array_or_source_body_reopens": 0,
+    "output_log_absence_rechecked": true,
+    "independent_static_source_review": "clear; probability/evidence body and G consumers unchanged"
+  },
+  "prelaunch_review_sha256": "a941c608e4e4810e13281bf31a7533937c0c31867170aafa165b33534834963e",
+  "launched_at_utc": "2026-11-10T10:34:51.295467+00:00",
+  "native_process_id": 27620,
+  "native_time_process_id": 27614,
+  "observed_native_command": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -m hockey_stats.analysis_cli fit --family goalie --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --coaches /Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json --valued /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024 --season 20232024 --previous /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20222023 --out /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20232024",
+  "native_exit_code": 0,
+  "native_wall_seconds": 5463.8,
+  "native_user_cpu_seconds": 4936.53,
+  "native_system_cpu_seconds": 41.37,
+  "native_peak_memory_bytes": 21148712960,
+  "native_peak_footprint_bytes": 21622292320,
+  "manifest_sha256": "9ff479053abb700954831a932d414cb40adf92cfef6758de0c92dcc3be84be40",
+  "declared_artifact_member_bytes": 82944727,
+  "native_pids_absent": true
+}

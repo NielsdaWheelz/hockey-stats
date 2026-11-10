@@ -7,7 +7,8 @@ status: implementation and final fixture acceptance pass; real acceptance remain
 | five-year fixture chain and final score | ten completed baseline heads, two assessed probes, all three variants and current detached reader pass |
 | real `20212022` | both heads, score, target inventory and independent saved arithmetic pass |
 | real `20222023` | both heads, score and ledger/target/small score-metadata reviews pass on `34eba0a` |
-| real `20232024`–`20252026` | annual fits/scores and final bounded probes pending |
+| real `20232024` | both heads, ledger and one target inventory pass; annual score pending after reserved ST retry |
+| real `20242025`–`20252026` | annual fits/scores and final bounded probes pending |
 | original-event evidence | eight selected checks pass; invalid intervening event, unknown terminal and known goalie-change witnesses remain unfulfilled |
 | combined exchange and inactive publication | pending the complete annual chain |
 | real api, browser and actual downloads | pending the candidate; no browser deferral or inherited pass |
@@ -174,3 +175,21 @@ v1-09’s first native boundary fails before baselines: exit1, 70.66 seconds, 3,
 v1-09’s truthful-failure adjudication passes and it explicitly releases to both. root checks the local2,175-byte release `643e719f…`, then confirms ownership of the next20232024 goalie fit and bounded state/target review to both sessions. there is no ST retry reservation. actual producer/input/fresh-output preflight precedes launch; peer source-only repair proceeds independently and no analysis source or head changes during the active numerical command.
 
 [the shared neutral-origin repair](receipts/shared-neutral-origin-repair.json) is adopted before the next G fit launches: owner `0d67060`, four insertions/two deletions in `execution.py`. it reuses canonical physical panel states and exact integer/both-goalie admission. the entire probability/evidence tail is byte-identical; owner direct-adapter red/green, independent joint/mass arithmetic and exact EV fingerprint pass. root verifies identical complete module hashes and body tail, and independent review confirms G uses a separate unchanged path. this repairs the adapter contract without a coefficient/model change or ST retry. only producer/tree/frame fields are refreshed in the passed G preflight; checked input identities are reused.
+
+## third real annual launch
+
+[the20232024 preflight](receipts/real-fit-20232024-preflight.json) passes before launch, with two independent reviews. seven metadata inputs total59,429,689 bytes; arrays, source bodies and full readers are not opened by preflight. the shared iterator repair arrives at the unlaunched boundary; exact probability/evidence body and G consumers remain unchanged, and the producer/tree refresh reuses checked immutable input identities without another input scan. refreshed frame review passes before dispatch.
+
+native session59603 / python27620 / time27614 runs the20232024 fit from clean `dc75b9c7d4b2e5a844a045926360e2cc20ed94c5`, analysis tree `0aba863d0efaf5ace3f0e96ab87920540b669e11`. actual launch receipt sha256 `37956d27…` binds predecessor `a1327e65…`, base score `f13a1136…`, base state `dd8b638d…`, fresh output/log, six unset thread variables and zero probes. analysis source and git head remain frozen through the native boundary; operator receipts are updated locally without a commit. actual fit disposition/cost remains pending.
+
+one newly reviewed v1-09 first-annual retry is reserved after native completion, bounded state review and one required target inventory; local producer02 `74d12c2b` / tree `aa346929`, script `f446e965…` and preflight `ab33a95c…` hashes/clean analysis are checked. this delays the20232024 G score to give ST another first-annual attempt. complete ST cost is unknown; failed70.66s is not a forecast. fresh output/log/exit checks and explicit owner confirmation to both remain required. no retry is dispatched or chain reserved now.
+
+## third real state accepted and retry handoff
+
+state `9ff47905…` passes native59603 and [independent saved metadata review](receipts/real-fit-20232024-review.json) `f53c2c69…`: h has71,202 observations and9,897 positives; d has9,877 observations and response mass940.1089484417294. both3,534-dimensional heads select the lower completed zero start, with two baselines each and zero probes. h objective27454.59082810967 / gradient0.0008621361866935073; d3074.5864286136825 / gradient0.00003098578332523527. both native terminations are ftol above gtol, with unknown remaining accuracy. entry/carry, dated absence, raw ledger preservation and five reporting centers per head pass; setter remains zero/prior-only with no coefficient.
+
+native wall is5,463.80 seconds, peak resident21,148,712,960 bytes, footprint21,622,292,320 bytes and declared members82,944,727 bytes. producer design5,383.930449 seconds, input4.327443 seconds and head/save section59.702005 seconds retain their distinct scopes. independent review opens only six permitted metadata jsons totaling10,061,568 bytes, with no arrays/coverage/original source/full-reader replay.
+
+[the one target inventory](receipts/real-20232024-target-inventory.json) `ad805351…` reconciles160,123 rows,1,312 games and1,728 groups. coverage78,035,622 bytes is read once. all20 otherwise-eligible missing-d positives have unavailable successor scores and unresolved checked successor goalies:17 saves, one block and two misses. ordinary saves71,371 have zero unknown h labels; both known-goalie-change candidate counters are zero and the candidate list is empty. no original-source proof closes; all three debts remain open. inventory wall1.21 seconds / peak resident418,922,496 bytes; no prior coverage, arrays, source bodies or evaluator is opened.
+
+root adjudicates both passed boundaries, confirms native pids absent, and explicitly [releases the window](receipts/real-fit-20232024-release.json) to only the reserved v1-09 retry on rechecked frozen74d12c2b. both guarded notifications are written. its owner must check actual output/log/exit freshness before launch and return measured cost/member bytes, bounded adjudication and explicit release to both. our20232024 score remains held. no source/fit or serving identity is changed by this scheduling handoff.

@@ -1,10 +1,24 @@
 {
-  "status": "v1-07_owns_next_20232024_fit_preflight",
+  "status": "v1-09_one_reserved_retry_owner_confirmed_awaiting_launch_ack",
   "current": {
-    "owner": "v1-07",
-    "scope": "20232024 goalie fit then bounded saved-state review and one required target inventory",
-    "boundary": "explicit owner confirmation written to both after checked v1-09 failure release; actual clean producer/input/fresh-output preflight in progress; no fit launched yet",
-    "thread_environment": "six unset variables; no source or HEAD mutation during active numerical command"
+    "owner": "v1-09",
+    "scope": "ONE20212022 retry,3sequential baselines/no first-year probe,full projections/accounting/readback; no fixture/other annual/base rerun/converter",
+    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "local_launch_pins": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/first-real-fit-02.sh",
+        "sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf",
+        "bytes": 1507
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-preflight-04.json",
+        "sha256": "ab33a95c58371d2c65574fab0265f4da7394cecf120c93cb392af5a95133e750",
+        "bytes": 4165
+      }
+    ],
+    "boundary": "Gfit/review/oneinventory adjudicated; ROOT explicitly confirms retry owner to both after fresh local pin checks. owner freshness preflight and actual launch acknowledgement pending"
   },
   "queue": [
     {
@@ -144,7 +158,7 @@
     "strict_startup_peak_resident_bytes": 1152319488,
     "ordinary_strict_passes": 1,
     "failed_launch_full_passes": 0,
-    "remaining_owner_scope": "existing pid7640 bounded selected api/browser then teardown; no further heavy command or bulk fixture reservation",
+    "remaining_owner_scope": "none; bounded runtime work ended and owned7640 stopped after acceptance",
     "activation": false
   },
   "v1_09_owner_confirmation": {
@@ -190,5 +204,84 @@
     "no_heavy_retry_or_other_reservation": true,
     "next_owner": "v1-07",
     "owner_confirmation_to_both": "both guarded sends written, provider acknowledgement pending"
-  }
+  },
+  "next_reserved_scope": {
+    "owner": "v1-09",
+    "status": "sole_owner_confirmed_not_yet_acknowledged_launched",
+    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "analysis_clean": true,
+    "local_pins_checked": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/first-real-fit-02.sh",
+        "sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf",
+        "bytes": 1507
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-preflight-04.json",
+        "sha256": "ab33a95c58371d2c65574fab0265f4da7394cecf120c93cb392af5a95133e750",
+        "bytes": 4165
+      }
+    ],
+    "scope": "ONE20212022 retry,3sequential baselines/no first-year probe,full projections/accounting/readback; no fixture/other annual/base rerun/converter",
+    "output_run": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02",
+    "prepared_games": 1312,
+    "declared_prepared_bytes": 63710567455,
+    "launch_precondition": "actual fresh output/log/exit checks and explicit owner confirmation to both after G native exit, bounded state review and ONEtarget inventory",
+    "complete_cost": "unknown; failed70.66s is not an annual forecast",
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "tradeoff": "delays G20232024 scoring to give ST another first-annual attempt; no blanket chain reservation",
+    "owner_acknowledged_reservation_only": true
+  },
+  "v1_18_final_scope_owner_report": {
+    "head": "23027d7b212a7e6c8a8959837bd46b16f81261fc",
+    "tree": "199ba18d672d1ce233904296f97bce613bc65f58",
+    "web_package_source_equivalent_to_already_adopted_333f6a7": "a983886b64469ab77d4127a86ec24763658d35db",
+    "final_branch_receipt_sha256": "69170c667f64bf63f20c4f248942179be5073699c3de6152ce7b9de8cbefca8c",
+    "status": "software and available-output real integration accepted by owner; future-family/whole-card scope remains separate",
+    "owned_runtime_pid7640_stopped": true,
+    "port41919_closed": true,
+    "further_heavy_or_bounded_runtime_work": false,
+    "accepted_predecessor_unchanged": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "source_adoption_during_active_G_fit": false,
+    "own_goalie_acceptance_inferred": false
+  },
+  "last_G_boundary": {
+    "owner": "v1-07",
+    "scope": "20232024 goalie fit then bounded saved-state review and one required target inventory",
+    "boundary": "native59603 exit0; both pids absent; bounded saved-state review then ONE target inventory before reserved ST retry handoff",
+    "thread_environment": "six unset variables; no source or HEAD mutation during active numerical command",
+    "source_commit": "dc75b9c7d4b2e5a844a045926360e2cc20ed94c5",
+    "analysis_tree": "0aba863d0efaf5ace3f0e96ab87920540b669e11",
+    "native_session_id": 59603,
+    "native_python_pid": 27620,
+    "native_time_pid": 27614,
+    "preflight_sha256": "37956d27e535c94bb8c73e588edc4f749aa35f4beec14500d7738e75f1b99469",
+    "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20232024",
+    "native_log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/fit-20232024-01.log",
+    "native_exit_code": 0,
+    "native_wall_seconds": 5463.8,
+    "native_peak_resident_bytes": 21148712960,
+    "native_peak_footprint_bytes": 21622292320,
+    "state_manifest_sha256": "9ff479053abb700954831a932d414cb40adf92cfef6758de0c92dcc3be84be40",
+    "state_review_sha256": "f53c2c6977423edf191532daf76113816d3acdeac4d72dc8993dc51577aba45b",
+    "target_inventory_sha256": "ad80535186042ce13d5246afac4f43a18e46714a571149b49c5a22f8772bf25b",
+    "source_target_rows": 160123,
+    "games": 1312,
+    "saved_groups": 1728,
+    "three_original_proofs": "remain unfulfilled"
+  },
+  "G20232024_release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20232024-release.json",
+    "sha256": "ac0c53b484d1e5f980d908cb58d24f1fe5e4fd804021467b86156be402c8c742",
+    "bytes": 2634,
+    "both_guarded_sends_written": true,
+    "provider_launch_acknowledgement": false
+  },
+  "next_after_current_retry": "G20232024 score after measured retry boundary, bounded adjudication and explicit return to both; no blanket chain reservation"
 }

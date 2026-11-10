@@ -178,6 +178,9 @@ def _states(selection_path, results, admission=None, *, family='ev'):
                 and Path(previous['path']).resolve() == (before.path / 'manifest.json').resolve(), 'spatial state history chain differs')
         require(all(after.manifest[key] == before.manifest[key] for key in ('recipe_id', 'recipe', 'basis_identity')), 'spatial recipe/basis differs between years')
         require(all(after.manifest[key]['sha256'] == before.manifest[key]['sha256'] for key in ('prepared', 'coaches')), 'spatial preparation/coaches differ between years')
+        if family == 'st':
+            require(after.manifest['basis_source'] == before.manifest['basis_source'],
+                    'special-teams accepted basis source differs between years')
     for year in results.manifest['seasons']:
         method = results.catalogs['method'].get(f'execution-v1-06-{year}')
         state = annuals[year]
@@ -351,7 +354,7 @@ def _special_teams_method(year, state, annuals, purpose, source_sha, receipt):
     method.update(method_id=f'spatial-st-v1-09-{year}',
         target='positive special-teams pp offense and reciprocal pk defense attempt and neutral-execution chance rate differences',
         population='matched ordinary advantaged-side 5v4, 5v3 and 4v3 physical elapsed intervals and attempts; both goalies present',
-        reference='one annual hypothetical centered linear-predictor reference; actual state unit sizes; pooled slot-weighted players and known-coach applicability; common league physical-time weights mix native neutral/focal rates before differences and ratios; virtual neutral execution',
+        reference='one annual hypothetical centered linear-predictor reference; actual state unit sizes; pooled slot-weighted players and known-coach applicability; common league physical-time weights mix native neutral/focal rates before differences and ratios; virtual neutral execution; annual reference vector sha256 ' + state.reference['sha256'],
         reference_id='spatial-st-league-centered-virtual-v1', support_policy_id='ordinary-attempt-segment-valued-one-direction-st-v1')
     method['limitations'] += [warning, *extrapolation,
         'pp/pk coefficients are shared across exact strengths; thinner specialty data may conceal state-specific skill and late-game or coaching interactions',

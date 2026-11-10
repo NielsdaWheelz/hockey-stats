@@ -1735,6 +1735,78 @@ def member_path(directory, member):
     return path
 
 
+def validate_spatial_mixtures(rows):
+    """check the common native-rate mixture independently of its producer."""
+    for common, exact, role in (('pp', ('5v4','5v3','4v3'), 'offense'),
+                                ('pk', ('4v5','3v5','3v4'), 'defense')):
+        if common not in rows:
+            continue
+        value = rows[common]
+        weights = {item['strength']: item['weight'] for item in value['state_weights']}
+        require(set(weights) == set(exact) and len(value['state_weights']) == 3
+                and all(type(w) in (int,float) and math.isfinite(w) and 0 <= w <= 1 for w in weights.values())
+                and close(sum(weights.values()), 1), 'invalid common spatial weights')
+        require(all(state in rows for state in exact), 'common spatial result lacks exact states')
+        require(all(rows[state]['state_weights'] == [dict(strength=state, weight=1.)] for state in exact),
+                'exact spatial state weight differs')
+        for quantity in ('attempts','xg'):
+            for suffix in ('','_complete','_neutral'):
+                field = f'{role}_{quantity}_per60{suffix}'
+                values = [rows[state][field]['value'] for state in exact]
+                actual = value[field]['value']
+                if any(item is None for item in values):
+                    require(actual is None, 'common spatial rate substitutes a missing exact state')
+                else:
+                    expected = math.fsum(weights[state]*item for state,item in zip(exact,values,strict=True))
+                    require(actual is not None and close(actual,expected), 'common spatial rate differs from exact-state mixture')
+    if 'pp' in rows and 'pk' in rows:
+        attacking = {item['strength']: item['weight'] for item in rows['pp']['state_weights']}
+        defending = {item['strength']: item['weight'] for item in rows['pk']['state_weights']}
+        require(attacking == {state[::-1]: weight for state,weight in defending.items()},
+                'reciprocal spatial state weights differ')
+
+
+def validate_spatial_map_mixtures(scalars, maps):
+    if not any(strength in scalars for strength in ('pp','pk')):
+        return
+    for strength, scalar in scalars.items():
+        if strength == '5v5':
+            continue
+        roles = ('offense','defense') if strength == '5v5' else ('offense',) if strength in ('pp','5v4','5v3','4v3') else ('defense',)
+        for role in roles:
+            for quantity in ('attempts','xg'):
+                for view in ('complete','effect'):
+                    kind = f'{role}_{quantity}'
+                    field = kind + '_per60' + ('_complete' if view == 'complete' else '')
+                    value = maps.get((kind,strength,view))
+                    require(value is not None, 'computed spatial scalar lacks required provided map')
+                    require((value['cells'] is None) == (scalar[field]['value'] is None)
+                            and value['method_id'] == scalar['method_id'], 'spatial map/scalar availability or method differs')
+                    if value['cells'] is not None:
+                        require(close(value['integrated_value'],scalar[field]['value']), 'spatial map/scalar integral differs')
+    for common, exact, role in (('pp', ('5v4','5v3','4v3'), 'offense'),
+                                ('pk', ('4v5','3v5','3v4'), 'defense')):
+        if common not in scalars:
+            continue
+        weights = {item['strength']: item['weight'] for item in scalars[common]['state_weights']}
+        for quantity in ('attempts','xg'):
+            for view in ('complete','effect'):
+                key = (f'{role}_{quantity}', common, view)
+                require(key in maps, 'common spatial scalar lacks its map')
+                value = maps[key]
+                source = [maps.get((key[0],state,view)) for state in exact]
+                require(all(item is not None for item in source), 'common spatial map lacks exact states')
+                if any(item['cells'] is None for item in source):
+                    require(value['cells'] is None, 'common spatial map substitutes a missing exact state')
+                    continue
+                require(value['cells'] is not None, 'common spatial map is missing its exact-state mixture')
+                for field,measure in (('cells','value'), ('display_cells','mass'), ('display_cells','density_per100sqft')):
+                    for index,cell in enumerate(value[field]):
+                        expected = math.fsum(weights[state]*item[field][index][measure]
+                                             for state,item in zip(exact,source,strict=True))
+                        require(close(cell[measure],expected), 'common spatial map differs from exact-state mixture')
+
+
 def read_results(directory: Path) -> Results:
     return _read_results(directory, 'manifest.json')
 
@@ -1784,12 +1856,35 @@ def _read_results(directory, manifest_name):
         fields(family['tables'],FAMILY_TABLES[family['family']] if family['availability'] == 'provided' else ())
         require(family['availability'] != 'provided' or manifest['prepared_sha256'] is not None, 'provided family lacks prepared identity')
         inventory.append((family['season'],family['family']))
-        for table,member in family['tables'].items():
+        spatial_rows, reference_weights = {}, {}
+        tables = sorted(family['tables'], key=lambda table: (table != 'skater_spatial', table))
+        for table in tables:
+            member = family['tables'][table]
             path = member_path(directory,member)
             require(path not in paths, 'member reused across tables')
             paths.add(path)
+            map_player, maps = None, {}
             for row in result.rows(member,table,family['family']):
                 require(row['season'] == family['season'], 'row season differs from family')
+                if family['family'] == 'spatial' and table == 'skater_spatial' and row['result']['availability'] == 'provided':
+                    value = row['result']['data']
+                    spatial_rows.setdefault(row['player_id'], {})[row['strength']] = value
+                    if row['strength'] in ('pp','pk'):
+                        weights = {item['strength']: item['weight'] for item in value['state_weights']}
+                        prior = reference_weights.setdefault(row['strength'], weights)
+                        require(weights == prior, 'annual spatial reference weights differ between players')
+                elif family['family'] == 'spatial' and table == 'analysis_map':
+                    if map_player is not None and map_player != row['player_id']:
+                        validate_spatial_map_mixtures(spatial_rows.get(map_player, {}), maps)
+                        maps = {}
+                    map_player = row['player_id']
+                    if row['result']['availability'] == 'provided':
+                        maps[row['map_kind'],row['strength'],row['view']] = row['result']['data']
+            if family['family'] == 'spatial' and table == 'skater_spatial':
+                for rows in spatial_rows.values():
+                    validate_spatial_mixtures(rows)
+            if map_player is not None:
+                validate_spatial_map_mixtures(spatial_rows.get(map_player, {}), maps)
             if table not in FACT_TABLES:
                 people_count = sum(person['season'] == family['season'] and ((person['kind'] == 'goalie') == (family['family'] == 'goalie')) for person in people.values())
                 require(member['rows'] == people_count * len(required_keys(table,family['family'])), f'{table}: missing promised person/selector rows')

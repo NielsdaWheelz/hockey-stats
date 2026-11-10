@@ -498,7 +498,9 @@ def read_execution_scores(path, expected_purpose, *, physical_state=None):
         path = Path(path).resolve(strict=True)
         path = path / 'manifest.json' if path.is_dir() else path
         require(path.name == 'manifest.json', 'execution scores locator must be manifest.json')
-        require(physical_state is None or tuple(physical_state) == (5, 5, 1, 1), 'unsupported retained physical panel')
+        require(physical_state is None or all(type(value) is int for value in physical_state)
+                and tuple(physical_state) in tuple((*state, 1) for state in PANEL_STATES),
+                'unsupported retained physical panel')
         return _validate(path, read_json(path), expected_purpose, physical_state=physical_state)
     except (KeyError, TypeError, ValueError, IndexError, AttributeError) as error:
         if isinstance(error, InputContractError):
@@ -511,8 +513,8 @@ def read_panel(scores, physical_state):
     from .execution import ExecutionPanel
     require(isinstance(scores, ExecutionScores), 'read_execution_scores must precede read_panel')
     state = tuple(physical_state[k] for k in STATE_FIELDS) if type(physical_state) is dict else tuple(physical_state)
-    require(len(state) == 4 and state == (5, 5, 1, 1), 'spatial panel requires physical 5v5 with both goalies')
-    if scores.checked_panel is not None:
+    require(all(type(value) is int for value in state) and state in tuple((*key, 1) for key in PANEL_STATES), 'physical panel state is outside the saved exact-state enum')
+    if scores.checked_panel is not None and (*scores.checked_panel.strength, 1) == state:
         return scores.checked_panel
     records = [row for row in scores.manifest['panels'] if tuple(row['state'][k] for k in STATE_FIELDS) == state]
     require(len(records) == 1, 'physical panel not uniquely selected')

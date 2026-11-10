@@ -1,5 +1,5 @@
 {
-  "status": "v1-09_one_reserved_retry_owner_confirmed_awaiting_launch_ack",
+  "status": "v1-09_one_reserved_retry_running",
   "current": {
     "owner": "v1-09",
     "scope": "ONE20212022 retry,3sequential baselines/no first-year probe,full projections/accounting/readback; no fixture/other annual/base rerun/converter",
@@ -18,7 +18,19 @@
         "bytes": 4165
       }
     ],
-    "boundary": "Gfit/review/oneinventory adjudicated; ROOT explicitly confirms retry owner to both after fresh local pin checks. owner freshness preflight and actual launch acknowledgement pending"
+    "boundary": "actual retry launched; native exit/measured wall/rss/member bytes, bounded adjudication and explicit release to both required",
+    "launch_at_utc": "2026-11-10T12:17:10Z",
+    "native_python_pid": 70935,
+    "native_time_pid": 70934,
+    "shell_pid": 70931,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "native_log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/logs/20212022-fit.log",
+    "actual_launch_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-actual-launch-01.json",
+      "sha256": "c46c4822bcc5aa5d6a7fd9d39030686487718f72713171330ad5244b87b15ed2"
+    },
+    "fresh_output_log_exit_absence_checked": true,
+    "child_three_single_thread_variables_confirmed": true
   },
   "queue": [
     {
@@ -207,7 +219,7 @@
   },
   "next_reserved_scope": {
     "owner": "v1-09",
-    "status": "sole_owner_confirmed_not_yet_acknowledged_launched",
+    "status": "one_reserved_retry_actually_running",
     "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
     "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
     "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
@@ -281,7 +293,7 @@
     "sha256": "ac0c53b484d1e5f980d908cb58d24f1fe5e4fd804021467b86156be402c8c742",
     "bytes": 2634,
     "both_guarded_sends_written": true,
-    "provider_launch_acknowledgement": false
+    "provider_launch_acknowledgement": true
   },
   "next_after_current_retry": "G20232024 score after measured retry boundary, bounded adjudication and explicit return to both; no blanket chain reservation"
 }

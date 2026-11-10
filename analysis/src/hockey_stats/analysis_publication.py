@@ -17,12 +17,15 @@ from .captures import strict_json
 SEASONS = ("20232024", "20242025", "20252026")
 EXECUTION_STRENGTHS = ("5v5", "5v4", "5v3", "4v3", "4v5", "3v5", "3v4")
 SPATIAL_STRENGTHS = (*EXECUTION_STRENGTHS, "pp", "pk")
+SPATIAL_STATES = ("5v4", "5v3", "4v3")
+SPATIAL_RECIPROCALS = dict(zip(("4v5", "3v5", "3v4"), SPATIAL_STATES))
+ADJUSTMENT_TARGETS = ("for_attempts_per60", "against_attempts_per60", "for_xg_per60", "against_xg_per60")
 GOALIE_STRENGTHS = ("5v5", "4v4", "3v3", "5v4", "5v3", "4v3", "4v5", "3v5", "3v4", "ev", "pk")
 CONTEXT_POPULATIONS = ("recorded_all_attempts", "recorded_goals", "recorded_locatable_unblocked", "neutral_locatable_unblocked_value", "neutral_all_attempt_value")
 FAMILY_TABLES = {
     "descriptive": ("skater_descriptive", "skater_context"),
     "microstats": ("skater_microstats",),
-    "spatial": ("skater_spatial", "analysis_map", "adjustment_decomposition"),
+    "spatial": ("skater_spatial", "analysis_map", "adjustment_decomposition", "spatial_evidence"),
     "execution": ("skater_execution", "analysis_map", "execution_breakdown", "attempt_value", "attempt_setter", "attempt_execution_share"),
     "shootiness": ("skater_shootiness",),
     "penalties": ("skater_penalties",),
@@ -41,6 +44,7 @@ KEYS = {
     "value_ledger": ("season", "player_id"), "analysis_map": ("season", "player_id", "map_kind", "strength", "view"),
     "execution_breakdown": ("season", "player_id", "strength", "kind", "stratum"),
     "adjustment_decomposition": ("season", "player_id", "strength", "target"),
+    "spatial_evidence": ("season", "player_id", "strength"),
     "attempt_fact": ("season", "game_id", "source_index"), "attempt_value": ("season", "game_id", "source_index"),
     "attempt_setter": ("season", "game_id", "source_index", "candidate_id"),
     "attempt_execution_share": ("season", "game_id", "source_index", "group", "recipient_id"),
@@ -551,6 +555,19 @@ CREATE TABLE skater_microstats (
           (availability='not_computed' AND length(trim(explanation))>0 AND payload_json IS NULL AND method_id IS NULL))
 ) STRICT;
 CREATE TABLE skater_spatial (
+    season TEXT NOT NULL,
+    player_id TEXT NOT NULL,
+    strength TEXT NOT NULL,
+    method_id TEXT REFERENCES analysis_method(method_id),
+    availability TEXT NOT NULL CHECK(availability IN ('provided','not_computed')),
+    explanation TEXT,
+    payload_json TEXT CHECK(payload_json IS NULL OR json_valid(payload_json)),
+    PRIMARY KEY(season,player_id,strength),
+    FOREIGN KEY(season,player_id) REFERENCES person(season,player_id),
+    CHECK((availability='provided' AND explanation IS NULL AND payload_json IS NOT NULL) OR
+          (availability='not_computed' AND length(trim(explanation))>0 AND payload_json IS NULL AND method_id IS NULL))
+) STRICT;
+CREATE TABLE spatial_evidence (
     season TEXT NOT NULL,
     player_id TEXT NOT NULL,
     strength TEXT NOT NULL,
@@ -1278,7 +1295,149 @@ def _execution_details(value):
         number(omitted[key],minimum=0,maximum=omitted['events'],integer=key == 'observed_goals')
 
 
+def spatial_selection(strength):
+    require(strength in SPATIAL_STRENGTHS, 'invalid spatial strength')
+    roles = ('offense','defense') if strength == '5v5' else ('offense',) if strength in (*SPATIAL_STATES,'pp') else ('defense',)
+    states = ('5v5',) if strength == '5v5' else SPATIAL_STATES if strength in ('pp','pk') else (SPATIAL_RECIPROCALS.get(strength,strength),)
+    return roles, states
+
+
+def _spatial_head_support(value, row_season, states):
+    fields(value, ('available','included_seconds','likelihood_events','eligible_origin_weight',
+        'current_season_information','prior_only','prior_kind','prior_anchor_season','prior_seasons','state_support','reason'))
+    require(type(value['available']) is bool, 'invalid spatial head availability')
+    strings(value['prior_seasons'],ordered=True)
+    for year in value['prior_seasons']:
+        season(year)
+        require(year < row_season, 'spatial head prior is not historical')
+    counts = ('included_seconds','likelihood_events','eligible_origin_weight')
+    if not value['available']:
+        require(all(value[key] is None for key in (*counts,'current_season_information','prior_only','prior_kind',
+                    'prior_anchor_season','state_support')) and not value['prior_seasons'], 'unavailable spatial head fabricates support')
+        text(value['reason'])
+        return
+    require(value['reason'] is None, 'available spatial head has a reason')
+    for key in counts:
+        number(value[key],minimum=0,integer=key == 'likelihood_events')
+    require(type(value['current_season_information']) is bool and type(value['prior_only']) is bool
+            and value['prior_only'] != value['current_season_information'], 'spatial head information flags differ')
+    require(value['prior_kind'] in ('entry','carry'), 'invalid spatial prior kind')
+    require((value['prior_kind'] == 'entry' and value['prior_anchor_season'] is None and not value['prior_seasons'])
+            or (value['prior_kind'] == 'carry' and value['prior_seasons']
+                and value['prior_anchor_season'] == value['prior_seasons'][-1]), 'spatial prior anchor differs')
+    breakdown = value['state_support']
+    require(type(breakdown) is list and [item.get('state') for item in breakdown] == list(states), 'spatial head states differ')
+    for item in breakdown:
+        fields(item,('state',*counts))
+        for key in counts:
+            number(item[key],minimum=0,integer=key == 'likelihood_events')
+    for key in counts:
+        total = sum(item[key] for item in breakdown)
+        require(total == value[key] if key == 'likelihood_events' else close(total,value[key]), 'spatial head state counts do not close')
+
+
+def validate_spatial_evidence(value, row, catalogs):
+    """strict saved support, distinct from aggregate summary qualification."""
+    fields(value,('fit_family','annual_state','reference_sha256','state_support','roles','method_id'))
+    _method(value['method_id'],catalogs)
+    method = catalogs['method'][value['method_id']]
+    require(method['family'] == 'spatial', 'spatial evidence method family differs')
+    roles, states = spatial_selection(row['strength'])
+    family_states = ('5v5',) if row['strength'] == '5v5' else SPATIAL_STATES
+    require(value['fit_family'] == ('ev' if row['strength'] == '5v5' else 'st'), 'spatial evidence fit family differs')
+    _receipts([value['annual_state']])
+    digest(value['reference_sha256'])
+    require(value['annual_state'] in method['evidence'] and any(item['role'] == 'annual_state'
+            and item['sha256'] == value['annual_state']['sha256'] and item['seasons'] == [row['season']] for item in method['inputs']),
+            'spatial evidence annual state is not bound to its method/year')
+    baseline = value['state_support']
+    require(type(baseline) is list and [item.get('state') for item in baseline] == list(states), 'spatial baseline states differ')
+    for item in baseline:
+        fields(item,('state','physical_seconds','directed_seconds','attempts','origin_weight','baseline_current_information'))
+        for key in ('physical_seconds','directed_seconds','attempts','origin_weight'):
+            number(item[key],minimum=0,integer=key == 'attempts')
+        require(close(item['directed_seconds'],item['physical_seconds'] * (2 if value['fit_family'] == 'ev' else 1)),
+                'spatial physical/directed time differs')
+        flags = item['baseline_current_information']
+        fields(flags,('volume','shape','quality'))
+        for head in flags:
+            require(type(flags[head]) is bool and flags[head] == (item['directed_seconds'] > 0 or item['attempts'] > 0
+                    if head == 'volume' else item['origin_weight'] > 0), 'spatial baseline information differs')
+    require(type(value['roles']) is list and [item.get('role') for item in value['roles']] == list(roles), 'spatial evidence roles differ')
+    for role in value['roles']:
+        fields(role,('role','coefficient_support','actual_context'))
+        fields(role['coefficient_support'],('volume','shape','quality'))
+        for head, evidence in role['coefficient_support'].items():
+            _spatial_head_support(evidence,row['season'],family_states)
+            annual_years = {year for item in method['inputs'] if item['role'] == 'annual_state' for year in item['seasons']}
+            require(set(evidence['prior_seasons']) <= set(method['fit_seasons']) & annual_years,
+                    'spatial head prior years are not bound to annual state inputs')
+            if evidence['available']:
+                informed = evidence['included_seconds'] > 0 or evidence['likelihood_events'] > 0 if head == 'volume' else evidence['eligible_origin_weight'] > 0
+                require(evidence['current_season_information'] == informed, 'spatial head likelihood information differs')
+        context = role['actual_context']
+        fields(context,('available','included_seconds','states','reason'))
+        require(type(context['available']) is bool, 'invalid actual-context availability')
+        if not context['available']:
+            text(context['reason'])
+            require(context['states'] is None and context['included_seconds'] == (0 if context['reason'] == 'no_exposure' else None),
+                    'unavailable actual context fabricates exposure/weights')
+            continue
+        number(context['included_seconds'],minimum=0)
+        require(context['reason'] is None and context['included_seconds'] > 0, 'available actual context lacks elapsed exposure')
+        actual = context['states']
+        require(type(actual) is list and [item.get('state') for item in actual] == list(states), 'actual-context states differ')
+        for item in actual:
+            fields(item,('state','seconds','weight'))
+            number(item['seconds'],minimum=0)
+            number(item['weight'],minimum=0,maximum=1)
+            require(close(item['weight'],item['seconds']/context['included_seconds']), 'actual-context weight differs from elapsed time')
+            for head in role['coefficient_support'].values():
+                if head['available']:
+                    source = next(part for part in head['state_support'] if part['state'] == item['state'])
+                    require(close(source['included_seconds'],item['seconds']), 'actual context and same-role head exposure differ')
+        require(close(sum(item['seconds'] for item in actual),context['included_seconds'])
+                and close(sum(item['weight'] for item in actual),1), 'actual-context exposure/weights do not close')
+
+
+def validate_spatial_evidence_selection(summary, evidence, adjustments, row, catalogs):
+    """join fixed spatial records without inferring missing support or closure."""
+    require(summary['availability'] == evidence['availability'], 'spatial summary/evidence availability differs')
+    expected = [target for strength,target in required_keys('adjustment_decomposition','spatial') if strength == row['strength']]
+    require([item['target'] for item in adjustments] == expected, 'spatial adjustment targets differ')
+    if evidence['availability'] != 'provided':
+        require(all(item['result']['availability'] == 'not_computed' for item in adjustments), 'pending spatial evidence has computed adjustments')
+        return
+    data = evidence['data']
+    validate_spatial_evidence(data,row,catalogs)
+    require(summary['data']['method_id'] == data['method_id'], 'spatial summary/evidence method differs')
+    seconds = summary['data']['support']['included_seconds']
+    for role in data['roles']:
+        context = role['actual_context']
+        if seconds is not None and context['included_seconds'] is not None:
+            require(close(seconds,context['included_seconds']), 'spatial summary and actual role time differ')
+        prefix = 'for_' if role['role'] == 'offense' else 'against_'
+        for item in adjustments:
+            if not item['target'].startswith(prefix):
+                continue
+            result = item['result']
+            require(result['availability'] == 'provided' and result['data']['method_id'] == data['method_id'],
+                    'spatial evidence adjustment availability/method differs')
+            validate_payload('adjustment_decomposition',result['data'],row,catalogs)
+            values = [estimate for key,estimate in result['data'].items() if key != 'method_id']
+            if context['available']:
+                require(all(estimate['value'] is not None for estimate in values), 'available actual context has unavailable adjustments')
+            else:
+                reasons = ('no_exposure',) if context['reason'] == 'no_exposure' else ('failed_fit',) if context['reason'] == 'incomplete_annual_family' else ('missing_source','not_computed') if context['reason'] == 'not_evaluated' else ('missing_source',)
+                require(all(estimate['value'] is None and estimate['reason_detail'] is not None
+                        and bool(estimate['reason_detail']['explanation'].strip()) and estimate['unavailable_reason'] in reasons for estimate in values),
+                        'unavailable actual-context adjustment reasons differ')
+
+
 def validate_payload(table, value, row, catalogs, *, person_kind=None):
+    if table == 'spatial_evidence':
+        validate_spatial_evidence(value,row,catalogs)
+        return
     if table in ESTIMATE_FIELDS and table != 'attempt_value':
         extra = ('state_weights',) if table == 'skater_spatial' else ('reference_panel','coefficient_support','paired_evidence') if table == 'skater_execution' else ('recorded_drawn','recorded_taken','recorded_served') if table == 'skater_penalties' else ()
         fields(value, (*ESTIMATE_FIELDS[table], *extra, 'support','method_id'))
@@ -1743,7 +1902,7 @@ def _read_results(directory, manifest_name):
     directory = directory.resolve(strict=True)
     manifest = strict_json((directory/manifest_name).read_bytes())
     fields(manifest,('schema_version','kind','purpose','seasons','observed_bindings','prepared_sha256','producer','catalogs','families'))
-    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 2 and manifest['kind'] == 'player_analysis_results' and manifest['purpose'] in ('real','fixture'), 'invalid result manifest')
+    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 3 and manifest['kind'] == 'player_analysis_results' and manifest['purpose'] in ('real','fixture'), 'invalid result manifest')
     strings(manifest['seasons'],ordered=True)
     require(manifest['seasons'] and set(manifest['seasons']) <= set(SEASONS) and (manifest['purpose'] != 'real' or manifest['seasons'] == list(SEASONS)), 'invalid display seasons')
     require(type(manifest['observed_bindings']) is list and len(manifest['observed_bindings']) == len(manifest['seasons']), 'missing observed bindings')
@@ -1784,15 +1943,30 @@ def _read_results(directory, manifest_name):
         fields(family['tables'],FAMILY_TABLES[family['family']] if family['availability'] == 'provided' else ())
         require(family['availability'] != 'provided' or manifest['prepared_sha256'] is not None, 'provided family lacks prepared identity')
         inventory.append((family['season'],family['family']))
+        spatial = {}
         for table,member in family['tables'].items():
             path = member_path(directory,member)
             require(path not in paths, 'member reused across tables')
             paths.add(path)
             for row in result.rows(member,table,family['family']):
                 require(row['season'] == family['season'], 'row season differs from family')
+                if family['family'] == 'spatial' and table != 'analysis_map':
+                    spatial.setdefault(table,{})[tuple(row[key] for key in KEYS[table])] = row['result']
             if table not in FACT_TABLES:
                 people_count = sum(person['season'] == family['season'] and ((person['kind'] == 'goalie') == (family['family'] == 'goalie')) for person in people.values())
                 require(member['rows'] == people_count * len(required_keys(table,family['family'])), f'{table}: missing promised person/selector rows')
+        if spatial:
+            references = {}
+            for key,evidence in spatial['spatial_evidence'].items():
+                year,player,strength = key
+                summary = spatial['skater_spatial'][key]
+                adjustments = [dict(target=target,result=spatial['adjustment_decomposition'][(*key,target)])
+                    for selected,target in required_keys('adjustment_decomposition','spatial') if selected == strength]
+                validate_spatial_evidence_selection(summary,evidence,adjustments,dict(season=year,strength=strength),catalogs)
+                if evidence['availability'] == 'provided':
+                    data = evidence['data']
+                    reference = (data['fit_family'],data['annual_state']['uri'],data['annual_state']['sha256'],data['reference_sha256'])
+                    require(references.setdefault(data['method_id'],reference) == reference, 'spatial method numerical reference differs between rows')
     require(inventory == sorted(set(inventory)) and set(inventory) == {(year,family) for year in manifest['seasons'] for family in FAMILY_TABLES}, 'missing/duplicate/unordered family dispositions')
     return result
 
@@ -1803,7 +1977,7 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
     fields(catalogs,('people','sources','methods','supports'))
     require(not output.exists() and not output.is_symlink(), 'result output exists')
     output.mkdir()
-    manifest = dict(schema_version=2,kind='player_analysis_results',**selection,producer=implementation_identity(),catalogs={},families=[])
+    manifest = dict(schema_version=3,kind='player_analysis_results',**selection,producer=implementation_identity(),catalogs={},families=[])
     def write_row(destination, sha, table, row, previous):
         key = tuple(row[field] for field in KEYS[table])
         require(previous is None or previous < key, f'{table}: producer rows must be sorted and unique')
@@ -2007,8 +2181,8 @@ def required_keys(table, family):
         return tuple((strength,population,*((kind,) if table == 'goalie_evidence_map' else ())) for strength in (*GOALIE_STRENGTHS,'covered_all') for population in ('unblocked','on_net') for kind in (('all','wrist_snap','slap','tip','backhand','other') if table == 'goalie_evidence_map' else ('all',)))
     if table in ('goalie_result','goalie_observed'):
         return tuple((strength,) for strength in ((*GOALIE_STRENGTHS,'covered_all') if table == 'goalie_observed' else GOALIE_STRENGTHS))
-    if table in ('skater_spatial','skater_execution','skater_shootiness'):
-        return tuple((strength,) for strength in (SPATIAL_STRENGTHS if table == 'skater_spatial' else EXECUTION_STRENGTHS))
+    if table in ('skater_spatial','spatial_evidence','skater_execution','skater_shootiness'):
+        return tuple((strength,) for strength in (SPATIAL_STRENGTHS if table in ('skater_spatial','spatial_evidence') else EXECUTION_STRENGTHS))
     return ((),)
 
 
@@ -2107,8 +2281,30 @@ def check_results(connection, results):
     for row in connection.execute('SELECT s.candidate_id,json_extract(a.payload_json,\'$.team_id\') shooting_team,d.team_id candidate_team FROM attempt_setter s JOIN attempt_fact a USING(season,game_id,source_index) LEFT JOIN dressed_game d ON d.season=s.season AND d.game_id=s.game_id AND d.player_id=s.candidate_id WHERE s.candidate_id NOT IN (\'none\',\'unknown\')'):
         require(row['candidate_team'] is not None and row['candidate_team'] == row['shooting_team'], 'named setter lacks attacking dressed identity')
     _check_maps(connection)
+    _check_spatial_evidence(connection,results.catalogs)
     _check_execution_evidence(connection)
     _check_repeated_facts(connection)
+
+
+def _check_spatial_evidence(connection, catalogs):
+    references = {}
+    for row in connection.execute('SELECT * FROM spatial_evidence ORDER BY season,player_id,strength'):
+        key = tuple(row[name] for name in ('season','player_id','strength'))
+        summary = connection.execute('SELECT * FROM skater_spatial WHERE season=? AND player_id=? AND strength=?',key).fetchone()
+        require(summary is not None,'spatial evidence lacks its matching summary')
+        adjustments = []
+        for strength,target in required_keys('adjustment_decomposition','spatial'):
+            if strength != row['strength']:
+                continue
+            adjustment = connection.execute('SELECT * FROM adjustment_decomposition WHERE season=? AND player_id=? AND strength=? AND target=?',(*key,target)).fetchone()
+            require(adjustment is not None,'spatial evidence lacks a required adjustment target')
+            adjustments.append(dict(target=target,result=stored_result(adjustment)))
+        evidence = stored_result(row)
+        validate_spatial_evidence_selection(stored_result(summary),evidence,adjustments,row,catalogs)
+        if evidence['availability'] == 'provided':
+            data = evidence['data']
+            reference = (data['fit_family'],data['annual_state']['uri'],data['annual_state']['sha256'],data['reference_sha256'])
+            require(references.setdefault(data['method_id'],reference) == reference,'spatial method numerical reference differs between stored rows')
 
 
 def _check_execution_evidence(connection):

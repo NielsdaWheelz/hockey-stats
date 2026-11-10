@@ -1,20 +1,20 @@
 {
-  "status": "v1-18_one_actual_strict_startup_running_under_reviewed_ready04",
+  "status": "v1-18_one_actual_strict_startup_running_under_reviewed_ready05",
   "current": {
     "owner": "v1-18",
-    "ready_receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-04.json",
-    "ready_receipt_sha256": "350156933b41a5c362a0e438789077bc56e8e33eee968f796dd58021fb3c2f34",
+    "ready_receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-05.json",
+    "ready_receipt_sha256": "3673ff6d32c9d894b6a7566058058c254b8266abe90c0344045e47cd9c0900f9",
     "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
-    "boundary": "publication accepted; independently checked stdio metadata cause repaired; one actual ordinary detached strict validation dispatched under ready04. no release",
+    "boundary": "publication accepted; two launch failures before ordinary strict validation; ready05 data-denial candidate exclusion and ordinary metadata controls independently pass; one actual strict validation dispatched. no release",
     "owner_acknowledged_conversion_started": true
   },
   "queue": [
     {
       "owner": "v1-18",
       "contact": "t-16b64d1338b85a48 on macbook",
-      "receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-04.json",
-      "sha256": "350156933b41a5c362a0e438789077bc56e8e33eee968f796dd58021fb3c2f34",
-      "receipt_bytes": 9204,
+      "receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-05.json",
+      "sha256": "3673ff6d32c9d894b6a7566058058c254b8266abe90c0344045e47cd9c0900f9",
+      "receipt_bytes": 11372,
       "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
       "scope": "saved-only donor conversion, one ordinary inactive publication, one strict startup41919",
       "release_condition": "completed checked conversion/publication and one normal strict startup; explicit release to the next agreed owner",
@@ -34,6 +34,11 @@
           "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-03.json",
           "sha256": "2cc6d4f969d7d7548c0537ab086999cc70d589ee7b209d204d90b46e8236b9be",
           "reason": "native startup aborted before javascript/sqlite because redirected exact log metadata was denied; failed bytes retained, one exact-log metadata permission repaired after causal boot probes"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-04.json",
+          "sha256": "350156933b41a5c362a0e438789077bc56e8e33eee968f796dd58021fb3c2f34",
+          "reason": "second launcher entered javascript but failed sqlite client acquisition before ordinary strict queries; bounded controls select exact candidate exclusion inside data denial, metadata allowed"
         }
       ]
     },
@@ -93,7 +98,7 @@
     "evidence_bytes": 13712940,
     "native_wall_seconds": 2100.827,
     "peak_resident_bytes": 552878080,
-    "publication_and_runtime_acceptance": "publication accepted; one actual ordinary runtime validation running under ready04; no release"
+    "publication_and_runtime_acceptance": "publication accepted; one actual ordinary runtime validation running under ready05; no release"
   },
   "publication_owner_report": {
     "exit_code": 0,
@@ -112,9 +117,19 @@
     "javascript_sqlite_or_meter_output": false,
     "complete_strict_validation_pass_observed": false,
     "listener_exists": false,
-    "status": "one actual ordinary detached strict validation dispatched under ready04; source, server, inputs and database unchanged",
+    "status": "one actual ordinary strict validation dispatched under ready05; both earlier failures performed zero ordinary full validations; no additional publication/fit/source/input/database change",
     "causal_diagnosis_review_sha256": "4416c9d914c6391287397420f00aee47e188230dba38759ca82bc9af6bdd7d86",
     "ready04_independent_review_sha256": "05838300a1343fa6450a0069a11dbda5a60a72faa49c57223f96c09506576733",
-    "repair": "only file-read-metadata for exact startup.log; log contents and original input data/metadata remain denied"
+    "repair": "exact candidate exclusion inside external file-read-data denial; ordinary metadata allowed; original source/log contents denied",
+    "second_launcher_failure": {
+      "native_session": 50701,
+      "application_javascript_entered": true,
+      "stage": "sqlite client acquisition before ordinary strict queries",
+      "ordinary_full_validations": 0,
+      "candidate_physical_io": "unmeasured; not claimed zero"
+    },
+    "ready05_independent_review_sha256": "49f3aa63fae1cc929d2ce4f15ee92b195aca278a394460bd5a24b715faa52a3c",
+    "profile_sha256": "305c54592b4d5a11b39e04cb5c1c0ab0477a6de57f2436c19c28229a94177952",
+    "profile_bytes": 234
   }
 }

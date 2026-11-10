@@ -1,26 +1,10 @@
 {
-  "status": "v1-09_annual_failed_before_baselines_held_through_bounded_adjudication",
+  "status": "v1-07_owns_next_20232024_fit_preflight",
   "current": {
-    "owner": "v1-09",
-    "source_commit": "ba41c2b8fe89977618fe4f0d3826592b60641f8e",
-    "analysis_tree": "856575a97f2ff6e004888e04f400b77834566f20",
-    "script_sha256": "016249ee5c0de1b5bb1604f29f94dc6996a41db633ee1a16bb17a222fb8e1322",
-    "preflight_sha256": "1c4b8f112ea31fbc521386d11ffd8898ede2997d8092149de8eeb68d76d70de9",
-    "boundary": "annual exit1 before baselines; owner performs bounded small-document adjudication then explicitly releases to both. no retry or extension; G remains held",
-    "launch_at_utc": "2026-11-10T10:10:15Z",
-    "native_python_pid": 16998,
-    "native_time_pid": 16997,
-    "shell_pid": 16994,
-    "operator": "t-796454dbbecf0889 on macbook",
-    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer",
-    "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-01/real/states/20212022",
-    "native_log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-01/logs/20212022-fit.log",
-    "native_exit_receipt": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-01/logs/20212022-fit.exit",
-    "native_exit_code": 1,
-    "native_wall_seconds": 70.66,
-    "native_peak_resident_bytes": 3707977728,
-    "artifact_member_bytes": 0,
-    "native_pids_absent": true
+    "owner": "v1-07",
+    "scope": "20232024 goalie fit then bounded saved-state review and one required target inventory",
+    "boundary": "explicit owner confirmation written to both after checked v1-09 failure release; actual clean producer/input/fresh-output preflight in progress; no fit launched yet",
+    "thread_environment": "six unset variables; no source or HEAD mutation during active numerical command"
   },
   "queue": [
     {
@@ -77,12 +61,13 @@
         "VECLIB_MAXIMUM_THREADS": "1"
       },
       "cost": "unmeasured; no short fixture forecast",
-      "status": "failed_before_baselines_bounded_adjudication_pending"
+      "status": "failed_before_baselines_adjudicated_explicitly_released"
     },
     {
       "owner": "v1-07",
       "scope": "next20232024 goalie annual after both explicit releases",
-      "thread_environment": "the same six-unset protocol; no sibling environment mutation here"
+      "thread_environment": "the same six-unset protocol; no sibling environment mutation here",
+      "status": "current_owner_fit_preflight"
     }
   ],
   "checks": "small v1-18 ready receipt bytes/hash and local v1-09 preflight/script hashes/frozen git identities checked; no numerical input or candidate body opened",
@@ -194,6 +179,16 @@
     "producer_and_failed_evidence_preserved": true,
     "retry_or_other_heavy_reservation": false,
     "development_scope": "source repair/direct adapter red-green only; no fits/arrays/source bodies",
-    "explicit_release_received": false
+    "explicit_release_received": true
+  },
+  "v1_09_release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/docs/research/spatial-st-v1-09/receipts/first-real-failure-release-01.json",
+    "sha256": "643e719fa709da6cb0727b79d9577a301b1cb3d039734912d9e72b94431168e9",
+    "bytes": 2175,
+    "root_small_receipt_hash_checked": true,
+    "native_boundary_receipt_sha256": "1af15299155832c1abde1be97639ed28b1e56ec07ba6af0944d36b2caea9e192",
+    "no_heavy_retry_or_other_reservation": true,
+    "next_owner": "v1-07",
+    "owner_confirmation_to_both": "both guarded sends written, provider acknowledgement pending"
   }
 }

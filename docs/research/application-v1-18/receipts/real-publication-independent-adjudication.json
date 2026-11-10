@@ -1,0 +1,99 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-11-10T09:07:02.776067+00:00",
+  "scope": "bounded independent ordinary-publication metadata adjudication; no database read/rehash, per-season verification read, source row scan, full read_results, check_publication or SQLite access",
+  "consumed": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/verification.json",
+      "bytes": 15559,
+      "sha256": "d7c4ac9c767741288eb0d1b95b7704fa45cdc1f5ecfcd3a09fd45b39144400bf"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+      "bytes": 19787,
+      "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/results/manifest.json",
+      "bytes": 19787,
+      "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/candidate/selection.json",
+      "bytes": 711,
+      "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/selection.json",
+      "bytes": 711,
+      "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-conversion-independent-adjudication.json",
+      "bytes": 5601,
+      "sha256": "1cb1d49b4fb8c1f2bbd8f6a91cda93adc08e87506c3db7b5397add03ca8b53ea"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-exchange-conversion.json",
+      "bytes": 12749,
+      "sha256": "c68cd39613f23b42c6c558913d2ab6965b3ff53dc406b005f424cda47efef535"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-launch-preflight.json",
+      "bytes": 4457,
+      "sha256": "32fe3e7636d1d96695750b4a764befeb6599eb6cb9cd07204a994f0b680053fd"
+    }
+  ],
+  "publication_id": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+  "top_verification_sha256": "d7c4ac9c767741288eb0d1b95b7704fa45cdc1f5ecfcd3a09fd45b39144400bf",
+  "verification_document_version": 1,
+  "copied_and_current_exchange_version": 3,
+  "results_manifest_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+  "corrected_donor_sha256": "38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8",
+  "retained_correction_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4",
+  "database_identity_from_ordinary_publisher": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/player-analysis.sqlite",
+    "sha256": "ba12c7f7dd990b4d345d06afcf39c80bf20b2b43aefbfbe838218062e7be692b",
+    "bytes": 13370183680,
+    "independently_rehashed": false
+  },
+  "checks": {
+    "integrity": "passed",
+    "foreign_keys": "passed",
+    "read_back": "passed",
+    "per_season_conservation": "passed"
+  },
+  "annual_checks": [
+    {
+      "season": "20232024",
+      "corpus_sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414",
+      "read_back": "passed",
+      "conservation": "passed",
+      "coverage_status": "partial"
+    },
+    {
+      "season": "20242025",
+      "corpus_sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639",
+      "read_back": "passed",
+      "conservation": "passed",
+      "coverage_status": "partial"
+    },
+    {
+      "season": "20252026",
+      "corpus_sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43",
+      "read_back": "passed",
+      "conservation": "passed",
+      "coverage_status": "partial"
+    }
+  ],
+  "source_attribution": "same ordinary-publication AF critical trees and producer commit as conversion/launch; corrected donor38c and correctiona732 remain bound through exact result manifest; frontend-only followups do not change core source",
+  "publisher_cost": {
+    "wall_seconds": 6335.504955082899,
+    "peak_rss_bytes": 3332374528,
+    "consumed_bytes": 23430524879,
+    "database_bytes": 13370183680
+  },
+  "cost_scope": "through independent read-back; top receipt writing and final rename excluded; peak rss is process high-water",
+  "scientific_admission": "not_performed",
+  "next": "metadata clear for the planned single normal detached strict startup; database schema9/runtime/API/browser acceptance remains to be established there; no activation or heavy-slot release inferred"
+}

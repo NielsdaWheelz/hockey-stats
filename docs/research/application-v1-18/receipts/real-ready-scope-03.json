@@ -1,0 +1,175 @@
+{
+  "status": "measurement_addendum_within_explicitly_released_ready02_scope",
+  "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
+  "source_files": [
+    {
+      "path": "analysis/src/hockey_stats/analysis_publication.py",
+      "sha256": "9ab8b593d0643e8118fd913ca6f11feb2064b72e6effd6922bf6ccb803067bf0",
+      "bytes": 173569
+    },
+    {
+      "path": "analysis/src/hockey_stats/publication.py",
+      "sha256": "594748d8d8c0419b78254165cea587492fa6fd22a76f1e4203f9dacbe5efc295",
+      "bytes": 50973
+    },
+    {
+      "path": "analysis/src/hockey_stats/spatial_state.py",
+      "sha256": "66c6a41f94e2fb5503f0f716f410d0a9b1063580b7669edbee2951e15b1f45dd",
+      "bytes": 65518
+    },
+    {
+      "path": "analysis/src/hockey_stats/spatial_composition.py",
+      "sha256": "a65ddacf1c21070fc30aead01fbf1ae2e5c876e7c27f96d153233372e96b4889",
+      "bytes": 39391
+    },
+    {
+      "path": "app/src/shared/player-analysis.ts",
+      "sha256": "aa7ac7a7461445a9b600d90e5fd2e61eb4a2e1e7d1ecbbd93284702785194017",
+      "bytes": 114318
+    },
+    {
+      "path": "app/src/shared/player-analysis-selections.ts",
+      "sha256": "f77ede6200c4e6510960801a3aacf811c196e7448c94e380d4eb5cdd55bd4029",
+      "bytes": 9540
+    },
+    {
+      "path": "app/src/shared/publication.ts",
+      "sha256": "031ebbae12e385ce6ec3b9f5714dce5da3a42e4864d1b52e208a9fc6bc79f309",
+      "bytes": 3217
+    },
+    {
+      "path": "app/src/server/analysis-publication.ts",
+      "sha256": "7b3cb93276f547658f98410407cbce059dd476fda83f5d09927259d3732b54a9",
+      "bytes": 65616
+    },
+    {
+      "path": "app/src/server/selected-publication.ts",
+      "sha256": "774b45efbd2325ead98713419b93845542bdd3ae1ca5e3a19ca62b509adc221a",
+      "bytes": 20585
+    },
+    {
+      "path": "app/src/server/publication.ts",
+      "sha256": "5598c8416e8db90b5f1e6aba544758c85dca68196a9f9de36c24ce8933813004",
+      "bytes": 17692
+    },
+    {
+      "path": ".v1-18-convert.py",
+      "sha256": "343897ac5faec6cb2341d5187dcdd9a3ec311ba64b53f8122722971163ffb988",
+      "bytes": 15791
+    },
+    {
+      "path": "app/.v1-18-runtime.mjs",
+      "sha256": "6cfa806b4e6827218c65fdb39f0edfb59ae7b72b4c27b4f51f19df7930f2e2bc",
+      "bytes": 1105
+    },
+    {
+      "path": "app/.v1-18-detached.sb",
+      "sha256": "e94a9634dcd1ca1fa6e3c84eafbd31d3e4c2e23ae57e72544fd60410c13d5e14",
+      "bytes": 221
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/manifest.json",
+      "sha256": "38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8",
+      "bytes": 19160
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/states-selection.json",
+      "sha256": "7ac43cfa0bcf72b449bc9267b19f16eb5ac7d7bf396fd08d9a98200d94549f1c",
+      "bytes": 1446
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/candidate/selection.json",
+      "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+      "bytes": 711
+    }
+  ],
+  "commands": [
+    {
+      "name": "saved-evidence conversion",
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-18",
+      "env": {
+        "PYTHONPATH": "/Users/nnandal/Documents/code/hockey-stats-v1-18/analysis/src"
+      },
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        ".v1-18-convert.py",
+        "--donor",
+        "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/manifest.json",
+        "--selection",
+        "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/states-selection.json",
+        "--output",
+        "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results",
+        "--receipts",
+        "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts"
+      ],
+      "log": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/convert.log"
+    },
+    {
+      "name": "ordinary inactive publication",
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-18",
+      "env": {
+        "PYTHONPATH": "/Users/nnandal/Documents/code/hockey-stats-v1-18/analysis/src"
+      },
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "publish",
+        "--observed",
+        "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/candidate/selection.json",
+        "--results",
+        "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate"
+      ],
+      "log": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/publish.log"
+    },
+    {
+      "name": "one strict startup",
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app",
+      "argv": [
+        "/usr/bin/sandbox-exec",
+        "-f",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-detached.sb",
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        ".v1-18-runtime.mjs",
+        "--publication",
+        "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/player-analysis.sqlite",
+        "--port",
+        "41919"
+      ],
+      "log": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/startup.log"
+    }
+  ],
+  "output_root": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01",
+  "scope": "one saved evidence successor, ordinary inactive publication and one strict startup; no acquisition, preparation, fit, rescore or projection recomputation",
+  "concurrency": "held while v1-07 score20222023 pid74993 owns heavy slot; no dispatch before explicit owner release",
+  "activation": false,
+  "review": "python and typed owners independently reviewed; converter inspected by root and evidence owner; canonical fixtures and selected transport matrix green",
+  "supersedes": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-02.json",
+    "sha256": "f2dfd59562971c07c2ee8dfd21f962432c3abfc46021637c2f2e845b82b999d9",
+    "reason": "only the single strict-startup launcher adds the already-reviewed listening-event cost meter and an OS read policy; exact numerical/publication sources, inputs, conversion/publication commands, output/log paths and one startup remain unchanged"
+  },
+  "normal_server_argv": [
+    "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "dist/node/server/main.js",
+    "--publication",
+    "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/player-analysis.sqlite",
+    "--port",
+    "41919"
+  ],
+  "startup_instrumentation": {
+    "ordinary_entrypoint": "./dist/node/server/main.js",
+    "ordinary_argument_values_unchanged": true,
+    "read_count": "one normal full strict startup; no bypass, second validation, preload cache or production endpoint",
+    "latency_scope": "meter entry through actual port41919 listening event, excluding node boot and static meter imports",
+    "memory_scope": "kernel process-lifetime peak resident set through listening, including boot and static imports",
+    "units": "node resourceUsage.maxRSS kibibytes multiplied by1024",
+    "read_policy": "all original external hockey-stats paths denied; only the exact new candidate sqlite is readable",
+    "policy_control": "receipts/detached-policy-paired-control.json",
+    "review": "independent source review; reused accepted v1-17 ordinary-startup measurement mechanism"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "kind": "bounded_fixture_browser_acceptance",
+  "created_at": "2026-11-10T06:50:10.151Z",
+  "software_checks": "passed",
+  "fresh_independent_pixels": {
+    "status": "passed",
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/independent-final-pixel-review.json",
+    "sha256": "77900a9cc8f9bcfc31e599fdfdfd83a2c3702b9da70ed03a6c4b28b1134c540b"
+  },
+  "publication_id": "53b61729-af6c-4ff2-bd1d-f0a06d291113",
+  "purpose": "fixture",
+  "origin": "http://127.0.0.1:41918",
+  "runtime": {
+    "node": "24.21.0",
+    "playwright": "1.65.0",
+    "browser": "Google Chrome 156.0.8078.80",
+    "profiles": "owned temporary profiles only"
+  },
+  "phases": [
+    {
+      "name": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/normal.json",
+      "sha256": "aed9309d8f0fb434dc37a6851003ec3bdc902a2002276ef399959d032048aa67",
+      "downloads": 27,
+      "page_errors": 0,
+      "external_requests": 0
+    },
+    {
+      "name": "zoom",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/zoom.json",
+      "sha256": "d67f01aa624792b932738a3baa631c21145b7e00a9d64c58a133fb327b7ba4ca",
+      "downloads": 12,
+      "page_errors": 0,
+      "external_requests": 0
+    },
+    {
+      "name": "variants",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/variants.json",
+      "sha256": "b2fd46b38b7bf0fc9c2c1831dc82392eb8960518ed5b2a8e2b2062bef06eb8e5",
+      "downloads": 16,
+      "page_errors": 0,
+      "external_requests": 0
+    }
+  ],
+  "actual_downloads": 55,
+  "checked": [
+    "profile to analytical, detail kind/strength/view, distributions, annual history, F/D comparison, season and browser back",
+    "all57 current values,171 annual values and both57-row comparison cards match canonical typed source values",
+    "spatial evidence28 adjustment rows and6 heads; prior common-state evidence retains state/head-state rows and14 null no-exposure adjustments",
+    "selected effect/complete/PK CSVs reconcile all native masses/centers and display masses/densities/lower bounds/areas, support, units and identities with delivered typed bodies",
+    "cohort and rectangle changes do not refetch; core comparison uses four combined-player map requests; hidden data tables initially unmounted",
+    "long name, sparse selected outsider, prior-only, legitimate zero, pending, failed fit and absent-season dispositions remain distinct",
+    "375px profile and comparison; actual100%/200% browser zoom profile and comparison; no horizontal page overflow; table keyboard scrolling",
+    "actual downloaded sheet, map, distribution, history, penalty and annual CSV/PNG artifacts; all sheets1200px wide and at most3200px high",
+    "native zoom preserves PNG and CSV bytes; navigation during delayed PNG conversion preserves the complete opening-sheet sha256",
+    "touched comparative, observed, microstat and goalie routes; no page errors or external file/font/network requests"
+  ],
+  "controlled_variants": {
+    "strict_delivered_responses": 99,
+    "definition": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-variation-definition.json",
+    "pure_validation": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-variation-validation.json",
+    "limits": "explicit attributed synthetic interface construction; no numerical producer, fitting or scientific acceptance",
+    "retained_scenario": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-variation-scenarios.json",
+      "sha256": "93105a16e8704399d5fc52addd371a56c7e8c5f90ed78a7a91e2a035c7abb940",
+      "bytes": 101656,
+      "contents": "literal support/method/summary/head/context/adjustment records plus exact zero and long-name overrides; no executable controller"
+    }
+  },
+  "red_green": {
+    "layout_red": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/narrow-spatial-overflow.json",
+    "layout_style_probe": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/narrow-spatial-overflow-style-probe.json",
+    "layout_delivered_green": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/narrow-spatial-overflow-delivered-green.json",
+    "pixel_red": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/pixel-review-red/receipt.json",
+    "controller_only_red": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/variants-controller-support-format.json"
+  },
+  "real_integration": "not run by this browser slice; candidate41919 not yet ready",
+  "relative_selected_map_csv_identity": {
+    "profile_sha256": "29675b935311eab99fc233a2b1c5e4137083d32dbec1c2195ebb4e7e0a171a35",
+    "relative_selector_sha256": "29675b935311eab99fc233a2b1c5e4137083d32dbec1c2195ebb4e7e0a171a35",
+    "equal": true
+  }
+}

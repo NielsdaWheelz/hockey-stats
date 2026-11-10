@@ -1,0 +1,33 @@
+{
+  "status": "passed_required_native_card_capture_contract",
+  "recorded_at": "2026-11-10T10:45:58.062715+00:00",
+  "raw_capture": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-native-card-pixels-02/facts.json",
+    "bytes": 16908,
+    "sha256": "84b62e3c778c3f4ad82f21fed8e6221267c36aab9e299f5651a2c51be7ca75e9"
+  },
+  "raw_capture_command_exit_code": 1,
+  "raw_failure_preserved": true,
+  "required_observations": {
+    "normal_ui_navigations": 2,
+    "correct_physical_card_rasters": 3,
+    "ordinary_ui_api_requests": 26,
+    "exports": 0,
+    "direct_api_gets": 0,
+    "server_starts": 0,
+    "page_errors": 0,
+    "external_requests": 0,
+    "unrecognized_failed_resources": 0
+  },
+  "controller_expectation_correction": "the capture controller required two observations for the optional implicit browser icon: a console location and a Playwright response event. the actual console identifies the exact local favicon.ico404; no corresponding response event was emitted. requiring that second event is outside the page/API/font/declared-asset acceptance contract. the actual URL/text are finite, retained and explicitly classified; unknown errors remain failures.",
+  "source_checks": "current application source declares no favicon or icon link; built client has no favicon;404 for that undeclared local resource is correct. no application change or fabricated asset was introduced.",
+  "corrected_clip_contract": "actual cssVisualViewport.zoom2 maps absolute CSS bounds to DIP, with physical output dimensions independently matching every clip; no CSS zoom, viewport emulation or image resizing",
+  "primary_protocol_source": "https://raw.githubusercontent.com/ChromeDevTools/devtools-protocol/master/pdl/domains/Page.pdl",
+  "production_changes": false,
+  "new_browser_probe_or_rerun": false,
+  "new_database_or_source_member_reads": false,
+  "independent_actual_pixel_review": "all3 native02 rasters and both375 card rasters independently cleared by final_review; final immutable review follows separately",
+  "previous_attempt": "browser-real-card-pixels-01 remains failed; its native rasters remain invalid and are not acceptance evidence",
+  "main_46_download_run": "unchanged7814b336 EXIT0; main checked facts1d10c002 remain immutable",
+  "scope": "available real v1-18 presentation only; future component outputs and scientific admission remain separate"
+}

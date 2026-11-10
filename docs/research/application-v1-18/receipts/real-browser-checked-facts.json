@@ -1,0 +1,979 @@
+{
+  "kind": "real_browser_acceptance_checked_facts",
+  "software_checks": "passed",
+  "independent_targeted_card_pixels": {
+    "status": "scoped independent review passed",
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-browser/independent-real-pixel-review.json",
+    "sha256": "4627b7347ddf751a853d2227584d9ec75ecef3b7b69f27bf2f0e3c9f2ebd117d",
+    "images_viewed": 23,
+    "qualification": "375 cards and native02 corrected DIP captures accepted; original native01 captures remain invalid; raw auxiliary EXIT1 assertions remain preserved under root optional-browser-icon classification"
+  },
+  "publication_id": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+  "origin": "http://127.0.0.1:41919",
+  "purpose": "real",
+  "controller": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-browser.mjs",
+    "executed_sha256": "7814b336799e7f5c8f53850df48bc6b6658bc92b9e97e458607c8db5e9406886",
+    "current_sha256": "7814b336799e7f5c8f53850df48bc6b6658bc92b9e97e458607c8db5e9406886",
+    "changed_after_execution": false
+  },
+  "runtime": {
+    "node": "24.21.0",
+    "chrome": "156.0.8078.80",
+    "playwright": "1.65.0"
+  },
+  "source_clearance": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-browser/independent-controller-review.json",
+    "sha256": "1687c6c6f1f645e935a8148b70925529c361bac819fcb2dfbcca299e03312c8a"
+  },
+  "independent_saved_reconciliation": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-saved-publication-reconciliation.json",
+    "sha256": "4795dec4f744ebfe57d0bb16023258755612f0df5e1de070b1589b7689ce09ea"
+  },
+  "raw_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/real.json",
+    "bytes": 45879493,
+    "sha256": "f20741c7ec34bb9bf8261310788336871365977aea424ce45b50516e5007fe18"
+  },
+  "cases": [
+    {
+      "season": "20232024",
+      "forward": "8477492",
+      "defense": "8477504",
+      "forwardSeconds": 76721,
+      "defenseSeconds": 94112,
+      "referenceSha": "96be662278a04ce47be0c419c7fd47244ddb47ed17b49807a22d122062d8bbb4"
+    },
+    {
+      "season": "20242025",
+      "forward": "8477492",
+      "defense": "8478460",
+      "forwardSeconds": 79037,
+      "defenseSeconds": 95696,
+      "referenceSha": "471c8f10e7d14dc8a01d6e06da07de692d615eb3a655ad3fe9380988716ef97a"
+    },
+    {
+      "season": "20252026",
+      "forward": "8476460",
+      "defense": "8478882",
+      "forwardSeconds": 80796,
+      "defenseSeconds": 94366,
+      "referenceSha": "72ef3db36abe59c217e8d64de574e1241f811ff365c8cfbfc69bbe781067be95"
+    }
+  ],
+  "additional_browser_cases": [
+    {
+      "kind": "traded",
+      "season": "20232024",
+      "player": "8478396",
+      "includedSeconds": 83332,
+      "teams": [
+        "20",
+        "54"
+      ]
+    },
+    {
+      "kind": "sparse",
+      "season": "20232024",
+      "player": "8480274",
+      "includedSeconds": 45,
+      "teams": [
+        "22"
+      ]
+    }
+  ],
+  "case_scope": "all3 annual F/D pairs exercised in the browser; representative20232024 Hanifin(CGY+VGK) and Kemp45s browser profiles; the separate saved reconciliation covers all12 F/D/traded/sparse cases",
+  "counters": {
+    "actual_downloads": 46,
+    "direct_selected_api_gets": 23,
+    "observed_existing_ui_league_responses": 1,
+    "ordinary_ui_api_requests": 286,
+    "page_errors": 0,
+    "external_requests": 0,
+    "server_starts": 0,
+    "route_substitutions": 0
+  },
+  "verified": [
+    "exact fixed57 metric/section/slot inventory, supplied raw values, identity and methods in each profile/comparison card csv",
+    "all171 annual values plus selected3-year history values match candidate typed history",
+    "all role/head/state/context and28 adjustment fields per available5v5 evidence output match typed candidate data and pinned annual reference digests",
+    "per-year offense/defense map sample native/display values, all bounds/areas, density units, support, scale and declared legend levels reconcile",
+    "actual selected spatial distribution has609 qualified reported forwards with exact source membership/raw values/support/standing",
+    "first-year complete and xg map selection; future specialty fields retain explicit v1-09 pending disposition",
+    "both comparison execution-evidence panels rendered; actual recorded/model/reference detail reused",
+    "375px profile/comparison horizontal geometry and real native200 profile/comparison geometry have no overflow",
+    "native200 PNG and CSV bytes match their ordinary profile/comparison baselines",
+    "held actual PNG callback survives confirmed navigation to next-year card header and preserves complete original opening image bytes",
+    "20242025/20252026 actual allocation warnings remain in detail/export;20252026 failed precision and unknown optimizer accuracy remain visible",
+    "strongest-warning sheet is1200x2838 with actual SVG body20px/footer18px; original source and all scientific verdicts unchanged"
+  ],
+  "proofs": [
+    {
+      "name": "published-spatial-warnings",
+      "season": "20232024",
+      "method_id": "spatial-v1-08-20232024",
+      "warnings": [
+        "experimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not established"
+      ]
+    },
+    {
+      "name": "actual-context-warning-visible",
+      "season": "20232024",
+      "player": "8477492",
+      "warnings": []
+    },
+    {
+      "name": "real-spatial-distribution-reconciled",
+      "season": "20232024",
+      "members": 609,
+      "incompatible": 0
+    },
+    {
+      "name": "actual-context-warning-visible",
+      "season": "20232024",
+      "player": "8477504",
+      "warnings": []
+    },
+    {
+      "name": "published-spatial-warnings",
+      "season": "20242025",
+      "method_id": "spatial-v1-08-20242025",
+      "warnings": [
+        "experimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not established"
+      ]
+    },
+    {
+      "name": "actual-context-warning-visible",
+      "season": "20242025",
+      "player": "8477492",
+      "warnings": [
+        "some 2024-25 actual-context allocation magnitudes exceed 15,000 attempts per 60 and cancel. their cause and sensitivity remain unresolved; they are nonlinear reference contrasts, not recorded counts or established individual credits. standardized player contrasts are separate."
+      ]
+    },
+    {
+      "name": "actual-context-warning-visible",
+      "season": "20242025",
+      "player": "8478460",
+      "warnings": [
+        "some 2024-25 actual-context allocation magnitudes exceed 15,000 attempts per 60 and cancel. their cause and sensitivity remain unresolved; they are nonlinear reference contrasts, not recorded counts or established individual credits. standardized player contrasts are separate."
+      ]
+    },
+    {
+      "name": "published-spatial-warnings",
+      "season": "20252026",
+      "method_id": "spatial-v1-08-20252026",
+      "warnings": [
+        "experimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not established; original final-year volume precision check failed; saved baseline/continuation differences were immaterial for private experimental use, but do not bound remaining optimizer error; optimizer accuracy is unknown."
+      ]
+    },
+    {
+      "name": "real-final-year-warning-sheet",
+      "png": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20252026-forward-warning-sheet.png",
+        "suggested": "hockey-stats-20252026-8476460-analytical.png",
+        "bytes": 825878,
+        "sha256": "9736d2a621f9af35fe62329a39bfdadad62e9b1f150d61e199dedb11b894be1c",
+        "elapsed_ms": 89.5863340000069,
+        "width": 1200,
+        "height": 2838
+      },
+      "fonts": {
+        "body_minimum": 20,
+        "footer_minimum": 18,
+        "footerY": 2247
+      }
+    },
+    {
+      "name": "actual-context-warning-visible",
+      "season": "20252026",
+      "player": "8476460",
+      "warnings": [
+        "some 2025-26 actual-context allocation magnitudes exceed 500 million attempts per 60 and cancel. their cause and sensitivity remain unresolved; they are nonlinear reference contrasts, not recorded counts or established individual credits. standardized player contrasts are separate."
+      ]
+    },
+    {
+      "name": "actual-context-warning-visible",
+      "season": "20252026",
+      "player": "8478882",
+      "warnings": [
+        "some 2025-26 actual-context allocation magnitudes exceed 500 million attempts per 60 and cancel. their cause and sensitivity remain unresolved; they are nonlinear reference contrasts, not recorded counts or established individual credits. standardized player contrasts are separate."
+      ]
+    },
+    {
+      "name": "actual-context-warning-visible",
+      "season": "20232024",
+      "player": "8480274",
+      "warnings": []
+    },
+    {
+      "name": "explicit-held-navigation-snapshot",
+      "opening_season": "20232024",
+      "navigated_season": "20242025",
+      "held_after_navigation": true,
+      "sha256": "bb9bbd77000d1e90c5ce2e95a7838adc3101a70231c073b392ff1492376f4206"
+    },
+    {
+      "name": "real-native200",
+      "passed": true,
+      "geometry": {
+        "innerWidth": 640,
+        "outerWidth": 1280,
+        "devicePixelRatio": 2,
+        "documentWidth": 640,
+        "horizontalOffenders": []
+      },
+      "pairGeometry": {
+        "innerWidth": 640,
+        "outerWidth": 1280,
+        "devicePixelRatio": 2,
+        "documentWidth": 640,
+        "horizontalOffenders": []
+      }
+    }
+  ],
+  "timings": {
+    "profile": {
+      "minimum_ms": 7875.882209000003,
+      "maximum_ms": 8536.213,
+      "samples": 7
+    },
+    "comparison": {
+      "minimum_ms": 7990.834375000006,
+      "maximum_ms": 8093.834208999993,
+      "samples": 5
+    },
+    "direct_api": {
+      "minimum_ms": 3.2386249999981374,
+      "maximum_ms": 294.55116600000474,
+      "samples": 23
+    },
+    "png_download": {
+      "minimum_ms": 67.65208300000086,
+      "maximum_ms": 1199.1758329999993,
+      "samples": 13
+    },
+    "whole_controller_wall": "not recorded by this controller; no inferred duration"
+  },
+  "downloads": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20232024-forward-profile.csv",
+      "suggested": "hockey-stats-20232024-8477492-analytical.csv",
+      "bytes": 127165,
+      "sha256": "cc3f1bea5fc225a593a3ae0efa2a5892fc5666f7cde469eaf56bde6eed8fef6a",
+      "elapsed_ms": 62.92970800000148,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20232024-forward-profile-evidence.csv",
+      "suggested": "hockey-stats-20232024-8477492-5v5-spatial-evidence.csv",
+      "bytes": 322682,
+      "sha256": "86e4a78e840f894f8492a6bf3b0a085a595cda76ce4401a0e7d031afdce2be0b",
+      "elapsed_ms": 66.75145800000064,
+      "rows": 46
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20232024-forward-offense-map.csv",
+      "suggested": "hockey-stats-20232024-8477492-offense_attempts-5v5-effect-map.csv",
+      "bytes": 1690028,
+      "sha256": "a19dc2ce9713dfa0b67cc2d11e15af6d734f622d249e33e6a02166fdb5747366",
+      "elapsed_ms": 52.22783400000117,
+      "rows": 1325
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/forward-profile-sheet.png",
+      "suggested": "hockey-stats-20232024-8477492-analytical.png",
+      "bytes": 796534,
+      "sha256": "bb9bbd77000d1e90c5ce2e95a7838adc3101a70231c073b392ff1492376f4206",
+      "elapsed_ms": 1112.1739589999997,
+      "width": 1200,
+      "height": 2792
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/offense-map.png",
+      "suggested": "hockey-stats-20232024-8477492-offense_attempts-5v5-effect-map.png",
+      "bytes": 227880,
+      "sha256": "8b01b627e9762923c5cbcdcaaaa64eaf5c7c34100c5a4e295f0e0cdd6c21912f",
+      "elapsed_ms": 1199.1758329999993,
+      "width": 1200,
+      "height": 1800
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/spatial-distribution.png",
+      "suggested": "hockey-stats-8477492-spatial.5v5.offense_attempts_per60-20232024-distribution.png",
+      "bytes": 239793,
+      "sha256": "44214ecbf32f8355fb8c4c524660ca6e0dfe17b433cd3f80d2743ac62fdb5828",
+      "elapsed_ms": 1089.8144169999996,
+      "width": 1200,
+      "height": 764
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/spatial-distribution.csv",
+      "suggested": "hockey-stats-8477492-spatial.5v5.offense_attempts_per60-20232024-distribution.csv",
+      "bytes": 3807660,
+      "sha256": "8e9c85c4febce9a207153cef5879ac4b230cfeda47331d0be74e47bdf0e71773",
+      "elapsed_ms": 102.32366699999875,
+      "rows": 609
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/spatial-history.png",
+      "suggested": "hockey-stats-8477492-spatial.5v5.offense_attempts_per60-20232024-20252026-history-raw.png",
+      "bytes": 1750848,
+      "sha256": "96409069197ed84e03352d6957414b315a2ed995847ec36a4c233dffcbf14b9e",
+      "elapsed_ms": 98.4125839999997,
+      "width": 1200,
+      "height": 4999
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/spatial-history.csv",
+      "suggested": "hockey-stats-8477492-spatial.5v5.offense_attempts_per60-20232024-20252026-history.csv",
+      "bytes": 25742,
+      "sha256": "9da4c7d7721ebacf8299fc05b2009a0610a9e68c3bebac1cf6601d76034f8b7b",
+      "elapsed_ms": 48.61358399999881,
+      "rows": 3
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/all-annual-components.csv",
+      "suggested": "hockey-stats-20232024-8477492-analytical-annual.csv",
+      "bytes": 401058,
+      "sha256": "b71a596a22c376610d399a720434ad759152621f30a68a54f9dcd3ad603ccbb2",
+      "elapsed_ms": 70.99883399999999,
+      "rows": 171
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/complete-map.csv",
+      "suggested": "hockey-stats-20232024-8477492-offense_attempts-5v5-complete-map.csv",
+      "bytes": 1657134,
+      "sha256": "14936b885e0407cd4c689960abe73668310e4c60bb5a796eaa3ee112cf77c4c9",
+      "elapsed_ms": 41.27358300000196,
+      "rows": 1325
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/xg-map.csv",
+      "suggested": "hockey-stats-20232024-8477492-offense_xg-5v5-effect-map.csv",
+      "bytes": 1687386,
+      "sha256": "83958dc18fbf035ea912f2d3cb96154aa6cb89055ef0b0666780d91ea23a46a0",
+      "elapsed_ms": 31.193500000001222,
+      "rows": 1325
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20232024-comparison-8477492.csv",
+      "suggested": "hockey-stats-20232024-8477492-analytical.csv",
+      "bytes": 127165,
+      "sha256": "cc3f1bea5fc225a593a3ae0efa2a5892fc5666f7cde469eaf56bde6eed8fef6a",
+      "elapsed_ms": 26.331582999999227,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20232024-comparison-8477492.png",
+      "suggested": "hockey-stats-20232024-8477492-analytical-with-8477504.png",
+      "bytes": 801236,
+      "sha256": "429f7b548f08f42cbd6b7055778008d8201a2db03feb117def649e960183e7c2",
+      "elapsed_ms": 94.80079100000148,
+      "width": 1200,
+      "height": 2792
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20232024-comparison-8477504.csv",
+      "suggested": "hockey-stats-20232024-8477504-analytical.csv",
+      "bytes": 127046,
+      "sha256": "feef7f6301c33aefe1d82088259bee7166de7c96fe8bf7b4d52ff1c84feffb26",
+      "elapsed_ms": 30.051832999997714,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20232024-comparison-8477504.png",
+      "suggested": "hockey-stats-20232024-8477504-analytical-with-8477492.png",
+      "bytes": 795493,
+      "sha256": "976d957a2b979b3a723d184ea7899d015888c8f17cd0b489d96590f4afc3bfa7",
+      "elapsed_ms": 67.65208300000086,
+      "width": 1200,
+      "height": 2792
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20232024-comparison-8477504-evidence.csv",
+      "suggested": "hockey-stats-20232024-8477504-5v5-spatial-evidence.csv",
+      "bytes": 322454,
+      "sha256": "6d7d49360b120246d83099f0c0154ae4dc1aea9171a333cd70e4890323a560b4",
+      "elapsed_ms": 47.111250000001746,
+      "rows": 46
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20232024-defense-map.csv",
+      "suggested": "hockey-stats-20232024-8477504-defense_attempts-5v5-effect-with-8477492-map.csv",
+      "bytes": 1699647,
+      "sha256": "cd9df19cfc0dc9522266489e632107eba0c4788a16e102de558f0bdb44eb3318",
+      "elapsed_ms": 47.75087500000518,
+      "rows": 1325
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/defense-map.png",
+      "suggested": "hockey-stats-20232024-8477504-defense_attempts-5v5-effect-with-8477492-map.png",
+      "bytes": 242818,
+      "sha256": "64b89e15055bfcd67adc3a8be64af168f857a1549afe5325ebe97b512d159850",
+      "elapsed_ms": 142.3190420000028,
+      "width": 1200,
+      "height": 1854
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20242025-forward-profile.csv",
+      "suggested": "hockey-stats-20242025-8477492-analytical.csv",
+      "bytes": 129494,
+      "sha256": "06cf88eafd26be384f73a8057a4aed88103ad16bb51dcdfd186a4e77cd49b746",
+      "elapsed_ms": 50.55270899999596,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20242025-forward-profile-evidence.csv",
+      "suggested": "hockey-stats-20242025-8477492-5v5-spatial-evidence.csv",
+      "bytes": 444065,
+      "sha256": "5623400dc11203a5dcc1c672962bf2b2c285203b9b930ae6ddc73c8b45ef95dc",
+      "elapsed_ms": 36.93216699999175,
+      "rows": 46
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20242025-forward-offense-map.csv",
+      "suggested": "hockey-stats-20242025-8477492-offense_attempts-5v5-effect-map.csv",
+      "bytes": 1577840,
+      "sha256": "4162951bdd8883e5d3a0762f2f595e92d003f1bf8e3e98d250feefff9f38714a",
+      "elapsed_ms": 31.672165999989375,
+      "rows": 1325
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20242025-comparison-8477492.csv",
+      "suggested": "hockey-stats-20242025-8477492-analytical.csv",
+      "bytes": 129494,
+      "sha256": "06cf88eafd26be384f73a8057a4aed88103ad16bb51dcdfd186a4e77cd49b746",
+      "elapsed_ms": 29.882666999998037,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20242025-comparison-8478460.csv",
+      "suggested": "hockey-stats-20242025-8478460-analytical.csv",
+      "bytes": 129740,
+      "sha256": "e9f4afc3233f40f597d2d7e9f44dfc5abc9b0bc6a16396441b139e5b65e056e9",
+      "elapsed_ms": 28.735041000007186,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20242025-comparison-8478460-evidence.csv",
+      "suggested": "hockey-stats-20242025-8478460-5v5-spatial-evidence.csv",
+      "bytes": 448471,
+      "sha256": "af861d80f3fb8b341c3a510958e10f5b9e9e992a6cbb4cbc67f64842e48fcd55",
+      "elapsed_ms": 51.55433300000732,
+      "rows": 46
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20242025-defense-map.csv",
+      "suggested": "hockey-stats-20242025-8478460-defense_attempts-5v5-effect-with-8477492-map.csv",
+      "bytes": 1717248,
+      "sha256": "72b84ea92f648915ecc2d32c4b725f061aaae4b43e331cdf741a9478f161c5e3",
+      "elapsed_ms": 43.26633300000685,
+      "rows": 1325
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20252026-forward-profile.csv",
+      "suggested": "hockey-stats-20252026-8476460-analytical.csv",
+      "bytes": 145957,
+      "sha256": "9c42b6ac6aabf57a5d742e52d435ff5a61976cb4b917859aa8594efa40dc9a31",
+      "elapsed_ms": 32.59204099999624,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20252026-forward-warning-sheet.png",
+      "suggested": "hockey-stats-20252026-8476460-analytical.png",
+      "bytes": 825878,
+      "sha256": "9736d2a621f9af35fe62329a39bfdadad62e9b1f150d61e199dedb11b894be1c",
+      "elapsed_ms": 89.5863340000069,
+      "width": 1200,
+      "height": 2838
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20252026-forward-profile-evidence.csv",
+      "suggested": "hockey-stats-20252026-8476460-5v5-spatial-evidence.csv",
+      "bytes": 642997,
+      "sha256": "f47d6ea92bbcb93b7734b1280109a0d375e72595c1949459a3384842d40c59b2",
+      "elapsed_ms": 21.95070799998939,
+      "rows": 46
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20252026-forward-offense-map.csv",
+      "suggested": "hockey-stats-20252026-8476460-offense_attempts-5v5-effect-map.csv",
+      "bytes": 1865272,
+      "sha256": "7f54017b0c7e43c4cc1dace15a8a407ea8b1bccc169b48fe8b5549c694f98644",
+      "elapsed_ms": 41.42674999999872,
+      "rows": 1325
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20252026-comparison-8476460.csv",
+      "suggested": "hockey-stats-20252026-8476460-analytical.csv",
+      "bytes": 145957,
+      "sha256": "9c42b6ac6aabf57a5d742e52d435ff5a61976cb4b917859aa8594efa40dc9a31",
+      "elapsed_ms": 73.99395800000639,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20252026-comparison-8478882.csv",
+      "suggested": "hockey-stats-20252026-8478882-analytical.csv",
+      "bytes": 146349,
+      "sha256": "5393ff76963318a3ed4bee40c9c9e2bbac305117af57b85277a215e6d07be70e",
+      "elapsed_ms": 46.44008400000166,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20252026-comparison-8478882-evidence.csv",
+      "suggested": "hockey-stats-20252026-8478882-5v5-spatial-evidence.csv",
+      "bytes": 645307,
+      "sha256": "a4efb03e596bdf4fd8d3b8f430cd83409957adc0363a37bf6936980a412d7db2",
+      "elapsed_ms": 55.9822920000006,
+      "rows": 46
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/20252026-defense-map.csv",
+      "suggested": "hockey-stats-20252026-8478882-defense_attempts-5v5-effect-with-8476460-map.csv",
+      "bytes": 1955312,
+      "sha256": "bba544232dc49f3f0857c59d06b9cc024b9fc07da12d2446156a62ed1c6def9d",
+      "elapsed_ms": 38.63008300002548,
+      "rows": 1325
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/traded-20232024-8478396.csv",
+      "suggested": "hockey-stats-20232024-8478396-analytical.csv",
+      "bytes": 129265,
+      "sha256": "c102d38ea0089f35f56497a23cf2534cd833e993fd5a73cf51ee68874a98778a",
+      "elapsed_ms": 37.057208000012906,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/traded-20232024-8478396.png",
+      "suggested": "hockey-stats-20232024-8478396-analytical.png",
+      "bytes": 807426,
+      "sha256": "6a2885cb6f9d9e4b7343e7ca3ad6c1b0b261f1dd0c81b9d719725d90784d437d",
+      "elapsed_ms": 90.0542500000156,
+      "width": 1200,
+      "height": 2792
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/sparse-20232024-8480274.csv",
+      "suggested": "hockey-stats-20232024-8480274-analytical.csv",
+      "bytes": 124428,
+      "sha256": "661da97de3bebfa71dec52c44dbe59ed6509da09fce736c41378d64dad7c3460",
+      "elapsed_ms": 40.85162499998114,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/sparse-20232024-8480274.png",
+      "suggested": "hockey-stats-20232024-8480274-analytical.png",
+      "bytes": 795877,
+      "sha256": "07d37db23ac96060f40efba7c1380963746545344360d4cda56f8f8742ccaac7",
+      "elapsed_ms": 219.77358300000196,
+      "width": 1200,
+      "height": 2792
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/sparse-8480274-evidence.csv",
+      "suggested": "hockey-stats-20232024-8480274-5v5-spatial-evidence.csv",
+      "bytes": 307614,
+      "sha256": "47c9eac8b38a52803f0aaaa09a4ddcc9faed7200a8d4806f11cc72c0902dbf5a",
+      "elapsed_ms": 27.54916699999012,
+      "rows": 46
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/navigation-snapshot.png",
+      "suggested": "hockey-stats-20232024-8477492-analytical.png",
+      "bytes": 796534,
+      "sha256": "bb9bbd77000d1e90c5ce2e95a7838adc3101a70231c073b392ff1492376f4206",
+      "width": 1200,
+      "height": 2792,
+      "snapshot_during_navigation": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/native200-profile-sheet.png",
+      "suggested": "hockey-stats-20232024-8477492-analytical.png",
+      "bytes": 796534,
+      "sha256": "bb9bbd77000d1e90c5ce2e95a7838adc3101a70231c073b392ff1492376f4206",
+      "elapsed_ms": 1146.0980419999978,
+      "width": 1200,
+      "height": 2792
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/native200-profile.csv",
+      "suggested": "hockey-stats-20232024-8477492-analytical.csv",
+      "bytes": 127165,
+      "sha256": "cc3f1bea5fc225a593a3ae0efa2a5892fc5666f7cde469eaf56bde6eed8fef6a",
+      "elapsed_ms": 35.40720800001873,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/native200-8477492-sheet.png",
+      "suggested": "hockey-stats-20232024-8477492-analytical-with-8477504.png",
+      "bytes": 801236,
+      "sha256": "429f7b548f08f42cbd6b7055778008d8201a2db03feb117def649e960183e7c2",
+      "elapsed_ms": 1109.491417000012,
+      "width": 1200,
+      "height": 2792
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/native200-8477492.csv",
+      "suggested": "hockey-stats-20232024-8477492-analytical.csv",
+      "bytes": 127165,
+      "sha256": "cc3f1bea5fc225a593a3ae0efa2a5892fc5666f7cde469eaf56bde6eed8fef6a",
+      "elapsed_ms": 43.26379100000486,
+      "rows": 57
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/native200-8477504-sheet.png",
+      "suggested": "hockey-stats-20232024-8477504-analytical-with-8477492.png",
+      "bytes": 795493,
+      "sha256": "976d957a2b979b3a723d184ea7899d015888c8f17cd0b489d96590f4afc3bfa7",
+      "elapsed_ms": 1098.1837919999962,
+      "width": 1200,
+      "height": 2792
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/native200-8477504.csv",
+      "suggested": "hockey-stats-20232024-8477504-analytical.csv",
+      "bytes": 127046,
+      "sha256": "feef7f6301c33aefe1d82088259bee7166de7c96fe8bf7b4d52ff1c84feffb26",
+      "elapsed_ms": 41.91766700000153,
+      "rows": 57
+    }
+  ],
+  "api_response_identities": [
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8477492?season=20232024",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-01.json",
+      "bytes": 715091,
+      "sha256": "4b3b7f95af97b233fd002426c31a64143531e683a3a1ef21b37dc9acbecb42e1",
+      "elapsed_ms": 88.3383329999997
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8477492/evidence?season=20232024&family=spatial&strength=5v5",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-02.json",
+      "bytes": 102441,
+      "sha256": "9d3cd71060961da0f939855750bb268857fc7402a07829780a485c658b7951ee",
+      "elapsed_ms": 7.135332999998354
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/maps?season=20232024&players=8477492&family=offense_attempts&strength=5v5&view=effect",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-03.json",
+      "bytes": 258789,
+      "sha256": "13b6491122a9ac6335695290f3e66d453a9e631922d219d720d989eb8b37b569",
+      "elapsed_ms": 18.55699999999888
+    },
+    {
+      "read_kind": "observed_ui_response",
+      "path": "/api/league?season=20232024&kind=skater&family=spatial&strength=5v5",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/distribution-ui-league.json",
+      "bytes": 5798182,
+      "sha256": "95f1e2274783ddfeb5b9c13452fbe731980b057e0cd40bb8dbde21414424041d"
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/maps?season=20232024&players=8477492&family=offense_attempts&strength=5v5&view=complete",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-05.json",
+      "bytes": 257679,
+      "sha256": "94270153686d5c4a26bea3dae8a8f943cd0e2c3f3171b4b3d4be866b8a351fff",
+      "elapsed_ms": 98.70970800000214
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/maps?season=20232024&players=8477492&family=offense_xg&strength=5v5&view=effect",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-06.json",
+      "bytes": 262753,
+      "sha256": "212a8a26367f758f4762b4bb86264f618558a8d0630e4b548f53a197cceb3fae",
+      "elapsed_ms": 15.231166999998095
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8477504?season=20232024",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-07.json",
+      "bytes": 713549,
+      "sha256": "b2d0747c75c287be044bd423f23e43cee7ffef0785a7a0aecffafc37f1bc45a0",
+      "elapsed_ms": 284.31237500000134
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8477504/evidence?season=20232024&family=spatial&strength=5v5",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-08.json",
+      "bytes": 102443,
+      "sha256": "08d526254ed759ed8fab11c78709865a01f12e21f61a261e41e264d804dc6bd4",
+      "elapsed_ms": 3.9911670000001322
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/maps?season=20232024&players=8477492,8477504&family=defense_attempts&strength=5v5&view=effect",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-09.json",
+      "bytes": 352357,
+      "sha256": "6dba94367a3575e73970a3c3baa6f73e83e2dfaf89a7c2b1140f8ba72efcdc3f",
+      "elapsed_ms": 15.706292000002577
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8477492?season=20242025",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-10.json",
+      "bytes": 707716,
+      "sha256": "3f63fd600cb23bf7be56b28063ce31261533d861596b4eb6517904950d02b3bd",
+      "elapsed_ms": 30.161625000007916
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8477492/evidence?season=20242025&family=spatial&strength=5v5",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-11.json",
+      "bytes": 102439,
+      "sha256": "d776287e8724652ddcb144674573d06eca66359505f6d7adb2ab75fee6433fb7",
+      "elapsed_ms": 7.29979099999764
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/maps?season=20242025&players=8477492&family=offense_attempts&strength=5v5&view=effect",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-12.json",
+      "bytes": 259177,
+      "sha256": "cf1fe167e4f71f532779315b34e49a5d7c522b34d74a5874d6cc7bad7308b64f",
+      "elapsed_ms": 10.26462500001071
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8478460?season=20242025",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-13.json",
+      "bytes": 717154,
+      "sha256": "a556aea53c93f2ab83342fa9fddee5e992a7fe1ac1eb56e3abde97f4f0aa083c",
+      "elapsed_ms": 294.55116600000474
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8478460/evidence?season=20242025&family=spatial&strength=5v5",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-14.json",
+      "bytes": 102519,
+      "sha256": "51c107ad9c53a3e3447c43aa48519d1524edef58bdc2580b49ac0db6f6d4559b",
+      "elapsed_ms": 6.225040999997873
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/maps?season=20242025&players=8477492,8478460&family=defense_attempts&strength=5v5&view=effect",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-15.json",
+      "bytes": 351061,
+      "sha256": "23a449e511895894754e5f91ec24d3d73a20d07909576fe22129b50820977386",
+      "elapsed_ms": 19.899042000004556
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8476460?season=20252026",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-16.json",
+      "bytes": 708684,
+      "sha256": "c994050344b97598734cedd59e4adb621db0923e11fb3367cec09627afc45add",
+      "elapsed_ms": 38.8472080000065
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8476460/evidence?season=20252026&family=spatial&strength=5v5",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-17.json",
+      "bytes": 102436,
+      "sha256": "299f76fbdc1db6f207a14c06d5fa2afdbc8dce5cf69ad8888b826a9a6642a5c6",
+      "elapsed_ms": 3.551040999998804
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/maps?season=20252026&players=8476460&family=offense_attempts&strength=5v5&view=effect",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-18.json",
+      "bytes": 260325,
+      "sha256": "803628f96cd4e623bba89cc692fd80f9b4e949aa671690478592e511114f5ae9",
+      "elapsed_ms": 84.463957999993
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8478882?season=20252026",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-19.json",
+      "bytes": 718148,
+      "sha256": "c0e8057acf7262ffd714e6289fa215bebf4e6b1d6d79706ad9b24ae8fa9cc3da",
+      "elapsed_ms": 28.392332999996142
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8478882/evidence?season=20252026&family=spatial&strength=5v5",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-20.json",
+      "bytes": 102491,
+      "sha256": "d12c5987413b147aac79cd5031396c9ac7bd34a5d62e3c962ceaccf6e9efb9fd",
+      "elapsed_ms": 3.4016669999982696
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/maps?season=20252026&players=8476460,8478882&family=defense_attempts&strength=5v5&view=effect",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-21.json",
+      "bytes": 352541,
+      "sha256": "64ee7bc1d205a3c21883755ef4a32da1d3b36efb5a76abcf7b4b4fae3cf6f9d7",
+      "elapsed_ms": 19.11183300000266
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8478396?season=20232024",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-22.json",
+      "bytes": 720728,
+      "sha256": "0d5c688c7a698e1cc14b42d3e8b2b5139068ec9f255cc1c63ca4b3b446779d0f",
+      "elapsed_ms": 31.5257500000007
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8480274?season=20232024",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-23.json",
+      "bytes": 300096,
+      "sha256": "20ddcf8a056ffaa41edd5e9969b1cf3f5f18c95253ec7b5f0984baf2e1c89f69",
+      "elapsed_ms": 16.562290999980178
+    },
+    {
+      "read_kind": "direct_api_get",
+      "path": "/api/players/8480274/evidence?season=20232024&family=spatial&strength=5v5",
+      "saved": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/api-24.json",
+      "bytes": 101844,
+      "sha256": "0ea689cc1aab9eff5c9ba93f07ad969864521436dece8c6fa450543593a76261",
+      "elapsed_ms": 3.2386249999981374
+    }
+  ],
+  "temporary_controller_note": "unbounded wait concern remains only in temporary source and was not changed or rerun after acceptance; actual run EXIT0 resolved the apparent stall",
+  "execution_detail_capture": {
+    "panels": 2,
+    "text_characters": [
+      20177829,
+      20498724
+    ],
+    "note": "raw receipt includes full DOM text. use these compact facts for review; no additional source/API read was made to collect them"
+  },
+  "cleanup_owned_manifest": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/journeys-temporary-owned.json",
+  "auxiliary_capture_runs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-card-pixels-01/facts.json",
+      "bytes": 37054,
+      "sha256": "13a0a6d8510b87a2a91c423e0cb040fc25b4ecaeba1ccde6095f9da3cf743e5d",
+      "source_sha256": "f38614ee4ca63199864250f7f27d16303b5ad10e422723f1a06b344e0cb850dd",
+      "raw_exit_code": 1,
+      "raw_passed": false,
+      "elapsed_seconds": 41.22,
+      "maximum_rss_bytes": 915128320,
+      "ui_navigations": 3,
+      "card_pngs": 5,
+      "direct_api_gets": 0,
+      "exports": 0,
+      "server_starts": 0,
+      "page_errors": 0,
+      "external_requests": 0,
+      "ordinary_ui_api_requests": 40,
+      "classification": "2 valid375 comparison card PNGs;3 native PNGs invalid because CSS bounds were passed as DIP. raw console404s were initially unattributed; this run is not blanket green",
+      "pictures": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-card-pixels-01/375-comparison-1.png",
+          "name": "Nathan MacKinnon",
+          "bytes": 591177,
+          "sha256": "1b6a6dd8f52e62006ff4fe69cfb89770b4a5965196bdae7d64bde55e45b6e65d",
+          "width": 343,
+          "height": 8220
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-card-pixels-01/375-comparison-2.png",
+          "name": "Josh Morrissey",
+          "bytes": 588160,
+          "sha256": "67d887d0912bcbfaf0f5779180b799022454845c2c144ef47c1e39857ba4af76",
+          "width": 343,
+          "height": 8220
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-card-pixels-01/native200-comparison-1.png",
+          "name": "Nathan MacKinnon",
+          "bytes": 308147,
+          "sha256": "efdefc5a3846aef4b4c1ec86f84ffda70d512c6e55d1044414d0c159ff16a07b",
+          "width": 608,
+          "height": 4712
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-card-pixels-01/native200-comparison-2.png",
+          "name": "Josh Morrissey",
+          "bytes": 438386,
+          "sha256": "1b6ec9914946ff60d1a9c2dd3957fda56eddba8e1b2ee15169daf20215e41e9e",
+          "width": 608,
+          "height": 4711
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-card-pixels-01/native200-profile-1.png",
+          "name": "Nathan MacKinnon",
+          "bytes": 325865,
+          "sha256": "ed6869b6d47e8949b8c7b454886d1af73d060219d18733e99727f3cbae2d64b1",
+          "width": 608,
+          "height": 4691
+        }
+      ]
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-native-card-pixels-02/facts.json",
+      "bytes": 16908,
+      "sha256": "84b62e3c778c3f4ad82f21fed8e6221267c36aab9e299f5651a2c51be7ca75e9",
+      "source_sha256": "f94fe818099cb9fb4331e448ebadf1533cdb915efd2e5cde580e071de6542eae",
+      "raw_exit_code": 1,
+      "raw_passed": false,
+      "elapsed_seconds": 19.08,
+      "maximum_rss_bytes": 881983488,
+      "ui_navigations": 2,
+      "card_pngs": 3,
+      "direct_api_gets": 0,
+      "exports": 0,
+      "server_starts": 0,
+      "page_errors": 0,
+      "external_requests": 0,
+      "ordinary_ui_api_requests": 26,
+      "classification": "3 valid independently reviewed native200 card PNGs. exact/favicon.ico404 console location observed; Playwright emitted no corresponding response event, so strict two-event guard exited1. root classifies that optional browser-icon request outside required page/API/assets; no other error was waived",
+      "pictures": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-native-card-pixels-02/comparison-1.png",
+          "name": "Nathan MacKinnon",
+          "bytes": 1318314,
+          "sha256": "0be120e91f94a804ec1834356b292f4c54101e7c5e6eda427d25f95028920400",
+          "width": 1216,
+          "height": 9422
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-native-card-pixels-02/comparison-2.png",
+          "name": "Josh Morrissey",
+          "bytes": 1312072,
+          "sha256": "b8734e90b9e20d58a1fa7801a50e7ba3e96b4f980f5379fd6ea476cb97a47887",
+          "width": 1216,
+          "height": 9422
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-native-card-pixels-02/profile-1.png",
+          "name": "Nathan MacKinnon",
+          "bytes": 1309112,
+          "sha256": "4dc5a291ec744d1b630ff97b522ae5ca6e1b0650a79139c8a4b1c6b0d4245028",
+          "width": 1216,
+          "height": 9380
+        }
+      ]
+    }
+  ],
+  "final_browser_scope": "main controller executed once,46actual downloads/23direct selected API GETs/1observed existing UI league body/286ordinary UI API requests; targeted visual followups added5UI navigations and8card PNG attempts, of which2valid375+3validnative02 images were accepted;0additional exports/directGETs/serverstarts",
+  "supersedes": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/checked-facts.json",
+    "bytes": 44255,
+    "sha256": "4c44145a447ccfa7fe88eaef80cf0b196c9050654fd9f3c3beb0826d00800084"
+  },
+  "acceptance": {
+    "software": "accepted",
+    "available_output_real_integration": "accepted",
+    "whole_card_integration": "pending v1-09/10/11/12 real families; v1-20 closes final composition"
+  },
+  "final_independent_pixel_review": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-browser/independent-real-pixel-review.json",
+    "bytes": 18011,
+    "sha256": "4627b7347ddf751a853d2227584d9ec75ecef3b7b69f27bf2f0e3c9f2ebd117d"
+  },
+  "final_independent_completion": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-browser/independent-real-pixel-review-completion.json",
+    "bytes": 1948,
+    "sha256": "1d358027a4fae8ad36ee554721dd961bf6d6d7f823f2152fec4c5bd0826554fb"
+  },
+  "capture_adjudication": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-native-capture-adjudication.json",
+    "bytes": 2430,
+    "sha256": "8deadfb1b9a5e018f4fd901359abd6ed3bce6f184c7ac3cec7e1aeed2fe1e980"
+  },
+  "raw_capture_failures": "01native rasters invalid;02correctnative rasters passed required scope, rawEXIT1 retained for an overbroad optionalfavicon two-event assertion; no production fault/app change or additional probe"
+}

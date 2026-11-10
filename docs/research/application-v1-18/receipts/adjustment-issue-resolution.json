@@ -1,0 +1,17 @@
+{
+  "status": "resolved_issue_removed_after_actual_typed_validation",
+  "recorded_at": "2026-11-10T10:10:25.292671+00:00",
+  "removed_path": "docs/issues/spatial-adjustment-validation.md",
+  "original_sha256": "2809f53d97315d82e254657092026c72c81f9e104f0bca58d87ea5c30fab2057",
+  "original_context_preserved_in": "f3c61a4e2ea52c3860bc8b9a6beb1bd1331956a2",
+  "repair": "same existing Python term-scaled tolerance and finite intermediate arithmetic, closure including residual, residual arithmetic-difference match and magnitude bound; producer numbers unchanged",
+  "synthetic_regression": "accepted cancellation/large-residual/nonfinite red-green checks in typed acceptance receipt",
+  "actual_proof": {
+    "strict_startup": "7fd73a25d7a42d68edfbc86a3e470fd33484b40042d02143437fef227546d04e",
+    "saved_spatial_publication_reconciliation": "4795dec4f744ebfe57d0bb16023258755612f0df5e1de070b1589b7689ce09ea",
+    "independent_adjudication": "481605a0bb96d382020f4d2eee5f6389f5178a34394b4ccef2462074515689cf",
+    "adjustment_values_exact": 77952
+  },
+  "scientific_context_extremes_issue_preserved": true,
+  "numerical_accuracy_or_scientific_quality_promotion": false
+}

@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "pinned_source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
+  "executed_head": "afa16b6156a13fda2e522cefda33c77a79e94934",
+  "core_trees": [
+    {
+      "path": "analysis",
+      "pinned_tree": "d3d9ba599e23a517e9bf18130b48a867559f9673",
+      "executed_tree": "d3d9ba599e23a517e9bf18130b48a867559f9673",
+      "worktree_clean": true
+    },
+    {
+      "path": "app/src/shared",
+      "pinned_tree": "2fdc0f4135883dfc2c59868e32272de563b90972",
+      "executed_tree": "2fdc0f4135883dfc2c59868e32272de563b90972",
+      "worktree_clean": true
+    },
+    {
+      "path": "app/src/server",
+      "pinned_tree": "29a88cbc39d96206718437026180473cafb53219",
+      "executed_tree": "29a88cbc39d96206718437026180473cafb53219",
+      "worktree_clean": true
+    },
+    {
+      "path": "app/src/operator",
+      "pinned_tree": "cefd9f6da4532ba8a675ef39af08afaa76dc804b",
+      "executed_tree": "cefd9f6da4532ba8a675ef39af08afaa76dc804b",
+      "worktree_clean": true
+    }
+  ],
+  "meaning": "later commits change presentation only; pinned numerical, shared, server and operator source trees are identical and clean"
+}

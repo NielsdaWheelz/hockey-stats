@@ -1,0 +1,45 @@
+{
+  "kind": "temporary_controller_source_review",
+  "production_status": "unchanged and frozen",
+  "browser_execution": "not run; final source clearance pending",
+  "initial_controller": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-browser-review-red.mjs",
+    "bytes": 33452,
+    "sha256": "2e6d4249e19f52ff0c91740ad4b82aff5836cf69de2ce06744c49bd760b283ed"
+  },
+  "current_controller": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-browser.mjs",
+    "bytes": 49716,
+    "sha256": "7814b336799e7f5c8f53850df48bc6b6658bc92b9e97e458607c8db5e9406886"
+  },
+  "findings": [
+    {
+      "problem": "typed responses were not bound to the exact season/player/selection requested",
+      "repair": "finite request binding checks all relevant Player/Maps/Evidence/League selection fields"
+    },
+    {
+      "problem": "57 unknown blank metric ids could satisfy length/value assertions",
+      "repair": "literal accepted57 section/slot/metric inventory is required in order"
+    },
+    {
+      "problem": "selected spatial distribution CSV was not checked",
+      "repair": "observe its existing UI LeagueResponse and compare exact raw peer membership/value/support/method context and midpoint standing; no new league GET"
+    },
+    {
+      "problem": "300ms callback delay did not prove navigation overlapped export",
+      "repair": "hold the actual toBlob callback, verify new-year header while held and without download, release and require complete opening-snapshot byte equality"
+    }
+  ],
+  "additional_checks": [
+    "exact map CSV total count, unique cells, scale min/max and declared legend levels",
+    "one actual20252026 F warning sheet PNG plus unchanged SVG-blob observation for20/18px font minima"
+  ],
+  "bounds": {
+    "maximum_actual_downloads": 46,
+    "maximum_direct_selected_api_gets": 23,
+    "additional_ui_league_gets": 0,
+    "observed_existing_ui_league_responses": 1,
+    "servers_started": 0
+  },
+  "cleanup": "both executable source files are temporary; delete after accepted final proof. retain this review record, useful data and actual downloads, not executable controllers"
+}

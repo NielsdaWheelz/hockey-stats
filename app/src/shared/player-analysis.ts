@@ -1158,6 +1158,8 @@ export const SpatialEvidence = Schema.Struct({
       return false;
   }
   for (const role of value.roles) {
+    const heads = Object.values(role.coefficient_support);
+    if (role.actual_context.available && heads.some((head) => !head.available)) return false;
     for (const kind of ["volume", "shape", "quality"] as const) {
       const head = role.coefficient_support[kind];
       if (!head.available) continue;
@@ -1171,11 +1173,11 @@ export const SpatialEvidence = Schema.Struct({
       return false;
     if (role.actual_context.available)
       for (const state of role.actual_context.states!)
-        for (const head of Object.values(role.coefficient_support))
+        for (const head of heads)
           if (head.available && !close(head.state_support!.find((row) => row.state === state.state)!.included_seconds, state.seconds))
             return false;
     if (role.actual_context.reason === "no_exposure")
-      for (const head of Object.values(role.coefficient_support))
+      for (const head of heads)
         if (head.available && !close(head.state_support!.filter((row) => selectedStates.includes(row.state))
           .reduce((sum, row) => sum + row.included_seconds, 0), 0))
           return false;
@@ -2220,7 +2222,12 @@ export const validateSpatialEvidenceSelection = (value: {
       JSON.stringify(evidence.roles.map((row) => row.role)) !== JSON.stringify(roles))
     return false;
   for (const role of evidence.roles) {
-    for (const head of Object.values(role.coefficient_support))
+    const heads = Object.values(role.coefficient_support);
+    const numericRole = (["attempts", "xg"] as const).some((quantity) =>
+      (["per60", "per60_complete", "relative_percent"] as const)
+        .some((suffix) => summary[`${role.role}_${quantity}_${suffix}`].value !== null));
+    if (numericRole && heads.some((head) => !head.available)) return false;
+    for (const head of heads)
       if (head.prior_seasons.some((year) => year >= value.season || !method.fit_seasons.includes(year) ||
           !method.inputs.some((input) => input.role === "annual_state" && input.seasons.includes(year))))
         return false;

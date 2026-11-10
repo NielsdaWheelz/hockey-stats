@@ -1,0 +1,153 @@
+{
+  "status": "passed",
+  "source_leaf": "3feb1a3f3219ea208536651f8f749568b9180524",
+  "provider_independent_review_sha256": "18e9852b2392e5a2b708f7d852876d40fe45c92d5ee6381562fd958d5ac16562",
+  "files": [
+    {
+      "path": "app/package-lock.json",
+      "sha256": "f03dd4364e5ff2dbcae115df76af0489494d02f38fe9f004120ef9decef77d1c"
+    },
+    {
+      "path": "app/package.json",
+      "sha256": "bf5e68d37a0eb38886565a27f0d1478a65780b20b57bf95b91064f6782cda413"
+    },
+    {
+      "path": "app/src/web/analysis-cohorts.ts",
+      "sha256": "6a3677232a86233dc2197d6b032b0615d92692e14b54f5d6b6bc060a137eacbe"
+    },
+    {
+      "path": "app/src/web/analysis-discovery.ts",
+      "sha256": "8dca55b0ceff7db1df9b4ba74cb18f2d3c6a056a7071ff8d77aef09b081aea46"
+    },
+    {
+      "path": "app/src/web/analysis-history.tsx",
+      "sha256": "5419f84917ca486ee541bcb5f16ce668c2dd44fa0e7ad4e1443a25d1bcc35bea"
+    },
+    {
+      "path": "app/src/web/analysis-values.ts",
+      "sha256": "56fffdd08351ac6ddfcacb2b19a50b5707638fc0113999f4b8aa3da4eab4fda8"
+    },
+    {
+      "path": "app/src/web/analytical-card.tsx",
+      "sha256": "8b7e64375889c51b6511f99abe7005fd1d917c942f4d19aeb23b9dac75a2cc30"
+    },
+    {
+      "path": "app/src/web/analytical-details.tsx",
+      "sha256": "b0bdf0bfdf78f251398f49c75da6ff9ec622f1718597a3cea1071cb7b7a0e611"
+    },
+    {
+      "path": "app/src/web/analytical-map.tsx",
+      "sha256": "1e919ebb0d3d61ba0936897c716c4e65b405d99c906317d0e23a99b5ef4da5b6"
+    },
+    {
+      "path": "app/src/web/client.ts",
+      "sha256": "b9d00dc5c57931aae6d6421a4bcb18112f4b6e4712333a964579927cc0e2ca3d"
+    },
+    {
+      "path": "app/src/web/comparative-card.tsx",
+      "sha256": "1f7a86ead367fedb479a9bead03ccfb577f9bb1f2a1d93cf78ec583202f1d781"
+    },
+    {
+      "path": "app/src/web/explorer.ts",
+      "sha256": "148209fd87fdcc36c76e413a16441ae6ec3d2e1dcf5c0c25915ab4b0c7dbed85"
+    },
+    {
+      "path": "app/src/web/ledger-presentation.ts",
+      "sha256": "a121cdd7a8149b6ef416db06f688380993f1632e353c77df98359c9a0b337076"
+    },
+    {
+      "path": "app/src/web/peer-distributions.tsx",
+      "sha256": "2bb5562c7701cdd99a76bf06f4b6e49d6e654a1a62a8c35c76f1f7701287ee33"
+    },
+    {
+      "path": "app/src/web/rink.tsx",
+      "sha256": "913e13e38c86fd1d7ec48d9eacf9f0d432aeef488eb54b22830ce074397d7a7f"
+    },
+    {
+      "path": "app/src/web/routes/compare.tsx",
+      "sha256": "0ec95d0d016a8fb9de5c352a552c77aaf9a07a6228b89822286a404d1874d8aa"
+    },
+    {
+      "path": "app/src/web/routes/league.tsx",
+      "sha256": "ef97383fa188029cd0921ee2c32df091e504c215aa3a1b288a6ea73494f13922"
+    },
+    {
+      "path": "app/src/web/routes/player.tsx",
+      "sha256": "673ca0e3776aad827301e574be450f5eb097b1b774d7fac148ef838ced7f7412"
+    },
+    {
+      "path": "app/src/web/spatial-views.tsx",
+      "sha256": "c31e3b6f8a835c0d7e8355e9727b48e7e4cbd50ca97ecc797407fca2e98f3192"
+    },
+    {
+      "path": "app/src/web/styles.css",
+      "sha256": "b681c8a5703fc0f1418ce41af6b3d6ee1bcbdbb8d0845f7562f5b69a38e7bd65"
+    }
+  ],
+  "scope": "frontend source/software integration only; no real-data, runtime or scientific acceptance",
+  "integrated_commit": "1829bb711b295bdb5cba49aebb072d6cb24ab1fa",
+  "integrated_parent": "69e27b135eafd47f3ce03af83e8fad508bf6557d",
+  "source_review": "independent native review: all 20 blob ids exact; 127 relative imports resolve; six specialty semantics and 12 private helper bodies, values and public contracts preserved",
+  "node_version": "24.21.0",
+  "dependency_install": {
+    "command": "npm ci --offline --no-audit --no-fund",
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09/app",
+    "result": "exit 0; 109 packages installed in 1s per npm; task-local directory replaces task-owned symlink"
+  },
+  "trees": {
+    "analysis": "91be929cd034514e3be85173ca4bad08b0c6af67",
+    "app": "1f0c9539f27c89b51d64897a5b223d7028bb1595",
+    "app/src/web": "c75f370f3d5beeb3d1d1c2315da9700d0c8ab7c6",
+    "app/src/shared": "2fdc0f4135883dfc2c59868e32272de563b90972",
+    "app/src/server": "715b7f4dfc7fd1f7beeb3d5a52355604de121e1d",
+    "app/src/operator": "cefd9f6da4532ba8a675ef39af08afaa76dc804b"
+  },
+  "unchanged_from_parent": [
+    "analysis",
+    "app/src/shared",
+    "app/src/server",
+    "app/src/operator"
+  ],
+  "preexisting_app_difference_from_donor": {
+    "path": "app/src/server/analysis-publication.ts",
+    "meaning": "retained st exact/common rate and map mixtures, role, weight and availability checks; unchanged by frontend leaf",
+    "whole_app_equal_to_donor": false,
+    "web_tree_equal_to_donor": true
+  },
+  "checks": {
+    "typecheck": {
+      "command": "npm run typecheck",
+      "exit": 0,
+      "wall_seconds": 1.27,
+      "native_maximum_rss_bytes": 409026560,
+      "log": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/frontend-node24-typecheck-01.log",
+      "log_sha256": "9f008eabb0398ef4fb8f4b50223fe7de9db15bdf4d0d71357f2cadb45299cb8f"
+    },
+    "build": {
+      "command": "npm run build",
+      "exit": 0,
+      "wall_seconds": 1.39,
+      "native_maximum_rss_bytes": 603111424,
+      "log": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/frontend-node24-build-01.log",
+      "log_sha256": "0d83f77087cdb8860453b4a4d2a437c47d6cad4a60c007da4ba087857b8b2122"
+    },
+    "selectors": {
+      "status": "passed",
+      "cases": 79,
+      "receipt": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/application-integration-1829bb7-01/receipt.json",
+      "receipt_sha256": "3bf2e78f37ab5707ed7165a9353c50db692fb9a5922a40ff33a56090d2bf0689",
+      "first_failure": "two stale assertions referenced a deliberately removed nested ui-only reference field; no production bug claimed",
+      "adjustment": "assert datum.referenceId equals source method reference, and existing csv reference_id column equals that checked datum; all other test bytes unchanged",
+      "independent_evidence_review": "hashes, exits 1 then 0, original/updated test and exact two substitutions verified",
+      "scope": "synthetic public-helper integration;four small jsonl files only"
+    }
+  },
+  "not_proven": [
+    "actual api requests",
+    "browser rendering and downloads",
+    "schema9 fixture publication or strict startup",
+    "real st values",
+    "final complete predecessor acceptance"
+  ],
+  "holds": "v1-18 remains sole heavy owner; our annual and bulk fixture jobs held; no server startup, numerical work or data patch"
+}

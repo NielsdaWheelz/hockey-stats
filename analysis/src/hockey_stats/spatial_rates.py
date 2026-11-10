@@ -613,16 +613,12 @@ def _coefficient_support(state, design):
                     prior_seasons=prior['prior_seasons'] if available else [],
                     reason=None if available else 'missing_actor_coefficient' if prior is None else ':'.join(metadata['reasons']))
                 if by_state is not None:
-                    row['state_support'] = []
-                    for s, support in enumerate(by_state):
-                        actual = support[prior['index']] if prior is not None else None
-                        informed = (actual['time_incidence'] or actual['event_incidence'] if head=='volume'
-                                    else actual['eligible_origin_weight']>0) if actual is not None else False
-                        row['state_support'].append(dict(state=ST_STRENGTHS[s+1][ROLES.index(role)],
-                            included_seconds=None if actual is None else actual['included_seconds'],
-                            likelihood_events=None if actual is None else actual['likelihood_events'],
-                            eligible_origin_weight=None if actual is None else actual['eligible_origin_weight'],
-                            current_season_information=bool(informed)))
+                    row['state_support'] = None
+                    if available:
+                        row['state_support'] = [dict(state=ST_STRENGTHS[s+1][0],
+                            **{key:support[prior['index']][key] for key in
+                               ('included_seconds','likelihood_events','eligible_origin_weight')})
+                            for s,support in enumerate(by_state)]
                 result.append(row)
     return result
 
@@ -758,9 +754,11 @@ def _actual_adjustments(design, betas, references, centers):
                        for qi,q in enumerate(QUANTITIES)})
                 if special:
                     row['strength'] = ST_STRENGTHS[s][r]
-                    row['actual_state_weights'] = [dict(state=ST_STRENGTHS[t+1][r],
-                        weight=float(seconds[i,t+1,r]/elapsed) if available else None)
-                        for t in range(3)] if s==0 else [dict(state=ST_STRENGTHS[s][r],weight=1. if available else None)]
+                    row['states'] = None
+                    if available:
+                        row['states'] = [dict(state=ST_STRENGTHS[t+1][0], seconds=float(seconds[i,t+1,r]),
+                            weight=float(seconds[i,t+1,r]/elapsed)) for t in range(3)] if s == 0 else [
+                            dict(state=ST_STRENGTHS[s][0], seconds=elapsed, weight=1.)]
                 rows.append(row)
     return rows,maps
 
@@ -900,7 +898,7 @@ def _project_special_teams(state, design, *, actual_context):
         adjustment_maps = np.zeros((len(design.players),4,2,2,7,656))
         adjustments = [dict(season=design.season,player_id=p,strength=ST_STRENGTHS[s][r],role=role,
             available=False,reason='not_evaluated' if complete else 'incomplete_annual_family',
-            exposure_seconds=None,map_index=[i,s,r],actual_state_weights=[],
+            exposure_seconds=None,map_index=[i,s,r],states=None,
             **{q:{k:None for k in ADJUSTMENTS} for q in QUANTITIES})
             for i,p in enumerate(design.players) for s in range(4) for r,role in enumerate(ROLES)]
     extremes = []

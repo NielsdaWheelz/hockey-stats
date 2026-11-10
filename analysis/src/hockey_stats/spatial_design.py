@@ -711,6 +711,13 @@ def prepare_spatial(prepared, coaches, valued, season, *, family='ev'):
         coverage['attacking_slot_hours'] = fsum(row['attacking_slot_hours'] for row in coverage['states'])
         coverage['defending_slot_hours'] = fsum(row['defending_slot_hours'] for row in coverage['states'])
         coverage['ignored_shorthanded_attempts'] = sum(len(row['ignored_shorthanded_event_source_indices']) for row in game_coverage)
+        coverage['state_support'] = []
+        for row in coverage['states']:
+            seconds = row['included_hours'] * 3600
+            coverage['state_support'].append(dict(state=row['state'], physical_seconds=seconds,
+                directed_seconds=seconds, attempts=row['attempts'], origin_weight=row['origin_mass'],
+                baseline_current_information=dict(volume=seconds > 0 or row['attempts'] > 0,
+                    shape=row['origin_mass'] > 0, quality=row['origin_mass'] > 0)))
     resources = dict(design_wall_seconds=perf_counter() - started, input_read_bytes=input_bytes,
                      time_rows=X_time.shape[0], event_rows=X_event.shape[0], columns=len(columns),
                      actor_columns=X_time.shape[1], context_columns=context_time.shape[1],

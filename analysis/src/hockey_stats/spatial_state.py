@@ -395,10 +395,15 @@ def validate_design(design):
             and abs((1 if st else 2) * design.coverage['physical_included_hours'] - hours) < 1e-9,
             'spatial coverage mass/time identity differs')
     if st:
+        from .analysis_publication import close
+
         _binding(design.basis_source, 'special-teams basis source')
         _closed(design.basis_source, ('path', 'sha256', 'archive'), 'special-teams basis source')
         _binding(design.basis_source['archive'], 'basis archive declared provenance')
         require([row['state'] for row in design.coverage['states']] == list(ST_STATES), 'special-teams coverage state axis differs')
+        state_support = design.coverage['state_support']
+        require(type(state_support) is list and [row.get('state') for row in state_support] == list(ST_STATES),
+                'special-teams baseline evidence states differ')
         for index, row in enumerate(design.coverage['states']):
             _closed(row, ('state','included_hours','attacking_slot_hours','defending_slot_hours','origin_mass','neutral_chance_mass','attempts','state_extrapolated'), 'special-teams state coverage')
             state_hours = float(design.exposure_hours[design.state_time == index].sum())
@@ -412,6 +417,23 @@ def validate_design(design):
             for role_index, role in enumerate(('attacking', 'defending')):
                 require(abs(row[role + '_slot_hours'] - ST_ROLE_COUNTS[index][role_index] * state_hours) < 1e-9,
                         'special-teams state slot-hours differ')
+            evidence = state_support[index]
+            _closed(evidence, ('state','physical_seconds','directed_seconds','attempts','origin_weight',
+                              'baseline_current_information'), 'special-teams baseline evidence')
+            for key in ('physical_seconds','directed_seconds','origin_weight'):
+                require(type(evidence[key]) in (int,float) and math.isfinite(evidence[key]) and evidence[key] >= 0,
+                        'invalid special-teams baseline evidence count/time')
+            require(type(evidence['attempts']) is int and evidence['attempts'] == row['attempts']
+                    and close(evidence['physical_seconds'], row['included_hours'] * 3600)
+                    and evidence['directed_seconds'] == evidence['physical_seconds']
+                    and close(evidence['origin_weight'], row['origin_mass']),
+                    'special-teams baseline evidence differs from state coverage')
+            flags = evidence['baseline_current_information']
+            _closed(flags, HEADS, 'special-teams baseline information')
+            require(all(type(value) is bool for value in flags.values()) and flags == dict(
+                volume=evidence['directed_seconds'] > 0 or evidence['attempts'] > 0,
+                shape=evidence['origin_weight'] > 0, quality=evidence['origin_weight'] > 0),
+                'special-teams baseline information differs from retained exposure')
         actor_indexes = {(column['block'], column['id']): index for index, column in enumerate(design.columns)
                          if column['kind'] == 'actor' and column['block'].endswith('_player')}
         from .spatial_rates import actor_support
@@ -630,6 +652,7 @@ def _validate_projections(state):
 
 
 def _validate_special_teams_adjustments(state):
+    from .analysis_publication import close
     from .spatial_rates import ST_STRENGTHS
     maps = state.projection_arrays['adjustments']
     rates = state.projection_arrays['rates']
@@ -639,32 +662,36 @@ def _validate_special_teams_adjustments(state):
         i, remainder = divmod(index, 8)
         s, r = divmod(remainder, 2)
         _closed(row, ('season','player_id','role','strength','available','reason','exposure_seconds','map_index',
-                      'actual_state_weights','attempts','xg'), 'special-teams adjustment')
-        require(row['season'] == state.manifest['season'] and row['player_id'] == state.design.players[i]
+                      'states','attempts','xg'), 'special-teams adjustment')
+        require(type(row['available']) is bool and row['season'] == state.manifest['season'] and row['player_id'] == state.design.players[i]
                 and row['role'] == ROLES[r] and row['strength'] == ST_STRENGTHS[s][r]
                 and row['map_index'] == [i, s, r], 'special-teams adjustment identity/order differs')
-        weights = row['actual_state_weights']
-        expected_states = [ST_STRENGTHS[t + 1][r] for t in range(3)] if s == 0 else [ST_STRENGTHS[s][r]]
-        incomplete = not all(head['status'] == 'complete' for head in state.heads.values())
-        require(type(weights) is list and ([value.get('state') for value in weights] == expected_states or incomplete and not weights),
-                'special-teams actual-state weights differ')
-        for value in weights:
-            _closed(value, ('state', 'weight'), 'actual-state weight')
+        states = row['states']
+        expected_states = list(ST_STATES) if s == 0 else [ST_STATES[s - 1]]
         support = state.design.coverage['players'][row['player_id']]['roles'][row['role']]['common' if s == 0 else row['strength']]
         exposure = support['included_seconds']
         if row['available']:
+            require(type(states) is list and [value.get('state') for value in states] == expected_states,
+                    'special-teams actual states differ')
+            for value in states:
+                _closed(value, ('state','seconds','weight'), 'special-teams actual-state exposure')
             require(row['reason'] is None and exposure > 0 and abs(row['exposure_seconds'] - exposure) < 1e-8 * (1 + exposure),
                     'available specialty adjustment exposure differs from support')
-            wanted = ([state.design.coverage['players'][row['player_id']]['roles'][row['role']][strength]['included_seconds'] / exposure
-                       for strength in expected_states] if s == 0 else [1.])
-            require(all(type(value['weight']) in (int, float) and value['weight'] >= 0
-                        and abs(value['weight'] - expected) < 1e-12 for value, expected in zip(weights, wanted, strict=True))
-                    and abs(sum(value['weight'] for value in weights) - 1) < 1e-12, 'actual specialty mixture differs from focal elapsed time')
+            for value in states:
+                selector = value['state'] if r == 0 else value['state'][::-1]
+                seconds = state.design.coverage['players'][row['player_id']]['roles'][row['role']][selector]['included_seconds']
+                require(type(value['seconds']) in (int,float) and math.isfinite(value['seconds']) and value['seconds'] >= 0
+                        and close(value['seconds'], seconds)
+                        and type(value['weight']) in (int,float) and math.isfinite(value['weight']) and 0 <= value['weight'] <= 1
+                        and close(value['weight'], value['seconds'] / row['exposure_seconds']),
+                        'actual specialty mixture differs from focal state exposure')
+            require(close(sum(value['seconds'] for value in states), row['exposure_seconds'])
+                    and close(sum(value['weight'] for value in states), 1),
+                    'actual specialty state exposure/weights do not close')
         else:
             require(type(row['reason']) is str and row['reason']
-                    and (row['exposure_seconds'] is not None or incomplete)
-                    and (row['reason'] != 'no_exposure' or row['exposure_seconds'] == 0)
-                    and all(value['weight'] is None for value in weights), 'unavailable specialty adjustment invents exposure or weights')
+                    and states is None and row['exposure_seconds'] == (0 if row['reason'] == 'no_exposure' else None),
+                    'unavailable specialty adjustment invents exposure or weights')
         for qi, quantity in enumerate(QUANTITIES):
             _closed(row[quantity], ADJUSTMENTS, 'special-teams adjustment scalars')
             values = maps[i, s, r, qi]
@@ -673,7 +700,7 @@ def _validate_special_teams_adjustments(state):
                         'unavailable specialty adjustment fabricates rates')
                 continue
             require(np.all(values[[0, 6]] > 0), 'invalid complete specialty adjustment rate')
-            baseline = (sum(weight['weight'] * rates[i, t + 1, r, qi, 0] for t, weight in enumerate(weights))
+            baseline = (sum(value['weight'] * rates[i, t + 1, r, qi, 0] for t, value in enumerate(states))
                         if s == 0 else rates[i, s, r, qi, 0])
             require(np.all(np.abs(values[0] - baseline) <= 1e-10 * (1 + np.abs(baseline))),
                     'actual specialty baseline differs from focal-time state mixture')
@@ -682,7 +709,7 @@ def _validate_special_teams_adjustments(state):
             require(all(abs(row[quantity][name] - float(values[k].sum())) <= 1e-11 * (1 + abs(row[quantity][name]))
                         for k, name in enumerate(ADJUSTMENTS)), 'specialty adjustment map/scalar identity differs')
             if s == 0:
-                terms = np.asarray([weight['weight'] * maps[i, t + 1, r, qi] for t, weight in enumerate(weights)])
+                terms = np.asarray([value['weight'] * maps[i, t + 1, r, qi] for t, value in enumerate(states)])
                 mixture = terms.sum(axis=0)
                 require(np.all(np.abs(values - mixture) <= 1e-10 * (1 + np.abs(values) + np.abs(terms).sum(axis=0))),
                         'common specialty adjustments differ from focal-time exact-state mixture')

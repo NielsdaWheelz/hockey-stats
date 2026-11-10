@@ -1,11 +1,11 @@
 {
-  "status": "v1-18_owns_ordinary_publication_then_one_strict_startup",
+  "status": "v1-18_publication_accepted_strict_startup_incomplete_owner_retains_slot",
   "current": {
     "owner": "v1-18",
     "ready_receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-03.json",
     "ready_receipt_sha256": "2cc6d4f969d7d7548c0537ab086999cc70d589ee7b209d204d90b46e8236b9be",
     "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
-    "boundary": "conversion and independent metadata adjudication passed; ordinary inactive publication running, one instrumented/detached normal startup41919 follows",
+    "boundary": "ordinary inactive publication exit0 accepted; first launcher exited134 before javascript/sqlite/meter output; owner adjudicates bounded node boot probes, then the required normal strict startup. no release",
     "owner_acknowledged_conversion_started": true
   },
   "queue": [
@@ -18,7 +18,7 @@
       "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
       "scope": "saved-only donor conversion, one ordinary inactive publication, one strict startup41919",
       "release_condition": "completed checked conversion/publication and one normal strict startup; explicit release to the next agreed owner",
-      "cost": "conversion unmeasured; publication6555s/startup474s historical context only",
+      "cost": "conversion2100.827s/552878080peakRSS; publication6335.505s/3332374528peakRSS; startup not yet accepted",
       "previous_ready_scopes": [
         {
           "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope.json",
@@ -88,6 +88,25 @@
     "evidence_bytes": 13712940,
     "native_wall_seconds": 2100.827,
     "peak_resident_bytes": 552878080,
-    "publication_and_runtime_acceptance": "pending"
+    "publication_and_runtime_acceptance": "publication accepted by owner; runtime not accepted, no release"
+  },
+  "publication_owner_report": {
+    "exit_code": 0,
+    "publication_id": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+    "database_sha256": "ba12c7f7dd990b4d345d06afcf39c80bf20b2b43aefbfbe838218062e7be692b",
+    "database_bytes": 13370183680,
+    "native_wall_seconds": 6335.505,
+    "peak_resident_bytes": 3332374528,
+    "top_verification_sha256": "d7c4ac9c767741288eb0d1b95b7704fa45cdc1f5ecfcd3a09fd45b39144400bf",
+    "independent_small_metadata_review_sha256": "460f3614fa3dea7cc6df4a977536f689b37d59a46aa90c83fb19f3bba115a695",
+    "evidence_scope": "user relay of owner accepted boundary; no database rehash or second full reader here"
+  },
+  "startup_owner_report": {
+    "native_session": 50548,
+    "exit_code": 134,
+    "javascript_sqlite_or_meter_output": false,
+    "complete_strict_validation_pass_observed": false,
+    "listener_exists": false,
+    "status": "owner adjudicating node boot instrumentation before the required normal startup; no duplicate dispatch or release"
   }
 }

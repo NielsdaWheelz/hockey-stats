@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "kind": "remaining-real-goalie-command-preparation",
+  "status": "source-prepared-external-preflight-not-run",
+  "source_head_at_preparation": "6ad02b2ac76405b6925d1cba0c8aa70115c169f0",
+  "analysis_tree": "9f91292ffa125b34f0edb9e9837d94d3b2606545",
+  "helpers": [
+    {
+      "role": "score_20242025",
+      "path": "/tmp/hockey-goalie-v1-07-checks/prepare_score_20242025.py",
+      "sha256": "12b4e1bb7554b31e9a9832a4e42d6ca42d855df99602548774eacefe0e661182",
+      "bytes": 11484,
+      "status": "source-reviewed-not-run",
+      "reviewer": "api_verification"
+    },
+    {
+      "role": "fit_20252026",
+      "path": "/tmp/hockey-goalie-v1-07-checks/prepare_fit_20252026.py",
+      "sha256": "7d0ab80a35a99de74f6e9eb481dac14444c5b701c7ed078da36e4e274580b075",
+      "bytes": 9732,
+      "status": "source-reviewed-not-run",
+      "reviewer": "api_verification"
+    }
+  ],
+  "ownership": "ST20232024 alone owns the heavy slot through native exit, bounded review and explicit return; this preparation assigns or reserves no window",
+  "ordering": [
+    "checked ST20232024 return",
+    "actual G20242025 score preflight and independent frame review",
+    "one score dispatch and checked native/four-document boundary",
+    "separately assigned final G20252026 fit with bounded probes and one target inventory",
+    "final score and required composition/publication/api/browser acceptance"
+  ],
+  "known_inputs": {
+    "current_goalie_state": "711763dd26881dace10f0956a1d576d8bee979734634889de21ee62787da61d3",
+    "fit_review": "3708d75545b232b236a84145a2fe2a283cb04af60637faf438cd852b2b7a9e5a",
+    "target_inventory": "3316c992ee857259dfa73e176ecf66c372fccd0b06b36c392ac13be76d9ef6ad",
+    "final_base_score": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+    "corrected_final_base_state": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276"
+  },
+  "static_controls": [
+    "explicit future exact clean producer and analysis-tree arguments before external checks",
+    "seven named metadata bodies read once per actual preflight; actual runtime/lock and six unset thread variables required",
+    "lstat accepts only FileNotFoundError as absence; other ordinary i/o errors propagate",
+    "actual score cli excludes season/previous and explicitly carries the environment",
+    "final-fit probe policy is one per completed head, at most two, with no future status assumed",
+    "final native and independent metadata/inventory costs remain separate"
+  ],
+  "preparation_findings": {
+    "path_absence": "old temporary exists/is_symlink checks could suppress ordinary OSError; replaced with lstat before any actual execution",
+    "timer_scope": "wording corrected to include application imports/runtime checks without resetting the timer",
+    "original_score_helper_sha256": "df17c3a29ad697d13e0b3518f1437817310ade68278768dc5cf8a4ff43c46c01",
+    "runtime_failure_claimed": false
+  },
+  "final_probe_policy": {
+    "maximum_heads": 2,
+    "per_completed_baseline_head": 1,
+    "max_contexts": 256,
+    "origins_per_context": 656,
+    "maxiter": 10000,
+    "ftol": 1e-16,
+    "gtol": 1e-07,
+    "maxfun": 15000,
+    "diagnostic_only": true,
+    "original_baseline_retained": true
+  },
+  "actual_external_preflight_required": true,
+  "external_reads_during_preparation": 0,
+  "numerical_calls_during_preparation": 0,
+  "launch_authorized_by_this_record": false,
+  "activation": false
+}

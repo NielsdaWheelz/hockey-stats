@@ -254,3 +254,10 @@ the actual old-writer red leaves an empty file after a nonfinite payload. the ca
 ## explicit staged-results reader
 
 [the separate three-file seam](receipts/shared-staged-result-reader-contract-review.json) removes the one-line wrapper and exposes the existing named-manifest argument through the single public `read_results`. all five staged validations keep their exact arguments and still precede the existing rename. the normal default remains `manifest.json`; the entire strict reader body, schema3 and all member/evidence/error checks are unchanged. independent full-module/body/call review accepts the static red→green proof. no runtime or artifact read is claimed here: the next required real composition supplies that i/o acceptance. the public argument makes an already-used contract explicit; it adds no reader, format or lifecycle machinery. special-teams integration receives only the small reviewed hunks, preserving its separate guards and frozen producer.
+
+
+## checked ST20232024 return and next goalie score
+
+root checks only local release1762d705… and independent adjudicatione25ede6e…. ST state465362c4… completes three heads, giving nine of fifteen. native6,383.31 seconds/8,613,314,560 peak resident bytes and1,684,307,099 payload bytes remain separate from its single13-document saved-json audit:15.025 seconds/90,076,573 logical bytes/315,899,904 peak resident bytes. gradients remain abovegtol; precision, earlier sensitivity and full ST acceptance are unassessed. no second external ST reader or source/array work occurs here.
+
+root confirms only G20242025 scoring and the required four-document adjudication to both siblings. the accepted711 state/3708 review/3316 inventory and original86e/1ba base are reused; no fit/probe/inventory rerun. actual seven-header/runtime/freshness preflight, frame review and one launch remain pending. six G thread variables stay unset. the accepted complete publication parent remains8b32 and no later scope is reserved.

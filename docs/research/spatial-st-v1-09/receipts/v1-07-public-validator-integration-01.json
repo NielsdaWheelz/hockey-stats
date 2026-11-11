@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "kind": "goalie-public-validator-union-integration-build-review",
+  "status": "accepted-source-controls-and-inactive-build-crossrecord-io-pending",
+  "recorded_at_utc": "2026-11-11T16:14:24.524775+00:00",
+  "starting_head": "302d54ee2908966e3eb5a46b4a80c895b53c9870",
+  "starting_analysis_tree": "9f91292ffa125b34f0edb9e9837d94d3b2606545",
+  "patch_sha256": "ed8a4e644a09f1fef3421864a1bca42efa7c8865b6c90e22a3bd2a3e2f60dc53",
+  "applied_once": true,
+  "actual_source_sha256": {
+    "analysis/src/hockey_stats/analysis_publication.py": "710c984f6a2b1c1a2b53b5e6d429a5c03474f60951c2313967b5911a9f2921cb",
+    "app/src/server/analysis-publication.ts": "57985c805c60d3fb8a09d61b19c75036d943fb79685b07fbef435324a5f87cff"
+  },
+  "only_two_tracked_production_files_changed": true,
+  "git_diff_check_exit_code": 0,
+  "node": {
+    "path": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "version": "24.21.0"
+  },
+  "commands": {
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07/app",
+    "controls": "pinned node node_modules/tsx/dist/cli.mjs <existing temporary script>",
+    "typecheck": "pinned node npm-cli.js run typecheck",
+    "build": "pinned node npm-cli.js run build",
+    "child_PATH": "pinned node24 bin prepended for typecheck/build"
+  },
+  "attempts_in_actual_order": [
+    {
+      "log": "/tmp/hockey-goalie-v1-07-checks/union02-goalie-contracts-01.log",
+      "log_sha256": "28d0539a7837651e32e623681f0da4cba3909ddf07760bbd7287e748aa451481",
+      "log_bytes": 2055,
+      "exit_code": 1,
+      "status": "stale-controller grammar failure; excluded from product red",
+      "wall_seconds": 0.32,
+      "user_seconds": 0.29,
+      "system_seconds": 0.04,
+      "max_rss_bytes": 128843776,
+      "peak_footprint_bytes": 18631248
+    },
+    {
+      "log": "/tmp/hockey-goalie-v1-07-checks/union02-goalie-contracts-02.log",
+      "log_sha256": "4cac7ba1c02e30554b935ac45846eefb064b509b28076af348a3563e3982d0f6",
+      "log_bytes": 832,
+      "exit_code": 0,
+      "status": "preserved intermediate spelling pass",
+      "wall_seconds": 0.27,
+      "user_seconds": 0.32,
+      "system_seconds": 0.04,
+      "max_rss_bytes": 152961024,
+      "peak_footprint_bytes": 18991816
+    },
+    {
+      "log": "/tmp/hockey-goalie-v1-07-checks/union02-goalie-consumers-01.log",
+      "log_sha256": "4448914b06ad760c78653a89634832568ca7306bc70b38653de84557cbd3b57f",
+      "log_bytes": 858,
+      "exit_code": 0,
+      "status": "26 csv meanings and three annual cohort/cutoff controls passed",
+      "wall_seconds": 0.23,
+      "user_seconds": 0.3,
+      "system_seconds": 0.03,
+      "max_rss_bytes": 133906432,
+      "peak_footprint_bytes": 19155728
+    },
+    {
+      "log": "/tmp/hockey-goalie-v1-07-checks/union02-typecheck-01.log",
+      "log_sha256": "d26423bfbe0f9b328a5ee6a03e13a7ea853e1aa660c3a6d13ab359846ca6db3e",
+      "log_bytes": 866,
+      "exit_code": 0,
+      "status": "typecheck passed",
+      "wall_seconds": 0.86,
+      "user_seconds": 2.09,
+      "system_seconds": 0.34,
+      "max_rss_bytes": 410435584,
+      "peak_footprint_bytes": 26578016
+    },
+    {
+      "log": "/tmp/hockey-goalie-v1-07-checks/union02-goalie-contracts-03.log",
+      "log_sha256": "c77b091eed173c4ddc63d7f483ef95adfca79b8d77a27d560303027829510aef",
+      "log_bytes": 832,
+      "exit_code": 0,
+      "status": "full accepted semantic clause and arithmetic/support negatives passed",
+      "wall_seconds": 0.23,
+      "user_seconds": 0.31,
+      "system_seconds": 0.04,
+      "max_rss_bytes": 152518656,
+      "peak_footprint_bytes": 19073736
+    },
+    {
+      "log": "/tmp/hockey-goalie-v1-07-checks/union02-build-01.log",
+      "log_sha256": "f55429112e46b692928464524467ef522b246d423405d162e120c9e9a26387ed",
+      "log_bytes": 2808,
+      "exit_code": 0,
+      "status": "inactive build passed",
+      "wall_seconds": 0.94,
+      "user_seconds": 2.03,
+      "system_seconds": 0.43,
+      "max_rss_bytes": 659079168,
+      "peak_footprint_bytes": 26643528
+    }
+  ],
+  "temporary_controller": {
+    "original_sha256": "ecb9500fce45bcad83ba2983b8c527c000aa67b94de55c0245170c5474f1ce28",
+    "intermediate_sha256": "93c0eaed197aa2e42f66a6bde34f220d54cc67364ed706b2b23e6a34cebab341",
+    "final_sha256": "8cec89ae9e4e0b87db91fe7dae15ca2dc1adef686080df157e250c5a0878b7de",
+    "final_assertion": "reattempt and follow-up danger quantities use next-recorded-attempt proxies, not proven physical rebound control",
+    "consumer_sha256": "a33bf9cae22aa4fb15c626f6b1d3db586d4576dfe552ad7020660257815dd2d0",
+    "adjudication": "01 is a stale-controller failure, not product red;02 is preserved intermediate green; root approved stronger full-clause03 and no repeat of unchanged-source consumer/typecheck passes"
+  },
+  "receipt_collector_failure": {
+    "path": "/tmp/hockey-goalie-v1-07-checks/union02-receipt-collection-failure-01.json",
+    "sha256": "22579b185e01074e0c66f224da60343d73ac94697fc0dc34a3be1ab514b4a34d",
+    "problem": "transient client .vite manifest was absent after successful build; final index/entry/explorer files selected instead",
+    "build_or_test_rerun": false
+  },
+  "selected_build_files": [
+    {
+      "path": "app/dist/node/server/main.js",
+      "bytes": 8073,
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+    },
+    {
+      "path": "app/dist/node/server/analysis-publication.js",
+      "bytes": 67929,
+      "sha256": "4454950587c03b0fe5040c49737ad82c2b360f4689159d94eba51362cc15e71f"
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis.js",
+      "bytes": 113222,
+      "sha256": "2877086226cf5a705d1e47870c37273457b822774f76b15c1204f9518d4562d9"
+    },
+    {
+      "path": "app/dist/server/index.js",
+      "bytes": 174762,
+      "sha256": "48d7161b17a6fcb125b72fcefca3019f55595c01c9881223a17fe1e0d160739d"
+    },
+    {
+      "path": "app/dist/client/index.html",
+      "bytes": 2114,
+      "sha256": "cbfb874a84f2edeed42f9aa03a44620463f2c643f15bee22d8749fb45aff420d"
+    },
+    {
+      "path": "app/dist/client/assets/entry.client-CimxyNE3.js",
+      "bytes": 214675,
+      "sha256": "f123592f11d56cc3c499149ae7c2b8ef315cfbadf89ad6c66dd6a55ea1f22785"
+    },
+    {
+      "path": "app/dist/client/assets/explorer-lHrtF-QX.js",
+      "bytes": 280904,
+      "sha256": "607bc1cee201bf62ce02a8d57a6b86995d9ab962b5080e51fde6898bc3d4afe9"
+    }
+  ],
+  "compiled_full_proxy_clause_present": true,
+  "old_build_receipt": {
+    "path": "docs/research/goalies-v1-07/receipts/current-app-build.json",
+    "sha256": "70f0696fb735c3823b5917e65cf63d4032867d845371ea2b11136c3dd1a8e79e",
+    "unchanged": true
+  },
+  "attributed_peer_proof": {
+    "facts_sha256": "df16971d7043acb9447430fe9f4d55d7995d53f939857004d7a7fe9165727e82",
+    "independent_review_sha256": "77c8c6f57743cddb153ae1bfd4c9535c20c5d3365510920561635b24e08eddd7",
+    "controls_sha256": "c80f98470a74ca756f425a7747c2248515a37743f976dc68d976cd28c24033bb",
+    "passed": 6,
+    "rerun": false,
+    "scope": "tiny default/named reader, declared/nonspatial and spatial ordering, failed staging and helper privacy only"
+  },
+  "CROSSRECORD_IO": "deferred to required complete real composition and normal strict startup; not established by these controls or build",
+  "limits": [
+    "inactive build; no server import/startup, database, publication, api, browser or serving changes",
+    "no external data, full fixture/canonical reader, source/model/evaluator or native fit/score work",
+    "no new harness/test exports, numerical provider, formula, schema or dependency change",
+    "no commit, root docs, issues, staging or window reservation; all temporary failure/intermediate/green evidence retained until full acceptance"
+  ],
+  "analysis_tree_after": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree_after": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "app_tree_matches_reviewed_ST_source": true,
+  "independent_review": {
+    "reviewer": "api_verification",
+    "verdict": "passed-actual-diff-controls-build-boundary",
+    "reviewed_receipt_sha256": "64b8e34052bba3063d3b6276342f3c0a4635a774acca658892979980e0c21417",
+    "scope": "exact two source targets, all six logs, final/intermediate/original control hashes, seven final compiled artifacts, G bodies/nonspatial order preserved, honest failure attribution and crossrecord limits",
+    "reruns": 0,
+    "external_reads": 0,
+    "note": "one optional literal-search operand was absent and is not a bound output; actual SSR and client explorer contain the full accepted clause"
+  }
+}

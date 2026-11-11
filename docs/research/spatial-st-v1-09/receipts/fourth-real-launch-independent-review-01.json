@@ -1,0 +1,61 @@
+{
+  "kind": "independent-st-fourth-launch-frame-review",
+  "status": "local_launch_frame_passed",
+  "recorded_at_utc": "2026-11-11T16:15:51.929155+00:00",
+  "reviewer": "/root/st_publication_review",
+  "consumed_local_frame": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-launch-preflight-01.json",
+      "bytes": 2484,
+      "sha256": "b7abd40109b3a05e73bfb61884667c9d532b4b2f951eea96adb10e222d5d98b7"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-actual-launch-01.json",
+      "bytes": 5346,
+      "sha256": "cc25d02a8b62f3debf33ee74263f29d3f726d39ef63d93d3f9061b2684f6cb13"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-launch-preflight-01.py",
+      "bytes": 5373,
+      "sha256": "77ebb5dc5cd48963d383b6f55f816665a51c72744192f0bb12927f8d0584676d"
+    }
+  ],
+  "bindings": {
+    "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "ready_sha256": "10856eb64cbb449f230295eaf9551f984dd59326c2f498e47952feba5647971a",
+    "script_sha256": "7fecf2aa8594b5045eb26ee9781a1fbb09ebcde1fa046c67b0f778bb2e5f0c61",
+    "previous_st_manifest_sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7",
+    "original_base_score_sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+    "incoming_goalie_release_sha256": "f6f33443cb63b3e04777d9ced18ef438caf03651b95e8a28c160e72036e7475e"
+  },
+  "preflight": {
+    "status": "passed",
+    "checked_at_utc": "2026-11-11T16:11:18.124664+00:00",
+    "runtime": "python3.14.8/numpy2.5.3/scipy1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd",
+    "frozen_module_and_clean_analysis_checked": true,
+    "mount_and_four_absent_paths_checked": true,
+    "input_body_reads": 0,
+    "execution_count": "once as reported by root/operator; not repeated here"
+  },
+  "actual_launch": {
+    "started_at_utc": "2026-11-11T16:11:18+00:00",
+    "observed_at_utc": "2026-11-11T16:12:09.219444+00:00",
+    "python_pid": 76792,
+    "time_pid": 76791,
+    "raw_snapshot_parent_child_match": true,
+    "argv_cwd_and_reviewed_frozen_source_match": true,
+    "child_thread_variables": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "pythonpath": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02/analysis/src",
+    "environment_scope": "filtered selected variables only, not a full-environment assertion"
+  },
+  "finding": "one20242025 annual, three sequential baselines, zero probes, no basis import, full predecessor/history/projections/accounting/native readback. launch remains on frozen74d/aa, with no adoption of current development source or probe-selector repair.",
+  "limits": "local helper source and recorded frame only; incoming release digest consistency checked from helper/frames, accepted release body not independently reread. no process poll, running artifact/log/output inspection, external read/stat, command/test/import rerun, model/evaluator/full-reader/array call or source mutation by reviewer. fresh-path facts describe preflight time, and process facts describe the recorded observation.",
+  "acceptance": "nine of fifteen ST baseline heads checked before this annual; fourth native outcome, cost and boundary adjudication pending. no additional annual, heavy window, publication, activation or scientific/runtime acceptance granted.",
+  "slot_release": false
+}

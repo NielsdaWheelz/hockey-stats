@@ -1082,6 +1082,13 @@ def select_probe_rows(state):
     design=state.design
     special=_is_st(design)
     priors={(row['block'],row['id']):row for row in state.heads['volume']['priors'] if row['block'].endswith('_player')}
+    entry_actors,return_actors=set(),set()
+    for head in (HEADS if special else ('volume',)):
+        for prior in state.heads[head]['priors']:
+            if not prior['block'].endswith('_player'):continue
+            actor=(prior['block'],prior['id'])
+            if prior['prior_kind']=='entry':entry_actors.add(actor)
+            elif prior['prior_kind']=='carry' and int(design.season[:4])-int(prior['prior_anchor_season'][:4])>1:return_actors.add(actor)
     teams={p:set() for p in design.players}
     for key in design.time_keys:
         for side in ('attacking','defending'):
@@ -1094,15 +1101,16 @@ def select_probe_rows(state):
             for index,key in enumerate(keys):
                 for role,side in (('defense','defending'),('offense','attacking')):
                     for player in map(str,key[side+'_players']):
-                        prior=priors[((side if special else 'attacking')+'_player',player)]
+                        actor=((side if special else 'attacking')+'_player',player)
+                        prior=priors[actor]
                         requirements=[]
                         if special:
                             physical_state=int((design.state_time if kind=='time' else design.state_event)[index])
                             requirements.append(f'state:{ST_STRENGTHS[physical_state+1][0]}:{role}')
                         if key.get('boundary_goal'):requirements.append('boundary_goals')
                         if key.get('optional_missing'):requirements.append('missing_optional_inputs')
-                        if prior['prior_kind']=='entry':requirements.append('entries')
-                        if prior['prior_kind']=='carry' and int(design.season[:4])-int(prior['prior_anchor_season'][:4])>1:requirements.append('returns')
+                        if actor in entry_actors:requirements.append('entries')
+                        if actor in return_actors:requirements.append('returns')
                         if len(teams[player])>1:requirements.append('trades')
                         if prior['included_seconds']<(50 if special else 300)*60:requirements.append('sparse_support')
                         row=dict(kind=kind,index=index,key=key,role=role,player_id=player,requirements=requirements)

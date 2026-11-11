@@ -1936,7 +1936,7 @@ def member_path(directory, member):
     return path
 
 
-def validate_spatial_mixtures(rows):
+def _validate_spatial_mixtures(rows):
     """check the common native-rate mixture independently of its producer."""
     for common, exact, role in (('pp', ('5v4','5v3','4v3'), 'offense'),
                                 ('pk', ('4v5','3v5','3v4'), 'defense')):
@@ -1967,7 +1967,7 @@ def validate_spatial_mixtures(rows):
                 'reciprocal spatial state weights differ')
 
 
-def validate_spatial_map_mixtures(scalars, maps):
+def _validate_spatial_map_mixtures(scalars, maps):
     if not any(strength in scalars for strength in ('pp','pk')):
         return
     for strength, scalar in scalars.items():
@@ -2055,7 +2055,9 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:
         require(family['availability'] != 'provided' or manifest['prepared_sha256'] is not None, 'provided family lacks prepared identity')
         inventory.append((family['season'],family['family']))
         spatial, spatial_rows, reference_weights = {}, {}, {}
-        tables = sorted(family['tables'], key=lambda table: (table != 'skater_spatial', table))
+        tables = family['tables']
+        if family['family'] == 'spatial':
+            tables = sorted(tables, key=lambda table: (table != 'skater_spatial', table))
         for table in tables:
             member = family['tables'][table]
             path = member_path(directory,member)
@@ -2075,16 +2077,16 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:
                         require(weights == prior, 'annual spatial reference weights differ between players')
                 elif family['family'] == 'spatial' and table == 'analysis_map':
                     if map_player is not None and map_player != row['player_id']:
-                        validate_spatial_map_mixtures(spatial_rows.get(map_player, {}), maps)
+                        _validate_spatial_map_mixtures(spatial_rows.get(map_player, {}), maps)
                         maps = {}
                     map_player = row['player_id']
                     if row['result']['availability'] == 'provided':
                         maps[row['map_kind'],row['strength'],row['view']] = row['result']['data']
             if family['family'] == 'spatial' and table == 'skater_spatial':
                 for rows in spatial_rows.values():
-                    validate_spatial_mixtures(rows)
+                    _validate_spatial_mixtures(rows)
             if map_player is not None:
-                validate_spatial_map_mixtures(spatial_rows.get(map_player, {}), maps)
+                _validate_spatial_map_mixtures(spatial_rows.get(map_player, {}), maps)
             if table not in FACT_TABLES:
                 people_count = sum(person['season'] == family['season'] and ((person['kind'] == 'goalie') == (family['family'] == 'goalie')) for person in people.values())
                 require(member['rows'] == people_count * len(required_keys(table,family['family'])), f'{table}: missing promised person/selector rows')

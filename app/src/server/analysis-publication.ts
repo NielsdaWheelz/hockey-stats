@@ -86,7 +86,7 @@ const spatialMixtures = [
   ["pk", ["4v5", "3v5", "3v4"], "defense"],
 ] as const;
 
-export const validateSpatialMixtures = (rows: ReadonlyMap<string, Spatial>) => {
+const validateSpatialMixtures = (rows: ReadonlyMap<string, Spatial>) => {
   for (const [common, exact, role] of spatialMixtures) {
     const value = rows.get(common);
     if (!value) continue;

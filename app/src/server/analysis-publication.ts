@@ -80,6 +80,43 @@ export const parseObject = (value: unknown): Record<string, unknown> => {
     throw new Error("stored payload must be an object");
   return parsed as Record<string, unknown>;
 };
+type Spatial = typeof A.SkaterSpatial.Type;
+const spatialMixtures = [
+  ["pp", ["5v4", "5v3", "4v3"], "offense"],
+  ["pk", ["4v5", "3v5", "3v4"], "defense"],
+] as const;
+
+const validateSpatialMixtures = (rows: ReadonlyMap<string, Spatial>) => {
+  for (const [common, exact, role] of spatialMixtures) {
+    const value = rows.get(common);
+    if (!value) continue;
+    const weights = new Map(value.state_weights.map(item => [item.strength, item.weight]));
+    const source = exact.map(state => rows.get(state));
+    if (weights.size !== 3 || value.state_weights.length !== 3 ||
+        exact.some(state => !weights.has(state)) || source.some(item => !item))
+      throw new Error("common spatial result lacks its exact states/weights");
+    for (const quantity of ["attempts", "xg"] as const)
+      for (const suffix of ["", "_complete", "_neutral"] as const) {
+        const field = `${role}_${quantity}_per60${suffix}` as const;
+        const values = source.map(item => item![field].value);
+        const actual = value[field].value;
+        if (values.some(item => item === null)) {
+          if (actual !== null) throw new Error("common spatial rate substitutes a missing state");
+        } else {
+          const expected = values.reduce<number>((sum, item, i) => sum + weights.get(exact[i])! * item!, 0);
+          if (actual === null || !close(actual, expected))
+            throw new Error("common spatial rate differs from exact-state mixture");
+        }
+      }
+  }
+  const pp = rows.get("pp"), pk = rows.get("pk");
+  if (pp && pk) {
+    const weights = new Map(pp.state_weights.map(item => [item.strength, item.weight]));
+    if (pk.state_weights.some(item => weights.get(item.strength.split("").reverse().join("") as typeof A.ExecutionStrength.Type) !== item.weight))
+      throw new Error("reciprocal spatial state weights differ");
+  }
+};
+
 export const resultFromRow = <T extends SummaryTable>(
   table: T,
   row: Record<string, unknown>,
@@ -96,11 +133,28 @@ export const resultFromRow = <T extends SummaryTable>(
   const schema = table === "execution_breakdown"
     ? personKind === "goalie" ? A.GoalieExecutionBreakdownResult : A.SkaterExecutionBreakdownResult
     : summarySchemas[table];
-  return decode(schema, {
+  const result = decode(schema, {
     availability: row.availability,
     explanation: row.explanation,
     data,
   });
+  if (table === "skater_spatial" && result.availability === "provided") {
+    const value = result.data as Spatial;
+    const expected = row.strength === "pp" ? ["5v4", "5v3", "4v3"]
+      : row.strength === "pk" ? ["4v5", "3v5", "3v4"] : [String(row.strength)];
+    if (JSON.stringify(value.state_weights.map(item => item.strength).sort()) !== JSON.stringify(expected.sort()))
+      throw new Error("spatial state-weight selectors differ");
+    if (expected.length === 1 && value.state_weights[0].weight !== 1)
+      throw new Error("exact spatial state requires weight one");
+    const invalidRole = ["pp", "5v4", "5v3", "4v3"].includes(String(row.strength)) ? "defense"
+      : ["pk", "4v5", "3v5", "3v4"].includes(String(row.strength)) ? "offense" : null;
+    if (invalidRole !== null)
+      for (const [field, estimate] of Object.entries(value))
+        if (field.startsWith(`${invalidRole}_`) &&
+            ((estimate as A.Estimate).value !== null || (estimate as A.Estimate).unavailable_reason !== "not_applicable"))
+          throw new Error("inapplicable spatial role carries an estimate");
+  }
+  return result;
 };
 export const factFromRow = (row: Record<string, unknown>) => {
   const { payload_json, ...columns } = row;
@@ -469,6 +523,8 @@ export const validateAnalysis = (
         throw new Error("analytical subject kind/identity differs");
       return person;
     };
+    const spatial = new Map<string, Map<string, Spatial>>();
+    const annualWeights = new Map<string, string>();
     for (const table of Object.keys(summarySchemas) as SummaryTable[]) {
       yield* forEachRow(sql, table, (row) =>
         Effect.try(() => {
@@ -537,17 +593,17 @@ export const validateAnalysis = (
           const result = resultFromRow(table, row, person.kind);
           if (table === "skater_spatial" && result.availability === "provided") {
             const value = result.data as typeof A.SkaterSpatial.Type;
-            const expected =
-              row.strength === "pp"
-                ? ["5v4", "5v3", "4v3"]
-                : row.strength === "pk"
-                  ? ["4v5", "3v5", "3v4"]
-                  : [String(row.strength)];
-            if (
-              JSON.stringify(value.state_weights.map((entry) => entry.strength).sort()) !==
-              JSON.stringify(expected.sort())
-            )
-              throw new Error("spatial state-weight selectors differ");
+            const key = `${row.season}:${row.player_id}`;
+            const rows = spatial.get(key) ?? new Map<string, Spatial>();
+            rows.set(String(row.strength), value);
+            spatial.set(key, rows);
+            if (row.strength === "pp" || row.strength === "pk") {
+              const annualKey = `${row.season}:${row.strength}`;
+              const weights = JSON.stringify([...value.state_weights].sort((a, b) => a.strength.localeCompare(b.strength)));
+              if (annualWeights.has(annualKey) && annualWeights.get(annualKey) !== weights)
+                throw new Error("annual spatial reference weights differ between players");
+              annualWeights.set(annualKey, weights);
+            }
           }
           if (
             result.availability === "provided" &&
@@ -581,6 +637,9 @@ export const validateAnalysis = (
         }),
       );
     }
+    yield* Effect.try(() => {
+      for (const rows of spatial.values()) validateSpatialMixtures(rows);
+    });
     for (const [table, schema] of Object.entries({
       attempt_setter: A.AttemptSetter,
       attempt_execution_share: A.AttemptExecutionShare,
@@ -1061,6 +1120,13 @@ export const validateCrossRecords = (
             pooled[target] += raw[source] * kernel[source][target];
       return pooled;
     };
+    yield* assertEmpty(sql,
+      `SELECT 1 FROM analysis_map m JOIN skater_spatial s USING(season,player_id,strength)
+       WHERE m.map_kind IN ('offense_attempts','defense_attempts','offense_xg','defense_xg')
+       AND m.strength!='5v5' AND s.availability='provided' AND m.availability!='provided'
+       AND EXISTS(SELECT 1 FROM skater_spatial c WHERE c.season=m.season AND c.player_id=m.player_id
+                  AND c.strength IN ('pp','pk') AND c.availability='provided') LIMIT 1`,
+      "computed specialty scalar lacks its required provided map");
     yield* forEachRow(sql, "analysis_map", (row) =>
       Effect.gen(function* () {
         const result = yield* Effect.try(() => resultFromRow("analysis_map", row));
@@ -1081,7 +1147,22 @@ export const validateCrossRecords = (
           if (value.grid_id !== "native656" || value.unit !== units[String(row.map_kind)])
             throw new Error("map grid or unit differs");
         });
-        if (value.cells === null) return;
+        if (value.cells === null) {
+          if (["offense_attempts", "defense_attempts", "offense_xg", "defense_xg"].includes(String(row.map_kind))) {
+            const scalarRows = yield* sql.unsafe<Record<string, unknown>>(
+              "SELECT * FROM skater_spatial WHERE season=? AND player_id=? AND strength=?",
+              [String(row.season), String(row.player_id), String(row.strength)],
+            );
+            yield* Effect.try(() => {
+              const field = `${row.map_kind}_per60${row.view === "complete" ? "_complete" : ""}`;
+              if (scalarRows.length !== 1 || scalarRows[0].availability !== "provided" ||
+                  scalarRows[0].method_id !== row.method_id ||
+                  (parseObject(scalarRows[0].payload_json)[field] as A.Estimate).value !== null)
+                throw new Error("unavailable spatial map differs from scalar/method");
+            });
+          }
+          return;
+        }
         const pooled = transport(value.cells.map((cell) => cell.value));
         yield* Effect.try(() => {
           if (row.view === "complete" && value.cells!.some((cell) => cell.value < 0))
@@ -1135,6 +1216,30 @@ export const validateCrossRecords = (
           if (scalar.value === null || !close(value.integrated_value!, scalar.value))
             throw new Error("map scalar closure differs");
         });
+        const mixture = spatialMixtures.find(([common]) => common === row.strength);
+        if (spatial && mixture) {
+          const exact = yield* sql.unsafe<Record<string, unknown>>(
+            "SELECT * FROM analysis_map WHERE season=? AND player_id=? AND map_kind=? AND view=? AND strength IN (?,?,?)",
+            [String(row.season), String(row.player_id), String(row.map_kind), String(row.view), ...mixture[1]],
+          );
+          yield* Effect.try(() => {
+            const weights = new Map((parseObject(rows[0].payload_json).state_weights as Spatial["state_weights"])
+              .map(item => [item.strength, item.weight]));
+            const source = exact.map(item => ({ strength: String(item.strength), result: resultFromRow("analysis_map", item) }));
+            if (source.length !== 3 || source.some(item => item.result.availability !== "provided" || item.result.data.cells === null))
+              throw new Error("common spatial map lacks exact-state estimates");
+            for (const [key, measure] of [["cells", "value"], ["display_cells", "mass"], ["display_cells", "density_per100sqft"]] as const)
+              for (const [i, cell] of value[key]!.entries()) {
+                const expected = source.reduce((sum, item) => {
+                  if (item.result.availability !== "provided") throw new Error("missing exact spatial map");
+                  const sourceCell = item.result.data[key]![i] as unknown as Record<string, number>;
+                  return sum + weights.get(item.strength as typeof A.ExecutionStrength.Type)! * sourceCell[measure];
+                }, 0);
+                if (!close((cell as unknown as Record<string, number>)[measure], expected))
+                  throw new Error("common spatial map differs from exact-state mixture");
+              }
+          });
+        }
       }),
     );
     yield* forEachRow(sql, "goalie_evidence_map", (row) =>

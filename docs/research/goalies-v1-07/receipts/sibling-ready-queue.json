@@ -1,8 +1,8 @@
 {
-  "status": "v1-09_one_20242025_annual_assigned_awaiting_fresh_launch",
+  "status": "v1-09_one_20242025_annual_running",
   "current": {
     "owner": "v1-09",
-    "status": "explicitly_assigned_not_reported_launched",
+    "status": "actual_one_annual_running",
     "scope": "ONLY20242025 annual, three baseline heads, zero probes, no basis import; full prior/history/projections/accounting/native readback",
     "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
     "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
@@ -14,9 +14,17 @@
     "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025",
     "child_threads": "OPENBLAS/OMP/VECLIB=1 only; G six-unset unchanged",
     "fresh_source_script_mount_run_output_log_exit_checks": "mandatory before one actual launch",
-    "dispatch": false,
+    "dispatch": true,
     "owner_confirmation_to_both": "both guarded terminal writes succeed; provider acceptance unconfirmed",
-    "return_condition": "actual native exit/cost, payload stats, bounded independent adjudication and explicit release to both; no extra annual or chain"
+    "return_condition": "actual native exit/cost, payload stats, bounded independent adjudication and explicit release to both; no extra annual or chain",
+    "native_python_pid": 76792,
+    "native_time_pid": 76791,
+    "started_at_utc": "2026-11-11T16:11:18Z",
+    "observed_at_utc": "2026-11-11T16:12:09.219444Z",
+    "launch_preflight_sha256": "b7abd40109b3a05e73bfb61884667c9d532b4b2f951eea96adb10e222d5d98b7",
+    "actual_launch_receipt_sha256": "cc25d02a8b62f3debf33ee74263f29d3f726d39ef63d93d3f9061b2684f6cb13",
+    "fresh_source_script_mount_run_output_log_exit_checks_passed": true,
+    "root_local_receipt_hash_review": true
   },
   "queue": [
     {
@@ -83,7 +91,7 @@
     }
   ],
   "checks": "small v1-18 ready receipt bytes/hash and local v1-09 preflight/script hashes/frozen git identities checked; no numerical input or candidate body opened",
-  "dispatch": false,
+  "dispatch": true,
   "activation": false,
   "ownership": "confirm explicit owner to both sibling sessions before each handoff; no concurrent large i/o or blanket annual-chain reservation",
   "parent_adoption": "exact accepted exchange3/schema9 successor plus donor-bound producer receipt required; numerical state-v1/score-v1 contracts unchanged",
@@ -639,7 +647,7 @@
     "chain_reservation": false
   },
   "next_ST20242025_preparation": {
-    "status": "explicit_one_annual_handoff_sent_fresh_launch_pending",
+    "status": "actual_one_annual_running",
     "packet_sha256": "1b3414be01b1ea8720d7c783ba1f59ee541ccf849548f65cfb6f23f54a7bf040",
     "script_sha256": "7fecf2aa8594b5045eb26ee9781a1fbb09ebcde1fa046c67b0f778bb2e5f0c61",
     "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
@@ -651,7 +659,7 @@
     "metadata_authorization": "one invocation only of prepared63bd and original20242025 score86e headers; actual bytes/wall/RSS and direct bindings/counts; exclusive local output; preserve failure with no automatic rerun",
     "metadata_run_reported": true,
     "reservation": true,
-    "fit_dispatch": false,
+    "fit_dispatch": true,
     "current_G_native_session": 98019,
     "metadata_proof": {
       "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-metadata-preflight-01.json",
@@ -693,7 +701,7 @@
     "real_runtime_or_parent_acceptance": false
   },
   "public_validator_union_handoff": {
-    "status": "revision02_source_review_clear_not_adopted_active_G_score",
+    "status": "adopted_two_files_actual_controls_build_and_independent_review_pass",
     "patch_sha256": "ed8a4e644a09f1fef3421864a1bca42efa7c8865b6c90e22a3bd2a3e2f60dc53",
     "patch_bytes": 21652,
     "facts_sha256": "df16971d7043acb9447430fe9f4d55d7995d53f939857004d7a7fe9165727e82",
@@ -719,7 +727,7 @@
     "excluded_setup_failure": "wrong interpreter/bs4, retained and not a product red",
     "crossrecord_IO": "deferred to required canonical composition and one normal strict startup",
     "runtime_tests_by_root_review": 0,
-    "adopted": false,
+    "adopted": true,
     "safe_boundary": "after active G98019 native exit and bounded adjudication only",
     "revision01_history": {
       "status": "source_logic_review_clear_three_scope_refinements_requested_before_adoption",
@@ -741,7 +749,11 @@
       "runtime_tests_by_this_review": 0,
       "adopted": false,
       "safe_boundary": "only after active G98019 native exit and bounded adjudication"
-    }
+    },
+    "own_analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "own_app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "integration_receipt_sha256": "0072909d5e75fa2c0cc05822859e9b2ff466edab0850f6ded6a08c07ab66cf7b",
+    "real_crossrecord_IO": "pending required composition and normal strict startup"
   },
   "ST_final_diagnostic_selector_owner_report": {
     "commit": "9d1ca64c0ec24f3b77bda76e20396ddf1ac70014",

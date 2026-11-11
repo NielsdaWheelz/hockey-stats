@@ -8,7 +8,8 @@ status: implementation and final fixture acceptance pass; real acceptance remain
 | real `20212022` | both heads, score, target inventory and independent saved arithmetic pass |
 | real `20222023` | both heads, score and ledger/target/small score-metadata reviews pass on `34eba0a` |
 | real `20232024` | both heads, ledger and one target inventory pass; state and original score pass; independent metadata review accepted after reconnect |
-| real `20242025`–`20252026` | annual fits/scores and final bounded probes pending |
+| real `20242025` | both heads, saved-state review and ONE target inventory pass; score pending after reserved ST annual |
+| real `20252026` | final annual fit, two bounded probes and score pending |
 | original-event evidence | eight selected checks pass; invalid intervening event, unknown terminal and known goalie-change witnesses remain unfulfilled |
 | combined exchange and inactive publication | pending the complete annual chain |
 | real api, browser and actual downloads | pending the candidate; no browser deferral or inherited pass |
@@ -229,3 +230,15 @@ v1-09 explicitly acknowledges actual one20222023 launch at2026-11-11T08:31:19Z, 
 root checks small release19a14313… and independent adjudication2d981be9…. ST20222023 native exit0 costs6,022.36 seconds/8,669,888,512 peak resident bytes;15 payload stats total1,717,461,465 bytes. its single audit reads13 external JSON documents/73,767,882 logical bytes in14.737 seconds at238,419,968 peak resident bytes; prior pins match accepted7ec. no controller failure, replay, numerical rerun or second full reader. only6/15 heads complete and precision/sensitivity remain unassessed. root opens no external ST state/body/array/input.
 
 root confirms G20242025 fit + bounded metadata review + ONE current inventory to both sessions. original predecessor9ff/base score86e/base state1ba are selected, with zero probes and six unset thread variables. [the temporary preflight preparation](receipts/real-fit-20242025-preparation.json) is static-reviewed, not run; actual final source/runtime/input/freshness evidence precedes dispatch. no later annual/score or chain is reserved. complete publication predecessor remains8b32.
+
+G20242025 preflight938d4e33… passes once with independent source/frame review. seven metadata bodies total59,429,685 bytes plus localf53 prior-head proof; no head/coverage/array/source or normal-reader pass. native preflight14.98 seconds/102,678,528 peak resident bytes. native22697/python9319/time9311 launches once from clean04e4ea5/analysis0aba863d, original9ff predecessor, current86e/1ba inputs and six unset thread variables; zero probes. source and HEAD remain frozen through actual native completion. actual fit disposition/cost, bounded metadata review and ONE current target inventory remain pending.
+
+## G20242025 fit, history and target boundary accepted
+
+state711763dd… and [review3708d755…](receipts/real-fit-20242025-review.json) pass from clean04e4/0aba. both3,534-dimensional heads complete with two starts each and zero probes. h66,190 rows/9,102 positives selects prior_mean objective25,204.156494060946/gradient0.0032627419746725653; d9,082 rows/mass882.6751203016521 selects zero objective2,869.8051271608388/gradient0.00008831868641670342. all four terminations are ftol abovegtol; remaining optimizer accuracy is unknown, with earlier annual sensitivity unassessed. h951carry/247entry/131prior-only and d899carry/299entry/245prior-only, dated absence/raw-ledger preservation and five centers/head reconcile.
+
+native5,205.47 seconds/21,254,356,992 peak resident bytes/21,136,277,128 footprint bytes and81,531,590 payload bytes remain separate from design5,113.808 seconds, input19.201 seconds and head/save47.949 seconds. the one six-JSON review reads9,966,916 bytes in0.19 native seconds at60,211,200 peak resident bytes, without arrays/coverage/source/evaluator calls. finalized preflight0633e31e… remains frozen under that review.
+
+[the ONE current inventory3316c992…](receipts/real-20242025-target-inventory.json) reconciles156,622 rows/1,312 games/1,632 groups. h9,102 positives =9,082 valued d +20 unavailable successor scores; all20 checked successor goalies are unresolved (17save,2block,1miss). ordinary saves66,296 have no unknown-h labels; eligible and type/location-only changed-goalie candidate counters are zero, with packets[]. no original proof closes. current coverage76,704,591 bytes is read once; four external metadata files total81,819,502 bytes. native inventory1.19 seconds/411,877,376 peak resident bytes. no old coverage, source/game, array or normal reader is opened.
+
+[release2ff90ebe…](receipts/real-fit-20242025-release.json) assigns only reviewed ST20232024 annual. owner acknowledges actual launch2026-11-11T12:01:51Z/python27948/time27947 on frozen74d/aa, ready958d/script837b, fresh preflight5bc9e4f0… and actual receipt e99acb65… bound to that release. G20242025 scoring waits for measured native exit, bounded adjudication and explicit return. only local source-interface cutover/tiny local file checks proceed; no additional annual or chain is reserved, parent8b32 unchanged.

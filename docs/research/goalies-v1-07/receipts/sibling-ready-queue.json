@@ -1,8 +1,8 @@
 {
-  "status": "v1-09_one_20242025_annual_running",
+  "status": "drive_normally_ejected_all_external_work_held",
   "current": {
     "owner": "v1-09",
-    "status": "actual_one_annual_running",
+    "status": "quiesced_after_user_interrupt_outcome_adjudication_deferred",
     "scope": "ONLY20242025 annual, three baseline heads, zero probes, no basis import; full prior/history/projections/accounting/native readback",
     "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
     "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
@@ -14,7 +14,7 @@
     "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025",
     "child_threads": "OPENBLAS/OMP/VECLIB=1 only; G six-unset unchanged",
     "fresh_source_script_mount_run_output_log_exit_checks": "mandatory before one actual launch",
-    "dispatch": true,
+    "dispatch": false,
     "owner_confirmation_to_both": "both guarded terminal writes succeed; provider acceptance unconfirmed",
     "return_condition": "actual native exit/cost, payload stats, bounded independent adjudication and explicit release to both; no extra annual or chain",
     "native_python_pid": 76792,
@@ -91,7 +91,7 @@
     }
   ],
   "checks": "small v1-18 ready receipt bytes/hash and local v1-09 preflight/script hashes/frozen git identities checked; no numerical input or candidate body opened",
-  "dispatch": true,
+  "dispatch": false,
   "activation": false,
   "ownership": "confirm explicit owner to both sibling sessions before each handoff; no concurrent large i/o or blanket annual-chain reservation",
   "parent_adoption": "exact accepted exchange3/schema9 successor plus donor-bound producer receipt required; numerical state-v1/score-v1 contracts unchanged",
@@ -787,5 +787,37 @@
     "sensitivity": "not_assessed_for_annual_state",
     "optimizer_accuracy": "unknown",
     "no_owned_heavy_command_remaining": true
+  },
+  "drive_disconnection_hold_20261111": {
+    "kind": "user-drive-disconnection-hold",
+    "observed_at_utc": "2026-11-11T16:49:49.756681+00:00",
+    "user_request": "need to disconnect the harddrive",
+    "all_new_external_work_held": true,
+    "G_owned_heavy_processes_running": false,
+    "G_last_score": "accepted c398; native98019 and50279/50270 already closed before this request",
+    "ST_owned_processes": {
+      "python_pid": 76792,
+      "time_pid": 76791,
+      "both_absent_by_OS_check": true,
+      "owner_terminal_observation": "single ctrl-c reached owned operator; terminal shows INT",
+      "numerical_exit_or_acceptance": "deferred; no success inferred from absence"
+    },
+    "coordinator_signal": "none sent; verified child was already absent",
+    "open_handles_check": "lsof -nP +f -- /Volumes/Expansion returned exit1/no matches/no diagnostics",
+    "eject_owner": "v1-09 coordinator t-b0f21da1ddb96760; one normal eject using fresh device identity; no force or competing eject",
+    "eject_success_not_yet_observed": false,
+    "external_output_log_stat_or_body_adjudication": "deferred until reconnect",
+    "ST_checked_heads": 9,
+    "ST_required_heads": 15,
+    "complete_publication_parent": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "activation": false,
+    "normal_eject": {
+      "owner": "v1-09 coordinator",
+      "command": "diskutil eject /dev/disk4",
+      "result": "Disk /dev/disk4 ejected",
+      "exit_code": 0,
+      "evidence": "observed in owner terminal through bounded skid read; fresh device identification and no open handles preceded eject",
+      "force": false
+    }
   }
 }

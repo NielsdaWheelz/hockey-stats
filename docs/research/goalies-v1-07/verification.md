@@ -8,7 +8,7 @@ status: implementation and final fixture acceptance pass; real acceptance remain
 | real `20212022` | both heads, score, target inventory and independent saved arithmetic pass |
 | real `20222023` | both heads, score and ledger/target/small score-metadata reviews pass on `34eba0a` |
 | real `20232024` | both heads, ledger and one target inventory pass; state and original score pass; independent metadata review accepted after reconnect |
-| real `20242025` | both heads, saved-state review and ONE target inventory pass; score pending after reserved ST annual |
+| real `20242025` | both heads, saved-state review, ONE target inventory and score pass |
 | real `20252026` | final annual fit, two bounded probes and score pending |
 | original-event evidence | eight selected checks pass; invalid intervening event, unknown terminal and known goalie-change witnesses remain unfulfilled |
 | combined exchange and inactive publication | pending the complete annual chain |
@@ -261,3 +261,15 @@ the actual old-writer red leaves an empty file after a nonfinite payload. the ca
 root checks only local release1762d705… and independent adjudicatione25ede6e…. ST state465362c4… completes three heads, giving nine of fifteen. native6,383.31 seconds/8,613,314,560 peak resident bytes and1,684,307,099 payload bytes remain separate from its single13-document saved-json audit:15.025 seconds/90,076,573 logical bytes/315,899,904 peak resident bytes. gradients remain abovegtol; precision, earlier sensitivity and full ST acceptance are unassessed. no second external ST reader or source/array work occurs here.
 
 root confirms only G20242025 scoring and the required four-document adjudication to both siblings. the accepted711 state/3708 review/3316 inventory and original86e/1ba base are reused; no fit/probe/inventory rerun. actual seven-header/runtime/freshness preflight, frame review and one launch remain pending. six G thread variables stay unset. the accepted complete publication parent remains8b32 and no later scope is reserved.
+
+
+G20242025 score preflight67826d1e… passes once from clean2b2a550/analysis9f91292f with exact seven bindings, runtime/lock, six unset thread variables and actual fresh output/log. headers total59,773,532 bytes; native0.77 seconds/104,185,856 peak resident bytes. independent local frame review clears one launch. native98019/python50279/time50270 now runs, observed2026-11-11T13:58:45Z. source and HEAD stay frozen through actual native exit; operator records may change locally without commits. actual native disposition/cost and the bounded four-document adjudication remain pending. no fit, probe, extra inventory or later scope is dispatched.
+
+
+## fourth real score accepted and single next annual
+
+scorec398c0cb… completes from clean2b2a550/analysis9f91292f. native98019 exits0;50279/50270 close. actual native6,860.84 seconds/22,022,258,688 peak resident bytes and21,761,081,760 peak footprint bytes remain distinct from producer6,857.348 seconds,5,540.079 input seconds,988.412 projection seconds,6.601 sensitivity seconds and301.526 validation seconds. payload bytes total3,868,630,738. the905-byte native log and tool completion remain cached locally; the small346,603-byte manifest identity admission is separate from the independent metadata read count.
+
+[the bounded review](receipts/real-score-20242025-metadata-review.json) reads only four current JSON documents/2,303,178 bytes plus three pinned local receipts/29,023 bytes. its native cost is11.65 seconds/33,456,128 peak resident bytes.121 goalies imply1,331 results/maps,1,452 observed rows,11,979 breakdowns,17,424 evidence maps and2,904 histograms. all accepted state/target/base/current/prior/method/catalog bindings reconcile;156,622 targets retain66,190 h rows/9,102 positives and9,082 d rows/mass882.6751203016521. twenty missing danger labels match the prior inventory. source included154,722, paired unblocked111,130, raw source-only2/numerical-only0 and affiliation gaps0 remain distinct. underlying per-key reasons are uninspected, not invented from overlapping stage totals. earlier sensitivity is unassessed with no variants; accuracy remains unknown.
+
+[local independent adjudication](receipts/real-score-20242025-independent-adjudication.json) closes this numerical/metadata boundary, without source/table/array/model/full-reader replays or scientific/browser acceptance. finalized preflightf7fce43f… stays immutable. [the explicit release](receipts/real-score-20242025-release.json) assigns only the ready one20242025 ST annual on74d/aa/10856/7fec, previous465 and original86e. operator freshness and actual launch remain mandatory; no later scope is reserved. G final fitting remains held through that checked return. the shared two-owner public-validator source integration can now proceed locally, preserving frozen producers and all accepted numerical identities.

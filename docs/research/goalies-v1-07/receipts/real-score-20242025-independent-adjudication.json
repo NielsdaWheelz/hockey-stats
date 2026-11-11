@@ -1,0 +1,49 @@
+{
+  "kind": "goalie-annual-score-independent-adjudication",
+  "status": "passed",
+  "season": "20242025",
+  "reviewer": "api_verification",
+  "recorded_at_utc": "2026-11-11T16:04:19.217670+00:00",
+  "score_sha256": "c398c0cb69549e9832cc3e4ce0b330b883a1926a9ca6a9fab6e04fe7237882a2",
+  "preflight_sha256": "f7fce43f9d0593bd6224b8e5e244baf0f6741d712cd9bc9ca740e927a7aab899",
+  "metadata_review_sha256": "1aee611da99c00d69df3aef83498daf10be2be124e75969c0d7ac3b1b4791cd1",
+  "producer_commit": "2b2a550e19540aa145926d2a19f9e3ee6ebd8488",
+  "analysis_tree": "9f91292ffa125b34f0edb9e9837d94d3b2606545",
+  "source_clean_and_unchanged_through_actual_exit": true,
+  "native_exit_code": 0,
+  "native_session_id": 98019,
+  "native_wall_seconds": 6860.84,
+  "native_peak_rss_bytes": 22022258688,
+  "native_peak_footprint_bytes": 21761081760,
+  "native_swaps": 0,
+  "people_implied_by_matrix": 121,
+  "raw_source_only": 2,
+  "raw_numerical_only": 0,
+  "possible_affiliation_gaps": 0,
+  "source_only_per_key_reason_inspected": false,
+  "stage_populations_overlap": true,
+  "metadata_review_native": {
+    "exit_code": 0,
+    "session_id": 39339,
+    "wall_seconds": 11.65,
+    "peak_rss_bytes": 33456128,
+    "external_json_documents": 4,
+    "logical_external_json_bytes": 2303178,
+    "local_receipts": 3,
+    "logical_local_receipt_bytes": 29023
+  },
+  "root_extra_metadata_admission": {
+    "manifest_bytes": 346603,
+    "native_log_bytes": 905,
+    "scope": "small post-exit identity and native-cost evidence; separate from helper reads"
+  },
+  "source_target_totals_match_fit_and_inventory": true,
+  "sensitivity": "not_assessed_for_annual_state",
+  "optimizer_accuracy": "unknown",
+  "limits": [
+    "normal producer owns full raw/public/pointwise/key validation; this review is local metadata and cached native evidence",
+    "no independent source/table/array/value scan or full reader repeated",
+    "three original source proofs remain open",
+    "no browser, scientific admission or activation claim"
+  ]
+}

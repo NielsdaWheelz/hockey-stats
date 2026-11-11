@@ -1,0 +1,44 @@
+{
+  "kind": "st-third-real-explicit-release-delivery",
+  "recorded_at_utc": "2026-11-11T13:55:09.897870+00:00",
+  "release_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-boundary-release-01.json",
+    "sha256": "1762d705de3bb950acd2492ee71cdadc9289db461b474781e7990acd77fd4d6e"
+  },
+  "exact_message": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-release-message-01.txt",
+    "sha256": "9ac8d5d1863c8f0cc532beea5e6d04e76159544563da250b90e00a2bf90ef8e9"
+  },
+  "deliveries": [
+    {
+      "target": "t-a59b0562801254be",
+      "machine": "macbook",
+      "tool_chunk": "37ed9c",
+      "cli_exit_status": 0,
+      "result": {
+        "ok": true,
+        "result": {
+          "method": "terminal",
+          "outcome": "written"
+        }
+      }
+    },
+    {
+      "target": "t-16b64d1338b85a48",
+      "machine": "macbook",
+      "tool_chunk": "afa9e2",
+      "cli_exit_status": 0,
+      "result": {
+        "ok": true,
+        "result": {
+          "method": "terminal",
+          "outcome": "written"
+        }
+      }
+    }
+  ],
+  "replayed_deliveries": 0,
+  "interpretation": "both terminal writes confirmed; provider acknowledgement and actual next-owner confirmation are separate",
+  "next_owner_assigned": false,
+  "further_heavy_command_dispatched": false
+}

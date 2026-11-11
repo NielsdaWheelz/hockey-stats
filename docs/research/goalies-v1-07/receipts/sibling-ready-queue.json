@@ -1,5 +1,5 @@
 {
-  "status": "v1-09_one_20222023_annual_assigned_pending_actual_launch",
+  "status": "v1-09_one_20222023_annual_running",
   "current": {
     "owner": "v1-09",
     "scope": "ONLY20222023 annual; three sequential baselines, zero probes, full predecessor/history/projections/accounting/native readback",
@@ -14,9 +14,18 @@
     "operator_launch_preconditions": "fresh mount/source/script/run/output/log/exit checks immediately before one dispatch",
     "child_environment": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1; G six-unset policy unchanged",
     "return_boundary": "actual native exit/cost/output bytes, bounded independent adjudication and explicit release to BOTH; no further ST annual reserved",
-    "status": "assigned_pending_operator_fresh_checks",
-    "dispatch": false,
-    "owner_confirmation_to_both": "both guarded sends written; actual operator acknowledgement/dispatch pending"
+    "status": "running",
+    "dispatch": true,
+    "owner_confirmation_to_both": "coordinator assigned exact scope; owner explicitly acknowledges actual single launch",
+    "launch_at_utc": "2026-11-11T08:31:19Z",
+    "native_python_pid": 86985,
+    "native_time_pid": 86984,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "launch_preflight_sha256": "4d54e70e0ea7e032adad02f5691f0e219b8078ba380738e63d1e99d19adaf6d8",
+    "actual_launch_receipt_sha256": "ce5e568944da3389ba880f90a4664cb8fe4fccf74a9c407a0424a40749dfe400",
+    "fresh_source_script_mount_run_output_log_exit_checked": true,
+    "child_thread_environment_confirmed": true,
+    "native_log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-03/logs/20222023-fit.log"
   },
   "queue": [
     {
@@ -83,7 +92,7 @@
     }
   ],
   "checks": "small v1-18 ready receipt bytes/hash and local v1-09 preflight/script hashes/frozen git identities checked; no numerical input or candidate body opened",
-  "dispatch": false,
+  "dispatch": true,
   "activation": false,
   "ownership": "confirm explicit owner to both sibling sessions before each handoff; no concurrent large i/o or blanket annual-chain reservation",
   "parent_adoption": "exact accepted exchange3/schema9 successor plus donor-bound producer receipt required; numerical state-v1/score-v1 contracts unchanged",
@@ -387,7 +396,7 @@
   },
   "next_reserved_scope": null,
   "next_ST_candidate_report": {
-    "status": "assigned_one_current_annual_pending_launch",
+    "status": "one_annual_actually_running",
     "season": "20222023",
     "checkpoint_commit": "8a53f01",
     "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
@@ -397,7 +406,7 @@
     "scope": "three baselines, zero probes; previous7ec56120212022, execution score296ae20222023; no basis import; fresh run03",
     "allowed_independent_readiness": "only pinned preparation manifest18633830B and20222023score header; no members/arrays/design/evaluator/coaches/body/stat/fullreader",
     "reservation": true,
-    "dispatch": false,
+    "dispatch": true,
     "readiness_complete": true,
     "actual_launch_freshness": "pending any future explicit handoff",
     "previous_year_cost_context_only": true,

@@ -5,6 +5,7 @@ import json
 import math
 from pathlib import Path
 import platform
+import re
 import resource
 import subprocess
 import time
@@ -70,6 +71,53 @@ def ordered_array_digest(arrays: dict) -> str:
 def require(condition, message):
     if not condition:
         raise InputContractError(message)
+
+
+def require_fields(value, keys, label):
+    require(type(value) is dict and set(value) == set(keys), f'{label}: invalid fields')
+
+
+def require_number(value, label, *, low=None, high=None):
+    require(type(value) in (int, float) and math.isfinite(value) and (low is None or value >= low)
+            and (high is None or value <= high), f'{label}: invalid number')
+    return value
+
+
+def require_count(value, label):
+    require(type(value) is int and value >= 0, f'{label}: invalid count')
+    return value
+
+
+def require_season_label(season):
+    require(type(season) is str and re.fullmatch(r'20\d{2}20\d{2}', season) is not None
+            and int(season[4:]) == int(season[:4]) + 1, 'invalid season')
+    return season
+
+
+def json_line(value):
+    return json.dumps(value, allow_nan=False, separators=(',', ':')).encode() + b'\n'
+
+
+def write_jsonl(path, values):
+    with path.open('xb') as target:
+        for value in values:
+            target.write(json_line(value))
+
+
+def decode_jsonl_line(path, number, line):
+    require(line.endswith(b'\n') and line.strip(), f'{path.name}:{number}: incomplete or blank record')
+    try:
+        value = strict_json(line)
+    except ValueError as error:
+        raise InputContractError(f'{path.name}:{number}: invalid finite json: {error}') from error
+    require(type(value) is dict, f'{path.name}:{number}: record must be an object')
+    return value
+
+
+def read_jsonl(path):
+    with path.open('rb') as source:
+        for number, line in enumerate(source, 1):
+            yield decode_jsonl_line(path, number, line)
 
 
 def agrees(left, right):

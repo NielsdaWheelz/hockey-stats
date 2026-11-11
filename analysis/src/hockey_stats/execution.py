@@ -36,7 +36,7 @@ def prepare_execution(base_prepared, coaches, recipe, season):
     return prepare(base_prepared, coaches, recipe, season)
 
 
-def _centered_state(result, previous_ledger, season):
+def centered_state(result, previous_ledger, season):
     """keep raw coordinates and last observed history; centers are references."""
     actors = result['actors']
     coefficients = result['coefficients']
@@ -70,7 +70,7 @@ def _metadata(design, result, incoming, season):
                                                   'age_delta', 'age_indices', 'transition_reason', 'prior_mean')})
         priors[-1]['last_supported'] = history.get((row['block'], str(row['id'])))
     complete = result['status'] == 'complete'
-    centers, ledger = _centered_state(result, incoming, season) if complete else (None, incoming)
+    centers, ledger = centered_state(result, incoming, season) if complete else (None, incoming)
     return dict(head=design['head'], target=TARGETS[design['head']], design=design['design'],
                 actors=actors, priors=priors, centers=centers, ledger=ledger,
                 origin=dict(cells=656, distance_ft=20., direction_strength=4.,

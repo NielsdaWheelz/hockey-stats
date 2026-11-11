@@ -15,7 +15,7 @@ from .artifacts import implementation, linked_path, ordered_array_digest, requir
 from .chance_cli import identity
 from .execution import _metadata, _probability_comparison
 from .execution_fit import annual_priors, prior_mean, _complete_prior_only
-from .execution_state import (_load_arrays, freeze_execution_baseline, read_execution_probe,
+from .execution_state import (read_coefficient_arrays, freeze_execution_baseline, read_execution_probe,
                               read_execution_state, write_execution_head, write_execution_probe, write_execution_state)
 
 
@@ -116,7 +116,7 @@ def assemble_u_repair(repair_path, output):
     for reference in qualified['members'].values():
         linked_path(reference)
     metadata = json.loads(Path(qualified['members']['metadata']['path']).read_text())
-    arrays = _load_arrays(Path(qualified['members']['arrays']['path']), metadata['arrays'])
+    arrays = read_coefficient_arrays(Path(qualified['members']['arrays']['path']), metadata['arrays'])
     _checked_numerical_qualification(qualified['numerical_qualification'], arrays['coefficients'], metadata['starts'][0]['iterations'])
     donor = read_execution_state(qualified['donor']['path'], qualified['frozen_selector']['purpose'])
     descriptor = json.loads((donor.path.parent / 'resolution/baseline.json').read_text())

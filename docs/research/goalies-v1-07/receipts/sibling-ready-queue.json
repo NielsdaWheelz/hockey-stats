@@ -1,14 +1,22 @@
 {
-  "status": "v1-07_20232024_score_preflight",
+  "status": "v1-09_one_20222023_annual_assigned_pending_actual_launch",
   "current": {
-    "owner": "v1-07",
-    "scope": "20232024 goalie SCORE then bounded four-document metadata review; accepted9ff state reused, no fit or probe",
-    "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20232024",
-    "analysis_tree": "0aba863d0efaf5ace3f0e96ab87920540b669e11",
-    "boundary": "checked ST39d555 release accepted; actual source/runtime/seven-binding/fresh-output preflight precedes dispatch",
-    "thread_environment": "six numerical variables unset",
-    "owner_confirmation_to_both": "both guarded sends written; provider acceptance unconfirmed",
-    "dispatch": false
+    "owner": "v1-09",
+    "scope": "ONLY20222023 annual; three sequential baselines, zero probes, full predecessor/history/projections/accounting/native readback",
+    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "ready_receipt": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-fit-preparation-03.json",
+    "ready_sha256": "8ac4d1f04408754362ab3a41119b564a2e7d7a1b9baec60cd2534652b4fb3cc5",
+    "script": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/second-real-fit-held-01.sh",
+    "script_sha256": "45223aab1da873acdd9de9d8526bb96a4395b3ba0fddcdd55510cdde968df248",
+    "root_local_pins_and_clean_analysis_rechecked": true,
+    "operator_launch_preconditions": "fresh mount/source/script/run/output/log/exit checks immediately before one dispatch",
+    "child_environment": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1; G six-unset policy unchanged",
+    "return_boundary": "actual native exit/cost/output bytes, bounded independent adjudication and explicit release to BOTH; no further ST annual reserved",
+    "status": "assigned_pending_operator_fresh_checks",
+    "dispatch": false,
+    "owner_confirmation_to_both": "both guarded sends written; actual operator acknowledgement/dispatch pending"
   },
   "queue": [
     {
@@ -240,7 +248,7 @@
     "both_guarded_sends_written": true,
     "provider_launch_acknowledgement": true
   },
-  "next_after_current_retry": "current G20232024 score window; no further ST annual or chain reserved",
+  "next_after_current_retry": "G20242025 fit after checked ST20222023 boundary and explicit return; no chain reservation",
   "v1_09_retry_boundary": {
     "owner": "v1-09",
     "scope": "ONE20212022 retry,3sequential baselines/no first-year probe,full projections/accounting/readback; no fixture/other annual/base rerun/converter",
@@ -377,5 +385,60 @@
     "tradeoff": "delays G20232024 scoring to give ST another first-annual attempt; no blanket chain reservation",
     "owner_acknowledged_reservation_only": true
   },
-  "next_reserved_scope": null
+  "next_reserved_scope": null,
+  "next_ST_candidate_report": {
+    "status": "assigned_one_current_annual_pending_launch",
+    "season": "20222023",
+    "checkpoint_commit": "8a53f01",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "script_sha256": "45223aab1da873acdd9de9d8526bb96a4395b3ba0fddcdd55510cdde968df248",
+    "prepared_receipt_sha256": "71b5a80d8a011c7f2e7d397e1895b3422c6d0ac1133293cd73e08203a35ac911",
+    "scope": "three baselines, zero probes; previous7ec56120212022, execution score296ae20222023; no basis import; fresh run03",
+    "allowed_independent_readiness": "only pinned preparation manifest18633830B and20222023score header; no members/arrays/design/evaluator/coaches/body/stat/fullreader",
+    "reservation": true,
+    "dispatch": false,
+    "readiness_complete": true,
+    "actual_launch_freshness": "pending any future explicit handoff",
+    "previous_year_cost_context_only": true,
+    "ready_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-fit-preparation-03.json",
+      "bytes": 8344,
+      "sha256": "8ac4d1f04408754362ab3a41119b564a2e7d7a1b9baec60cd2534652b4fb3cc5"
+    },
+    "script": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/second-real-fit-held-01.sh",
+    "metadata_proof_sha256": "5591712705268d8a35d4dcef98c742ded50cbc3c03de7cc8f5027633b83897d5",
+    "metadata_logical_bytes": 19017248,
+    "metadata_wall_seconds": 0.23660116689279675,
+    "metadata_peak_rss_bytes": 107102208,
+    "selected_games": 1312,
+    "prepared_file_descriptors": 1313,
+    "annual_physical_member_bytes": null,
+    "next_native_cost": "unknown; first annual context only, extra predecessor/history validation",
+    "root_review": "local ready03/script hashes, literal command, sh syntax, frozen git HEAD/tree and clean analysis checked; no external payload/header/array/input rehash"
+  },
+  "drive_removal_hold": {
+    "cached_native_receipt": "docs/research/goalies-v1-07/receipts/real-score-20232024-drive-removal-hold.json",
+    "all_external_reads_and_heavy_commands_held": false,
+    "eject_owner": "user",
+    "retry": false,
+    "new_owner_assigned": false,
+    "resume": "user resumed; original completed score bounded review passed; no rerun"
+  },
+  "last_G_score_boundary": {
+    "score_sha256": "5c75b215c50d3271ab2f4df4bc9d2dca39c26b846977dde251b0d0c39b6a25aa",
+    "review_sha256": "4415be75d5d627b763cc4ee97b18643385f3e5f5d79aa3814431a87dbb7e9964",
+    "native_session_id": 74808,
+    "native_exit_code": 0,
+    "native_wall_seconds": 7113.09,
+    "native_peak_resident_bytes": 21528248320,
+    "score_release": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20232024-release.json",
+      "sha256": "a9a3f23dd9097151105178027157b3e848a67346d6e382ace2ade0415ac1256f"
+    },
+    "independent_adjudication": {
+      "path": "docs/research/goalies-v1-07/receipts/real-score-20232024-independent-adjudication.json",
+      "sha256": "b8cf965d3ff712ae0e262ae89c2f1439d13c62c3bad3dd37e528ae5882a25dda"
+    }
+  }
 }

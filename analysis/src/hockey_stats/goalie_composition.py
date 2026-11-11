@@ -172,7 +172,7 @@ def compose_goalie(prepared, combined_results, annual_goalie_scores, output):
         owned.append(dict(manifest['catalogs'][table]))
     write_json(output/'manifest.json.incomplete',manifest)
     read_started = perf_counter()
-    publication._read_results(output,'manifest.json.incomplete')
+    publication.read_results(output,'manifest.json.incomplete')
     strict_read_seconds = perf_counter()-read_started
     (output/'manifest.json.incomplete').rename(output/'manifest.json')
     write_json(output/'goalie-composition.json',dict(schema_version=1,kind='goalie-composition',

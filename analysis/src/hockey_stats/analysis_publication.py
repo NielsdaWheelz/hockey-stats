@@ -2008,11 +2008,8 @@ def validate_spatial_map_mixtures(scalars, maps):
                         require(close(cell[measure],expected), 'common spatial map differs from exact-state mixture')
 
 
-def read_results(directory: Path) -> Results:
-    return _read_results(directory, 'manifest.json')
-
-
-def _read_results(directory, manifest_name):
+def read_results(directory: Path, manifest_name='manifest.json') -> Results:
+    """validate one named complete or staged manifest and all result members."""
     directory = directory.resolve(strict=True)
     manifest = strict_json((directory/manifest_name).read_bytes())
     fields(manifest,('schema_version','kind','purpose','seasons','observed_bindings','prepared_sha256','producer','catalogs','families'))
@@ -2175,7 +2172,7 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
         manifest['catalogs'][table] = member(table+'.jsonl',rows,table)
     staging = output/'manifest.json.incomplete'
     write_json(staging,manifest)
-    _read_results(output, 'manifest.json.incomplete')
+    read_results(output, 'manifest.json.incomplete')
     staging.rename(output/'manifest.json')
     return manifest
 
@@ -2208,7 +2205,7 @@ def _write_method_successor(source, methods, output):
     manifest['catalogs']['methods'] = dict(path=path, rows=count, sha256=sha.hexdigest())
     staging = output/'manifest.json.incomplete'
     write_json(staging, manifest)
-    _read_results(output, 'manifest.json.incomplete')
+    read_results(output, 'manifest.json.incomplete')
     staging.rename(output/'manifest.json')
     return manifest
 

@@ -613,7 +613,7 @@ def _compose_results(existing_results, state_selection, output, *, family, produ
     manifest['catalogs']['methods'] = write_member('methods.jsonl', sorted(methods.values(), key=lambda row: row['method_id']), 'methods')
     write_json(output / 'manifest.json.incomplete', manifest)
     read_started = perf_counter()
-    publication._read_results(output, 'manifest.json.incomplete')
+    publication.read_results(output, 'manifest.json.incomplete')
     strict_read_seconds = perf_counter() - read_started
     (output / 'manifest.json.incomplete').rename(output / 'manifest.json')
     write_json(output / 'composition-resources.json', dict(wall_seconds=perf_counter() - started, strict_read_wall_seconds=strict_read_seconds,
@@ -709,7 +709,7 @@ def complete_results(result_dir, expected_donor_sha256, state_selection, product
     completed['catalogs']['methods'] = dict(path=new_methods.name, sha256=digest.hexdigest(), rows=count)
     write_json(staging, completed)
     read_started = perf_counter()
-    publication._read_results(directory, staging.name)
+    publication.read_results(directory, staging.name)
     strict_seconds = perf_counter() - read_started
     staging.rename(final)
     write_json(resources, dict(donor_manifest=identity(donor_path), state_selection=identity(Path(state_selection)),

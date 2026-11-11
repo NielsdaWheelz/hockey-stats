@@ -1,0 +1,73 @@
+{
+  "kind": "independent-st-probe-history-selector-source-review",
+  "status": "scoped_source_review_passed",
+  "recorded_at_utc": "2026-11-11T14:46:12.423150+00:00",
+  "reviewer": "/root/st_publication_review",
+  "source": {
+    "path": "analysis/src/hockey_stats/spatial_rates.py",
+    "before_bytes": 86648,
+    "before_sha256": "ef7964f1ca591eccb2287364e31a3d8997400c32c52790e872c4236d00c02277",
+    "after_bytes": 87066,
+    "after_sha256": "4c5ad4c57a7b61301f6f626af25f22587a13c13f97dacce541d01e0bc06193ca",
+    "changed_function": "select_probe_rows"
+  },
+  "independently_checked_evidence": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-probe-history-01/repair.patch",
+      "bytes": 2741,
+      "sha256": "ec36cddcc09f08e494a265c52d8896a53b8e5d851086b7f781cf956185047af8"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-probe-history-01/facts.json",
+      "bytes": 2723,
+      "sha256": "776b89d031f58667db0a16a49329121c5806102d7156bdf86b2b53395e2e2f1e"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-probe-history-01/controls.py",
+      "bytes": 6922,
+      "sha256": "221340c40c027f215d9a4b8ebdf96a51943db0688d4b17badd9e7144fe8f9725"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-probe-history-01/red-02.json",
+      "bytes": 979,
+      "sha256": "fa0ac46e7d812d8004e635a8de859c266fc734ae0958f6ff5935835fbc0d6165"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-probe-history-01/green-01.json",
+      "bytes": 691,
+      "sha256": "870812fd71e023ff631e107ed69d3b523130887e8d5ae29a5097210ffa71dd0e"
+    }
+  ],
+  "direct_source_proof": [
+    "before source equals pinned0e70 spatial_rates source; in-memory application of exact repair patch yields actual after bytes",
+    "precisely AST-located select_probe_rows removed from both sources: all remaining bytes identical, and all remaining executable AST identical",
+    "no fit, prior construction, raw history, objective, reference/rate/evaluator, probe counts or comparison machinery changes outside selector"
+  ],
+  "selector_contract": {
+    "st_entries": "role-player key is an entry if any of volume/shape/quality priors marks entry",
+    "st_returns": "role-player key is a return if any head carries an anchor more than one season earlier",
+    "role_identity": "attacking_player and defending_player remain distinct for the same player id; prior tables use the same design actor columns",
+    "ev": "only volume priors classify entries and returns, preserving historical behavior",
+    "sparse_support": "unchanged volume-prior included_seconds and existing thresholds; no shape/quality event exposure substitution",
+    "mechanism": "two actor-key sets precomputed once; no per-context head scans or new helper/protocol",
+    "selection": "category append order, exact-state names, null-source ordering, lexicographically first witnesses, witness union before ordinary fill and256-context bound unchanged"
+  },
+  "local_control_evidence": {
+    "same_control_bytes_red_to_green": true,
+    "red2": "three meaningful failures: shape-only entry, separate head/role entry-return witnesses, head-only first witness beyond ordinary256-row fill; absence/source-order control already passes",
+    "green": "four groups pass",
+    "ev_fingerprint_before_and_after": "d1d01e209bfdf059e8e0f596d42d703e392ad3340bc2788af98f5cb4c08e3db3",
+    "historical_refinement": "RED01 role assertions were combined to expose all failures and its EV fixture was corrected to five defenders before root-approved unchanged RED02 and the first green; historical controls/receipt remain preserved",
+    "verification_limit": "supplied local selector controls and source proof, not a real final-season diagnostic or solver result",
+    "test_reruns_by_reviewer": 0
+  },
+  "execution_limits": {
+    "fourth_annual": "frozen74d12c2/aa346929 and its READY02 unchanged;20242025 still zero probes",
+    "final_annual": "future20252026 must deliberately pin repaired source; no implicit producer or readiness repin",
+    "optimizer_accuracy": "no accuracy, performance, sensitivity or scientific admission follows; separate root optimizer-default observations are outside this independent receipt",
+    "remaining_acceptance": "real final diagnostics, full-roster scalar/map and16-coalition comparisons, composition/runtime/application acceptance remain pending"
+  },
+  "scope": "local source text and supplied evidence only; no production imports, tests, selector execution, models, solves, external reads/stats, full readers, arrays or production edits by reviewer; this receipt creates no new verification campaign",
+  "heavy_window_or_fit_authorized": false,
+  "runtime_or_scientific_acceptance_issued": false
+}

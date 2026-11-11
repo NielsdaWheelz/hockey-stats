@@ -1,0 +1,105 @@
+{
+  "kind": "independent-public-validator-revision02-review",
+  "status": "scoped_source_and_local_public_boundary_review_passed",
+  "recorded_at_utc": "2026-11-11T15:15:48.533953+00:00",
+  "reviewer": "/root/st_publication_review",
+  "independently_checked_files": [
+    {
+      "path": "analysis/src/hockey_stats/analysis_publication.py",
+      "bytes": 181826,
+      "blob": "e6fa457b90b6a2d482d8c26bc02b8d4c7be0efdd",
+      "sha256": "710c984f6a2b1c1a2b53b5e6d429a5c03474f60951c2313967b5911a9f2921cb"
+    },
+    {
+      "path": "app/src/server/analysis-publication.ts",
+      "bytes": 72374,
+      "blob": "7bf8cce5572af8b4cb9b2f4a4c4fd0f2b0a9f9d9",
+      "sha256": "57985c805c60d3fb8a09d61b19c75036d943fb79685b07fbef435324a5f87cff"
+    }
+  ],
+  "patch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-02/public-validators.patch",
+    "bytes": 21652,
+    "sha256": "ed8a4e644a09f1fef3421864a1bca42efa7c8865b6c90e22a3bd2a3e2f60dc53"
+  },
+  "facts": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/public-validator-union-02.json",
+    "bytes": 12104,
+    "sha256": "df16971d7043acb9447430fe9f4d55d7995d53f939857004d7a7fe9165727e82"
+  },
+  "generator": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-02/prepare-handoff.py",
+    "bytes": 14911,
+    "sha256": "c76d20dcaddad29d992e2d6a7ae7efde5b061d90e1b3913f5645d50344cae76a",
+    "executed_by_reviewer": false
+  },
+  "source_checks": [
+    "actual two-file text equals only approved f932 refinements applied in memory to exact0e70 source",
+    "independent strict hunk-text reconstruction from pinned G2b2 donor yields both complete working targets and their exact blobs",
+    "Python preserves declared dictionary order for all nonspatial families; only spatial tables sort scalar-first",
+    "only two new Python helper definitions and their one-plus-two calls become private; helper bodies and errors remain source-exact; no alias",
+    "68 other top-level Python functions remain source-exact, nonfunction AST/imports/schema unchanged and public read_results arguments/default/return annotation exact",
+    "TypeScript changes only the mixture-helper export keyword; all remaining source including goalie dispatch/cross-record guards unchanged",
+    "goalie source-count/summary/actual-state regions and payload branches remain preserved; shared public schema stays30f12cec988dda9f576ca7604c3087f14c18f8f3, with no numerical provider, dependency, recipe or math change"
+  ],
+  "controls": {
+    "source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-02/controls.py",
+      "bytes": 7193,
+      "sha256": "c80f98470a74ca756f425a7747c2248515a37743f976dc68d976cd28c24033bb"
+    },
+    "red": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/public-validator-union-02-red.json",
+      "bytes": 1754,
+      "sha256": "d1c8fd27c9b746ec037ccbe0415e47623da893450129779a5c8219a422a213f8",
+      "passed": 3,
+      "failed": 3
+    },
+    "green": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/public-validator-union-02-green.json",
+      "bytes": 1269,
+      "sha256": "46adf74485a23b4f893550fe751c247470ec50e2161780965bca4b9533587352",
+      "passed": 6,
+      "failed": 0
+    },
+    "unchanged_between_red_and_green": true,
+    "raw_green_log_matches_receipt": true,
+    "raw_green_exit_status": 0,
+    "public_io_cases": [
+      "default and named tiny canonical exchange read",
+      "nonspatial first-declared member error",
+      "spatial scalar-first error despite map-first insertion",
+      "failed public writer staging"
+    ],
+    "static_cases": [
+      "two Python private names and three calls",
+      "module-private TypeScript helper"
+    ],
+    "resources": {
+      "python_version": "3.14.8",
+      "wall_seconds": 0.033052499871701,
+      "peak_rss_bytes": 52396032
+    },
+    "setup_history": "standalone interpreter bs4 failure preceded controls and is excluded from product red; original setup source/log/exit and pre-implementation capture remain immutable",
+    "reviewer_reruns": 0
+  },
+  "historical_revision01": {
+    "patch_sha256": "ffa62d0b5616a39c48d86ded7888db3164f80b84d8efd589a975fb4f971c6976",
+    "facts_sha256": "2737c9af2705cfe6a71080c347d7da483902abbd5b33da4941985aad20b0ba0d",
+    "review_sha256": "5cee7bfcc0ae8b28839595ede3b69d45ba737ca62fa3c10c53213167f589df59",
+    "status": "preserved unchanged; revision02 resolves missed global-sort and helper-exposure holes"
+  },
+  "root_reported_final_commit_metadata": {
+    "provenance": "reported after root final source-hash/control/diff checks; not independently recomputed by this reviewer",
+    "source_commit": "c5189715e286c15e2823b7bafdf08772758b4620",
+    "analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "scope": "two source files,9insertions/7deletions; source facts02 nulltarget remains historical preparation, with provider9d1/bee only its then-parent"
+  },
+  "CROSSRECORD_IO": "deferred to required real composition and normal strict startup; no direct-private-helper or family/runtime acceptance inferred from these public/static controls",
+  "scope": "local source, git blobs, patch text and supplied receipts only. reviewer ran no controls, production imports, generator, apply, build/browser, database/full-reader campaign, external read/stat, array/model/evaluator or numerical work; no production edits by reviewer.",
+  "unchanged_execution_scope": "frozen G2b2 and ST74d/aa plus fourth READY10856 unchanged; source9d1 probe-selector repair is a separate change",
+  "goalie_adoption": false,
+  "runtime_family_or_scientific_acceptance_issued": false,
+  "parent_queue_or_window_changed": false
+}

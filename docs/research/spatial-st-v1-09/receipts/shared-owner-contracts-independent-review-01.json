@@ -1,0 +1,131 @@
+{
+  "kind": "independent-shared-owner-contracts-source-review",
+  "status": "scoped_source_contract_review_passed",
+  "recorded_at_utc": "2026-11-11T14:14:02.986956+00:00",
+  "reviewer": "/root/st_publication_review",
+  "worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+  "independently_checked_sources": [
+    {
+      "path": "analysis/src/hockey_stats/artifacts.py",
+      "sha256": "ee49723daf7375e1b8d04965a94f16a434d1b3a7e636f21552dce8cf38faae99"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_scores.py",
+      "sha256": "f0240aab80496e394d175bcb3d26edee057f167cb53492f858f21b8c05a79492"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "sha256": "bc71ac918d6aceb8b8304ca5a23402ea2c0c7192bc3458c78f081c9ca9dcb883"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution.py",
+      "sha256": "08d4519ebab177fd513d424db6716537b0394cf2db0ea111d8db9a3b0a08560b"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_u_repair.py",
+      "sha256": "d7da17c6c129627b9f67f899e4180062f9a813514cab45b48854fd2d4a22e7ee"
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_publication.py",
+      "sha256": "cc38bac76076811445bbf98b8f7094f8e8e71352aa1711e020ac98d68aaafce9"
+    },
+    {
+      "path": "analysis/src/hockey_stats/spatial_composition.py",
+      "sha256": "55b0d62f1b8a3d630b03f5abd58bbdd17c1cb900ca4acf0d40c38b29e6207038"
+    }
+  ],
+  "independently_checked_local_evidence": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/shared-contract-cutover-01/contracts.py",
+      "bytes": 9694,
+      "sha256": "00846f783e54edd6649efd7b343f367f44f9267313413700a7b207c28f8a56f0"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/shared-contract-cutover-01/red-03.json",
+      "bytes": 1419,
+      "sha256": "e37fc1f95e91a049ff88be88858bd317e0f604b24a782aef413003ba768ea4aa"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/shared-contract-cutover-01/green-01.json",
+      "bytes": 829,
+      "sha256": "19073c827eee154857615d2a951d5d795486b69ff4a8eaa5bf569753b04fdaca"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/shared-contract-cutover-01/source-proof.py",
+      "bytes": 8448,
+      "sha256": "67f0053b38c2e2f214d6674bf696885d7d1736c2366e22c623c75925a9b87366"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/shared-contract-cutover-01/source-proof.json",
+      "bytes": 3133,
+      "sha256": "310d96beddb40270c86a289f15caa8a954d378563c797d4a394045a7190fe48f"
+    }
+  ],
+  "direct_source_checks": [
+    "all seven before snapshots equal the corresponding HEAD source at review; all five A outputs byte-match applying reviewed patch3c6d in memory",
+    "B publication text differs only by direct public read_results(directory, manifest_name=manifest.json) promotion, wrapper removal and two internal calls; spatial text differs only by its two calls",
+    "existing strict reader body, ST/G validation, scalar-before-map mixtures, evidence joins, fieldsets and validation-before-final-rename remain unchanged",
+    "read_execution_scores, _near and iter_neutral_origins are source-exact; read_panel preserves exact-int enum, verbatim errors and same-strength checked-panel reuse",
+    "coefficient dtype/shape contracts, state validation formulas, raw ledgers and reference centers match the reviewed transfer; u_repair imports and calls read_coefficient_arrays",
+    "no new production module dependency edge, import cycle, compatibility alias, wrapper framework or G consumer import was introduced"
+  ],
+  "normalization_limit_and_independent_closure": "source-proof67f drops imports for five files and renames attributes, so AST equality alone cannot establish correct bindings. direct reviewed-patch byte equality, before-to-HEAD equality, exact B text equality and alias-aware consumer inspection independently close those gaps for this actual diff.",
+  "consumer_inventory": {
+    "production_and_retained_research_python_files": 59,
+    "retired_name_consumers_found_in_production_retained_research_or_current_controls": 0,
+    "historical_exclusion": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-parent-pin-temporary.py",
+      "line": 138,
+      "reference": "patch.object(publication, '_read_results')",
+      "classification": "frozen historical source-cutover evidence, explicitly excluded from current controllers by root",
+      "preservation": "keep original controller and receipt byte-for-byte; no alias or retrospective rewrite. future parent repin owns any replacement control"
+    }
+  },
+  "local_control_evidence": {
+    "same_control_sha256_before_and_after": "00846f783e54edd6649efd7b343f367f44f9267313413700a7b207c28f8a56f0",
+    "red3": {
+      "preserved_pass_groups": [
+        "finite_json",
+        "exact_panel_contract",
+        "failed_staging"
+      ],
+      "missing_interface_fail_groups": [
+        "jsonl",
+        "scalar_contracts",
+        "state_contracts",
+        "raw_history",
+        "complete_exchange"
+      ]
+    },
+    "green": {
+      "groups": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    "scope": "literal successful JSON/JSONL bytes and exclusivity, nonfinite/error precedence, scalar types/errors, tiny local coefficient contract and raw history, exact cached-panel guard, named/default synthetic exchange digest validation and failed staging; no real exchange or numerical-kernel proof",
+    "reruns_by_reviewer": 0
+  },
+  "accepted_behavior_change": {
+    "change": "execution score document writes delegate to the canonical writer, which serializes before exclusive create",
+    "invalid_nonfinite_payload": "leaves no empty new file",
+    "invalid_payload_and_occupied_destination": "ValueError may precede FileExistsError; existing bytes remain unchanged",
+    "successful_json_and_jsonl_bytes": "preserved; JSONL partial-prefix behavior unchanged"
+  },
+  "root_reported_final_metadata": {
+    "provenance": "reported by root after its final hash/diff/frozen-cleanliness checks; commit/tree metadata not independently recomputed by this reviewer",
+    "five_owner_commit": "c5ff0ea7b165f50a6ca882bd4a2c4dfd7758faa8",
+    "staged_reader_commit": "0e70b25d37869461f69fbcbd0337c0e2196b3710",
+    "analysis_tree": "950b7af77ce6204f6a825d463002e45653612b8c",
+    "union_patch": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/shared-contract-cutover-01/shared-union.patch",
+      "bytes": 101181,
+      "sha256": "6528263ee13dda1c45485f12ec54d73915a1fc63ff08aba52fc2a758d9ee1ff8"
+    },
+    "frozen_st_producer": "unchanged clean74d12c2 / aa346929, checked by root"
+  },
+  "review_scope": "local source and already supplied tiny-control/proof receipts only. no production imports, control/test reruns, external body reads or stats, full readers, arrays, evaluators, fits, browser, build or source edits by this reviewer. receipt creation adds no verification campaign.",
+  "pending_obligations": "real serial composition and preservation, exact final parent/receipt admission, final source/build/candidate/server identity and independent family runtime/API/browser/download acceptance remain pending. remaining ST annuals/final diagnostics, scientific warnings and temporary-test cleanup remain owned; this source review supplies no scientific admission.",
+  "full_v1_09_acceptance_issued": false,
+  "runtime_or_scientific_acceptance_issued": false,
+  "resource_window_or_activation_authorized": false
+}

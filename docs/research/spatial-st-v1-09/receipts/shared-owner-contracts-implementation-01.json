@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "kind": "st-development-shared-owner-contracts-cutover",
+  "status": "implemented-local-green-independent-review-pending",
+  "starting_head": "6822597c6ffc5f2fe3de3a65f3df0523c0450824",
+  "starting_analysis_tree": "c01ff1b8bf982234b860817e76585c0ca33680da",
+  "patch": {
+    "path": ".tmp/shared-contract-cutover-01/shared-union.patch",
+    "bytes": 101181,
+    "sha256": "6528263ee13dda1c45485f12ec54d73915a1fc63ff08aba52fc2a758d9ee1ff8"
+  },
+  "controls": {
+    "script": {
+      "path": ".tmp/shared-contract-cutover-01/contracts.py",
+      "bytes": 9694,
+      "sha256": "00846f783e54edd6649efd7b343f367f44f9267313413700a7b207c28f8a56f0"
+    },
+    "red": {
+      "path": ".tmp/shared-contract-cutover-01/red-03.json",
+      "bytes": 1419,
+      "sha256": "e37fc1f95e91a049ff88be88858bd317e0f604b24a782aef413003ba768ea4aa"
+    },
+    "green": {
+      "path": ".tmp/shared-contract-cutover-01/green-01.json",
+      "bytes": 829,
+      "sha256": "19073c827eee154857615d2a951d5d795486b69ff4a8eaa5bf569753b04fdaca"
+    },
+    "source_proof_script": {
+      "path": ".tmp/shared-contract-cutover-01/source-proof.py",
+      "bytes": 8448,
+      "sha256": "67f0053b38c2e2f214d6674bf696885d7d1736c2366e22c623c75925a9b87366"
+    },
+    "source_proof": {
+      "path": ".tmp/shared-contract-cutover-01/source-proof.json",
+      "bytes": 3133,
+      "sha256": "310d96beddb40270c86a289f15caa8a954d378563c797d4a394045a7190fe48f"
+    },
+    "first_controller_failure": {
+      "receipt": {
+        "path": ".tmp/shared-contract-cutover-01/red.json",
+        "bytes": 1486,
+        "sha256": "c5d4a11bf1f929f59018926532de548b9640ed129196d7e222f022589c7c6172"
+      },
+      "source": {
+        "path": ".tmp/shared-contract-cutover-01/contracts-red-01.py",
+        "bytes": 9594,
+        "sha256": "f59cd99bc115dbb93d2122b73f19bb2d77d0f9eda82c92d8779e66bd95776245"
+      },
+      "cause": "control used singular goalie field names; corrected to the existing plural saved enum keys; no production adaptation"
+    },
+    "second_control_revision": {
+      "receipt": {
+        "path": ".tmp/shared-contract-cutover-01/red-02.json",
+        "bytes": 1419,
+        "sha256": "af28f560e4b660c9c24abb43e48f55866063570d956b6a9750e55823b9d9059d"
+      },
+      "source": {
+        "path": ".tmp/shared-contract-cutover-01/contracts-red-02.py",
+        "bytes": 9596,
+        "sha256": "0403ac92810ade1394cbe9be1937b681b978a56b4c84e8bd5005ab6015c86a5d"
+      },
+      "change": "proactively changed the later digest oracle to a wrong valid64hex staged-manifest member SHA while keeping the empty member schema valid"
+    }
+  },
+  "source": [
+    {
+      "path": "analysis/src/hockey_stats/artifacts.py",
+      "sha256": "ee49723daf7375e1b8d04965a94f16a434d1b3a7e636f21552dce8cf38faae99"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_scores.py",
+      "sha256": "f0240aab80496e394d175bcb3d26edee057f167cb53492f858f21b8c05a79492"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "sha256": "bc71ac918d6aceb8b8304ca5a23402ea2c0c7192bc3458c78f081c9ca9dcb883"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution.py",
+      "sha256": "08d4519ebab177fd513d424db6716537b0394cf2db0ea111d8db9a3b0a08560b"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_u_repair.py",
+      "sha256": "d7da17c6c129627b9f67f899e4180062f9a813514cab45b48854fd2d4a22e7ee"
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_publication.py",
+      "sha256": "cc38bac76076811445bbf98b8f7094f8e8e71352aa1711e020ac98d68aaafce9"
+    },
+    {
+      "path": "analysis/src/hockey_stats/spatial_composition.py",
+      "sha256": "55b0d62f1b8a3d630b03f5abd58bbdd17c1cb900ca4acf0d40c38b29e6207038"
+    }
+  ],
+  "accepted_behavior_change": "canonical write_json serializes before exclusive destination creation: invalid payload leaves no empty file; ValueError can precede FileExistsError for dual-invalid input; existing and successful output bytes preserved",
+  "local_runtime": "eight synthetic real-owner groups pass; u-repair/spatial imports and public default/named staged signature pass; no full real artifact or model invocation",
+  "scope": {
+    "external_hdd_data_reads": 0,
+    "numerical_fit_or_evaluator_calls": 0,
+    "publications": 0,
+    "serving_changes": 0,
+    "frozen_producer_mutations": 0,
+    "index_or_commit_changes": 0
+  }
+}

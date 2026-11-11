@@ -1,0 +1,122 @@
+{
+  "kind": "source-only-two-public-validator-handoff",
+  "status": "prepared_for_independent_review_not_adopted",
+  "worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+  "donor_commit": "2b2a550e19540aa145926d2a19f9e3ee6ebd8488",
+  "donor_analysis_tree": "9f91292ffa125b34f0edb9e9837d94d3b2606545",
+  "target_commit": "0e70b25d37869461f69fbcbd0337c0e2196b3710",
+  "target_analysis_tree": "950b7af77ce6204f6a825d463002e45653612b8c",
+  "patch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-01/public-validators.patch",
+    "bytes": 21582,
+    "sha256": "ffa62d0b5616a39c48d86ded7888db3164f80b84d8efd589a975fb4f971c6976"
+  },
+  "preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-01/prepare.py",
+    "sha256": "8dcd7ed25cbb5b3b1b0050fa4c1913a164eb6e9b1942c9de07b1a361b4dd5040"
+  },
+  "files": [
+    {
+      "path": "analysis/src/hockey_stats/analysis_publication.py",
+      "donor_blob": "cc5b0d7a9da3a1c884e2396e1dc9c763653d766e",
+      "target_blob": "d42dd993993c682883f342d59aaf48e45f243fe6",
+      "donor_sha256": "3c22d43dd1a82697176ea1cb4eea3256b2d108877425b72fd260c71ea2ba22ad",
+      "target_sha256": "cc38bac76076811445bbf98b8f7094f8e8e71352aa1711e020ac98d68aaafce9",
+      "donor_bytes": 175123,
+      "target_bytes": 181751,
+      "mode": "100644",
+      "additions": 101,
+      "deletions": 4,
+      "hunks": [
+        "@@ -1489,6 +1489,8 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):",
+        "@@ -1501,8 +1503,9 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):",
+        "@@ -1933,6 +1936,78 @@ def member_path(directory, member):",
+        "@@ -1979,15 +2054,37 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:"
+      ],
+      "import_lines": [
+        "from dataclasses import dataclass",
+        "from contextlib import ExitStack",
+        "from datetime import date",
+        "import hashlib",
+        "import json",
+        "import math",
+        "from pathlib import Path",
+        "import re",
+        "import shutil",
+        "from .artifacts import digest, implementation_identity, require, write_json",
+        "from .captures import strict_json",
+        "    from .observed_spatial import cells, cell_id, pooling",
+        "    from .shot_origins import grid",
+        "    import numpy as np",
+        "    from .observed_spatial import cells",
+        "    from .observed_spatial import cells, cell_id, pooling",
+        "    from .shot_origins import grid",
+        "    import numpy as np",
+        "            from .shot_origins import in_rink",
+        "        from .observed_spatial import cells",
+        "    from .shot_origins import grid",
+        "    from .observed_spatial import cells",
+        "    import sqlite3"
+      ],
+      "imports_unchanged": true,
+      "in_memory_application_exact": true
+    },
+    {
+      "path": "app/src/server/analysis-publication.ts",
+      "donor_blob": "8a4612d20bc7d1c913887340476281af637f3824",
+      "target_blob": "9b0120090853abdb6cd6f0066c81546a8450f977",
+      "donor_sha256": "7b3cb93276f547658f98410407cbce059dd476fda83f5d09927259d3732b54a9",
+      "target_sha256": "0909501b5868733691b1492e173467f17bdf13811b13ff4f5a7372ed14bb55bb",
+      "donor_bytes": 65616,
+      "target_bytes": 72381,
+      "mode": "100644",
+      "additions": 118,
+      "deletions": 13,
+      "hunks": [
+        "@@ -80,6 +80,43 @@ export const parseObject = (value: unknown): Record<string, unknown> => {",
+        "@@ -96,11 +133,28 @@ export const resultFromRow = <T extends SummaryTable>(",
+        "@@ -469,6 +523,8 @@ export const validateAnalysis = (",
+        "@@ -537,17 +593,17 @@ export const validateAnalysis = (",
+        "@@ -581,6 +637,9 @@ export const validateAnalysis = (",
+        "@@ -1061,6 +1120,13 @@ export const validateCrossRecords = (",
+        "@@ -1081,7 +1147,22 @@ export const validateCrossRecords = (",
+        "@@ -1135,6 +1216,30 @@ export const validateCrossRecords = ("
+      ],
+      "import_lines": [
+        "import type { SqliteClient } from \"@effect/sql-sqlite-node/SqliteClient\";",
+        "import * as Effect from \"effect/Effect\";",
+        "import * as Schema from \"effect/Schema\";",
+        "import { createHash } from \"node:crypto\";",
+        "import * as A from \"../shared/player-analysis.js\";",
+        "import { Season } from \"../shared/observed.js\";",
+        "import { forEachRow, strictJson } from \"./sql-rows.js\";",
+        "import { physicalSchema } from \"./physical-schema.js\";"
+      ],
+      "imports_unchanged": true,
+      "in_memory_application_exact": true
+    }
+  ],
+  "preserved_goalie_source_regions": {
+    "_source_counts": "0087916079c04db7d140f7a466ec6b0db0c8268a56df845da250b69fdc2fecc3",
+    "_goalie_summary": "dc6b6f56859def9eb425ea01a852f7e6e011fe14d656532870495cb3c92707b6",
+    "_goalie_actual_states": "df943734d13cbd20d05a24898d8e5860b4a6ff5a7b949b2ca67cdb99f914cfd3",
+    "python_execution_breakdown_branch": "b0fb8eeeed25cf31ad30a4d6542ea2390c4e2834ddcf7488eb727a8f21214a27",
+    "server_person_kind_breakdown_dispatch": "4c25b35fd6b0c3f701aa355564af6ffd1543d58618e03c9f65b8215033d346de",
+    "server_goalie_cross_record_tail": "52457263f96fca7f0ba8b78f9ef40a25b1b7a0b2241f551265b3c87763c08700"
+  },
+  "shared_schema": {
+    "path": "app/src/shared/player-analysis.ts",
+    "donor_blob": "30f12cec988dda9f576ca7604c3087f14c18f8f3",
+    "target_blob": "30f12cec988dda9f576ca7604c3087f14c18f8f3",
+    "working_blob": "30f12cec988dda9f576ca7604c3087f14c18f8f3",
+    "diff": false
+  },
+  "reader_header": "def read_results(directory: Path, manifest_name='manifest.json') -> Results:",
+  "reader_seam_replayed": false,
+  "scope": "only source blobs and patch text; no production apply, validator imports or tests, arrays, model, evaluator, full reader, build, browser, external data or numerical command",
+  "limitations": "in-memory application proves exact source output only; behaviour, runtime and family acceptance are not rerun or inherited",
+  "production_files_changed": false,
+  "goalie_worktree_touched": false,
+  "queue_or_parent_change": false,
+  "adoption": false
+}

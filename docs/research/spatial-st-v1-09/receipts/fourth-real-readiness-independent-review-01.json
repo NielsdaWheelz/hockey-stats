@@ -1,0 +1,110 @@
+{
+  "kind": "independent-st-annual-readiness-review",
+  "status": "passed_for_future_coordination_review",
+  "recorded_at_utc": "2026-11-11T14:21:43.868648+00:00",
+  "reviewer": "/root/st_publication_review",
+  "season": "20242025",
+  "independently_checked_local_pins": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-fit-preparation-02.json",
+      "bytes": 8732,
+      "sha256": "10856eb64cbb449f230295eaf9551f984dd59326c2f498e47952feba5647971a"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-fit-preparation-01.json",
+      "bytes": 7627,
+      "sha256": "1b3414be01b1ea8720d7c783ba1f59ee541ccf849548f65cfb6f23f54a7bf040"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-fit-held-01.sh",
+      "bytes": 1509,
+      "sha256": "7fecf2aa8594b5045eb26ee9781a1fbb09ebcde1fa046c67b0f778bb2e5f0c61"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-metadata-preflight-01.py",
+      "bytes": 4411,
+      "sha256": "cd578df113fc9caf89ffac3500de8858afe0a6ca612c5b9b61110c5151f349eb"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-metadata-preflight-01.json",
+      "bytes": 2002,
+      "sha256": "10d85ff86082a1385d9a6ac830181588352758df7d481c2ef14c26c753fdd82f"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-metadata-preflight-run-01.log",
+      "bytes": 434,
+      "sha256": "7c818816af89471b7b1e196930f1becb3dabb03cdc3857dcde755c1a8290bfdc"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-metadata-preflight-run-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ],
+  "command_contract": {
+    "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "producer_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "previous_manifest_sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7",
+    "original_base_score_sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+    "coaches_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+    "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025",
+    "finding": "script differs from reviewed837 only by year/base-year locator, consecutive previous run/year, fresh output run05 and log names; one annual, three sequential baselines, zero probes, no --basis, same three child-only thread variables at1, exclusive new root before native log/exit",
+    "source_freshness": "frozen identity inherited from accepted evidence; fresh source/script verification remains a future dispatch condition"
+  },
+  "metadata_contract": {
+    "source_finding": "helper is a literal a987 clone changing only year, original86e header path/digest, fresh local output and descriptive kind; exactly two fixed read_bytes calls, no external stat or member/coaches/previous body reads, no production imports or duplicate canonical schema",
+    "status": "passed",
+    "exit_status": 0,
+    "executions": 1,
+    "inputs": [
+      {
+        "role": "prepared_manifest",
+        "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+        "bytes": 18633830
+      },
+      {
+        "role": "original_base_score_header",
+        "sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+        "bytes": 383422
+      }
+    ],
+    "direct_declared_prepared_coaches_and_game_list_joins": "checked by the reviewed helper before passed status; original coach and predecessor bodies were not reread",
+    "selected_games": 1312,
+    "inventory_games": 1312,
+    "prepared_file_descriptors": 1313,
+    "prepared_game_descriptors": 1312,
+    "prepared_people_descriptors": 1,
+    "score_file_descriptors": 73,
+    "score_panel_descriptors": 32,
+    "resources": {
+      "logical_input_body_read_bytes": 19017252,
+      "wall_seconds": 0.19836891698651016,
+      "peak_rss_bytes": 106921984
+    },
+    "physical_member_bytes": null,
+    "physical_member_bytes_status": "unmeasured; not a metadata-readiness blocker",
+    "declared_execution_state": "reported from the header only"
+  },
+  "readiness_contract": {
+    "flat_consumer_fields": "season/source_commit/analysis_tree/producer_worktree/output preserved",
+    "immutable_candidate": "01 retained unchanged;02 binds actual metadata proof instead of an unrun proposal",
+    "fit_execution": "not_run",
+    "reservation": "not_reserved",
+    "chain_reservation": false,
+    "window_request_made": false,
+    "dispatch_preconditions": [
+      "explicit ownership handoff for this exact scope; a prior reservation is optional",
+      "fresh frozen-source and script pins",
+      "fresh mount/path availability",
+      "fresh absence checks for run/output/log/exit"
+    ],
+    "freshness_scope": "future output freshness is unchecked; the two already-read input headers are explicitly excluded from that claim",
+    "native_validation_owner": "ordinary native readers own full input/predecessor validation during any future authorized fit",
+    "cost_limit": "next runtime and source/predecessor read bytes are unknown;6383.31seconds is observed prior context only"
+  },
+  "scope": "local source and supplied proof/packet/log/exit only; no external read/stat, helper or fit rerun, model/full-reader/evaluator/array loading, production source edits, docs/index changes or coordinator transmission by this reviewer",
+  "fit_or_resource_window_granted": false,
+  "heavy_owner_changed": false,
+  "scientific_or_runtime_acceptance_issued": false
+}

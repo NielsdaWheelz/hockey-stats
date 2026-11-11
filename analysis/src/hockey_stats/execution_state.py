@@ -15,7 +15,7 @@ import sys
 
 import numpy as np
 
-from .artifacts import digest, linked_path, require, write_arrays, write_json
+from .artifacts import digest, linked_path, require, require_fields, write_arrays, write_json
 from .captures import InputContractError
 from .chance_cli import identity, output_path, read_json
 
@@ -36,38 +36,38 @@ class ExecutionState:
     probe: dict | None = None
 
 
-def _closed(value, keys, label):
-    require(type(value) is dict and set(value) == set(keys), f'{label}: invalid fields')
-
-
-def _finite(value, label):
+def require_finite_state(value, label):
+    """require finite json metadata without altering missing values."""
     if isinstance(value, dict):
         require(all(type(key) is str for key in value), f'{label}: non-text key')
         for item in value.values():
-            _finite(item, label)
+            require_finite_state(item, label)
     elif isinstance(value, list):
         for item in value:
-            _finite(item, label)
+            require_finite_state(item, label)
     else:
         require(value is None or type(value) in (bool, int, float, str), f'{label}: invalid json value')
         require(type(value) is not float or math.isfinite(value), f'{label}: nonfinite value')
 
 
-def _season(value):
+def season_start_year(value):
+    """return the integer start year of a consecutive eight-digit season label."""
     require(type(value) is str and re.fullmatch(r'20\d{2}20\d{2}', value)
             and int(value[4:]) == int(value[:4]) + 1, 'invalid execution season')
     return int(value[:4])
 
 
-def _reference(value, label):
+def require_state_reference(value, label):
+    """validate an absolute saved-state reference without opening its target."""
     require(type(value) is dict and {'path', 'sha256'} <= value.keys(), f'{label}: missing reference')
     require(type(value['path']) is str and Path(value['path']).is_absolute()
             and str(Path(value['path'])) == value['path'] and '..' not in Path(value['path']).parts, f'{label}: invalid absolute locator')
     digest(value['sha256'])
-    _finite(value, label)
+    require_finite_state(value, label)
 
 
-def _member(root, value):
+def state_member_path(root, value):
+    """resolve one canonical file member contained in an existing artifact root."""
     require(type(value) is str and bool(value), 'invalid member path')
     part = Path(value)
     require(not part.is_absolute() and part.as_posix() == value
@@ -79,25 +79,25 @@ def _member(root, value):
 
 def _manifest(value, purpose):
     repaired = 'u_repair' in value
-    _closed(value, MANIFEST_KEYS + (['u_repair'] if repaired else []), 'manifest')
+    require_fields(value, MANIFEST_KEYS + (['u_repair'] if repaired else []), 'manifest')
     require(type(value['schema_version']) is int and value['schema_version'] == 1
             and value['kind'] == 'execution-state', 'invalid execution state schema')
     require(purpose in ('real', 'fixture') and value['purpose'] == purpose, 'execution purpose mismatch')
-    year = _season(value['season'])
+    year = season_start_year(value['season'])
     require(value['season'] in ('20212022','20222023','20232024','20242025','20252026'), 'season outside execution scope')
     recipe = value['recipe']
     from .execution_design import RECIPE
     require(recipe == RECIPE, 'execution recipe definition differs')
     for name in ('prepared', 'coaches'):
-        _reference(value[name], name)
+        require_state_reference(value[name], name)
         require(value[name].get('purpose') == purpose, f'{name}: purpose mismatch')
-    _closed(value['prepared'], ('purpose', 'path', 'sha256', 'members'), 'prepared binding')
-    _closed(value['coaches'], ('purpose', 'path', 'sha256', 'selected_game_ids'), 'coach binding')
+    require_fields(value['prepared'], ('purpose', 'path', 'sha256', 'members'), 'prepared binding')
+    require_fields(value['coaches'], ('purpose', 'path', 'sha256', 'selected_game_ids'), 'coach binding')
     members = value['prepared']['members']
     require(type(members) is list, 'missing prepared member bindings')
     keys = []
     for member in members:
-        _closed(member, ('kind', 'season', 'game_id', 'path', 'sha256'), 'prepared member')
+        require_fields(member, ('kind', 'season', 'game_id', 'path', 'sha256'), 'prepared member')
         digest(member['sha256'])
         require(member['season'] == value['season'] and member['kind'] in ('game', 'people'), 'cross-season prepared member')
         keys.append((member['kind'], member['game_id']))
@@ -107,8 +107,8 @@ def _manifest(value, purpose):
     if previous is None:
         require(purpose != 'real' or year == 2021, 'real chain must begin at 20212022')
     else:
-        _closed(previous, ('path', 'sha256', 'season', 'purpose', 'recipe_sha256', 'usage'), 'previous')
-        _reference(previous, 'previous')
+        require_fields(previous, ('path', 'sha256', 'season', 'purpose', 'recipe_sha256', 'usage'), 'previous')
+        require_state_reference(previous, 'previous')
         require(previous.get('season') == f'{year-1}{year}'
                 and previous.get('purpose') == purpose
                 and previous.get('recipe_sha256') == recipe['sha256']
@@ -121,14 +121,14 @@ def _manifest(value, purpose):
     require(year <= cutoff.year <= year+1, 'training cutoff is outside season')
     require(type(value['implementation']) is dict and bool(value['implementation']), 'missing implementation identity')
     costs = value['resources']
-    _closed(costs, RESOURCE_KEYS + (['qualification_wall_seconds', 'assembly_wall_seconds'] if repaired else []), 'resources')
+    require_fields(costs, RESOURCE_KEYS + (['qualification_wall_seconds', 'assembly_wall_seconds'] if repaired else []), 'resources')
     for key in ('wall_seconds','input_read_wall_seconds','design_wall_seconds','fit_wall_seconds'):
-        _nonnegative(costs[key], key)
+        require_nonnegative(costs[key], key)
     wall_keys = ['input_read_wall_seconds', 'design_wall_seconds', 'fit_wall_seconds']
     if repaired:
         wall_keys += ['qualification_wall_seconds', 'assembly_wall_seconds']
         for key in ('qualification_wall_seconds', 'assembly_wall_seconds'):
-            _nonnegative(costs[key], key)
+            require_nonnegative(costs[key], key)
         require(costs['design_wall_seconds'] == 0 and costs['wall_scope'] ==
                 'input_read+u_repair+probability_qualification+assembly_before_completion_manifest', 'u repair wall scope differs')
         _u_repair(value['u_repair'], value['season'])
@@ -141,18 +141,18 @@ def _manifest(value, purpose):
     for key in ('dimensions','solve_counts','resolution_solve_counts','origin_rows','candidate_branches'):
         require(type(costs[key]) is dict and set(costs[key]) == set(HEADS), 'resource head axes differ')
         require(all(type(v) is int and v >= 0 or v is None and key in ('origin_rows','candidate_branches') for v in costs[key].values()), 'invalid resource count')
-    _finite(value, 'manifest')
+    require_finite_state(value, 'manifest')
 
 
 
 def _u_repair(value, season):
-    _closed(value, ('kind', 'donor', 'inputs', 'diagnosis', 'repair', 'qualification', 'retained_members',
+    require_fields(value, ('kind', 'donor', 'inputs', 'diagnosis', 'repair', 'qualification', 'retained_members',
                     'baseline_heads', 'selector_sha256', 'donor_resources', 'retained_component_counts',
                     'performed_solve_counts', 'performed_resolution_solve_counts', 'full_objective_calls'), 'u repair')
     require(season == '20252026' and value['kind'] == 'execution-u-outer-sum-repair-1', 'u repair scope differs')
     for name in ('donor', 'inputs', 'diagnosis', 'repair', 'qualification'):
-        _closed(value[name], ('path', 'sha256'), 'u repair '+name)
-        _reference(value[name], 'u repair '+name)
+        require_fields(value[name], ('path', 'sha256'), 'u repair '+name)
+        require_state_reference(value[name], 'u repair '+name)
     require(value['retained_component_counts'] == dict(baselines=4, qrg_probes=3)
             and value['performed_solve_counts'] == dict.fromkeys(HEADS, 0)
             and value['performed_resolution_solve_counts'] == dict(u=1, q=0, r=0, g=0)
@@ -162,14 +162,14 @@ def _u_repair(value, season):
     require(type(value['retained_members']) is list and [row.get('path') for row in value['retained_members']] == paths,
             'u repair retained member axes differ')
     for row in value['retained_members']:
-        _closed(row, ('path', 'sha256'), 'retained u repair member'); digest(row['sha256'])
+        require_fields(row, ('path', 'sha256'), 'retained u repair member'); digest(row['sha256'])
     require(type(value['baseline_heads']) is list and [row.get('head') for row in value['baseline_heads']] == list(HEADS),
             'u repair baseline axes differ')
     for row in value['baseline_heads']:
-        _closed(row, ('head', 'metadata_sha256', 'arrays_sha256'), 'retained baseline')
+        require_fields(row, ('head', 'metadata_sha256', 'arrays_sha256'), 'retained baseline')
         digest(row['metadata_sha256']); digest(row['arrays_sha256'])
     digest(value['selector_sha256'])
-    _closed(value['donor_resources'], RESOURCE_KEYS, 'u repair donor resources')
+    require_fields(value['donor_resources'], RESOURCE_KEYS, 'u repair donor resources')
     require(value['donor_resources']['wall_scope'] == 'initial_input_read+prepare_execution+fit_and_members_before_completion_manifest',
             'u repair donor resource scope differs')
 
@@ -189,11 +189,13 @@ def _rows(rows, label):
     return dict(zip(keys, rows))
 
 
-def _nonnegative(value, label):
+def require_nonnegative(value, label):
+    """require a finite nonnegative number, excluding booleans."""
     require(type(value) in (float, int) and math.isfinite(value) and value >= 0, f'invalid {label}')
 
 
-def _actors(metadata, coefficients, season):
+def validate_actor_history(metadata, coefficients, season):
+    """validate live actor axes, carried priors, centers and last-supported observations."""
     size = metadata['design']['size'] if coefficients is None else len(coefficients)
     actors = _rows(metadata['actors'], 'actors')
     priors = _rows(metadata['priors'], 'priors')
@@ -202,10 +204,10 @@ def _actors(metadata, coefficients, season):
     expected_axes = {(block, str(actor)): index for block, axis in metadata['design']['actor_indices'].items() for actor, index in axis.items()}
     require({key: row['index'] for key, row in actors.items()} == expected_axes, 'actor metadata omits or changes live coordinates')
     for key, row in actors.items():
-        _closed(row, 'index block id role age source_support likelihood_support center_weight prior_only'.split(), 'actor')
+        require_fields(row, 'index block id role age source_support likelihood_support center_weight prior_only'.split(), 'actor')
         require(type(row['index']) is int and 0 <= row['index'] < size, 'actor coordinate outside axis')
         for name in ('source_support', 'likelihood_support', 'center_weight'):
-            _nonnegative(row[name], name)
+            require_nonnegative(row[name], name)
         require(row['source_support'] > 0 and type(row['prior_only']) is bool
                 and row['prior_only'] == (row['likelihood_support'] == 0), 'actor support/prior-only status differs')
         require(row['role'] in ('F', 'D', 'G', None), 'invalid actor role')
@@ -213,11 +215,11 @@ def _actors(metadata, coefficients, season):
         require(age is None or type(age) in (int, float) and math.isfinite(age) and age >= 0, 'invalid actor age')
         require(metadata['design']['actor_indices'].get(row['block'], {}).get(str(row['id'])) == row['index'], 'actor identity differs from design axis')
         prior = priors[key]
-        _closed(prior, 'block id mean precision age_delta age_indices transition_reason prior_mean last_supported'.split(), 'prior')
+        require_fields(prior, 'block id mean precision age_delta age_indices transition_reason prior_mean last_supported'.split(), 'prior')
         last = prior['last_supported']
         if last is not None:
-            _closed(last, 'block id coefficient season role age'.split(), 'last-supported state')
-            require(_actor_key(last) == key and _season(last['season']) < _season(season), 'invalid last-supported identity/date')
+            require_fields(last, 'block id coefficient season role age'.split(), 'last-supported state')
+            require(_actor_key(last) == key and season_start_year(last['season']) < season_start_year(season), 'invalid last-supported identity/date')
         mean = 0. if last is None else last['coefficient']
         require(prior['mean'] == mean and type(mean) in (int, float) and math.isfinite(mean), 'prior carried mean differs')
         entry, carry = ((16., 64.) if row['block'] == 'goalie' else
@@ -252,9 +254,9 @@ def _actors(metadata, coefficients, season):
     require(current_keys == expected_current, 'current-season ledger invents or omits a supported observation')
     for key, row in ledger.items():
         require(row['block'] in metadata['design']['actor_indices'], 'ledger block is not applicable to this head')
-        _closed(row, 'block id coefficient season role age'.split(), 'ledger')
+        require_fields(row, 'block id coefficient season role age'.split(), 'ledger')
         require(type(row['coefficient']) in (int, float) and math.isfinite(row['coefficient']), 'invalid ledger coefficient')
-        require(_season(row['season']) <= _season(season), 'future ledger observation')
+        require(season_start_year(row['season']) <= season_start_year(season), 'future ledger observation')
         require(row['role'] in ('F', 'D', 'G', None), 'invalid ledger role')
     setter_rows = sorted((row for row in actors.values() if row['block'] == 'setter' and row['center_weight'] > 0), key=lambda row:str(row['id']))
     total_setter_weight = sum(row['center_weight'] for row in setter_rows)
@@ -263,7 +265,7 @@ def _actors(metadata, coefficients, season):
     require(metadata['design']['setter_mean_indices'] == expected_indices
             and np.allclose(metadata['design']['setter_mean_weights'],expected_weights,rtol=1e-12,atol=1e-14), 'setter mean differs from fixed pre-outcome center weights')
     for block, record in (metadata['centers'] or {}).items():
-        _closed(record, ('value', 'weight', 'prior_only'), 'actor center')
+        require_fields(record, ('value', 'weight', 'prior_only'), 'actor center')
         selected = [row for row in actors.values() if row['block'] == block]
         weight = sum(row['center_weight'] for row in selected)
         center = sum(row['center_weight'] * coefficients[row['index']] for row in selected) / weight if weight else 0.
@@ -274,13 +276,14 @@ def _actors(metadata, coefficients, season):
     return actors
 
 
-def _design(metadata, arrays):
+def validate_design(metadata, arrays):
+    """validate the selected execution design against coefficient arrays; return its size."""
     from .chance import TYPES
     from .execution_design import DEFINITION, FAMILIES
     from .shot_origins import grid
 
     design = metadata['design']
-    _closed(design, 'size coefficient_names columns means active conditions availability_conditions feature_support map_indices native_neighbors mirror_cells circumstance_indices actor_indices actor_role_reasons age_indices_by_block_role setup_index families trait_assumptions fixed_transforms penalties setter_mean_indices setter_mean_weights'.split(), 'head design')
+    require_fields(design, 'size coefficient_names columns means active conditions availability_conditions feature_support map_indices native_neighbors mirror_cells circumstance_indices actor_indices actor_role_reasons age_indices_by_block_role setup_index families trait_assumptions fixed_transforms penalties setter_mean_indices setter_mean_weights'.split(), 'head design')
     coefficients = arrays.get('coefficients')
     require(coefficients is not None and coefficients.ndim == 1, 'missing coefficient vector')
     size = coefficients.size
@@ -348,8 +351,8 @@ def _design(metadata, arrays):
     require(design['age_indices_by_block_role'] == expected_age and names == expected_names, 'coefficient ownership differs')
     require(design['fixed_transforms'] == DEFINITION['fixed_transforms'], 'fixed feature transforms differ')
     for name, support in design['feature_support'].items():
-        _closed(support, ('available_weight','unavailable_attempts','structural_absence_attempts','active'), 'feature support')
-        _nonnegative(support['available_weight'], 'feature available weight')
+        require_fields(support, ('available_weight','unavailable_attempts','structural_absence_attempts','active'), 'feature support')
+        require_nonnegative(support['available_weight'], 'feature available weight')
         require(all(type(support[key]) is int and support[key] >= 0 for key in ('unavailable_attempts','structural_absence_attempts'))
                 and type(support['active']) is bool and support['active'] == design['active'][columns.index(name)]
                 and type(design['conditions'][name]) is str, 'invalid feature support/condition')
@@ -364,7 +367,8 @@ def _design(metadata, arrays):
     return size
 
 
-def _solve_record(row, head, tightened=False):
+def validate_solve_record(row, head, tightened=False):
+    """validate one saved optimizer result for its head and stopping policy."""
     required = {'converged','termination','iterations','evaluations','objective','gradient_max','inner_solves','objective_trace','em_iterations','responsibility_change'}
     if head == 'g':
         required.update(('objective_increases','relative_objective_change'))
@@ -395,13 +399,13 @@ def _solve_record(row, head, tightened=False):
 
 
 def _in_sample(value):
-    _closed(value, 'attempts positive class_fraction mean_predicted_probability mean_imputation_weighted_negative_log_likelihood mean_outcome_only_negative_log_likelihood reliability origin_mass_error expanded_rows candidate_branches base_matrix_nonzeros batches'.split(), 'in-sample diagnostics')
+    require_fields(value, 'attempts positive class_fraction mean_predicted_probability mean_imputation_weighted_negative_log_likelihood mean_outcome_only_negative_log_likelihood reliability origin_mass_error expanded_rows candidate_branches base_matrix_nonzeros batches'.split(), 'in-sample diagnostics')
     for key in ('attempts','positive','expanded_rows','candidate_branches','base_matrix_nonzeros','batches'):
         require(type(value[key]) is int and value[key] >= 0, 'invalid in-sample count')
     require(0 < value['positive'] < value['attempts'] and value['class_fraction'] == value['positive']/value['attempts'], 'in-sample class fraction differs')
     require(type(value['reliability']) is list and len(value['reliability']) == 20, 'reliability bins differ')
     for index, row in enumerate(value['reliability']):
-        _closed(row, ('lower','upper','count','observed_positive','predicted_mass'), 'reliability bin')
+        require_fields(row, ('lower','upper','count','observed_positive','predicted_mass'), 'reliability bin')
         require(row['lower'] == index/20 and row['upper'] == (index+1)/20
                 and type(row['count']) is int and type(row['observed_positive']) is int
                 and 0 <= row['observed_positive'] <= row['count']
@@ -410,11 +414,11 @@ def _in_sample(value):
             and sum(row['observed_positive'] for row in value['reliability']) == value['positive']
             and math.isclose(sum(row['predicted_mass'] for row in value['reliability'])/value['attempts'],value['mean_predicted_probability'],rel_tol=1e-12,abs_tol=1e-12), 'reliability physical-attempt accounting differs')
     for key in ('mean_imputation_weighted_negative_log_likelihood','mean_outcome_only_negative_log_likelihood','origin_mass_error'):
-        _nonnegative(value[key], key)
+        require_nonnegative(value[key], key)
 
 
 def _head(metadata, head, arrays, season):
-    _closed(metadata, HEAD_KEYS, f'head {head}')
+    require_fields(metadata, HEAD_KEYS, f'head {head}')
     require(metadata['head'] == head and metadata['status'] in ('complete', 'unavailable'), 'cross-wired head')
     require(type(metadata['reasons']) is list and all(type(x) is str for x in metadata['reasons']), 'invalid head reasons')
     from .execution_design import TARGETS
@@ -426,10 +430,10 @@ def _head(metadata, head, arrays, season):
     statuses = ('pending', 'passed', 'failed') if season == '20252026' else ('not_applicable',)
     require(resolution.get('status') in statuses, 'resolution status differs from season')
     if resolution['status'] == 'failed' and 'probe' not in resolution:
-        _closed(resolution, ('status', 'baseline', 'reasons', 'diagnostics', 'comparison'), 'failed resolution')
+        require_fields(resolution, ('status', 'baseline', 'reasons', 'diagnostics', 'comparison'), 'failed resolution')
         require(resolution['reasons'] == ['no_completed_start'], 'failed resolution has no solve failure')
         diagnostics = resolution['diagnostics']
-        _closed(diagnostics, ('requested_starts', 'starts', 'selected_start', 'wall_seconds'), 'failed continuation diagnostics')
+        require_fields(diagnostics, ('requested_starts', 'starts', 'selected_start', 'wall_seconds'), 'failed continuation diagnostics')
         require(diagnostics['requested_starts'] == ['continuation'] and diagnostics['selected_start'] is None
                 and type(diagnostics['starts']) is list and len(diagnostics['starts']) == 1,
                 'failed resolution is not one continuation')
@@ -437,16 +441,16 @@ def _head(metadata, head, arrays, season):
         require(type(start) is dict and {'name', 'deduplicated_to'} <= start.keys() and start['name'] == 'continuation'
                 and start.get('deduplicated_to') is None and start.get('converged') is False,
                 'failed continuation claims completion or deduplication')
-        _solve_record(start, head, tightened=True)
+        validate_solve_record(start, head, tightened=True)
         require(start['em_iterations'] == len(start['inner_solves'])
                 and (bool(start['inner_solves']) if head == 'g' else not start['inner_solves']),
                 'failed continuation em solve count differs')
-        _nonnegative(diagnostics['wall_seconds'], 'failed continuation wall time')
+        require_nonnegative(diagnostics['wall_seconds'], 'failed continuation wall time')
         comparison = resolution['comparison']
-        _closed(comparison, 'base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol em_maxiter em_relative_tolerance em_responsibility_tolerance coefficient_max_change coefficient_l2_change'.split(), 'failed resolution comparison')
+        require_fields(comparison, 'base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol em_maxiter em_relative_tolerance em_responsibility_tolerance coefficient_max_change coefficient_l2_change'.split(), 'failed resolution comparison')
         for key in ('coefficient_max_change', 'coefficient_l2_change'):
             if comparison[key] is not None:
-                _nonnegative(comparison[key], 'failed continuation '+key)
+                require_nonnegative(comparison[key], 'failed continuation '+key)
         from .execution_design import DEFINITION
         solver = DEFINITION['solver']
         stopping = solver['continuation']
@@ -455,7 +459,7 @@ def _head(metadata, head, arrays, season):
                 and comparison['em_relative_tolerance'] == stopping['em_objective']
                 and comparison['em_responsibility_tolerance'] == stopping['em_responsibility'],
                 'failed resolution changed continuation controls')
-        _nonnegative(comparison['base_gradient_max'], 'failed continuation base gradient')
+        require_nonnegative(comparison['base_gradient_max'], 'failed continuation base gradient')
         require(type(comparison['base_objective']) in (int, float)
                 and math.isclose(comparison['base_objective'], metadata['diagnostics']['objective'], rel_tol=1e-12, abs_tol=1e-12),
                 'failed continuation changes baseline objective')
@@ -466,17 +470,17 @@ def _head(metadata, head, arrays, season):
         priors = _rows(metadata['priors'], 'priors')
         ledger = _rows(metadata['ledger'], 'ledger')
         require(set(actors) == set(priors), 'unavailable head prior axes differ')
-        _design(metadata, {'coefficients': np.zeros(metadata['design']['size'], dtype=np.float64)})
+        validate_design(metadata, {'coefficients': np.zeros(metadata['design']['size'], dtype=np.float64)})
         for key, prior in priors.items():
             require(prior.get('last_supported') == ledger.get(key), 'unavailable head changes prior history')
-        require(all(_season(row['season']) < _season(season) for row in ledger.values()), 'unavailable head invents current estimate')
-        _actors(metadata, None, season)
+        require(all(season_start_year(row['season']) < season_start_year(season) for row in ledger.values()), 'unavailable head invents current estimate')
+        validate_actor_history(metadata, None, season)
     else:
         require(not metadata['reasons'] and type(metadata['centers']) is dict
                 and set(metadata['centers']) == {'shooter','goalie','setter','attacking_coach','defending_coach'}, 'completed head has unavailable state')
         require(set(arrays) == {'coefficients'}, 'unexpected fitted array')
-        size = _design(metadata, arrays)
-        _actors(metadata, arrays['coefficients'], season)
+        size = validate_design(metadata, arrays)
+        validate_actor_history(metadata, arrays['coefficients'], season)
         selected = metadata['selected_start']
         require(type(selected) in (int, str), 'completed head has no selected start')
         complete = [row for row in metadata['starts'] if type(row) is dict and row.get('converged') is True]
@@ -486,9 +490,9 @@ def _head(metadata, head, arrays, season):
                 and [row.get('name') for row in metadata['starts']] == requested, 'requested/deduplicated start identities differ')
         for row in metadata['starts']:
             if row.get('deduplicated_to') is None:
-                _solve_record(row, head, requested == ['continuation'])
+                validate_solve_record(row, head, requested == ['continuation'])
             else:
-                _closed(row, ('name','deduplicated_to'), 'deduplicated start')
+                require_fields(row, ('name','deduplicated_to'), 'deduplicated start')
                 require(row['name'] == 'prior_mean' and row['deduplicated_to'] == 'zero', 'invalid start deduplication')
         chosen = [row for row in complete if row.get('name', row.get('label', row.get('index'))) == selected]
         require(len(chosen) == 1, 'selected start is not complete')
@@ -499,7 +503,7 @@ def _head(metadata, head, arrays, season):
         diagnostics = metadata['diagnostics']
         require({key: value for key,value in diagnostics.items() if key not in ('in_sample','requested_starts','wall_seconds')}
                 == {key: value for key,value in chosen[0].items() if key not in ('name','deduplicated_to')}, 'selected diagnostics differ from completed start')
-        _nonnegative(diagnostics.get('wall_seconds'), 'head wall time')
+        require_nonnegative(diagnostics.get('wall_seconds'), 'head wall time')
         _in_sample(diagnostics.get('in_sample'))
         from .execution_fit import penalty
         design = metadata['design']
@@ -512,11 +516,11 @@ def _head(metadata, head, arrays, season):
         sample = diagnostics['in_sample']
         expected_objective = sample['attempts'] * sample['mean_imputation_weighted_negative_log_likelihood'] + penalty_value
         require(math.isclose(diagnostics['objective'], expected_objective, rel_tol=1e-8, abs_tol=1e-8), 'objective differs from likelihood and declared penalty')
-    _finite(metadata, f'head {head}')
+    require_finite_state(metadata, f'head {head}')
 
 
 def _coverage(value, manifest, heads):
-    _closed(value, ('purpose','season','games','attempts','heads','optional_features'), 'coverage')
+    require_fields(value, ('purpose','season','games','attempts','heads','optional_features'), 'coverage')
     require(value['purpose'] == manifest['purpose'] and value['season'] == manifest['season'], 'coverage identity differs')
     require(type(value['games']) is list and type(value['attempts']) is list and set(value['heads']) == set(HEADS)
             and set(value['optional_features']) == set(HEADS), 'coverage axes differ')
@@ -525,7 +529,7 @@ def _coverage(value, manifest, heads):
     attempts = value['attempts']
     require(len({row['key'] for row in attempts}) == len(attempts), 'duplicate physical attempt key')
     for game, member in zip(value['games'], selected, strict=True):
-        _closed(game, ('game_id','game_date','status','recognized_attempts','prepared_member'), 'game coverage')
+        require_fields(game, ('game_id','game_date','status','recognized_attempts','prepared_member'), 'game coverage')
         require(game['prepared_member'] == member, 'coverage prepared-member identity differs')
         rows = [row for row in attempts if row['game_id'] == game['game_id']]
         require(game['recognized_attempts'] == len(rows), 'recognized attempt count differs')
@@ -533,7 +537,7 @@ def _coverage(value, manifest, heads):
     counts = {head: dict(included=0, excluded=0, **{'class:0':0, 'class:1':0}) for head in HEADS}
     selected_ids = {row['game_id'] for row in selected}
     for row in attempts:
-        _closed(row, ('key','game_id','source_index','pointer','outcome','full_probability_context','goalie_identity','heads','source_supported','candidate_universe_complete','setter_discrepancy','immediate_stop_known'), 'attempt coverage')
+        require_fields(row, ('key','game_id','source_index','pointer','outcome','full_probability_context','goalie_identity','heads','source_supported','candidate_universe_complete','setter_discrepancy','immediate_stop_known'), 'attempt coverage')
         require(row['game_id'] in selected_ids and type(row['source_index']) is int and row['source_index'] >= 0
                 and row['key'] == row['game_id'] + ':' + str(row['source_index']), 'attempt source key differs')
         require(set(row['heads']) == set(HEADS) and type(row['source_supported']) is bool
@@ -541,7 +545,7 @@ def _coverage(value, manifest, heads):
                 and row['candidate_universe_complete'] in (None, True, False)
                 and row['outcome'] in ('block','miss','save','goal',None), 'invalid attempt support')
         goalie = row['goalie_identity']
-        _closed(goalie, ('status','player_id','membership_id','dated_team_id','reported_position','reason','pointers'), 'goalie identity')
+        require_fields(goalie, ('status','player_id','membership_id','dated_team_id','reported_position','reason','pointers'), 'goalie identity')
         require(goalie['status'] in ('identified','unavailable','conflict')
                 and all(item is None or type(item) is int and item > 0 for item in (goalie['player_id'],goalie['membership_id'],goalie['dated_team_id']))
                 and (goalie['reported_position'] is None or type(goalie['reported_position']) is str)
@@ -557,7 +561,7 @@ def _coverage(value, manifest, heads):
         require(row['full_probability_context'] or not any(row['heads'][head]['included'] for head in ('q','r','g')), 'head includes unavailable individual goalie')
         for head in HEADS:
             record = row['heads'][head]
-            _closed(record, ('included','target','reasons'), 'head disposition')
+            require_fields(record, ('included','target','reasons'), 'head disposition')
             require(type(record['included']) is bool and type(record['reasons']) is list, 'invalid head disposition')
             if record['included']:
                 require(type(record['target']) in (int,float) and record['target'] in (0.,1.)
@@ -579,15 +583,17 @@ def _coverage(value, manifest, heads):
             require(counts[head]['class:0'] > 0 and counts[head]['class:1'] > 0, 'empty/single-class head claims completion')
             sample = heads[head]['diagnostics']['in_sample']
             require(sample['attempts'] == counts[head]['included'] and sample['positive'] == counts[head]['class:1'], 'in-sample diagnostics differ from coverage')
-    _finite(value, 'coverage')
+    require_finite_state(value, 'coverage')
 
 
-def _array_contract(arrays):
+def coefficient_array_contract(arrays):
+    """return the saved coefficient shape, dtype and axis contract."""
     return {name: {'shape': list(value.shape), 'dtype': 'float64', 'axes': ['coefficient']}
             for name, value in arrays.items()}
 
 
-def _load_arrays(path, contract):
+def read_coefficient_arrays(path, contract):
+    """read the named finite float64 coefficient arrays under the saved contract."""
     require(type(contract) is dict and set(contract) == {'coefficients'}, 'invalid array contract')
     try:
         with np.load(path, allow_pickle=False) as saved:
@@ -596,7 +602,7 @@ def _load_arrays(path, contract):
     except (ValueError, TypeError, KeyError) as error:
         raise InputContractError('invalid fitted arrays') from error
     require(all(value.dtype == np.dtype('float64') and np.isfinite(value).all() for value in arrays.values()), 'nonfinite or non-float64 fitted arrays')
-    require(contract == _array_contract(arrays), 'array shape/dtype/axes differ')
+    require(contract == coefficient_array_contract(arrays), 'array shape/dtype/axes differ')
     return arrays
 
 
@@ -606,7 +612,7 @@ def _write_head_arrays(output, name, arrays, retained):
         write_arrays(output, name, arrays)
         return
     source = linked_path(retained)
-    saved = _load_arrays(source, _array_contract(arrays))
+    saved = read_coefficient_arrays(source, coefficient_array_contract(arrays))
     require(all(saved[key].tobytes() == value.tobytes() for key, value in arrays.items()), 'retained coefficients differ')
     with source.open('rb') as original, (output / name).open('xb') as destination:
         shutil.copyfileobj(original, destination)
@@ -616,7 +622,7 @@ def _write_head_arrays(output, name, arrays, retained):
 def write_execution_head(output, metadata, arrays, season, *, retained_arrays=None):
     """preserve a finished head before the next solve; no manifest yet."""
     head = metadata['head']
-    metadata['arrays'] = _array_contract(arrays) if arrays else None
+    metadata['arrays'] = coefficient_array_contract(arrays) if arrays else None
     _head(metadata, head, arrays, season)
     if arrays:
         _write_head_arrays(Path(output), f'heads/{head}.npz', arrays, retained_arrays)
@@ -630,7 +636,7 @@ def _metadata_digest(metadata):
 
 def _selector(value, manifest, heads, coverage):
     from .chance import TYPES
-    _closed(value, ('policy','purpose','requirements','keys','population','fixture_witnesses','synthetic_geometry'), 'probe selector')
+    require_fields(value, ('policy','purpose','requirements','keys','population','fixture_witnesses','synthetic_geometry'), 'probe selector')
     require(value['policy'] == 'strength,type,outcome,missing,tip,off-ice,incomplete,sparse; first (game_id,integer_source_index); numeric source-key fill; maximum256 actual'
             and value['purpose'] == manifest['purpose'], 'probe selection policy differs')
     keys = value['keys']
@@ -639,25 +645,25 @@ def _selector(value, manifest, heads, coverage):
             and set(keys) <= supported
             and keys == sorted(keys,key=lambda key:(key.split(':')[0],int(key.split(':')[1]))), 'invalid frozen actual probe keys')
     population = value['population']
-    _closed(population, ('eligible_contexts','withheld_contexts'), 'probe population')
+    require_fields(population, ('eligible_contexts','withheld_contexts'), 'probe population')
     require(population['eligible_contexts'] == len(supported) and type(population['withheld_contexts']) is list, 'probe population count differs')
     withheld = [row for row in coverage['attempts'] if row['source_supported'] and not row['full_probability_context']]
     require([row['key'] for row in population['withheld_contexts']] == sorted((row['key'] for row in withheld), key=lambda key:(key.split(':')[0],int(key.split(':')[1]))), 'withheld probability contexts differ')
     withheld_strengths = {}
     for row in population['withheld_contexts']:
-        _closed(row, ('key','reason','strength'), 'withheld probability context')
+        require_fields(row, ('key','reason','strength'), 'withheld probability context')
         require(row['reason'] == 'individual_goalie_identity_unavailable' and type(row['strength']) is list and len(row['strength']) == 3
                 and row['strength'][0] in (3,4,5,6) and row['strength'][1] in (3,4,5,6) and row['strength'][2] in (0,1), 'invalid withheld probability context')
         name = 'strength:' + ','.join(map(str,row['strength']))
         withheld_strengths[name] = withheld_strengths.get(name,0)+1
     geometry = value['synthetic_geometry']
-    _closed(geometry, ('context_key','types','cells','execution'), 'synthetic geometry probes')
+    require_fields(geometry, ('context_key','types','cells','execution'), 'synthetic geometry probes')
     require(geometry == dict(context_key=keys[0], types=list(TYPES), cells=list(range(656)), execution=['actual','neutral']), 'synthetic geometry coverage differs')
     fixtures = value['fixture_witnesses']
     require(type(fixtures) is list, 'missing attributed fixture witnesses')
     fixture_keys, fixture_cases = set(), {}
     for record in fixtures:
-        _closed(record, ('key','attribution'), 'fixture witness')
+        require_fields(record, ('key','attribution'), 'fixture witness')
         require(type(record['key']) is str and record['key'].startswith('synthetic-resolution:')
                 and record['key'] not in fixture_keys, 'invalid synthetic fixture key')
         fixture_keys.add(record['key'])
@@ -668,10 +674,10 @@ def _selector(value, manifest, heads, coverage):
                 and type(attribution.get('changed_fields')) is list and bool(attribution['changed_fields'])
                 and all(type(field) is str and bool(field) for field in attribution['changed_fields']), 'unattributed synthetic fixture')
         if attribution.get('projection') == 'incomplete_setter':
-            _closed(attribution, ('kind','source_key','projection','reason','changed_fields','source_prepared_member',
+            require_fields(attribution, ('kind','source_key','projection','reason','changed_fields','source_prepared_member',
                                   'withheld_history','setter_universe_complete','expected_prior'), 'incomplete setter fixture')
             history = attribution['withheld_history']
-            _closed(history, ('source_index','pointer','before','after'), 'withheld history evidence')
+            require_fields(history, ('source_index','pointer','before','after'), 'withheld history evidence')
             game_id, source_index = attribution['source_key'].split(':')
             require(type(history['source_index']) is int and history['source_index'] >= 0
                     and history['source_index'] != int(source_index)
@@ -688,7 +694,7 @@ def _selector(value, manifest, heads, coverage):
             fixture_cases[record['key']] = 'incomplete_setter'
         else:
             actor = attribution.get('actor')
-            _closed(actor, ('block','id','role','likelihood_support'), 'synthetic actor')
+            require_fields(actor, ('block','id','role','likelihood_support'), 'synthetic actor')
             require(any(all(row.get(key) == actor[key] for key in actor) for head in HEADS for row in heads[head]['actors']),
                     'synthetic actor has no current support')
             fixture_cases[record['key']] = actor
@@ -696,7 +702,7 @@ def _selector(value, manifest, heads, coverage):
     require(type(requirements) is list and bool(requirements), 'missing numerical requirements')
     names = []
     for row in requirements:
-        _closed(row, ('requirement','key','disposition'), 'probe requirement')
+        require_fields(row, ('requirement','key','disposition'), 'probe requirement')
         require(type(row['requirement']) is str and bool(row['requirement']), 'invalid probe requirement name')
         names.append(row['requirement'])
         require(row['disposition'] in ('actual','fixture','unavailable'), 'invalid probe requirement disposition')
@@ -721,7 +727,7 @@ def _selector(value, manifest, heads, coverage):
                 actor = min(actors,key=lambda row:(row['likelihood_support'],str(row['id'])))
                 expected_names.add('sparse:' + head + ':' + block + ':' + str(actor['id']))
     require(len(set(names)) == len(names) and set(names) == expected_names, 'frozen probe requirements omit or duplicate required cases')
-    _finite(value, 'probe selector')
+    require_finite_state(value, 'probe selector')
 
 
 def _baseline_descriptor(manifest, heads, root):
@@ -747,7 +753,7 @@ def write_execution_probe(output, baseline, metadata, arrays, comparison, *, ret
     output = Path(output)
     head = metadata['head']
     metadata = deepcopy(metadata)
-    metadata['arrays'] = _array_contract(arrays)
+    metadata['arrays'] = coefficient_array_contract(arrays)
     array_path = f'resolution/{head}.npz'
     _write_head_arrays(output, array_path, arrays, retained_arrays)
     document = dict(usage='numerical_probe', head=head, baseline=baseline,
@@ -771,7 +777,7 @@ def write_execution_state(output, manifest, heads, arrays, coverage, *, probes=N
         values = arrays.get(head, {})
         require(all(type(value) is np.ndarray and value.dtype == np.dtype('float64')
                     and np.isfinite(value).all() for value in values.values()), 'arrays must be finite float64')
-        heads[head]['arrays'] = _array_contract(values) if values else None
+        heads[head]['arrays'] = coefficient_array_contract(values) if values else None
         _head(heads[head], head, values, manifest['season'])
     _coverage(coverage, manifest, heads)
     if _reserved:
@@ -831,16 +837,16 @@ def _read_execution_state(path, expected_purpose):
     require(type(manifest['files']) is list, 'missing member identities')
     files = {}
     for reference in manifest['files']:
-        _closed(reference, ('path', 'sha256'), 'member reference')
+        require_fields(reference, ('path', 'sha256'), 'member reference')
         digest(reference['sha256'])
         require(reference['path'] not in files, 'duplicate member identity')
-        member = _member(root, reference['path'])
+        member = state_member_path(root, reference['path'])
         require(identity(member)['sha256'] == reference['sha256'], 'execution member hash differs')
         files[reference['path']] = member
     require(type(manifest['heads']) is list and [row.get('head') for row in manifest['heads']] == list(HEADS), 'invalid ordered heads')
     heads, arrays, addressed = {}, {}, ['coverage.json']
     for row in manifest['heads']:
-        _closed(row, ('head', 'status', 'metadata_path', 'arrays_path'), 'head reference')
+        require_fields(row, ('head', 'status', 'metadata_path', 'arrays_path'), 'head reference')
         head = row['head']
         require(row['metadata_path'] == f'heads/{head}.json', 'cross-wired metadata member')
         require(row['metadata_path'] in files, 'missing metadata identity')
@@ -851,7 +857,7 @@ def _read_execution_state(path, expected_purpose):
         if row['status'] == 'complete':
             require(row['arrays_path'] == f'heads/{head}.npz' and row['arrays_path'] in files, 'cross-wired coefficient member')
             addressed.append(row['arrays_path'])
-            values = _load_arrays(files[row['arrays_path']], metadata.get('arrays'))
+            values = read_coefficient_arrays(files[row['arrays_path']], metadata.get('arrays'))
             arrays[head] = values
         else:
             require(row['arrays_path'] is None, 'unavailable head addresses coefficients')
@@ -929,33 +935,33 @@ def read_execution_probe(state, head):
     require(state.manifest['season'] == '20252026' and resolution['status'] in ('passed', 'failed')
             and 'probe' in resolution, 'no checked numerical probe')
     reference = resolution['probe']
-    _closed(reference, ('path', 'sha256'), 'probe reference')
+    require_fields(reference, ('path', 'sha256'), 'probe reference')
     digest(reference['sha256'])
-    path = _member(state.path.parent, reference['path'])
+    path = state_member_path(state.path.parent, reference['path'])
     require(identity(path)['sha256'] == reference['sha256'], 'probe hash differs')
     probe = read_json(path)
-    _closed(probe, ('usage', 'head', 'baseline', 'metadata', 'arrays', 'comparison'), 'probe')
+    require_fields(probe, ('usage', 'head', 'baseline', 'metadata', 'arrays', 'comparison'), 'probe')
     require(probe['usage'] == 'numerical_probe' and probe['head'] == head, 'probe head identity differs')
     baseline = probe['baseline']
-    _closed(baseline, ('path', 'sha256'), 'probe baseline')
+    require_fields(baseline, ('path', 'sha256'), 'probe baseline')
     require(baseline['path'] == 'resolution/baseline.json', 'probe baseline locator differs')
-    baseline_path = _member(state.path.parent, baseline['path'])
+    baseline_path = state_member_path(state.path.parent, baseline['path'])
     require(identity(baseline_path)['sha256'] == baseline['sha256'], 'probe baseline hash differs')
     array_ref = probe['arrays']
-    _closed(array_ref, ('path', 'sha256'), 'probe array')
+    require_fields(array_ref, ('path', 'sha256'), 'probe array')
     digest(array_ref['sha256'])
     require(array_ref['path'] == f'resolution/{head}.npz', 'probe coefficient path differs')
-    array_path = _member(state.path.parent, array_ref['path'])
+    array_path = state_member_path(state.path.parent, array_ref['path'])
     require(identity(array_path)['sha256'] == array_ref['sha256'], 'probe array hash differs')
     metadata = probe['metadata']
-    values = _load_arrays(array_path, metadata['arrays'])
+    values = read_coefficient_arrays(array_path, metadata['arrays'])
     require(all(metadata[key] == state.heads[head][key] for key in ('head', 'target', 'design', 'actors', 'origin')), 'probe changes annual objective/design')
     for prior, original in zip(metadata['priors'], state.heads[head]['priors'], strict=True):
         require({key: value for key, value in prior.items() if key != 'prior_mean'} == {key: value for key, value in original.items() if key != 'prior_mean'}, 'probe changes annual prior')
     _head(metadata, head, values, state.manifest['season'])
     comparison = probe['comparison']
     require(resolution.get('baseline') == baseline and resolution.get('comparison') == comparison, 'probe comparison/baseline differs from resolution record')
-    _closed(comparison, 'base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol em_maxiter em_relative_tolerance em_responsibility_tolerance tightened_objective objective_change tightened_gradient_max gradient_max_change coefficient_max_change coefficient_l2_change maximum_probability_change head_maximum_changes terminal_maximum_changes evaluated_origins evaluated_branches'.split(), 'resolution comparison')
+    require_fields(comparison, 'base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol em_maxiter em_relative_tolerance em_responsibility_tolerance tightened_objective objective_change tightened_gradient_max gradient_max_change coefficient_max_change coefficient_l2_change maximum_probability_change head_maximum_changes terminal_maximum_changes evaluated_origins evaluated_branches'.split(), 'resolution comparison')
     solver = DEFINITION['solver']
     stopping = solver['continuation']
     require(comparison['optimizer_maxiter'] == solver['maxiter'] and comparison['optimizer_ftol'] == stopping['ftol']
@@ -973,7 +979,7 @@ def read_execution_probe(state, head):
     require(type(comparison['evaluated_origins']) is int and comparison['evaluated_origins'] >= 2*6*656
             and type(comparison['evaluated_branches']) is int and comparison['evaluated_branches'] >= comparison['evaluated_origins'], 'incomplete numerical probability probe counts')
     for key in ('base_gradient_max','tightened_gradient_max','gradient_max_change','coefficient_max_change','coefficient_l2_change'):
-        _nonnegative(comparison[key], key)
+        require_nonnegative(comparison[key], key)
     baseline_coefficients = state.arrays[head]['coefficients']
     difference = values['coefficients']-baseline_coefficients
     require(comparison['coefficient_max_change'] == float(np.max(np.abs(difference)))
@@ -985,7 +991,7 @@ def read_execution_probe(state, head):
     covered = all(row['disposition'] != 'unavailable' for row in descriptor['selector']['requirements'])
     passed = covered and comparison['maximum_probability_change'] <= 1e-5
     require((resolution['status'] == 'passed') == passed, 'false numerical resolution verdict')
-    _finite(comparison, 'resolution comparison')
+    require_finite_state(comparison, 'resolution comparison')
     heads, arrays = dict(state.heads), dict(state.arrays)
     heads[head], arrays[head] = metadata, values
     return replace(state, heads=heads, arrays=arrays, usage='numerical_probe',

@@ -10,10 +10,12 @@ from time import perf_counter
 import numpy as np
 from scipy.special import expit, log_expit, logsumexp
 
-from .artifacts import digest, implementation, require
+from .artifacts import (
+    digest, implementation, json_line, read_jsonl, require, require_count,
+    require_fields, require_number, require_season_label, write_json, write_jsonl,
+)
 from .captures import InputContractError
 from .chance_cli import identity, output_path, read_json
-from .execution_scores import _closed, _count, _jsonl, _line, _number, _season_label, _write_document, _write_jsonl
 from .analysis_publication import ESTIMATE_FIELDS, GOALIE_STRENGTHS, KEYS, native_display_mass
 
 HEADS = ('h', 'd')
@@ -971,10 +973,10 @@ def score_goalie(state, prepared, coaches, annual_execution_scores, output):
             arrays=dict(variants['h-tight'].arrays,d=variants['d-tight'].arrays['d']),usage='h+d-tight')
     states=dict(baseline=state,**variants)
     output.mkdir()
-    _write_jsonl(output/'people.jsonl',source['people'])
-    _write_jsonl(output/'source_games.jsonl',design.source_games)
-    _write_jsonl(output/'event_values.jsonl',events)
-    _write_jsonl(output/'targets.jsonl',design.targets)
+    write_jsonl(output/'people.jsonl',source['people'])
+    write_jsonl(output/'source_games.jsonl',design.source_games)
+    write_jsonl(output/'event_values.jsonl',events)
+    write_jsonl(output/'targets.jsonl',design.targets)
     method='goalie-v1-07-'+design.season
     baseline_projections={};baseline_maps={};changed_projections={name:{} for name in variants};counts=Counter()
     projection_started=perf_counter()
@@ -991,9 +993,9 @@ def score_goalie(state, prepared, coaches, annual_execution_scores, output):
             baseline_projections[key]=projection
             if variants:
                 baseline_maps[key]=cells
-            projections.write(_line(projection))
+            projections.write(json_line(projection))
             for table,row in _modeled_rows(projection,cells,method):
-                handles[table].write(_line(row));counts[table]+=1
+                handles[table].write(json_line(row));counts[table]+=1
         by_player=defaultdict(list)
         for row in events:
             if row['goalie_id'] is not None:
@@ -1003,15 +1005,15 @@ def score_goalie(state, prepared, coaches, annual_execution_scores, output):
         for person in source['people']:
             player=person['player_id']
             for table,row in _observed_rows(design.season,person,by_player[player],league_references,design.source_games,source_ref,method):
-                handles[table].write(_line(row));counts[table]+=1
+                handles[table].write(json_line(row));counts[table]+=1
     projection_seconds=perf_counter()-projection_started
     sensitivity_started=perf_counter()
     sensitivity=_sensitivity(state,variants,baseline_projections,changed_projections,events,design)
-    _write_document(output/'sensitivity.json',sensitivity)
+    write_json(output/'sensitivity.json',sensitivity)
     coverage=_coverage(design.coverage,design.source_games,source['people'],events,counts,{head:state.heads[head]['status'] for head in HEADS})
-    _write_document(output/'coverage.json',coverage)
+    write_json(output/'coverage.json',coverage)
     catalogs=dict(sources=source['sources'],methods=[_method(design,state,sensitivity,output/'projections.jsonl')],supports=[])
-    _write_document(output/'catalogs.json',catalogs)
+    write_json(output/'catalogs.json',catalogs)
     files=[dict(path=path,sha256=identity(output/path)['sha256'],role=role) for path,role in sorted(MEMBERS.items())]
     previous=state.manifest['previous']
     state_binding=dict(identity(state.path),season=design.season,purpose=design.purpose,recipe_sha256=design.recipe['sha256'],
@@ -1029,7 +1031,7 @@ def score_goalie(state, prepared, coaches, annual_execution_scores, output):
     manifest['resources']['validation_wall_seconds']=perf_counter()-validation_started
     manifest['resources']['wall_seconds']=perf_counter()-started
     manifest['resources']['peak_memory_bytes']=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-    _write_document(output/'manifest.json',manifest)
+    write_json(output/'manifest.json',manifest)
     return result
 
 
@@ -1045,7 +1047,7 @@ class GoalieScores:
     def rows(self,table):
         """yield contiguous ascending person groups; selectors retain their declared native order."""
         require(table in PUBLIC_TABLES,'unknown goalie score table')
-        return _jsonl(self.path.parent/(table+'.jsonl'))
+        return read_jsonl(self.path.parent/(table+'.jsonl'))
 
 
 def read_goalie_scores(path,expected_purpose):
@@ -1065,22 +1067,22 @@ def _score_manifest(value,purpose):
     from datetime import date
     from .goalie import RECIPE
     from .execution_design import RECIPE as BASE_RECIPE
-    from .execution_state import _reference
-    _closed(value,MANIFEST_KEYS,'goalie score manifest')
+    from .execution_state import require_state_reference
+    require_fields(value,MANIFEST_KEYS,'goalie score manifest')
     require(type(value['schema_version']) is int and value['schema_version']==1 and value['kind']=='goalie-scores',
             'invalid goalie score schema')
     require(purpose in ('real','fixture') and value['purpose']==purpose,'goalie score purpose differs')
-    year=_season_label(value['season'])
+    year=require_season_label(value['season'])
     require(year in ('20212022','20222023','20232024','20242025','20252026'),'goalie score year outside scope')
     require(value['recipe']==RECIPE,'goalie score recipe differs')
     for name,keys in (('prepared',('path','sha256','purpose','members')),('coaches',('path','sha256','purpose','selected_game_ids')),
                       ('base_state',('path','sha256','season','purpose','recipe_sha256','usage','previous')),
                       ('base_scores',('path','sha256')),('state',('path','sha256','season','purpose','recipe_sha256','previous'))):
-        _closed(value[name],keys,'goalie score '+name);_reference(value[name],name)
+        require_fields(value[name],keys,'goalie score '+name);require_state_reference(value[name],name)
     require(value['prepared']['purpose']==value['coaches']['purpose']==purpose,'goalie source purposes differ')
     games=[];member_keys=[]
     for row in value['prepared']['members']:
-        _closed(row,('kind','season','game_id','path','sha256'),'goalie prepared member')
+        require_fields(row,('kind','season','game_id','path','sha256'),'goalie prepared member')
         require(row['kind'] in ('game','people') and row['season']==year,'goalie prepared member year/kind differs')
         digest(row['sha256']);member_keys.append((row['kind'],row['game_id']))
         if row['kind']=='game':games.append(row['game_id'])
@@ -1090,14 +1092,14 @@ def _score_manifest(value,purpose):
         row=value[name]
         require(row['purpose']==purpose and row['season']==year and row['recipe_sha256']==recipe['sha256'],name+' annual binding differs')
         if row['previous'] is not None:
-            _closed(row['previous'],('path','sha256'),name+' predecessor');_reference(row['previous'],name+' predecessor')
+            require_fields(row['previous'],('path','sha256'),name+' predecessor');require_state_reference(row['previous'],name+' predecessor')
         elif purpose=='real':
             require(year=='20212022',name+' real chain omitted predecessor')
     require(value['base_state']['usage']=='annual','goalie base state is not annual')
     cutoff=date.fromisoformat(value['training_cutoff'])
     require(int(year[:4])<=cutoff.year<=int(year[4:]),'goalie score cutoff outside season')
     producer=value['implementation']
-    _closed(producer,('git_commit','git_dirty','python_version','numpy_version','scipy_version','lockfile_sha256'),'goalie score implementation')
+    require_fields(producer,('git_commit','git_dirty','python_version','numpy_version','scipy_version','lockfile_sha256'),'goalie score implementation')
     require(type(producer['git_commit']) is str and len(producer['git_commit'])==40
             and all(c in '0123456789abcdef' for c in producer['git_commit']) and type(producer['git_dirty']) is bool,
             'invalid goalie score implementation identity')
@@ -1108,17 +1110,17 @@ def _score_manifest(value,purpose):
         from .artifacts import clean_implementation
         clean_implementation(producer)
     require(value['coverage']==dict(path='coverage.json'),'goalie coverage role differs')
-    _closed(value['numerical_sensitivity'],('status','path'),'goalie sensitivity binding')
+    require_fields(value['numerical_sensitivity'],('status','path'),'goalie sensitivity binding')
     require(value['numerical_sensitivity']['path']=='sensitivity.json','goalie sensitivity role differs')
-    costs=value['resources'];_closed(costs,('wall_seconds','input_read_wall_seconds','projection_wall_seconds','sensitivity_wall_seconds','validation_wall_seconds','peak_memory_bytes','output_bytes'),'goalie score resources')
+    costs=value['resources'];require_fields(costs,('wall_seconds','input_read_wall_seconds','projection_wall_seconds','sensitivity_wall_seconds','validation_wall_seconds','peak_memory_bytes','output_bytes'),'goalie score resources')
     for key,val in costs.items():
-        _number(val,key,low=0.) if key.endswith('seconds') else _count(val,key)
+        require_number(val,key,low=0.) if key.endswith('seconds') else require_count(val,key)
 
 
 def _validate_event_value(row,manifest,source,target):
     fields=('season','game_id','source_index','key','goalie_id','physical_state','outcome','shot_type','source_status','base_status','paired',
             'origin_cell','on_net_probability','unblocked_probability','neutral_on_net_probability','stages','continuation_probabilities','base_heads','exclusions')
-    _closed(row,fields,'goalie event values')
+    require_fields(row,fields,'goalie event values')
     require(row['season']==manifest['season'] and row['key']==f"{row['game_id']}:{row['source_index']}"
             and row['key']==target['key'],'goalie numerical focal identity differs')
     for left,right in (('goalie_id','goalie_id'),('physical_state','state'),('outcome','outcome'),('shot_type','model_type'),
@@ -1131,45 +1133,45 @@ def _validate_event_value(row,manifest,source,target):
         value=row[key]
         applicable=paired and (key!='on_net_probability' or row['outcome'] in ('save','goal'))
         require((value is not None)==applicable,'goalie conditional probability population differs')
-        if value is not None:_number(value,key,low=0.,high=1.)
+        if value is not None:require_number(value,key,low=0.,high=1.)
     require(type(row['exclusions']) is list and all(type(code) is str and code for code in row['exclusions'])
             and bool(row['exclusions']) is not paired,'goalie pair exclusion reason differs')
     require(row['base_heads'] is None or type(row['base_heads']) is dict and set(row['base_heads'])=={'u','q','r','g'},'invalid base head disposition axis')
     if row['base_heads'] is not None:
         for value in row['base_heads'].values():
-            _closed(value,('included','target','reasons'),'base likelihood disposition')
+            require_fields(value,('included','target','reasons'),'base likelihood disposition')
             require(type(value['included']) is bool and type(value['reasons']) is list and
                     (value['target'] in (0.,1.) and type(value['target']) is float and not value['reasons'] if value['included'] else
                      value['target'] is None and bool(value['reasons'])),'invalid base likelihood disposition')
-    _closed(row['continuation_probabilities'],('actor','neutral_goalie'),'continuation references')
+    require_fields(row['continuation_probabilities'],('actor','neutral_goalie'),'continuation references')
     for values in row['continuation_probabilities'].values():
-        _closed(values,HEADS,'continuation heads')
+        require_fields(values,HEADS,'continuation heads')
         for key,value in values.items():
-            if value is not None:_number(value,key,low=0.,high=1.)
-    _closed(row['stages'],('miss','recorded_stop','conversion','reattempt','next_attempt_danger'),'goalie stages')
+            if value is not None:require_number(value,key,low=0.,high=1.)
+    require_fields(row['stages'],('miss','recorded_stop','conversion','reattempt','next_attempt_danger'),'goalie stages')
     expected_labels=dict(miss=int(source['outcome']=='miss') if source['status']=='included' and source['outcome']!='block' else None,
         recorded_stop=int(source['recorded_stop']) if source['outcome'] in ('save','goal') and source['recorded_stop'] is not None else None,
         conversion=int(source['outcome']=='goal') if source['outcome'] in ('save','goal') and source['recorded_stop'] is False else None,
         reattempt=int(source['recorded_reattempt']) if source['outcome']=='save' and source['recorded_reattempt'] is not None else None,
         next_attempt_danger=target['d_target'])
     for key,value in row['stages'].items():
-        _closed(value,('response','prediction','reason'),'goalie matched stage')
+        require_fields(value,('response','prediction','reason'),'goalie matched stage')
         require(value['response']==expected_labels[key],'goalie stage response differs from source label/target')
-        if value['prediction'] is not None:_number(value['prediction'],key,low=0.,high=1.)
+        if value['prediction'] is not None:require_number(value['prediction'],key,low=0.,high=1.)
         require((value['reason'] is None)==(value['response'] is not None and value['prediction'] is not None), 'goalie stage disposition differs')
     for head,stage in (('h','reattempt'),('d','next_attempt_danger')):
         require(row['stages'][stage]['prediction']==row['continuation_probabilities']['neutral_goalie'][head], 'continuation event stage/reference differs')
 
 
 def _validate_mass_record(record,size):
-    _closed(record,('log_masses','masses'),'goalie reference mass')
+    require_fields(record,('log_masses','masses'),'goalie reference mass')
     require(type(record['masses']) is list and type(record['log_masses']) is list
             and len(record['masses'])==len(record['log_masses'])==size,'goalie reference mass axis differs')
     for log_value,mass in zip(record['log_masses'],record['masses'],strict=True):
         if mass is None:
             require(log_value is None,'unsupported goalie mass retained a log')
         else:
-            _number(mass,'goalie reference mass',low=0.)
+            require_number(mass,'goalie reference mass',low=0.)
             require(log_value is None and mass==0. or type(log_value) in (int,float) and isfinite(log_value)
                     and isclose(mass,float(np.exp(log_value)),rel_tol=1e-12,abs_tol=0.),'goalie log/reference mass differs')
     for index in range(1,size):
@@ -1182,27 +1184,27 @@ def _validate_mass_record(record,size):
 
 def _validate_projection(row,manifest,people,likelihood_index):
     from .analysis_publication import support
-    _closed(row,('season','player_id','strength','values','neutral_values','masses','coefficient_support','support','panels','unavailable'),'goalie projection')
+    require_fields(row,('season','player_id','strength','values','neutral_values','masses','coefficient_support','support','panels','unavailable'),'goalie projection')
     require(row['season']==manifest['season'] and row['player_id'] in people and row['strength'] in GOALIE_STRENGTHS,
             'goalie projection identity differs')
-    _closed(row['values'],FIELDS,'goalie projection values');_closed(row['support'],FIELDS,'goalie projection supports')
-    _closed(row['neutral_values'],DEPENDENCIES.keys()-{'stopping_goals_per100_on_net'},'goalie neutral levels')
-    _closed(row['coefficient_support'],(*BASE_HEADS,*HEADS),'goalie coefficient heads')
+    require_fields(row['values'],FIELDS,'goalie projection values');require_fields(row['support'],FIELDS,'goalie projection supports')
+    require_fields(row['neutral_values'],DEPENDENCIES.keys()-{'stopping_goals_per100_on_net'},'goalie neutral levels')
+    require_fields(row['coefficient_support'],(*BASE_HEADS,*HEADS),'goalie coefficient heads')
     likelihood={}
     for head,record in row['coefficient_support'].items():
-        _closed(record,('available','likelihood_events','prior_only','prior_seasons','reason'),'goalie coefficient support')
+        require_fields(record,('available','likelihood_events','prior_only','prior_seasons','reason'),'goalie coefficient support')
         require(type(record['available']) is bool and type(record['prior_only']) is bool,'invalid goalie coefficient availability')
-        _count(record['likelihood_events'],'goalie likelihood count')
+        require_count(record['likelihood_events'],'goalie likelihood count')
         require(record['reason'] in (None,'head_incomplete','actor_coefficient_unavailable') and (record['reason'] is None)==record['available'],
                 'goalie coefficient unavailable reason differs')
         require(type(record['prior_seasons']) is list and record['prior_seasons']==sorted(set(record['prior_seasons'])), 'invalid goalie prior years')
         for year in record['prior_seasons']:
-            _season_label(year);require(year<manifest['season'],'goalie coefficient carries future history')
+            require_season_label(year);require(year<manifest['season'],'goalie coefficient carries future history')
         likelihood[head]=likelihood_index.get((row['player_id'],head),set()) if record['available'] else set()
         require(record['likelihood_events']==len(likelihood[head]),'goalie coefficient likelihood key count differs')
-    _closed(row['masses'],('prefixes','continuation'),'goalie projection mass groups')
+    require_fields(row['masses'],('prefixes','continuation'),'goalie projection mass groups')
     for group,size in (('prefixes',4),('continuation',3)):
-        _closed(row['masses'][group],('neutral','focal'),'goalie mass references')
+        require_fields(row['masses'][group],('neutral','focal'),'goalie mass references')
         for name,record in row['masses'][group].items():
             _validate_mass_record(record,size)
     require(all(row['masses']['continuation']['neutral'][field][0]==row['masses']['continuation']['focal'][field][0]
@@ -1227,7 +1229,7 @@ def _validate_projection(row,manifest,people,likelihood_index):
     for field,value in row['values'].items():
         require(row['support'][field]['eligible_weight']==denominators[field.removesuffix('_difference')],
                 'goalie support denominator is not the neutral unnormalized reference mass')
-        if value is not None:_number(value,field,low=None if field.endswith('_difference') or field.startswith('stopping_') else 0.,
+        if value is not None:require_number(value,field,low=None if field.endswith('_difference') or field.startswith('stopping_') else 0.,
                                       high=None if field.endswith('_difference') or field.startswith('stopping_') else 1.)
         support(row['support'][field])
         heads=DEPENDENCIES[field.removesuffix('_difference')]
@@ -1244,16 +1246,16 @@ def _validate_projection(row,manifest,people,likelihood_index):
                     and isclose(value,row['values'][base]-row['neutral_values'][base],rel_tol=1e-12,abs_tol=1e-15),'goalie focal-minus-neutral difference differs')
     require(set(row['unavailable'])=={field for field,value in row['values'].items() if value is None},'goalie unavailable selector matrix differs')
     for value in row['unavailable'].values():
-        _closed(value,('reason','explanation'),'goalie unavailable reason')
+        require_fields(value,('reason','explanation'),'goalie unavailable reason')
         require(value['reason'] in ('no_exposure','failed_fit','missing_source') and type(value['explanation']) is str and value['explanation'],
                 'invalid goalie unavailable detail')
     require(type(row['panels']) is list and len(row['panels'])==len(constituent_states(row['strength'])),'goalie panel mixture size differs')
     for record,strength in zip(row['panels'],constituent_states(row['strength']),strict=True):
-        _closed(record,('panel_id','physical_state','events','origins','events_sha256','arrays_sha256'),'goalie panel identity')
+        require_fields(record,('panel_id','physical_state','events','origins','events_sha256','arrays_sha256'),'goalie panel identity')
         defending,attacking=map(int,strength.split('v'))
         require(record['physical_state']==[attacking,defending,1,1] and record['panel_id']==f'execution-v1-06-1:{manifest["season"]}:{attacking},{defending},1',
                 'goalie panel defending orientation differs')
-        _count(record['events'],'goalie panel events');_count(record['origins'],'goalie panel origins')
+        require_count(record['events'],'goalie panel events');require_count(record['origins'],'goalie panel origins')
         digest(record['events_sha256']);digest(record['arrays_sha256'])
 
 
@@ -1261,8 +1263,8 @@ def _validate_frozen_contexts(value,manifest,targets):
     import hashlib
     import json
     from .goalie_state import validate_goalie_baseline_descriptor, validate_goalie_probe_comparison
-    _closed(value,('baseline','descriptor','head_probes','roundoff_tolerance','references','origins_per_context'),'goalie frozen contexts')
-    _closed(value['baseline'],('path','sha256'),'goalie frozen baseline reference')
+    require_fields(value,('baseline','descriptor','head_probes','roundoff_tolerance','references','origins_per_context'),'goalie frozen contexts')
+    require_fields(value['baseline'],('path','sha256'),'goalie frozen baseline reference')
     require(value['baseline']['path']==str(Path(manifest['state']['path']).parent/'baseline.json'),'goalie frozen baseline locator differs')
     digest(value['baseline']['sha256'])
     descriptor=value['descriptor']
@@ -1271,9 +1273,9 @@ def _validate_frozen_contexts(value,manifest,targets):
     validate_goalie_baseline_descriptor(descriptor,manifest['purpose'],manifest['season'],manifest['recipe']['sha256'],manifest['base_scores'],targets)
     require(value['roundoff_tolerance']==POINTWISE_ROUNDOFF and value['references']==['actor','neutral']
             and value['origins_per_context']==656,'goalie pointwise arithmetic/reference contract differs')
-    _closed(value['head_probes'],HEADS,'goalie frozen head dispositions')
+    require_fields(value['head_probes'],HEADS,'goalie frozen head dispositions')
     for head,record in value['head_probes'].items():
-        _closed(record,('baseline_status','probe_status','reason','comparison'),'goalie frozen head probe')
+        require_fields(record,('baseline_status','probe_status','reason','comparison'),'goalie frozen head probe')
         require(record['baseline_status'] in ('complete','unavailable') and record['probe_status'] in ('assessed','unassessed','not_run'),
                 'invalid goalie frozen baseline/probe disposition')
         require((descriptor['heads'][head]['coefficient_sha256'] is not None)==(record['baseline_status']=='complete'),
@@ -1290,17 +1292,17 @@ def _validate_frozen_contexts(value,manifest,targets):
 
 
 def _validate_pointwise(value,contexts,available):
-    _closed(value,('status','reason','contexts','origin_rows','compared_rows','maximum_absolute_change','flagged'),'goalie frozen pointwise comparison')
+    require_fields(value,('status','reason','contexts','origin_rows','compared_rows','maximum_absolute_change','flagged'),'goalie frozen pointwise comparison')
     require(value['contexts']==contexts and type(value['contexts']) is int and value['origin_rows']==656*contexts,'goalie pointwise context/origin counts differ')
     for key in ('compared_rows','maximum_absolute_change','flagged'):
-        _closed(value[key],(*HEADS,'joint'),'goalie pointwise '+key)
+        require_fields(value[key],(*HEADS,'joint'),'goalie pointwise '+key)
     assessed=0
     for field,count in value['compared_rows'].items():
         require(type(count) is int and 0<=count<=2*value['origin_rows'] and count%656==0,'goalie pointwise compared origin count differs')
         maximum=value['maximum_absolute_change'][field]
         require((maximum is None)==(count==0),'goalie pointwise missing evidence became zero error')
         if count:
-            _number(maximum,'goalie pointwise maximum',low=0.,high=1.);assessed+=1
+            require_number(maximum,'goalie pointwise maximum',low=0.,high=1.);assessed+=1
             require(available and type(value['flagged'][field]) is bool and value['flagged'][field]==(maximum>1e-5),
                     'goalie pointwise flag or unavailable endpoint differs')
         else:
@@ -1316,7 +1318,7 @@ def _validate_sensitivity(value,manifest,people,projections,baseline_actual,targ
     final=value.get('status')!='not_assessed_for_annual_state'
     if manifest['purpose']=='real':
         require(final==(manifest['season']=='20252026'),'real final-year goalie sensitivity cannot be omitted or claimed for an earlier year')
-    _closed(value,('status','summary_threshold','pointwise_threshold','variants',*(('frozen_contexts',) if final else ())), 'goalie sensitivity')
+    require_fields(value,('status','summary_threshold','pointwise_threshold','variants',*(('frozen_contexts',) if final else ())), 'goalie sensitivity')
     require(value['summary_threshold']==1e-4 and value['pointwise_threshold']==1e-5,'goalie sensitivity thresholds differ')
     require(value['status'] in ('not_assessed_for_annual_state','assessed','partially_assessed','unassessed')
             and value['status']==manifest['numerical_sensitivity']['status'],'goalie sensitivity disposition differs')
@@ -1329,7 +1331,7 @@ def _validate_sensitivity(value,manifest,people,projections,baseline_actual,targ
     frozen=value['frozen_contexts'];contexts=len(frozen['descriptor']['selector']['keys'])
     assessed=0
     for variant in value['variants']:
-        _closed(variant,('variant','status','reason','unavailable_heads','projections','actual_summaries','maximum_probability_change','flagged','pointwise'),
+        require_fields(variant,('variant','status','reason','unavailable_heads','projections','actual_summaries','maximum_probability_change','flagged','pointwise'),
                 'goalie sensitivity comparison')
         required=dict(VARIANTS)[variant['variant']]
         missing=[head for head in required if frozen['head_probes'][head]['probe_status']!='assessed']
@@ -1344,12 +1346,12 @@ def _validate_sensitivity(value,manifest,people,projections,baseline_actual,targ
         require(variant['status']=='assessed' and variant['reason'] is None and variant['unavailable_heads']==[], 'invalid assessed goalie sensitivity')
         assessed+=1;keys=set();changes=[]
         for row in variant['projections']:
-            _closed(row,('player_id','strength','values','neutral_values','baseline_masses','variant_masses'),'goalie sensitivity projection')
+            require_fields(row,('player_id','strength','values','neutral_values','baseline_masses','variant_masses'),'goalie sensitivity projection')
             key=row['player_id'],row['strength'];require(key in projections and key not in keys,'goalie comparison identity duplicate/unknown');keys.add(key)
             for group,fields in (('values',(*CONTINUATION,*(field+'_difference' for field in CONTINUATION))),('neutral_values',CONTINUATION)):
                 require(type(row[group]) is list and [v['field'] for v in row[group]]==list(fields),'goalie comparison field axis differs')
                 for item in row[group]:
-                    _closed(item,('field','baseline','variant','absolute_change'),'goalie comparison value')
+                    require_fields(item,('field','baseline','variant','absolute_change'),'goalie comparison value')
                     baseline=projections[key][group][item['field']]
                     require(item['baseline']==baseline,'goalie comparison baseline differs')
                     if baseline is None or item['variant'] is None:
@@ -1359,7 +1361,7 @@ def _validate_sensitivity(value,manifest,people,projections,baseline_actual,targ
                         require(item['absolute_change']==change,'goalie sensitivity difference arithmetic differs');changes.append(change)
             require(row['baseline_masses']==projections[key]['masses']['continuation'],'goalie comparison baseline denominators differ')
             for group in ('baseline_masses','variant_masses'):
-                _closed(row[group],('neutral','focal'),'goalie comparison references')
+                require_fields(row[group],('neutral','focal'),'goalie comparison references')
                 for record in row[group].values():
                     _validate_mass_record(record,3)
             expected={}
@@ -1383,14 +1385,14 @@ def _validate_sensitivity(value,manifest,people,projections,baseline_actual,targ
                         neutral=expected['neutral'][base]
                         expected_value=None if expected_value is None or neutral is None else expected_value-neutral
                     actual=item['variant']
-                    if actual is not None:_number(actual,'goalie diagnostic variant probability/difference',low=-1. if field.endswith('_difference') else 0.,high=1.)
+                    if actual is not None:require_number(actual,'goalie diagnostic variant probability/difference',low=-1. if field.endswith('_difference') else 0.,high=1.)
                     require(actual is None and expected_value is None or actual is not None and expected_value is not None
                             and isclose(actual,expected_value,rel_tol=1e-12,abs_tol=1e-15),
                             'goalie diagnostic variant level/difference differs from saved continuation masses')
         require(keys==set(projections),'goalie sensitivity omitted a published goalie-strength')
         actual_keys=set()
         for row in variant['actual_summaries']:
-            _closed(row,('player_id','strength','game_id','physical_state','stage','count','baseline_mean','variant_mean','absolute_change',
+            require_fields(row,('player_id','strength','game_id','physical_state','stage','count','baseline_mean','variant_mean','absolute_change',
                          'baseline_expected_sum','variant_expected_sum','expected_mass_change'),'goalie actual sensitivity')
             require(row['player_id'] in people and row['strength'] in (*GOALIE_STRENGTHS,'covered_all')
                     and row['stage'] in ('reattempt','next_attempt_danger'),'invalid goalie actual comparison key')
@@ -1399,7 +1401,7 @@ def _validate_sensitivity(value,manifest,people,projections,baseline_actual,targ
             require(row['count']==baseline_actual[key]['count'] and row['baseline_mean']==baseline_actual[key]['mean']
                     and row['baseline_expected_sum']==baseline_actual[key]['expected_sum'],'goalie actual sensitivity baseline differs')
             require(type(row['count']) is int and row['count']>0,'empty matched sensitivity summary')
-            for field in ('baseline_mean','variant_mean'):_number(row[field],field,low=0.,high=1.)
+            for field in ('baseline_mean','variant_mean'):require_number(row[field],field,low=0.,high=1.)
             require(isclose(row['baseline_mean']*row['count'],row['baseline_expected_sum'],rel_tol=1e-12)
                     and isclose(row['variant_mean']*row['count'],row['variant_expected_sum'],rel_tol=1e-12)
                     and row['expected_mass_change']==row['variant_expected_sum']-row['baseline_expected_sum']
@@ -1465,14 +1467,14 @@ def _check_actual_evidence(table,row,selected,league,source_coverage,method,sour
 def _validate_scores(path,manifest,expected_purpose):
     from . import analysis_publication as public
     from .descriptive import validate_goalie_source_game, goalie_source_coverage
-    from .execution_state import _finite
+    from .execution_state import require_finite_state
     from .goalie import target_coverage
     from .goalie_state import validate_goalie_target
     _score_manifest(manifest,expected_purpose)
     root=path.parent;files=manifest['files'];require(type(files) is list,'missing goalie score members')
     bound={}
     for row in files:
-        _closed(row,('path','sha256','role'),'goalie score member')
+        require_fields(row,('path','sha256','role'),'goalie score member')
         require(row['path'] in MEMBERS and row['path'] not in bound and row['role']==MEMBERS[row['path']],'unknown/duplicate/cross-wired goalie score member')
         digest(row['sha256']);member=(root/row['path']).resolve(strict=True)
         require(root in member.parents and member.is_file(),'goalie score member escapes artifact')
@@ -1481,7 +1483,7 @@ def _validate_scores(path,manifest,expected_purpose):
     actual={str(member.relative_to(root)) for member in root.rglob('*') if member.is_file() and member!=path}
     require(actual==set(MEMBERS),'unbound files in goalie scores')
     require(manifest['resources']['output_bytes']==sum(member.stat().st_size for member in bound.values()),'goalie saved byte cost differs')
-    catalogs=read_json(root/'catalogs.json');_closed(catalogs,('sources','methods','supports'),'goalie score catalogs')
+    catalogs=read_json(root/'catalogs.json');require_fields(catalogs,('sources','methods','supports'),'goalie score catalogs')
     lookups={key:{} for key in ('source','method','support')}
     for table,singular in (('sources','source'),('methods','method'),('supports','support')):
         require(type(catalogs[table]) is list,'missing goalie catalog')
@@ -1489,11 +1491,11 @@ def _validate_scores(path,manifest,expected_purpose):
             public.validate_catalog(table,row,expected_purpose,lookups,manifest['prepared']['sha256'])
             key=row[singular+'_id'];require(key not in lookups[singular],'duplicate goalie catalog identity');lookups[singular][key]=row
     people={};person_keys={}
-    for row in _jsonl(root/'people.jsonl'):
+    for row in read_jsonl(root/'people.jsonl'):
         public.validate_catalog('people',row,expected_purpose,lookups,manifest['prepared']['sha256'])
         require(row['season']==manifest['season'] and row['kind']=='goalie' and row['player_id'] not in people,'invalid/duplicate goalie annual person')
         people[row['player_id']]=row;person_keys[row['season'],row['player_id']]=row
-    source_games=list(_jsonl(root/'source_games.jsonl'));source_events={}
+    source_games=list(read_jsonl(root/'source_games.jsonl'));source_events={}
     require([game['game_id'] for game in source_games]==manifest['coaches']['selected_game_ids'],'goalie source game order differs')
     for game in source_games:
         validate_goalie_source_game(game)
@@ -1501,12 +1503,12 @@ def _validate_scores(path,manifest,expected_purpose):
         for row in game['events']:
             key=f"{game['game_id']}:{row['source_index']}";require(key not in source_events,'duplicate source focal key');source_events[key]=row
     targets={}
-    for row in _jsonl(root/'targets.jsonl'):
+    for row in read_jsonl(root/'targets.jsonl'):
         validate_goalie_target(row,manifest)
         require(row['key'] in source_events and row['key'] not in targets,'unknown/duplicate goalie score target');targets[row['key']]=row
     require(set(targets)==set(source_events),'goalie source/target keys differ')
     events={}
-    for row in _jsonl(root/'event_values.jsonl'):
+    for row in read_jsonl(root/'event_values.jsonl'):
         require(row['key'] in source_events and row['key'] not in events,'unknown/duplicate goalie score event')
         _validate_event_value(row,manifest,source_events[row['key']],targets[row['key']]);events[row['key']]=row
     require(set(events)==set(source_events),'goalie event/source keys differ')
@@ -1521,12 +1523,12 @@ def _validate_scores(path,manifest,expected_purpose):
                 if event['base_heads'][head]['included']:
                     likelihood_index[event['goalie_id'],head].add(key)
     projections={}
-    for row in _jsonl(root/'projections.jsonl'):
+    for row in read_jsonl(root/'projections.jsonl'):
         _validate_projection(row,manifest,people,likelihood_index)
         key=row['player_id'],row['strength'];require(key not in projections,'duplicate goalie projection');projections[key]=row
     require(set(projections)=={(player,strength) for player in people for strength in GOALIE_STRENGTHS},'goalie projection matrix incomplete')
     sensitivity=read_json(root/'sensitivity.json');_validate_sensitivity(sensitivity,manifest,people,projections,_stage_summaries(list(events.values())),list(targets.values()))
-    _finite(sensitivity,'goalie sensitivity')
+    require_finite_state(sensitivity,'goalie sensitivity')
     league_references=_league_references(events.values())
     by_selector=defaultdict(list)
     for row in events.values():
@@ -1539,7 +1541,7 @@ def _validate_scores(path,manifest,expected_purpose):
     require(method in lookups['method'] and source['id'] in lookups['source'],'goalie fixed method/source identities absent')
     for table in PUBLIC_TABLES:
         previous_player=None
-        for row in _jsonl(root/(table+'.jsonl')):
+        for row in read_jsonl(root/(table+'.jsonl')):
             require(previous_player is None or previous_player<=row['player_id'],'goalie score person groups are not ascending/contiguous')
             previous_player=row['player_id']
             public.validate_row(table,row,'goalie',lookups,person_keys)
@@ -1557,9 +1559,9 @@ def _validate_scores(path,manifest,expected_purpose):
         expected={tuple([manifest['season'],player,*selectors]) for player in people for selectors in public.required_keys(table,'goalie')}
         require(seen[table]==expected,'goalie public required selector matrix incomplete: '+table)
     coverage=read_json(root/'coverage.json')
-    _closed(coverage,('targets','events','source_included','paired_unblocked','baseline_head_status','team_unavailable_games',
+    require_fields(coverage,('targets','events','source_included','paired_unblocked','baseline_head_status','team_unavailable_games',
                      'stage_prediction_reasons','source_only','numerical_only','stage_dispositions','event_exclusions','row_counts'),'goalie score coverage')
-    _closed(coverage['baseline_head_status'],HEADS,'goalie baseline dispositions')
+    require_fields(coverage['baseline_head_status'],HEADS,'goalie baseline dispositions')
     require(all(value in ('complete','unavailable') for value in coverage['baseline_head_status'].values()),'invalid goalie baseline status')
     require(coverage==_coverage(target_coverage(list(targets.values()),manifest['season']),source_games,list(people.values()),list(events.values()),counts,coverage['baseline_head_status']),
             'goalie saved coverage differs from source/target/numerical members')

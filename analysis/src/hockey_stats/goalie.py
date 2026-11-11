@@ -258,7 +258,7 @@ def goalie_probabilities(state, focal_predictors, origin_cells, neutralize=()):
 
 
 def _metadata(design, result, incoming, season):
-    from .execution import _centered_state
+    from .execution import centered_state
 
     history = {(r['block'], str(r['id'])): r for r in incoming}
     actors, priors = [], []
@@ -270,7 +270,7 @@ def _metadata(design, result, incoming, season):
         prior['last_supported'] = history.get((row['block'], str(row['id'])))
         priors.append(prior)
     complete = result['status'] == 'complete'
-    centers, ledger = _centered_state(result, incoming, season) if complete else (None, incoming)
+    centers, ledger = centered_state(result, incoming, season) if complete else (None, incoming)
     return dict(head=design['head'], target=TARGETS[design['head']], target_kind=design['target_kind'],
                 target_mass=float(design['target'].sum()), keys=design['keys'],
                 design=design['design'], actors=actors, priors=priors, centers=centers, ledger=ledger,

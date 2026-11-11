@@ -9,11 +9,14 @@ from pathlib import Path
 
 import numpy as np
 
-from .artifacts import clean_implementation, digest, require, write_arrays, write_json
+from .artifacts import clean_implementation, digest, require, require_fields, write_arrays, write_json
 from .captures import InputContractError
 from .chance_cli import identity, read_json
-from .execution_state import (_closed, _finite, _reference, _member, _season, _design,
-                               _actors, _solve_record, _array_contract, _load_arrays, _nonnegative)
+from .execution_state import (
+    coefficient_array_contract, read_coefficient_arrays, require_finite_state,
+    require_nonnegative, require_state_reference, season_start_year, state_member_path,
+    validate_actor_history, validate_design, validate_solve_record,
+)
 
 HEADS = ('h', 'd')
 MANIFEST_KEYS = 'schema_version kind purpose season recipe implementation prepared coaches base_state base_scores previous training_cutoff heads files resources'.split()
@@ -38,7 +41,7 @@ def _hash(value):
 
 
 def _sample(value, fractional):
-    _closed(value, 'attempts positive class_fraction mean_predicted_probability mean_imputation_weighted_negative_log_likelihood mean_outcome_only_negative_log_likelihood reliability origin_mass_error expanded_rows candidate_branches base_matrix_nonzeros batches'.split(), 'goalie in-sample')
+    require_fields(value, 'attempts positive class_fraction mean_predicted_probability mean_imputation_weighted_negative_log_likelihood mean_outcome_only_negative_log_likelihood reliability origin_mass_error expanded_rows candidate_branches base_matrix_nonzeros batches'.split(), 'goalie in-sample')
     for key in ('attempts','expanded_rows','candidate_branches','base_matrix_nonzeros','batches'):
         require(type(value[key]) is int and value[key] >= 0, 'invalid goalie diagnostic count')
     positive, count = value['positive'], value['attempts']
@@ -46,7 +49,7 @@ def _sample(value, fractional):
             and value['class_fraction'] == positive/count, 'goalie target mass differs')
     require(type(value['reliability']) is list and len(value['reliability']) == 20, 'goalie reliability bins differ')
     for index,row in enumerate(value['reliability']):
-        _closed(row, ('lower','upper','count','observed_positive','predicted_mass'), 'goalie reliability bin')
+        require_fields(row, ('lower','upper','count','observed_positive','predicted_mass'), 'goalie reliability bin')
         require(row['lower']==index/20 and row['upper']==(index+1)/20 and type(row['count']) is int
                 and 0 <= row['observed_positive'] <= row['count']
                 and row['lower']*row['count']-1e-10 <= row['predicted_mass'] <= row['upper']*row['count']+1e-10,
@@ -57,14 +60,14 @@ def _sample(value, fractional):
                              value['mean_predicted_probability'],rel_tol=1e-12,abs_tol=1e-12),
             'goalie reliability mass accounting differs')
     for key in ('mean_imputation_weighted_negative_log_likelihood','mean_outcome_only_negative_log_likelihood','origin_mass_error'):
-        _nonnegative(value[key],key)
+        require_nonnegative(value[key],key)
 
 
 def _head(metadata, head, arrays, season, *, probe=False):
     from .goalie import TARGETS, DEFINITION
 
-    _closed(metadata,HEAD_KEYS,'goalie head')
-    _finite(metadata,'goalie head')
+    require_fields(metadata,HEAD_KEYS,'goalie head')
+    require_finite_state(metadata,'goalie head')
     require(metadata['head']==head and head in HEADS and metadata['target']==TARGETS[head]
             and metadata['target_kind']==DEFINITION['target_kinds'][head], 'goalie head target differs')
     require(metadata['status'] in ('complete','unavailable') and type(metadata['reasons']) is list
@@ -72,19 +75,19 @@ def _head(metadata, head, arrays, season, *, probe=False):
     keys=metadata['keys']
     require(type(keys) is list and len(keys)==len(set(keys)) and all(type(k) is str and k for k in keys),
             'invalid goalie likelihood keys')
-    _nonnegative(metadata['target_mass'],'goalie target mass')
+    require_nonnegative(metadata['target_mass'],'goalie target mass')
     require(metadata['target_mass'] <= len(keys), 'target mass exceeds likelihood count')
     require(type(metadata['diagnostics']) is dict and type(metadata['starts']) is list,'missing goalie diagnostics')
     require(metadata['diagnostics']['requested_starts'] == (['continuation'] if probe else ['zero','prior_mean']),
             'goalie start policy differs')
-    _nonnegative(metadata['diagnostics']['wall_seconds'],'goalie head wall time')
+    require_nonnegative(metadata['diagnostics']['wall_seconds'],'goalie head wall time')
     for row in metadata['starts']:
         if row.get('deduplicated_to') is not None:
-            _closed(row,('name','deduplicated_to'),'goalie deduplicated start')
+            require_fields(row,('name','deduplicated_to'),'goalie deduplicated start')
             require(not probe and row==dict(name='prior_mean',deduplicated_to='zero'), 'invalid goalie deduplication')
         else:
-            _closed(row,'name deduplicated_to converged status termination iterations evaluations objective gradient_max inner_solves objective_trace em_iterations responsibility_change'.split(),'goalie solve')
-            _solve_record(row,head,probe)
+            require_fields(row,'name deduplicated_to converged status termination iterations evaluations objective gradient_max inner_solves objective_trace em_iterations responsibility_change'.split(),'goalie solve')
+            validate_solve_record(row,head,probe)
     if metadata['starts']:
         require([r['name'] for r in metadata['starts']]==metadata['diagnostics']['requested_starts'],
                 'goalie starts omit requested solve')
@@ -93,18 +96,18 @@ def _head(metadata, head, arrays, season, *, probe=False):
         expected_reason='empty_head' if not keys else 'single_class_head' if metadata['target_mass'] in (0.,len(keys)) else 'no_completed_start'
         require(metadata['reasons']==[expected_reason] and (bool(metadata['starts'])==(expected_reason=='no_completed_start')),
                 'goalie unavailable disposition contradicts target support/solve attempts')
-        _closed(metadata['diagnostics'],('requested_starts','wall_seconds'),'unavailable goalie diagnostics')
+        require_fields(metadata['diagnostics'],('requested_starts','wall_seconds'),'unavailable goalie diagnostics')
         require(not arrays and metadata['arrays'] is None and metadata['selected_start'] is None
                 and metadata['centers'] is None and bool(metadata['reasons']), 'unavailable goalie head carries endpoint')
         require(not any(r.get('converged') for r in metadata['starts']), 'unavailable goalie head has completed start')
-        _design(metadata,{'coefficients':np.zeros(metadata['design']['size'])})
-        _actors(metadata,None,season)
+        validate_design(metadata,{'coefficients':np.zeros(metadata['design']['size'])})
+        validate_actor_history(metadata,None,season)
         return
     require(not metadata['reasons'] and set(arrays)=={'coefficients'}
             and set(metadata['centers'])=={'shooter','goalie','setter','attacking_coach','defending_coach'},
             'complete goalie head lacks fitted state')
-    _design(metadata,arrays)
-    _actors(metadata,arrays['coefficients'],season)
+    validate_design(metadata,arrays)
+    validate_actor_history(metadata,arrays['coefficients'],season)
     completed=[r for r in metadata['starts'] if r.get('converged')]
     require(bool(completed),'complete goalie head has no completed solve')
     best=min(completed,key=lambda r:r['objective'])
@@ -126,12 +129,12 @@ def _head(metadata, head, arrays, season, *, probe=False):
     expected=sample['attempts']*sample['mean_imputation_weighted_negative_log_likelihood']+value
     require(math.isclose(diagnostics['objective'],expected,rel_tol=1e-8,abs_tol=1e-8),
             'goalie objective differs from likelihood and penalties')
-    _finite(metadata,'goalie head')
+    require_finite_state(metadata,'goalie head')
 
 
 def write_goalie_head(output,metadata,arrays,season,*,probe=False,name=None):
     head=metadata['head']; name=name or head
-    metadata['arrays']=_array_contract(arrays) if arrays else None
+    metadata['arrays']=coefficient_array_contract(arrays) if arrays else None
     _head(metadata,head,arrays,season,probe=probe)
     if arrays:
         write_arrays(Path(output),f'heads/{name}.npz',arrays)
@@ -163,46 +166,46 @@ def _manifest(value,purpose):
     from .goalie import RECIPE
     from .execution_design import RECIPE as BASE_RECIPE
 
-    _closed(value,MANIFEST_KEYS,'goalie manifest')
-    _finite(value,'goalie manifest')
+    require_fields(value,MANIFEST_KEYS,'goalie manifest')
+    require_finite_state(value,'goalie manifest')
     require(value['schema_version']==1 and type(value['schema_version']) is int and value['kind']=='goalie-continuation'
             and purpose in ('real','fixture') and value['purpose']==purpose,'goalie state version/purpose differs')
-    year=_season(value['season'])
+    year=season_start_year(value['season'])
     require(2021<=year<=2025 and value['recipe']==RECIPE,'goalie recipe/season differs')
     for name,keys in (('prepared',('purpose','path','sha256','members')),('coaches',('purpose','path','sha256','selected_game_ids'))):
-        _closed(value[name],keys,'goalie '+name)
-        _reference(value[name],name)
+        require_fields(value[name],keys,'goalie '+name)
+        require_state_reference(value[name],name)
         require(value[name]['purpose']==purpose,'goalie input purpose differs')
     members=value['prepared']['members']
     require(type(members) is list,'missing goalie prepared members')
     for row in members:
-        _closed(row,('kind','season','game_id','path','sha256'),'goalie prepared member')
+        require_fields(row,('kind','season','game_id','path','sha256'),'goalie prepared member')
         digest(row['sha256'])
         require(row['season']==value['season'] and row['kind'] in ('game','people'),'goalie prepared member season differs')
     games=[r['game_id'] for r in members if r['kind']=='game']
     require(len(games)==len(set(games)) and sum(r['kind']=='people' for r in members)==1
             and value['coaches']['selected_game_ids']==games,'goalie prepared/coach game axis differs')
-    _closed(value['base_scores'],('path','sha256'),'goalie base scores')
-    _reference(value['base_scores'],'goalie base scores')
+    require_fields(value['base_scores'],('path','sha256'),'goalie base scores')
+    require_state_reference(value['base_scores'],'goalie base scores')
     base=value['base_state']
-    _closed(base,('path','sha256','season','purpose','recipe_sha256','usage','previous'),'goalie base state')
-    _reference(base,'goalie base state')
+    require_fields(base,('path','sha256','season','purpose','recipe_sha256','usage','previous'),'goalie base state')
+    require_state_reference(base,'goalie base state')
     require(base['season']==value['season'] and base['purpose']==purpose and base['usage']=='annual'
             and base['recipe_sha256']==BASE_RECIPE['sha256'],'goalie base-state identity differs')
     if base['previous'] is not None:
-        _closed(base['previous'],('path','sha256'),'base predecessor'); _reference(base['previous'],'base predecessor')
+        require_fields(base['previous'],('path','sha256'),'base predecessor'); require_state_reference(base['previous'],'base predecessor')
     previous=value['previous']
     if previous is None:
         require(purpose!='real' or year==2021,'real goalie chain must start in 20212022')
     else:
-        _closed(previous,('path','sha256','season','purpose','recipe_sha256','usage'),'goalie previous')
-        _reference(previous,'goalie previous')
+        require_fields(previous,('path','sha256','season','purpose','recipe_sha256','usage'),'goalie previous')
+        require_state_reference(previous,'goalie previous')
         require(previous['season']==f'{year-1}{year}' and previous['purpose']==purpose
                 and previous['recipe_sha256']==RECIPE['sha256'] and previous['usage']=='annual', 'goalie chronology differs')
     cutoff=date.fromisoformat(value['training_cutoff'])
     require(year<=cutoff.year<=year+1,'goalie training cutoff outside season')
     producer=value['implementation']
-    _closed(producer,('git_commit','git_dirty','python_version','numpy_version','scipy_version','lockfile_sha256'),'goalie implementation')
+    require_fields(producer,('git_commit','git_dirty','python_version','numpy_version','scipy_version','lockfile_sha256'),'goalie implementation')
     require(type(producer['git_commit']) is str and len(producer['git_commit'])==40
             and all(c in '0123456789abcdef' for c in producer['git_commit']) and type(producer['git_dirty']) is bool
             and all(type(producer[k]) is str and producer[k] for k in ('python_version','numpy_version','scipy_version')),
@@ -210,9 +213,9 @@ def _manifest(value,purpose):
     digest(producer['lockfile_sha256'])
     if purpose=='real':
         clean_implementation(producer)
-    costs=value['resources']; _closed(costs,RESOURCE_KEYS,'goalie resources')
+    costs=value['resources']; require_fields(costs,RESOURCE_KEYS,'goalie resources')
     for key in ('wall_seconds','design_wall_seconds','input_read_wall_seconds'):
-        _nonnegative(costs[key],key)
+        require_nonnegative(costs[key],key)
     for key in ('peak_memory_bytes','output_bytes'):
         require(type(costs[key]) is int and costs[key]>=0,'invalid goalie resource count')
     for key in ('dimensions','solve_counts','probe_solve_counts'):
@@ -225,7 +228,7 @@ def _manifest(value,purpose):
 def validate_goalie_target(row,manifest):
     """validate one detached keyed target using its annual input bindings."""
     games=set(manifest['coaches']['selected_game_ids'])
-    _closed(row,TARGET_KEYS,'goalie target')
+    require_fields(row,TARGET_KEYS,'goalie target')
     require(row['game_id'] in games and type(row['source_index']) is int and row['source_index']>=0
             and row['key']==row['game_id']+':'+str(row['source_index']),'invalid goalie focal key')
     require(row['outcome'] in ('block','miss','save','goal',None) and row['physical_status'] in ('ordinary','outside_population','unresolved'),
@@ -263,7 +266,7 @@ def validate_goalie_target(row,manifest):
 def _coverage(value,manifest,heads):
     from .goalie import target_coverage
 
-    _closed(value,('targets','summary'),'goalie target coverage')
+    require_fields(value,('targets','summary'),'goalie target coverage')
     targets=value['targets']; require(type(targets) is list,'missing goalie target rows')
     keys=[]; games=set(manifest['coaches']['selected_game_ids'])
     for row in targets:
@@ -282,7 +285,7 @@ def _coverage(value,manifest,heads):
             if actor['block']=='goalie':
                 require(actor['likelihood_support']==counts.get(actor['id'],0),'goalie actor likelihood support differs')
     require(value['summary']==target_coverage(targets,manifest['season']),'goalie coverage reductions differ')
-    _finite(value,'goalie target coverage')
+    require_finite_state(value,'goalie target coverage')
 
 
 def write_goalie_state(output,manifest,heads,arrays,targets,summary,probes):
@@ -313,16 +316,16 @@ def _read_goalie_state(path,manifest,expected_purpose):
         root=path.parent; files=manifest['files']; require(type(files) is list,'missing goalie state members')
         by_role={}
         for row in files:
-            _closed(row,('role','path','sha256'),'goalie member')
+            require_fields(row,('role','path','sha256'),'goalie member')
             require(row['role'] not in by_role,'duplicate goalie member role')
-            member=_member(root,row['path']); digest(row['sha256'])
+            member=state_member_path(root,row['path']); digest(row['sha256'])
             require(identity(member)['sha256']==row['sha256'],'goalie member digest differs')
             by_role[row['role']]=row
         require(len({r['path'] for r in files})==len(files),'duplicate goalie member path')
         heads,arrays={},{}
         expected={'coverage','numerical'}
         for head in HEADS:
-            ref=manifest['heads'][head]; _closed(ref,('path','sha256'),'goalie head reference')
+            ref=manifest['heads'][head]; require_fields(ref,('path','sha256'),'goalie head reference')
             record=by_role.get('head:'+head)
             require(record is not None and ref=={k:record[k] for k in ('path','sha256')}
                     and ref['path']==f'heads/{head}.json','goalie head role differs')
@@ -334,11 +337,11 @@ def _read_goalie_state(path,manifest,expected_purpose):
                 expected.add('coefficients:'+head)
                 record=by_role.get('coefficients:'+head)
                 require(record is not None and record['path']==f'heads/{head}.npz','missing goalie coefficient member')
-                arrays[head]=_load_arrays(root/record['path'],metadata['arrays'])
+                arrays[head]=read_coefficient_arrays(root/record['path'],metadata['arrays'])
             _head(metadata,head,arrays[head],manifest['season'])
         coverage=read_json(root/by_role['coverage']['path']); _coverage(coverage,manifest,heads)
         require(by_role['coverage']['path']=='coverage.json' and by_role['numerical']['path']=='numerical.json','goalie fixed member path differs')
-        numerical=read_json(root/by_role['numerical']['path']); _closed(numerical,('heads',),'goalie numerical')
+        numerical=read_json(root/by_role['numerical']['path']); require_fields(numerical,('heads',),'goalie numerical')
         require(set(numerical['heads'])==set(HEADS),'goalie probe axes differ')
         baseline=None
         if 'baseline' in by_role:
@@ -350,14 +353,14 @@ def _read_goalie_state(path,manifest,expected_purpose):
                     'real goalie baseline descriptor must exist exactly for final annual')
         for head,record in numerical['heads'].items():
             if record['status'] in ('not_run','not_assessed_for_annual_state'):
-                _closed(record,('status','reason'),'goalie unassessed probe')
+                require_fields(record,('status','reason'),'goalie unassessed probe')
                 require(type(record['reason']) is str and bool(record['reason']),'missing goalie probe reason')
                 require((record['status']=='not_run')==(baseline is not None),'goalie probe annual status differs')
                 require(manifest['resources']['probe_solve_counts'][head]==0,'unrun goalie probe claims solve')
                 if record['status']=='not_run':
                     require(heads[head]['status']=='unavailable','completed baseline omitted required probe')
                 continue
-            _closed(record,('status','reason','baseline','head_path','array_path','comparison'),'goalie probe')
+            require_fields(record,('status','reason','baseline','head_path','array_path','comparison'),'goalie probe')
             require(baseline is not None and record['status'] in ('assessed','unassessed')
                     and record['baseline']==dict(path='baseline.json',sha256=by_role['baseline']['sha256'])
                     and manifest['resources']['probe_solve_counts'][head]==1,'goalie probe baseline/count differs')
@@ -369,7 +372,7 @@ def _read_goalie_state(path,manifest,expected_purpose):
                 expected.add('probe-coefficients:'+head)
                 member=by_role.get('probe-coefficients:'+head)
                 require(member is not None and member['path']==record['array_path']==f'heads/{head}-tight.npz','goalie probe arrays differ')
-                values=_load_arrays(root/member['path'],probe['arrays'])
+                values=read_coefficient_arrays(root/member['path'],probe['arrays'])
             _head(probe,head,values,manifest['season'],probe=True)
             require(probe['keys']==heads[head]['keys'] and probe['target_mass']==heads[head]['target_mass']
                     and probe['design']==heads[head]['design']
@@ -391,9 +394,9 @@ def _read_goalie_state(path,manifest,expected_purpose):
 
 def validate_goalie_baseline_descriptor(value,purpose,season,recipe_sha256,base_scores,targets):
     """check a detached descriptor against validated annual targets and identities."""
-    _closed(value,('schema_version','kind','purpose','season','recipe_sha256','base_scores','target_sha256','selector','heads'),'goalie frozen baseline')
-    _finite(value,'goalie frozen baseline')
-    require(purpose in ('real','fixture') and 2021<=_season(season)<=2025
+    require_fields(value,('schema_version','kind','purpose','season','recipe_sha256','base_scores','target_sha256','selector','heads'),'goalie frozen baseline')
+    require_finite_state(value,'goalie frozen baseline')
+    require(purpose in ('real','fixture') and 2021<=season_start_year(season)<=2025
             and (purpose!='real' or season=='20252026'),'invalid goalie frozen baseline scope')
     require(type(value['schema_version']) is int and value['schema_version']==1
             and value['kind']=='goalie-baseline' and value['purpose']==purpose
@@ -401,16 +404,16 @@ def validate_goalie_baseline_descriptor(value,purpose,season,recipe_sha256,base_
             and value['base_scores']==base_scores and value['target_sha256']==_hash(targets),
             'goalie baseline target/identity differs')
     digest(value['recipe_sha256']); digest(value['target_sha256'])
-    _closed(value['base_scores'],('path','sha256'),'goalie baseline base scores')
-    _reference(value['base_scores'],'goalie baseline base scores')
+    require_fields(value['base_scores'],('path','sha256'),'goalie baseline base scores')
+    require_state_reference(value['base_scores'],'goalie baseline base scores')
     require(type(value['heads']) is dict and set(value['heads'])==set(HEADS),'baseline head axes differ')
     for row in value['heads'].values():
-        _closed(row,('metadata_sha256','coefficient_sha256','design_sha256','prior_sha256'),'goalie baseline head')
+        require_fields(row,('metadata_sha256','coefficient_sha256','design_sha256','prior_sha256'),'goalie baseline head')
         for key in ('metadata_sha256','design_sha256','prior_sha256'):
             digest(row[key])
         if row['coefficient_sha256'] is not None:
             digest(row['coefficient_sha256'])
-    selector=value['selector']; _closed(selector,('policy','keys','requirements'),'goalie probe selector')
+    selector=value['selector']; require_fields(selector,('policy','keys','requirements'),'goalie probe selector')
     keys=selector['keys']; known={r['key'] for r in targets}
     require(type(keys) is list and len(keys)<=256 and len(keys)==len(set(keys)) and set(keys)<=known
             and keys==sorted(keys,key=lambda k:(k.split(':')[0],int(k.split(':')[1]))),'invalid goalie frozen keys')
@@ -418,7 +421,7 @@ def validate_goalie_baseline_descriptor(value,purpose,season,recipe_sha256,base_
             and type(selector['requirements']) is list,'goalie selector policy differs')
     requirements=[]
     for row in selector['requirements']:
-        _closed(row,('requirement','key'),'goalie selector requirement')
+        require_fields(row,('requirement','key'),'goalie selector requirement')
         require(type(row['requirement']) is str and row['requirement'] and (row['key'] is None or row['key'] in keys),
                 'goalie selector witness absent')
         requirements.append(row['requirement'])
@@ -450,7 +453,7 @@ def validate_goalie_probe_comparison(value,complete):
     """check one frozen-head continuation diagnostic without opening its arrays."""
     base='base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol optimizer_maxfun coefficient_max_change coefficient_l2_change status contexts origin_rows maximum_probability_change maximum_joint_change pointwise_threshold compared_probability_rows compared_joint_rows'.split()
     final='tightened_objective objective_change tightened_gradient_max gradient_max_change'.split()
-    _closed(value,base+(final if complete else []),'goalie probe comparison')
+    require_fields(value,base+(final if complete else []),'goalie probe comparison')
     require(value['optimizer_maxiter']==10000 and value['optimizer_ftol']==1e-16 and value['optimizer_gtol']==1e-7 and value['optimizer_maxfun']==15000
             and value['pointwise_threshold']==1e-5 and type(value['contexts']) is int and 0<=value['contexts']<=256
             and value['origin_rows']==656*value['contexts'] and value['status']==('assessed' if complete else 'unassessed'),
@@ -464,7 +467,7 @@ def validate_goalie_probe_comparison(value,complete):
                 'goalie comparison movement assessment differs')
         require(complete or count==0,'unfinished probe claims evaluated comparison')
     require(not complete or value['compared_probability_rows']>0,'completed pointwise probe has no comparison rows')
-    _finite(value,'goalie probe comparison')
+    require_finite_state(value,'goalie probe comparison')
 
 
 def read_goalie_baseline(state):
@@ -473,7 +476,7 @@ def read_goalie_baseline(state):
     by_role={row['role']:row for row in state.manifest['files']}
     record=by_role.get('baseline')
     require(record is not None and record['path']=='baseline.json','annual goalie state has no frozen final-year baseline')
-    path=_member(state.path.parent,record['path'])
+    path=state_member_path(state.path.parent,record['path'])
     reference=identity(path)
     require(reference['sha256']==record['sha256'],'goalie baseline member digest differs')
     value=read_json(path)
@@ -488,7 +491,7 @@ def read_goalie_probe(state,head):
     if record['status']!='assessed':
         return None
     metadata=read_json(state.path.parent/record['head_path'])
-    arrays=_load_arrays(state.path.parent/record['array_path'],metadata['arrays'])
+    arrays=read_coefficient_arrays(state.path.parent/record['array_path'],metadata['arrays'])
     return replace(state,heads=dict(state.heads,**{head:metadata}),arrays=dict(state.arrays,**{head:arrays}),usage=head+'-tight')
 
 

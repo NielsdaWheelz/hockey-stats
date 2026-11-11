@@ -1,0 +1,221 @@
+{
+  "status": "frozen_production_source_after_interface_cleanup",
+  "recorded_at": "2026-11-10T08:05:42.444991+00:00",
+  "base": "08b5294c60d41d665d71cece47ed48813449786c",
+  "head_at_verification": "afa16b6156a13fda2e522cefda33c77a79e94934",
+  "worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-18",
+  "files": [
+    {
+      "path": "analysis/src/hockey_stats/analysis_publication.py",
+      "bytes": 173569,
+      "sha256": "9ab8b593d0643e8118fd913ca6f11feb2064b72e6effd6922bf6ccb803067bf0"
+    },
+    {
+      "path": "analysis/src/hockey_stats/publication.py",
+      "bytes": 50973,
+      "sha256": "594748d8d8c0419b78254165cea587492fa6fd22a76f1e4203f9dacbe5efc295"
+    },
+    {
+      "path": "analysis/src/hockey_stats/spatial_composition.py",
+      "bytes": 39391,
+      "sha256": "a65ddacf1c21070fc30aead01fbf1ae2e5c876e7c27f96d153233372e96b4889"
+    },
+    {
+      "path": "analysis/src/hockey_stats/spatial_state.py",
+      "bytes": 65518,
+      "sha256": "66c6a41f94e2fb5503f0f716f410d0a9b1063580b7669edbee2951e15b1f45dd"
+    },
+    {
+      "path": "app/package-lock.json",
+      "bytes": 93254,
+      "sha256": "f03dd4364e5ff2dbcae115df76af0489494d02f38fe9f004120ef9decef77d1c"
+    },
+    {
+      "path": "app/package.json",
+      "bytes": 1217,
+      "sha256": "bf5e68d37a0eb38886565a27f0d1478a65780b20b57bf95b91064f6782cda413"
+    },
+    {
+      "path": "app/src/operator/publication-cli.ts",
+      "bytes": 5029,
+      "sha256": "68e5b303709352fce588b056da86cde292e23ffa9ac1a4fffa0eb585ed5b8adc"
+    },
+    {
+      "path": "app/src/server/analysis-publication.ts",
+      "bytes": 65616,
+      "sha256": "7b3cb93276f547658f98410407cbce059dd476fda83f5d09927259d3732b54a9"
+    },
+    {
+      "path": "app/src/server/physical-schema.ts",
+      "bytes": 29118,
+      "sha256": "af358963dd4cb1ac22fca3eac648a6730903fe339c2c536388ecdea287d14b87"
+    },
+    {
+      "path": "app/src/server/publication.ts",
+      "bytes": 17692,
+      "sha256": "5598c8416e8db90b5f1e6aba544758c85dca68196a9f9de36c24ce8933813004"
+    },
+    {
+      "path": "app/src/server/selected-publication.ts",
+      "bytes": 20585,
+      "sha256": "774b45efbd2325ead98713419b93845542bdd3ae1ca5e3a19ca62b509adc221a"
+    },
+    {
+      "path": "app/src/shared/player-analysis-selections.ts",
+      "bytes": 9540,
+      "sha256": "f77ede6200c4e6510960801a3aacf811c196e7448c94e380d4eb5cdd55bd4029"
+    },
+    {
+      "path": "app/src/shared/player-analysis.ts",
+      "bytes": 114318,
+      "sha256": "aa7ac7a7461445a9b600d90e5fd2e61eb4a2e1e7d1ecbbd93284702785194017"
+    },
+    {
+      "path": "app/src/shared/publication.ts",
+      "bytes": 3217,
+      "sha256": "031ebbae12e385ce6ec3b9f5714dce5da3a42e4864d1b52e208a9fc6bc79f309"
+    },
+    {
+      "path": "app/src/web/analysis-cohorts.ts",
+      "bytes": 11465,
+      "sha256": "6a3677232a86233dc2197d6b032b0615d92692e14b54f5d6b6bc060a137eacbe"
+    },
+    {
+      "path": "app/src/web/analysis-discovery.ts",
+      "bytes": 19752,
+      "sha256": "8dca55b0ceff7db1df9b4ba74cb18f2d3c6a056a7071ff8d77aef09b081aea46"
+    },
+    {
+      "path": "app/src/web/analysis-history.tsx",
+      "bytes": 45976,
+      "sha256": "5419f84917ca486ee541bcb5f16ce668c2dd44fa0e7ad4e1443a25d1bcc35bea"
+    },
+    {
+      "path": "app/src/web/analysis-values.ts",
+      "bytes": 56697,
+      "sha256": "56fffdd08351ac6ddfcacb2b19a50b5707638fc0113999f4b8aa3da4eab4fda8"
+    },
+    {
+      "path": "app/src/web/analytical-card.tsx",
+      "bytes": 40047,
+      "sha256": "8b7e64375889c51b6511f99abe7005fd1d917c942f4d19aeb23b9dac75a2cc30"
+    },
+    {
+      "path": "app/src/web/analytical-details.tsx",
+      "bytes": 46222,
+      "sha256": "b0bdf0bfdf78f251398f49c75da6ff9ec622f1718597a3cea1071cb7b7a0e611"
+    },
+    {
+      "path": "app/src/web/analytical-map.tsx",
+      "bytes": 24265,
+      "sha256": "1e919ebb0d3d61ba0936897c716c4e65b405d99c906317d0e23a99b5ef4da5b6"
+    },
+    {
+      "path": "app/src/web/client.ts",
+      "bytes": 43174,
+      "sha256": "b9d00dc5c57931aae6d6421a4bcb18112f4b6e4712333a964579927cc0e2ca3d"
+    },
+    {
+      "path": "app/src/web/comparative-card.tsx",
+      "bytes": 34935,
+      "sha256": "1f7a86ead367fedb479a9bead03ccfb577f9bb1f2a1d93cf78ec583202f1d781"
+    },
+    {
+      "path": "app/src/web/explorer.ts",
+      "bytes": 14572,
+      "sha256": "148209fd87fdcc36c76e413a16441ae6ec3d2e1dcf5c0c25915ab4b0c7dbed85"
+    },
+    {
+      "path": "app/src/web/ledger-presentation.ts",
+      "bytes": 794,
+      "sha256": "a121cdd7a8149b6ef416db06f688380993f1632e353c77df98359c9a0b337076"
+    },
+    {
+      "path": "app/src/web/peer-distributions.tsx",
+      "bytes": 29010,
+      "sha256": "2bb5562c7701cdd99a76bf06f4b6e49d6e654a1a62a8c35c76f1f7701287ee33"
+    },
+    {
+      "path": "app/src/web/rink.tsx",
+      "bytes": 1333,
+      "sha256": "913e13e38c86fd1d7ec48d9eacf9f0d432aeef488eb54b22830ce074397d7a7f"
+    },
+    {
+      "path": "app/src/web/routes/compare.tsx",
+      "bytes": 22963,
+      "sha256": "0ec95d0d016a8fb9de5c352a552c77aaf9a07a6228b89822286a404d1874d8aa"
+    },
+    {
+      "path": "app/src/web/routes/league.tsx",
+      "bytes": 20197,
+      "sha256": "ef97383fa188029cd0921ee2c32df091e504c215aa3a1b288a6ea73494f13922"
+    },
+    {
+      "path": "app/src/web/routes/player.tsx",
+      "bytes": 29481,
+      "sha256": "673ca0e3776aad827301e574be450f5eb097b1b774d7fac148ef838ced7f7412"
+    },
+    {
+      "path": "app/src/web/spatial-views.tsx",
+      "bytes": 17063,
+      "sha256": "c31e3b6f8a835c0d7e8355e9727b48e7e4cbd50ca97ecc797407fca2e98f3192"
+    },
+    {
+      "path": "app/src/web/styles.css",
+      "bytes": 36184,
+      "sha256": "b681c8a5703fc0f1418ce41af6b3d6ee1bcbdbb8d0845f7562f5b69a38e7bd65"
+    }
+  ],
+  "verification": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/interface-typecheck.txt",
+      "sha256": "36de49487a44b2407d4252ebd69b7c04224469392cf8cef8b594809e014b8fdf",
+      "bytes": 89
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/interface-build.txt",
+      "sha256": "a40c95a97aa5058ca61a3dfbd1279f133101c617d6ef2df594ee58a07241b8ff",
+      "bytes": 2808
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/module-interface-green.json",
+      "sha256": "18628909010f8e03bc6892f8ae0aff2a074ecb17825817c5021d1c336be46859",
+      "bytes": 1180
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/module-interface-independent-review.json",
+      "sha256": "30af6e5b5f4057b37d46af6c07e828a8328f022ade45c04ad8354a54f044e79a",
+      "bytes": 4340
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/checked-facts.json",
+      "sha256": "862b5260882c3d3937063cb18e313050612fddf1e102a0ebe0d43ac510f438f0",
+      "bytes": 5125
+    }
+  ],
+  "meaning": "same accepted rendering/export bodies with hidden internals; final actual real browser acceptance will use this build",
+  "real_integration": "in progress; no acceptance implied by this software record",
+  "supersedes": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/frozen-production-source.json",
+    "sha256": "b2d1b2f18678d51b01e3102a06e4d29f7fccf6fbcaa550e4ea9eab3d293148f3"
+  },
+  "interface_cleanup": {
+    "removed_unused_export_keywords": 12,
+    "changed_files": [
+      "app/src/web/analytical-card.tsx",
+      "app/src/web/analytical-details.tsx",
+      "app/src/web/analytical-map.tsx"
+    ],
+    "independent_review": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/module-interface-independent-review.json",
+      "sha256": "30af6e5b5f4057b37d46af6c07e828a8328f022ade45c04ad8354a54f044e79a"
+    },
+    "equivalence": "reinserting only the12 export keywords reproduces all3 earlier source hashes exactly; other29 production hashes unchanged"
+  },
+  "final_build_cost": {
+    "wall_seconds": 0.99,
+    "peak_rss_bytes": 598851584,
+    "platform": "darwin",
+    "scope": "external whole npm build command"
+  }
+}

@@ -232,6 +232,18 @@ export const readEvidence = (sql: SqliteClient, selection: A.EvidenceSelection, 
         decode(A.EvidenceResponse, { ...base, family, selection, result }),
       );
     }
+    if (family === "spatial") {
+      const summary = yield* queries.readSummary("skater_spatial", season, player_id, {strength: strength!});
+      const evidence = yield* queries.readSummary("spatial_evidence", season, player_id, {strength: strength!});
+      const targets = A.AdjustmentTarget.literals.filter((target) => strength === "5v5" ||
+        (["5v4", "5v3", "4v3", "pp"].includes(strength!) ? target.startsWith("for_") : target.startsWith("against_")));
+      const adjustments: unknown[] = [];
+      for (const target of targets)
+        adjustments.push({target, result: yield* queries.readSummary("adjustment_decomposition", season, player_id, {strength: strength!, target})});
+      return yield* Effect.try(() => decode(A.EvidenceResponse, {
+        ...base, family, selection, result: provided({summary, evidence, adjustments}),
+      }));
+    }
     if (family === "goalie_evidence") {
       const observed = yield* queries.readSummary("goalie_observed", season, player_id, {
         strength: strength!,

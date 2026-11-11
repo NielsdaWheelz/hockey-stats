@@ -1,0 +1,87 @@
+{
+  "status": "PASSED_FOR_EXACT_PLAN_02",
+  "recorded_at": "2026-11-10T10:52:32.374623+00:00",
+  "reviewed_plan": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/final-cleanup-plan-02.json",
+    "bytes": 10266,
+    "sha256": "a00b95549747faeb03c8e3d900b69c55897c6832b5a25bc01d376163d776422f"
+  },
+  "superseded_plan": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/final-cleanup-plan.json",
+    "bytes": 9652,
+    "sha256": "6a89a6140b7cc23e2077b23c6d507c9a0a0277c3c32296a5e34eb15aa397cdcd"
+  },
+  "scope": "independent concrete cleanup-plan review only; no deletion, process signal, browser, API, candidate or producer action",
+  "targets": {
+    "temporary_files": 37,
+    "temporary_directories": 8,
+    "process_to_stop": {
+      "pid": 7640,
+      "command_session": 72531,
+      "port": 41919,
+      "purpose": "owned verification server only"
+    }
+  },
+  "closed_finding": {
+    "problem": "plan01 omitted the compiled cache of the already-removed temporary one-off converter",
+    "evidence": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/__pycache__/.v1-18-convert.cpython-315.pyc",
+      "bytes": 27624,
+      "sha256": "ce1dc28b3b1155ec86114206b953e16d64ca67d8b6aa2660a68ba183c8adbb91"
+    },
+    "repair": "plan02 adds exactly this file; all previous36 files and8 directories, single process and preservation boundaries are unchanged; no broad cache deletion"
+  },
+  "ownership_and_consumers": [
+    "all36 initial source/profile files matched the plan hashes and were regular files; the added converter cache matches its exact hash and is regular",
+    "none of the temporary app/root test files is a retained tracked source consumer",
+    "retained app source/package/lock/build configuration and analysis source/config have no references to the temporary controller names, runtime or profiles; documentation/receipt path references are historical evidence, not executable consumers",
+    "app TypeScript compilation includes only src operator/server/shared files and the web build owns src/web; the temporary app-root files are outside these build inputs",
+    "the temporary browser runtime contains only Playwright1.65.0 and playwright-core1.65.0 modules; normal app dependencies/build remain outside deletion scope",
+    "journeys owned manifest explicitly binds all6 native-zoom profiles and the browser controllers; contexts closed normally before this review",
+    "all8 directory roots are actual directories, not symlinks; the task.tmp evidence directory contains only two temporary Python integration/fixture-upgrade scripts",
+    "the converter-removal receipt independently identifies the one-off parent source and preserves its attributed source/diff on the external run"
+  ],
+  "accepted_evidence": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/checked-facts-final.json",
+    "bytes": 45767,
+    "sha256": "6fd59f24b35b3b805a7880d256f8199229c60ed02f32fa2460c4f31b8ccda250"
+  },
+  "ownership_receipts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/journeys-temporary-owned.json",
+      "bytes": 3707,
+      "sha256": "2927f95e0a788494cbe3d0af759ed947ac5662cac3ec04f99e7615210622e2d1"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/docs/research/application-v1-18/receipts/real-converter-removal.json",
+      "bytes": 563,
+      "sha256": "7c488f2302ce8c1d230dc110ed52a0f5b98f021ad57baee52721a0514c6ac624"
+    }
+  ],
+  "execution_boundary": "stop only the owned7640/session72531 verification server on41919 after browser contexts are closed; do not signal a process group, primary3000 server or numerical producer",
+  "preservation_boundary": [
+    "all external run results/candidate/receipts/downloads",
+    "primary checkout and its app/dist",
+    "active/previous databases",
+    "current G/ST source/producer worktrees and every fit",
+    "canonical fixture data and expected facts",
+    "task normal app dependencies and build",
+    "task branch/worktree and original context commit"
+  ],
+  "required_completion_checks": {
+    "production_sources": "frozen-production-source-03 all32",
+    "protected_metadata": "preflight40statidentities+13primarycontexthashes, no database body rehash",
+    "no_full_validation_or_heavy_command": true,
+    "note": "root owns execution and before/after checks; this review does not claim cleanup has occurred"
+  },
+  "remaining_cleanup_plan_findings": [],
+  "actions_taken": {
+    "source_metadata_reads_only": true,
+    "files_deleted": 0,
+    "process_signals": 0,
+    "new_requests_or_probes": 0,
+    "candidate_database_opens_hashes_or_queries": 0,
+    "saved_numerical_member_reads": 0,
+    "production_edits": 0
+  }
+}

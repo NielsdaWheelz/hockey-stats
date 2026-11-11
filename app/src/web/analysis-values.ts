@@ -10,6 +10,7 @@ import type {
   PlayerFamilies,
   LeagueSelection,
   SkaterSpatial,
+  SpatialStrength,
   SkaterExecution,
   SkaterShootiness,
   SkaterPenalties,
@@ -62,13 +63,17 @@ export type AnalysisMetricId = ObservedRateKey
   | `ledger.${"league" | "replacement"}_total`
   | `ledger.${LedgerTerm | "penalties_combined"}.${"league" | "replacement"}_goals`
   | `spatial.5v5.${"offense" | "defense"}_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
-  | `spatial.pp.offense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
-  | `spatial.pk.defense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
+  | `spatial.${"pp" | "5v4" | "5v3" | "4v3"}.offense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
+  | `spatial.${"pk" | "4v5" | "3v5" | "3v4"}.defense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
   | `execution.${typeof strengths[number]}.${typeof executionFields[number]}`
   | `shootiness.${typeof strengths[number]}.${"probability" | "difference"}`
+  | "shootiness.5v5.neutral_probability"
   | `penalties.${"drawn_per60" | "taken_per60" | "drawn_value_per60" | "taken_value_per60"}`
   | `territory.${"ice_won_goals_per_basket" | "ice_lost_goals_per_basket"}`
   | `territory.${"exit_offense" | "entry_offense" | "zone_retention" | "entry_prevention"}.one_second_probability`
+  | `territory.${"exit_offense" | "entry_offense"}.hazard_per_second`
+  | "territory.zone_retention.opponent_exit_hazard_per_second"
+  | "territory.entry_prevention.opponent_entry_hazard_per_second"
   | `context.${"teammates" | "opponents"}.usage_minutes_per_appearance`
   | "descriptive.usage.minutes_per_appearance"
   | `descriptive.scoring.${"ev" | "pp"}.primary_points_per60`
@@ -109,7 +114,7 @@ export type AnalysisMetric = {
   readonly qualificationLabel: string;
   readonly observedPopulation?: "personal" | "onIce";
   readonly quantityPath?: typeof QuantityPath.Type;
-  readonly selectionStrength?: typeof import("../shared/player-analysis").ExecutionStrength.Type;
+  readonly selectionStrength?: typeof import("../shared/player-analysis").ExecutionStrength.Type | "ev" | "pk";
   readonly select: (inputs: ValueInputs) => SelectedValue;
 };
 
@@ -151,12 +156,13 @@ export type SpatialDetail = {
   readonly complete: Estimate;
   readonly neutral: Estimate;
   readonly relative_percent: Estimate;
+  readonly state_weights: Spatial["state_weights"];
 };
 
 // these are typed result envelopes, not a second publication schema.
 type ValueInputs = {
   observed: Result<PlayerSummary>;
-  spatial: (strength: "5v5" | "pp" | "pk") => Result<Spatial>;
+  spatial: (strength: typeof SpatialStrength.Type) => Result<Spatial>;
   execution: Result<Execution>;
   shootiness: Result<Shootiness>;
   penalties: Result<Penalties>;
@@ -236,9 +242,13 @@ const definition = (
     : metric.unit === "goals_per_reference_basket" ? "goals per common workload"
     : metric.unit === "goals_per100_attempts" ? "goals per 100 attempts"
     : metric.unit === "goals_per100_assisted_opportunities" ? "goals per 100 setup opportunities"
+    : metric.unit === "goals_per100_on_net" ? "goals per 100 common on-net opportunities"
     : metric.unit === "minutes_per_appearance" ? "min per appearance"
     : metric.unit === "attempts_per60" ? "attempts per 60 min"
     : metric.unit === "xg_per60" ? "xg per 60 min"
+    : metric.unit === "penalties_per60" ? "penalties per 60 min"
+    : metric.unit === "goals_per60" ? "goals per 60 min"
+    : metric.unit === "per_second" ? "per second"
     : metric.unit === "per60" ? "per 60 min"
     : metric.unit === "xga_saved_per100_plays" ? "xga saved per 100 plays"
     : metric.unit
@@ -294,7 +304,15 @@ const spatialRoles = [
   ["5v5", ["offense", "defense"]],
   ["pp", ["offense"]],
   ["pk", ["defense"]],
+  ["5v4", ["offense"]],
+  ["5v3", ["offense"]],
+  ["4v3", ["offense"]],
+  ["4v5", ["defense"]],
+  ["3v5", ["defense"]],
+  ["3v4", ["defense"]],
 ] as const;
+
+export const spatialStrengths: readonly (typeof SpatialStrength.Type)[] = spatialRoles.map(([strength]) => strength);
 
 const spatial = spatialRoles.flatMap(([strength, roles]) =>
   roles.flatMap(role =>
@@ -309,6 +327,8 @@ const spatial = spatialRoles.flatMap(([strength, roles]) =>
       return definition({
         ...base,
         publicationFamily: "spatial",
+        family: "spatial",
+        strength,
         id: `spatial.${strength}.${field}` as AnalysisMetricId,
         quantityPath: `skater_spatial.${field}`,
         group: `spatial ${strength}`,
@@ -319,7 +339,7 @@ const spatial = spatialRoles.flatMap(([strength, roles]) =>
             ? "attempts_per60"
             : "xg_per60",
         population: `${strength} ${role}`,
-        qualificationLabel: `${strength} spatial support`,
+        qualificationLabel: `actual retained ${strength} ${role} minutes`,
         construction: "experimental conditional seasonal estimate",
         numericReference: "frozen hypothetical league-centered design; virtual neutral execution",
         cutoff: strength === "5v5" ? "general" : "specialty",
@@ -332,6 +352,7 @@ const spatial = spatialRoles.flatMap(([strength, roles]) =>
               complete: data[`${role}_${rateQuantity}_per60_complete`],
               neutral: data[`${role}_${rateQuantity}_per60_neutral`],
               relative_percent: data[`${role}_${rateQuantity}_relative_percent`],
+              state_weights: data.state_weights,
             },
           })
         )
@@ -424,6 +445,24 @@ const shootiness = strengths.flatMap(strength =>
   })),
 );
 
+const shootinessNeutral = definition({
+  ...base,
+  publicationFamily: "shootiness",
+  id: "shootiness.5v5.neutral_probability",
+  quantityPath: "skater_shootiness.neutral_probability",
+  standingPolicy: "raw_only",
+  selectionStrength: "5v5",
+  group: "shootiness 5v5",
+  label: "shootiness neutral probability",
+  unit: "fraction",
+  population: "5v5 shooting opportunities",
+  qualificationLabel: "5v5 shootiness support",
+  numericReference: "supplied neutral shootiness probability",
+  select: inputs => fromResult(inputs.shootiness, data => estimate(
+    data.neutral_probability, data.support, data.method_id, "shootiness.5v5.support.included_seconds",
+  )),
+});
+
 const penalties = ([
   "drawn_per60",
   "taken_per60",
@@ -481,7 +520,8 @@ const territory = [
     unit: "fraction",
     population: `territory ${title(field)} opportunities`,
     qualificationLabel: `territory ${title(field)} support`,
-    numericReference: "one second transition probability",
+    numericReference: field === "zone_retention" || field === "entry_prevention"
+      ? "one second opponent-transition avoidance probability" : "one second transition probability",
     select: inputs => fromResult(
       inputs.territory,
       data => estimate(
@@ -492,6 +532,30 @@ const territory = [
       )
     )
   })),
+  ...(["exit_offense", "entry_offense", "zone_retention", "entry_prevention"] as const).map(field => {
+    const hazard = field === "zone_retention" ? "opponent_exit_hazard_per_second"
+      : field === "entry_prevention" ? "opponent_entry_hazard_per_second" : "hazard_per_second";
+    return definition({
+      ...base,
+      publicationFamily: "territory",
+      id: `territory.${field}.${hazard}` as AnalysisMetricId,
+      quantityPath: `skater_territory.${field}.${hazard}` as typeof QuantityPath.Type,
+      standingPolicy: "raw_only",
+      group: "territory",
+      label: `${title(field)} ${title(hazard)}`,
+      unit: "per_second",
+      population: `territory ${title(field)} opportunities`,
+      qualificationLabel: `territory ${title(field)} support`,
+      numericReference: "published transition hazard; not reconstructed from rounded probability",
+      select: inputs => fromResult(inputs.territory, data => {
+        const transition = data[field];
+        const value = "hazard_per_second" in transition ? transition.hazard_per_second
+          : "opponent_exit_hazard_per_second" in transition ? transition.opponent_exit_hazard_per_second
+          : transition.opponent_entry_hazard_per_second;
+        return estimate(value, transition.support, data.method_id, `territory.${field}.support.included_seconds`);
+      }),
+    });
+  }),
 ];
 
 const context = (["teammates", "opponents"] as const).map(field => definition({
@@ -774,21 +838,65 @@ const goalieFields = [
   "followup_danger_difference",
 ] as const;
 
+const goalieMeanings = {
+  stopping_goals_per100_on_net: {
+    label: "experimental stopping",
+    conditioning: "common on-net opportunities; neutral u/q weights, focal r/g only",
+    reference: "neutral minus focal goals allowed; positive means favorable stopping",
+  },
+  miss_probability: {
+    label: "miss probability",
+    conditioning: "given an unblocked opportunity",
+    reference: "focal goalie probability of a recorded miss",
+  },
+  recorded_stop_probability: {
+    label: "recorded stop probability",
+    conditioning: "given an on-net opportunity; immediate recorded stopped-save proxy",
+    reference: "focal goalie probability of a recorded stop; distinct from ordinary save percentage",
+  },
+  conversion_probability: {
+    label: "goal probability after no recorded stop",
+    conditioning: "given an on-net opportunity with no recorded stop",
+    reference: "focal goalie conditional goal probability; increasing means more goals allowed",
+  },
+  recorded_reattempt_probability: {
+    label: "next recorded same-team attempt probability",
+    conditioning: "given a neutral saved-shot reference opportunity; immediately next recorded same-team attempt within five seconds",
+    reference: "focal goalie probability under fixed neutral saved-shot weighting",
+  },
+  reattempt_neutral_goal_probability: {
+    label: "next-attempt neutral danger",
+    conditioning: "conditional on recorded reattempt; fully neutral successor all-attempt goal opportunity",
+    reference: "focal goalie h-weighted successor danger under fixed neutral saved-shot weighting",
+  },
+  followup_danger: {
+    label: "joint follow-up danger",
+    conditioning: "per neutral saved-shot reference opportunity; joint reattempt probability × next-attempt neutral danger inside each branch",
+    reference: "focal goalie joint h × d under fixed neutral saved-shot weighting",
+  },
+} as const;
+
 const goalie = (["ev", "pk"] as const).flatMap(strength =>
-  goalieFields.map(field => definition({
+  goalieFields.map(field => {
+    const difference = field.endsWith("_difference");
+    const name = (difference ? field.slice(0, -"_difference".length) : field) as keyof typeof goalieMeanings;
+    const meaning = goalieMeanings[name];
+    return definition({
     ...base,
     publicationFamily: "goalie",
     id: `goalie.${strength}.${field}`,
     quantityPath: `goalie_result.${field}`,
+    selectionStrength: strength,
     kind: "goalie",
     group: `goalie ${strength}`,
-    label: title(field),
+    label: `${meaning.label}${difference ? " difference" : ""}`,
     unit: field === "stopping_goals_per100_on_net" ? "goals_per100_on_net" : "fraction",
-    population: `goalie ${strength} conditional opportunities`,
-    qualificationLabel: `goalie ${strength} ${title(field)} support`,
-    numericReference: field.endsWith("difference") || field === "stopping_goals_per100_on_net"
-      ? "published neutral goalie forecast"
-      : "conditional probability",
+    population: `goalie ${strength === "ev" ? "ev (5v5/4v4/3v3)" : "pk (defending 4v5/3v5/3v4)"}; constituent common-panel masses pooled before normalization; ${meaning.conditioning}`,
+    qualificationLabel: `current-season supported goalie ${strength} elapsed minutes; coefficient information is separate`,
+    construction: "experimental season-level estimate; reattempt and follow-up danger quantities use next-recorded-attempt proxies, not proven physical rebound control; head-specific point priors may supply partial or prior-only estimates; h/d optimizer sensitivity is diagnostic and remaining accuracy may be unknown; no calibrated intervals",
+    numericReference: difference
+      ? "focal minus fully neutral probability, stored as a fraction; displayed in percentage points"
+      : meaning.reference,
     cutoff: strength === "ev" ? "general" : "specialty",
     select: inputs => fromResult(
       inputs.goalie(strength),
@@ -799,7 +907,8 @@ const goalie = (["ev", "pk"] as const).flatMap(strength =>
         `goalie.${strength}.support.${field}.included_seconds`
       )
     )
-  })),
+    });
+  }),
 );
 
 const ledgerTerms = [
@@ -976,6 +1085,7 @@ export const analysisMetrics: readonly AnalysisMetric[] = [
   ...spatial,
   ...execution,
   ...shootiness,
+  shootinessNeutral,
   ...penalties,
   ...territory,
   ...context,
@@ -1039,9 +1149,12 @@ function historyInputs(families: PlayerFamilies, metric: AnalysisMetric): ValueI
   };
   return {
     observed: families.observed,
-    spatial: strength => families.spatial.availability === "provided"
-      ? families.spatial.data.find(row => row.strength === strength)?.result ?? pending("strength is not computed")
-      : families.spatial,
+    spatial: strength => {
+      if (families.spatial.availability !== "provided") return families.spatial;
+      const row = families.spatial.data.find(row => row.strength === strength);
+      if (!row) throw new Error("provided spatial family lacks its required strength row");
+      return row.result;
+    },
     execution: families.execution.availability === "provided"
       ? families.execution.data.find(
           row => row.strength === (metric.selectionStrength ?? "5v5"),
@@ -1095,8 +1208,12 @@ function datum(
       : method?.support_policy_id ?? `selected_field.${metric.id}.published_support.v1`;
   const referenceId = method?.reference_id ?? "";
   const construction = selected.construction ?? source?.construction ?? metric.construction;
-  const population = source?.population ?? method?.population ?? metric.population;
-  const numericReference = method?.reference ?? metric.numericReference;
+  const population = metric.kind === "goalie"
+    ? metric.population
+    : source?.population ?? method?.population ?? metric.population;
+  const numericReference = metric.kind === "goalie"
+    ? metric.numericReference
+    : method?.reference ?? metric.numericReference;
   const semanticKey = JSON.stringify([
     metric.id,
     metric.unit,
@@ -1220,7 +1337,11 @@ export function selectLeagueValues(
         const data = row.result.data;
         return make(row.person, {
           observed: data.observed,
-          spatial: strength => data.spatial[strength === "5v5" ? "five_on_five" : strength],
+          spatial: strength => {
+            if (strength === "5v5") return data.spatial.five_on_five;
+            if (strength === "pp" || strength === "pk") return data.spatial[strength];
+            throw new Error("exact spatial states require the selected spatial family");
+          },
           execution: data.execution,
           shootiness: data.shootiness,
           penalties: data.penalties,
@@ -1254,6 +1375,14 @@ export function selectLeagueValues(
       return response.players.map(row => make(row.person, {
         ...emptyInputs(),
         execution: row.result
+      }));
+    case "spatial":
+      return response.players.map(row => make(row.person, {
+        ...emptyInputs(),
+        spatial: strength => {
+          if (strength !== response.strength) throw new Error("spatial strength differs from its selected family");
+          return row.result;
+        },
       }));
     case "shootiness":
       return response.players.map(row => make(row.person, {

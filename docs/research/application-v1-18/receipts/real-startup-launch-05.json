@@ -1,0 +1,23 @@
+{
+  "status": "normal_strict_startup_running",
+  "observed_at": "2026-11-10T09:45:40.634725+00:00",
+  "command_session": 72531,
+  "pid": 7640,
+  "ready": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-05.json",
+    "bytes": 11372,
+    "sha256": "3673ff6d32c9d894b6a7566058058c254b8266abe90c0344045e47cd9c0900f9"
+  },
+  "independent_review": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready05-independent-review.json",
+    "bytes": 3439,
+    "sha256": "49f3aa63fae1cc929d2ce4f15ee92b195aca278a394460bd5a24b715faa52a3c"
+  },
+  "normal_server_and_validator_unmodified": true,
+  "application_source_changes": false,
+  "one_actual_normal_strict_validation": true,
+  "startup_log": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/startup.log",
+  "acceptance": "not yet ready or adjudicated",
+  "activation": false,
+  "slot": "v1-18 exclusive; no release"
+}

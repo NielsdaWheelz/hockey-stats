@@ -1,4 +1,4 @@
-// fixed schema-7 storage contract; changes require coordinated writer/reader review.
+// fixed schema-9 storage contract; changes require coordinated writer/reader review.
 export const physicalSchema = {
   adjustment_decomposition: {
     columns: [
@@ -546,6 +546,21 @@ export const physicalSchema = {
     ],
   },
   skater_spatial: {
+    columns: [
+      { name: "season", type: "TEXT", notnull: 1, pk: 1 },
+      { name: "player_id", type: "TEXT", notnull: 1, pk: 2 },
+      { name: "strength", type: "TEXT", notnull: 1, pk: 3 },
+      { name: "method_id", type: "TEXT", notnull: 0, pk: 0 },
+      { name: "availability", type: "TEXT", notnull: 1, pk: 0 },
+      { name: "explanation", type: "TEXT", notnull: 0, pk: 0 },
+      { name: "payload_json", type: "TEXT", notnull: 0, pk: 0 },
+    ],
+    foreignKeys: [
+      "analysis_method:method_id:method_id",
+      "person:season:season,player_id:player_id",
+    ],
+  },
+  spatial_evidence: {
     columns: [
       { name: "season", type: "TEXT", notnull: 1, pk: 1 },
       { name: "player_id", type: "TEXT", notnull: 1, pk: 2 },

@@ -7,11 +7,13 @@ import {
   type ShouldRevalidateFunctionArgs,
 } from "react-router";
 import { HockeyId, type Team } from "../shared/observed";
+import { ExecutionStrength, type SpatialStrength } from "../shared/player-analysis";
 import {
   analysisMetric,
   defaultAnalysisMetric,
   microstatMetricIds,
   microstatComponentIds,
+  spatialStrengths,
   type AnalysisMetric,
   type AnalysisMetricId,
 } from "./analysis-values";
@@ -27,7 +29,7 @@ export type Sort =
   | "reportedMinutes"
   | "evScoringMinutes"
   | "ppScoringMinutes";
-export type AnalysisView = "comparative" | "observed" | "microstats";
+export type AnalysisView = "comparative" | "observed" | "microstats" | "analytical";
 export type DiscoveryTable =
   | "overview"
   | "observed"
@@ -59,9 +61,9 @@ export function readView(search: URLSearchParams): {
   const next = new URLSearchParams(search);
   const values = search.getAll("view");
   const selected = values.length === 1 ? values[0] : undefined;
-  if (values.length && selected !== "comparative" && selected !== "observed" && selected !== "microstats")
+  if (values.length && selected !== "comparative" && selected !== "observed" && selected !== "microstats" && selected !== "analytical")
     next.delete("view");
-  return { view: selected === "observed" || selected === "microstats" ? selected : "comparative", search: next };
+  return { view: selected === "observed" || selected === "microstats" || selected === "analytical" ? selected : "comparative", search: next };
 }
 
 export function readTableSelection(search: URLSearchParams): {
@@ -79,7 +81,7 @@ export function readTableSelection(search: URLSearchParams): {
   const strengths = search.getAll("strength");
   const rawStrength = strengths.length === 1 ? strengths[0] : undefined;
   const choices = table === "spatial"
-    ? ["5v5", "pp", "pk"] as const
+    ? spatialStrengths
     : table === "execution" || table === "shootiness"
       ? ["5v5", "5v4", "5v3", "4v3", "4v5", "3v5", "3v4"] as const
       : [];
@@ -196,12 +198,21 @@ export function readMetric(
     [...microstatMetricIds, ...microstatComponentIds].some(id => id === selected.id));
   const metric = allowed ? selected : undefined;
   if (values.length && metric === undefined) next.delete("metric");
-  return {
-    metric: metric ?? (kind === "skater" && view === "microstats"
+  const resolved = metric ?? (kind === "skater" && view === "microstats"
       ? analysisMetric("microstats.unblocked_attempts_per60")!
       : kind === "skater" && view === "comparative"
       ? analysisMetric("ledger.league_total")!
-      : defaultAnalysisMetric(kind)),
+      : kind === "skater" && view === "analytical"
+      ? analysisMetric("spatial.5v5.offense_attempts_per60")!
+      : defaultAnalysisMetric(kind));
+  if (view === "analytical") {
+    next.delete("strength");
+    if (kind === "goalie") next.delete("view");
+    if (resolved.publicationFamily !== "spatial") next.delete("map");
+    if (kind === "goalie" || analyticalMapSelection(resolved) === null) next.delete("render");
+  }
+  return {
+    metric: resolved,
     search: next,
   };
 }
@@ -259,6 +270,50 @@ export function readMapMode(search: URLSearchParams): {
     values.length === 1 && values[0] === "absolute" ? "absolute" : "difference";
   if (values.length && mode === "difference") next.delete("map");
   return { mode, search: next };
+}
+
+export function readMapRender(search: URLSearchParams): {
+  readonly render: "contours" | "rectangles";
+  readonly search: URLSearchParams;
+} {
+  const next = new URLSearchParams(search);
+  const values = search.getAll("render");
+  const render = readView(search).view === "analytical" && values.length === 1 && values[0] === "rectangles"
+    ? "rectangles" : "contours";
+  if (render === "contours") next.delete("render");
+  return { render, search: next };
+}
+
+export function analyticalMapSelection(metric: AnalysisMetric): {
+  readonly family: "offense_attempts" | "defense_attempts" | "offense_xg" | "defense_xg" | "finishing" | "setting" | "ice_won" | "ice_lost";
+  readonly strength: typeof SpatialStrength.Type;
+} | null {
+  if (metric.publicationFamily === "spatial") {
+    const families = {
+      offense_attempts_per60: "offense_attempts",
+      offense_attempts_relative_percent: "offense_attempts",
+      offense_xg_per60: "offense_xg",
+      offense_xg_relative_percent: "offense_xg",
+      defense_attempts_per60: "defense_attempts",
+      defense_attempts_relative_percent: "defense_attempts",
+      defense_xg_per60: "defense_xg",
+      defense_xg_relative_percent: "defense_xg",
+    } as const;
+    const field = metric.id.split(".")[2] as keyof typeof families;
+    return { family: families[field], strength: metric.strength as typeof SpatialStrength.Type };
+  }
+  if (metric.publicationFamily === "execution") {
+    const strength = metric.selectionStrength;
+    if (!Schema.is(ExecutionStrength)(strength))
+      throw new Error("execution maps require an exact execution strength");
+    if (metric.id.endsWith(".finishing_goals_per100_attempts"))
+      return { family: "finishing", strength };
+    if (metric.id.endsWith(".setting_goals_per100_assisted_opportunities"))
+      return { family: "setting", strength };
+  }
+  if (metric.id === "territory.ice_won_goals_per_basket") return { family: "ice_won", strength: "5v5" };
+  if (metric.id === "territory.ice_lost_goals_per_basket") return { family: "ice_lost", strength: "5v5" };
+  return null;
 }
 
 // compose another edit with an in-flight same-page selection, not its old view.
@@ -337,7 +392,8 @@ export function shouldRevalidateView(
 export const shouldRevalidateAnalysisView = (args: ShouldRevalidateFunctionArgs) =>
   shouldRevalidateView(args, [
     "peers", "peerMin", "specialtyMin", "history",
-    ...(readView(args.nextUrl.searchParams).view === "observed" ? [] : ["map"]),
+    ...(readView(args.nextUrl.searchParams).view === "observed" || readView(args.nextUrl.searchParams).view === "analytical" ? [] : ["map"]),
+    "render",
   ]);
 
 export function pendingSeasonChange(

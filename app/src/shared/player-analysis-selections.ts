@@ -194,6 +194,7 @@ export const parseEvidenceSelection = (
     [
       "personal_shots",
       "execution",
+      "spatial",
       "goalie",
       "goalie_evidence",
       "penalties",
@@ -242,7 +243,7 @@ export const parseEvidenceSelection = (
     };
   if (query.has("population") || query.has("type"))
     invalid("goalie evidence selectors require goalie_evidence");
-  if (!["execution", "goalie"].includes(family) && raw !== undefined)
+  if (!["execution", "spatial", "goalie"].includes(family) && raw !== undefined)
     invalid("this family omits strength");
   return {
     season,
@@ -251,6 +252,8 @@ export const parseEvidenceSelection = (
     strength:
       family === "execution"
         ? member(raw, execution, "strength")
+        : family === "spatial"
+          ? member(raw, spatial, "strength")
         : family === "goalie"
           ? member(raw, goalie, "strength")
           : null,

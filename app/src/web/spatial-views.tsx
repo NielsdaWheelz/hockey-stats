@@ -2,6 +2,7 @@ import { useId } from "react";
 import type { PlayerSpatialCell, SpatialSelection } from "../shared/observed";
 import type { ObservedMaps } from "./client";
 import type { MapMode } from "./explorer";
+import RinkSurface from "./rink";
 import {
   CoverageDetail,
   type PlayerIdentity,
@@ -34,64 +35,32 @@ function Rink({
   readonly extent: number;
   readonly label: string;
 }) {
-  const id = useId();
   return (
-    <svg
-      className="spatial-rink"
-      viewBox="-1 -1 87 202"
-      role="img"
-      aria-labelledby={`${id}-title`}
-      aria-describedby={`${id}-description`}
+    <RinkSurface
+      label={label}
+      description="full rink; positive x points up, positive y points right. the shooting team attacks the top goal in both directions. colors use the shared legend; recorded counts and every displayed value follow in the numerical table."
     >
-      <title id={`${id}-title`}>{label}</title>
-      <desc id={`${id}-description`}>
-        full rink; positive x points up, positive y points right. the shooting
-        team attacks the top goal in both directions. colors use the shared
-        legend; recorded counts and every displayed value follow in the
-        numerical table.
-      </desc>
-      <defs>
-        <clipPath id={`${id}-clip`}>
-          <rect x="0" y="0" width="85" height="200" rx="28" />
-        </clipPath>
-      </defs>
-      <g clipPath={`url(#${id}-clip)`}>
-        {cells.map((cell, index) => {
-          const bounds = geometry[index]!;
-          const value =
-            cell[
-              `${direction}_${mode === "absolute" ? "density" : "difference"}`
-            ];
-          const amount = (100 * Math.abs(value)) / extent;
-          const endpoint =
-            mode === "absolute" ? "#084594" : value < 0 ? "#2166ac" : "#b2182b";
-          return (
-            <rect
-              key={cell.cell_id}
-              x={bounds.y_min + 42.5}
-              y={100 - bounds.x_max}
-              width={bounds.y_max - bounds.y_min}
-              height={bounds.x_max - bounds.x_min}
-              fill={`color-mix(in oklab, ${endpoint} ${amount}%, #f7f7f2)`}
-            />
-          );
-        })}
-        <g className="spatial-landmarks" fill="none">
-          <path d="M0 75H85M0 125H85M0 100H85" />
-          <circle cx="42.5" cy="100" r="15" />
-          <path d="M39.5 11H45.5M39.5 189H45.5" />
-        </g>
-      </g>
-      <rect
-        className="spatial-outline"
-        x="0"
-        y="0"
-        width="85"
-        height="200"
-        rx="28"
-        fill="none"
-      />
-    </svg>
+      {cells.map((cell, index) => {
+        const bounds = geometry[index]!;
+        const value =
+          cell[
+            `${direction}_${mode === "absolute" ? "density" : "difference"}`
+          ];
+        const amount = (100 * Math.abs(value)) / extent;
+        const endpoint =
+          mode === "absolute" ? "#084594" : value < 0 ? "#2166ac" : "#b2182b";
+        return (
+          <rect
+            key={cell.cell_id}
+            x={bounds.y_min + 42.5}
+            y={100 - bounds.x_max}
+            width={bounds.y_max - bounds.y_min}
+            height={bounds.x_max - bounds.x_min}
+            fill={`color-mix(in oklab, ${endpoint} ${amount}%, #f7f7f2)`}
+          />
+        );
+      })}
+    </RinkSurface>
   );
 }
 

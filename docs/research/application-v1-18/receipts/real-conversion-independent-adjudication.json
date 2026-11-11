@@ -1,0 +1,117 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-11-10T07:08:43.011787+00:00",
+  "scope": "bounded independent metadata adjudication only; no inherited numerical member scan, evidence member read, full read_results or duplicate strict validation",
+  "consumed": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-evidence-projection.json",
+      "sha256": "803f9bc1260f8d666426dc6272ff6256cf79db803ec1cfcb806e61b57684d9b5",
+      "bytes": 9547
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-exchange-conversion.json",
+      "sha256": "c68cd39613f23b42c6c558913d2ab6965b3ff53dc406b005f424cda47efef535",
+      "bytes": 12749
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+      "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+      "bytes": 19787
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/manifest.json",
+      "sha256": "38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8",
+      "bytes": 19160
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-launch-preflight.json",
+      "sha256": "32fe3e7636d1d96695750b4a764befeb6599eb6cb9cd07204a994f0b680053fd",
+      "bytes": 4457
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-source-tree-equality.json",
+      "sha256": "be93aa4500a3e122d3b33e2a709e92c5cf5eff8bd8cda9fa4d81461ef9b51ce5",
+      "bytes": 1139
+    },
+    {
+      "path": "docs/research/application-v1-17/receipts/real-metadata-correction.json",
+      "sha256": "cddfb106db01a1c76a9e41a58fe042b954b1cf1e94459c580c7a1fba16247eb8",
+      "bytes": 2281
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results-reference-xg-correction.json",
+      "sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4",
+      "bytes": 24179
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/sources.jsonl",
+      "sha256": "a6a71595226d720ccc1e604454cfdbeadf74445d09075f0c159b96f7bf32c3de",
+      "bytes": 22464
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/sources.jsonl",
+      "sha256": "a6a71595226d720ccc1e604454cfdbeadf74445d09075f0c159b96f7bf32c3de",
+      "bytes": 22464
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/supports.jsonl",
+      "sha256": "fbcd7ac8bde28d6a3a6c17a6c1892cec0d419e2e92c072ee1c3f8072bf7bcc79",
+      "bytes": 6747
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/supports.jsonl",
+      "sha256": "fbcd7ac8bde28d6a3a6c17a6c1892cec0d419e2e92c072ee1c3f8072bf7bcc79",
+      "bytes": 6747
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/methods-complete-01.jsonl",
+      "sha256": "bc1b2aa42b6edd6092aa67246e6a8b9a83e461eb348194806296f4f15cdae091",
+      "bytes": 53839
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/methods.jsonl",
+      "sha256": "6246062a05a4a4b27b3d59eec5087f737ab2d8bc0cc94ce56d369af186631da2",
+      "bytes": 54514
+    }
+  ],
+  "donor_sha256": "38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8",
+  "original_donor_sha256": "a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5",
+  "retained_correction_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4",
+  "output_manifest_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+  "projection_receipt_sha256": "803f9bc1260f8d666426dc6272ff6256cf79db803ec1cfcb806e61b57684d9b5",
+  "completion_receipt_sha256": "c68cd39613f23b42c6c558913d2ab6965b3ff53dc406b005f424cda47efef535",
+  "inherited_member_sha_descriptors_preserved": 57,
+  "unchanged_source_catalog_rows": 21,
+  "unchanged_support_catalog_rows": 18,
+  "method_rows": 12,
+  "exact_changed_method_ids": [
+    "spatial-v1-08-20232024",
+    "spatial-v1-08-20242025",
+    "spatial-v1-08-20252026"
+  ],
+  "method_delta": "exactly one whitelisted limitations substitution and one appended prehashed projection receipt per selected method; every other method field and id is unchanged",
+  "evidence_inventory": [
+    {
+      "season": "20232024",
+      "path": "20232024-spatial-spatial_evidence.jsonl",
+      "sha256": "5883af386dd15efa7a602f1300292953cccdd3972083d8f6b1c2eacf74d34ab2",
+      "rows": 8316
+    },
+    {
+      "season": "20242025",
+      "path": "20242025-spatial-spatial_evidence.jsonl",
+      "sha256": "edf67e50f8a498ff93764d87b588d34197aa6c0ec52e0258022456afa60caa0e",
+      "rows": 8280
+    },
+    {
+      "season": "20252026",
+      "path": "20252026-spatial-spatial_evidence.jsonl",
+      "sha256": "02dc64f3fb52d1384a3fc93c052eac6bc4828f5ff170f8f9afc3fb88202cc6e1",
+      "rows": 8460
+    }
+  ],
+  "evidence_rows": 25056,
+  "evidence_bytes_from_completion": 13712940,
+  "source_attribution": "executed afa16b6 and pinned af6c62b have identical four recorded core git trees; code pins and selected input identities match launch receipt; all three display-year annual-state method bindings are retained",
+  "remaining": "ordinary inactive publication and single strict startup plus real available-output integration remain unverified by this adjudication"
+}

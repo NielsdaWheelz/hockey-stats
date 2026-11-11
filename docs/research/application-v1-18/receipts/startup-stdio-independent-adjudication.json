@@ -1,0 +1,66 @@
+{
+  "status": "passed_minimal_instrumentation_repair",
+  "recorded_at": "2026-11-10T09:20:02.574806+00:00",
+  "scope": "independent diagnosis source/log/receipt review only; no node probe, server launch, candidate open, numerical read or profile mutation",
+  "diagnosis": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis/20261110T091550Z/diagnosis.json",
+    "sha256": "9ebb9fbbd61183da4645787ba0dea68836b60cd158bd27fd6de6d6bc1c39b3b9"
+  },
+  "verified_small_artifacts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis/20261110T091550Z/original-profile-pipes.stdout",
+      "bytes": 14,
+      "sha256": "5b257f843854146a150d460b072fc4759b7d0e313292117e8ed2d6128ed05f17"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis/20261110T091550Z/metadata-allow-content-denied.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis/20261110T091550Z/original-profile-file.log",
+      "bytes": 1105,
+      "sha256": "f2e84b20bc2789f64f240aa55e890a14426bbcfc49df4a469414ca91dea4d3de"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis/20261110T091550Z/metadata-allow-content-denied.stderr",
+      "bytes": 165,
+      "sha256": "799ce64a15893a7f75127afc57b88144fdaf5eafc031541c16005a5157abf6e8"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis/20261110T091550Z/original-profile-pipes.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis/20261110T091550Z/metadata-allow.sb",
+      "bytes": 396,
+      "sha256": "48329b1cf1ce48f47f320b2f723d07432475d5fd60066938ab999ba88fe498fb"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis/20261110T091550Z/metadata-allow-file.log",
+      "bytes": 14,
+      "sha256": "5b257f843854146a150d460b072fc4759b7d0e313292117e8ed2d6128ed05f17"
+    }
+  ],
+  "original_profile_sha256": "e94a9634dcd1ca1fa6e3c84eafbd31d3e4c2e23ae57e72544fd60410c13d5e14",
+  "failed_startup_log": {
+    "bytes": 1105,
+    "sha256": "4528fe1d53103a8fc8700c1700e9593b5467b7ce96b3283a590fc74096335cfd"
+  },
+  "controls": "original profile boots with pipes, aborts before marker with external file stdio; adding only exact-log metadata permission restores marker/exit0; content read under that profile remains EPERM with zero bytes",
+  "native_source": {
+    "url": "https://github.com/nodejs/node/blob/v24.21.0/src/node.cc",
+    "lines": [
+      "497-542",
+      "1030-1046",
+      "1457-1513"
+    ],
+    "meaning": "initialization checks stdio metadata before V8/application execution; non-EBADF fstat errors abort"
+  },
+  "classification_50548": "native initialization failure before application JavaScript; ordinary strict validation did not run; process exit or absent meter alone was not used as proof",
+  "approved_minimal_profile_delta": "(allow file-read-metadata (literal \"/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/startup.log\"))",
+  "preserved_scope": "original external source metadata/content stays denied; startup log content stays denied; existing exact candidate SQLite exception and all source/input/database identities unchanged",
+  "review_controller_correction": "the first profile byte-comparison assertion rejected the diagnostic blank separator line; adjusted to include that exact whitespace, with no semantic policy difference or application execution",
+  "next": "root preserves the native failed launch and original profile, binds the exact final metadata-only policy delta in ready04, then performs the planned actual normal strict validation once; this review does not execute it or imply activation/release"
+}

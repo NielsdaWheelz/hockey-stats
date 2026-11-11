@@ -1,0 +1,792 @@
+{
+  "purpose": "actual real card pixels only",
+  "publication": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+  "main_controller_sha256": "7814b336799e7f5c8f53850df48bc6b6658bc92b9e97e458607c8db5e9406886",
+  "passed": false,
+  "failure": {
+    "message": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)',\n+     type: 'console'\n+   },\n+   {\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)',\n+     type: 'console'\n+   }\n+ ]\n- []\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)',\n+     type: 'console'\n+   },\n+   {\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)',\n+     type: 'console'\n+   }\n+ ]\n- []\n\n    at file:///Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-card-pixels.mjs:90:10"
+  },
+  "pages": [
+    {
+      "label": "375-comparison",
+      "url": "http://127.0.0.1:41919/compare?season=20232024&view=analytical&a=8477492&b=8477504&peerMin=0&specialtyMin=0",
+      "elapsed_ms": 8982.937583,
+      "geometry": {
+        "innerWidth": 375,
+        "outerWidth": 500,
+        "devicePixelRatio": 1,
+        "documentWidth": 375,
+        "cards": [
+          {
+            "rect": {
+              "x": 16,
+              "y": 1716.328125,
+              "width": 343,
+              "height": 8219.40625,
+              "bottom": 9935.734375
+            },
+            "heading": "Nathan MacKinnon",
+            "header": "analytical skater sheetNathan MacKinnon2023–24 · experimental adjusted estimatesC · COL · age 28.4189 as of 2024-02-0182 positive-toi appearances · 22.8142 reported min/appearance",
+            "footer": "construction, support and limitationscalibrated player uncertainty is unknown; empirical population spread is not uncertainty.reference execution: virtual neutral shooter, inferred setter and goalie. complete maps insert one focal player, not actual deployment.workload: 1,000 5v5 / 100 pp / 100 pk min. pp/pk use league-time mixtures; specialty time may be hypothetical or prior-only.attempt integrals differ from xg insets. positive against is more against; positive taking contrasts are more penalties.10ft pooling and contours do not establish fine-scale reliability. aggregate support need not inform every head.s1 · 5v5 spatial · included/excluded min 1278.68/70.6667 · some current focal information; unquantified gapss2 · finishing · included/excluded min 1349.35/0 · some current focal information; unquantified gapss3 · inferred setting · included/excluded min 1349.35/0 · some current focal information; unquantified gapsm1: spatial-v1-08-20232024; reference spatial-league-centered-virtual-v1m2: execution-v1-06-20232024; reference reference-execution-zeroexperimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not establishedexperimental point estimates; calibration, recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicitpublication 0fcf4cf3-0eb6-4180-bfed-f36290318db9 · real · shared comparison scales with player 8477504",
+            "fonts": {
+              "body": "16px",
+              "heading": "25.6px",
+              "caption": "16.8px",
+              "footer": "13.92px"
+            },
+            "mapPairs": [
+              {
+                "rect": {
+                  "x": 36.1875,
+                  "y": 1982.265625,
+                  "width": 302.625,
+                  "height": 2020.046875,
+                  "bottom": 4002.3125
+                },
+                "columns": "302.625px"
+              },
+              {
+                "rect": {
+                  "x": 36.1875,
+                  "y": 6695.875,
+                  "width": 302.625,
+                  "height": 2044.046875,
+                  "bottom": 8739.921875
+                },
+                "columns": "302.625px"
+              }
+            ],
+            "maps": [
+              {
+                "rect": {
+                  "x": 36.1875,
+                  "y": 1982.265625,
+                  "width": 302.625,
+                  "height": 1185.1875,
+                  "bottom": 3167.453125
+                },
+                "caption": "5v5 offense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1875,
+                  "y": 3186.640625,
+                  "width": 302.625,
+                  "height": 815.671875,
+                  "bottom": 4002.3125
+                },
+                "caption": "common pp offense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1875,
+                  "y": 6695.875,
+                  "width": 302.625,
+                  "height": 1209.1875,
+                  "bottom": 7905.0625
+                },
+                "caption": "5v5 defense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1875,
+                  "y": 7924.25,
+                  "width": 302.625,
+                  "height": 815.671875,
+                  "bottom": 8739.921875
+                },
+                "caption": "common pk defense · attempt effect"
+              }
+            ],
+            "skills": {
+              "x": 36.1875,
+              "y": 4021.5,
+              "width": 302.625,
+              "height": 1278.34375,
+              "bottom": 5299.84375
+            },
+            "accounting": {
+              "x": 36.1875,
+              "y": 5315.84375,
+              "width": 302.625,
+              "height": 1360.84375,
+              "bottom": 6676.6875
+            }
+          },
+          {
+            "rect": {
+              "x": 16,
+              "y": 19552.46875,
+              "width": 343,
+              "height": 8219.40625,
+              "bottom": 27771.875
+            },
+            "heading": "Josh Morrissey",
+            "header": "analytical skater sheetJosh Morrissey2023–24 · experimental adjusted estimatesD · WPG · age 28.8487 as of 2024-02-0181 positive-toi appearances · 24.1823 reported min/appearance",
+            "footer": "construction, support and limitationscalibrated player uncertainty is unknown; empirical population spread is not uncertainty.reference execution: virtual neutral shooter, inferred setter and goalie. complete maps insert one focal player, not actual deployment.workload: 1,000 5v5 / 100 pp / 100 pk min. pp/pk use league-time mixtures; specialty time may be hypothetical or prior-only.attempt integrals differ from xg insets. positive against is more against; positive taking contrasts are more penalties.10ft pooling and contours do not establish fine-scale reliability. aggregate support need not inform every head.s1 · 5v5 spatial · included/excluded min 1568.53/20.4167 · some current focal information; unquantified gapss2 · finishing · included/excluded min 1588.95/0 · some current focal information; unquantified gapss3 · inferred setting · included/excluded min 1588.95/0 · some current focal information; unquantified gapsm1: spatial-v1-08-20232024; reference spatial-league-centered-virtual-v1m2: execution-v1-06-20232024; reference reference-execution-zeroexperimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not establishedexperimental point estimates; calibration, recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicitpublication 0fcf4cf3-0eb6-4180-bfed-f36290318db9 · real · shared comparison scales with player 8477492",
+            "fonts": {
+              "body": "16px",
+              "heading": "25.6px",
+              "caption": "16.8px",
+              "footer": "13.92px"
+            },
+            "mapPairs": [
+              {
+                "rect": {
+                  "x": 36.1875,
+                  "y": 19818.40625,
+                  "width": 302.625,
+                  "height": 2020.046875,
+                  "bottom": 21838.453125
+                },
+                "columns": "302.625px"
+              },
+              {
+                "rect": {
+                  "x": 36.1875,
+                  "y": 24532.015625,
+                  "width": 302.625,
+                  "height": 2044.046875,
+                  "bottom": 26576.0625
+                },
+                "columns": "302.625px"
+              }
+            ],
+            "maps": [
+              {
+                "rect": {
+                  "x": 36.1875,
+                  "y": 19818.40625,
+                  "width": 302.625,
+                  "height": 1185.1875,
+                  "bottom": 21003.59375
+                },
+                "caption": "5v5 offense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1875,
+                  "y": 21022.78125,
+                  "width": 302.625,
+                  "height": 815.671875,
+                  "bottom": 21838.453125
+                },
+                "caption": "common pp offense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1875,
+                  "y": 24532.015625,
+                  "width": 302.625,
+                  "height": 1209.1875,
+                  "bottom": 25741.203125
+                },
+                "caption": "5v5 defense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1875,
+                  "y": 25760.390625,
+                  "width": 302.625,
+                  "height": 815.671875,
+                  "bottom": 26576.0625
+                },
+                "caption": "common pk defense · attempt effect"
+              }
+            ],
+            "skills": {
+              "x": 36.1875,
+              "y": 21857.640625,
+              "width": 302.625,
+              "height": 1278.34375,
+              "bottom": 23135.984375
+            },
+            "accounting": {
+              "x": 36.1875,
+              "y": 23151.984375,
+              "width": 302.625,
+              "height": 1360.84375,
+              "bottom": 24512.828125
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "native200-comparison",
+      "url": "http://127.0.0.1:41919/compare?season=20232024&view=analytical&a=8477492&b=8477504&peerMin=0&specialtyMin=0",
+      "elapsed_ms": 8785.578624999998,
+      "geometry": {
+        "innerWidth": 640,
+        "outerWidth": 1280,
+        "devicePixelRatio": 2,
+        "documentWidth": 640,
+        "cards": [
+          {
+            "rect": {
+              "x": 16,
+              "y": 1402.609375,
+              "width": 608,
+              "height": 4710.421875,
+              "bottom": 6113.03125
+            },
+            "heading": "Nathan MacKinnon",
+            "header": "analytical skater sheetNathan MacKinnon2023–24 · experimental adjusted estimatesC · COL · age 28.4189 as of 2024-02-0182 positive-toi appearances · 22.8142 reported min/appearance",
+            "footer": "construction, support and limitationscalibrated player uncertainty is unknown; empirical population spread is not uncertainty.reference execution: virtual neutral shooter, inferred setter and goalie. complete maps insert one focal player, not actual deployment.workload: 1,000 5v5 / 100 pp / 100 pk min. pp/pk use league-time mixtures; specialty time may be hypothetical or prior-only.attempt integrals differ from xg insets. positive against is more against; positive taking contrasts are more penalties.10ft pooling and contours do not establish fine-scale reliability. aggregate support need not inform every head.s1 · 5v5 spatial · included/excluded min 1278.68/70.6667 · some current focal information; unquantified gapss2 · finishing · included/excluded min 1349.35/0 · some current focal information; unquantified gapss3 · inferred setting · included/excluded min 1349.35/0 · some current focal information; unquantified gapsm1: spatial-v1-08-20232024; reference spatial-league-centered-virtual-v1m2: execution-v1-06-20232024; reference reference-execution-zeroexperimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not establishedexperimental point estimates; calibration, recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicitpublication 0fcf4cf3-0eb6-4180-bfed-f36290318db9 · real · shared comparison scales with player 8477504",
+            "fonts": {
+              "body": "16px",
+              "heading": "25.6px",
+              "caption": "16.8px",
+              "footer": "13.92px"
+            },
+            "mapPairs": [
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 1620.625,
+                  "width": 567.609375,
+                  "height": 1111.40625,
+                  "bottom": 2732.03125
+                },
+                "columns": "567.609px"
+              },
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 4178.171875,
+                  "width": 567.609375,
+                  "height": 1135.40625,
+                  "bottom": 5313.578125
+                },
+                "columns": "567.609px"
+              }
+            ],
+            "maps": [
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 1620.625,
+                  "width": 567.609375,
+                  "height": 652.625,
+                  "bottom": 2273.25
+                },
+                "caption": "5v5 offense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 2292.4453125,
+                  "width": 567.609375,
+                  "height": 439.5859375,
+                  "bottom": 2732.03125
+                },
+                "caption": "common pp offense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 4178.171875,
+                  "width": 567.609375,
+                  "height": 676.625,
+                  "bottom": 4854.796875
+                },
+                "caption": "5v5 defense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 4873.9921875,
+                  "width": 567.609375,
+                  "height": 439.5859375,
+                  "bottom": 5313.578125
+                },
+                "caption": "common pk defense · attempt effect"
+              }
+            ],
+            "skills": {
+              "x": 36.1953125,
+              "y": 2751.2265625,
+              "width": 567.609375,
+              "height": 750.8359375,
+              "bottom": 3502.0625
+            },
+            "accounting": {
+              "x": 36.1953125,
+              "y": 3518.0625,
+              "width": 567.609375,
+              "height": 640.9140625,
+              "bottom": 4158.9765625
+            }
+          },
+          {
+            "rect": {
+              "x": 16,
+              "y": 13940.3359375,
+              "width": 608,
+              "height": 4710.421875,
+              "bottom": 18650.7578125
+            },
+            "heading": "Josh Morrissey",
+            "header": "analytical skater sheetJosh Morrissey2023–24 · experimental adjusted estimatesD · WPG · age 28.8487 as of 2024-02-0181 positive-toi appearances · 24.1823 reported min/appearance",
+            "footer": "construction, support and limitationscalibrated player uncertainty is unknown; empirical population spread is not uncertainty.reference execution: virtual neutral shooter, inferred setter and goalie. complete maps insert one focal player, not actual deployment.workload: 1,000 5v5 / 100 pp / 100 pk min. pp/pk use league-time mixtures; specialty time may be hypothetical or prior-only.attempt integrals differ from xg insets. positive against is more against; positive taking contrasts are more penalties.10ft pooling and contours do not establish fine-scale reliability. aggregate support need not inform every head.s1 · 5v5 spatial · included/excluded min 1568.53/20.4167 · some current focal information; unquantified gapss2 · finishing · included/excluded min 1588.95/0 · some current focal information; unquantified gapss3 · inferred setting · included/excluded min 1588.95/0 · some current focal information; unquantified gapsm1: spatial-v1-08-20232024; reference spatial-league-centered-virtual-v1m2: execution-v1-06-20232024; reference reference-execution-zeroexperimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not establishedexperimental point estimates; calibration, recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicitpublication 0fcf4cf3-0eb6-4180-bfed-f36290318db9 · real · shared comparison scales with player 8477492",
+            "fonts": {
+              "body": "16px",
+              "heading": "25.6px",
+              "caption": "16.8px",
+              "footer": "13.92px"
+            },
+            "mapPairs": [
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 14158.3515625,
+                  "width": 567.609375,
+                  "height": 1111.40625,
+                  "bottom": 15269.7578125
+                },
+                "columns": "567.609px"
+              },
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 16715.8984375,
+                  "width": 567.609375,
+                  "height": 1135.40625,
+                  "bottom": 17851.3046875
+                },
+                "columns": "567.609px"
+              }
+            ],
+            "maps": [
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 14158.3515625,
+                  "width": 567.609375,
+                  "height": 652.625,
+                  "bottom": 14810.9765625
+                },
+                "caption": "5v5 offense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 14830.171875,
+                  "width": 567.609375,
+                  "height": 439.5859375,
+                  "bottom": 15269.7578125
+                },
+                "caption": "common pp offense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 16715.8984375,
+                  "width": 567.609375,
+                  "height": 676.625,
+                  "bottom": 17392.5234375
+                },
+                "caption": "5v5 defense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 17411.71875,
+                  "width": 567.609375,
+                  "height": 439.5859375,
+                  "bottom": 17851.3046875
+                },
+                "caption": "common pk defense · attempt effect"
+              }
+            ],
+            "skills": {
+              "x": 36.1953125,
+              "y": 15288.953125,
+              "width": 567.609375,
+              "height": 750.8359375,
+              "bottom": 16039.7890625
+            },
+            "accounting": {
+              "x": 36.1953125,
+              "y": 16055.7890625,
+              "width": 567.609375,
+              "height": 640.9140625,
+              "bottom": 16696.703125
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "native200-profile",
+      "url": "http://127.0.0.1:41919/players/8477492?season=20232024&view=analytical&peerMin=0&specialtyMin=0",
+      "elapsed_ms": 8086.810833999996,
+      "geometry": {
+        "innerWidth": 640,
+        "outerWidth": 1280,
+        "devicePixelRatio": 2,
+        "documentWidth": 640,
+        "cards": [
+          {
+            "rect": {
+              "x": 16,
+              "y": 885.515625,
+              "width": 608,
+              "height": 4689.5390625,
+              "bottom": 5575.0546875
+            },
+            "heading": "Nathan MacKinnon",
+            "header": "analytical skater sheetNathan MacKinnon2023–24 · experimental adjusted estimatesC · COL · age 28.4189 as of 2024-02-0182 positive-toi appearances · 22.8142 reported min/appearance",
+            "footer": "construction, support and limitationscalibrated player uncertainty is unknown; empirical population spread is not uncertainty.reference execution: virtual neutral shooter, inferred setter and goalie. complete maps insert one focal player, not actual deployment.workload: 1,000 5v5 / 100 pp / 100 pk min. pp/pk use league-time mixtures; specialty time may be hypothetical or prior-only.attempt integrals differ from xg insets. positive against is more against; positive taking contrasts are more penalties.10ft pooling and contours do not establish fine-scale reliability. aggregate support need not inform every head.s1 · 5v5 spatial · included/excluded min 1278.68/70.6667 · some current focal information; unquantified gapss2 · finishing · included/excluded min 1349.35/0 · some current focal information; unquantified gapss3 · inferred setting · included/excluded min 1349.35/0 · some current focal information; unquantified gapsm1: spatial-v1-08-20232024; reference spatial-league-centered-virtual-v1m2: execution-v1-06-20232024; reference reference-execution-zeroexperimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not establishedexperimental point estimates; calibration, recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicitpublication 0fcf4cf3-0eb6-4180-bfed-f36290318db9 · real",
+            "fonts": {
+              "body": "16px",
+              "heading": "25.6px",
+              "caption": "16.8px",
+              "footer": "13.92px"
+            },
+            "mapPairs": [
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 1103.53125,
+                  "width": 567.609375,
+                  "height": 1111.40625,
+                  "bottom": 2214.9375
+                },
+                "columns": "567.609px"
+              },
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 3661.078125,
+                  "width": 567.609375,
+                  "height": 1135.40625,
+                  "bottom": 4796.484375
+                },
+                "columns": "567.609px"
+              }
+            ],
+            "maps": [
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 1103.53125,
+                  "width": 567.609375,
+                  "height": 652.625,
+                  "bottom": 1756.15625
+                },
+                "caption": "5v5 offense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 1775.3515625,
+                  "width": 567.609375,
+                  "height": 439.5859375,
+                  "bottom": 2214.9375
+                },
+                "caption": "common pp offense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 3661.078125,
+                  "width": 567.609375,
+                  "height": 676.625,
+                  "bottom": 4337.703125
+                },
+                "caption": "5v5 defense · attempt effect"
+              },
+              {
+                "rect": {
+                  "x": 36.1953125,
+                  "y": 4356.8984375,
+                  "width": 567.609375,
+                  "height": 439.5859375,
+                  "bottom": 4796.484375
+                },
+                "caption": "common pk defense · attempt effect"
+              }
+            ],
+            "skills": {
+              "x": 36.1953125,
+              "y": 2234.1328125,
+              "width": 567.609375,
+              "height": 750.8359375,
+              "bottom": 2984.96875
+            },
+            "accounting": {
+              "x": 36.1953125,
+              "y": 3000.96875,
+              "width": 567.609375,
+              "height": 640.9140625,
+              "bottom": 3641.8828125
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "pictures": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-card-pixels-01/375-comparison-1.png",
+      "bytes": 591177,
+      "sha256": "1b6a6dd8f52e62006ff4fe69cfb89770b4a5965196bdae7d64bde55e45b6e65d",
+      "width": 343,
+      "height": 8220,
+      "card": "Nathan MacKinnon"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-card-pixels-01/375-comparison-2.png",
+      "bytes": 588160,
+      "sha256": "67d887d0912bcbfaf0f5779180b799022454845c2c144ef47c1e39857ba4af76",
+      "width": 343,
+      "height": 8220,
+      "card": "Josh Morrissey"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-card-pixels-01/native200-comparison-1.png",
+      "bytes": 308147,
+      "sha256": "efdefc5a3846aef4b4c1ec86f84ffda70d512c6e55d1044414d0c159ff16a07b",
+      "width": 608,
+      "height": 4712,
+      "card": "Nathan MacKinnon"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-card-pixels-01/native200-comparison-2.png",
+      "bytes": 438386,
+      "sha256": "1b6ec9914946ff60d1a9c2dd3957fda56eddba8e1b2ee15169daf20215e41e9e",
+      "width": 608,
+      "height": 4711,
+      "card": "Josh Morrissey"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-card-pixels-01/native200-profile-1.png",
+      "bytes": 325865,
+      "sha256": "ed6869b6d47e8949b8c7b454886d1af73d060219d18733e99727f3cbae2d64b1",
+      "width": 608,
+      "height": 4691,
+      "card": "Nathan MacKinnon"
+    }
+  ],
+  "requests": [
+    "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/players/8477492?season=20232024",
+    "http://127.0.0.1:41919/api/players/8477504?season=20232024",
+    "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=offense_attempts&strength=5v5&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=offense_attempts&strength=pp&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=defense_attempts&strength=5v5&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=defense_attempts&strength=pk&view=effect",
+    "http://127.0.0.1:41919/api/players/8477492/evidence?season=20232024&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/players/8477504/evidence?season=20232024&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/players/8477492?season=20232024",
+    "http://127.0.0.1:41919/api/players/8477504?season=20232024",
+    "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=offense_attempts&strength=5v5&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=offense_attempts&strength=pp&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=defense_attempts&strength=5v5&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=defense_attempts&strength=pk&view=effect",
+    "http://127.0.0.1:41919/api/players/8477492/evidence?season=20232024&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/players/8477504/evidence?season=20232024&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/players/8477492?season=20232024",
+    "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492&family=offense_attempts&strength=5v5&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492&family=offense_attempts&strength=pp&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492&family=defense_attempts&strength=5v5&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492&family=defense_attempts&strength=pk&view=effect",
+    "http://127.0.0.1:41919/api/players/8477492/evidence?season=20232024&family=spatial&strength=5v5"
+  ],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/players/8477492?season=20232024",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/players/8477504?season=20232024",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=offense_attempts&strength=5v5&view=effect",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=offense_attempts&strength=pp&view=effect",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=defense_attempts&strength=5v5&view=effect",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=defense_attempts&strength=pk&view=effect",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/players/8477492/evidence?season=20232024&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/players/8477504/evidence?season=20232024&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/players/8477492?season=20232024",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/players/8477504?season=20232024",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=offense_attempts&strength=5v5&view=effect",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=offense_attempts&strength=pp&view=effect",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=defense_attempts&strength=5v5&view=effect",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=defense_attempts&strength=pk&view=effect",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/players/8477492/evidence?season=20232024&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/players/8477504/evidence?season=20232024&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/players/8477492?season=20232024",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=spatial&strength=5v5",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492&family=offense_attempts&strength=5v5&view=effect",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492&family=offense_attempts&strength=pp&view=effect",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492&family=defense_attempts&strength=5v5&view=effect",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492&family=defense_attempts&strength=pk&view=effect",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:41919/api/players/8477492/evidence?season=20232024&family=spatial&strength=5v5",
+      "status": 200
+    }
+  ],
+  "errors": [
+    {
+      "type": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "type": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "external": [],
+  "owned_profile": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/native-zoom-real-card-pixels-2",
+  "exports": 0,
+  "direct_api_gets": 0,
+  "server_starts": 0
+}

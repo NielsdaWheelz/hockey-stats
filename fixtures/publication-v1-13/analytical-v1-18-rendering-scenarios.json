@@ -1,0 +1,3063 @@
+{
+  "kind": "analytical_v1_18_browser_fixture_scenarios",
+  "purpose": "fixture",
+  "attribution": "temporary attributed in-memory API construction; original candidate and canonical fixtures were not mutated",
+  "definition": {
+    "purpose": "fixture",
+    "kind": "analytical_browser_construction",
+    "parent_publication_id": "53b61729-af6c-4ff2-bd1d-f0a06d291113",
+    "publication_ids": {
+      "colorful": "ead234ae-9e74-4f0b-900f-3be1f9d44982",
+      "zero": "cdb5bbd2-72d7-4a69-a35b-cdcaf409491c",
+      "long_name": "2ac1b93d-9466-4f43-a239-16904f3099ef"
+    },
+    "source_map": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/sheet-colorful-map-input.json",
+      "sha256": "2ed214a2e90c9625ef646daad2f073d081c09537c17a7a6c710040b845ca63da",
+      "native_cells": 656,
+      "display_cells": 668,
+      "integral": 3
+    },
+    "complete_map": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-variation-complete-map-input.json",
+      "sha256": "192c39743068bf71d6e1711c3dbd23c89c1ff2a7c096cc496acf444b4aa20496",
+      "integral": 30,
+      "construction": "nonnegative synthetic complete and neutral native vectors sum30 and27; complete-minus-neutral equals the signed effect at every native cell; existing Python native_display_mass prepares display; no neutral API map"
+    },
+    "support_vectors": {
+      "ev": {
+        "current_season_information": true,
+        "eligible_weight": 5,
+        "events": 5,
+        "included_seconds": 600,
+        "inferred_inputs": [],
+        "known_excluded_seconds": 0,
+        "prior_only": false,
+        "prior_seasons": [],
+        "reason_counts": [],
+        "unquantified_gap": false
+      },
+      "pp": {
+        "current_season_information": false,
+        "eligible_weight": 0,
+        "events": 0,
+        "included_seconds": 0,
+        "inferred_inputs": [
+          "historical_borrowing"
+        ],
+        "known_excluded_seconds": 120,
+        "prior_only": true,
+        "prior_seasons": [
+          "20222023"
+        ],
+        "reason_counts": [],
+        "unquantified_gap": false
+      },
+      "pk": {
+        "current_season_information": false,
+        "eligible_weight": 0,
+        "events": 0,
+        "included_seconds": 0,
+        "inferred_inputs": [
+          "historical_borrowing"
+        ],
+        "known_excluded_seconds": 240,
+        "prior_only": true,
+        "prior_seasons": [
+          "20222023"
+        ],
+        "reason_counts": [],
+        "unquantified_gap": false
+      },
+      "shootiness": {
+        "current_season_information": true,
+        "eligible_weight": 10,
+        "events": 10,
+        "included_seconds": 1200,
+        "inferred_inputs": [],
+        "known_excluded_seconds": 0,
+        "prior_only": false,
+        "prior_seasons": [],
+        "reason_counts": [],
+        "unquantified_gap": false
+      },
+      "finishing": {
+        "current_season_information": true,
+        "eligible_weight": null,
+        "events": 4,
+        "included_seconds": 600,
+        "inferred_inputs": [],
+        "known_excluded_seconds": 0,
+        "prior_only": false,
+        "prior_seasons": [],
+        "reason_counts": [],
+        "unquantified_gap": false
+      },
+      "setting": {
+        "current_season_information": true,
+        "eligible_weight": null,
+        "events": 2,
+        "included_seconds": 600,
+        "inferred_inputs": [],
+        "known_excluded_seconds": 0,
+        "prior_only": false,
+        "prior_seasons": [],
+        "reason_counts": [],
+        "unquantified_gap": false
+      },
+      "penalties": {
+        "current_season_information": true,
+        "eligible_weight": 7,
+        "events": 7,
+        "included_seconds": 2400,
+        "inferred_inputs": [],
+        "known_excluded_seconds": 0,
+        "prior_only": false,
+        "prior_seasons": [],
+        "reason_counts": [],
+        "unquantified_gap": false
+      },
+      "territory": {
+        "current_season_information": true,
+        "eligible_weight": 12,
+        "events": 12,
+        "included_seconds": 3000,
+        "inferred_inputs": [],
+        "known_excluded_seconds": 0,
+        "prior_only": false,
+        "prior_seasons": [],
+        "reason_counts": [],
+        "unquantified_gap": false
+      }
+    },
+    "common_weights": {
+      "pp": [
+        {
+          "strength": "5v4",
+          "weight": 1
+        },
+        {
+          "strength": "5v3",
+          "weight": 0
+        },
+        {
+          "strength": "4v3",
+          "weight": 0
+        }
+      ],
+      "pk": [
+        {
+          "strength": "4v5",
+          "weight": 1
+        },
+        {
+          "strength": "3v5",
+          "weight": 0
+        },
+        {
+          "strength": "3v4",
+          "weight": 0
+        }
+      ]
+    },
+    "constructed": "temporary in-memory typed API fixture; common specialty summaries copy the canonical 5v4 prior-supported values into the applicable role, with explicit three-state reference weights; zero actual specialty time, all heads carry the 20222023 prior, actual context and all adjustment values remain no_exposure",
+    "unchanged": "original candidate/database/source files, point values at 5v5, nonspatial point values, numerical recipes, real producers, fits and scientific verdicts",
+    "zero_case": "attempt differences are explicit checked zero; complete/neutral attempt rates both30, relative percent0; native and display effect masses/densities all0; xg values remain independently supplied",
+    "long_name": "alexander-maximilian christopher van der langen hockey player",
+    "validation": "every modified endpoint result passes the current compiled shared Effect schema before browser delivery; this is software rendering evidence, not real producer or scientific acceptance"
+  },
+  "canonical": [
+    {
+      "path": "fixtures/publication-v1-13/results/20232024-spatial-skater_spatial.jsonl",
+      "bytes": 113469,
+      "sha256": "13e2a435ca1937db206b127f71149cc223e6c5236d79b3950f9869bdd3b1330a",
+      "selection": {
+        "player_id": "9000001",
+        "strengths": [
+          "5v5",
+          "5v4"
+        ]
+      }
+    },
+    {
+      "path": "fixtures/publication-v1-13/results/20232024-spatial-spatial_evidence.jsonl",
+      "bytes": 112984,
+      "sha256": "437c0fd2a4fa44a811075041d6040c4e6ba048bd85459475aec4425ea8938cdc",
+      "selection": {
+        "player_id": "9000001",
+        "strengths": [
+          "5v5",
+          "5v4"
+        ]
+      }
+    },
+    {
+      "path": "fixtures/publication-v1-13/results/20232024-spatial-adjustment_decomposition.jsonl",
+      "bytes": 294190,
+      "sha256": "028d81a26b29160b5e581f03014670f0db87e5f93d7cc0eb914e41865742b769",
+      "selection": {
+        "player_id": "9000001",
+        "strengths": [
+          "5v5",
+          "5v4"
+        ]
+      }
+    }
+  ],
+  "retained_response_source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-colorful-defense-input.json",
+    "sha256": "866daef0720449934a8b3752082adf56a2f4d7abd69ef9f6df64e7f579b06792"
+  },
+  "player_id": "9000001",
+  "season": "20232024",
+  "support_vectors": {
+    "ev": {
+      "current_season_information": true,
+      "eligible_weight": 5,
+      "events": 5,
+      "included_seconds": 600,
+      "inferred_inputs": [],
+      "known_excluded_seconds": 0,
+      "prior_only": false,
+      "prior_seasons": [],
+      "reason_counts": [],
+      "unquantified_gap": false
+    },
+    "pp": {
+      "current_season_information": false,
+      "eligible_weight": 0,
+      "events": 0,
+      "included_seconds": 0,
+      "inferred_inputs": [
+        "historical_borrowing"
+      ],
+      "known_excluded_seconds": 120,
+      "prior_only": true,
+      "prior_seasons": [
+        "20222023"
+      ],
+      "reason_counts": [],
+      "unquantified_gap": false
+    },
+    "pk": {
+      "current_season_information": false,
+      "eligible_weight": 0,
+      "events": 0,
+      "included_seconds": 0,
+      "inferred_inputs": [
+        "historical_borrowing"
+      ],
+      "known_excluded_seconds": 240,
+      "prior_only": true,
+      "prior_seasons": [
+        "20222023"
+      ],
+      "reason_counts": [],
+      "unquantified_gap": false
+    },
+    "shootiness": {
+      "current_season_information": true,
+      "eligible_weight": 10,
+      "events": 10,
+      "included_seconds": 1200,
+      "inferred_inputs": [],
+      "known_excluded_seconds": 0,
+      "prior_only": false,
+      "prior_seasons": [],
+      "reason_counts": [],
+      "unquantified_gap": false
+    },
+    "finishing": {
+      "current_season_information": true,
+      "eligible_weight": null,
+      "events": 4,
+      "included_seconds": 600,
+      "inferred_inputs": [],
+      "known_excluded_seconds": 0,
+      "prior_only": false,
+      "prior_seasons": [],
+      "reason_counts": [],
+      "unquantified_gap": false
+    },
+    "setting": {
+      "current_season_information": true,
+      "eligible_weight": null,
+      "events": 2,
+      "included_seconds": 600,
+      "inferred_inputs": [],
+      "known_excluded_seconds": 0,
+      "prior_only": false,
+      "prior_seasons": [],
+      "reason_counts": [],
+      "unquantified_gap": false
+    },
+    "penalties": {
+      "current_season_information": true,
+      "eligible_weight": 7,
+      "events": 7,
+      "included_seconds": 2400,
+      "inferred_inputs": [],
+      "known_excluded_seconds": 0,
+      "prior_only": false,
+      "prior_seasons": [],
+      "reason_counts": [],
+      "unquantified_gap": false
+    },
+    "territory": {
+      "current_season_information": true,
+      "eligible_weight": 12,
+      "events": 12,
+      "included_seconds": 3000,
+      "inferred_inputs": [],
+      "known_excluded_seconds": 0,
+      "prior_only": false,
+      "prior_seasons": [],
+      "reason_counts": [],
+      "unquantified_gap": false
+    }
+  },
+  "methods": {
+    "method:spatial": {
+      "method_id": "method:spatial",
+      "family": "spatial",
+      "purpose": "fixture",
+      "recipe_id": "synthetic-transport-v1",
+      "design_sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+      "input_sha256": "11515f665d8e96386ed0c5e55c44897817085a1d8a02a3987683dab449d36726",
+      "fit_seasons": [
+        "20222023",
+        "20232024"
+      ],
+      "training_cutoff": "2024-06-01",
+      "target": "fixture spatial",
+      "population": "explicit synthetic people and synthetic opportunities",
+      "reference": "fixture league and replacement reference",
+      "limitations": [
+        "fixture; uncertainty not estimated; no scientific admission",
+        "synthetic20222023 prior-state scenario from checked facts; no historical scientific fit was performed",
+        "synthetic saved head/state/actual-context evidence; no fitting or real information assessment"
+      ],
+      "evidence": [
+        {
+          "uri": "fixtures/publication-v1-13/checked-facts.json",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee"
+        },
+        {
+          "uri": "fixtures/publication-v1-13/spatial-v1-18-checked-facts.json#ev",
+          "sha256": "af4580f48eb41354eb3aa8c848e2e8f8a41467187f7d9ed5fecd29867a2cf681"
+        }
+      ],
+      "inputs": [
+        {
+          "role": "prepared",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+          "seasons": [
+            "20232024",
+            "20242025",
+            "20252026"
+          ]
+        },
+        {
+          "role": "predecessor",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+          "seasons": [
+            "20222023"
+          ]
+        },
+        {
+          "role": "annual_state",
+          "sha256": "af4580f48eb41354eb3aa8c848e2e8f8a41467187f7d9ed5fecd29867a2cf681",
+          "seasons": [
+            "20222023"
+          ]
+        },
+        {
+          "role": "annual_state",
+          "sha256": "af4580f48eb41354eb3aa8c848e2e8f8a41467187f7d9ed5fecd29867a2cf681",
+          "seasons": [
+            "20232024"
+          ]
+        }
+      ],
+      "reference_id": "fixture_common_workload",
+      "support_policy_id": "fixture_matched_support",
+      "assessment": {
+        "status": "experimental",
+        "findings": [
+          {
+            "quantities": [
+              "skater_spatial.offense_attempts_per60"
+            ],
+            "population": "synthetic transport",
+            "summary": "synthetic weak-evidence limitation scenario; no recovery was measured and fixture construction establishes no ability evidence",
+            "evidence": []
+          }
+        ]
+      }
+    },
+    "method:spatial-st": {
+      "method_id": "method:spatial-st",
+      "family": "spatial",
+      "purpose": "fixture",
+      "recipe_id": "synthetic-transport-v1",
+      "design_sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+      "input_sha256": "11515f665d8e96386ed0c5e55c44897817085a1d8a02a3987683dab449d36726",
+      "fit_seasons": [
+        "20222023",
+        "20232024"
+      ],
+      "training_cutoff": "2024-06-01",
+      "target": "fixture spatial",
+      "population": "explicit synthetic people and synthetic opportunities",
+      "reference": "fixture league and replacement reference",
+      "limitations": [
+        "fixture; uncertainty not estimated; no scientific admission",
+        "synthetic20222023 prior-state scenario from checked facts; no historical scientific fit was performed",
+        "synthetic saved head/state/actual-context evidence; no fitting or real information assessment"
+      ],
+      "evidence": [
+        {
+          "uri": "fixtures/publication-v1-13/checked-facts.json",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee"
+        },
+        {
+          "uri": "fixtures/publication-v1-13/spatial-v1-18-checked-facts.json#st",
+          "sha256": "af4580f48eb41354eb3aa8c848e2e8f8a41467187f7d9ed5fecd29867a2cf681"
+        }
+      ],
+      "inputs": [
+        {
+          "role": "prepared",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+          "seasons": [
+            "20232024",
+            "20242025",
+            "20252026"
+          ]
+        },
+        {
+          "role": "predecessor",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+          "seasons": [
+            "20222023"
+          ]
+        },
+        {
+          "role": "annual_state",
+          "sha256": "af4580f48eb41354eb3aa8c848e2e8f8a41467187f7d9ed5fecd29867a2cf681",
+          "seasons": [
+            "20222023"
+          ]
+        },
+        {
+          "role": "annual_state",
+          "sha256": "af4580f48eb41354eb3aa8c848e2e8f8a41467187f7d9ed5fecd29867a2cf681",
+          "seasons": [
+            "20232024"
+          ]
+        }
+      ],
+      "reference_id": "fixture_common_workload",
+      "support_policy_id": "fixture_matched_support",
+      "assessment": {
+        "status": "experimental",
+        "findings": [
+          {
+            "quantities": [
+              "skater_spatial.offense_attempts_per60"
+            ],
+            "population": "synthetic transport",
+            "summary": "synthetic weak-evidence limitation scenario; no recovery was measured and fixture construction establishes no ability evidence",
+            "evidence": []
+          }
+        ]
+      }
+    },
+    "method:shootiness": {
+      "method_id": "method:shootiness",
+      "family": "shootiness",
+      "purpose": "fixture",
+      "recipe_id": "synthetic-transport-v1",
+      "design_sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+      "input_sha256": "7b7ffc74a54e9fbcd69cb7c8bc9328d1cb6f6095e9cfcdb65ba6356ed08695c1",
+      "fit_seasons": [
+        "20232024"
+      ],
+      "training_cutoff": "2024-06-01",
+      "target": "fixture shootiness",
+      "population": "explicit synthetic people and synthetic opportunities",
+      "reference": "fixture league and replacement reference",
+      "limitations": [
+        "fixture; uncertainty not estimated; no scientific admission"
+      ],
+      "evidence": [
+        {
+          "uri": "fixtures/publication-v1-13/checked-facts.json",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee"
+        }
+      ],
+      "inputs": [
+        {
+          "role": "prepared",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+          "seasons": [
+            "20232024",
+            "20242025",
+            "20252026"
+          ]
+        }
+      ],
+      "reference_id": "fixture_common_workload",
+      "support_policy_id": "fixture_matched_support",
+      "assessment": {
+        "status": "experimental",
+        "findings": [
+          {
+            "quantities": [
+              "skater_shootiness.probability"
+            ],
+            "population": "synthetic transport",
+            "summary": "synthetic weak-evidence limitation scenario; no recovery was measured and fixture construction establishes no ability evidence",
+            "evidence": []
+          }
+        ]
+      }
+    },
+    "method:execution": {
+      "method_id": "method:execution",
+      "family": "execution",
+      "purpose": "fixture",
+      "recipe_id": "synthetic-execution-v1-06",
+      "design_sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+      "input_sha256": "2c733b0774187c3024af0c131e303f54570a32ff3509703e7212f42ed5393452",
+      "fit_seasons": [
+        "20232024"
+      ],
+      "training_cutoff": "2024-06-01",
+      "target": "fixture execution",
+      "population": "explicit synthetic people and synthetic opportunities",
+      "reference": "virtual zero-residual reference execution with retained common-panel circumstances; synthetic transport",
+      "limitations": [
+        "fixture; uncertainty not estimated; no scientific admission"
+      ],
+      "evidence": [
+        {
+          "uri": "fixtures/publication-v1-13/checked-facts.json",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee"
+        },
+        {
+          "uri": "fixtures/publication-v1-13/coach-away.json",
+          "sha256": "9e8ed42ceaa142ccea383cc38b662eaa7006127208904631a50c7cb3d29d0e33"
+        },
+        {
+          "uri": "fixtures/publication-v1-13/coach-home.json",
+          "sha256": "724ff6aab2a0b35d5b474b43b41a577d70f90f1a97f502116b8060b0dc2bff6f"
+        },
+        {
+          "uri": "fixtures/publication-v1-13/execution-v1-06-checked-facts.json",
+          "sha256": "eb4b07f3182d2d84aa4cfa122ceafd0377810cbca8eaa8d9d7691e9507ef4dc5"
+        }
+      ],
+      "inputs": [
+        {
+          "role": "prepared",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+          "seasons": [
+            "20232024",
+            "20242025",
+            "20252026"
+          ]
+        },
+        {
+          "role": "coaches",
+          "sha256": "9e8ed42ceaa142ccea383cc38b662eaa7006127208904631a50c7cb3d29d0e33",
+          "seasons": [
+            "20232024",
+            "20242025",
+            "20252026"
+          ]
+        },
+        {
+          "role": "coaches",
+          "sha256": "724ff6aab2a0b35d5b474b43b41a577d70f90f1a97f502116b8060b0dc2bff6f",
+          "seasons": [
+            "20232024",
+            "20242025",
+            "20252026"
+          ]
+        },
+        {
+          "role": "opportunity_panel",
+          "sha256": "eb4b07f3182d2d84aa4cfa122ceafd0377810cbca8eaa8d9d7691e9507ef4dc5",
+          "seasons": [
+            "20232024"
+          ]
+        }
+      ],
+      "reference_id": "fixture_common_workload",
+      "support_policy_id": "fixture_matched_support",
+      "assessment": {
+        "status": "experimental",
+        "findings": [
+          {
+            "quantities": [
+              "skater_execution.finishing_goals_per100_attempts"
+            ],
+            "population": "synthetic transport",
+            "summary": "synthetic weak-evidence limitation scenario; no recovery was measured and fixture construction establishes no ability evidence",
+            "evidence": []
+          }
+        ]
+      }
+    },
+    "method:penalties": {
+      "method_id": "method:penalties",
+      "family": "penalties",
+      "purpose": "fixture",
+      "recipe_id": "synthetic-transport-v1",
+      "design_sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+      "input_sha256": "7b7ffc74a54e9fbcd69cb7c8bc9328d1cb6f6095e9cfcdb65ba6356ed08695c1",
+      "fit_seasons": [
+        "20232024"
+      ],
+      "training_cutoff": "2024-06-01",
+      "target": "fixture penalties",
+      "population": "explicit synthetic people and synthetic opportunities",
+      "reference": "fixture league and replacement reference",
+      "limitations": [
+        "fixture; uncertainty not estimated; no scientific admission"
+      ],
+      "evidence": [
+        {
+          "uri": "fixtures/publication-v1-13/checked-facts.json",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee"
+        }
+      ],
+      "inputs": [
+        {
+          "role": "prepared",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+          "seasons": [
+            "20232024",
+            "20242025",
+            "20252026"
+          ]
+        }
+      ],
+      "reference_id": "fixture_common_workload",
+      "support_policy_id": "fixture_matched_support",
+      "assessment": {
+        "status": "experimental",
+        "findings": [
+          {
+            "quantities": [
+              "skater_penalties.drawn_per60"
+            ],
+            "population": "synthetic transport",
+            "summary": "synthetic weak-evidence limitation scenario; no recovery was measured and fixture construction establishes no ability evidence",
+            "evidence": []
+          }
+        ]
+      }
+    },
+    "method:territory": {
+      "method_id": "method:territory",
+      "family": "territory",
+      "purpose": "fixture",
+      "recipe_id": "synthetic-transport-v1",
+      "design_sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+      "input_sha256": "7b7ffc74a54e9fbcd69cb7c8bc9328d1cb6f6095e9cfcdb65ba6356ed08695c1",
+      "fit_seasons": [
+        "20232024"
+      ],
+      "training_cutoff": "2024-06-01",
+      "target": "fixture territory",
+      "population": "explicit synthetic people and synthetic opportunities",
+      "reference": "fixture league and replacement reference",
+      "limitations": [
+        "fixture; uncertainty not estimated; no scientific admission"
+      ],
+      "evidence": [
+        {
+          "uri": "fixtures/publication-v1-13/checked-facts.json",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee"
+        }
+      ],
+      "inputs": [
+        {
+          "role": "prepared",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+          "seasons": [
+            "20232024",
+            "20242025",
+            "20252026"
+          ]
+        }
+      ],
+      "reference_id": "fixture_common_workload",
+      "support_policy_id": "fixture_matched_support",
+      "assessment": {
+        "status": "experimental",
+        "findings": [
+          {
+            "quantities": [
+              "skater_territory.ice_won_goals_per_basket"
+            ],
+            "population": "synthetic transport",
+            "summary": "synthetic weak-evidence limitation scenario; no recovery was measured and fixture construction establishes no ability evidence",
+            "evidence": []
+          }
+        ]
+      }
+    },
+    "method:ledger": {
+      "method_id": "method:ledger",
+      "family": "ledger",
+      "purpose": "fixture",
+      "recipe_id": "synthetic-transport-v1",
+      "design_sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+      "input_sha256": "7b7ffc74a54e9fbcd69cb7c8bc9328d1cb6f6095e9cfcdb65ba6356ed08695c1",
+      "fit_seasons": [
+        "20232024"
+      ],
+      "training_cutoff": "2024-06-01",
+      "target": "fixture ledger",
+      "population": "explicit synthetic people and synthetic opportunities",
+      "reference": "fixture league and replacement reference",
+      "limitations": [
+        "fixture; uncertainty not estimated; no scientific admission"
+      ],
+      "evidence": [
+        {
+          "uri": "fixtures/publication-v1-13/checked-facts.json",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee"
+        }
+      ],
+      "inputs": [
+        {
+          "role": "prepared",
+          "sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+          "seasons": [
+            "20232024",
+            "20242025",
+            "20252026"
+          ]
+        }
+      ],
+      "reference_id": "fixture_common_workload",
+      "support_policy_id": "fixture_matched_support",
+      "assessment": {
+        "status": "experimental",
+        "findings": [
+          {
+            "quantities": [
+              "value_ledger.league_total"
+            ],
+            "population": "synthetic transport",
+            "summary": "synthetic weak-evidence limitation scenario; no recovery was measured and fixture construction establishes no ability evidence",
+            "evidence": []
+          }
+        ]
+      }
+    }
+  },
+  "family_bindings": {
+    "spatial.5v5": {
+      "method": "method:spatial",
+      "support": "ev"
+    },
+    "spatial.pp": {
+      "method": "method:spatial-st",
+      "support": "pp"
+    },
+    "spatial.pk": {
+      "method": "method:spatial-st",
+      "support": "pk"
+    },
+    "shootiness.5v5": {
+      "method": "method:shootiness",
+      "support": "shootiness"
+    },
+    "execution.5v5.finishing_goals_per100_attempts": {
+      "method": "method:execution",
+      "support": "finishing"
+    },
+    "execution.5v5.setting_goals_per100_assisted_opportunities": {
+      "method": "method:execution",
+      "support": "setting"
+    },
+    "penalties": {
+      "method": "method:penalties",
+      "support": "penalties"
+    },
+    "territory_and_its_four_subskills": {
+      "method": "method:territory",
+      "support": "territory"
+    },
+    "ledger": {
+      "method": "method:ledger",
+      "support": "unchanged canonical per-component support; territory components retain method:territory"
+    }
+  },
+  "colorful": {
+    "records": {
+      "5v5": {
+        "summary": {
+          "availability": "provided",
+          "data": {
+            "defense_attempts_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 3
+            },
+            "defense_attempts_per60_complete": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 30
+            },
+            "defense_attempts_per60_neutral": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 27
+            },
+            "defense_attempts_relative_percent": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 11.11111111111111
+            },
+            "defense_xg_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 3
+            },
+            "defense_xg_per60_complete": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 4
+            },
+            "defense_xg_per60_neutral": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 1
+            },
+            "defense_xg_relative_percent": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 300
+            },
+            "method_id": "method:spatial",
+            "offense_attempts_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 3
+            },
+            "offense_attempts_per60_complete": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 30
+            },
+            "offense_attempts_per60_neutral": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 27
+            },
+            "offense_attempts_relative_percent": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 11.11111111111111
+            },
+            "offense_xg_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 3
+            },
+            "offense_xg_per60_complete": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 4
+            },
+            "offense_xg_per60_neutral": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 1
+            },
+            "offense_xg_relative_percent": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 300
+            },
+            "state_weights": [
+              {
+                "strength": "5v5",
+                "weight": 1
+              }
+            ],
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 5,
+              "events": 5,
+              "included_seconds": 600,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          "explanation": null
+        },
+        "evidence": {
+          "availability": "provided",
+          "data": {
+            "annual_state": {
+              "sha256": "af4580f48eb41354eb3aa8c848e2e8f8a41467187f7d9ed5fecd29867a2cf681",
+              "uri": "fixtures/publication-v1-13/spatial-v1-18-checked-facts.json#ev"
+            },
+            "fit_family": "ev",
+            "method_id": "method:spatial",
+            "reference_sha256": "af4580f48eb41354eb3aa8c848e2e8f8a41467187f7d9ed5fecd29867a2cf681",
+            "roles": [
+              {
+                "actual_context": {
+                  "available": true,
+                  "included_seconds": 600,
+                  "reason": null,
+                  "states": [
+                    {
+                      "seconds": 600,
+                      "state": "5v5",
+                      "weight": 1
+                    }
+                  ]
+                },
+                "coefficient_support": {
+                  "quality": {
+                    "available": true,
+                    "current_season_information": true,
+                    "eligible_origin_weight": 5,
+                    "included_seconds": 600,
+                    "likelihood_events": 5,
+                    "prior_anchor_season": null,
+                    "prior_kind": "entry",
+                    "prior_only": false,
+                    "prior_seasons": [],
+                    "reason": null,
+                    "state_support": [
+                      {
+                        "eligible_origin_weight": 5,
+                        "included_seconds": 600,
+                        "likelihood_events": 5,
+                        "state": "5v5"
+                      }
+                    ]
+                  },
+                  "shape": {
+                    "available": true,
+                    "current_season_information": true,
+                    "eligible_origin_weight": 5,
+                    "included_seconds": 600,
+                    "likelihood_events": 5,
+                    "prior_anchor_season": null,
+                    "prior_kind": "entry",
+                    "prior_only": false,
+                    "prior_seasons": [],
+                    "reason": null,
+                    "state_support": [
+                      {
+                        "eligible_origin_weight": 5,
+                        "included_seconds": 600,
+                        "likelihood_events": 5,
+                        "state": "5v5"
+                      }
+                    ]
+                  },
+                  "volume": {
+                    "available": true,
+                    "current_season_information": true,
+                    "eligible_origin_weight": 5,
+                    "included_seconds": 600,
+                    "likelihood_events": 5,
+                    "prior_anchor_season": null,
+                    "prior_kind": "entry",
+                    "prior_only": false,
+                    "prior_seasons": [],
+                    "reason": null,
+                    "state_support": [
+                      {
+                        "eligible_origin_weight": 5,
+                        "included_seconds": 600,
+                        "likelihood_events": 5,
+                        "state": "5v5"
+                      }
+                    ]
+                  }
+                },
+                "role": "offense"
+              },
+              {
+                "actual_context": {
+                  "available": true,
+                  "included_seconds": 600,
+                  "reason": null,
+                  "states": [
+                    {
+                      "seconds": 600,
+                      "state": "5v5",
+                      "weight": 1
+                    }
+                  ]
+                },
+                "coefficient_support": {
+                  "quality": {
+                    "available": true,
+                    "current_season_information": true,
+                    "eligible_origin_weight": 5,
+                    "included_seconds": 600,
+                    "likelihood_events": 5,
+                    "prior_anchor_season": null,
+                    "prior_kind": "entry",
+                    "prior_only": false,
+                    "prior_seasons": [],
+                    "reason": null,
+                    "state_support": [
+                      {
+                        "eligible_origin_weight": 5,
+                        "included_seconds": 600,
+                        "likelihood_events": 5,
+                        "state": "5v5"
+                      }
+                    ]
+                  },
+                  "shape": {
+                    "available": true,
+                    "current_season_information": true,
+                    "eligible_origin_weight": 5,
+                    "included_seconds": 600,
+                    "likelihood_events": 5,
+                    "prior_anchor_season": null,
+                    "prior_kind": "entry",
+                    "prior_only": false,
+                    "prior_seasons": [],
+                    "reason": null,
+                    "state_support": [
+                      {
+                        "eligible_origin_weight": 5,
+                        "included_seconds": 600,
+                        "likelihood_events": 5,
+                        "state": "5v5"
+                      }
+                    ]
+                  },
+                  "volume": {
+                    "available": true,
+                    "current_season_information": true,
+                    "eligible_origin_weight": 5,
+                    "included_seconds": 600,
+                    "likelihood_events": 5,
+                    "prior_anchor_season": null,
+                    "prior_kind": "entry",
+                    "prior_only": false,
+                    "prior_seasons": [],
+                    "reason": null,
+                    "state_support": [
+                      {
+                        "eligible_origin_weight": 5,
+                        "included_seconds": 600,
+                        "likelihood_events": 5,
+                        "state": "5v5"
+                      }
+                    ]
+                  }
+                },
+                "role": "defense"
+              }
+            ],
+            "state_support": [
+              {
+                "attempts": 5,
+                "baseline_current_information": {
+                  "quality": true,
+                  "shape": true,
+                  "volume": true
+                },
+                "directed_seconds": 1200,
+                "origin_weight": 5,
+                "physical_seconds": 600,
+                "state": "5v5"
+              }
+            ]
+          },
+          "explanation": null
+        },
+        "adjustments": [
+          {
+            "target": "against_attempts_per60",
+            "result": {
+              "availability": "provided",
+              "data": {
+                "baseline": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 1
+                },
+                "coaching_other_context": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 5
+                },
+                "factual_prediction": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 15
+                },
+                "method_id": "method:spatial",
+                "numerical_residual": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 0
+                },
+                "opponents": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 4
+                },
+                "self": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 2
+                },
+                "teammates": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 3
+                }
+              },
+              "explanation": null
+            }
+          },
+          {
+            "target": "against_xg_per60",
+            "result": {
+              "availability": "provided",
+              "data": {
+                "baseline": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 1
+                },
+                "coaching_other_context": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 5
+                },
+                "factual_prediction": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 15
+                },
+                "method_id": "method:spatial",
+                "numerical_residual": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 0
+                },
+                "opponents": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 4
+                },
+                "self": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 2
+                },
+                "teammates": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 3
+                }
+              },
+              "explanation": null
+            }
+          },
+          {
+            "target": "for_attempts_per60",
+            "result": {
+              "availability": "provided",
+              "data": {
+                "baseline": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 1
+                },
+                "coaching_other_context": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 5
+                },
+                "factual_prediction": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 15
+                },
+                "method_id": "method:spatial",
+                "numerical_residual": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 0
+                },
+                "opponents": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 4
+                },
+                "self": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 2
+                },
+                "teammates": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 3
+                }
+              },
+              "explanation": null
+            }
+          },
+          {
+            "target": "for_xg_per60",
+            "result": {
+              "availability": "provided",
+              "data": {
+                "baseline": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 1
+                },
+                "coaching_other_context": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 5
+                },
+                "factual_prediction": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 15
+                },
+                "method_id": "method:spatial",
+                "numerical_residual": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 0
+                },
+                "opponents": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 4
+                },
+                "self": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 2
+                },
+                "teammates": {
+                  "reason_detail": null,
+                  "unavailable_reason": null,
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": 3
+                }
+              },
+              "explanation": null
+            }
+          }
+        ]
+      },
+      "pp": {
+        "summary": {
+          "availability": "provided",
+          "data": {
+            "defense_attempts_per60": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "defense is not defined on attacking power-play reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "defense_attempts_per60_complete": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "defense is not defined on attacking power-play reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "defense_attempts_per60_neutral": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "defense is not defined on attacking power-play reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "defense_attempts_relative_percent": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "defense is not defined on attacking power-play reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "defense_xg_per60": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "defense is not defined on attacking power-play reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "defense_xg_per60_complete": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "defense is not defined on attacking power-play reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "defense_xg_per60_neutral": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "defense is not defined on attacking power-play reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "defense_xg_relative_percent": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "defense is not defined on attacking power-play reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "method_id": "method:spatial-st",
+            "offense_attempts_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 3
+            },
+            "offense_attempts_per60_complete": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 30
+            },
+            "offense_attempts_per60_neutral": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 27
+            },
+            "offense_attempts_relative_percent": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 11.11111111111111
+            },
+            "offense_xg_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 3
+            },
+            "offense_xg_per60_complete": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 4
+            },
+            "offense_xg_per60_neutral": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 1
+            },
+            "offense_xg_relative_percent": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 300
+            },
+            "state_weights": [
+              {
+                "strength": "5v4",
+                "weight": 1
+              },
+              {
+                "strength": "5v3",
+                "weight": 0
+              },
+              {
+                "strength": "4v3",
+                "weight": 0
+              }
+            ],
+            "support": {
+              "current_season_information": false,
+              "eligible_weight": 0,
+              "events": 0,
+              "included_seconds": 0,
+              "inferred_inputs": [
+                "historical_borrowing"
+              ],
+              "known_excluded_seconds": 120,
+              "prior_only": true,
+              "prior_seasons": [
+                "20222023"
+              ],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          "explanation": null
+        },
+        "evidence": {
+          "availability": "provided",
+          "data": {
+            "annual_state": {
+              "sha256": "af4580f48eb41354eb3aa8c848e2e8f8a41467187f7d9ed5fecd29867a2cf681",
+              "uri": "fixtures/publication-v1-13/spatial-v1-18-checked-facts.json#st"
+            },
+            "fit_family": "st",
+            "method_id": "method:spatial-st",
+            "reference_sha256": "af4580f48eb41354eb3aa8c848e2e8f8a41467187f7d9ed5fecd29867a2cf681",
+            "roles": [
+              {
+                "actual_context": {
+                  "available": false,
+                  "included_seconds": 0,
+                  "reason": "no_exposure",
+                  "states": null
+                },
+                "coefficient_support": {
+                  "quality": {
+                    "available": true,
+                    "current_season_information": false,
+                    "eligible_origin_weight": 0,
+                    "included_seconds": 0,
+                    "likelihood_events": 0,
+                    "prior_anchor_season": "20222023",
+                    "prior_kind": "carry",
+                    "prior_only": true,
+                    "prior_seasons": [
+                      "20222023"
+                    ],
+                    "reason": null,
+                    "state_support": [
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "5v4"
+                      },
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "5v3"
+                      },
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "4v3"
+                      }
+                    ]
+                  },
+                  "shape": {
+                    "available": true,
+                    "current_season_information": false,
+                    "eligible_origin_weight": 0,
+                    "included_seconds": 0,
+                    "likelihood_events": 0,
+                    "prior_anchor_season": "20222023",
+                    "prior_kind": "carry",
+                    "prior_only": true,
+                    "prior_seasons": [
+                      "20222023"
+                    ],
+                    "reason": null,
+                    "state_support": [
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "5v4"
+                      },
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "5v3"
+                      },
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "4v3"
+                      }
+                    ]
+                  },
+                  "volume": {
+                    "available": true,
+                    "current_season_information": false,
+                    "eligible_origin_weight": 0,
+                    "included_seconds": 0,
+                    "likelihood_events": 0,
+                    "prior_anchor_season": "20222023",
+                    "prior_kind": "carry",
+                    "prior_only": true,
+                    "prior_seasons": [
+                      "20222023"
+                    ],
+                    "reason": null,
+                    "state_support": [
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "5v4"
+                      },
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "5v3"
+                      },
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "4v3"
+                      }
+                    ]
+                  }
+                },
+                "role": "offense"
+              }
+            ],
+            "state_support": [
+              {
+                "attempts": 10,
+                "baseline_current_information": {
+                  "quality": true,
+                  "shape": true,
+                  "volume": true
+                },
+                "directed_seconds": 600,
+                "origin_weight": 10,
+                "physical_seconds": 600,
+                "state": "5v4"
+              },
+              {
+                "state": "5v3",
+                "physical_seconds": 0,
+                "directed_seconds": 0,
+                "attempts": 0,
+                "origin_weight": 0,
+                "baseline_current_information": {
+                  "volume": false,
+                  "shape": false,
+                  "quality": false
+                }
+              },
+              {
+                "state": "4v3",
+                "physical_seconds": 0,
+                "directed_seconds": 0,
+                "attempts": 0,
+                "origin_weight": 0,
+                "baseline_current_information": {
+                  "volume": false,
+                  "shape": false,
+                  "quality": false
+                }
+              }
+            ]
+          },
+          "explanation": null
+        },
+        "adjustments": [
+          {
+            "target": "for_attempts_per60",
+            "result": {
+              "availability": "provided",
+              "data": {
+                "baseline": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "coaching_other_context": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "factual_prediction": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "method_id": "method:spatial-st",
+                "numerical_residual": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "opponents": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "self": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "teammates": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                }
+              },
+              "explanation": null
+            }
+          },
+          {
+            "target": "for_xg_per60",
+            "result": {
+              "availability": "provided",
+              "data": {
+                "baseline": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "coaching_other_context": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "factual_prediction": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "method_id": "method:spatial-st",
+                "numerical_residual": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "opponents": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "self": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "teammates": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                }
+              },
+              "explanation": null
+            }
+          }
+        ]
+      },
+      "pk": {
+        "summary": {
+          "availability": "provided",
+          "data": {
+            "defense_attempts_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 3
+            },
+            "defense_attempts_per60_complete": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 30
+            },
+            "defense_attempts_per60_neutral": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 27
+            },
+            "defense_attempts_relative_percent": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 11.11111111111111
+            },
+            "defense_xg_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 3
+            },
+            "defense_xg_per60_complete": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 4
+            },
+            "defense_xg_per60_neutral": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 1
+            },
+            "defense_xg_relative_percent": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 300
+            },
+            "method_id": "method:spatial-st",
+            "offense_attempts_per60": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "offense is not defined on the defending penalty-kill reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "offense_attempts_per60_complete": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "offense is not defined on the defending penalty-kill reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "offense_attempts_per60_neutral": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "offense is not defined on the defending penalty-kill reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "offense_attempts_relative_percent": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "offense is not defined on the defending penalty-kill reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "offense_xg_per60": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "offense is not defined on the defending penalty-kill reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "offense_xg_per60_complete": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "offense is not defined on the defending penalty-kill reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "offense_xg_per60_neutral": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "offense is not defined on the defending penalty-kill reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "offense_xg_relative_percent": {
+              "reason_detail": {
+                "evidence": [],
+                "explanation": "offense is not defined on the defending penalty-kill reference"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "state_weights": [
+              {
+                "strength": "4v5",
+                "weight": 1
+              },
+              {
+                "strength": "3v5",
+                "weight": 0
+              },
+              {
+                "strength": "3v4",
+                "weight": 0
+              }
+            ],
+            "support": {
+              "current_season_information": false,
+              "eligible_weight": 0,
+              "events": 0,
+              "included_seconds": 0,
+              "inferred_inputs": [
+                "historical_borrowing"
+              ],
+              "known_excluded_seconds": 240,
+              "prior_only": true,
+              "prior_seasons": [
+                "20222023"
+              ],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          "explanation": null
+        },
+        "evidence": {
+          "availability": "provided",
+          "data": {
+            "annual_state": {
+              "sha256": "af4580f48eb41354eb3aa8c848e2e8f8a41467187f7d9ed5fecd29867a2cf681",
+              "uri": "fixtures/publication-v1-13/spatial-v1-18-checked-facts.json#st"
+            },
+            "fit_family": "st",
+            "method_id": "method:spatial-st",
+            "reference_sha256": "af4580f48eb41354eb3aa8c848e2e8f8a41467187f7d9ed5fecd29867a2cf681",
+            "roles": [
+              {
+                "actual_context": {
+                  "available": false,
+                  "included_seconds": 0,
+                  "reason": "no_exposure",
+                  "states": null
+                },
+                "coefficient_support": {
+                  "quality": {
+                    "available": true,
+                    "current_season_information": false,
+                    "eligible_origin_weight": 0,
+                    "included_seconds": 0,
+                    "likelihood_events": 0,
+                    "prior_anchor_season": "20222023",
+                    "prior_kind": "carry",
+                    "prior_only": true,
+                    "prior_seasons": [
+                      "20222023"
+                    ],
+                    "reason": null,
+                    "state_support": [
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "5v4"
+                      },
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "5v3"
+                      },
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "4v3"
+                      }
+                    ]
+                  },
+                  "shape": {
+                    "available": true,
+                    "current_season_information": false,
+                    "eligible_origin_weight": 0,
+                    "included_seconds": 0,
+                    "likelihood_events": 0,
+                    "prior_anchor_season": "20222023",
+                    "prior_kind": "carry",
+                    "prior_only": true,
+                    "prior_seasons": [
+                      "20222023"
+                    ],
+                    "reason": null,
+                    "state_support": [
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "5v4"
+                      },
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "5v3"
+                      },
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "4v3"
+                      }
+                    ]
+                  },
+                  "volume": {
+                    "available": true,
+                    "current_season_information": false,
+                    "eligible_origin_weight": 0,
+                    "included_seconds": 0,
+                    "likelihood_events": 0,
+                    "prior_anchor_season": "20222023",
+                    "prior_kind": "carry",
+                    "prior_only": true,
+                    "prior_seasons": [
+                      "20222023"
+                    ],
+                    "reason": null,
+                    "state_support": [
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "5v4"
+                      },
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "5v3"
+                      },
+                      {
+                        "eligible_origin_weight": 0,
+                        "included_seconds": 0,
+                        "likelihood_events": 0,
+                        "state": "4v3"
+                      }
+                    ]
+                  }
+                },
+                "role": "defense"
+              }
+            ],
+            "state_support": [
+              {
+                "attempts": 10,
+                "baseline_current_information": {
+                  "quality": true,
+                  "shape": true,
+                  "volume": true
+                },
+                "directed_seconds": 600,
+                "origin_weight": 10,
+                "physical_seconds": 600,
+                "state": "5v4"
+              },
+              {
+                "state": "5v3",
+                "physical_seconds": 0,
+                "directed_seconds": 0,
+                "attempts": 0,
+                "origin_weight": 0,
+                "baseline_current_information": {
+                  "volume": false,
+                  "shape": false,
+                  "quality": false
+                }
+              },
+              {
+                "state": "4v3",
+                "physical_seconds": 0,
+                "directed_seconds": 0,
+                "attempts": 0,
+                "origin_weight": 0,
+                "baseline_current_information": {
+                  "volume": false,
+                  "shape": false,
+                  "quality": false
+                }
+              }
+            ]
+          },
+          "explanation": null
+        },
+        "adjustments": [
+          {
+            "target": "against_attempts_per60",
+            "result": {
+              "availability": "provided",
+              "data": {
+                "baseline": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "coaching_other_context": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "factual_prediction": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "method_id": "method:spatial-st",
+                "numerical_residual": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "opponents": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "self": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "teammates": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                }
+              },
+              "explanation": null
+            }
+          },
+          {
+            "target": "against_xg_per60",
+            "result": {
+              "availability": "provided",
+              "data": {
+                "baseline": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "coaching_other_context": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "factual_prediction": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "method_id": "method:spatial-st",
+                "numerical_residual": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "opponents": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "self": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                },
+                "teammates": {
+                  "reason_detail": {
+                    "evidence": [],
+                    "explanation": "no_exposure"
+                  },
+                  "unavailable_reason": "no_exposure",
+                  "uncertainty": {
+                    "kind": "not_estimated"
+                  },
+                  "value": null
+                }
+              },
+              "explanation": null
+            }
+          }
+        ]
+      }
+    },
+    "visible": {
+      "available_maps": 4,
+      "support_populations": 8,
+      "construction_references": 7,
+      "distributions": 4,
+      "contribution_labels": 10,
+      "csv_rows": 57
+    },
+    "expected_attempt_difference": 3,
+    "expected_attempt_complete": 30,
+    "expected_attempt_neutral": 27
+  },
+  "zero": {
+    "spatial_summaries": {
+      "5v5": {
+        "defense_attempts_per60": {
+          "value": 0,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        },
+        "defense_attempts_per60_complete": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 30
+        },
+        "defense_attempts_per60_neutral": {
+          "value": 30,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        },
+        "defense_attempts_relative_percent": {
+          "value": 0,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        },
+        "defense_xg_per60": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 3
+        },
+        "defense_xg_per60_complete": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 4
+        },
+        "defense_xg_per60_neutral": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 1
+        },
+        "defense_xg_relative_percent": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 300
+        },
+        "method_id": "method:spatial",
+        "offense_attempts_per60": {
+          "value": 0,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        },
+        "offense_attempts_per60_complete": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 30
+        },
+        "offense_attempts_per60_neutral": {
+          "value": 30,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        },
+        "offense_attempts_relative_percent": {
+          "value": 0,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        },
+        "offense_xg_per60": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 3
+        },
+        "offense_xg_per60_complete": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 4
+        },
+        "offense_xg_per60_neutral": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 1
+        },
+        "offense_xg_relative_percent": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 300
+        },
+        "state_weights": [
+          {
+            "strength": "5v5",
+            "weight": 1
+          }
+        ],
+        "support": {
+          "current_season_information": true,
+          "eligible_weight": 5,
+          "events": 5,
+          "included_seconds": 600,
+          "inferred_inputs": [],
+          "known_excluded_seconds": 0,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason_counts": [],
+          "unquantified_gap": false
+        }
+      },
+      "pp": {
+        "defense_attempts_per60": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "defense is not defined on attacking power-play reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "defense_attempts_per60_complete": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "defense is not defined on attacking power-play reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "defense_attempts_per60_neutral": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "defense is not defined on attacking power-play reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "defense_attempts_relative_percent": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "defense is not defined on attacking power-play reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "defense_xg_per60": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "defense is not defined on attacking power-play reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "defense_xg_per60_complete": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "defense is not defined on attacking power-play reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "defense_xg_per60_neutral": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "defense is not defined on attacking power-play reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "defense_xg_relative_percent": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "defense is not defined on attacking power-play reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "method_id": "method:spatial-st",
+        "offense_attempts_per60": {
+          "value": 0,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        },
+        "offense_attempts_per60_complete": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 30
+        },
+        "offense_attempts_per60_neutral": {
+          "value": 30,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        },
+        "offense_attempts_relative_percent": {
+          "value": 0,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        },
+        "offense_xg_per60": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 3
+        },
+        "offense_xg_per60_complete": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 4
+        },
+        "offense_xg_per60_neutral": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 1
+        },
+        "offense_xg_relative_percent": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 300
+        },
+        "state_weights": [
+          {
+            "strength": "5v4",
+            "weight": 1
+          },
+          {
+            "strength": "5v3",
+            "weight": 0
+          },
+          {
+            "strength": "4v3",
+            "weight": 0
+          }
+        ],
+        "support": {
+          "current_season_information": false,
+          "eligible_weight": 0,
+          "events": 0,
+          "included_seconds": 0,
+          "inferred_inputs": [
+            "historical_borrowing"
+          ],
+          "known_excluded_seconds": 120,
+          "prior_only": true,
+          "prior_seasons": [
+            "20222023"
+          ],
+          "reason_counts": [],
+          "unquantified_gap": false
+        }
+      },
+      "pk": {
+        "defense_attempts_per60": {
+          "value": 0,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        },
+        "defense_attempts_per60_complete": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 30
+        },
+        "defense_attempts_per60_neutral": {
+          "value": 30,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        },
+        "defense_attempts_relative_percent": {
+          "value": 0,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        },
+        "defense_xg_per60": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 3
+        },
+        "defense_xg_per60_complete": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 4
+        },
+        "defense_xg_per60_neutral": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 1
+        },
+        "defense_xg_relative_percent": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 300
+        },
+        "method_id": "method:spatial-st",
+        "offense_attempts_per60": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "offense is not defined on the defending penalty-kill reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "offense_attempts_per60_complete": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "offense is not defined on the defending penalty-kill reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "offense_attempts_per60_neutral": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "offense is not defined on the defending penalty-kill reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "offense_attempts_relative_percent": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "offense is not defined on the defending penalty-kill reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "offense_xg_per60": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "offense is not defined on the defending penalty-kill reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "offense_xg_per60_complete": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "offense is not defined on the defending penalty-kill reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "offense_xg_per60_neutral": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "offense is not defined on the defending penalty-kill reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "offense_xg_relative_percent": {
+          "reason_detail": {
+            "evidence": [],
+            "explanation": "offense is not defined on the defending penalty-kill reference"
+          },
+          "unavailable_reason": "not_applicable",
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": null
+        },
+        "state_weights": [
+          {
+            "strength": "4v5",
+            "weight": 1
+          },
+          {
+            "strength": "3v5",
+            "weight": 0
+          },
+          {
+            "strength": "3v4",
+            "weight": 0
+          }
+        ],
+        "support": {
+          "current_season_information": false,
+          "eligible_weight": 0,
+          "events": 0,
+          "included_seconds": 0,
+          "inferred_inputs": [
+            "historical_borrowing"
+          ],
+          "known_excluded_seconds": 240,
+          "prior_only": true,
+          "prior_seasons": [
+            "20222023"
+          ],
+          "reason_counts": [],
+          "unquantified_gap": false
+        }
+      }
+    },
+    "effect_map_overrides": {
+      "native": "all656 retained native cell ids have value0",
+      "display": "all668 retained display cell ids have mass0 and density_per100sqft0",
+      "integral": 0
+    },
+    "complete_map": "same retained complete vector; assign the neutral vector equal to this complete vector in the zero construction; no neutral API payload",
+    "head_context_adjustment_records": "exactly the colorful records above; only their paired summaries receive the stated zero summary overrides",
+    "expected_visible": "four neutral map fills and four zero legends; no signed contour paths; explicit0 values rather than pending"
+  },
+  "long_name": {
+    "base": "exact colorful scenario above",
+    "display_name": "alexander-maximilian christopher van der langen hockey player",
+    "renamed_player": "9000001",
+    "rename_scope": "all matching selected/history/cohort person identities in delivered bodies; numerical fields and metadata unchanged"
+  },
+  "nonspatial_overrides": "only support records listed above changed. execution stage support remains canonical600s/events2/eligible_weight null; coefficient/diagnostic records, point estimates and scientific methods unchanged",
+  "expected_unchanged_values": {
+    "shootiness_probability": 0.4,
+    "shootiness_neutral_probability": 0.3,
+    "shootiness_difference": 0.1,
+    "finishing_goals_per100_attempts": 3,
+    "setting_goals_per100_assisted_opportunities": 3,
+    "penalties_taken_per60": -3,
+    "league_total": 55,
+    "replacement_total": 110
+  },
+  "exports": [
+    {
+      "variant": "colorful",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/colorful-card.csv",
+      "bytes": 121024,
+      "sha256": "83106dfe0411cd9fc1abc108f5a9059ca40e922b4ee3d605b1f15161ea225d3b",
+      "expected_rows": 57
+    },
+    {
+      "variant": "zero",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/zero-card.csv",
+      "bytes": 120960,
+      "sha256": "4fef311219f0827b11daa81b147480c2914c289c3749eb78c554538894b1b4bd",
+      "expected_rows": 57
+    },
+    {
+      "variant": "long_name",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/long_name-card.csv",
+      "bytes": 123589,
+      "sha256": "409c18fdf5890e3fedafffaccd50376cbe1799990bf6f0da7a09da71765a9b5b",
+      "expected_rows": 57
+    }
+  ],
+  "independent_pixels": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/independent-final-pixel-review.json",
+    "sha256": "77900a9cc8f9bcfc31e599fdfdfd83a2c3702b9da70ed03a6c4b28b1134c540b"
+  },
+  "limits": "strict finite public wire and software rendering examples. no underlying coefficient system was constructed or refit; unchanged canonical EV actual-context records do not establish a numerical generative proof for the synthetic zero map. no real producer or scientific acceptance follows"
+}

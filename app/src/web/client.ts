@@ -14,6 +14,7 @@ import type {
 } from "../shared/observed";
 import {
   ApiError,
+  close,
   PlayerAnalysisApi,
   type LeagueResponse,
   type EvidenceResponse,
@@ -27,10 +28,12 @@ import {
   readMetric,
   readTableSelection,
   readView,
+  analyticalMapSelection,
   type AnalysisView,
 } from "./explorer";
 import {
   checkObservedIdentity,
+  analysisMetric,
   selectHistoryValue,
   selectLeagueValues,
   type AnalysisMetric,
@@ -56,10 +59,14 @@ export type ObservedMaps = {
   readonly scale: Extract<MapsResponse, { family: "observed" }>["scale"];
 };
 export type ExecutionEvidence = Extract<EvidenceResponse, { family: "execution" }>;
+export type SpatialEvidence = Extract<EvidenceResponse, { family: "spatial" }>;
 export type MicrostatsEvidence = Extract<EvidenceResponse, { family: "microstats" }>;
 export type MicrostatsCohort = Extract<LeagueResponse, { family: "microstats" }>;
 export type ProfileView = Release & {
   readonly executionEvidence: ExecutionEvidence | null;
+  readonly spatialEvidence: SpatialEvidence | null;
+  readonly coreMaps: readonly MapsResponse[];
+  readonly selectedMap: MapsResponse | null;
   readonly microstatsEvidence: MicrostatsEvidence | null;
   readonly microstatsCohort: MicrostatsCohort | null;
   readonly detail: PlayerResponse;
@@ -87,6 +94,7 @@ export type ScalarHistoryRow = PlayerResponse["history"][number] & {
   readonly cohort: LeagueResponse | null;
 };
 export type ComparisonView = LeagueView & {
+  readonly coreMaps: readonly MapsResponse[];
   readonly selectedMetric: AnalysisMetric;
   readonly scalarCohort: LeagueResponse;
   readonly persons: readonly Person[];
@@ -412,6 +420,115 @@ function withMicrostatsEvidence(profile: ProfileView, evidence: EvidenceResponse
   return { ...profile, microstatsEvidence: evidence };
 }
 
+function withExecutionEvidence(profile: ProfileView, evidence: EvidenceResponse): ProfileView {
+  sameRelease(profile.detail, evidence);
+  const strength = profile.selectedMetric.selectionStrength!;
+  if (evidence.family !== "execution" || evidence.selection.player_id !== profile.player_id ||
+      evidence.selection.season !== profile.season.season || evidence.selection.strength !== strength)
+    throw new Error("execution evidence differs from the selected player, season or strength");
+  catalogs([profile.detail, evidence]);
+  const families = profile.detail.families;
+  const expected = "availability" in families ? families
+    : families.kind === "skater" && families.execution.availability === "provided"
+      ? families.execution.data.find(row => row.strength === strength)?.result : families.kind === "skater" ? families.execution : null;
+  const availability = "availability" in families ? families.availability
+    : families.kind === "skater" ? families.execution.availability : null;
+  if (evidence.result.availability !== availability ||
+      evidence.result.availability === "provided" && !equal(evidence.result.data.summary, expected))
+    throw new Error("execution evidence summary differs from its selected annual result");
+  return { ...profile, executionEvidence: evidence };
+}
+
+const coreMapSelections = [
+  { family: "offense_attempts", strength: "5v5" },
+  { family: "offense_attempts", strength: "pp" },
+  { family: "defense_attempts", strength: "5v5" },
+  { family: "defense_attempts", strength: "pk" },
+] as const;
+
+function loadAnalytical(profiles: readonly ProfileView[], query: URLSearchParams) {
+  return Effect.gen(function* () {
+    const api = yield* client;
+    const first = profiles[0];
+    const players = profiles.map(profile => profile.player_id);
+    const season = first.season.season;
+    const selected = analyticalMapSelection(first.selectedMetric);
+    const selectedView = first.selectedMetric.publicationFamily === "spatial" ? mapView(query) : "effect";
+    const requests = coreMapSelections.map(selection => ({ ...selection, view: "effect" as "effect" | "complete" }));
+    const selectedIndex = selected ? requests.findIndex(request => equal(request, { ...selected, view: selectedView })) : -1;
+    const mapRequests = selected && selectedIndex === -1 ? [...requests, { ...selected, view: selectedView }] : requests;
+    const maps = yield* Effect.all(mapRequests.map(selection => api.analysis.maps({
+      query: { season, players: players.join(","), ...selection },
+    })), { concurrency: "unbounded" });
+    const spatial = first.selectedMetric.publicationFamily === "spatial";
+    const strength = spatial ? first.selectedMetric.strength : null;
+    const evidence = spatial ? yield* Effect.all(profiles.map(profile => api.analysis.evidence({
+      params: { playerId: profile.player_id }, query: { season, family: "spatial", strength: strength! },
+    })), { concurrency: "unbounded" }) : [];
+    return yield* compose(() => {
+      const resolved = catalogs([...profiles.map(profile => profile.detail), ...maps, ...evidence]);
+      maps.forEach((response, index) => {
+        const request = mapRequests[index];
+        sameRelease(first.detail, response);
+        if (response.family !== request.family || !equal(response.selection.players, players) ||
+            response.selection.strength !== request.strength || response.selection.view !== request.view)
+          throw new Error("analytical map response differs from its requested selection");
+        const metricId = response.family.startsWith("offense_") || response.family.startsWith("defense_")
+          ? `spatial.${request.strength}.${response.family}_per60`
+          : response.family === "finishing" ? `execution.${request.strength}.finishing_goals_per100_attempts`
+          : response.family === "setting" ? `execution.${request.strength}.setting_goals_per100_assisted_opportunities`
+          : `territory.${response.family}_goals_per_basket`;
+        const metric = analysisMetric(metricId);
+        if (!metric) throw new Error("analytical map has no matching finite scalar");
+        if (response.scale.maximum < 0 ||
+            response.scale.minimum !== (request.view === "complete" ? 0 : -response.scale.maximum) ||
+            response.scale.unit !== `${metric.unit}_per100sqft`)
+          throw new Error("analytical map scale differs from its selected view or dimensional density");
+        response.players.forEach((row, playerIndex) => {
+          const profile = profiles[playerIndex];
+          if ((row.result.availability === "absent") !== (profile.person === null))
+            throw new Error("analytical map availability differs from its selected annual identity");
+          if (row.result.availability !== "provided" || row.result.data.integrated_value === null) return;
+          const annual = profile.detail.history.find(row => row.season.season === season)!;
+          const datum = selectHistoryValue(annual, profile.detail, metric, profile.player_id);
+          const value = request.view === "complete" ? datum.spatial_detail?.complete.value : datum.value;
+          if (value === null || value === undefined || !close(row.result.data.integrated_value, value) ||
+              row.result.data.method_id !== datum.methods[0]?.method_id || !equal(row.result.data.support, datum.support))
+            throw new Error("analytical map integral, method or support differs from its selected annual scalar");
+        });
+      });
+      if (maps[0].scale.maximum !== maps[2].scale.maximum || maps[1].scale.maximum !== maps[3].scale.maximum)
+        throw new Error("paired analytical core maps must share their published extent");
+      const coreMaps = maps.slice(0, 4).map(response => ({ ...response, ...resolved }));
+      return profiles.map((profile, index): ProfileView => {
+        const spatialEvidence = evidence[index] ?? null;
+        if (spatialEvidence) {
+          sameRelease(profile.detail, spatialEvidence);
+          if (spatialEvidence.family !== "spatial" || spatialEvidence.selection.player_id !== profile.player_id ||
+              spatialEvidence.selection.strength !== strength)
+            throw new Error("spatial evidence differs from its selected player or strength");
+          const families = profile.detail.families;
+          const summary = "availability" in families ? families
+            : families.kind === "skater" && families.spatial.availability === "provided"
+              ? families.spatial.data.find(row => row.strength === strength)?.result : families.kind === "skater" ? families.spatial : null;
+          const availability = "availability" in families ? families.availability
+            : families.kind === "skater" ? families.spatial.availability : null;
+          if (spatialEvidence.result.availability !== availability ||
+              spatialEvidence.result.availability === "provided" && !equal(summary, spatialEvidence.result.data.summary))
+            throw new Error("spatial evidence summary differs from its selected annual result");
+        }
+        return {
+          ...profile,
+          detail: { ...profile.detail, ...resolved },
+          coreMaps,
+          selectedMap: selected ? { ...maps[selectedIndex === -1 ? 4 : selectedIndex], ...resolved } : null,
+          spatialEvidence: spatialEvidence?.family === "spatial" ? { ...spatialEvidence, ...resolved } : null,
+        };
+      });
+    });
+  });
+}
+
 function scalarRows(
   detail: PlayerResponse,
   metric: AnalysisMetric,
@@ -489,6 +606,9 @@ function composeProfile(
     season: detail.season,
     detail,
     executionEvidence: null,
+    spatialEvidence: null,
+    coreMaps: [],
+    selectedMap: null,
     microstatsEvidence: null,
     microstatsCohort,
     overviewCohorts,
@@ -552,7 +672,7 @@ export const loadLeague = (signal: AbortSignal, query: URLSearchParams) =>
     });
     const { table, strength } = readTableSelection(query).selection;
     const extra = table === "descriptive" ? descriptiveRequest(overview.season.season)
-      : (table === "execution" || table === "shootiness") && strength !== "5v5"
+      : (table === "execution" || table === "shootiness") && strength !== "5v5" || table === "spatial"
       ? {
           season: overview.season.season,
           kind: "skater",
@@ -636,21 +756,9 @@ export const loadProfile = (
           strength: metric.selectionStrength!,
         },
       });
-      profile = yield* compose((): ProfileView => {
-        sameRelease(detail, evidence);
-        if (
-          evidence.family !== "execution" ||
-          evidence.selection.player_id !== playerId ||
-          evidence.selection.season !== profile.season.season ||
-          evidence.selection.strength !== metric.selectionStrength
-        )
-          throw new Error(
-            "execution evidence differs from the selected player, season or strength",
-          );
-        catalogs([detail, ...responses, evidence]);
-        return { ...profile, executionEvidence: evidence };
-      });
+      profile = yield* compose(() => withExecutionEvidence(profile, evidence));
     }
+    if (view === "analytical") return (yield* loadAnalytical([profile], query))[0];
     if (view !== "observed" || !profile.player) return profile;
     const mapMode = mapView(query);
     const maps = yield* api.analysis.maps({
@@ -685,7 +793,7 @@ export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
     const pair = first && second && first.player_id !== second.player_id
       ? [first, second] as const
       : null;
-    const requestedIds = view === "microstats"
+    const requestedIds = view === "microstats" || view === "analytical"
       ? selectedIds[0] !== null && selectedIds[1] !== null && selectedIds[0] !== selectedIds[1]
         ? [selectedIds[0], selectedIds[1]] as const : null
       : pair ? [pair[0].player_id, pair[1].player_id] as const : null;
@@ -693,7 +801,7 @@ export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
       requestedIds.map(playerId => api.analysis.player({
         params: { playerId },
         query: { season: overview.season.season },
-      }).pipe(Effect.catch(error => view === "microstats" && Schema.is(ApiError)(error) && error._tag === "PlayerNotFound"
+      }).pipe(Effect.catch(error => (view === "microstats" || view === "analytical") && Schema.is(ApiError)(error) && error._tag === "PlayerNotFound"
         ? Effect.succeed(null) : Effect.fail(error)))),
       { concurrency: "unbounded" },
     ) : [];
@@ -750,20 +858,40 @@ export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
         composeProfile({ ...profileDetails[0], ...resolved }, metric, cohorts, view),
         composeProfile({ ...profileDetails[1], ...resolved }, metric, cohorts, view),
       ] : null;
+      const known = profiles && view === "analytical"
+        ? profiles.map(profile => profile.person ?? profile.detail.history.find(row => row.person !== null)?.person ?? null)
+        : [];
+      const knownPair = known[0] && known[1] ? [known[0], known[1]] as const : pair;
       return {
         ...league,
-        persons,
+        persons: [...persons, ...known.filter((person): person is Person => person !== null && !persons.some(row => row.player_id === person.player_id))],
         selectedMetric: metric,
         scalarCohort,
-        pair,
+        pair: knownPair,
         profiles,
         overviewCohorts: profileDetails ? overview.available_seasons.flatMap(season => {
           const cohort = cohorts.get(requestKey(overviewRequest(season)));
           return cohort ? [requireOverview(cohort)] : [];
         }) : [selectedOverview],
         maps: null,
+        coreMaps: [],
       };
     });
+    if (comparison.profiles && metric.publicationFamily === "execution") {
+      const profiles = comparison.profiles;
+      const evidence = yield* Effect.all(profiles.map(profile => api.analysis.evidence({
+        params: { playerId: profile.player_id },
+        query: { season: comparison.season.season, family: "execution", strength: metric.selectionStrength! },
+      })), { concurrency: "unbounded" });
+      comparison = yield* compose((): ComparisonView => {
+        catalogs([comparison.overview, ...evidence]);
+        return { ...comparison, profiles: [withExecutionEvidence(profiles[0], evidence[0]), withExecutionEvidence(profiles[1], evidence[1])] };
+      });
+    }
+    if (comparison.profiles && view === "analytical") {
+      const profiles = yield* loadAnalytical(comparison.profiles, query);
+      return { ...comparison, profiles: [profiles[0], profiles[1]] as const, coreMaps: profiles[0].coreMaps };
+    }
     if (comparison.profiles && view === "microstats" && metric.family === "microstats") {
       const profiles = comparison.profiles;
       const evidence = yield* Effect.all(profiles.map(profile => api.analysis.evidence({

@@ -1,0 +1,31 @@
+{
+  "status": "native_abort_before_application_javascript",
+  "recorded_at": "2026-11-10T09:20:28.941170+00:00",
+  "command_session": 50548,
+  "exit_code": 134,
+  "ready_receipt": "receipts/real-ready-scope-03.json",
+  "preserved_log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/failed-startup-pre-js-01.log",
+    "bytes": 1105,
+    "sha256": "4528fe1d53103a8fc8700c1700e9593b5467b7ce96b3283a590fc74096335cfd"
+  },
+  "preserved_policy": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/failed-startup-policy-03.sb",
+    "sha256": "e94a9634dcd1ca1fa6e3c84eafbd31d3e4c2e23ae57e72544fd60410c13d5e14"
+  },
+  "ordinary_strict_validation_invocations": 0,
+  "runtime_accepted": false,
+  "cause": "the verification sandbox denied fstat metadata on redirected stdio; node PlatformInit aborts before V8/application initialization",
+  "diagnosis_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis/20261110T091550Z/diagnosis.json",
+    "sha256": "9ebb9fbbd61183da4645787ba0dea68836b60cd158bd27fd6de6d6bc1c39b3b9"
+  },
+  "independent_adjudication": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-stdio-independent-adjudication.json",
+    "sha256": "4416c9d914c6391287397420f00aee47e188230dba38759ca82bc9af6bdd7d86"
+  },
+  "proposed_repair": "allow only file-read-metadata on the exact startup.log literal; preserve all content/original-source denials",
+  "source_inputs_candidate": "unchanged",
+  "slot": "still held by v1-18; no release inferred",
+  "activation": false
+}

@@ -1,0 +1,696 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-11-10T09:59:41.969303+00:00",
+  "consumed": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/states-selection.json",
+      "sha256": "7ac43cfa0bcf72b449bc9267b19f16eb5ac7d7bf396fd08d9a98200d94549f1c",
+      "bytes": 1446
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+      "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+      "bytes": 19787
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/manifest.json",
+      "sha256": "42bfbab911efc9a58904b5273a09545d617fd7c29a2be67203bbc55b236eff25",
+      "bytes": 355921
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/coverage.json",
+      "sha256": "66ef9336cf05f144c0b4391ec1400075d3718f5081c599dfcee6b2e0b4223f92",
+      "bytes": 10980889
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/reference.json",
+      "sha256": "75ad6f8760bb7b667f76ee06e17112c7720282b635cfba324c4ef14e4b01bfaa",
+      "bytes": 541525
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/projections.jsonl",
+      "sha256": "2356a2eea5294517003b4404c507ddb78c8d6876eb5a88f4f4fd840d13b0bf1d",
+      "bytes": 1110898
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/coefficient-support.jsonl",
+      "sha256": "cf5d367c6da3bedac93e0a676ddfc12b9112e392182e19d6d71321bc715b9d36",
+      "bytes": 1899681
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/adjustments.jsonl",
+      "sha256": "01e1ae4009b3ff0863aa5231f21dffaee30d9846fd56379bc0f3c75f30ed0037",
+      "bytes": 1123702
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/manifest.json",
+      "sha256": "74f35a1c9599335279954170693f7d3add11302bc83611fe14a368322870e6eb",
+      "bytes": 355907
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/coverage.json",
+      "sha256": "193dfafacb0fba6e9b061522391309b973101c111d7ba3afb2bc82d57d4fccdc",
+      "bytes": 16427827
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/reference.json",
+      "sha256": "af6fbcd9638b0d22ac3095f6f8cb72a5de20caad3014fda44392aed8ddd76ea1",
+      "bytes": 536853
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/projections.jsonl",
+      "sha256": "76b741037bb9825f679b041c9f19252e34da8c52ea84978db7e2eb72902a7879",
+      "bytes": 1104990
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/coefficient-support.jsonl",
+      "sha256": "e2af2bbb3493a5638286b561c77460695473817e1d2049bab408f754c961c83b",
+      "bytes": 1930817
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/adjustments.jsonl",
+      "sha256": "0f8c2f2ed67e86143db02897ba0bf590dc631c3590974e5826dc60908d1beda1",
+      "bytes": 1114669
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/manifest.json",
+      "sha256": "c74b313e2ac4ed0b1b8e09787de024b0febe7e98339879a06fb7537ff2398bab",
+      "bytes": 359235
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/coverage.json",
+      "sha256": "cb3634ccce88b55c592a779d3175be235871d9063952b3fc8a09d685c6579c5b",
+      "bytes": 7432884
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/reference.json",
+      "sha256": "15d334b7d79f111e9901e9cd1c600f8c6747eaa3bf7524049884c66db6fa078e",
+      "bytes": 544063
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/projections.jsonl",
+      "sha256": "fb565960ac96e29f494dec4c40ff0dd3eb4c5f60ea9c715ec4c77c01ff6bb3d2",
+      "bytes": 1133319
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/coefficient-support.jsonl",
+      "sha256": "fb5a550486e808345ab19610ddd337a29bbb00b7e342989cf77f3743311d794c",
+      "bytes": 2009469
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/adjustments.jsonl",
+      "sha256": "f1552fd9c15b5b43f4444be56ceff8d8b0e1eee8749e656f03390c4bee17917b",
+      "bytes": 1142543
+    }
+  ],
+  "verifier": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/.v1-18-real-verify.py",
+    "sha256": "894c864887af973ef426710fbf9cdcbdd1bd784dcc95566aee2a5ae34ae93798"
+  },
+  "publication": {
+    "publication_id": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+    "schema_version": 9,
+    "candidate": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/player-analysis.sqlite",
+    "manifest_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee"
+  },
+  "counts": {
+    "scalar_estimates": 44544,
+    "prior_only_heads": 66,
+    "head_rows": 16704,
+    "unavailable_actual_contexts": 20,
+    "actual_context_rows": 5568,
+    "adjustment_estimates": 77952,
+    "adjustment_targets": 11136,
+    "pending_specialty_rows": 44544,
+    "skater_seasons": 2784,
+    "map_native_cells": 15744,
+    "map_display_cells": 16032,
+    "map_players": 24,
+    "selected_evidence_api_responses": 6
+  },
+  "examples": [
+    {
+      "season": "20232024",
+      "forward": {
+        "player_id": "8477492",
+        "name": "Nathan MacKinnon",
+        "position": "C",
+        "teams": [
+          {
+            "abbreviation": "COL",
+            "id": "21"
+          }
+        ],
+        "included_seconds": 76721.0,
+        "available": true
+      },
+      "defense": {
+        "player_id": "8477504",
+        "name": "Josh Morrissey",
+        "position": "D",
+        "teams": [
+          {
+            "abbreviation": "WPG",
+            "id": "52"
+          }
+        ],
+        "included_seconds": 94112.0,
+        "available": true
+      },
+      "traded": {
+        "player_id": "8478396",
+        "name": "Noah Hanifin",
+        "position": "D",
+        "teams": [
+          {
+            "abbreviation": "CGY",
+            "id": "20"
+          },
+          {
+            "abbreviation": "VGK",
+            "id": "54"
+          }
+        ],
+        "included_seconds": 83332.0,
+        "available": true
+      },
+      "sparse": {
+        "player_id": "8480274",
+        "name": "Philip Kemp",
+        "position": "D",
+        "teams": [
+          {
+            "abbreviation": "EDM",
+            "id": "22"
+          }
+        ],
+        "included_seconds": 45.0,
+        "available": true
+      },
+      "skater_seasons": 924,
+      "reference_sha256": "96be662278a04ce47be0c419c7fd47244ddb47ed17b49807a22d122062d8bbb4"
+    },
+    {
+      "season": "20242025",
+      "forward": {
+        "player_id": "8477492",
+        "name": "Nathan MacKinnon",
+        "position": "C",
+        "teams": [
+          {
+            "abbreviation": "COL",
+            "id": "21"
+          }
+        ],
+        "included_seconds": 79037.0,
+        "available": true
+      },
+      "defense": {
+        "player_id": "8478460",
+        "name": "Zach Werenski",
+        "position": "D",
+        "teams": [
+          {
+            "abbreviation": "CBJ",
+            "id": "29"
+          }
+        ],
+        "included_seconds": 95696.0,
+        "available": true
+      },
+      "traded": {
+        "player_id": "8476879",
+        "name": "Cody Ceci",
+        "position": "D",
+        "teams": [
+          {
+            "abbreviation": "DAL",
+            "id": "25"
+          },
+          {
+            "abbreviation": "SJS",
+            "id": "28"
+          }
+        ],
+        "included_seconds": 86237.0,
+        "available": true
+      },
+      "sparse": {
+        "player_id": "8482802",
+        "name": "Carter Mazur",
+        "position": "L",
+        "teams": [
+          {
+            "abbreviation": "DET",
+            "id": "17"
+          }
+        ],
+        "included_seconds": 70.0,
+        "available": true
+      },
+      "skater_seasons": 920,
+      "reference_sha256": "471c8f10e7d14dc8a01d6e06da07de692d615eb3a655ad3fe9380988716ef97a"
+    },
+    {
+      "season": "20252026",
+      "forward": {
+        "player_id": "8476460",
+        "name": "Mark Scheifele",
+        "position": "C",
+        "teams": [
+          {
+            "abbreviation": "WPG",
+            "id": "52"
+          }
+        ],
+        "included_seconds": 80796.0,
+        "available": true
+      },
+      "defense": {
+        "player_id": "8478882",
+        "name": "Vladislav Gavrikov",
+        "position": "D",
+        "teams": [
+          {
+            "abbreviation": "NYR",
+            "id": "3"
+          }
+        ],
+        "included_seconds": 94366.0,
+        "available": true
+      },
+      "traded": {
+        "player_id": "8480800",
+        "name": "Quinn Hughes",
+        "position": "D",
+        "teams": [
+          {
+            "abbreviation": "VAN",
+            "id": "23"
+          },
+          {
+            "abbreviation": "MIN",
+            "id": "30"
+          }
+        ],
+        "included_seconds": 91803.0,
+        "available": true
+      },
+      "sparse": {
+        "player_id": "8482479",
+        "name": "Trevor Kuntar",
+        "position": "C",
+        "teams": [
+          {
+            "abbreviation": "BUF",
+            "id": "7"
+          }
+        ],
+        "included_seconds": 312.0,
+        "available": true
+      },
+      "skater_seasons": 940,
+      "reference_sha256": "72ef3db36abe59c217e8d64de574e1241f811ff365c8cfbfc69bbe781067be95"
+    }
+  ],
+  "method_findings": {
+    "20232024": {
+      "method_id": "spatial-v1-08-20232024",
+      "limitations": [
+        "experimental conditional seasonal estimates; not causal effects, calibrated ability claims or held-out forecasts",
+        "historical point borrowing and inferred blocked origins omit history and origin uncertainty; calibrated intervals are not estimated",
+        "defensive positive differences mean more against; higher percentiles mean higher rates, not greater benefit",
+        "aggregate support is the common matched physical-time population and any contributing focal information; it does not establish current evidence for each volume, shape or quality term",
+        "spatial support reason counts are games with a located excluded segment, counted once per reason code; codes can overlap within a game",
+        "structured spatial evidence exposes saved head support and actual-context adjustments; aggregate qualification does not establish information for every head"
+      ],
+      "assessment": {
+        "findings": [
+          {
+            "evidence": [
+              {
+                "sha256": "42bfbab911efc9a58904b5273a09545d617fd7c29a2be67203bbc55b236eff25",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/manifest.json"
+              },
+              {
+                "sha256": "cf5d367c6da3bedac93e0a676ddfc12b9112e392182e19d6d71321bc715b9d36",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/coefficient-support.jsonl"
+              },
+              {
+                "sha256": "8f9cef0ba5f57cec9c9ea758a32ae1db5ab4136249d89177ad642cfe77268469",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/20232024-spatial-composition.json"
+              }
+            ],
+            "population": "matched current-season 5v5 and fixed historical conditional priors",
+            "quantities": [
+              "skater_spatial.offense_attempts_per60",
+              "skater_spatial.offense_attempts_per60_complete",
+              "skater_spatial.offense_attempts_per60_neutral",
+              "skater_spatial.offense_xg_per60",
+              "skater_spatial.offense_xg_per60_complete",
+              "skater_spatial.offense_xg_per60_neutral",
+              "skater_spatial.defense_attempts_per60",
+              "skater_spatial.defense_attempts_per60_complete",
+              "skater_spatial.defense_attempts_per60_neutral",
+              "skater_spatial.defense_xg_per60",
+              "skater_spatial.defense_xg_per60_complete",
+              "skater_spatial.defense_xg_per60_neutral",
+              "skater_spatial.offense_attempts_relative_percent",
+              "skater_spatial.offense_xg_relative_percent",
+              "skater_spatial.defense_attempts_relative_percent",
+              "skater_spatial.defense_xg_relative_percent"
+            ],
+            "summary": "experimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not established"
+          }
+        ],
+        "status": "experimental"
+      }
+    },
+    "20242025": {
+      "method_id": "spatial-v1-08-20242025",
+      "limitations": [
+        "experimental conditional seasonal estimates; not causal effects, calibrated ability claims or held-out forecasts",
+        "historical point borrowing and inferred blocked origins omit history and origin uncertainty; calibrated intervals are not estimated",
+        "defensive positive differences mean more against; higher percentiles mean higher rates, not greater benefit",
+        "aggregate support is the common matched physical-time population and any contributing focal information; it does not establish current evidence for each volume, shape or quality term",
+        "spatial support reason counts are games with a located excluded segment, counted once per reason code; codes can overlap within a game",
+        "structured spatial evidence exposes saved head support and actual-context adjustments; aggregate qualification does not establish information for every head",
+        "some 2024-25 actual-context allocation magnitudes exceed 15,000 attempts per 60 and cancel. their cause and sensitivity remain unresolved; they are nonlinear reference contrasts, not recorded counts or established individual credits. standardized player contrasts are separate."
+      ],
+      "assessment": {
+        "findings": [
+          {
+            "evidence": [
+              {
+                "sha256": "74f35a1c9599335279954170693f7d3add11302bc83611fe14a368322870e6eb",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/manifest.json"
+              },
+              {
+                "sha256": "e2af2bbb3493a5638286b561c77460695473817e1d2049bab408f754c961c83b",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/coefficient-support.jsonl"
+              },
+              {
+                "sha256": "010711cfb79592f6f277905fe739e53f9035455a0e79b3a79b1e5c69d40b50cd",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/20242025-spatial-composition.json"
+              }
+            ],
+            "population": "matched current-season 5v5 and fixed historical conditional priors",
+            "quantities": [
+              "skater_spatial.offense_attempts_per60",
+              "skater_spatial.offense_attempts_per60_complete",
+              "skater_spatial.offense_attempts_per60_neutral",
+              "skater_spatial.offense_xg_per60",
+              "skater_spatial.offense_xg_per60_complete",
+              "skater_spatial.offense_xg_per60_neutral",
+              "skater_spatial.defense_attempts_per60",
+              "skater_spatial.defense_attempts_per60_complete",
+              "skater_spatial.defense_attempts_per60_neutral",
+              "skater_spatial.defense_xg_per60",
+              "skater_spatial.defense_xg_per60_complete",
+              "skater_spatial.defense_xg_per60_neutral",
+              "skater_spatial.offense_attempts_relative_percent",
+              "skater_spatial.offense_xg_relative_percent",
+              "skater_spatial.defense_attempts_relative_percent",
+              "skater_spatial.defense_xg_relative_percent"
+            ],
+            "summary": "experimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not established"
+          },
+          {
+            "evidence": [
+              {
+                "sha256": "f07d5a6ab23ec8234818958050223177e6b19cb56136972af83ad448faab6b80",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial-product-admission-02.json"
+              },
+              {
+                "sha256": "ef9f61a6ad12046e26d9f436ba30b0c46177356c37d1d142f9d6842f6c698242",
+                "uri": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/actual-context-disclosure-review.md"
+              }
+            ],
+            "population": "actual included elapsed workload and four-group counterfactual allocations",
+            "quantities": [
+              "adjustment_decomposition.baseline",
+              "adjustment_decomposition.self",
+              "adjustment_decomposition.teammates",
+              "adjustment_decomposition.opponents",
+              "adjustment_decomposition.coaching_other_context",
+              "adjustment_decomposition.numerical_residual",
+              "adjustment_decomposition.factual_prediction"
+            ],
+            "summary": "some 2024-25 actual-context allocation magnitudes exceed 15,000 attempts per 60 and cancel. their cause and sensitivity remain unresolved; they are nonlinear reference contrasts, not recorded counts or established individual credits. standardized player contrasts are separate."
+          }
+        ],
+        "status": "experimental"
+      }
+    },
+    "20252026": {
+      "method_id": "spatial-v1-08-20252026",
+      "limitations": [
+        "experimental conditional seasonal estimates; not causal effects, calibrated ability claims or held-out forecasts",
+        "historical point borrowing and inferred blocked origins omit history and origin uncertainty; calibrated intervals are not estimated",
+        "defensive positive differences mean more against; higher percentiles mean higher rates, not greater benefit",
+        "aggregate support is the common matched physical-time population and any contributing focal information; it does not establish current evidence for each volume, shape or quality term",
+        "spatial support reason counts are games with a located excluded segment, counted once per reason code; codes can overlap within a game",
+        "structured spatial evidence exposes saved head support and actual-context adjustments; aggregate qualification does not establish information for every head",
+        "original final-year volume precision check failed; saved baseline/continuation differences were immaterial for private experimental use, but do not bound remaining optimizer error; optimizer accuracy is unknown.",
+        "some 2025-26 actual-context allocation magnitudes exceed 500 million attempts per 60 and cancel. their cause and sensitivity remain unresolved; they are nonlinear reference contrasts, not recorded counts or established individual credits. standardized player contrasts are separate."
+      ],
+      "assessment": {
+        "findings": [
+          {
+            "evidence": [
+              {
+                "sha256": "c74b313e2ac4ed0b1b8e09787de024b0febe7e98339879a06fb7537ff2398bab",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/manifest.json"
+              },
+              {
+                "sha256": "fb5a550486e808345ab19610ddd337a29bbb00b7e342989cf77f3743311d794c",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/coefficient-support.jsonl"
+              },
+              {
+                "sha256": "f57f384bdc23dfaf83a564e45596173dcc31ff0d003d27d565c152ce9ea917b0",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/20252026-spatial-composition.json"
+              },
+              {
+                "sha256": "f07d5a6ab23ec8234818958050223177e6b19cb56136972af83ad448faab6b80",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial-product-admission-02.json"
+              },
+              {
+                "sha256": "7ac43cfa0bcf72b449bc9267b19f16eb5ac7d7bf396fd08d9a98200d94549f1c",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/states-selection.json"
+              },
+              {
+                "sha256": "0b84908b828c8d26198fa94cfef10827f1d7c747c940ebd82dd1422d32e9de77",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/probes/baseline.json"
+              },
+              {
+                "sha256": "4c0f136c46735f48ef76f8202f75388969d5484947faa33d868718b8ff2b0bbb",
+                "uri": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/experimental-use-policy.md"
+              },
+              {
+                "sha256": "02f39b8251e8a403b2747577dc8669c796068ba01a32e467d3684ecdd0661122",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/experimental-use-consequences-01/review.json"
+              },
+              {
+                "sha256": "17912c5a4eb822124d0e07b39ef528c66a11b98e8f030efdee8a2b78203cfd00",
+                "uri": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/experimental-use-consequences-01-saved-review.md"
+              },
+              {
+                "sha256": "0e4fb977a919484a36ca2c62a9af8ce49c260527273eed71c788b1ce93fda0b5",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/probes/volume-comparison.json"
+              },
+              {
+                "sha256": "38e892975fd1a9abea1a2ab9fd5289d048ab96c1e9c01b1d5406fe7c159c693a",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/probes/shape-comparison.json"
+              },
+              {
+                "sha256": "a2e87528618e76c79106aa435bf00f94eb5d8c57e756a9b1c7b001673f80c92b",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/probes/quality-comparison.json"
+              }
+            ],
+            "population": "matched current-season 5v5 and fixed historical conditional priors",
+            "quantities": [
+              "skater_spatial.offense_attempts_per60",
+              "skater_spatial.offense_attempts_per60_complete",
+              "skater_spatial.offense_attempts_per60_neutral",
+              "skater_spatial.offense_xg_per60",
+              "skater_spatial.offense_xg_per60_complete",
+              "skater_spatial.offense_xg_per60_neutral",
+              "skater_spatial.defense_attempts_per60",
+              "skater_spatial.defense_attempts_per60_complete",
+              "skater_spatial.defense_attempts_per60_neutral",
+              "skater_spatial.defense_xg_per60",
+              "skater_spatial.defense_xg_per60_complete",
+              "skater_spatial.defense_xg_per60_neutral",
+              "skater_spatial.offense_attempts_relative_percent",
+              "skater_spatial.offense_xg_relative_percent",
+              "skater_spatial.defense_attempts_relative_percent",
+              "skater_spatial.defense_xg_relative_percent"
+            ],
+            "summary": "experimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not established; original final-year volume precision check failed; saved baseline/continuation differences were immaterial for private experimental use, but do not bound remaining optimizer error; optimizer accuracy is unknown."
+          },
+          {
+            "evidence": [
+              {
+                "sha256": "f07d5a6ab23ec8234818958050223177e6b19cb56136972af83ad448faab6b80",
+                "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial-product-admission-02.json"
+              },
+              {
+                "sha256": "ef9f61a6ad12046e26d9f436ba30b0c46177356c37d1d142f9d6842f6c698242",
+                "uri": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/actual-context-disclosure-review.md"
+              }
+            ],
+            "population": "actual included elapsed workload and four-group counterfactual allocations",
+            "quantities": [
+              "adjustment_decomposition.baseline",
+              "adjustment_decomposition.self",
+              "adjustment_decomposition.teammates",
+              "adjustment_decomposition.opponents",
+              "adjustment_decomposition.coaching_other_context",
+              "adjustment_decomposition.numerical_residual",
+              "adjustment_decomposition.factual_prediction"
+            ],
+            "summary": "some 2025-26 actual-context allocation magnitudes exceed 500 million attempts per 60 and cancel. their cause and sensitivity remain unresolved; they are nonlinear reference contrasts, not recorded counts or established individual credits. standardized player contrasts are separate."
+          }
+        ],
+        "status": "experimental"
+      }
+    }
+  },
+  "map_api": [
+    {
+      "path": "/api/maps?season=20232024&players=8477492%2C8477504&family=offense_attempts&strength=5v5&view=effect",
+      "bytes": 349192,
+      "sha256": "2981fa48bece1a18a7f5082c8b24163e76ec63b90fc08a19ccdeee1bbe23b177",
+      "elapsed_seconds": 0.04176108306273818,
+      "scale": {
+        "minimum": -0.6011780921605694,
+        "maximum": 0.6011780921605694,
+        "unit": "attempts_per60_per100sqft"
+      }
+    },
+    {
+      "path": "/api/maps?season=20232024&players=8477492%2C8477504&family=offense_attempts&strength=5v5&view=complete",
+      "bytes": 344193,
+      "sha256": "448e3a2d85ec728223962276e9dee8c39b02286c5f35eae38abf8c92c50cb5a4",
+      "elapsed_seconds": 0.017632084200158715,
+      "scale": {
+        "minimum": 0,
+        "maximum": 1.9580964173736009,
+        "unit": "attempts_per60_per100sqft"
+      }
+    },
+    {
+      "path": "/api/maps?season=20232024&players=8477492%2C8477504&family=defense_attempts&strength=5v5&view=effect",
+      "bytes": 352357,
+      "sha256": "6dba94367a3575e73970a3c3baa6f73e83e2dfaf89a7c2b1140f8ba72efcdc3f",
+      "elapsed_seconds": 0.02715791715309024,
+      "scale": {
+        "minimum": -0.6011780921605694,
+        "maximum": 0.6011780921605694,
+        "unit": "attempts_per60_per100sqft"
+      }
+    },
+    {
+      "path": "/api/maps?season=20232024&players=8477492%2C8477504&family=defense_attempts&strength=5v5&view=complete",
+      "bytes": 344405,
+      "sha256": "e0b92bf53546a330ff5c36492b232c63cc359e9329c32087edc6e9a1988ddad8",
+      "elapsed_seconds": 0.0362764170859009,
+      "scale": {
+        "minimum": 0,
+        "maximum": 1.9580964173736009,
+        "unit": "attempts_per60_per100sqft"
+      }
+    },
+    {
+      "path": "/api/maps?season=20242025&players=8477492%2C8478460&family=offense_attempts&strength=5v5&view=effect",
+      "bytes": 349556,
+      "sha256": "a1659256d4700e21904d07f14b6e617934e4ba1f536e093ea6774f4e1f1a125a",
+      "elapsed_seconds": 0.015009291935712099,
+      "scale": {
+        "minimum": -0.49088952419142584,
+        "maximum": 0.49088952419142584,
+        "unit": "attempts_per60_per100sqft"
+      }
+    },
+    {
+      "path": "/api/maps?season=20242025&players=8477492%2C8478460&family=offense_attempts&strength=5v5&view=complete",
+      "bytes": 344175,
+      "sha256": "3fd844ee356ec4822d5b96d8c58d143cb56d3fa6e6e296ac0008812cee34073d",
+      "elapsed_seconds": 0.014675249811261892,
+      "scale": {
+        "minimum": 0,
+        "maximum": 1.725322215847529,
+        "unit": "attempts_per60_per100sqft"
+      }
+    },
+    {
+      "path": "/api/maps?season=20242025&players=8477492%2C8478460&family=defense_attempts&strength=5v5&view=effect",
+      "bytes": 351061,
+      "sha256": "23a449e511895894754e5f91ec24d3d73a20d07909576fe22129b50820977386",
+      "elapsed_seconds": 0.016952208941802382,
+      "scale": {
+        "minimum": -0.49088952419142584,
+        "maximum": 0.49088952419142584,
+        "unit": "attempts_per60_per100sqft"
+      }
+    },
+    {
+      "path": "/api/maps?season=20242025&players=8477492%2C8478460&family=defense_attempts&strength=5v5&view=complete",
+      "bytes": 344387,
+      "sha256": "57b5c82e5abbc7bdb6db575ff909126fe87467580a5b25803bf9219821d88f7f",
+      "elapsed_seconds": 0.013971999986097217,
+      "scale": {
+        "minimum": 0,
+        "maximum": 1.725322215847529,
+        "unit": "attempts_per60_per100sqft"
+      }
+    },
+    {
+      "path": "/api/maps?season=20252026&players=8476460%2C8478882&family=offense_attempts&strength=5v5&view=effect",
+      "bytes": 350217,
+      "sha256": "a335460237a7fa91b8d14a848c98db4ed684ed52c99e977e0bff908a983ae6cf",
+      "elapsed_seconds": 0.016014915890991688,
+      "scale": {
+        "minimum": -0.34174512426024817,
+        "maximum": 0.34174512426024817,
+        "unit": "attempts_per60_per100sqft"
+      }
+    },
+    {
+      "path": "/api/maps?season=20252026&players=8476460%2C8478882&family=offense_attempts&strength=5v5&view=complete",
+      "bytes": 344700,
+      "sha256": "a68e344a80c4ef47d7460be6bc2a978c9be08ea951ae5a893e2f289508675e7a",
+      "elapsed_seconds": 0.015552042052149773,
+      "scale": {
+        "minimum": 0,
+        "maximum": 1.466839059947998,
+        "unit": "attempts_per60_per100sqft"
+      }
+    },
+    {
+      "path": "/api/maps?season=20252026&players=8476460%2C8478882&family=defense_attempts&strength=5v5&view=effect",
+      "bytes": 352541,
+      "sha256": "64ee7bc1d205a3c21883755ef4a32da1d3b36efb5a76abcf7b4b4fae3cf6f9d7",
+      "elapsed_seconds": 0.014271541964262724,
+      "scale": {
+        "minimum": -0.34174512426024817,
+        "maximum": 0.34174512426024817,
+        "unit": "attempts_per60_per100sqft"
+      }
+    },
+    {
+      "path": "/api/maps?season=20252026&players=8476460%2C8478882&family=defense_attempts&strength=5v5&view=complete",
+      "bytes": 344476,
+      "sha256": "6eb1e7656ef312310e420c5252a68fd2bfad2dbca15956aee8d00b5a589372ab",
+      "elapsed_seconds": 0.014400749932974577,
+      "scale": {
+        "minimum": 0,
+        "maximum": 1.466839059947998,
+        "unit": "attempts_per60_per100sqft"
+      }
+    }
+  ],
+  "read_scope": "only selected saved JSON/JSONL members, summary/evidence/adjustment tables, 24 indexed map rows, 12 map responses and 6 selected evidence responses; no arrays, design, preparation or full artifact validator",
+  "wall_seconds": 1.6697633329313248,
+  "consumed_bytes": 50126425
+}

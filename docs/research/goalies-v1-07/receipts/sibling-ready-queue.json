@@ -1,46 +1,21 @@
 {
-  "status": "ST_fourth_retry_running_G_final_score_held",
+  "status": "G_final_score_window_assigned_preflight_not_run",
   "current": {
-    "owner": "v1-09",
-    "scope": "ONLY one20242025 retry, three sequential baselines,zero probes,no basis; full predecessor/history/projections/accounting/native readback",
-    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
-    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
-    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
-    "packet": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-preparation-01.json",
-    "packet_sha256": "633516d911773036b4b88e9f649dcb5394b8212407a79eeabcf5663a9c1b9326",
-    "script": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-retry-held-01.sh",
-    "script_sha256": "524605372c37d9d9b7a12e9fa71cd9c22c1336696696e6217ed0da74f7672860",
-    "independent_peer_review_sha256": "ce350da8af24fc8670b74a319e76179917ba02489597b3ee2faf06dbc164a619",
-    "previous_ST_manifest_sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7",
-    "original_base_score_sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
-    "fresh_run": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01",
-    "launch_preconditions": "fresh source/script/runtime/mount/run/output/log/exit checks immediately before one dispatch; source-only packet is not a completed launch preflight",
-    "return_boundary": "actual native exit/cost, prescribed bounded independent review and explicit release; no further annual or chain",
-    "historical_run05_and_ready10856": "preserved unchanged; neither reused nor treated as retry authority",
-    "child_threads": "only OPENBLAS/OMP/VECLIB=1; G six-unset unchanged",
-    "status": "running_not_accepted",
-    "dispatch": true,
-    "ownership_accepted_by_user_relay": true,
-    "incoming_G_release_sha256": "20311fed1d6070070d03cf292018934e14ddbfed5ab9b99326a29a5e8a229696",
-    "no_chain_reservation": true,
-    "native_python_pid": 15429,
-    "native_time_pid": 15428,
-    "started_at_utc": "2026-11-12T07:13:25+00:00",
-    "fresh_launch_preflight_sha256": "ff89103a0697405fe8008a4f285e870713f2677481ff9c87ee48f5547380a91c",
-    "actual_launch_receipt_sha256": "2995e44adcbbdb1a787e4faa2e200b7fbdd0debca0516ec789b4a5ae4bfc26e1",
-    "fresh_preflight_cost": {
-      "wall_seconds": 14.69,
-      "peak_rss_bytes": 35799040
-    },
-    "root_scope": "two LOCAL launch/preflight receipts hashed; no external input/output read or stat by G",
-    "independent_actual_launch_review": {
-      "owner_reported_status": "passed",
-      "receipt": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-launch-independent-review-01.json",
-      "sha256": "b1332170c57f0bd43cc2a0345a4e2d941a485471b568d9dde9955b495e442852",
-      "bytes": 4966,
-      "scope": "owner independently reviewed cached local actual-frame facts; G has not repeated OS/source/runtime/external checks"
-    },
-    "source_frozen_until_native_boundary": true
+    "owner": "v1-07",
+    "status": "assigned_not_launched",
+    "scope": "ONLY20252026 goalie score, existing two probes evaluated as h-tight/d-tight/combined without a new solve; one bounded four-current-JSON metadata review",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "source_head": "actual clean operator-docs commit required before one preflight",
+    "preflight_source_sha256": "30c4082b3709c0affb5c828af6ad7ba975b29b57b69855b754747913a6e7519f",
+    "accepted_goalie_state_sha256": "903092073a25b0afb0b6e153ede5f2685a0a4bf7b4dce1381c1a05f266a56502",
+    "accepted_fit_review_sha256": "4aa6c6d92f15b6274f2eb5739b3c008afa89ce7a2e31526d6fa9323f4647d503",
+    "accepted_target_inventory_sha256": "6a3329357cc0207e89fe0d81f44f53164c39c6a5cd445ddcec4cc226a010f3bd",
+    "thread_environment": "same six G variables unset; ST child overrides do not persist here",
+    "dispatch": false,
+    "scope_limits": "no fitting/probe solves/preparation/download/base-score regeneration/publication/activation or chain reservation",
+    "native_cost": "unknown; final three-variant workload is not forecast from prior baseline-only scoring",
+    "return_condition": "actual score exit/cost plus bounded independent metadata review then explicit next-window adjudication"
   },
   "queue": [
     {
@@ -876,7 +851,7 @@
     "independent_stop_review_sha256": "54331aac40a1591dd161fdca3993940a8e4d77be9a9ca87890158fb962a97737",
     "future_retry": "held_unreserved_new_scope_required_not_historical_ready_dispatch"
   },
-  "recorded_at_utc": "2026-11-12T07:41:14.259633+00:00",
+  "recorded_at_utc": "2026-11-12T09:20:08.656211+00:00",
   "G_final_fit_boundary": {
     "status": "accepted_fit_review_one_inventory",
     "manifest": {
@@ -1010,5 +985,63 @@
     "historical_snapshot": true,
     "superseded_by": "current: actual launch2995e44a / preflightff89103a / independent owner frameb1332170"
   },
-  "receipt_dispatches_commands": false
+  "receipt_dispatches_commands": false,
+  "ST_fourth_retry_checked_return": {
+    "release": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-boundary-release-01.json",
+      "bytes": 6801,
+      "sha256": "7379280b6e5e70511af094e160ccb3c69f4850ef3c4ad777e6ab28210ca30c65"
+    },
+    "independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-independent-adjudication-01.json",
+      "bytes": 6088,
+      "sha256": "24d52d03ae36d0b013551ec2aff113b6fdd5e260e8a6f759d0ad54e94a91b6a5"
+    },
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/manifest.json",
+      "bytes": 366549,
+      "sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c"
+    },
+    "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "native": {
+      "exit_status": 0,
+      "wall_seconds": 6267.43,
+      "user_seconds": 5766.84,
+      "sys_seconds": 36.25,
+      "peak_rss_bytes": 6744752128,
+      "peak_footprint_bytes": 7391550016
+    },
+    "payload_bytes": 1577550492,
+    "checked_ST_baseline_heads": 12,
+    "numerical_limits": {
+      "gradient_inf_norms": {
+        "volume": 0.0008747044630581513,
+        "shape": 0.0004159497157791847,
+        "quality": 0.0001561027925295333
+      },
+      "remaining_optimizer_accuracy": "unknown; baseline gradients above gtol, no precision claim",
+      "sensitivity": {
+        "status": "unassessed",
+        "reason": "earlier_annual_not_assessed"
+      },
+      "scientific_admission": false
+    },
+    "no_owned_heavy_command_remaining": true,
+    "public_parent": "unchanged8b32; numerical c3d is not a complete composed successor"
+  },
+  "final_ST_source_preparation": {
+    "status": "not_ready_held_unreserved_not_run",
+    "packet": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-fit-source-preparation-01.json",
+    "packet_sha256": "e54c2fd7239aac3b3d8d2ddb7073e87a4437719f8a174277443721fc26f4372d",
+    "script_sha256": "d95df4998c2d5c23dbe86534b5be2d5a31aa7b194fd706dc8926e90edd2a2bd3",
+    "independent_peer_review_sha256": "1aac7ba3f5a71484cb28d2b9d5291ba45d17f3b1e63044a2436ff59e96dbf416",
+    "root_independent_source_review": "composition_preparation: exact pins/literal deltas/source contracts, no findings; no execution or external access",
+    "future_source_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+    "future_analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+    "producer03": "not_created; actual source/runtime/materialization/freshness checks not run",
+    "snapshot_previous_sha256": null,
+    "readiness_successor": "must deliberately bind actual accepted c3d numerical predecessor and its acceptance/release receipts; immutable e54 snapshot stays unchanged",
+    "window_or_chain_reserved": false
+  }
 }

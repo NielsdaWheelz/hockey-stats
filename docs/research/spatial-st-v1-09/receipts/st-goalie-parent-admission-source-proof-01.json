@@ -1,0 +1,18 @@
+{
+  "kind": "st-goalie-parent-admission-source-proof",
+  "status": "passed",
+  "production_diff_paths": [
+    "analysis/src/hockey_stats/spatial_composition.py"
+  ],
+  "source_sha256": "49ab1fe802edd4bab2732a333a4976033b12e00f66cf5853c746ea7e2274f0d8",
+  "original_sha256": "4fe63004da8d9c71849dfaccfd11ecd8f942f30c4ccee6112ae3918f82eb4b7e",
+  "inverse_owned_regions_sha256": "4fe63004da8d9c71849dfaccfd11ecd8f942f30c4ccee6112ae3918f82eb4b7e",
+  "inverse_owned_regions_byte_equal": true,
+  "composer_body_byte_equal": true,
+  "composer_body_sha256": "7e8374133af59fd60ab408dce055231f9d84f5ff4b742f049b4b3a553c49e5ba",
+  "changed_regions": [
+    "three accepted-ST parent constants",
+    "_accepted_st_source only"
+  ],
+  "scope": "pinned stdlib source bytes and local git only; no production import, numerical evaluation or external read/stat"
+}

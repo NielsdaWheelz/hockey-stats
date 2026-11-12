@@ -17,10 +17,9 @@ REFERENCE = 'spatial-league-centered-virtual-v1'
 POLICY = 'ordinary-attempt-segment-valued-two-direction-v1'
 ACCEPTED_RESULTS = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results')
 ACCEPTED_RESULTS_SHA256 = '3441f784c11eb6a8eda38800806b8e4dc68e06e8587c91db24c5dffaadae4347'
-ACCEPTED_ST_SOURCE = Path('/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01')
-ACCEPTED_ST_SOURCE_SHA256 = '8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee'
-ACCEPTED_ST_CONVERSION_SHA256 = '1cb1d49b4fb8c1f2bbd8f6a91cda93adc08e87506c3db7b5397add03ca8b53ea'
-ACCEPTED_ST_RELEASE_SHA256 = '339a33db0459ec05bcd0b4dd8875060c2d9ba453dbe29c99455c36cfbc49231f'
+ACCEPTED_ST_SOURCE = Path('/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results')
+ACCEPTED_ST_SOURCE_SHA256 = '7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12'
+ACCEPTED_ST_COMPOSITION_SHA256 = '037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28'
 ACCEPTED_VALUED = dict(zip(YEARS, (
     '37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d',
     '296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20',
@@ -374,33 +373,46 @@ def _season_tables(year, state, people, method):
 
 
 def _accepted_st_source(directory):
-    """pin the complete parent before its ordinary full read; no ancestry inference."""
+    """pin the accepted goalie parent and completed producer receipt before its full read."""
     path = directory / 'manifest.json'
     header = strict_json(path.read_bytes())
     if type(header) is not dict or header.get('purpose') != 'real':
         return []
-    require(identity(path)['sha256'] == ACCEPTED_ST_SOURCE_SHA256,
-            'selected special-teams complete parent digest differs')
-    conversion_path = ACCEPTED_ST_SOURCE / 'receipts/real-conversion-independent-adjudication.json'
-    release_path = ACCEPTED_ST_SOURCE / 'receipts/heavy-slot-release.json'
-    evidence = []
-    for receipt, digest in ((conversion_path, ACCEPTED_ST_CONVERSION_SHA256), (release_path, ACCEPTED_ST_RELEASE_SHA256)):
-        require(identity(receipt)['sha256'] == digest, 'accepted special-teams parent receipt digest differs')
-        evidence.append(dict(uri=str(receipt), sha256=digest))
-    conversion = strict_json(conversion_path.read_bytes())
-    release = strict_json(release_path.read_bytes())
-    require(conversion['status'] == 'passed' and conversion['output_manifest_sha256'] == ACCEPTED_ST_SOURCE_SHA256
-            and conversion['donor_sha256'] == '38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8'
-            and conversion['retained_correction_sha256'] == 'a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4',
-            'accepted special-teams conversion provenance differs')
-    require(release['status'] == 'explicit_heavy_slot_release_by_v1_18'
-            and release['accepted_complete_existing_family_predecessor']['sha256'] == ACCEPTED_ST_SOURCE_SHA256
-            and release['transport'] == dict(exchange=3, publication_schema=9)
-            and release['donor']['sha256'] == conversion['donor_sha256']
-            and release['donor']['retained_correction_receipt_sha256'] == conversion['retained_correction_sha256']
-            and any(row['path'] == str(conversion_path) and row['sha256'] == ACCEPTED_ST_CONVERSION_SHA256 for row in release['proofs']),
-            'accepted special-teams complete-parent acceptance differs')
-    return evidence
+    require(path == ACCEPTED_ST_SOURCE / 'manifest.json' and identity(path)['sha256'] == ACCEPTED_ST_SOURCE_SHA256,
+            'selected special-teams complete parent identity differs')
+    receipt_path = ACCEPTED_ST_SOURCE / 'goalie-composition.json'
+    require(identity(receipt_path)['sha256'] == ACCEPTED_ST_COMPOSITION_SHA256,
+            'accepted special-teams parent receipt digest differs')
+    receipt = strict_json(receipt_path.read_bytes())
+    publication.fields(receipt, ('schema_version', 'kind', 'source_results', 'selection', 'output', 'inherited_members',
+                                 'goalie_members', 'source_families', 'output_families', 'preserved', 'resources'))
+    require(type(receipt['schema_version']) is int and receipt['schema_version'] == 1 and receipt['kind'] == 'goalie-composition'
+            and header['producer'] == dict(git_commit='4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4', git_dirty=False, python_version='3.14.8'),
+            'accepted special-teams goalie producer differs')
+    require(receipt['output'] == dict(path=str(path), sha256=ACCEPTED_ST_SOURCE_SHA256)
+            and receipt['source_results'] == dict(path='/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json',
+                                                  sha256='8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee')
+            and receipt['selection'] == dict(path='/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores-selection.json',
+                                             sha256='2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed'),
+            'accepted special-teams goalie composition correspondence differs')
+    require(receipt['output_families'] == header['families']
+            and [row for row in receipt['source_families'] if row['family'] != 'goalie']
+            == [row for row in header['families'] if row['family'] != 'goalie'],
+            'accepted special-teams complete-parent families differ')
+    inherited = [member for row in header['families'] if row['family'] != 'goalie' for member in row['tables'].values()]
+    owned = [member for row in header['families'] if row['family'] == 'goalie' for member in row['tables'].values()]
+    require(all(member in receipt['inherited_members'] for member in inherited)
+            and all(member in receipt['goalie_members'] for member in owned)
+            and sorted(receipt['inherited_members'] + receipt['goalie_members'], key=lambda row: row['path'])
+            == sorted([*header['catalogs'].values(), *inherited, *owned], key=lambda row: row['path']),
+            'accepted special-teams complete-parent member inventory differs')
+    return [dict(uri=str(receipt_path), sha256=ACCEPTED_ST_COMPOSITION_SHA256),
+            dict(uri='/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-nonowned-preservation.json',
+                 sha256='7b1116c94384422ccc0b500a7cccd847a266d4bc5e4a1d5e641d735509e63058'),
+            dict(uri='/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-independent-adjudication.json',
+                 sha256='549c1c959443e130003451a3f5ab672d248bdb9f225afe81f093ae7a38b02391'),
+            dict(uri='/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-release.json',
+                 sha256='a7a5787034a5341d4544e95250fb9ed271f32b901f89e6347170f8329ee2f66d')]
 
 
 def _special_teams_method(year, state, annuals, purpose, source_sha, receipt):

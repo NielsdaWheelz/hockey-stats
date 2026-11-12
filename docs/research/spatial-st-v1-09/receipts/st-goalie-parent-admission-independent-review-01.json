@@ -1,0 +1,74 @@
+{
+  "kind": "st-goalie-parent-admission-independent-source-and-controls-review",
+  "checked_at_utc": "2026-11-12T14:41:44.558296+00:00",
+  "status": "passed",
+  "source": {
+    "path": "analysis/src/hockey_stats/spatial_composition.py",
+    "before_sha256": "4fe63004da8d9c71849dfaccfd11ecd8f942f30c4ccee6112ae3918f82eb4b7e",
+    "after_bytes": 55978,
+    "after_sha256": "49ab1fe802edd4bab2732a333a4976033b12e00f66cf5853c746ea7e2274f0d8"
+  },
+  "patch": {
+    "path": "st-goalie-parent-admission-01.patch",
+    "bytes": 7463,
+    "sha256": "b6fa1681924c960f8675ae06011d106c6eabd59010f175b07ca9983679be1b8e"
+  },
+  "source_proof": {
+    "path": "st-goalie-parent-admission-source-proof-01.json",
+    "bytes": 846,
+    "sha256": "0d6aba184e0730bc05d8c3c30528dc840d427f7837e04f4cba6690ae55c7b540"
+  },
+  "driver": {
+    "path": ".tmp/st-goalie-parent-controls-01.py",
+    "bytes": 10697,
+    "sha256": "dee5d81661f0fe325bbbc691036a0c7771f52d0f120ad8c9a6410ee7d1d1ebfd"
+  },
+  "cached_parent": {
+    "manifest_bytes": 23317,
+    "manifest_sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12",
+    "producer_receipt_bytes": 54924,
+    "producer_receipt_sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+  },
+  "controls": {
+    "red": {
+      "tests": 6,
+      "failures": 1,
+      "errors": 0,
+      "exit_status": 1,
+      "meaning": "accepted exact G parent rejected by old8b digest guard; five remaining cases passed",
+      "result_bytes": 1693,
+      "result_sha256": "8ad80e24a549907ef2685479d22d37d6388cd77e29dd6b7851d242b261002016",
+      "log_bytes": 2068,
+      "log_sha256": "b38e78ed5b7dcca2f4212f998378db5cd3b75e3852a703e02a634eeba13a5d4c",
+      "exit_bytes": 2,
+      "exit_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "green": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "exit_status": 0,
+      "result_bytes": 762,
+      "result_sha256": "e94f8aa416c33b102db9fe09c29f9abe3de02ecac4128058127e6ab7aa9477eb",
+      "log_bytes": 1032,
+      "log_sha256": "694da109574ff465f36d67498d637277529780c8a30335969eb6953c95ce2b33",
+      "exit_bytes": 2,
+      "exit_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "wall_seconds": 0.011481250170618296,
+      "peak_memory_bytes": 99500032
+    },
+    "scope": "one author-run RED and one unchanged-driver GREEN at public compose_special_teams admission; two exact cached local header bodies, virtual canonical locators, canonical reader replaced by a sentinel. no full-reader/member/numerical/runtime acceptance",
+    "controller_failure": null
+  },
+  "findings": [],
+  "independent_checks": [
+    "full final driver source and exact diff from unrun71e inspected; only coupled producer test and manifest-pin machinery removed; six public cases retain strict-int schema, closed public receipt, identity, family/member inventory and fixture boundaries",
+    "actual production patch matches current source; reversing only its two owned regions in memory restores the complete4fe6 preimage byte-for-byte",
+    "hardcut pins exact7a43 directory/manifest and0376 producer receipt; old v18-specific assertions and constants removed with no fallback, alias, discovery or provider transfer",
+    "local cached public receipt and manifest agree with literal producer4aa/clean/python3.14.8, output/source8b/selection2964 identities, closed11 fields and family/member correspondence",
+    "canonical reader stays after admission; returned producer plus three independent proof identities are references only, not a new acceptance-schema reader",
+    "raw inherited-method merge, EV statement, composer and all other bytes in this module remain unchanged by the inverse proof",
+    "retained logs, results and numeric exit files agree; status uses result.wasSuccessful and exact comparison, independent of empty exception text"
+  ],
+  "limits": "reviewer read only local source, patch, public cached header bodies and retained control evidence; no test/controller execution, production import, external read/stat, OS/G/runtime/source03 query or frozen-source change. docs are reviewed separately. real ST successor canonical composition, nonowned preservation and publication/startup/API/browser/download acceptance remain pending; current native outcome and12of15 count are not advanced here."
+}

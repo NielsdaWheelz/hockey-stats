@@ -1,0 +1,70 @@
+{
+  "kind": "st-final-local-launch-source-and-frame-independent-review",
+  "verdict": "PASS",
+  "reviewed_at_utc": "2026-11-12T14:24:32.462393+00:00",
+  "reviewer": "/root/st_interrupt_review",
+  "local_evidence_base": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification",
+  "evidence": {
+    "final-real-actual-launch-01.json": {
+      "bytes": 8013,
+      "sha256": "44c83575fc6e81ea9154996a40f2da7834906815dfa54c2dff5bb257569d9bee"
+    },
+    "final-real-launch-preflight-01.json": {
+      "bytes": 4099,
+      "sha256": "cab72e2b266d419da3a29c8006d58457b48a674cc563326cc034df6ccc751d9e"
+    },
+    "final-real-launch-preflight-run-01.log": {
+      "bytes": 4876,
+      "sha256": "c022aaef1f7c61d777f559fe10281a9bbc0a33b3468c2d295bd822aeff534f05"
+    },
+    "final-real-launch-preflight-run-01.exit": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "final-real-fit-preparation-03.json": {
+      "bytes": 7828,
+      "sha256": "b27369bdac3dc2afbc00d7a5b7e67fd67f329271dd3839a12c5cc4d64671b233"
+    }
+  },
+  "findings": [],
+  "preflight_source": {
+    "sha256": "883b14ad1cbad4b17e94c7f5f6b645a921de9dbf2ee19aad4e00dff8cd56c17a",
+    "source_review": "approved before dispatch: explicit failed-status/reraise/finally; local source/runtime ownership, only mount+run-parent availability and four fixed absence lstats, no numerical input scans",
+    "wrapper": "approved outer subshell, noclobber journals, status capture, exit-record write guard and numeric0 gate before immutable d95; no current guard refusal bypass"
+  },
+  "checked_launch": {
+    "started_at_utc": "2026-11-12T14:16:38Z",
+    "observed_at_utc": "2026-11-12T14:19:28.125835+00:00",
+    "python_pid": 6883,
+    "time_pid": 6882,
+    "shell_pid": 6832,
+    "source_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+    "analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+    "app_commit_tree_pin": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "exact_cached_argv_cwd_hierarchy_and_four_env_match": true,
+    "original_base_score_sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+    "original_base_state_sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276",
+    "previous_ST_manifest_sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c",
+    "scope": "three sequential final20252026 baselines plus at most one prescribed continuation per completed head, maximum3; no basis or joint fit"
+  },
+  "preflight_facts": {
+    "control_exit": 0,
+    "stdout_matches_receipt": true,
+    "caller_wall_seconds": 14.29,
+    "peak_rss_bytes": 73105408,
+    "numerical_input_body_reads": 0,
+    "runtime_and_five_module_origins": "cached imports/spec ownership match frozen03 and primary venv; no model-module execution in preflight",
+    "app_scope": "Git tree identity only; no fresh materialization claim",
+    "cost_scope": "preflight only; native total remains unknown"
+  },
+  "limits": {
+    "native_outcome_and_complete_cost": "UNKNOWN; no forecast",
+    "checked_ST_heads": 12,
+    "total_ST_heads": 15,
+    "scientific_or_artifact_acceptance": "not assessed",
+    "selected_serial_complete_parent": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12",
+    "serial_parent_scope": "user-selected accepted G7a43 for future composition, distinct from immutable READY03 historical8b snapshot; no parent/code adoption into frozen03 or publication/startup grant",
+    "ownership": "this single assigned native boundary only; no automatic retry/chain",
+    "reviewer_operations": "cached local frame/preflight/log/exit/READY only; no process/source/runtime/G/HDD/input/header/stat/model/test/fullreader execution or frozen/production/docs/index mutation; one exclusive local review receipt"
+  }
+}

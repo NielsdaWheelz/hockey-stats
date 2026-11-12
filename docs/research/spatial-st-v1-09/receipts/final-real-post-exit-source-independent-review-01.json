@@ -1,0 +1,52 @@
+{
+  "kind": "st-final-post-exit-source-and-cost-independent-review",
+  "checked_at_utc": "2026-11-12T14:38:37.479416+00:00",
+  "status": "passed",
+  "execution_status": "NOT_RUN_by_reviewer",
+  "evidence": [
+    {
+      "path": "final-real-boundary-metadata-01.py",
+      "bytes": 7221,
+      "sha256": "d3cd1b5ab7b990c72ff8a2f766da97f4f56c5a5f683f8f693da4ac1afe78b408"
+    },
+    {
+      "path": "final-real-post-exit-preparation-01.json",
+      "bytes": 9970,
+      "sha256": "87c7dfcfbd954e9388d99d7d06e3f38e05231c2913936f7d35846771538c902b"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-real-saved-audit-temporary.py",
+      "bytes": 27303,
+      "sha256": "ee0e66e62d3952d3124c8c0bc8d1dd781f8143a60bfeef65f20e5268074476af"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src/hockey_stats/spatial_state.py",
+      "bytes": 87965,
+      "sha256": "4ecc807fc7d0f92018c2b4ae3b375cedaa37dc1d2465e890358ac730b59b45c5"
+    }
+  ],
+  "findings": [],
+  "source_conclusions": [
+    "collector opens its exclusive local receipt before external reads; only log, exit and current manifest bodies are read, each at most cap+1; overflow stops further work and records actual logical bytes before raising",
+    "successful body maximum is 2097216 bytes; first-overflow detection can add at most one byte; original external evidence is untouched",
+    "unique declared member paths must lie in the exact 38-name writer universe before any payload stat; no listing, unlisted-path lookup or payload body/hash reads",
+    "raw available log/exit bytes are copied exclusively locally; missing or unparseable native exit is not inferred; structured collection failure re-raises even for an empty exception message",
+    "complete bounded manifest identity is saved before parsing; current declared payload totals and resource reconciliation assess declared files only",
+    "unchanged auditor reads current9 plus previous4 plus final diagnostics8 external documents and the existing 8013-byte local actual-launch frame; canonical season/source_commit/output fields require no adapter",
+    "native writer inventory requires comparisons even for unavailable variants; audit accepts within_budget, exceeded or unassessed with reasons without promoting variants or claiming optimizer/scientific quality",
+    "collector and auditor deliberately open current manifest once each; native footer, caller collector meter, and auditor own/caller meters are distinct cost scopes"
+  ],
+  "accepted_local_binding": {
+    "path": "final-real-actual-launch-01.json",
+    "bytes": 8013,
+    "sha256": "44c83575fc6e81ea9154996a40f2da7834906815dfa54c2dff5bb257569d9bee",
+    "source": "previously independently reviewed; not reread here"
+  },
+  "future_gates": [
+    "actual owned native exit",
+    "one collector; check its control status plus native exit0, complete baseline header and declared-byte reconciliation",
+    "one unchanged audit",
+    "cached local independent artifact adjudication before any acceptance or explicit return"
+  ],
+  "limits": "source and local plan review only; no controller/auditor execution, production import, test, model/evaluator, source03/G/runtime/process query, external read/stat or numerical acceptance. parent retains execution ownership. baseline heads remain12of15 until separately checked final evidence; this review assigns no next owner or window."
+}

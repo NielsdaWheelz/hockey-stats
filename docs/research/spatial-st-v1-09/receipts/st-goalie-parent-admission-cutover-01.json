@@ -1,0 +1,148 @@
+{
+  "kind": "st-goalie-first-parent-admission-development-cutover",
+  "status": "passed_focused_local_software_boundary",
+  "changed_path": "analysis/src/hockey_stats/spatial_composition.py",
+  "source_before_sha256": "4fe63004da8d9c71849dfaccfd11ecd8f942f30c4ccee6112ae3918f82eb4b7e",
+  "source_after_sha256": "49ab1fe802edd4bab2732a333a4976033b12e00f66cf5853c746ea7e2274f0d8",
+  "patch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-goalie-parent-admission-01.patch",
+    "bytes": 7463,
+    "sha256": "b6fa1681924c960f8675ae06011d106c6eabd59010f175b07ca9983679be1b8e"
+  },
+  "source_proof": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-goalie-parent-admission-source-proof-01.json",
+    "bytes": 846,
+    "sha256": "0d6aba184e0730bc05d8c3c30528dc840d427f7837e04f4cba6690ae55c7b540"
+  },
+  "accepted_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/manifest.json",
+    "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12",
+    "bytes": 23317
+  },
+  "accepted_producer_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-composition.json",
+    "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28",
+    "bytes": 54924
+  },
+  "cached_inputs": [
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/composition-01-admission-manifest.json",
+      "bytes": 23317,
+      "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12"
+    },
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/composition-01-admission-producer-receipt.json",
+      "bytes": 54924,
+      "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+    }
+  ],
+  "source_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+    "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee"
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores-selection.json",
+    "sha256": "2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed"
+  },
+  "accepted_manifest_producer": {
+    "git_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "external_pin_setting_proofs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-nonowned-preservation.json",
+      "bytes": 8547,
+      "sha256": "7b1116c94384422ccc0b500a7cccd847a266d4bc5e4a1d5e641d735509e63058"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-independent-adjudication.json",
+      "bytes": 8769,
+      "sha256": "549c1c959443e130003451a3f5ab672d248bdb9f225afe81f093ae7a38b02391"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-release.json",
+      "bytes": 7535,
+      "sha256": "a7a5787034a5341d4544e95250fb9ed271f32b901f89e6347170f8329ee2f66d"
+    }
+  ],
+  "proof_semantics": "checked locally before setting accepted pins; existing accepted_source_evidence carries original immutable uri/sha256 references. the gate does not reopen or parse these proof bodies; the producer receipt is not an independent verdict",
+  "runtime_gate": "exact complete selected path/hash plus exact completed producer receipt hash, closed public schema1/kind, producer/output/source/selection/family/member correspondence before the unchanged canonical reader",
+  "receipt_inventory": {
+    "inherited_members": 59,
+    "goalie_members": 20,
+    "output_members": 79,
+    "source_families": 30,
+    "output_families": 30,
+    "non_goalie_families": 27
+  },
+  "binding_limits": "all five original goalie score/base/history bindings are anchored by exact selection, manifest/member hashes and externally checked acceptance proofs; no score/state/base/history/provider body was reopened",
+  "driver": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-goalie-parent-controls-01.py",
+    "bytes": 10697,
+    "sha256": "dee5d81661f0fe325bbbc691036a0c7771f52d0f120ad8c9a6410ee7d1d1ebfd"
+  },
+  "unrun_driver_history": [
+    {
+      "sha256": "014bfceb10b28e5ee559b8d8ee95b0610206412b1b4f37ecf1d7c17e06923097",
+      "status": "not_run_before_source_review_refinement"
+    },
+    {
+      "sha256": "71e540e8cc580f6f1aa50b3811be56c2d80b12346688c04cf7def47a048afcde",
+      "status": "not_run_before_source_review_refinement"
+    }
+  ],
+  "red": {
+    "result": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-goalie-parent-controls-01/red-01/result.json",
+      "bytes": 1693,
+      "sha256": "8ad80e24a549907ef2685479d22d37d6388cd77e29dd6b7851d242b261002016"
+    },
+    "log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-goalie-parent-controls-01/red-01.log",
+      "bytes": 2068,
+      "sha256": "b38e78ed5b7dcca2f4212f998378db5cd3b75e3852a703e02a634eeba13a5d4c"
+    },
+    "exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-goalie-parent-controls-01/red-01.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "tests": 6,
+    "failures": 1,
+    "errors": 0,
+    "interpretation": "one target failure: accepted complete G pair rejected by obsolete8b pin; no controller failure"
+  },
+  "green": {
+    "result": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-goalie-parent-controls-01/green-01/result.json",
+      "bytes": 762,
+      "sha256": "e94f8aa416c33b102db9fe09c29f9abe3de02ecac4128058127e6ab7aa9477eb"
+    },
+    "log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-goalie-parent-controls-01/green-01.log",
+      "bytes": 1032,
+      "sha256": "694da109574ff465f36d67498d637277529780c8a30335969eb6953c95ce2b33"
+    },
+    "exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-goalie-parent-controls-01/green-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "wall_seconds": 0.011481250170618296,
+    "peak_memory_bytes": 99500032
+  },
+  "preservation": "only accepted-ST constants and _accepted_st_source changed; exact inverse restores whole4fe6 source. raw-line merge, EV, nonspatial/catalog copies, default/named canonical reader, numerical providers/state/recipes/CLI/shared validators and frozenproducer03 unchanged",
+  "not_run": [
+    "actual canonical ST composition",
+    "independent ST nonowned preservation",
+    "inactive publication",
+    "normal strict startup",
+    "real API/browser/download acceptance",
+    "source03 adoption"
+  ],
+  "scope": "one pinned RED and one unchanged-driver GREEN using cached local headers and tiny counterfactual bytes at the public compose_special_teams boundary; canonical reader replaced with sentinel; no HDD reads/stats, model evaluation, arrays, fit or publication command"
+}

@@ -1,3 +1,5 @@
 fixtures/captures/**/body.bin binary
 fixtures/references/**/body.bin binary
 fixtures/skating-v1-04/**/body.bin binary
+# preserve the raw terminal capture's padding and trailing blank lines.
+docs/research/goalies-v1-07/receipts/real-score-20252026-native-terminal-completion.txt -whitespace

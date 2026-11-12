@@ -876,7 +876,7 @@
     "independent_stop_review_sha256": "54331aac40a1591dd161fdca3993940a8e4d77be9a9ca87890158fb962a97737",
     "future_retry": "held_unreserved_new_scope_required_not_historical_ready_dispatch"
   },
-  "recorded_at_utc": "2026-11-12T07:30:13.676072+00:00",
+  "recorded_at_utc": "2026-11-12T07:41:14.259633+00:00",
   "G_final_fit_boundary": {
     "status": "accepted_fit_review_one_inventory",
     "manifest": {
@@ -973,7 +973,7 @@
     "G_final_score": "held"
   },
   "source_clause_decision": {
-    "status": "user_authorized_bounded_amendment_controls_pending",
+    "status": "bounded_original_witness_amendment_verified_and_applied",
     "requirements": [
       "finder controls recognize all three deliberately constructed cases",
       "minimally mutated preserved-capture copies exercise actual source-to-target boundary",
@@ -982,7 +982,11 @@
     ],
     "interpretation": "none found within searched scope; not proof these cases cannot occur",
     "tradeoff": "less evidence about naturally occurring source irregularities; incorrect labels remain unacceptable",
-    "extra_search_acquisition_or_fits_for_clause": false
+    "extra_search_acquisition_or_fits_for_clause": false,
+    "checked_admission": "docs/research/goalies-v1-07/receipts/source-witness-amendment-01.json",
+    "source_code_changes": 0,
+    "natural_case_status": "unobserved within inspected originals; not a global absence claim",
+    "eight_original_checks_and_five_inventories_preserved": true
   },
   "ST_fourth_retry_source_preparation_history": {
     "status": "historical_source_preparation_superseded_by_current_actual_launch",

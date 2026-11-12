@@ -1,0 +1,50 @@
+{
+  "kind": "independent-bounded-source-witness-amendment-review",
+  "status": "passed",
+  "reviewed_at_utc": "2026-11-12T07:44:41+00:00",
+  "reviewer": "final_fit_review",
+  "inputs": [
+    {"path": "docs/research/goalies-v1-07/receipts/source-witness-amendment-01.json", "bytes": 8539, "sha256": "2f476c44645121fc7025de23f132c4c32b14bc8947dd3533bdf1b4e408e0425f"},
+    {"path": "docs/research/goalies-v1-07/receipts/source-boundary-synthetic-controls-01.json", "bytes": 35566, "sha256": "5ec43223840a7d8743ba14a9e7ce4cc70940d7d4979e4bc48944083ec3b6b58b"},
+    {"path": "fixtures/goalie-continuation-synthetic-source-cases.json", "bytes": 13777, "sha256": "0900958eae66230e1abd338fa386667ea580a991610e87ff56484901d1a7c9f5"}
+  ],
+  "findings": [],
+  "accepted_controls": {
+    "invalid_intervening": {"source_check_sha256": "5f2da74f2bfac77baf97f22098099fd3bdded02690df12d723869b1ae5c710bf", "finder_check_sha256": "84dfebf703d7557afc0d3164fb7308a661784f9a67ed5518b393f11788c78b6b", "result": "unknown h/d; invalid raw and canonical row retained; no skip to the later goal; only the exact contract-permitted optional score availability changes"},
+    "unknown_chain": {"source_check_sha256": "fc9d766962988ba6275c11d8606f5c86838de832e688dba93f8afec9f18bbd84", "finder_check_sha256": "72e982c3c22e50638cc119a67c242c7f9b2f34beb526ba3f30d9613a03747b68", "result": "unknown h/d after primary suffix and future report-terminal removal; complete focal predictor and attribution retained"},
+    "goalie_change": {"source_check_sha256": "45734ae9d8d79f8243eee7471686ea037e4aa91aacbad595cfcf9086b3b95bd1", "finder_check_sha256": "2fb5355c5b1c63a423a0fb2ec41a390bc896d9260e3c11f005d2937db3c71510", "result": "valid positive follow-up and declared synthetic danger 0.25; complete original-save predictor, goalie attribution and base-stage facts retained"},
+    "provenance": "each complete-record comparison permits only six individually bound actual input-reference path/hash substitutions; no actor facts or other fields dropped",
+    "finder": "unchanged 73cd3066a2e9fc27db3044b874296378a697530c041cac843f65bf2ec6da2a18 cli consumes complete actual derived targets; generic unknown reasons do not classify the raw irregularity"
+  },
+  "preservation": {
+    "original_checks": 8,
+    "original_proof_receipts": 2,
+    "annual_inventories": 5,
+    "all_named_original_proof_inventory_and_source_admission_hashes_match_checked_facts": true,
+    "retained_controller_data_files": 12,
+    "retained_controller_data_bytes": 59105,
+    "all_retained_controller_data_hashes_and_sizes_match_admission": true,
+    "historical_issue": {"path": "docs/research/goalies-v1-07/receipts/original-source-witness-limitation.txt", "bytes": 3259, "sha256": "9aeab4c64cf34a20ff3108815bf897fea43b0094b4ab57b61da9e3cf4d32d518", "verbatim_match": "f0e8c0d5edbc3ba3cd0aa1bb71e096acc695b63e:docs/issues/goalie-original-source-checks.md", "original_relative_link_base_recorded": true},
+    "false_pass": "fe1d8b87 remains invalid with its invalidation; truthful blank-assert negative 221f11eb reports failed and actual exit1; no invented execution chronology",
+    "writer_pending_statuses": "historical facts/recipe bytes remain exact; the current admission owns completed review and retention"
+  },
+  "documentation": {
+    "specification_scope": "only the original-witness requirement for the three named irregularities changes; all label, numerical, publication, browser and other acceptance requirements remain",
+    "new_anchor": "docs/research/goalies-v1-07/verification.md#bounded-source-witness-amendment",
+    "anchor_unique_and_added_relative_targets_resolve": true,
+    "precision_fixes_checked": "the two receipts cover eight original checks; finder controls cover all three cases without implying positive h labels",
+    "natural_case_status": "synthetically verified but unobserved within inspected scope; no impossibility claim",
+    "tradeoff_explicit": "less evidence about naturally occurring irregularities; incorrect labels still block output",
+    "no_executable_analysis_or_app_diff": true
+  },
+  "scope": "local retained evidence, specification/plan/verification/fixture-index/queue diff, selected receipt hashes, archive fidelity and new link/anchor inspection; prior independent source/control reviews are retained",
+  "limits": [
+    "no full corpus or external source rehash; the already reviewed original donor preservation is not broadened into a corpus-wide claim",
+    "no source, model, fit, preparation, finder or test rerun in this final retention review",
+    "synthetic controls establish handling at the declared boundary, not naturally occurring examples, numerical accuracy, scientific admission or complete product acceptance",
+    "no further search, acquisition or fitting solely for this clause is assigned",
+    "this receipt changes no source, git state, heavy-window ownership, score dispatch, publication or activation"
+  ],
+  "activation": false,
+  "scientific_admission": false
+}

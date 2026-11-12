@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "kind": "bounded-source-witness-amendment-admission",
+  "status": "all_required_controls_and_independent_review_passed",
+  "recorded_at_utc": "2026-11-12T07:39:40.456608+00:00",
+  "authority": "user decision: bounded amendment only after finder controls, minimally mutated preserved-capture source-to-target controls and contract-derived independent review",
+  "changed_requirement": "only the original-witness requirement for invalid intervening event, unresolved terminal/successor chain and known defending-goalie change after an ordinary save",
+  "unchanged": "all required handling, eight original checks, five inventory receipts, all other acceptance requirements and scientific/activation boundaries",
+  "facts": {
+    "path": "docs/research/goalies-v1-07/receipts/source-boundary-synthetic-controls-01.json",
+    "sha256": "5ec43223840a7d8743ba14a9e7ce4cc70940d7d4979e4bc48944083ec3b6b58b",
+    "bytes": 35566
+  },
+  "synthetic_fixture_recipes": {
+    "path": "fixtures/goalie-continuation-synthetic-source-cases.json",
+    "sha256": "0900958eae66230e1abd338fa386667ea580a991610e87ff56484901d1a7c9f5",
+    "bytes": 13777
+  },
+  "historical_open_issue": {
+    "path": "docs/research/goalies-v1-07/receipts/original-source-witness-limitation.txt",
+    "sha256": "9aeab4c64cf34a20ff3108815bf897fea43b0094b4ab57b61da9e3cf4d32d518",
+    "bytes": 3259,
+    "original_location": "docs/issues/goalie-original-source-checks.md",
+    "format": "verbatim historical text; original relative links retain their original-location meaning"
+  },
+  "retained_controller_evidence": [
+    {
+      "path": "docs/research/goalies-v1-07/receipts/source-boundary-controller-history/invalid_intervening-source-check.json",
+      "sha256": "5f2da74f2bfac77baf97f22098099fd3bdded02690df12d723869b1ae5c710bf",
+      "bytes": 7154,
+      "historical_original_locator": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/invalid_intervening-04.json"
+    },
+    {
+      "path": "docs/research/goalies-v1-07/receipts/source-boundary-controller-history/invalid_intervening-finder-check.json",
+      "sha256": "84dfebf703d7557afc0d3164fb7308a661784f9a67ed5518b393f11788c78b6b",
+      "bytes": 4085,
+      "historical_original_locator": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/invalid_intervening/check.json"
+    },
+    {
+      "path": "docs/research/goalies-v1-07/receipts/source-boundary-controller-history/goalie_change-source-check.json",
+      "sha256": "45734ae9d8d79f8243eee7471686ea037e4aa91aacbad595cfcf9086b3b95bd1",
+      "bytes": 7065,
+      "historical_original_locator": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/goalie_change-01.json"
+    },
+    {
+      "path": "docs/research/goalies-v1-07/receipts/source-boundary-controller-history/goalie_change-finder-check.json",
+      "sha256": "2fb5355c5b1c63a423a0fb2ec41a390bc896d9260e3c11f005d2937db3c71510",
+      "bytes": 4139,
+      "historical_original_locator": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/goalie_change/check.json"
+    },
+    {
+      "path": "docs/research/goalies-v1-07/receipts/source-boundary-controller-history/unknown_chain-source-check.json",
+      "sha256": "fc9d766962988ba6275c11d8606f5c86838de832e688dba93f8afec9f18bbd84",
+      "bytes": 7024,
+      "historical_original_locator": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/unknown_chain-01.json"
+    },
+    {
+      "path": "docs/research/goalies-v1-07/receipts/source-boundary-controller-history/unknown_chain-finder-check.json",
+      "sha256": "72e982c3c22e50638cc119a67c242c7f9b2f34beb526ba3f30d9613a03747b68",
+      "bytes": 4026,
+      "historical_original_locator": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/unknown_chain/check.json"
+    },
+    {
+      "path": "docs/research/goalies-v1-07/receipts/source-boundary-controller-history/checker-01-receipt.json",
+      "sha256": "0a3a6dc994aece2e06f1b36674987f40ff9def25ca24449e53ff6daacc24c3c7",
+      "bytes": 3630,
+      "historical_original_locator": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/invalid_intervening.json"
+    },
+    {
+      "path": "docs/research/goalies-v1-07/receipts/source-boundary-controller-history/checker-02-receipt.json",
+      "sha256": "3cd1b7df8e1e42e098d38df47ddcae257edb94ac098bfe80083dee3be6d40d7d",
+      "bytes": 6801,
+      "historical_original_locator": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/invalid_intervening-02.json"
+    },
+    {
+      "path": "docs/research/goalies-v1-07/receipts/source-boundary-controller-history/checker-03-receipt.json",
+      "sha256": "fe1d8b87dcd7a4c4fc70e0620c44f6c3322e0c44d6bc6d28a3af7ab61fecb208",
+      "bytes": 6909,
+      "historical_original_locator": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/invalid_intervening-03.json"
+    },
+    {
+      "path": "docs/research/goalies-v1-07/receipts/source-boundary-controller-history/checker-03-invalidation.json",
+      "sha256": "f2141783beb657e934bf2493725323785ac8e43c1bee8b6d2a6b98586b14c7c8",
+      "bytes": 645,
+      "historical_original_locator": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/invalid_intervening-03-invalidation.json"
+    },
+    {
+      "path": "docs/research/goalies-v1-07/receipts/source-boundary-controller-history/truthful-error-negative-receipt.json",
+      "sha256": "221f11ebf68695a6dfd1c0c9f54d66d8b985a86e693e55430a6895bfd415cc47",
+      "bytes": 6952,
+      "historical_original_locator": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/invalid_intervening-blank-negative.json"
+    },
+    {
+      "path": "docs/research/goalies-v1-07/receipts/source-boundary-controller-history/truthful-error-negative-log.log",
+      "sha256": "c21488aa2a18a82b35d800be6aa166a4bafb984027f7a41421fe26f981c51460",
+      "bytes": 675,
+      "historical_original_locator": "/tmp/hockey-goalie-v1-07-checks/source-boundary-blank-negative-native-01.log"
+    }
+  ],
+  "independent_review": {
+    "agent": "final_fit_review",
+    "status": "behavior, finder, expected contract, provenance and final prose independently reviewed; no blockers",
+    "raw_status_note": "writer facts/recipe pending-retention statuses remain exact historical bytes; current admission is owned by this record"
+  },
+  "source_classification": "three cases synthetically verified but unobserved within inspected originals; none found within searched scope does not mean they cannot occur",
+  "checks": {
+    "invalid_intervening": "unknown h/d; raw/canonical invalid record retained; no skip to later valid goal; only exact contract-permitted optional score availability changes",
+    "unknown_chain": "unknown h/d; no negative inferred from completed game; full focal predictor retained after removing primary suffix and independent terminal report tail",
+    "goalie_change": "valid positive follow-up and synthetic d0.25 retained; original-save predictors, attribution and base-stage inputs unchanged; only resolved successor goalie changes",
+    "finder": "actual unchanged73cd CLI recognizes all three deliberately constructed target cases; generic unknown reason is not subtype proof"
+  },
+  "expected_results_basis": [
+    "02-interpretation source-order/action/completeness contract",
+    "v1-01 original-event/membership/terminal/score-corroboration contracts",
+    "v1-07 original-focal/reattempt/next-danger target contract"
+  ],
+  "controller_failures": "path spelling mismatch, over-scoped invalid-case invariance oracle and blank-assert falsepass are retained; falsepass explicitly invalidated and truthful failure negative passed before acceptance; no production bug found",
+  "cost": {
+    "canonical_preparations": 4,
+    "source_mutants": 3,
+    "no_preparation_repeats": true,
+    "total_native_wall_seconds": 31.4,
+    "maximum_peak_resident_bytes": 455655424,
+    "total_prepared_bytes": 236773794
+  },
+  "tradeoff": "less evidence about naturally occurring source irregularities; correct labels remain mandatory",
+  "scope": {
+    "original_files_overwritten": 0,
+    "extra_searches": 0,
+    "acquisitions": 0,
+    "fits": 0,
+    "hdd_reads": 0,
+    "model_evaluations": 0,
+    "public_contract_or_numerical_code_changes": 0
+  },
+  "temporary_tests": "remain until full assigned acceptance; retain useful recipes and checked facts, then delete temporary controllers/dependencies",
+  "activation": false,
+  "scientific_admission": false
+}

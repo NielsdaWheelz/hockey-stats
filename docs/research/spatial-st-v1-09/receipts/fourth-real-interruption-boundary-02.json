@@ -1,0 +1,119 @@
+{
+  "kind": "st-fourth-post-interruption-native-metadata",
+  "status": "collection_complete_with_unknowns",
+  "started_at_utc": "2026-11-12T04:38:55.838310+00:00",
+  "collector_sha256": "de24508af28c25f39a48187c33ea6619bfb3c3be93b2e46ee13bc0d954a3774b",
+  "run": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05",
+  "season": "20242025",
+  "declared_cached_bindings": {
+    "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "ready_sha256": "10856eb64cbb449f230295eaf9551f984dd59326c2f498e47952feba5647971a",
+    "script_sha256": "7fecf2aa8594b5045eb26ee9781a1fbb09ebcde1fa046c67b0f778bb2e5f0c61",
+    "launch_sha256": "cc25d02a8b62f3debf33ee74263f29d3f726d39ef63d93d3f9061b2684f6cb13",
+    "stop_eject_sha256": "b9a77a2da24efae263bfb035fbbfdfac2f477c10da7d7aa0cb77a4349502da37"
+  },
+  "availability_checks": {
+    "mount": true,
+    "hockey_root": true
+  },
+  "explicit_lstat_attempts": 9,
+  "output_metadata": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05",
+      "status": "present",
+      "bytes": 128,
+      "mtime_ns": 1794413478147047388,
+      "mode": "drwxr-xr-x"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025",
+      "status": "absent"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025/heads",
+      "status": "absent"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025/manifest.json",
+      "status": "absent"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025/heads/volume.json",
+      "status": "absent"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025/heads/shape.json",
+      "status": "absent"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025/heads/quality.json",
+      "status": "absent"
+    }
+  ],
+  "evidence": {
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/logs/20242025-fit.log",
+      "limit_bytes": 1048576,
+      "status": "copied",
+      "local_copy": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-interruption-native-02.log",
+        "bytes": 3375,
+        "sha256": "c4cb81bd7fbc7f069b9d346f58f3354232e2720441981daf17485115e5f57e0e"
+      },
+      "bytes": 3375,
+      "mtime_ns": 1794415587676661918,
+      "mode": "-rw-r--r--"
+    },
+    "exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/logs/20242025-fit.exit",
+      "limit_bytes": 64,
+      "status": "absent",
+      "local_copy": null
+    },
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025/manifest.json",
+      "limit_bytes": 1048576,
+      "status": "absent",
+      "local_copy": null
+    }
+  },
+  "native": {
+    "exit_status": null,
+    "exit_record_status": "absent",
+    "wall_seconds": 2109.52,
+    "user_seconds": 1894.49,
+    "sys_seconds": 15.75,
+    "peak_rss_bytes": 6462324736,
+    "peak_footprint_bytes": 6400054504,
+    "keyboard_interrupt": true,
+    "termination_signal": null
+  },
+  "unknowns": [
+    "exit_file_absent",
+    "manifest_file_absent",
+    "manifest_header_unknown",
+    "native_exit_status_unknown"
+  ],
+  "logical_input_body_read_bytes": 3375,
+  "maximum_body_bytes": 2097216,
+  "artifact_acceptance": "not_assessed",
+  "output_completeness": "unknown; a reported manifest envelope is not member validation",
+  "manifest_header": null,
+  "manifest_parse_status": "not_read",
+  "head_completion": "unknown; file presence is not a completed head",
+  "head_reusability": "unknown; no head metadata or arrays are validated",
+  "payload_bytes": null,
+  "process_state": "not_checked_by_this_collector",
+  "fit_retry": false,
+  "audit": false,
+  "slot_release": false,
+  "activation": false,
+  "scope": "three capped native log/exit/manifest-envelope bodies and nine fixed lstats; manifest lstat reused; two availability queries; no enumeration, arrays/design paths, head/member bodies, source/input/predecessor/coaches data, providers, evaluator, full reader or audit",
+  "finished_at_utc": "2026-11-12T04:39:10.244102+00:00",
+  "resources": {
+    "collection_wall_seconds": 14.405677333008498,
+    "collection_peak_rss_bytes": 19873792,
+    "wall_scope": "collection and local raw copies; excludes final receipt serialization/write"
+  }
+}

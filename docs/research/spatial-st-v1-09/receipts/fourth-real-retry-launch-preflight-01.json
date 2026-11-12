@@ -1,0 +1,43 @@
+{
+  "status": "fresh_launch_preconditions_passed",
+  "season": "20242025",
+  "producer_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+  "input_body_reads": 0,
+  "dispatch": "not_yet_dispatched",
+  "activation": false,
+  "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+  "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+  "clean_analysis": true,
+  "ready": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-preparation-01.json",
+    "sha256": "633516d911773036b4b88e9f649dcb5394b8212407a79eeabcf5663a9c1b9326"
+  },
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-retry-held-01.sh",
+    "sha256": "524605372c37d9d9b7a12e9fa71cd9c22c1336696696e6217ed0da74f7672860"
+  },
+  "prior_owner_release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20252026-release.json",
+    "sha256": "20311fed1d6070070d03cf292018934e14ddbfed5ab9b99326a29a5e8a229696"
+  },
+  "runtime": {
+    "python": "3.14.8",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "interpreter": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+  "module": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02/analysis/src/hockey_stats/__init__.py",
+  "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd",
+  "mount": "/Volumes/Expansion",
+  "fresh_absent_paths": [
+    "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/logs/20242025-fit.log",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/logs/20242025-fit.exit"
+  ],
+  "previous_manifest_sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7",
+  "base_score_sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+  "scope": "one 20242025 annual prepared pass and original accepted base-score validation, full explicit predecessor and raw history, three sequential fresh baseline heads, projections/accounting and canonical native readback",
+  "child_environment": "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02/analysis/src OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1",
+  "checked_at_utc": "2026-11-12T07:13:25.023098+00:00"
+}

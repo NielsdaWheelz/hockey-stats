@@ -1,0 +1,81 @@
+{
+  "kind": "st-fourth-retry-post-exit-independent-source-review",
+  "verdict": "PASS",
+  "reviewed_at_utc": "2026-11-12T07:23:48.175177+00:00",
+  "reviewer": "/root/st_interrupt_review",
+  "inputs": [
+    {
+      "role": "collector",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-boundary-metadata-01.py",
+      "bytes": 4516,
+      "sha256": "36145a615c5950c60cb1af3d75ffc7df5045bbd7f6e423573a44c4789160b3a0"
+    },
+    {
+      "role": "original_collector",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-boundary-metadata-01.py",
+      "bytes": 4389,
+      "sha256": "31515ea5ea0603eacb643c1e28650fc090298356c9ffc6bff199fd33ea5b689b"
+    },
+    {
+      "role": "audit_binding",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-audit-binding-01.json",
+      "bytes": 975,
+      "sha256": "5646ac31ae6d4a1c72b3f543fafcc1dba07a541c9d1da3e73e62c3ab46773fb6"
+    },
+    {
+      "role": "unchanged_auditor",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-real-saved-audit-temporary.py",
+      "bytes": 27303,
+      "sha256": "ee0e66e62d3952d3124c8c0bc8d1dd781f8143a60bfeef65f20e5268074476af"
+    },
+    {
+      "role": "actual_launch",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-actual-launch-01.json",
+      "bytes": 6375,
+      "sha256": "2995e44adcbbdb1a787e4faa2e200b7fbdd0debca0516ec789b4a5ae4bfc26e1"
+    },
+    {
+      "role": "retry_packet",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-preparation-01.json",
+      "bytes": 10825,
+      "sha256": "633516d911773036b4b88e9f649dcb5394b8212407a79eeabcf5663a9c1b9326"
+    }
+  ],
+  "findings": [],
+  "collector_contract": {
+    "exhaustive_diff": "only run root, four local name/kind substitutions and direct count15 guard before payload stat loop",
+    "body_reads": "native log, native exit record and current manifest only; at most three bodies",
+    "payload_metadata": "at most fifteen current declared payload stat calls; count mismatch raises before any payload stat",
+    "output": "exclusive local raw log/exit copies and metadata receipt; no external writes",
+    "costs": "native costs parsed from native footer; caller measures collector cost separately; internal collection_wall_seconds remains null",
+    "completion_precondition": "for a stopped native command with readable exit record and timing/footer; not the interruption collector",
+    "errors": "parse/read/stat/count/exclusive-write errors fail loudly and are controller evidence; no automatic rerun or artifact verdict",
+    "native_status": "collector control success does not establish native exit0 or artifact acceptance; audit must follow checked native success"
+  },
+  "auditor_contract": {
+    "source": "unchanged ee0e auditor",
+    "accepted_binding_fields": [
+      "season",
+      "source_commit",
+      "output"
+    ],
+    "binding_values_match_pinned_local_launch_and_packet": true,
+    "extra_pin_fields": "attributed provenance validated in this local review; the unchanged auditor consumes only its existing three required fields",
+    "minimality": "a small explicit caller fact record is appropriate; changing the established auditor or immutable historical packets would introduce unnecessary contract changes",
+    "future_argv": "pinned python -B; current 20242025 state; explicit run04/real/states/20232024 predecessor; --preflight local tiny binding; exclusive local audit output",
+    "external_body_reads": "thirteen saved JSON documents: nine current plus prior manifest and three prior heads; one additional local binding read",
+    "overlap": "current manifest is deliberately read once by collector and again by independent saved-json auditor",
+    "excludes": "array/design/source/input/prepared/coaches bodies, evaluator, model/full reader, native retry and numerical campaign",
+    "audit_and_native_and_collector_costs": "separate"
+  },
+  "authority_and_limits": {
+    "post_exit_execution": "NOT_RUN",
+    "audit_execution": "NOT_RUN",
+    "numerical_or_scientific_acceptance": "not assessed",
+    "slot_release": false,
+    "checked_st_heads": 9,
+    "complete_parent": "unchanged 8b32c23e",
+    "reviewer_operations": "local source/JSON text, hashes, diff reconstruction and AST parse only; no helper/auditor execution or import, OS/source/runtime/external check, production/docs/index/frozen change; one local review receipt",
+    "reviewer_setup": "initial assumed .tmp baseline lookup failed locally; corrected to supplied local evidence directory; no collector/native/controller execution or failure"
+  }
+}

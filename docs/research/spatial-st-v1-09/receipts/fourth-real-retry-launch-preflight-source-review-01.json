@@ -1,0 +1,65 @@
+{
+  "kind": "st-fourth-retry-launch-preflight-independent-source-review",
+  "verdict": "PASS",
+  "reviewed_at_utc": "2026-11-12T07:12:13.165106+00:00",
+  "reviewer": "/root/st_interrupt_review",
+  "inputs": [
+    {
+      "role": "new_helper",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-retry-launch-preflight-01.py",
+      "bytes": 5452,
+      "sha256": "3cb70c390afff4937a6441bf8a77fc67e1eda60c7b92d3ed00afc746984ff4e6"
+    },
+    {
+      "role": "original_helper",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-launch-preflight-01.py",
+      "bytes": 5373,
+      "sha256": "77ebb5dc5cd48963d383b6f55f816665a51c72744192f0bb12927f8d0584676d"
+    },
+    {
+      "role": "retry_packet",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-preparation-01.json",
+      "bytes": 10825,
+      "sha256": "633516d911773036b4b88e9f649dcb5394b8212407a79eeabcf5663a9c1b9326"
+    },
+    {
+      "role": "retry_script",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-retry-held-01.sh",
+      "bytes": 1509,
+      "sha256": "524605372c37d9d9b7a12e9fa71cd9c22c1336696696e6217ed0da74f7672860"
+    },
+    {
+      "role": "prior_owner_release",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20252026-release.json",
+      "bytes": 7434,
+      "sha256": "20311fed1d6070070d03cf292018934e14ddbfed5ab9b99326a29a5e8a229696"
+    }
+  ],
+  "findings": [],
+  "source_proof": {
+    "actual_complete_source_and_diff_reviewed": true,
+    "all_changes_exhaustively_reconstruct_new_source": true,
+    "changes": "five path constants; exact packet/script/release pins plus release length; nested-to-flat packet fields and resulting scope/environment record fields only",
+    "syntax": "stdlib ast.parse only; no helper import or execution",
+    "flat_packet_fields_present": true,
+    "frozen_source_contract": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f / aa346929001cfa7ad35558f60b179791834eb56a",
+    "input_identity_contract": "original base86e346f8 and previous ST465362c4; no input/header/member read or stat",
+    "runtime_checks": "unchanged pinned interpreter, numpy/scipy versions, producer import owner, lock and clean analysis checks; actual checks not run by reviewer",
+    "proposed_external_scope": "mount/root availability and at most four fixed absence lstats: run, annual output, native log, native exit; no enumeration or input/member path queries",
+    "output_contract": "new exclusive local receipt, no dispatch; immutable prior helper/run05/READY10856 untouched",
+    "failure_contract": "unchanged failed initial status; ordinary exception details retained and re-raised; finally serializes local receipt after successful exclusive open; occupied destination is not overwritten; no numerical artifact verdict"
+  },
+  "scope_limits": {
+    "source_only": true,
+    "controller_executions": 0,
+    "production_imports": 0,
+    "frozen_source_or_OS_queries": 0,
+    "external_reads_stats_or_creations": 0,
+    "production_doc_index_changes": 0,
+    "new_local_files": 1,
+    "actual_preflight": "NOT_RUN by reviewer; root owns the separately authorized single preflight and conditional dispatch",
+    "launch_frame_review": "later separate requirement; not inferred from source pass",
+    "annual_or_scientific_acceptance": "not assessed",
+    "coordinator_notification": false
+  }
+}

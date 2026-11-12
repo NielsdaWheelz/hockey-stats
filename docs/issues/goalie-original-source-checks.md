@@ -1,6 +1,6 @@
 # original goalie source checks
 
-status: open; three original-event proofs remain unfulfilled.
+status: open; user-approved bounded amendment awaits finder/source-to-target controls and independent review.
 
 the assigned v1-07 source-to-target acceptance still needs an intervening invalid event, an unknown terminal/successor chain and a known defending-goalie change after an ordinary save. completion cannot be claimed from synthetic controls or generic missing-label reasons.
 
@@ -9,3 +9,7 @@ eight selected original checks pass in [verification](../research/goalies-v1-07/
 consume each remaining annual coverage once through the reviewed bounded inventory. retain its eligible candidates and at most one separately named type/location-excluded changed-goalie candidate. the latter may establish source-label behavior after original inspection; it remains excluded from fitting. no previous inventory replay, additional season, acquisition or synthetic substitution is selected.
 
 resolution requires independently checked original adjacency/order, action/terminal meaning, team/period/clock and applicable goalie identities, bound to the exact saved target and honest h/d dispositions. preserve each newly encountered distinct complete available original capture bundle and receipts under the fixture policy. if the required inventories produce no qualifying original proof, retain this debt and seek an explicit criterion/scope decision; do not silently waive it.
+
+historical preparation, before the final inventory ran: source73cd3066… additionally retains at most three earliest distinct games per exact unknown-h reason when only type/location and the missing immediate label exclude a resolved-goalie ordinary save. the same four external documents are read once; existing eligible candidates and counts are unchanged. tiny synthetic red/green plus pinned-runtime compatibility pass, but at that preparation checkpoint the actual final inventory was pending. no original proof or fitting inclusion follows from this controller correction. [preparation evidence](../research/goalies-v1-07/receipts/final-command-preparation-02.json).
+
+the fifth and final inventory6a332935… also finds no qualifying candidate within its declared scope. the user accepts less evidence about natural irregularities and authorizes changing only the original-witness requirement AFTER deliberate finder examples, minimally altered preserved-capture source-to-target controls, and contract-derived independent review pass. preserve the eight actual original checks and all inventory receipts; label these three cases synthetically verified but unobserved in inspected originals. no additional search, acquisition or fitting is warranted solely for this clause. the amendment is conditional and these controls remain pending.

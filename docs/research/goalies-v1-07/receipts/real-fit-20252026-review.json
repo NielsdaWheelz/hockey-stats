@@ -1,0 +1,524 @@
+{
+  "kind": "independent-real-goalie-annual-fit-small-metadata-review",
+  "status": "passed",
+  "season": "20252026",
+  "recorded_at_utc": "2026-11-12T06:57:59.494292+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/manifest.json",
+    "bytes": 346105,
+    "sha256": "903092073a25b0afb0b6e153ede5f2685a0a4bf7b4dce1381c1a05f266a56502"
+  },
+  "producer": {
+    "git_commit": "76af911844cc53ccf6548f48bfd04970eb36d292",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "scope": "four current jsons plus two pinned previous same-head jsons; final adds frozen baseline and attempted probe jsons; no numerical production import/reader",
+  "launch_preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20252026-preflight.json",
+    "sha256": "74ddf0a59d3a3a29bdd805a12f4ec9bb7d61d5e12a423451092bdb121910bfd5"
+  },
+  "current_heads": {
+    "h": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/heads/h.json",
+      "sha256": "fc2ce68b1839cf5e540d0a9ecfcfe1d7ea96ef61ebbe694955d07777cdbd4370"
+    },
+    "d": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/heads/d.json",
+      "sha256": "5d67cc65a214679a34b5ea615d0e78312f36cad406e61485795012557023ca46"
+    }
+  },
+  "base_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01/20252026/manifest.json",
+    "sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276",
+    "season": "20252026",
+    "purpose": "real",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual",
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json",
+      "sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe"
+    }
+  },
+  "base_scores": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026/manifest.json",
+    "sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc"
+  },
+  "probe_review": {
+    "h": {
+      "status": "assessed",
+      "reason": null,
+      "start": {
+        "name": "continuation",
+        "deduplicated_to": null,
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 297,
+        "evaluations": 327,
+        "objective": 25695.50544139203,
+        "gradient_max": 0.00019092314132819303,
+        "inner_solves": [],
+        "objective_trace": [
+          25695.50544139203
+        ],
+        "em_iterations": 0,
+        "responsibility_change": null
+      },
+      "comparison": {
+        "base_objective": 25695.50544140375,
+        "base_gradient_max": 0.0008453133072800906,
+        "optimizer_maxiter": 10000,
+        "optimizer_ftol": 1e-16,
+        "optimizer_gtol": 1e-07,
+        "coefficient_max_change": 1.1319170354906483e-05,
+        "coefficient_l2_change": 0.00011101265290908899,
+        "tightened_objective": 25695.50544139203,
+        "objective_change": -1.1721567716449499e-08,
+        "tightened_gradient_max": 0.00019092314132819303,
+        "gradient_max_change": 0.0006699331352482511,
+        "optimizer_maxfun": 15000,
+        "status": "assessed",
+        "contexts": 256,
+        "origin_rows": 167936,
+        "maximum_probability_change": 1.494934723789143e-06,
+        "maximum_joint_change": 1.872242919864764e-07,
+        "pointwise_threshold": 1e-05,
+        "compared_probability_rows": 335872,
+        "compared_joint_rows": 335872
+      }
+    },
+    "d": {
+      "status": "assessed",
+      "reason": null,
+      "start": {
+        "name": "continuation",
+        "deduplicated_to": null,
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 70,
+        "evaluations": 78,
+        "objective": 2865.5621471358145,
+        "gradient_max": 0.00020437802423702717,
+        "inner_solves": [],
+        "objective_trace": [
+          2865.5621471358145
+        ],
+        "em_iterations": 0,
+        "responsibility_change": null
+      },
+      "comparison": {
+        "base_objective": 2865.5621471361173,
+        "base_gradient_max": 6.026867775288467e-05,
+        "optimizer_maxiter": 10000,
+        "optimizer_ftol": 1e-16,
+        "optimizer_gtol": 1e-07,
+        "coefficient_max_change": 2.408688454913488e-06,
+        "coefficient_l2_change": 1.838612033877019e-05,
+        "tightened_objective": 2865.5621471358145,
+        "objective_change": -3.028617356903851e-10,
+        "tightened_gradient_max": 0.00020437802423702717,
+        "gradient_max_change": 0.00021917659769548486,
+        "optimizer_maxfun": 15000,
+        "status": "assessed",
+        "contexts": 256,
+        "origin_rows": 167936,
+        "maximum_probability_change": 4.2970558755683896e-07,
+        "maximum_joint_change": 4.576164968489449e-08,
+        "pointwise_threshold": 1e-05,
+        "compared_probability_rows": 335872,
+        "compared_joint_rows": 335872
+      }
+    }
+  },
+  "members_read": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/manifest.json",
+      "bytes": 346105,
+      "sha256": "903092073a25b0afb0b6e153ede5f2685a0a4bf7b4dce1381c1a05f266a56502"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20242025/heads/h.json",
+      "bytes": 3027674,
+      "sha256": "a9664b7204b30771bf42846d9128bf181aad3add2cfc9b1caa8e0491346d38d5"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/heads/h.json",
+      "bytes": 3037507,
+      "sha256": "fc2ce68b1839cf5e540d0a9ecfcfe1d7ea96ef61ebbe694955d07777cdbd4370"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20242025/heads/d.json",
+      "bytes": 1741961,
+      "sha256": "40285fc3cd4e09e92d2a6dfdba52657c017933143fce14e518baedaf41f355f8"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/heads/d.json",
+      "bytes": 1784855,
+      "sha256": "5d67cc65a214679a34b5ea615d0e78312f36cad406e61485795012557023ca46"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/numerical.json",
+      "bytes": 2449,
+      "sha256": "19c4b61435d8f1e4e06c900ac88506da923260c2fc4a733f8ae4d01674198477"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/baseline.json",
+      "bytes": 10242,
+      "sha256": "c3173e00560c1a870da0846999e73655ab2ff7b5c6f223219164172d62e494dc"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/heads/h-tight.json",
+      "bytes": 3037066,
+      "sha256": "46d4f77daadabc9a0850000815ccf24fe4bd546666550a5a83a2487c319bbb61"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/heads/d-tight.json",
+      "bytes": 1784365,
+      "sha256": "1713c2ab4a3f7bb03549709658974898afcf549e7c2a674f7884bb5ace64517f"
+    }
+  ],
+  "heads": {
+    "h": {
+      "status": "complete",
+      "target_kind": "binary",
+      "likelihood_keys": 64833,
+      "target_mass": 9479.0,
+      "dimensions": 3544,
+      "incoming_raw_rows": 1615,
+      "actor_rows": 1208,
+      "ledger_rows": 1748,
+      "checked": {
+        "incoming_raw_rows_preserved": 666,
+        "absent_actor_rows_preserved": 635,
+        "carried_raw_priors": 980,
+        "prior_only_actors": 126,
+        "new_raw_supported_rows": 1082,
+        "entry_priors": 228,
+        "centers": 5
+      },
+      "transition_reasons": {
+        "age_carry": 915,
+        "entry": 228,
+        "missing_or_changed_role": 1,
+        "age_neutral": 64
+      },
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 3249,
+          "evaluations": 3560,
+          "objective": 25695.505441416874,
+          "gradient_max": 0.0023158187865381366,
+          "inner_solves": [],
+          "objective_trace": [
+            25695.505441416874
+          ],
+          "em_iterations": 0,
+          "responsibility_change": null
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": null,
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 3354,
+          "evaluations": 3676,
+          "objective": 25695.50544140375,
+          "gradient_max": 0.0008453133072800906,
+          "inner_solves": [],
+          "objective_trace": [
+            25695.50544140375
+          ],
+          "em_iterations": 0,
+          "responsibility_change": null
+        }
+      ],
+      "centers": {
+        "shooter": {
+          "value": 0.006097927412902485,
+          "weight": 59012.0,
+          "prior_only": false
+        },
+        "goalie": {
+          "value": -0.002992785972018441,
+          "weight": 64833.0,
+          "prior_only": false
+        },
+        "setter": {
+          "value": 0.0,
+          "weight": 0.0,
+          "prior_only": true
+        },
+        "attacking_coach": {
+          "value": 0.0029065209251452058,
+          "weight": 64833.0,
+          "prior_only": false
+        },
+        "defending_coach": {
+          "value": -0.00011075952373197299,
+          "weight": 64833.0,
+          "prior_only": false
+        }
+      },
+      "selected_start": "prior_mean",
+      "selected_native": {
+        "name": "prior_mean",
+        "deduplicated_to": null,
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 3354,
+        "evaluations": 3676,
+        "objective": 25695.50544140375,
+        "gradient_max": 0.0008453133072800906,
+        "inner_solves": [],
+        "objective_trace": [
+          25695.50544140375
+        ],
+        "em_iterations": 0,
+        "responsibility_change": null
+      },
+      "implied_total_penalty": 212.07988168352313,
+      "independent_supported_actor_penalty": 116.53706148619891,
+      "non_actor_penalty_remainder": 95.54282019732422
+    },
+    "d": {
+      "status": "complete",
+      "target_kind": "fractional",
+      "likelihood_keys": 9454,
+      "target_mass": 865.6337367063065,
+      "dimensions": 3544,
+      "incoming_raw_rows": 1438,
+      "actor_rows": 1208,
+      "ledger_rows": 1564,
+      "checked": {
+        "incoming_raw_rows_preserved": 597,
+        "absent_actor_rows_preserved": 520,
+        "carried_raw_priors": 918,
+        "prior_only_actors": 241,
+        "new_raw_supported_rows": 967,
+        "entry_priors": 290,
+        "centers": 5
+      },
+      "transition_reasons": {
+        "age_carry": 854,
+        "entry": 290,
+        "age_neutral": 64
+      },
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 995,
+          "evaluations": 1080,
+          "objective": 2865.5621471361173,
+          "gradient_max": 6.026867775288467e-05,
+          "inner_solves": [],
+          "objective_trace": [
+            2865.5621471361173
+          ],
+          "em_iterations": 0,
+          "responsibility_change": null
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": null,
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 1049,
+          "evaluations": 1152,
+          "objective": 2865.562147136279,
+          "gradient_max": 6.241651895139318e-05,
+          "inner_solves": [],
+          "objective_trace": [
+            2865.562147136279
+          ],
+          "em_iterations": 0,
+          "responsibility_change": null
+        }
+      ],
+      "centers": {
+        "shooter": {
+          "value": -0.004211959624525368,
+          "weight": 8323.0,
+          "prior_only": false
+        },
+        "goalie": {
+          "value": -0.0026477171218187373,
+          "weight": 9454.0,
+          "prior_only": false
+        },
+        "setter": {
+          "value": 0.0,
+          "weight": 0.0,
+          "prior_only": true
+        },
+        "attacking_coach": {
+          "value": 0.00023782799021763746,
+          "weight": 9454.0,
+          "prior_only": false
+        },
+        "defending_coach": {
+          "value": 8.842445068773486e-05,
+          "weight": 9454.0,
+          "prior_only": false
+        }
+      },
+      "selected_start": "zero",
+      "selected_native": {
+        "name": "zero",
+        "deduplicated_to": null,
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 995,
+        "evaluations": 1080,
+        "objective": 2865.5621471361173,
+        "gradient_max": 6.026867775288467e-05,
+        "inner_solves": [],
+        "objective_trace": [
+          2865.5621471361173
+        ],
+        "em_iterations": 0,
+        "responsibility_change": null
+      },
+      "implied_total_penalty": 7.744909147387716,
+      "independent_supported_actor_penalty": 2.7884758216067476,
+      "non_actor_penalty_remainder": 4.956433325780969
+    }
+  },
+  "numerical_disposition": {
+    "heads": {
+      "h": {
+        "status": "assessed",
+        "reason": null,
+        "baseline": {
+          "path": "baseline.json",
+          "sha256": "c3173e00560c1a870da0846999e73655ab2ff7b5c6f223219164172d62e494dc"
+        },
+        "head_path": "heads/h-tight.json",
+        "array_path": "heads/h-tight.npz",
+        "comparison": {
+          "base_objective": 25695.50544140375,
+          "base_gradient_max": 0.0008453133072800906,
+          "optimizer_maxiter": 10000,
+          "optimizer_ftol": 1e-16,
+          "optimizer_gtol": 1e-07,
+          "coefficient_max_change": 1.1319170354906483e-05,
+          "coefficient_l2_change": 0.00011101265290908899,
+          "tightened_objective": 25695.50544139203,
+          "objective_change": -1.1721567716449499e-08,
+          "tightened_gradient_max": 0.00019092314132819303,
+          "gradient_max_change": 0.0006699331352482511,
+          "optimizer_maxfun": 15000,
+          "status": "assessed",
+          "contexts": 256,
+          "origin_rows": 167936,
+          "maximum_probability_change": 1.494934723789143e-06,
+          "maximum_joint_change": 1.872242919864764e-07,
+          "pointwise_threshold": 1e-05,
+          "compared_probability_rows": 335872,
+          "compared_joint_rows": 335872
+        }
+      },
+      "d": {
+        "status": "assessed",
+        "reason": null,
+        "baseline": {
+          "path": "baseline.json",
+          "sha256": "c3173e00560c1a870da0846999e73655ab2ff7b5c6f223219164172d62e494dc"
+        },
+        "head_path": "heads/d-tight.json",
+        "array_path": "heads/d-tight.npz",
+        "comparison": {
+          "base_objective": 2865.5621471361173,
+          "base_gradient_max": 6.026867775288467e-05,
+          "optimizer_maxiter": 10000,
+          "optimizer_ftol": 1e-16,
+          "optimizer_gtol": 1e-07,
+          "coefficient_max_change": 2.408688454913488e-06,
+          "coefficient_l2_change": 1.838612033877019e-05,
+          "tightened_objective": 2865.5621471358145,
+          "objective_change": -3.028617356903851e-10,
+          "tightened_gradient_max": 0.00020437802423702717,
+          "gradient_max_change": 0.00021917659769548486,
+          "optimizer_maxfun": 15000,
+          "status": "assessed",
+          "contexts": 256,
+          "origin_rows": 167936,
+          "maximum_probability_change": 4.2970558755683896e-07,
+          "maximum_joint_change": 4.576164968489449e-08,
+          "pointwise_threshold": 1e-05,
+          "compared_probability_rows": 335872,
+          "compared_joint_rows": 335872
+        }
+      }
+    }
+  },
+  "resources": {
+    "wall_seconds": 59.82409887504764,
+    "peak_memory_bytes": 20134002688,
+    "design_wall_seconds": 7136.025139667094,
+    "input_read_wall_seconds": 5.890019749989733,
+    "dimensions": {
+      "h": 3544,
+      "d": 3544
+    },
+    "solve_counts": {
+      "h": 2,
+      "d": 2
+    },
+    "probe_solve_counts": {
+      "h": 1,
+      "d": 1
+    },
+    "output_bytes": 85184308
+  },
+  "native_command_cost": {
+    "exit_code": 0,
+    "wall_seconds": 7212.36,
+    "max_resident_bytes": 20134002688,
+    "source": "root-owned completion bound to explicit launch preflight",
+    "native_session_id": 32082
+  },
+  "known_positive_reattempts": 9479,
+  "valued_d_responses": 9454,
+  "difference_requires_source_coverage_review": 25,
+  "limitations": [
+    "no coefficient arrays, coverage targets, prepared/base artifacts or normal state reader reopened",
+    "age input/delta/index and raw carry checked; fitted age-curve contribution to saved prior_mean and prior-only coefficient arrays not independently recomputed",
+    "full objective/gradient not recomputed; native selection, saved diagnostics and implied supported-actor penalty accounting checked",
+    "earlier annual sensitivity remains unassessed; final probe metadata is not an independent pointwise or coefficient-array replay; score owns all three variants",
+    "final descriptor target hash/selector/source witnesses remain for source/score owners; this check binds original head/design/prior identities only",
+    "native convergence does not establish gtol attainment or scientific admission",
+    "source owner independently reconciles actual target populations/exclusions"
+  ],
+  "calls": {
+    "source_game_reads": 0,
+    "coverage_member_reads": 0,
+    "array_loads": 0,
+    "base_state_or_score_reads": 0,
+    "full_production_readers": 0,
+    "model_or_objective_evaluations": 0,
+    "solves": 0
+  },
+  "temporary_review_script": {
+    "path": "/tmp/goalie-v1-07-checks/review_remaining_real_metadata.py",
+    "sha256": "33d0846b61bcfb5d24fb70571805c1624b8fb143b2dd26f8dfdabfff9a40da12"
+  }
+}

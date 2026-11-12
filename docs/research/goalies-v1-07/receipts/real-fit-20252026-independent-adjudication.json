@@ -1,0 +1,93 @@
+{
+  "kind": "independent-final-goalie-fit-local-boundary-adjudication",
+  "status": "passed_scoped_native_and_saved_metadata_review",
+  "recorded_at_utc": "2026-11-12T06:59:25+00:00",
+  "reviewer": "final_fit_review",
+  "inputs": [
+    {"path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20252026-preflight.json", "bytes": 10197, "sha256": "74ddf0a59d3a3a29bdd805a12f4ec9bb7d61d5e12a423451092bdb121910bfd5"},
+    {"path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20252026-review.json", "bytes": 18802, "sha256": "4aa6c6d92f15b6274f2eb5739b3c008afa89ce7a2e31526d6fa9323f4647d503"},
+    {"path": "/tmp/hockey-goalie-v1-07-checks/fit-20252026-native-tool-completion.json", "bytes": 258, "sha256": "9a70a06a6ddb32f6ae6e41b6c17577ca217d793380d9cae461766f20538f9824"},
+    {"path": "/tmp/hockey-goalie-v1-07-checks/fit-20252026-native-completed.log", "bytes": 875, "sha256": "ae33d2e81206c34b2d3f76d7874aacd8582c52210630dbba0c9db31831edce5d"},
+    {"path": "/tmp/goalie-v1-07-checks/review-real-20252026-01.log", "bytes": 1880, "sha256": "3f60deccc82f64ac36248ceec20f8e15b4116023a2d722e2398517fe4403e885"}
+  ],
+  "findings": [],
+  "native": {
+    "session_id": 32082,
+    "exit_code": 0,
+    "exit_evidence": "cached actual write_stdin completion; no exit or acceptance inferred from process absence",
+    "wall_seconds": 7212.36,
+    "user_seconds": 6246.05,
+    "system_seconds": 290.4,
+    "peak_rss_bytes": 20134002688,
+    "peak_footprint_bytes": 20516699256,
+    "swaps": 0
+  },
+  "bindings": {
+    "state": {"path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/manifest.json", "bytes": 346105, "sha256": "903092073a25b0afb0b6e153ede5f2685a0a4bf7b4dce1381c1a05f266a56502"},
+    "producer_commit": "76af911844cc53ccf6548f48bfd04970eb36d292",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "producer_clean_in_launch_and_review": true,
+    "runtime": "python 3.14.8; numpy 2.5.3; scipy 1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd",
+    "previous_annual_sha256": "711763dd26881dace10f0956a1d576d8bee979734634889de21ee62787da61d3",
+    "previous_base_sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe",
+    "corrected_current_base_sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276",
+    "current_base_scores_sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+    "metadata_reviewer_sha256": "33d0846b61bcfb5d24fb70571805c1624b8fb143b2dd26f8dfdabfff9a40da12",
+    "six_launch_thread_variables_unset": true
+  },
+  "baselines": {
+    "h": {"status": "complete", "sha256": "fc2ce68b1839cf5e540d0a9ecfcfe1d7ea96ef61ebbe694955d07777cdbd4370", "likelihood_keys": 64833, "target_mass": 9479.0, "selected_start": "prior_mean", "objective": 25695.50544140375, "gradient_max": 0.0008453133072800906, "incoming_raw_rows": 1615, "preserved_incoming_rows": 666, "updated_supported_rows": 1082, "ledger_rows": 1748},
+    "d": {"status": "complete", "sha256": "5d67cc65a214679a34b5ea615d0e78312f36cad406e61485795012557023ca46", "likelihood_keys": 9454, "target_mass": 865.6337367063065, "selected_start": "zero", "objective": 2865.5621471361173, "gradient_max": 0.00006026867775288467, "incoming_raw_rows": 1438, "preserved_incoming_rows": 597, "updated_supported_rows": 967, "ledger_rows": 1564},
+    "starts_per_head": 2,
+    "selected_lower_completed_objective": true,
+    "reviewed_history_contract": "same-head raw entry-or-carry priors, dated age inputs/deltas/indices, unchanged absent and prior-only incoming ledger rows, likelihood-supported updates and reporting centers checked by the pinned metadata reviewer",
+    "cumulative_completed_baseline_heads": 10,
+    "cumulative_count_basis": "eight previously accepted heads plus these two final heads; earlier artifacts were not reread"
+  },
+  "final_probes": {
+    "solve_counts": {"h": 1, "d": 1},
+    "total_solves": 2,
+    "contexts_per_head": 256,
+    "origins_per_context": 656,
+    "compared_probability_rows_per_head": 335872,
+    "compared_joint_rows_per_head": 335872,
+    "pointwise_threshold": 0.00001,
+    "h": {"status": "assessed", "iterations": 297, "evaluations": 327, "gradient_max": 0.00019092314132819303, "maximum_probability_change": 0.000001494934723789143, "maximum_joint_change": 0.0000001872242919864764, "sample_threshold_exceeded": false},
+    "d": {"status": "assessed", "iterations": 70, "evaluations": 78, "gradient_max": 0.00020437802423702717, "maximum_probability_change": 0.00000042970558755683896, "maximum_joint_change": 0.00000004576164968489449, "sample_threshold_exceeded": false},
+    "termination": "both completed probes stopped on relative objective reduction; neither attained requested gtol 1e-7",
+    "original_baselines_preserved": true,
+    "all_goalie_summary_and_combined_variant_score_checks": "not run; owned by the final score"
+  },
+  "resources": {
+    "producer_resources_match_preflight_and_review": true,
+    "producer_dimensions_per_head": 3544,
+    "producer_output_bytes": 85184308,
+    "metadata_review_external_jsons_attributed": 9,
+    "metadata_review_logical_bytes_attributed": 14772224,
+    "metadata_review_native_wall_seconds": 0.22,
+    "metadata_review_peak_rss_bytes": 79118336,
+    "metadata_review_peak_footprint_bytes": 69108264,
+    "this_adjudication_local_input_files": 5,
+    "this_adjudication_local_input_bytes": 32012
+  },
+  "pending": {
+    "one_final_target_inventory": "not run; reviewed successor 73cd3066a2e9fc27db3044b874296378a697530c041cac843f65bf2ec6da2a18",
+    "positive_h_targets_without_valued_d_response": 25,
+    "difference_reason_reconciliation": "pending the one final target inventory",
+    "original_source_proofs_remaining": 3,
+    "completed_annual_scores": 4,
+    "final_score": "not dispatched by this adjudication"
+  },
+  "scope": "local cached native completion/log, finalized preflight, saved nine-json metadata-review receipt and its raw log only",
+  "operations": {"external_reads_or_stats": 0, "production_imports": 0, "test_or_reviewer_reruns": 0, "array_or_coverage_reads": 0, "git_mutations": 0},
+  "limits": [
+    "saved metadata findings are checked for coherent bindings and accounting here; original external members are not independently reopened",
+    "full objective/gradient, fitted age-curve contribution to prior means, prior-only coefficient arrays and pointwise probabilities are not recomputed",
+    "small sampled final probe changes do not establish optimizer accuracy, earlier-year sensitivity, calibrated uncertainty or scientific admission",
+    "the final score owns all-goalie eleven-strength summaries, actual matched means, combined h+d variants and downstream accounting",
+    "reported native and producer costs are distinct scopes; producer payload bytes are attributed saved metadata, not an independent stat inventory",
+    "no target-inventory acceptance, source-proof completion, score dispatch, publication, activation, next owner or chain reservation follows"
+  ],
+  "activation": false
+}

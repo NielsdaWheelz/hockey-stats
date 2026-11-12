@@ -610,7 +610,34 @@ def _compose_results(existing_results, state_selection, output, *, family, produ
         record.update(availability='provided', explanation=None, tables={table: write_member(f'{year}-spatial-{table}.jsonl', rows, table) for table, rows in tables.items()})
     for name in ('people', 'sources', 'supports'):
         copy_member(manifest['catalogs'][name])
-    manifest['catalogs']['methods'] = write_member('methods.jsonl', sorted(methods.values(), key=lambda row: row['method_id']), 'methods')
+    if family == 'st':
+        pending = iter(sorted(methods.keys() - existing.catalogs['method'].keys()))
+        current = next(pending, None)
+        sha, count = hashlib.sha256(), 0
+        with (
+            publication.member_path(existing.directory, manifest['catalogs']['methods']).open('rb') as source,
+            (output / 'methods.jsonl').open('xb') as destination,
+        ):
+            for line in source:
+                method_id = strict_json(line)['method_id']
+                while current is not None and current < method_id:
+                    encoded = publication.json_bytes(methods[current]) + b'\n'
+                    destination.write(encoded)
+                    sha.update(encoded)
+                    count += 1
+                    current = next(pending, None)
+                destination.write(line)
+                sha.update(line)
+                count += 1
+            while current is not None:
+                encoded = publication.json_bytes(methods[current]) + b'\n'
+                destination.write(encoded)
+                sha.update(encoded)
+                count += 1
+                current = next(pending, None)
+        manifest['catalogs']['methods'] = dict(path='methods.jsonl', sha256=sha.hexdigest(), rows=count)
+    else:
+        manifest['catalogs']['methods'] = write_member('methods.jsonl', sorted(methods.values(), key=lambda row: row['method_id']), 'methods')
     write_json(output / 'manifest.json.incomplete', manifest)
     read_started = perf_counter()
     publication.read_results(output, 'manifest.json.incomplete')

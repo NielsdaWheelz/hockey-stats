@@ -1,0 +1,185 @@
+{
+  "kind": "st-final-real-local-producer-source-and-version-pins",
+  "status": "CHECKED_PENDING_INDEPENDENT_REVIEW",
+  "readiness": "NOT_READY",
+  "recorded_at_utc": "2026-11-12T10:01:35.000819+00:00",
+  "producer_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-03",
+  "source_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+  "analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+  "source_tree": "bcee5ca7d5b71d4e81935f6451f3a2acb35a4edb",
+  "app_commit_tree_pin": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "app_tree_materialized": false,
+  "detached_HEAD": true,
+  "frozen_at_source_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+  "clean_tracked_untracked_source": true,
+  "status_porcelain": "",
+  "index_matches_HEAD": true,
+  "index_entries": 3111,
+  "sparse_settings": {
+    "core.sparseCheckout": "true",
+    "core.sparseCheckoutCone": "true",
+    "extensions.worktreeConfig": "true"
+  },
+  "sparse_pattern": "/*\n!/*/\n/analysis/\n",
+  "sparse_pattern_sha256": "626d633fd3fe3dcc1379b9cdf6e4747e41c4a13409853dfa973b4928f89adeb1",
+  "sparse_roots": [
+    "analysis"
+  ],
+  "excluded_paths_absent": [
+    "fixtures",
+    "captures",
+    ".reference",
+    "app",
+    "node_modules",
+    ".venv",
+    "analysis.venv",
+    "analysis/.venv",
+    "analysis/node_modules"
+  ],
+  "source_files_checked": 59,
+  "source_bytes_checked": 2651370,
+  "all59_source_blobs_match_commit": true,
+  "source_manifest_sha256": "e39792ff3b7227134bf0e15c097f3a3e24caa48d2d2e1e308b32a069a9bbe4f1",
+  "selected_source_sha256": {
+    "analysis_cli.py": "265498dd9bd47daf9740df8347e7d652f2c5b1165c38ddc50719f2c5ad5dcbdf",
+    "spatial_rates.py": "4c5ad4c57a7b61301f6f626af25f22587a13c13f97dacce541d01e0bc06193ca",
+    "spatial_state.py": "4ecc807fc7d0f92018c2b4ae3b375cedaa37dc1d2465e890358ac730b59b45c5"
+  },
+  "source_metadata": {
+    "uv.lock": {
+      "bytes": 57101,
+      "sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    },
+    "pyproject.toml": {
+      "bytes": 695,
+      "sha256": "469c5d31ba4376769c054922f11af1114fdae297e3ad22caa46189ed7c7b6d01"
+    },
+    ".python-version": {
+      "bytes": 7,
+      "sha256": "5abd4dc1efa09469b88916c8e4e027a8c266a9b6d06f43ac9da3e30cd00b4ab5"
+    }
+  },
+  "common_config_sha256_before_after": "541299213627608759bf3e0fc5b8783b33fbeb996e19aa371f5b72c757dcbfed",
+  "common_repository_config_changed": false,
+  "materialization_commands": [
+    {
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+      "argv": [
+        "git",
+        "worktree",
+        "add",
+        "--detach",
+        "--no-checkout",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-03",
+        "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5"
+      ],
+      "exit_status": 0,
+      "combined_output": "Preparing worktree (detached HEAD c4cfb7d)\n"
+    },
+    {
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-03",
+      "argv": [
+        "git",
+        "sparse-checkout",
+        "set",
+        "--cone",
+        "analysis"
+      ],
+      "exit_status": 0,
+      "combined_output": ""
+    },
+    {
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-03",
+      "argv": [
+        "git",
+        "read-tree",
+        "-mu",
+        "HEAD"
+      ],
+      "exit_status": 0,
+      "combined_output": ""
+    }
+  ],
+  "setup_failure_path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-producer-materialization-failure-01.json",
+  "setup_failure_bytes": 5890,
+  "setup_failure_sha256": "e4181d1679187f332b7aa526b7c73ae5542510f273843ccc8eb9c756868db044",
+  "setup_failure_classification": "empty-index/check-order setup failure from --no-checkout; not source/native/data failure; original blank AssertionError and unretained status stdout preserved separately",
+  "correction_count": 1,
+  "correction_authority": "root GO after independent conceptual review; ordinary read-tree confined to new03 with existing sparse rules",
+  "source_check_attempts": 2,
+  "source_check_sequence": "first attempt stopped at cleanliness assertion before source/lock/sparse checks; all reported final source/index/lock/sparse checks completed after the single correction",
+  "version_check": {
+    "executions": 1,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-03",
+    "argv": [
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+      "-B",
+      "-c",
+      "import importlib.metadata,json,sys; print(json.dumps({\"python\":\".\".join(map(str,sys.version_info[:3])),\"numpy\":importlib.metadata.version(\"numpy\"),\"scipy\":importlib.metadata.version(\"scipy\"),\"sys_executable\":sys.executable,\"dont_write_bytecode\":sys.dont_write_bytecode,\"numerical_or_model_modules_imported\":[name for name in sys.modules if name in (\"numpy\",\"scipy\",\"hockey_stats\") or name.startswith((\"numpy.\",\"scipy.\",\"hockey_stats.\"))]},sort_keys=True))"
+    ],
+    "exit_status": 0,
+    "actual_stdout": "{\"dont_write_bytecode\": true, \"numerical_or_model_modules_imported\": [], \"numpy\": \"2.5.3\", \"python\": \"3.14.8\", \"scipy\": \"1.18.1\", \"sys_executable\": \"/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python\"}\n",
+    "actual": {
+      "dont_write_bytecode": true,
+      "numerical_or_model_modules_imported": [],
+      "numpy": "2.5.3",
+      "python": "3.14.8",
+      "scipy": "1.18.1",
+      "sys_executable": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python"
+    },
+    "scope": "stdlib sys/importlib.metadata/json only; distribution versions read without importing numpy, scipy or hockey_stats; no rerun"
+  },
+  "version_check_timing": "one successful version-only command before correction; cached evidence reused, no runtime rerun or numerical/model import",
+  "verification_commands": [
+    "git rev-parse HEAD HEAD:analysis HEAD:app",
+    "git symbolic-ref -q HEAD",
+    "git status --porcelain --untracked-files=all",
+    "git ls-files -u",
+    "git diff --cached --quiet HEAD --",
+    "git ls-files",
+    "git config --get core.sparseCheckout/core.sparseCheckoutCone/extensions.worktreeConfig",
+    "git rev-parse --git-path info/sparse-checkout",
+    "git sparse-checkout list",
+    "git ls-tree -r -z HEAD -- analysis/src",
+    "stdlib Git-blob hash comparison for59 analysis/src files and uv.lock/pyproject/.python-version"
+  ],
+  "local_evidence_bindings": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-fit-source-preparation-02.json",
+      "bytes": 8442,
+      "sha256": "8d62446dde84e46d1fcb1521b1a059cf78e322025708145a4dac7856c8055835"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-fit-source-preparation-02-independent-review.json",
+      "bytes": 3875,
+      "sha256": "8e39dd391e0dcdc46919a332962e9549dfdf8a957ae9420e79fbeec515b797fa"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-metadata-preflight-01.json",
+      "bytes": 2016,
+      "sha256": "4d9c8a4da991517f5002d6a0057d1a545d152c75bd008942884a98f7ae63af81"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-metadata-preflight-independent-adjudication-01.json",
+      "bytes": 4034,
+      "sha256": "a3712f07927bbd5152f3977c68333189831ae4c50e899b4381280b57cc7fe9dd"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-boundary-release-01.json",
+      "bytes": 6801,
+      "sha256": "7379280b6e5e70511af094e160ccb3c69f4850ef3c4ad777e6ab28210ca30c65"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-independent-adjudication-01.json",
+      "bytes": 6088,
+      "sha256": "24d52d03ae36d0b013551ec2aff113b6fdd5e260e8a6f759d0ad54e94a91b6a5"
+    }
+  ],
+  "accepted_previous_ST_manifest_sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c",
+  "script_sha256": "d95df4998c2d5c23dbe86534b5be2d5a31aa7b194fd706dc8926e90edd2a2bd3",
+  "limits": "source and stdlib distribution metadata only; app is a commit-tree pin, not a materialized build. no analysis/data config bodies read by checker, fixtures/captures/reference/dependency trees, tests/build, production/numerical/model imports, OS/process or HDD reads/stats, fit, activation, other-worktree edits, global config change, dependency copy/install/symlink or new ownership window",
+  "READY_packet_created": false,
+  "fit_execution": "NOT_RUN",
+  "reservation": false,
+  "review_boundary": "actual pins reported before independent cached-local-evidence review; readiness promotion belongs to a separate root gate"
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "final-goalie-score-pre-dispatch-log-open-failure",
+  "observed_at_utc": "2026-11-12T09:25:50.711354+00:00",
+  "exec_chunk_id": "8b6c19",
+  "shell_exit_code": 1,
+  "stderr": "zsh:15: operation not permitted: /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/score-20252026-01.log",
+  "native_score_started": false,
+  "native_time_or_score_process_created": false,
+  "reason": "shell redirection fails before command execution",
+  "source_head": "841ce6500ce22eaab095ab011b951542ecf8354b",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "preflight_sha256": "06662949c8dbdb77460e58b5443bb14e249afa3d9529b6416243490d925e7f4e",
+  "checked_after_failure": {
+    "log_absent": true,
+    "score_output_absent": true,
+    "parent_uid": 501,
+    "current_uid": 501,
+    "parent_mode": "0755",
+    "parent_flags": 0,
+    "parent_acl": "none listed"
+  },
+  "impact": "no score artifact or numerical input traversal; no native score cost or failure inferred",
+  "diagnosis": "direct-tool log creation denied; ordinary metadata/read checks succeed; cause not yet established",
+  "activation": false
+}

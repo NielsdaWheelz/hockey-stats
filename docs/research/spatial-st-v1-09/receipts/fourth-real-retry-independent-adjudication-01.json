@@ -1,0 +1,135 @@
+{
+  "kind": "st-fourth-retry-local-independent-adjudication",
+  "verdict": "PASS",
+  "status": "checked_fourth_annual_baseline_triple_with_limits",
+  "reviewed_at_utc": "2026-11-12T09:13:07.693192+00:00",
+  "reviewer": "/root/st_interrupt_review",
+  "local_evidence_base": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification",
+  "evidence": {
+    "fourth-real-retry-native-metadata-01.json": {
+      "bytes": 7605,
+      "sha256": "d987d3cd648a025655331f0314daf1b7417af2adc26fe64b2f34a816b4ff2d64"
+    },
+    "fourth-real-retry-native-fit-01.log": {
+      "bytes": 864,
+      "sha256": "758a455703c908d2bbd68d4d5853dc21425b8d8144c1bb3fe9bb2d2c86321a63"
+    },
+    "fourth-real-retry-native-fit-01.exit": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "fourth-real-retry-native-metadata-run-01.log": {
+      "bytes": 1167,
+      "sha256": "6694f5a3928e4b153ce611e00373c87105378a01f9a200864d84232c4ea0d33d"
+    },
+    "fourth-real-retry-native-metadata-run-01.exit": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "fourth-real-retry-saved-json-audit-01.json": {
+      "bytes": 5136,
+      "sha256": "cf08fd321266b2289125acdb32b5ab597542a4dfa2933404331a4a255e660fb3"
+    },
+    "fourth-real-retry-saved-json-audit-run-01.log": {
+      "bytes": 1027,
+      "sha256": "cda2145ffc8d27e7ba70053e4f3969983b87e1f2f069f9787b04574107b13988"
+    },
+    "fourth-real-retry-saved-json-audit-run-01.exit": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "third-real-saved-json-audit-01.json": {
+      "bytes": 5145,
+      "sha256": "f57eb8335c266fd3ab4079638793275254c9de4752c54a9bf2313ee1a6267fc5"
+    }
+  },
+  "bindings": {
+    "actual_launch_sha256": "2995e44adcbbdb1a787e4faa2e200b7fbdd0debca0516ec789b4a5ae4bfc26e1",
+    "preflight_sha256": "ff89103a0697405fe8008a4f285e870713f2677481ff9c87ee48f5547380a91c",
+    "packet_sha256": "633516d911773036b4b88e9f649dcb5394b8212407a79eeabcf5663a9c1b9326",
+    "script_sha256": "524605372c37d9d9b7a12e9fa71cd9c22c1336696696e6217ed0da74f7672860",
+    "collector_source_sha256": "36145a615c5950c60cb1af3d75ffc7df5045bbd7f6e423573a44c4789160b3a0",
+    "auditor_source_sha256": "ee0e66e62d3952d3124c8c0bc8d1dd781f8143a60bfeef65f20e5268074476af",
+    "post_exit_source_review_sha256": "07fbfc4667921f524fdd6cec20190ccd44d146749714b23d9d51c4a8c2916b80",
+    "audit_binding_sha256": "5646ac31ae6d4a1c72b3f543fafcc1dba07a541c9d1da3e73e62c3ab46773fb6",
+    "prior_G_release_sha256": "20311fed1d6070070d03cf292018934e14ddbfed5ab9b99326a29a5e8a229696"
+  },
+  "findings": [],
+  "checked": {
+    "season": "20242025",
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/manifest.json",
+      "bytes": 366549,
+      "sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c"
+    },
+    "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "clean_runtime_matches_preflight": true,
+    "baseline_heads": 3,
+    "continuation_probes": 0,
+    "players": 920,
+    "current_nine_hashes_and_sizes_match_collector": true,
+    "previous_four_match_accepted_local_f57": true,
+    "previous_manifest_sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7",
+    "basis_lineage_preserved": true,
+    "payload_stat_count": 15,
+    "payload_bytes": 1577550492,
+    "resources_bytes_reconcile": true,
+    "gradient_inf_norms": {
+      "volume": 0.0008747044630581513,
+      "shape": 0.0004159497157791847,
+      "quality": 0.0001561027925295333
+    }
+  },
+  "native": {
+    "exit_status": 0,
+    "wall_seconds": 6267.43,
+    "user_seconds": 5766.84,
+    "sys_seconds": 36.25,
+    "peak_rss_bytes": 6744752128,
+    "peak_footprint_bytes": 7391550016
+  },
+  "collector": {
+    "owner_reported_executions": 1,
+    "control_exit": 0,
+    "caller_wall_seconds": 0.04,
+    "caller_peak_rss_bytes": 20807680,
+    "internal_wall_seconds": null,
+    "external_body_reads": 3,
+    "logical_body_bytes": 367415,
+    "payload_stats": 15,
+    "acceptance": "metadata only; not a native/artifact verdict"
+  },
+  "audit": {
+    "owner_reported_executions": 1,
+    "control_exit": 0,
+    "status": "passed",
+    "internal_wall_seconds": 12.144603041931987,
+    "caller_wall_seconds": 12.19,
+    "peak_rss_bytes": 320290816,
+    "external_json_documents": 13,
+    "current_documents": 9,
+    "previous_documents": 4,
+    "current_bytes": 68166557,
+    "previous_bytes": 29600698,
+    "external_logical_bytes": 97767255,
+    "local_binding_bytes": 975,
+    "total_logical_bytes": 97768230
+  },
+  "limits": {
+    "manifest_read_overlap_bytes": 366549,
+    "cost_scopes": "native, collector and audit measured separately",
+    "optimizer_accuracy": "unknown; gradients above baseline gtol, no precision claim",
+    "sensitivity": "earlier annual unassessed; no continuations",
+    "cumulative_checked_baseline_heads_after_this_review": 12,
+    "total_baseline_heads": 15,
+    "remaining": "final triple and final diagnostics, composition/runtime/application/preservation/cleanup",
+    "scientific_or_complete_public_acceptance": false,
+    "complete_publication_parent": "unchanged 8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "slot_release": false,
+    "next_owner_or_window": "not assigned by this receipt",
+    "future_final_packet": "immutable source-only packet; no new readiness or inherited parent binding"
+  },
+  "reviewer_scope": "retained local receipts/raw native and controller logs/exits/bindings only; no OS/source/runtime queries, controller/reader/model/test execution, external body/stat/array access, frozen/production/docs/index mutation; one exclusive local adjudication receipt",
+  "failure_attribution": "native/collector/audit controls are all observed0; no recorded failure/replay; absent blank-AssertionError bug reviewed separately, no repair inferred"
+}

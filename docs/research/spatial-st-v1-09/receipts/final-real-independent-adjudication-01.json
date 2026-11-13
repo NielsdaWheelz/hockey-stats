@@ -1,0 +1,169 @@
+{
+  "kind": "st-final-real-cached-boundary-independent-adjudication",
+  "checked_at_utc": "2026-11-12T16:23:40.880467+00:00",
+  "status": "passed",
+  "season": "20252026",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-02/real/states/20252026/manifest.json",
+    "bytes": 370546,
+    "sha256": "784c045cba6d591d0da736a90c13f71823f10fc933d81cd82cb1611ce90e5e13"
+  },
+  "source_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+  "analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+  "evidence_base": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification",
+  "evidence": [
+    {
+      "path": "final-real-native-metadata-01.json",
+      "bytes": 14876,
+      "sha256": "aa29694d9c1ef2af8915d26948a2a6dcf52f2d3e0a0861613cd64e5c7ec51e21"
+    },
+    {
+      "path": "final-real-native-fit-01.log",
+      "bytes": 864,
+      "sha256": "d8804dbfb373bf5a41ce7f57750ab9eb749d9d41ce926b5ae6a5d1ac3363f198"
+    },
+    {
+      "path": "final-real-native-fit-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "final-real-native-metadata-run-01.log",
+      "bytes": 1121,
+      "sha256": "1eea89ad5c422ef1107ae09df8557fdb9df6bdc52c23f5a67b4f5e730759505c"
+    },
+    {
+      "path": "final-real-native-metadata-run-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "final-real-saved-json-audit-01.json",
+      "bytes": 7424,
+      "sha256": "415b4314a5f56cc8f8746e4c9897bd72c2cdf3e4d686cde567e217c320487fbc"
+    },
+    {
+      "path": "final-real-saved-json-audit-run-01.log",
+      "bytes": 1020,
+      "sha256": "d867ccf11d482bb4bb0a04d2b82db5408f1e0e7a9418470ae91656350d542fef"
+    },
+    {
+      "path": "final-real-saved-json-audit-run-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "final-real-actual-launch-01.json",
+      "bytes": 8013,
+      "sha256": "44c83575fc6e81ea9154996a40f2da7834906815dfa54c2dff5bb257569d9bee"
+    },
+    {
+      "path": "final-real-launch-preflight-01.json",
+      "bytes": 4099,
+      "sha256": "cab72e2b266d419da3a29c8006d58457b48a674cc563326cc034df6ccc751d9e"
+    },
+    {
+      "path": "final-real-launch-independent-review-01.json",
+      "bytes": 3835,
+      "sha256": "c257d5273ca861227f011404ca0d9e643f9d6dfc78a07195419adb471603e0eb"
+    }
+  ],
+  "reviewed_source_and_plan": {
+    "collector_sha256": "d3cd1b5ab7b990c72ff8a2f766da97f4f56c5a5f683f8f693da4ac1afe78b408",
+    "auditor_sha256": "ee0e66e62d3952d3124c8c0bc8d1dd781f8143a60bfeef65f20e5268074476af",
+    "plan_sha256": "87c7dfcfbd954e9388d99d7d06e3f38e05231c2913936f7d35846771538c902b",
+    "source_review_sha256": "99c59db1afbb96eee5628931721663c7e8b1eec62e65292fd185896c4f91bc9e"
+  },
+  "bindings": {
+    "previous_manifest_sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c",
+    "previous_audit_sha256": "cf08fd321266b2289125acdb32b5ab597542a4dfa2933404331a4a255e660fb3",
+    "previous_release_sha256": "7379280b6e5e70511af094e160ccb3c69f4850ef3c4ad777e6ab28210ca30c65",
+    "previous_adjudication_sha256": "24d52d03ae36d0b013551ec2aff113b6fdd5e260e8a6f759d0ad54e94a91b6a5",
+    "original_base_score_sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+    "original_base_state_declared_sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276",
+    "original_header_proof_sha256": "4d9c8a4da991517f5002d6a0057d1a545d152c75bd008942884a98f7ae63af81",
+    "original_header_adjudication_sha256": "a3712f07927bbd5152f3977c68333189831ae4c50e899b4381280b57cc7fe9dd",
+    "prior_owner_release_sha256": "a7a5787034a5341d4544e95250fb9ed271f32b901f89e6347170f8329ee2f66d"
+  },
+  "native": {
+    "exit_status": 0,
+    "wall_seconds": 7084.96,
+    "user_seconds": 5935.26,
+    "sys_seconds": 34.2,
+    "peak_rss_bytes": 12182257664,
+    "peak_footprint_bytes": 11566212600,
+    "declared_payload_stat_count": 38,
+    "declared_payload_bytes": 2407363764,
+    "resource_bytes_reconcile": true
+  },
+  "collector": {
+    "executions_reported": 1,
+    "exit_status": 0,
+    "external_body_count": 3,
+    "logical_body_bytes": 371412,
+    "caller_wall_seconds": 0.28,
+    "caller_peak_rss_bytes": 21266432,
+    "internal_wall_seconds": null,
+    "unknowns": []
+  },
+  "audit": {
+    "executions_reported": 1,
+    "exit_status": 0,
+    "status": "passed",
+    "players": 940,
+    "baseline_heads": 3,
+    "external_documents": 21,
+    "external_logical_bytes": 92451981,
+    "local_documents": 1,
+    "local_logical_bytes": 8013,
+    "logical_bytes": 92459994,
+    "wall_seconds": 1.5960612499620765,
+    "caller_wall_seconds": 1.64,
+    "peak_rss_bytes": 307904512,
+    "manifest_overlap_bytes": 370546
+  },
+  "baseline_heads_checked_total": 15,
+  "baseline_heads_required": 15,
+  "annuals_checked": 5,
+  "final_continuations_attempted": 3,
+  "diagnostics": {
+    "volume": {
+      "status": "exceeded",
+      "reason": "numerical_movement_exceeds_diagnostic_flags"
+    },
+    "shape": {
+      "status": "within_budget",
+      "reason": null
+    },
+    "quality": {
+      "status": "within_budget",
+      "reason": null
+    },
+    "joint": {
+      "status": "exceeded",
+      "reason": "numerical_movement_exceeds_diagnostic_flags"
+    }
+  },
+  "gradient_inf_norms": {
+    "volume": 0.0038094887648298936,
+    "shape": 0.001841612075160981,
+    "quality": 8.472009432738958e-05
+  },
+  "findings": [],
+  "independent_checks": [
+    "native copied footer and numeric exit agree with collector; caller collector and audit logs/status agree with their receipts",
+    "38 unique declared payload stats sum exactly to resources; 370546-byte manifest plus864-byte log plus2-byte exit equals371412 collector bytes",
+    "current16 audited payload path/digest/byte identities match collector descriptors; prior manifest and three head identities match accepted cf08 exactly",
+    "22 unique audit input records equal21 external plus one8013-byte local frame; sums and declared current-manifest overlap reconcile",
+    "unchanged auditor source336 requires every final attempt body to equal attempted/reason-null; successful audit therefore verifies three actual attempts without rereading them",
+    "current clean producer/runtime matches launch preflight/frame; original40e-to59e declaration matches prior identity-checked local header proof; ee0 validates prepared63bd/coaches102/valued40e declarations",
+    "native ordinary source-bound command owns canonical array/map/write/readback validation; this independent review does not repeat it or promote diagnostic variants"
+  ],
+  "limits": "cached-local adjudication only. no external read/stat, source03/G/runtime/process query, test/controller/reader replay, model import or numerical re-evaluation by reviewer. actor reports one collector and one audit without failure/replay; process closure and delivery are actor-attributed. earlier four sensitivities remain unassessed; final volume/joint exceedances and unknown optimizer accuracy remain explicit. declared payload sum excludes manifest/logs/directory overhead; physical device I/O remains unmeasured. this is no scientific, full-product or publication acceptance.",
+  "accepted_complete_parent_sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12",
+  "accepted_complete_parent_producer_receipt_sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28",
+  "numeric_state_is_public_exchange": false,
+  "slot_release": false,
+  "next_owner_assignment": null,
+  "activation": false
+}

@@ -661,6 +661,19 @@ def _compose_results(existing_results, state_selection, output, *, family, produ
                output_member_bytes=sum((output / member['path']).stat().st_size
                                        for member in [*manifest['catalogs'].values(),
                                                       *(member for record in manifest['families'] for member in record['tables'].values())])))
+    if family == 'st':
+        write_json(output / 'special-teams-composition.json', dict(
+            schema_version=1, kind='special-teams-composition', purpose=manifest['purpose'], producer=manifest['producer'],
+            source_results=dict(path=str(existing.directory / 'manifest.json'), sha256=source_sha),
+            source_producer_receipt=dict(path=source_evidence[0]['uri'], sha256=source_evidence[0]['sha256']) if source_evidence else None,
+            accepted_source_evidence=source_evidence, selection=identity(Path(state_selection).resolve()), states=selection['states'],
+            output=identity(output / 'manifest.json'),
+            inherited_members=[member for row in manifest['families'] if row['family'] != 'spatial' for member in row['tables'].values()]
+                              + [manifest['catalogs'][name] for name in ('people', 'sources', 'supports')],
+            owned_members=[member for row in manifest['families'] if row['family'] == 'spatial' for member in row['tables'].values()]
+                          + [manifest['catalogs']['methods']],
+            source_families=existing.manifest['families'], output_families=manifest['families'],
+            resources=identity(output / 'composition-resources.json')))
     return manifest
 
 

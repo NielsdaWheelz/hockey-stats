@@ -1,0 +1,72 @@
+{
+  "kind": "st-root-producer-receipt-independent-source-controls-review",
+  "checked_at_utc": "2026-11-12T17:08:02.546667+00:00",
+  "status": "passed",
+  "source": {
+    "path": "analysis/src/hockey_stats/spatial_composition.py",
+    "before_bytes": 55978,
+    "before_sha256": "49ab1fe802edd4bab2732a333a4976033b12e00f66cf5853c746ea7e2274f0d8",
+    "after_bytes": 57235,
+    "after_sha256": "93495151cb15cee85f583d0fe10b208d8b5e30afeedfc676a7e14a4f3f03bcbe",
+    "added_lines": 13,
+    "removed_lines": 0
+  },
+  "patch": {
+    "path": "st-root-composition-receipt-01.patch",
+    "bytes": 1962,
+    "sha256": "f0261ad947a708aa307cb56cf091ea12d9bb1296b4b7fb3e17d074c5f6d86de9"
+  },
+  "source_proof": {
+    "path": "st-root-composition-receipt-source-proof-01.json",
+    "bytes": 1165,
+    "sha256": "399ab78374061446e167298764055c8bf32140ff10b511dd6bd1cfa12a4ba4df"
+  },
+  "driver": {
+    "path": ".tmp/st-root-receipt-controls-01.py",
+    "bytes": 20875,
+    "sha256": "be2c456fc2bd929d1a9a07181be930dccf7477811afd4a6e9149de2551c6ca22"
+  },
+  "controls_base": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-root-receipt-controls-01",
+  "red": {
+    "tests": 5,
+    "failures": 3,
+    "errors": 0,
+    "exit_status": 1,
+    "meaning": "attributed and unattributed root receipt missing; absent exclusive root write; canonical-failure and EV cases already pass",
+    "result_bytes": 2549,
+    "result_sha256": "7c13db66b07400bb4186477fe819f999be3d22273b17bfdec564fb8475b98925",
+    "log_bytes": 3057,
+    "log_sha256": "1f1555cbcb74ee197485b1f9c33577f23a323956cc8879581a50047a0aa83840",
+    "exit_bytes": 2,
+    "exit_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  "green": {
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "exit_status": 0,
+    "result_bytes": 711,
+    "result_sha256": "85b82cd77c7fc4aff1e0f21571a4c604899436d3483d23a864b33e658308bd9b",
+    "log_bytes": 928,
+    "log_sha256": "ae792f0debb90cafb5f5d879b19dc626772895da6b5b82ac7520ba6c9a48ef10",
+    "exit_bytes": 2,
+    "exit_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "wall_seconds": 0.019816040992736816,
+    "peak_memory_bytes": 99418112
+  },
+  "findings": [],
+  "independent_checks": [
+    "actual full driver source was reviewed before one RED; actual production hunk was reviewed before one unchanged-driver GREEN",
+    "reverse-applying the exact hunk in memory restores the complete49ab source bytes; every original byte and EV behavior, old per-year receipts, resources expression/timing boundary, admission, raw methods merge and numerical/read owners remain unchanged",
+    "one ST-only exclusive write follows the existing canonical named staging read, real final-manifest rename and unchanged resource-sidecar write; exceptions propagate from the public completion call",
+    "literal15-field receipt binds actual output manifest hash, compositor identity, source7a and admitted0376 producer identity, source evidence, selection hash and all five state references, source/output family records and inherited/owned descriptors",
+    "resources is only the exact existing sidecar path/hash identity; no rewritten resource schema, self-reference, new reader, model call, helper or compatibility branch",
+    "wrapped real writer checks prior sidecar bytes before root write; collision preserves occupied bytes and propagates FileExistsError; canonical failure leaves neither final manifest/resources nor root; EV gets no new root; unattributed fixture gets null parent receipt",
+    "retained result/log/exit files agree on expected RED and GREEN; status depends on result.wasSuccessful and exact equality, not exception-message truthiness"
+  ],
+  "control_scope": "actual public composition completion and real LOCAL file writer/hash/rename, with two cached G-header aliases and a deliberately tiny fixture-purpose canonical Results stand-in. member_path maps only tiny LOCAL source members; numerical/state/method/table providers and accepted state identity tokens are stubbed. synthetic selection is separate from the reserved real launch selection. this is dependency-controlled writer behavior, not a valid real artifact, canonical validation or independent nonowned-preservation pass.",
+  "cost_limit": "unchanged composition-resources internal wall ends before the final root receipt; future operator native measurement must cover the complete command. existing native composition still performs full five-state projection/probe/model validation; no saved-only claim.",
+  "limits": "reviewer performed LOCAL source/patch/cached-control reads only; no test/controller execution, production import, external read/stat, OS/runtime/G/source03 query, source mutation or actual selection write. no real composer, publication/startup or application acceptance. actual non-doc successor commit/tree and final argv must be reported and cleared before preflight or dispatch;3af is superseded as executable source. exact post-exit collector/preservation code and four local controls remain separately pending.",
+  "native_composition": "NOT_RUN",
+  "activation": false
+}

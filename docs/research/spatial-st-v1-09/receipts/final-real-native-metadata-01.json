@@ -1,0 +1,475 @@
+{
+  "kind": "st-final-real-native-boundary-metadata",
+  "collection_status": "collected",
+  "checked_at_utc": "2026-11-12T16:18:08.464042+00:00",
+  "output_root": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-02",
+  "season": "20252026",
+  "native_exit_status": 0,
+  "native_wall_seconds": 7084.96,
+  "native_user_seconds": 5935.26,
+  "native_sys_seconds": 34.2,
+  "native_peak_rss_bytes": 12182257664,
+  "native_peak_footprint_bytes": 11566212600,
+  "preserved_native_evidence": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-native-fit-01.log",
+      "bytes": 864,
+      "sha256": "d8804dbfb373bf5a41ce7f57750ab9eb749d9d41ce926b5ae6a5d1ac3363f198"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-native-fit-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ],
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-02/real/states/20252026/manifest.json",
+    "bytes": 370546,
+    "sha256": "784c045cba6d591d0da736a90c13f71823f10fc933d81cd82cb1611ce90e5e13"
+  },
+  "payloads": [
+    {
+      "declared": {
+        "role": "design",
+        "path": "design.json",
+        "sha256": "47d3507275adeb2cb931a6e371ef34ce117ec41b8e2f92799ea9b50df9fc982e"
+      },
+      "actual_bytes": 140476058,
+      "mtime_ns": 1794499939123052643
+    },
+    {
+      "declared": {
+        "role": "design_arrays",
+        "path": "design.npz",
+        "sha256": "2adb8a72fa80b78b90c3f9a8705a48ac2a96985e0803bb21cceb7e6c9228f7e0"
+      },
+      "actual_bytes": 645254566,
+      "mtime_ns": 1794499937604058086
+    },
+    {
+      "declared": {
+        "role": "coverage",
+        "path": "coverage.json",
+        "sha256": "6d11de968ab8817e47433701141fe0a9474e384eabbe75092f3016542e58c3f1"
+      },
+      "actual_bytes": 11606140,
+      "mtime_ns": 1794499939205360005
+    },
+    {
+      "declared": {
+        "role": "reference",
+        "path": "reference.json",
+        "sha256": "3ae9692f937c09d67e344474991ed529345d7145c32fc33685aa0b1ff4a60a40"
+      },
+      "actual_bytes": 872704,
+      "mtime_ns": 1794499939228090519
+    },
+    {
+      "declared": {
+        "role": "projection_diagnostics",
+        "path": "diagnostics.json",
+        "sha256": "41907778b438dd6a7d72392e5596cbc67564a3645b78e8b809b76c5dbc8edd56"
+      },
+      "actual_bytes": 17219,
+      "mtime_ns": 1794499939266579324
+    },
+    {
+      "declared": {
+        "role": "projections",
+        "path": "projections.jsonl",
+        "sha256": "203bb18a5d6e0442bb1e2d2be184fd847a6f3540f07efdd3618f7229b2713010"
+      },
+      "actual_bytes": 8418455,
+      "mtime_ns": 1794499939438980860
+    },
+    {
+      "declared": {
+        "role": "adjustments",
+        "path": "adjustments.jsonl",
+        "sha256": "3927ce5cd39be6331d9c70b1e180e2881f5d3521f371f015aad7babd00bb6d19"
+      },
+      "actual_bytes": 4558892,
+      "mtime_ns": 1794499939538907570
+    },
+    {
+      "declared": {
+        "role": "coefficient_support",
+        "path": "coefficient-support.jsonl",
+        "sha256": "af638ba327f6bdc6206a28e62a9f68bb02825641b61e164d6a9534b05656e33a"
+      },
+      "actual_bytes": 3678137,
+      "mtime_ns": 1794499939607639990
+    },
+    {
+      "declared": {
+        "role": "projection_arrays",
+        "path": "projections.npz",
+        "sha256": "16244b8a2868ff1c278fb85e6b0a3020407fdc7420f7970498a2800020e3d13c"
+      },
+      "actual_bytes": 789299718,
+      "mtime_ns": 1794499943933399286
+    },
+    {
+      "declared": {
+        "role": "head_metadata",
+        "path": "heads/volume.json",
+        "sha256": "d1bbb5a582124ddc83ddea4f101005d258a992281087cd49a5821efd066faf5e"
+      },
+      "actual_bytes": 3433884,
+      "mtime_ns": 1794498257497234663
+    },
+    {
+      "declared": {
+        "role": "head_arrays",
+        "path": "heads/volume.npz",
+        "sha256": "8d5ee97fb1b71238b3bb3facf6fc9a279073c82fc6fb5a13fcbf7bb74f9987cb"
+      },
+      "actual_bytes": 18862,
+      "mtime_ns": 1794498257526977526
+    },
+    {
+      "declared": {
+        "role": "head_metadata",
+        "path": "heads/shape.json",
+        "sha256": "fe2595deb009d634359641820e9f29bd2a3245ae64120f3e14e089a7c5e0dc4e"
+      },
+      "actual_bytes": 13836510,
+      "mtime_ns": 1794498417629895067
+    },
+    {
+      "declared": {
+        "role": "head_arrays",
+        "path": "heads/shape.npz",
+        "sha256": "51997d1bdc0152c0858d20e31293397c8a4f9bb07a0267baa57d66ed3a4915cf"
+      },
+      "actual_bytes": 741078,
+      "mtime_ns": 1794498417652827010
+    },
+    {
+      "declared": {
+        "role": "head_metadata",
+        "path": "heads/quality.json",
+        "sha256": "d7cdee9e8caf5e49709c6b4ea0876fd2eb9c7e6ec6012f3e0bb10e070718af36"
+      },
+      "actual_bytes": 14278800,
+      "mtime_ns": 1794498730441680002
+    },
+    {
+      "declared": {
+        "role": "head_arrays",
+        "path": "heads/quality.npz",
+        "sha256": "b94cc8b7ec60a89089224b68a14ea24b8b7512262505085ec82e8b72950e0bee"
+      },
+      "actual_bytes": 759598,
+      "mtime_ns": 1794498730464522404
+    },
+    {
+      "declared": {
+        "role": "annual_baseline_manifest",
+        "path": "annual-baseline-manifest.json",
+        "sha256": "f888e77230aa169eedd5be13a106056c1007fdf18a5316a111e5759501bdaf20"
+      },
+      "actual_bytes": 366531,
+      "mtime_ns": 1794500023181396559
+    },
+    {
+      "declared": {
+        "role": "probe_baseline",
+        "path": "probes/baseline.json",
+        "sha256": "38635d2424bfcea28d42f02a5bac4f06e76d6a970c5f713528318c52d0528f31"
+      },
+      "actual_bytes": 342793,
+      "mtime_ns": 1794499961380358487
+    },
+    {
+      "declared": {
+        "role": "probe_rows",
+        "path": "probes/rows.json",
+        "sha256": "bed1c99c45ae39a7eedff026fe19812bfc38d0b3d8405bedeaa8239a0142fbe4"
+      },
+      "actual_bytes": 186504,
+      "mtime_ns": 1794499961616237610
+    },
+    {
+      "declared": {
+        "role": "probe_requirements",
+        "path": "probes/requirements.json",
+        "sha256": "c447f867c70995b44affdc6e145751e32a64574dd1ec5a9ee7b3693c6f148f3c"
+      },
+      "actual_bytes": 7246,
+      "mtime_ns": 1794499961683712770
+    },
+    {
+      "declared": {
+        "role": "probe_joint_comparison",
+        "path": "probes/joint-comparison.json",
+        "sha256": "ecb7fbb5f5193bc4157ab8a7c228c5466b250e452e0c31271ce91330f2de0adf"
+      },
+      "actual_bytes": 250522,
+      "mtime_ns": 1794500023079597335
+    },
+    {
+      "declared": {
+        "role": "probe_attempt",
+        "path": "probes/volume-attempt.json",
+        "sha256": "74822ad529bcb04d09f2484848f61ecd998252b26eee86e8f1a564dde5b9d378"
+      },
+      "actual_bytes": 46,
+      "mtime_ns": 1794499971483737520
+    },
+    {
+      "declared": {
+        "role": "probe_metadata",
+        "path": "probes/volume.json",
+        "sha256": "a5fa73d3a2ca3eba9befa2b4c4a70e2f1512f16dc9e6ef49c782cb92c4efc3ae"
+      },
+      "actual_bytes": 3433857,
+      "mtime_ns": 1794499971472757767
+    },
+    {
+      "declared": {
+        "role": "probe_arrays",
+        "path": "probes/volume.npz",
+        "sha256": "92d2883d4e4646179271db0b9ca73514c13321efafd881778053e052d5013e55"
+      },
+      "actual_bytes": 18862,
+      "mtime_ns": 1794499971511214947
+    },
+    {
+      "declared": {
+        "role": "probe_comparison",
+        "path": "probes/volume-comparison.json",
+        "sha256": "0d9c1e4d19269c83f1589f3ef922f3c272b4e9bae71a31493181c6cc57f264cd"
+      },
+      "actual_bytes": 243036,
+      "mtime_ns": 1794499975472665726
+    },
+    {
+      "declared": {
+        "role": "probe_projections",
+        "path": "probes/volume-projections.npz",
+        "sha256": "5eb9cb57b0bfea212eebc08f0e23a90021e283142562e1e72b85b6eb0f8ccde6"
+      },
+      "actual_bytes": 236790024,
+      "mtime_ns": 1794499975063583353
+    },
+    {
+      "declared": {
+        "role": "probe_projection_rows",
+        "path": "probes/volume-projections.jsonl",
+        "sha256": "d747507f0ccc478a8e5a17226dfae06e67bd7f2351441fa7d7877fb955e3f101"
+      },
+      "actual_bytes": 8420168,
+      "mtime_ns": 1794499975466465385
+    },
+    {
+      "declared": {
+        "role": "probe_attempt",
+        "path": "probes/shape-attempt.json",
+        "sha256": "74822ad529bcb04d09f2484848f61ecd998252b26eee86e8f1a564dde5b9d378"
+      },
+      "actual_bytes": 46,
+      "mtime_ns": 1794499994042789551
+    },
+    {
+      "declared": {
+        "role": "probe_metadata",
+        "path": "probes/shape.json",
+        "sha256": "f5c4916c4bbcd86ed1ce79340425bd3aba4e46677baf390f6678a4fb5e72b57f"
+      },
+      "actual_bytes": 13836084,
+      "mtime_ns": 1794499993979680925
+    },
+    {
+      "declared": {
+        "role": "probe_arrays",
+        "path": "probes/shape.npz",
+        "sha256": "379eaf711707da3b08b59e659ec1810b74880bec54e2ace2dd77e0aa34129452"
+      },
+      "actual_bytes": 741078,
+      "mtime_ns": 1794499994043196554
+    },
+    {
+      "declared": {
+        "role": "probe_comparison",
+        "path": "probes/shape-comparison.json",
+        "sha256": "19503a35dc40dba9bed454a4b8ea4e25eef5f58280fdeb89cd5cd1b6af29af20"
+      },
+      "actual_bytes": 7028,
+      "mtime_ns": 1794499997848860429
+    },
+    {
+      "declared": {
+        "role": "probe_projections",
+        "path": "probes/shape-projections.npz",
+        "sha256": "2f9b83df8621e07b7508affca4fc5f621a387aa9b973d3d48ecfc70922d9f8bd"
+      },
+      "actual_bytes": 236790024,
+      "mtime_ns": 1794499997497208014
+    },
+    {
+      "declared": {
+        "role": "probe_projection_rows",
+        "path": "probes/shape-projections.jsonl",
+        "sha256": "93e7d0d135d8b8ecec8d17a3cc743a82051669c87b317da06df386cbbbbabf9e"
+      },
+      "actual_bytes": 8423948,
+      "mtime_ns": 1794499997808982280
+    },
+    {
+      "declared": {
+        "role": "probe_attempt",
+        "path": "probes/quality-attempt.json",
+        "sha256": "74822ad529bcb04d09f2484848f61ecd998252b26eee86e8f1a564dde5b9d378"
+      },
+      "actual_bytes": 46,
+      "mtime_ns": 1794500012807069667
+    },
+    {
+      "declared": {
+        "role": "probe_metadata",
+        "path": "probes/quality.json",
+        "sha256": "3b2b83b9ae00b2aeff67b8fcb36750e00620b2da028fe622eef497609c5e141d"
+      },
+      "actual_bytes": 14278694,
+      "mtime_ns": 1794500012734776260
+    },
+    {
+      "declared": {
+        "role": "probe_arrays",
+        "path": "probes/quality.npz",
+        "sha256": "bc9bf05cbc14e1e7243d951981d3feab0d4a3c1481827b89185b247582c7807d"
+      },
+      "actual_bytes": 759598,
+      "mtime_ns": 1794500012807471337
+    },
+    {
+      "declared": {
+        "role": "probe_comparison",
+        "path": "probes/quality-comparison.json",
+        "sha256": "7461aa9ce9993b9eeaf4c3f408fa543d73a3f7c9d388590ee88604a58454e3fd"
+      },
+      "actual_bytes": 6949,
+      "mtime_ns": 1794500017681864780
+    },
+    {
+      "declared": {
+        "role": "probe_projections",
+        "path": "probes/quality-projections.npz",
+        "sha256": "3e5770906a17ff447ed622f7fdfb03c417331421b85c62d28ebabf7d5335c8d3"
+      },
+      "actual_bytes": 236790024,
+      "mtime_ns": 1794500017347878712
+    },
+    {
+      "declared": {
+        "role": "probe_projection_rows",
+        "path": "probes/quality-projections.jsonl",
+        "sha256": "600440429518be23a14644508955256178d9bc234b90e2af03622c995d94b04b"
+      },
+      "actual_bytes": 8420035,
+      "mtime_ns": 1794500017640499618
+    }
+  ],
+  "declared_payload_count": 38,
+  "actual_payload_bytes": 2407363764,
+  "resources_output_bytes": 2407363764,
+  "resource_bytes_match": true,
+  "collection_body_read_bytes": 371412,
+  "body_limits": {
+    "log": 1048576,
+    "exit": 64,
+    "manifest": 1048576
+  },
+  "payload_stat_maximum": 38,
+  "unknowns": [],
+  "collection_wall_seconds": null,
+  "collection_cost_note": "caller /usr/bin/time -l measures collection separately from native and saved-json audit",
+  "scope": "three capped log/exit/current-manifest bodies; at most38 declared writer-name stats; no enumeration, payload/prior/input bodies, arrays, evaluator, full reader or retry",
+  "acceptance": "not_assessed",
+  "slot_release": false,
+  "manifest_header": {
+    "kind": "spatial_st_state",
+    "purpose": "real",
+    "family": "st",
+    "season": "20252026",
+    "implementation": {
+      "git_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+      "git_dirty": false,
+      "python_version": "3.14.8",
+      "numpy_version": "2.5.3",
+      "scipy_version": "1.18.1",
+      "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    },
+    "basis_source": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+      "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509",
+      "archive": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/design.npz",
+        "sha256": "daa879d5e036b77c85957952cea642a7883750db48d5aca6ac4c9f7508f12a5a"
+      }
+    },
+    "basis_identity": {
+      "sha256": "f70933a396c86b819ea65b420ff736c03d968047dd8b6e7294e048e9b7c02cc6",
+      "array_sha256": "4fa1d565e939dae706a7f3fa0d060b06b647602ba32d2850174b80c6267fa42b",
+      "reference": "uniform-native-656",
+      "modes": 40
+    },
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/manifest.json",
+      "sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c",
+      "season": "20242025",
+      "purpose": "real",
+      "usage": "annual"
+    },
+    "heads": [
+      {
+        "head": "volume",
+        "status": "complete",
+        "arrays": {
+          "coefficients": {
+            "shape": [
+              2323
+            ],
+            "dtype": "<f8"
+          }
+        }
+      },
+      {
+        "head": "shape",
+        "status": "complete",
+        "arrays": {
+          "coefficients": {
+            "shape": [
+              92600
+            ],
+            "dtype": "<f8"
+          }
+        }
+      },
+      {
+        "head": "quality",
+        "status": "complete",
+        "arrays": {
+          "coefficients": {
+            "shape": [
+              94915
+            ],
+            "dtype": "<f8"
+          }
+        }
+      }
+    ]
+  },
+  "stage_costs": {
+    "design_wall_seconds": 5196.472710333066,
+    "input_read_wall_seconds": 22.06926304101944,
+    "input_read_bytes": 87054120600,
+    "fit_wall_seconds": 512.3922787918709,
+    "projection_wall_seconds": 559.667967375135,
+    "write_wall_seconds": 654.946438124869,
+    "producer_phase_peak_rss_bytes": 7413153792,
+    "probe_wall_seconds": 26.07889754115604
+  },
+  "finished_at_utc": "2026-11-12T16:18:08.719713+00:00"
+}

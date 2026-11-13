@@ -1,0 +1,28 @@
+{
+  "kind": "st-final-real-checked-release-terminal-delivery",
+  "recorded_at_utc": "2026-11-12T16:26:02.987194+00:00",
+  "release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-boundary-release-01.json",
+    "bytes": 11859,
+    "sha256": "18913f53685f7344bbb1a3bef8cf3452b620ec3aa707356aad590a1e52719b4a"
+  },
+  "release_frame_review": "independent cached exact-frame PASS from /root/st_interrupt_review; no new receipt",
+  "coordinator_terminal": "t-a59b0562801254be",
+  "machine": "macbook",
+  "command": "skid send t-a59b0562801254be --machine macbook --stdin --json",
+  "delivery_executions": 1,
+  "command_exit_status": 0,
+  "actual_result": {
+    "ok": true,
+    "result": {
+      "method": "terminal",
+      "outcome": "written"
+    }
+  },
+  "delivery_status": "written",
+  "provider_acknowledgement": "UNCONFIRMED",
+  "unknown_or_rejected_deliveries": 0,
+  "delivery_replays": 0,
+  "scope": "checked final ST20252026 annual release only; no next owner/window assigned, no composer/publication/startup/activation or chain grant",
+  "retired_v1_18_contacted": false
+}

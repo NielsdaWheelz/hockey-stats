@@ -1,0 +1,17 @@
+{
+  "kind": "st-root-composition-receipt-source-proof",
+  "status": "passed",
+  "production_diff_paths": [
+    "analysis/src/hockey_stats/spatial_composition.py"
+  ],
+  "source_before_sha256": "49ab1fe802edd4bab2732a333a4976033b12e00f66cf5853c746ea7e2274f0d8",
+  "source_after_sha256": "93495151cb15cee85f583d0fe10b208d8b5e30afeedfc676a7e14a4f3f03bcbe",
+  "inverse_added_branch_sha256": "49ab1fe802edd4bab2732a333a4976033b12e00f66cf5853c746ea7e2274f0d8",
+  "inverse_added_branch_byte_equal": true,
+  "added_lines": 13,
+  "removed_lines": 0,
+  "unchanged": "every original source byte, including three per-display receipt writes, composition-resources expression/time boundary, EV, admission, raw catalog merge, numerical/reader/CLI/shared owners",
+  "new_receipt_order": "single ST-only exclusive writer after canonical named read, final manifest rename and unchanged resources sidecar",
+  "metrics_limit": "composition-resources internal wall ends before final root receipt; operator native measurement owns whole command",
+  "scope": "pinned stdlib source bytes/local git only; no production import, external read/stat, numerical evaluation or runtime control"
+}

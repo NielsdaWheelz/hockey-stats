@@ -1,0 +1,243 @@
+{
+  "kind": "st-final-real-checked-annual-heavy-slot-release",
+  "recorded_at_utc": "2026-11-12T16:24:47.830487+00:00",
+  "status": "checked_annual_scope_release",
+  "owner_releasing": "v1-09",
+  "season": "20252026",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-02/real/states/20252026/manifest.json",
+    "bytes": 370546,
+    "sha256": "784c045cba6d591d0da736a90c13f71823f10fc933d81cd82cb1611ce90e5e13"
+  },
+  "source_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+  "analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+  "app_commit_tree_pin": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "app_pin_limit": "git-tree identity only; no app checkout/build or application acceptance by this annual",
+  "producer": {
+    "git_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "bindings": {
+    "actual_launch": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-actual-launch-01.json",
+      "bytes": 8013,
+      "sha256": "44c83575fc6e81ea9154996a40f2da7834906815dfa54c2dff5bb257569d9bee"
+    },
+    "fresh_preflight": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-launch-preflight-01.json",
+      "bytes": 4099,
+      "sha256": "cab72e2b266d419da3a29c8006d58457b48a674cc563326cc034df6ccc751d9e"
+    },
+    "fresh_preflight_independent_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-launch-independent-review-01.json",
+      "bytes": 3835,
+      "sha256": "c257d5273ca861227f011404ca0d9e643f9d6dfc78a07195419adb471603e0eb"
+    },
+    "ready_sha256": "b27369bdac3dc2afbc00d7a5b7e67fd67f329271dd3839a12c5cc4d64671b233",
+    "script_sha256": "d95df4998c2d5c23dbe86534b5be2d5a31aa7b194fd706dc8926e90edd2a2bd3",
+    "original_base_score_sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+    "original_base_state_sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276",
+    "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "coaches_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+    "previous_manifest_sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c",
+    "previous_release": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-boundary-release-01.json",
+      "bytes": 6801,
+      "sha256": "7379280b6e5e70511af094e160ccb3c69f4850ef3c4ad777e6ab28210ca30c65"
+    },
+    "previous_independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-independent-adjudication-01.json",
+      "bytes": 6088,
+      "sha256": "24d52d03ae36d0b013551ec2aff113b6fdd5e260e8a6f759d0ad54e94a91b6a5"
+    },
+    "prior_G_release": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-release.json",
+      "sha256": "a7a5787034a5341d4544e95250fb9ed271f32b901f89e6347170f8329ee2f66d"
+    },
+    "post_exit_source_plan": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-post-exit-preparation-01.json",
+      "bytes": 9970,
+      "sha256": "87c7dfcfbd954e9388d99d7d06e3f38e05231c2913936f7d35846771538c902b"
+    },
+    "post_exit_source_independent_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-post-exit-source-independent-review-01.json",
+      "bytes": 3441,
+      "sha256": "99c59db1afbb96eee5628931721663c7e8b1eec62e65292fd185896c4f91bc9e"
+    },
+    "collector_source_sha256": "d3cd1b5ab7b990c72ff8a2f766da97f4f56c5a5f683f8f693da4ac1afe78b408",
+    "auditor_source_sha256": "ee0e66e62d3952d3124c8c0bc8d1dd781f8143a60bfeef65f20e5268074476af"
+  },
+  "evidence": {
+    "native_metadata": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-native-metadata-01.json",
+      "bytes": 14876,
+      "sha256": "aa29694d9c1ef2af8915d26948a2a6dcf52f2d3e0a0861613cd64e5c7ec51e21"
+    },
+    "preserved_native_evidence": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-native-fit-01.log",
+        "bytes": 864,
+        "sha256": "d8804dbfb373bf5a41ce7f57750ab9eb749d9d41ce926b5ae6a5d1ac3363f198"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-native-fit-01.exit",
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      }
+    ],
+    "collector_caller_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-native-metadata-run-01.log",
+      "bytes": 1121,
+      "sha256": "1eea89ad5c422ef1107ae09df8557fdb9df6bdc52c23f5a67b4f5e730759505c"
+    },
+    "collector_caller_exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-native-metadata-run-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "audit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-saved-json-audit-01.json",
+      "bytes": 7424,
+      "sha256": "415b4314a5f56cc8f8746e4c9897bd72c2cdf3e4d686cde567e217c320487fbc"
+    },
+    "audit_caller_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-saved-json-audit-run-01.log",
+      "bytes": 1020,
+      "sha256": "d867ccf11d482bb4bb0a04d2b82db5408f1e0e7a9418470ae91656350d542fef"
+    },
+    "audit_caller_exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-saved-json-audit-run-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-independent-adjudication-01.json",
+      "bytes": 7703,
+      "sha256": "519ee932aafa530c5e821b7d214e91da79f983d40912880b742bcdf173c5e049"
+    }
+  },
+  "native": {
+    "exit_status": 0,
+    "wall_seconds": 7084.96,
+    "user_seconds": 5935.26,
+    "sys_seconds": 34.2,
+    "peak_rss_bytes": 12182257664,
+    "peak_footprint_bytes": 11566212600,
+    "declared_payload_stat_count": 38,
+    "declared_payload_bytes": 2407363764,
+    "resources_bytes_reconcile": true
+  },
+  "collector": {
+    "executions": 1,
+    "control_exit": 0,
+    "status": "collected",
+    "caller_wall_seconds": 0.28,
+    "caller_peak_rss_bytes": 21266432,
+    "external_body_reads": 3,
+    "logical_body_bytes": 371412,
+    "declared_payload_stats": 38,
+    "unknowns": [],
+    "scope": "capped native log/exit/current manifest bodies and finite declared payload stats only; no member bodies or directory enumeration"
+  },
+  "audit": {
+    "executions": 1,
+    "control_exit": 0,
+    "status": "passed",
+    "internal_wall_seconds": 1.5960612499620765,
+    "caller_wall_seconds": 1.64,
+    "peak_rss_bytes": 307904512,
+    "external_json_documents": 21,
+    "current_documents_including_manifest": 17,
+    "previous_raw_history_documents": 4,
+    "external_logical_bytes": 92451981,
+    "local_actual_frame_bytes": 8013,
+    "total_logical_bytes": 92459994,
+    "scope": "saved-json arithmetic, bindings, raw history, center transfers, scalar mixtures and accounting; no source, arrays, model/evaluator, objective, native-map proof or scientific admission"
+  },
+  "players": 940,
+  "baseline_heads_completed_this_annual": 3,
+  "baseline_heads_checked_total": 15,
+  "baseline_heads_required": 15,
+  "final_continuations": {
+    "attempted": 3,
+    "maximum_per_completed_head": 1,
+    "joint_fits": 0,
+    "attempt_evidence": "successful unchanged auditor requires each saved head-attempt record exactly {status: attempted, reason: null}; no separate external reread",
+    "comparison_dispositions": {
+      "volume": {
+        "status": "exceeded",
+        "reason": "numerical_movement_exceeds_diagnostic_flags"
+      },
+      "shape": {
+        "status": "within_budget",
+        "reason": null
+      },
+      "quality": {
+        "status": "within_budget",
+        "reason": null
+      },
+      "joint": {
+        "status": "exceeded",
+        "reason": "numerical_movement_exceeds_diagnostic_flags"
+      }
+    }
+  },
+  "numerical_limits": {
+    "raw_gradient_inf_norms": {
+      "volume": 0.0038094887648298936,
+      "shape": 0.001841612075160981,
+      "quality": 8.472009432738958e-05
+    },
+    "remaining_optimizer_accuracy": "unknown; no optimizer precision claim",
+    "earlier_four_annual_sensitivities": "unassessed; final diagnostic outcomes do not retrospectively assess them",
+    "volume_and_joint": "exceeded numerical_movement_exceeds_diagnostic_flags; retained, not relabeled or treated as scientific admission",
+    "scientific_admission": false
+  },
+  "external_review_accounting": {
+    "collector_body_opens": 3,
+    "audit_body_opens": 21,
+    "local_audit_frame_opens": 1,
+    "current_manifest_overlap_bytes": 370546,
+    "total_external_logical_body_bytes": 92823393,
+    "post_exit_array_design_source_evaluator_full_reader_calls": 0,
+    "physical_input_bytes": "unmeasured; logical body reads and saved payload stat bytes have separate meanings"
+  },
+  "validation_owner": "native canonical fit/write/readback owns design, NPZ, native maps, all16 coalitions and full final probe validation; saved-json audit owns the declared arithmetic/binding checks only",
+  "execution_accounting": {
+    "assigned_native_executions": 1,
+    "collector_executions": 1,
+    "audit_executions": 1,
+    "post_exit_controller_failures": 0,
+    "automatic_replays": 0,
+    "all_cost_scopes_separate": true,
+    "collector_and_audit_dispatch": "one fresh captured-ref plain-terminal input each; both delivery written, followed by retained local exit0; no rejected/unknown input or replay"
+  },
+  "boundary": {
+    "owned_python_pid": 6883,
+    "owned_time_pid": 6882,
+    "owned_shell_pid": 6832,
+    "os_observed_all_closed_at_utc": "2026-11-12T16:17:33Z",
+    "operator": "t-796454dbbecf0889",
+    "cached_plain_zsh_prompt_returned": true,
+    "numeric_native_exit_proved_by_retained_exit_record": true,
+    "no_owned_heavy_command_remaining": true,
+    "slot_release": true,
+    "return_control_to": "root coordinator t-a59b0562801254be and user",
+    "next_owner_or_command": "UNASSIGNED; explicit coordinator adjudication required",
+    "chain_reservation": false
+  },
+  "accepted_complete_predecessor": {
+    "manifest_sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12",
+    "producer_receipt_sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28",
+    "status": "unchanged; this checked numerical ST annual is not a composed/public successor"
+  },
+  "preservation": "all original annuals, interrupted run05, historical packets, frozen sources, cached failures and raw logs retained; no source or numerical mutation by post-exit work",
+  "remaining_scope": "five-year ST selection, actual serial complete exchange and nonowned preservation, ordinary inactive publication/strict startup, family API/browser/download acceptance and authorized campaign cleanup",
+  "application_acceptance": false,
+  "activation": false,
+  "explicit_notice": "NOT_SENT at receipt creation; exact release-frame peer review precedes the one authorized coordinator notice; terminal delivery and provider acknowledgement remain separate"
+}

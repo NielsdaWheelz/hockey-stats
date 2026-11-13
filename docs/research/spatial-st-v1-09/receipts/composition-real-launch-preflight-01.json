@@ -1,0 +1,95 @@
+{
+  "status": "fresh_launch_preconditions_passed",
+  "dispatch": "not_dispatched",
+  "producer_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+  "external_input_body_reads": 0,
+  "external_input_member_stats": 0,
+  "activation": false,
+  "source_commit": "1431d80e905fe14f2af900a896fd5a3ef5c730e6",
+  "analysis_tree": "923d95b5e6d98ea056f4d6111979c03a0de81e91",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "tracked_clean": true,
+  "analysis_clean": true,
+  "local_pins": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src/hockey_stats/spatial_composition.py",
+      "bytes": 57235,
+      "sha256": "93495151cb15cee85f583d0fe10b208d8b5e30afeedfc676a7e14a4f3f03bcbe"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src/hockey_stats/analysis_cli.py",
+      "bytes": 12930,
+      "sha256": "265498dd9bd47daf9740df8347e7d652f2c5b1165c38ddc50719f2c5ad5dcbdf"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src/hockey_stats/artifacts.py",
+      "bytes": 10010,
+      "sha256": "ee49723daf7375e1b8d04965a94f16a434d1b3a7e636f21552dce8cf38faae99"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src/hockey_stats/analysis_publication.py",
+      "bytes": 181826,
+      "sha256": "710c984f6a2b1c1a2b53b5e6d429a5c03474f60951c2313967b5911a9f2921cb"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/uv.lock",
+      "bytes": 57101,
+      "sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/compose-real-st-held-01.sh",
+      "bytes": 1314,
+      "sha256": "61e92f0c01572cac86d48346e6a4ac98c26ede4cfb11289758396c33ba24cedf"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-state-selection-candidate-01.json",
+      "bytes": 1364,
+      "sha256": "9325d1be205742b3d95c4a37aa9ba2a26fcbc64fe54183036f61d8b590c2afa7"
+    }
+  ],
+  "interpreter": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+  "runtime": {
+    "python": "3.14.8",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "package": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src/hockey_stats/__init__.py",
+  "numeric_origins": {
+    "numpy": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/lib/python3.14/site-packages/numpy/__init__.py",
+    "scipy": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/lib/python3.14/site-packages/scipy/__init__.py"
+  },
+  "module_origins": {
+    "hockey_stats.analysis_cli": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src/hockey_stats/analysis_cli.py",
+    "hockey_stats.spatial_composition": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src/hockey_stats/spatial_composition.py",
+    "hockey_stats.analysis_publication": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src/hockey_stats/analysis_publication.py",
+    "hockey_stats.artifacts": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src/hockey_stats/artifacts.py"
+  },
+  "ABI_imports": [
+    "scipy.optimize",
+    "scipy.sparse",
+    "scipy.special"
+  ],
+  "actual_child_environment": {
+    "PYTHONPATH": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "mount": "/Volumes/Expansion",
+  "runs_root": "/Volumes/Expansion/hockey-stats/runs",
+  "fresh_absent_paths": [
+    "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/logs/compose.log",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/logs/compose.exit"
+  ],
+  "selection": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-state-selection-01.json",
+    "sha256": "9325d1be205742b3d95c4a37aa9ba2a26fcbc64fe54183036f61d8b590c2afa7"
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results",
+  "actual_launch_receipt": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-actual-launch-01.json",
+  "checked_at_utc": "2026-11-13T04:31:58.923314+00:00",
+  "wall_seconds": 0.5763221250381321,
+  "max_rss_bytes": 76775424
+}

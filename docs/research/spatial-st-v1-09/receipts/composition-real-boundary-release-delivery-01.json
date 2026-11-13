@@ -1,0 +1,32 @@
+{
+  "kind": "st-composition-checked-release-delivery",
+  "sent_at_utc": "2026-11-13T06:44:38.714718+00:00",
+  "release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-boundary-release-01.json",
+    "sha256": "29cd1cfe50446e74b1ed7b7f88758f314a664c05d28e84a90089c80477dc2276"
+  },
+  "release_frame_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-release-frame-review-01.json",
+    "sha256": "7073d6616a9a8f29de24c2bc011c0f248d75b057de687cfe366a4124e4459063"
+  },
+  "recipient": {
+    "handle": "t-a59b0562801254be",
+    "machine": "macbook",
+    "role": "coordinator and active goalie owner"
+  },
+  "delivery": {
+    "command": "skid send --machine macbook --stdin",
+    "native_cli_exit_status": 0,
+    "terminal_input": "written",
+    "provider_acceptance": "unconfirmed",
+    "attempts": 1
+  },
+  "complete_manifest_sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+  "producer_receipt_sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654",
+  "retired_v1_18": "not contacted; retired handle unavailable",
+  "next_owner_assignment": null,
+  "no_further_real_command_assigned": true,
+  "publication": false,
+  "startup": false,
+  "activation": false
+}

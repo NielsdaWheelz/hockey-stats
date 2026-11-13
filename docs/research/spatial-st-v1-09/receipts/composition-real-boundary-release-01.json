@@ -1,0 +1,268 @@
+{
+  "kind": "st-complete-composition-checked-boundary-release",
+  "released_at_utc": "2026-11-13T06:40:57.829271+00:00",
+  "status": "passed_complete_exchange_boundary",
+  "heavy_slot_release": true,
+  "next_owner_assignment": null,
+  "scope": "the ONE assigned ordinary ST complete composition plus one8-body collector and one conditional26-stream proof, independent cached LOCAL adjudication; no later numerical/publication/startup/application chain",
+  "actual_source": {
+    "commit": "1431d80e905fe14f2af900a896fd5a3ef5c730e6",
+    "analysis_tree": "923d95b5e6d98ea056f4d6111979c03a0de81e91",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "tracked_clean_at_launch": true,
+    "source_frozen_through_native_boundary": true,
+    "source_mutated": false
+  },
+  "actual_launch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-actual-launch-01.json",
+    "bytes": 7299,
+    "sha256": "66dee07a0c67aac13696feedc1ae4369e6ffa2049cb6524498b26aa3bf842757"
+  },
+  "actual_launch_independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-actual-launch-independent-review-01.json",
+    "bytes": 4800,
+    "sha256": "e22f786da3ddf490b3f11141bc237bdbc7b0c6fad5ebd418a991c270de5aef4c"
+  },
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/compose-real-st-held-01.sh",
+    "bytes": 1314,
+    "sha256": "61e92f0c01572cac86d48346e6a4ac98c26ede4cfb11289758396c33ba24cedf"
+  },
+  "preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-launch-preflight-01.json",
+    "bytes": 4542,
+    "sha256": "83b9e322c16dc5bfa6083f1f4e2296bf35596c7a7d43309f524578a8aeacb4dd"
+  },
+  "preflight_independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-launch-preflight-independent-review-01.json",
+    "bytes": 4486,
+    "sha256": "cde0f908669409c20c9c4f65cd64a41597f35264640376cf63d277afc328ed00"
+  },
+  "native": {
+    "exit_status": 0,
+    "closure": "owned62546/62545/62542 absent; existing operator returned prompt; numeric0 subsequently collected from declared exit file",
+    "pids": {
+      "python": 62546,
+      "time": 62545,
+      "shell": 62542
+    },
+    "wall_seconds": 6578.68,
+    "peak_rss_bytes": 8745664512,
+    "peak_footprint_bytes": 8830655304,
+    "producer_measured_output_member_bytes": 32083871277,
+    "strict_staged_read_wall_seconds": 2828.352449416183,
+    "sidecar_wall_seconds": 6577.984334249981,
+    "sidecar_limit": "internal resource sidecar ends before final exclusive root receipt write; outside-process native timer includes the full command",
+    "input_logical_bytes": "unmeasured",
+    "physical_io_bytes": "unmeasured; zero block-operation counters do not establish zero physical IO",
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/logs/compose.log",
+      "sha256": "ac651e4ba173323f429144fa6dd36014abb9a9412b10d86ee5a77b350d139d1a"
+    },
+    "log_bytes": 899,
+    "numeric_exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/logs/compose.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "complete_output": {
+    "exchange_schema_version": 3,
+    "publication_schema_version": 9,
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+      "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+    },
+    "manifest_bytes": 23310,
+    "producer_receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/special-teams-composition.json",
+      "sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654"
+    },
+    "producer_receipt_bytes": 60964,
+    "member_inventory": {
+      "total": 79,
+      "inherited_unchanged": 66,
+      "mixed_spatial": 12,
+      "methods": 1
+    },
+    "local_manifest_cache": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-output-manifest-01.json",
+    "local_producer_cache": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-producer-receipt-01.json"
+  },
+  "predecessor": {
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/manifest.json",
+      "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12"
+    },
+    "producer_receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-composition.json",
+      "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+    },
+    "historical_source_manifest_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "goalie_selection_sha256": "2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed",
+    "acceptance": "existing accepted Gcomplete7a43/0376; no stale8b fork or donor reopen"
+  },
+  "selection": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-state-selection-01.json",
+    "sha256": "9325d1be205742b3d95c4a37aa9ba2a26fcbc64fe54183036f61d8b590c2afa7"
+  },
+  "states": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/manifest.json",
+      "sha256": "7ec561e9c273b833339b8446d7e1a2bb6d0c422d536f72c2c534f71930e16c61"
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-03/real/states/20222023/manifest.json",
+      "sha256": "2ce8f5cf777c9f252da4c053955281fea0c345a93b8b0154e8f4e24622205175"
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/real/states/20232024/manifest.json",
+      "sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7"
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/manifest.json",
+      "sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c"
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-02/real/states/20252026/manifest.json",
+      "sha256": "784c045cba6d591d0da736a90c13f71823f10fc933d81cd82cb1611ce90e5e13"
+    }
+  ],
+  "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "coaches_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+  "original_execution_score_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores-selection.json",
+    "sha256": "588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e8c000f9450"
+  },
+  "original_annual_score_sha256": {
+    "20212022": "37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d",
+    "20222023": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20",
+    "20232024": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238",
+    "20242025": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+    "20252026": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc"
+  },
+  "source_bindings": "canonical five-state validation preserves original corrected execution/base inputs, explicit ST predecessor chain and basis; no G score substitution, new fit/probe solve, base/G rescore, preparation or acquisition",
+  "collector": {
+    "evidence": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-native-metadata-03.json",
+      "bytes": 6806,
+      "sha256": "e1bac06465b3b8f68b9e0cc130a81c66ba4b547b77ace27a992919b469cec23b"
+    },
+    "source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-boundary-metadata-03.py",
+      "bytes": 15078,
+      "sha256": "9c082dac25351afc80fdc8882f01cd8f64a392b59502e868079a0c4a8afb7830"
+    },
+    "native_exit": 0,
+    "outside_wall_seconds": 13.96,
+    "outside_peak_rss_bytes": 24788992,
+    "resources": {
+      "wall_seconds": 13.900253458879888,
+      "peak_rss_bytes": 24772608,
+      "external_body_bytes": 132280,
+      "local_input_bytes": 86904,
+      "physical_io_bytes": "unmeasured"
+    },
+    "external_bodies": 8,
+    "run_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-native-metadata-run-03.log",
+      "bytes": 984,
+      "sha256": "555fc679fe46a64313366a0a792b37ef7d8ecfe9c830eed62784cdf223569e70"
+    },
+    "run_exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-native-metadata-run-03.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "preservation": {
+    "evidence": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-nonowned-preservation-03.json",
+      "bytes": 25212,
+      "sha256": "9050d482f44503bb7af38db3b9019e6479d91dddfb6589af2755381cc2a58ed1"
+    },
+    "source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-nonowned-preservation-03.py",
+      "bytes": 16944,
+      "sha256": "fa3a9c9ece27913124e792a2404c7ceeba6dad511f7939ca63c1b9e2158aee6a"
+    },
+    "native_exit": 0,
+    "outside_wall_seconds": 114.26,
+    "outside_peak_rss_bytes": 28344320,
+    "resources": {
+      "wall_seconds": 114.2249247499276,
+      "external_body_bytes": 12221552066,
+      "local_input_bytes": 223725,
+      "peak_rss_bytes": 28327936,
+      "per_body_rss_note": "process high-water after each body; not isolated per-file peak"
+    },
+    "external_streams": 26,
+    "unchanged_descriptors": 66,
+    "unchanged_byte_proof": "accepted path/sha/rows equality composed with the native canonical staged reader hash-validation contract; no blanket body rehash",
+    "inherited_raw_method_lines": 15,
+    "inherited_method_raw_sha256": "ddb21e721ba0d8e078fb0d2c2d037debdee15bcba285dbc77e5ee582838f86ed",
+    "new_method_ids": [
+      "spatial-st-v1-09-20232024",
+      "spatial-st-v1-09-20242025",
+      "spatial-st-v1-09-20252026"
+    ],
+    "mixed_pairs": 12,
+    "protected_5v5_rows": 38976,
+    "protected_rows": "entire parsed5v5 rows and orderedunique protectedkey subsequences; EVrawspacing is not a gate",
+    "all_ST_matrix_owner": "ordinary canonical composer/fullreader; no duplicate independent matrix/model/array validation",
+    "original_G_nonowned_person_annual_base_bindings": "complete manifest whitelist plus66unchanged descriptors and15raw method lines preserve all earlier bindings against acceptedLOCAL7a43; canonical staging proves unchanged bytes transitively",
+    "output_scan_members": 13,
+    "output_scan_bytes": 10172104316,
+    "parent_scan_members": 13,
+    "parent_scan_bytes": 2049447750,
+    "no_independent_all_member_total": true,
+    "run_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-nonowned-preservation-run-03.log",
+      "bytes": 1156,
+      "sha256": "644242128d69ea850cf0d7d17cd7c53f6bad2de113b83643c61a50405f8b66be"
+    },
+    "run_exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-nonowned-preservation-run-03.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "post_exit_totals": {
+    "external_body_opens": 34,
+    "external_logical_bytes": 12221684346,
+    "physical_io_bytes": "unmeasured",
+    "native_collector_proof_costs": "separate; not a combined RSS sum or forecast"
+  },
+  "independent_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-independent-adjudication-01.json",
+    "bytes": 15583,
+    "sha256": "d3ca0425727a8d2928a0d69c5d703f6149a4df7fe47c0f4b584773372970c5b9"
+  },
+  "preserved_controller_failures": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-local-summary-failure-01.json",
+      "bytes": 538,
+      "sha256": "d0e6bc4e8e30b13d0950de2b19e11f45d238c35ac75139e9936d67ce9c444fb3"
+    }
+  ],
+  "controller_failure_classification": "one LOCAL reporting SyntaxError before execution; excluded from artifact judgment; no native/collector/proof replay or evidence mutation",
+  "numerical_limits": "15 baseline heads across5years and3final continuation attempts checked; volume/joint sensitivity exceeded,shape/quality withinbudget,accuracyunknown,earlier4annual sensitivities unassessed. ordinarycanonicalread replayed savedarrays/projections/probe comparisons; no new optimizer/probe solve or scientific admission",
+  "acceptance": "COMPLETE EXCHANGE computational/source/preservation boundary only; finalST+inheritedG/EV/nonowned data. no inactiveSQLite candidate, strictserver startup, familyAPI/browser/download/pixel or scientific acceptance",
+  "no_owned_heavy_command_remaining": true,
+  "frozen_numerical_producer03": "unchanged c4cf/4c905",
+  "goalie_source": "unchanged4aa/fee5/app3242",
+  "primary3000_9645": "untouched",
+  "publication": false,
+  "startup": false,
+  "activation": false,
+  "next_boundary": "user/coordinator may separately adjudicate ONE shared ordinary inactive publication and normal strict startup on deliberately pinned final21de+15d and common reviewed source/build; both family matrices remain independent and separately scheduled; no automatic grant",
+  "delivery": {
+    "target": "t-a59b0562801254be",
+    "machine": "macbook",
+    "status": "exact receipt pending explicit delivery; root coordinator controls next owner",
+    "retired_v1_18": "not contacted; retired handle unavailable"
+  }
+}

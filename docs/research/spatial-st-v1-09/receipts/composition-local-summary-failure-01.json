@@ -1,0 +1,13 @@
+{
+  "kind": "st-composition-local-summary-controller-failure",
+  "stage": "post-proof LOCAL reporting",
+  "status": "failed_before_execution",
+  "error_type": "SyntaxError",
+  "message": "unmatched ')'",
+  "source": "<stdin>:8, one extra closing parenthesis in print(json.dumps(dict(...)))",
+  "external_reads": 0,
+  "local_evidence_reads": 0,
+  "evidence_mutation": false,
+  "native_collector_or_proof_replay": false,
+  "classification": "LOCAL reporting controller only; excluded from native/collector/preservation artifact judgment"
+}

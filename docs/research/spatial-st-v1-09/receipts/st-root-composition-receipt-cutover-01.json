@@ -1,0 +1,145 @@
+{
+  "kind": "st-root-composition-receipt-development-cutover",
+  "status": "passed_focused_local_software_boundary",
+  "changed_path": "analysis/src/hockey_stats/spatial_composition.py",
+  "added_lines": 13,
+  "removed_lines": 0,
+  "source_before_sha256": "49ab1fe802edd4bab2732a333a4976033b12e00f66cf5853c746ea7e2274f0d8",
+  "source_after_sha256": "93495151cb15cee85f583d0fe10b208d8b5e30afeedfc676a7e14a4f3f03bcbe",
+  "patch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-root-composition-receipt-01.patch",
+    "bytes": 1962,
+    "sha256": "f0261ad947a708aa307cb56cf091ea12d9bb1296b4b7fb3e17d074c5f6d86de9"
+  },
+  "source_proof": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-root-composition-receipt-source-proof-01.json",
+    "bytes": 1165,
+    "sha256": "399ab78374061446e167298764055c8bf32140ff10b511dd6bd1cfa12a4ba4df"
+  },
+  "completed_receipt": {
+    "filename": "special-teams-composition.json",
+    "schema_version": 1,
+    "kind": "special-teams-composition",
+    "fields": [
+      "schema_version",
+      "kind",
+      "purpose",
+      "producer",
+      "source_results",
+      "source_producer_receipt",
+      "accepted_source_evidence",
+      "selection",
+      "states",
+      "output",
+      "inherited_members",
+      "owned_members",
+      "source_families",
+      "output_families",
+      "resources"
+    ]
+  },
+  "completion_order": "unchanged three per-display receipts; canonical named staging read; final manifest rename; unchanged composition-resources.json write; exclusive ST root receipt write last; return only after successful root write",
+  "source_contract": "source_results uses the already checked path/digest7a43; source_producer_receipt converts the first existing accepted_source_evidence uri/sha256 into path/sha256, or null for an unattributed fixture. real admission remains mandatory and unchanged, with exact0376 receipt before the canonical reader",
+  "states_contract": "selection is its actual path/sha256; states copies all validated selection.states, including all five real annual identities and final784c, not only the three displayed seasons",
+  "accepted_state_binding_packet": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-state-selection-candidate-01.json",
+    "bytes": 1364,
+    "sha256": "9325d1be205742b3d95c4a37aa9ba2a26fcbc64fe54183036f61d8b590c2afa7"
+  },
+  "attributed_state_identities": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/manifest.json",
+      "sha256": "7ec561e9c273b833339b8446d7e1a2bb6d0c422d536f72c2c534f71930e16c61"
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-03/real/states/20222023/manifest.json",
+      "sha256": "2ce8f5cf777c9f252da4c053955281fea0c345a93b8b0154e8f4e24622205175"
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/real/states/20232024/manifest.json",
+      "sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7"
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/manifest.json",
+      "sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c"
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-02/real/states/20252026/manifest.json",
+      "sha256": "784c045cba6d591d0da736a90c13f71823f10fc933d81cd82cb1611ce90e5e13"
+    }
+  ],
+  "state_identity_limit": "the local packet is accepted identity evidence; no annual header/member was opened or rehashed in this development scope",
+  "output_contract": "actual final manifest path/sha256 and its producer object, source/output family descriptors, and inherited/owned descriptor inventories; no root self-reference is added to the manifest or methods",
+  "inventory_meaning": "inherited_members covers nonspatial files and people/source/support catalogs; owned_members covers mixed spatial files and methods. file ownership does not claim ownership of preserved EV rows inside mixed files; real independent preservation remains required",
+  "resources_contract": "resources is the exact path/sha256 identity of unchanged composition-resources.json, not copied metrics or a second parsed resource schema",
+  "metrics_limit": "the original internal wall timestamp ends before the added root writer; native operator wall/RSS/footprint evidence must measure the whole command",
+  "driver": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-root-receipt-controls-01.py",
+    "bytes": 20875,
+    "sha256": "be2c456fc2bd929d1a9a07181be930dccf7477811afd4a6e9149de2551c6ca22"
+  },
+  "controls_scope": "real write/hash/rename path with cached two-header admission and a deliberately tiny fixture-purpose canonical Results stand-in; state/method/table providers and declared state identities stubbed; not a valid real artifact or canonical acceptance; no external read/stat, model, arrays, build or reserved-selection write",
+  "literal_oracles": "closed15-field contract; cached7a43 source and0376 producer; all five literal state bindings; actual final-file hash and producer; selection/resource identities; exact writer order and old-sidecar snapshots; inherited bytes and EV row preservation",
+  "controls_real": "copy/write/hash/rename and real exclusive write_json execute on tiny local artifacts; the writer spy wraps the real writer rather than replacing the new write",
+  "controls_stubbed": "cached real G admission maps only two headers, while the canonical Results is deliberately a tiny fixture-purpose stand-in; state/method/table seams and declared annual identities are stubbed. this is not a valid real artifact or full-reader/numerical/preservation acceptance. output_path and its require/locality policy remain unpatched",
+  "red": {
+    "result": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-root-receipt-controls-01/red-01/result.json",
+      "bytes": 2549,
+      "sha256": "7c13db66b07400bb4186477fe819f999be3d22273b17bfdec564fb8475b98925"
+    },
+    "log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-root-receipt-controls-01/red-01.log",
+      "bytes": 3057,
+      "sha256": "1f1555cbcb74ee197485b1f9c33577f23a323956cc8879581a50047a0aa83840"
+    },
+    "exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-root-receipt-controls-01/red-01.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "tests": 5,
+    "failures": 3,
+    "errors": 0,
+    "interpretation": "three intended target failures: absent attributed and unattributed root receipts, and no exclusive root write; no controller failure"
+  },
+  "green": {
+    "result": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-root-receipt-controls-01/green-01/result.json",
+      "bytes": 711,
+      "sha256": "85b82cd77c7fc4aff1e0f21571a4c604899436d3483d23a864b33e658308bd9b"
+    },
+    "log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-root-receipt-controls-01/green-01.log",
+      "bytes": 928,
+      "sha256": "ae792f0debb90cafb5f5d879b19dc626772895da6b5b82ac7520ba6c9a48ef10"
+    },
+    "exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/.tmp/st-root-receipt-controls-01/green-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "wall_seconds": 0.019816040992736816,
+    "peak_memory_bytes": 99418112
+  },
+  "preservation": "inverse removal of only thirteen added lines restores every49ab source byte, including old receipt/resources writes, timing boundary, EV, admission, raw method merge and all existing readers/numerical owners. no helper/import/CLI/validator or frozen producer03/G source changed",
+  "not_run": [
+    "actual ST complete composition",
+    "real canonical source/state/output read",
+    "independent real nonowned preservation",
+    "reserved actual selection write",
+    "real preflight/dispatch",
+    "fit or projection work",
+    "publication/startup",
+    "source commit or frozen-producer adoption"
+  ],
+  "source_pin_limit": "root owns the deliberate clean source commit and new analysis tree after this software boundary; the prior3af47ea/7a66 source attribution must not silently claim these thirteen lines"
+}

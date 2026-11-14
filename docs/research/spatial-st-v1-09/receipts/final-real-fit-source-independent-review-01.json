@@ -1,0 +1,53 @@
+{
+  "kind": "st-final-real-source-only-independent-review",
+  "verdict": "PASS",
+  "status": "source_only_not_ready_held_unreserved_not_run",
+  "reviewer": "/root/st_interrupt_review",
+  "reviewed_at_utc": "2026-11-12T08:12:42.512452+00:00",
+  "packet": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-fit-source-preparation-01.json",
+    "bytes": 7591,
+    "sha256": "e54c2fd7239aac3b3d8d2ddb7073e87a4437719f8a174277443721fc26f4372d"
+  },
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/final-real-fit-held-01.sh",
+    "bytes": 1528,
+    "sha256": "d95df4998c2d5c23dbe86534b5be2d5a31aa7b194fd706dc8926e90edd2a2bd3"
+  },
+  "source_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+  "analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "findings": [],
+  "checked": [
+    "script derives exactly from524605 by declared comment/producer/run/season/base/predecessor/log substitutions; complete static argv and unchanged child-only threads/mkdir/time/status mechanics match",
+    "local git trees/declared contract ancestry and seven selected working source blobs equal the pinned commit; public owners remain exact710c984f/57985c80",
+    "analysis_cli.py:126 real spatial-st20252026 sets final_year; failed baselines block, ST diagnostic movement does not become an exit gate",
+    "spatial_rates.py:991 saves three baseline heads and annual state before diagnostics; :1322 attempts at most one tightened solve per completed head, at most three, no joint fit or baseline-history promotion",
+    "spatial_rates.py:1080 matches repaired9d1 bytes; ST witnesses inspect all three head histories by role/player, EV stays volume-only, physical sparse support and witness union/lexical fill remain within256 contexts",
+    "spatial_rates.py:309,337,408 recomputes raw conditional prior-only values and reporting centers; :1259 compares all-roster exact/common neutral/focal/contrast scalars/maps, exact probabilities,100-minute terms and all16 coalitions per frozen context",
+    "spatial_rates.py:1322 and spatial_state.py:1094 preserve/re-read separate probes and joint saved-variant comparison; incomplete variants are unassessed, with no baseline substitution or extra solve",
+    "execution_scores.py:445,461 and execution.py:1037 retain exact-int/state guards and same-strength checked-panel reuse"
+  ],
+  "source_pins": {
+    "analysis_cli": "265498dd9bd47daf9740df8347e7d652f2c5b1165c38ddc50719f2c5ad5dcbdf",
+    "spatial_rates": "4c5ad4c57a7b61301f6f626af25f22587a13c13f97dacce541d01e0bc06193ca",
+    "spatial_state": "4ecc807fc7d0f92018c2b4ae3b375cedaa37dc1d2465e890358ac730b59b45c5"
+  },
+  "existing_review_pins": {
+    "witness": "90f242f714e578e9eb70c134ad50883beee04a289e0dea43d2343eeaf04eb581",
+    "shared_owners": "6d865b04e24024b77f62e67b731a4fdc60e700ae34942652e395bddd73039424",
+    "public_validators": "77c8c6f57743cddb153ae1bfd4c9535c20c5d3365510920561635b24e08eddd7"
+  },
+  "limits": {
+    "predecessor_manifest_and_acceptance_receipt_sha256": null,
+    "producer03": "PROPOSED/NOT_CREATED; no path query or checkout",
+    "runtime_header_readiness_ownership_and_fresh_paths": "NOT_RUN; no reservation or dispatch authority",
+    "native_outcome_cost_and_optimizer_accuracy": "UNKNOWN; source pass is not numerical, runtime, diagnostic or scientific acceptance",
+    "current_scope": "running fourth-year retry remains separate; ST9/15 and complete parent8b32c23e unchanged",
+    "actor_scope": "source-preparation/reviewer made no OS query; root numerical-owner monitoring of its separate current job is outside this review",
+    "review_operations": "local text/hash/static argv/git-object checks only; no source/model import or evaluation, fixture/control/build/fit, external read/stat/create, proposed-producer creation, frozen/source/docs/index mutation; one local review receipt",
+    "historical_controls": "prior witness/EV control evidence attributed, not rerun",
+    "drafts": "only final packet e54c was accepted; withdrawn larger drafts confer no review or readiness",
+    "reviewer_setup": "one guessed local logistic.py search missed; actual existing solver owner chance.py was then read; no runtime/controller/native failure"
+  }
+}

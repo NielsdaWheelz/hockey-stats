@@ -1,0 +1,32 @@
+{
+  "kind": "st-complete-composition-release-frame-consistency-review",
+  "reviewed_at_utc": "2026-11-13T06:41:35Z",
+  "status": "passed_release_copy_consistency_only",
+  "release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-boundary-release-01.json",
+    "bytes": 14072,
+    "sha256": "29cd1cfe50446e74b1ed7b7f88758f314a664c05d28e84a90089c80477dc2276"
+  },
+  "accepted_local_adjudication_sha256": "d3ca0425727a8d2928a0d69c5d703f6149a4df7fe47c0f4b584773372970c5b9",
+  "findings": [],
+  "copy_checks": [
+    "completed output21de23310B and root15d60964B, source1431/analysis923d/app3242, accepted predecessor7a43/0376, selection9325 and all five states ending784c match the checked cached adjudication",
+    "original prepared63bd/coaches102/scoreselection588 and all five original annual score identities are retained without G score substitution",
+    "native0/6578.68s/RSS8745664512/foot8830655304, producer-measured32083871277memberB and stagedread2828.352449416183s copy the checked native/sidecar evidence with honest limits",
+    "collector8opens/132280externalB and proof26streams/12221552066externalB sum to34opens/12221684346externalB; native, collector and proof cost scopes stay separate and physical IO remains unmeasured",
+    "66unchanged descriptor identities are explicitly transitive through accepted parent and native canonical hashing;15inherited raw method lines,3new ST methods and38976protectedEV rows match the scoped independent proof; no independent79member total claim",
+    "d0e6 local reporter failure stays preserved and excluded from artifact judgments; no actual native, collector or proof replay is claimed",
+    "complete-exchange-only acceptance does not claim scientific, publication, strict startup or independent family application acceptance",
+    "owned command closure and source freeze remain attributed cached owner observations; next owner is null and delivery is pending to the active coordinator, with no retired-v18 contact or later command grant"
+  ],
+  "review_scope": "one bounded local release-frame read/hash and comparison to already reviewed cached facts; no new acceptance gate or whole cached-body adjudication",
+  "not_run": [
+    "native command or OS process check",
+    "external metadata/member/body read",
+    "model, array, runtime, import or test execution",
+    "reader or preservation replay",
+    "source, documentation, HEAD or artifact mutation",
+    "delivery, publication, startup, activation or next-owner assignment"
+  ],
+  "delivery_authority": "root may deliver the exact checked release under the existing assignment; this review does not send it or grant a later window"
+}

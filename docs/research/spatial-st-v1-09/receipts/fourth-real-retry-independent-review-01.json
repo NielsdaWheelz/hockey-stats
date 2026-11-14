@@ -1,0 +1,101 @@
+{
+  "kind": "st-fourth-annual-retry-source-only-independent-review",
+  "verdict": "PASS",
+  "reviewer": "/root/st_interrupt_review",
+  "reviewed_at_utc": "2026-11-12T05:05:05.545973+00:00",
+  "inputs": [
+    {
+      "role": "retry_script",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-retry-held-01.sh",
+      "bytes": 1509,
+      "sha256": "524605372c37d9d9b7a12e9fa71cd9c22c1336696696e6217ed0da74f7672860"
+    },
+    {
+      "role": "original_script",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-fit-held-01.sh",
+      "bytes": 1509,
+      "sha256": "7fecf2aa8594b5045eb26ee9781a1fbb09ebcde1fa046c67b0f778bb2e5f0c61"
+    },
+    {
+      "role": "retry_packet",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-preparation-01.json",
+      "bytes": 10825,
+      "sha256": "633516d911773036b4b88e9f649dcb5394b8212407a79eeabcf5663a9c1b9326"
+    },
+    {
+      "role": "historical_ready",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-fit-preparation-02.json",
+      "bytes": 8732,
+      "sha256": "10856eb64cbb449f230295eaf9551f984dd59326c2f498e47952feba5647971a"
+    },
+    {
+      "role": "accepted_two_header_proof",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-metadata-preflight-01.json",
+      "bytes": 2002,
+      "sha256": "10d85ff86082a1385d9a6ac830181588352758df7d481c2ef14c26c753fdd82f"
+    },
+    {
+      "role": "accepted_stop_proof",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-interruption-boundary-02.json",
+      "bytes": 4700,
+      "sha256": "6239dbf350d8d40eb84e8641efdd9d1b3f08c648b7553b665423c485983d4ad9"
+    },
+    {
+      "role": "accepted_stop_adjudication",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-interruption-independent-adjudication-01.json",
+      "bytes": 3737,
+      "sha256": "54331aac40a1591dd161fdca3993940a8e4d77be9a9ca87890158fb962a97737"
+    }
+  ],
+  "findings": [],
+  "reviewed_facts": {
+    "script_bytes": 1509,
+    "run_root_literal_replacements": 6,
+    "old_root": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05",
+    "proposed_root": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01",
+    "inverse_substitution_byte_exact": true,
+    "all_other_script_bytes_preserved": true,
+    "complete_static_argv_matches_packet": true,
+    "native_scope": "one spatial-st 20242025 annual; inherited frozen command retains three baseline heads, zero continuation probes, no --basis",
+    "source_commit_attributed": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree_attributed": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "original_base_score_sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+    "previous_st_manifest_sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7",
+    "command_controls": "unchanged mkdir, time, redirection and status mechanics; three thread overrides scoped to env child only",
+    "syntax_check": "author-reported /bin/sh -n passed; reviewer did not rerun it or execute shell source",
+    "historical_identity_and_count_pins_match_local_evidence": true,
+    "interrupted_native_exit_status": null,
+    "interrupted_native_exit_meaning": "unknown; no exit record and no numerical exit inferred",
+    "checked_st_heads": 9,
+    "total_st_heads": 15,
+    "checked_G_heads": 8,
+    "checked_G_scores": 4,
+    "complete_parent_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "current_G_owner": "coordinator-attributed running snapshot only: native32082/python39838/time39828; final G score remains separate",
+    "diagnostic_source": "final ST diagnostic scope remains separate; no development-source adoption into frozen retry",
+    "future_dispatch_preconditions_explicitly_NOT_RUN": true,
+    "retry_costs_and_physical_member_bytes_unknown": true,
+    "reservation": "UNRESERVED",
+    "retry_execution": "NOT_RUN",
+    "window_request_made": false
+  },
+  "review_scope": "local retry/original shell text, packet and four pinned local historical receipts only; literal reversal, full static argv and inherited facts checked",
+  "review_operations": {
+    "external_body_reads": 0,
+    "external_stat_calls": 0,
+    "external_creations": 0,
+    "shell_script_executions": 0,
+    "production_or_model_imports": 0,
+    "OS_process_queries": 0,
+    "production_source_doc_or_index_changes": 0,
+    "new_local_files": 1
+  },
+  "limits": [
+    "source-only pass; fresh frozen-source cleanliness, runtime and command identity remain future checks",
+    "external mount, path availability and run/output/log/exit absence have not been checked",
+    "no new metadata reader, native fit, audit, array or design read was performed",
+    "no reservation, next-owner promise, dispatch authority or notification to the external coordinator",
+    "no scientific, head-validity, reusability, payload-total or annual acceptance",
+    "any future failure remains evidence; no automatic retry"
+  ]
+}

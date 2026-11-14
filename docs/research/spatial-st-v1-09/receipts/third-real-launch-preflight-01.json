@@ -1,0 +1,44 @@
+{
+  "status": "fresh_launch_preconditions_passed",
+  "checked_at_utc": "2026-11-11T12:01:32.830859+00:00",
+  "season": "20232024",
+  "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+  "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+  "clean_analysis": true,
+  "producer_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+  "ready": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/docs/research/spatial-st-v1-09/receipts/third-real-fit-held-02.json",
+    "sha256": "958d73ec3205b24dbae7c8fae439bc9e8901939e4372c1b00945426682a7889c"
+  },
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/third-real-fit-held-01.sh",
+    "sha256": "837b8e86d232fa3692c524bac64ac1eed7274967218da7f7d222f9210666d2a0"
+  },
+  "runtime": {
+    "python": "3.14.8",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "mount": "/Volumes/Expansion",
+  "fresh_absent_paths": [
+    "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/real/states/20232024",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/logs/20232024-fit.log",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/logs/20232024-fit.exit"
+  ],
+  "prior_owner_release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20242025-release.json",
+    "sha256": "2ff90ebea4ecd1f70388a4fe27de574cf2acf106373fcb5a6cf8f1fad1ab2553"
+  },
+  "scope": "one 20232024 annual prepared pass, accepted base-score validation, full explicit predecessor read and raw history, three fresh baseline heads, full projections/accounting and native strict readback; no basis import or continuation probes",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "previous_manifest_sha256": "2ce8f5cf777c9f252da4c053955281fea0c345a93b8b0154e8f4e24622205175",
+  "base_score_sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238",
+  "input_body_reads": 0,
+  "dispatch": "not_yet_dispatched",
+  "activation": false
+}

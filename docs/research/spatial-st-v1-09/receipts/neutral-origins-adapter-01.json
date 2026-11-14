@@ -1,0 +1,107 @@
+{
+  "kind": "neutral-origins-consumer-adapter-regression",
+  "status": "passed",
+  "development_head": "c6a626b2ebdec5aaa1422ddd2872c8514bca4c7b",
+  "execution_before_sha256": "460d7e09824d7ef72642ee837c082061e9630fcc1e3150ced67876fd039a1e13",
+  "execution_after_sha256": "367f5d18975ad8565c994f0870ec2a950d502b48637e8a6bd264dccbb1e32efa",
+  "test_sha256": "0c63b2ae9036bb9d9ecfb144a46b53a5fa79b0582e69d6f28b127fc15e8c285d",
+  "red_exit": 1,
+  "red_reason": "actual prepare_spatial st path reaches real iter_neutral_origins and rejects checked physical 5v4 at the original 5v5-only guard",
+  "green_exit": 0,
+  "test_unchanged_between_red_and_green": true,
+  "ev_red_and_green_record_exact": true,
+  "ev_record": {
+    "family": "ev",
+    "states": [
+      [
+        5,
+        5,
+        1,
+        1
+      ]
+    ],
+    "events": 2,
+    "origin_rows": 4,
+    "neutral_chance_mass": 0.13577025,
+    "fingerprint": "95690a6c5fca68553bca9b50b429f8b6dd96a83a38b5bd72928e20dd4399b784"
+  },
+  "st_record": {
+    "family": "st",
+    "states": [
+      [
+        5,
+        4,
+        1,
+        1
+      ],
+      [
+        5,
+        3,
+        1,
+        1
+      ],
+      [
+        4,
+        3,
+        1,
+        1
+      ]
+    ],
+    "events": 6,
+    "origin_rows": 12,
+    "neutral_chance_mass": 0.40731075000000005,
+    "fingerprint": "1d83a4e5151f4ea54fcc23bebb09e8432cf9a72a3f54d9ca81bc13c52d1b5403"
+  },
+  "negative_cases": {
+    "status": "passed",
+    "rejected_strengths": [
+      [
+        7,
+        4,
+        1
+      ],
+      [
+        5,
+        4,
+        0
+      ],
+      [
+        5,
+        4,
+        true
+      ],
+      [
+        5.0,
+        4,
+        1
+      ],
+      "missing defending goalie"
+    ],
+    "retained_mass_checks": [
+      "origin",
+      "setup",
+      "saved event closure"
+    ]
+  },
+  "arithmetic_and_evidence_body_byte_exact": true,
+  "independent_probability_check": "per origin: u*q*no_recorded_stop*pre_outcome_setup_mixture(g); rtol2e-15,atol0; per-event and aggregate mass error below2e-15; original saved-event _near check unchanged",
+  "production_change": "iter_neutral_origins reuses PANEL_STATES and admits exact integer checked panels with attacking goalie1; read_panel already requires defending goalie1",
+  "callsites": [
+    "spatial_design.py:20 import",
+    "spatial_design.py:560 ev/st target adaptation"
+  ],
+  "blindspot": [
+    "source-st-temporary.py mocked read_panel and iter_neutral_origins",
+    "source-st-fixture-helper-temporary.py mocked both target-boundary functions for synthetic fit fixtures"
+  ],
+  "scope": "small in-memory ExecutionPanel/ExecutionScores fixtures through actual prepare_spatial and actual read_panel checked-panel path; read_prepared/coaches/identity I/O replaced only; np.load trapped; no fit, native baseline, source artifact bodies, candidate or external drive access",
+  "limits": [
+    "not a saved artifact reader or native annual proof",
+    "constructed checked panels; no full source/array validation",
+    "frozen producer untouched; no rerun authorized"
+  ],
+  "logs": {
+    "red.log": "33b4a2cba3248e8747cf151912aab11c5b006045c6ac92b01710239eb7784c0b",
+    "green.log": "7080d2e039ea5fa55e22da7f6616ab1a1bee7faa15e911bb91fcfb32c8d14854"
+  }
+}

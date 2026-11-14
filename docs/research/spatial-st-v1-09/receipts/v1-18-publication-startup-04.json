@@ -1,0 +1,40 @@
+{
+  "kind": "coordination_report",
+  "source": "user-supplied v1-18 publication and native startup failure update",
+  "prior_report": "v1-18-conversion-handoff-03.json",
+  "local_artifact_acceptance_repeated": false,
+  "heavy_owner": "v1-18",
+  "publication": {
+    "exit_status": 0,
+    "publication_id": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+    "database_sha256": "ba12c7f7dd990b4d345d06afcf39c80bf20b2b43aefbfbe838218062e7be692b",
+    "database_bytes": 13370183680,
+    "wall_seconds": 6335.505,
+    "peak_rss_bytes": 3332374528,
+    "metadata_receipt_sha256": "d7c4ac9c767741288eb0d1b95b7704fa45cdc1f5ecfcd3a09fd45b39144400bf",
+    "independent_review_sha256": "460f3614fa3dea7cc6df4a977536f689b37d59a46aa90c83fb19f3bba115a695",
+    "independent_metadata_adjudication": "passed",
+    "converted_results_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "original_correction_and_projection_bindings": "preserved"
+  },
+  "startup": {
+    "launcher_exit_status": 134,
+    "reported_phase": "native node initialization",
+    "before_javascript_sqlite_meter_output": true,
+    "port": 41919,
+    "listener_observed": false,
+    "complete_strict_validation_observed": false,
+    "runtime_accepted": false,
+    "duplicate_dispatch_reported": false,
+    "failure_preserved_by_owner": true,
+    "diagnostics_reported": "bounded node-e probes without server import or candidate open; possible os-policy/stdout-metadata issue, cause not established here",
+    "measurement_only_repair_pins": "pending",
+    "normal_strict_startup": "pending"
+  },
+  "input_source_database_changes_reported": false,
+  "accepted_complete_predecessor": false,
+  "v1_09_actions": "documentation only; no external bodies, candidate, server or numerical work",
+  "st_annual_and_bulk_fixtures": "held until explicit release to both sessions and v1-07 confirmation",
+  "final_composition": "serial g/st composers pin actual accepted complete predecessors plus receipts and preserve nonowned content",
+  "activation": "not_assigned"
+}

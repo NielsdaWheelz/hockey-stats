@@ -1,0 +1,79 @@
+{
+  "kind": "st-fourth-interruption-local-evidence-adjudication",
+  "status": "scoped_stop_boundary_review_passed",
+  "reviewed_at_utc": "2026-11-12T04:44:11.994797+00:00",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-interruption-boundary-02.json",
+      "bytes": 4700,
+      "sha256": "6239dbf350d8d40eb84e8641efdd9d1b3f08c648b7553b665423c485983d4ad9"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-interruption-native-02.log",
+      "bytes": 3375,
+      "sha256": "c4cb81bd7fbc7f069b9d346f58f3354232e2720441981daf17485115e5f57e0e"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-interruption-collector-02.log",
+      "bytes": 558,
+      "sha256": "c106c29da398a758be3eee70df423d36dd0bbe3d3d992031daa3a6eab29016c7"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-interruption-collector-02.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ],
+  "source_review": {
+    "source_sha256": "de24508af28c25f39a48187c33ea6619bfb3c3be93b2e46ee13bc0d954a3774b",
+    "proposal_sha256": "7025e9c724755653de98956cc56f4acd348f9b2138418b8bd4b4bb0e166f0154",
+    "prior_scope_pass": true,
+    "collector_not_reexecuted": true
+  },
+  "reviewed_facts": {
+    "collector_exit_status": 0,
+    "collector_failure": null,
+    "collector_external_body_reads": 1,
+    "collector_logical_body_bytes": 3375,
+    "collector_explicit_lstats": 9,
+    "collector_availability_queries": 2,
+    "collector_wall_seconds": 14.405677333008498,
+    "collector_peak_rss_bytes": 19873792,
+    "resource_scope": "collection/local copies; excludes final receipt serialization/write",
+    "native_wall_seconds": 2109.52,
+    "native_user_seconds": 1894.49,
+    "native_sys_seconds": 15.75,
+    "native_peak_rss_bytes": 6462324736,
+    "native_peak_footprint_bytes": 6400054504,
+    "native_exit_status": null,
+    "native_exit_record": "absent",
+    "termination_signal": null,
+    "keyboard_interrupt": true,
+    "trace_location": "prepare_spatial -> read_prepared_game -> prepared-record validation",
+    "trace_verdict": "user interruption; no reported schema or optimizer failure",
+    "native_cost_meaning": "interrupted command cost, not a completed annual or forecast",
+    "run_root": "present",
+    "annual_output_and_heads_directory": "absent in bounded observations",
+    "manifest_and_three_head_json_paths": "absent in bounded observations"
+  },
+  "limits": {
+    "native_exit_unknown": true,
+    "resource_signals_received_not_signal_id": true,
+    "head_completion": "unknown",
+    "head_validity": "not assessed",
+    "head_reusability": "not assessed",
+    "aggregate_payload_bytes": null,
+    "artifact_acceptance": "not assessed",
+    "checked_st_heads": 9,
+    "fit_retry": false,
+    "slot_assignment": false,
+    "publication_parent": "unchanged 8b32c23e"
+  },
+  "review_history": {
+    "initial_regex_finding": "withdrawn reviewer false positive from JSON-rendered escaping",
+    "literal_checks": "both immutable source01 and source02 passed eight prior AST-literal synthetic checks",
+    "source02_change": "expanded manifest envelope and cap-overflow policy, not parser repair",
+    "no_fictitious_controller_or_native_failure": true
+  },
+  "reviewer_scope": "cached local receipt/raw log/controller stdout+exit and approved source/proposal identities only; no controller import/reexecution, OS/process checks, external reads/stats, arrays/designs/head/member bodies, providers, evaluator, full reader, audit or numerical command"
+}

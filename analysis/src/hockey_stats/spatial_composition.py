@@ -17,6 +17,9 @@ REFERENCE = 'spatial-league-centered-virtual-v1'
 POLICY = 'ordinary-attempt-segment-valued-two-direction-v1'
 ACCEPTED_RESULTS = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results')
 ACCEPTED_RESULTS_SHA256 = '3441f784c11eb6a8eda38800806b8e4dc68e06e8587c91db24c5dffaadae4347'
+ACCEPTED_ST_SOURCE = Path('/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results')
+ACCEPTED_ST_SOURCE_SHA256 = '7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12'
+ACCEPTED_ST_COMPOSITION_SHA256 = '037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28'
 ACCEPTED_VALUED = dict(zip(YEARS, (
     '37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d',
     '296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20',
@@ -33,7 +36,8 @@ class _AnnualProjection:
     projections: list
     projection_arrays: dict
     adjustments: list
-    evidence: object = None
+    probes: dict | None
+    evidence: object | None
 
 
 
@@ -116,11 +120,12 @@ def _product_admission(path, selection_path, purpose):
                 actual_context_warnings=document['actual_context_warnings'])
 
 
-def _states(selection_path, results, admission=None):
+def _states(selection_path, results, admission=None, *, family='ev'):
     from .spatial_state import SavedSpatialEvidence, read_spatial_state
 
     selection = strict_json(Path(selection_path).read_bytes())
-    require((admission is not None) == (results.manifest['purpose'] == 'real'), 'spatial product admission purpose differs')
+    require(family == 'st' or (admission is not None) == (results.manifest['purpose'] == 'real'),
+            'spatial product admission purpose differs')
     publication.fields(selection, ('schema_version', 'purpose', 'prepared_sha256', 'states'))
     require(type(selection['schema_version']) is int and selection['schema_version'] == 1
             and selection['purpose'] == results.manifest['purpose']
@@ -134,13 +139,13 @@ def _states(selection_path, results, admission=None):
         path = Path(item['path'])
         path = path / 'manifest.json' if path.is_dir() else path
         require(identity(path)['sha256'] == item['sha256'], 'spatial annual manifest digest differs')
-        state = read_spatial_state(path, selection['purpose'])
+        state = read_spatial_state(path, selection['purpose'], expected_family=family)
         manifest = state.manifest
         require(manifest['season'] == item['season'] and manifest['prepared']['sha256'] == selection['prepared_sha256'], 'spatial annual season/preparation differs')
         require(all(state.heads[head]['status'] == 'complete' for head in ('volume', 'shape', 'quality')), 'selected spatial annual family is incomplete')
         if selection['purpose'] == 'real':
             require(manifest['valued']['sha256'] == ACCEPTED_VALUED[item['season']], 'spatial target is not the accepted v1-06 score')
-            if item['season'] == YEARS[-1]:
+            if item['season'] == YEARS[-1] and family == 'ev':
                 probes = state.probes
                 require(probes is not None and set(probes['heads']) == {'volume', 'shape', 'quality'}, 'final real spatial numerical probes are incomplete')
                 members = {member['path']: member for member in manifest['files']}
@@ -151,13 +156,16 @@ def _states(selection_path, results, admission=None):
                     if name != 'baseline':
                         require(reference['status'] == probes['heads'][name]['status'], 'spatial admission original head status differs')
                 require(admission['precision']['status'] == probes['status'], 'spatial admission original precision status differs')
-            else:
+            elif item['season'] != YEARS[-1]:
                 require(state.probes is None, 'earlier real spatial year has an unexpected numerical probe')
+            else:
+                require(state.probes is not None and set(state.probes['heads']) == {'volume','shape','quality'},
+                        'final special-teams diagnostics were not attempted')
         years.append(item['season'])
         display = item['season'] in results.manifest['seasons']
         annuals[item['season']] = _AnnualProjection(state.path, manifest,
             state.projections if display else [], state.projection_arrays if display else {},
-            state.adjustments if display else [], SavedSpatialEvidence(state.path,manifest,state.design.coverage,
+            state.adjustments if display else [], state.probes, SavedSpatialEvidence(state.path,manifest,state.design.coverage,
                 state.reference,state.projections,state.adjustments,state.coefficient_support) if display else None)
         # the detached reader checked the design and heads; publication only
         # retains their saved projections. release each design before the next.
@@ -173,6 +181,9 @@ def _states(selection_path, results, admission=None):
                 and Path(previous['path']).resolve() == (before.path / 'manifest.json').resolve(), 'spatial state history chain differs')
         require(all(after.manifest[key] == before.manifest[key] for key in ('recipe_id', 'recipe', 'basis_identity')), 'spatial recipe/basis differs between years')
         require(all(after.manifest[key]['sha256'] == before.manifest[key]['sha256'] for key in ('prepared', 'coaches')), 'spatial preparation/coaches differ between years')
+        if family == 'st':
+            require(after.manifest['basis_source'] == before.manifest['basis_source'],
+                    'special-teams accepted basis source differs between years')
     for year in results.manifest['seasons']:
         method = results.catalogs['method'].get(f'execution-v1-06-{year}')
         state = annuals[year]
@@ -361,20 +372,182 @@ def _season_tables(year, state, people, method):
                 spatial_evidence=spatial_evidence_rows(year,state.evidence,people,method))
 
 
+def _accepted_st_source(directory):
+    """pin the accepted goalie parent and completed producer receipt before its full read."""
+    path = directory / 'manifest.json'
+    header = strict_json(path.read_bytes())
+    if type(header) is not dict or header.get('purpose') != 'real':
+        return []
+    require(path == ACCEPTED_ST_SOURCE / 'manifest.json' and identity(path)['sha256'] == ACCEPTED_ST_SOURCE_SHA256,
+            'selected special-teams complete parent identity differs')
+    receipt_path = ACCEPTED_ST_SOURCE / 'goalie-composition.json'
+    require(identity(receipt_path)['sha256'] == ACCEPTED_ST_COMPOSITION_SHA256,
+            'accepted special-teams parent receipt digest differs')
+    receipt = strict_json(receipt_path.read_bytes())
+    publication.fields(receipt, ('schema_version', 'kind', 'source_results', 'selection', 'output', 'inherited_members',
+                                 'goalie_members', 'source_families', 'output_families', 'preserved', 'resources'))
+    require(type(receipt['schema_version']) is int and receipt['schema_version'] == 1 and receipt['kind'] == 'goalie-composition'
+            and header['producer'] == dict(git_commit='4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4', git_dirty=False, python_version='3.14.8'),
+            'accepted special-teams goalie producer differs')
+    require(receipt['output'] == dict(path=str(path), sha256=ACCEPTED_ST_SOURCE_SHA256)
+            and receipt['source_results'] == dict(path='/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json',
+                                                  sha256='8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee')
+            and receipt['selection'] == dict(path='/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores-selection.json',
+                                             sha256='2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed'),
+            'accepted special-teams goalie composition correspondence differs')
+    require(receipt['output_families'] == header['families']
+            and [row for row in receipt['source_families'] if row['family'] != 'goalie']
+            == [row for row in header['families'] if row['family'] != 'goalie'],
+            'accepted special-teams complete-parent families differ')
+    inherited = [member for row in header['families'] if row['family'] != 'goalie' for member in row['tables'].values()]
+    owned = [member for row in header['families'] if row['family'] == 'goalie' for member in row['tables'].values()]
+    require(all(member in receipt['inherited_members'] for member in inherited)
+            and all(member in receipt['goalie_members'] for member in owned)
+            and sorted(receipt['inherited_members'] + receipt['goalie_members'], key=lambda row: row['path'])
+            == sorted([*header['catalogs'].values(), *inherited, *owned], key=lambda row: row['path']),
+            'accepted special-teams complete-parent member inventory differs')
+    return [dict(uri=str(receipt_path), sha256=ACCEPTED_ST_COMPOSITION_SHA256),
+            dict(uri='/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-nonowned-preservation.json',
+                 sha256='7b1116c94384422ccc0b500a7cccd847a266d4bc5e4a1d5e641d735509e63058'),
+            dict(uri='/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-independent-adjudication.json',
+                 sha256='549c1c959443e130003451a3f5ab672d248bdb9f225afe81f093ae7a38b02391'),
+            dict(uri='/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-release.json',
+                 sha256='a7a5787034a5341d4544e95250fb9ed271f32b901f89e6347170f8329ee2f66d')]
+
+
+def _special_teams_method(year, state, annuals, purpose, source_sha, receipt):
+    method = _method(year, state, annuals, purpose, source_sha, receipt)
+    status = state.probes['status'] if state.probes is not None else 'unassessed'
+    warning = f'new-head optimizer sensitivity {status}; remaining optimizer accuracy is unknown; earlier annual sensitivity is not assessed retrospectively'
+    # every player has the same annual physical-time mixture; use its pp row.
+    common = next((row for row in state.projections if row['strength'] == 'pp'), None)
+    zero_states = [item['state'] for item in common['state_weights'] if item['weight'] == 0] if common else []
+    extrapolation = (['state-extrapolated baseline: no retained exposure in ' + ', '.join(zero_states) +
+                      '; exact projections use static state priors and shared evidence from other states'] if zero_states else [])
+    reference_file = next(row for row in state.manifest['files'] if row['role'] == 'reference')
+    method['evidence'].append(dict(uri=str(state.path/reference_file['path']),sha256=reference_file['sha256']))
+    method.update(method_id=f'spatial-st-v1-09-{year}',
+        target='positive special-teams pp offense and reciprocal pk defense attempt and neutral-execution chance rate differences',
+        population='matched ordinary advantaged-side 5v4, 5v3 and 4v3 physical elapsed intervals and attempts; both goalies present',
+        reference='one annual hypothetical centered linear-predictor reference; actual state unit sizes; pooled slot-weighted players and known-coach applicability; common league physical-time weights mix native neutral/focal rates before differences and ratios; virtual neutral execution; annual reference vector sha256 ' + state.evidence.reference['sha256'],
+        reference_id='spatial-st-league-centered-virtual-v1', support_policy_id='ordinary-attempt-segment-valued-one-direction-st-v1')
+    method['limitations'] += [warning, *extrapolation,
+        'pp/pk coefficients are shared across exact strengths; thinner specialty data may conceal state-specific skill and late-game or coaching interactions',
+        'included seconds are actual focal role/state time; current information and historical borrowing are pooled within that same role, not the opposite role',
+        'league state weights define standardized projections; actual-context explanations instead use the focal player\'s own role-state hours and mixture of neutral baselines',
+        'exact accounting does not establish reliable attribution for extreme cancelling actual-context terms']
+    for finding in method['assessment']['findings']:
+        finding.update(population=method['population'], summary='; '.join([finding['summary'],warning,*extrapolation]),evidence=list(method['evidence']))
+    return method
+
+
+def _special_teams_tables(year, state, people, method):
+    from .observed_spatial import cells
+
+    projections = {(row['player_id'],row['strength']): row for row in state.projections}
+    adjustments = {(row['player_id'],row['strength']): row for row in state.adjustments}
+    unknown = dict(included_seconds=None,events=None,eligible_weight=None,known_excluded_seconds=None,
+                   unquantified_gap=True,reason_counts=[],inferred_inputs=[],current_season_information=False,
+                   prior_only=False,prior_seasons=[])
+    shapes = cells()
+    weights = {row['strength']: [dict(strength=item['state'],weight=item['weight'])
+                                for item in row['state_weights']] for row in state.projections}
+
+    def payload(person, strength):
+        projection = projections.get((person['player_id'],strength))
+        reason = projection['reason'] if projection else 'published skater has no checked prepared-roster projection'
+        role = 'offense' if strength in ('pp','5v4','5v3','4v3') else 'defense'
+        values = {}
+        for selected_role in ('offense','defense'):
+            for quantity in ('attempts','xg'):
+                for key,suffix in (('difference','per60'),('complete','per60_complete'),('neutral','per60_neutral'),('relative_percent','relative_percent')):
+                    field = f'{selected_role}_{quantity}_{suffix}'
+                    if selected_role != role:
+                        values[field] = estimate(None,reason='not_applicable',explanation='this exact strength/mixture estimates only the advantaged offense or reciprocal defending role')
+                        values[field]['reason_detail']['evidence'] = [dict(kind='method',id=method),*person['source']]
+                    else:
+                        value = projection['values'][role][quantity][key] if projection else None
+                        values[field] = _datum(value,method,person,reason=reason)
+        require(strength in weights, 'special-teams annual reference is missing a required selector')
+        return values | dict(state_weights=weights[strength],support=projection['support'] if projection else unknown,method_id=method)
+
+    def scalars():
+        for person in people:
+            for (strength,) in sorted(publication.required_keys('skater_spatial','spatial')):
+                if strength != '5v5':
+                    yield dict(season=year,player_id=person['player_id'],strength=strength,
+                               result=dict(availability='provided',explanation=None,data=payload(person,strength)))
+
+    def maps():
+        for person in people:
+            for kind,strength,view in sorted(publication.required_keys('analysis_map','spatial')):
+                if strength == '5v5':
+                    continue
+                role,quantity = kind.split('_')
+                projection = projections.get((person['player_id'],strength))
+                value = payload(person,strength)
+                scalar = value[f'{kind}_per60' + ('_complete' if view == 'complete' else '')]
+                native = None
+                if projection is not None and projection['available']:
+                    i,s,r = projection['map_index']
+                    native = state.projection_arrays['rates'][i,s,r,('attempts','xg').index(quantity),1 if view == 'complete' else 2]
+                require((native is None) == (scalar['value'] is None), 'special-teams scalar/map availability differs')
+                display = None
+                if native is not None:
+                    transported = publication.native_display_mass(native)
+                    display = [dict(cell_id=cell['cell_id'],mass=float(mass),density_per100sqft=float(100*mass/cell['area_sqft']))
+                               for cell,mass in zip(shapes,transported,strict=True)]
+                yield dict(season=year,player_id=person['player_id'],map_kind=kind,strength=strength,view=view,
+                    result=dict(availability='provided',explanation=None,data=dict(grid_id='native656',
+                        unit='attempts_per60' if quantity == 'attempts' else 'xg_per60',reference='spatial-st-league-centered-virtual-v1',
+                        cells=None if native is None else [dict(cell_id=i,value=float(v)) for i,v in enumerate(native)],
+                        display_cells=display,integrated_value=scalar['value'],unavailable_reason=scalar['unavailable_reason'],
+                        reason_detail=scalar['reason_detail'],support=value['support'],method_id=method)))
+
+    def decomposition():
+        for person in people:
+            for strength,target in sorted(publication.required_keys('adjustment_decomposition','spatial')):
+                if strength == '5v5':
+                    continue
+                direction,quantity,_ = target.split('_',2)
+                row = adjustments.get((person['player_id'],strength))
+                reason = row['reason'] if row else 'published skater has no checked actual-context projection'
+                saved = row[quantity] if row else {}
+                values = {public: _datum(saved.get(native),method,person,reason=reason)
+                          for public,native in (('baseline','baseline'),('self','self'),('teammates','teammates'),
+                                               ('opponents','opponents'),('coaching_other_context','coaching_other_context'),
+                                               ('numerical_residual','residual'),('factual_prediction','factual'))}
+                yield dict(season=year,player_id=person['player_id'],strength=strength,target=target,
+                           result=dict(availability='provided',explanation=None,data=values | dict(method_id=method)))
+    return dict(skater_spatial=scalars(),analysis_map=maps(),adjustment_decomposition=decomposition(),
+                spatial_evidence=spatial_evidence_rows(year,state.evidence,people,method))
+
+
 def compose_results(existing_results, state_selection, output, *, product_admission=None):
+    return _compose_results(existing_results, state_selection, output, family='ev', product_admission=product_admission)
+
+
+def compose_special_teams(existing_results, state_selection, output):
+    return _compose_results(existing_results, state_selection, output, family='st')
+
+
+def _compose_results(existing_results, state_selection, output, *, family, product_admission=None):
     """copy checked inherited bytes, write owned rows, then strict-read one exchange."""
     from .chance_cli import output_path
 
     started = perf_counter()
+    source_evidence = _accepted_st_source(Path(existing_results)) if family == 'st' else []
     existing = publication.read_results(Path(existing_results))
-    admission = _product_admission(product_admission, state_selection, existing.manifest['purpose'])
-    _accepted_source(existing)
-    selection, annuals = _states(state_selection, existing, admission)
+    admission = _product_admission(product_admission, state_selection, existing.manifest['purpose']) if family == 'ev' else None
+    if family == 'ev':
+        _accepted_source(existing)
+    selection, annuals = _states(state_selection, existing, admission, family=family)
     for record in existing.manifest['families']:
         if record['family'] == 'spatial' and record['availability'] == 'provided':
             require(all(row['result']['availability'] == 'not_computed'
                         for table, member in record['tables'].items()
-                        for row in existing.rows(member, table, 'spatial')), 'source spatial family is already computed')
+                        for row in existing.rows(member, table, 'spatial')
+                        if family == 'ev' or row['strength'] != '5v5'), 'source spatial family is already computed')
     output = output_path(str(output), [str(existing.directory), *[str(s.path) for s in annuals.values()]])
     if existing.manifest['purpose'] == 'real':
         require(output.is_relative_to('/Volumes/Expansion/hockey-stats'), 'expensive real outputs must be external')
@@ -421,16 +594,62 @@ def compose_results(existing_results, state_selection, output, *, product_admiss
                        state=dict(path=str(state.path / 'manifest.json'), sha256=identity(state.path / 'manifest.json')['sha256']),
                        intersection=sorted(published & fitted), published_only=sorted(published - fitted), fitted_only=sorted(fitted - published),
                        missing_projection='every required published skater is emitted; absence retains a located unavailable reason, never a neutral player')
+        if source_evidence:
+            receipt['accepted_source_evidence'] = source_evidence
         receipt_path = output / f'{year}-spatial-composition.json'
         write_json(receipt_path, receipt)
-        method = _method(year, state, annuals, existing.manifest['purpose'], source_sha, dict(uri=str(receipt_path), sha256=identity(receipt_path)['sha256']), admission)
+        evidence = dict(uri=str(receipt_path), sha256=identity(receipt_path)['sha256'])
+        method = (_method(year, state, annuals, existing.manifest['purpose'], source_sha, evidence, admission) if family == 'ev'
+                  else _special_teams_method(year, state, annuals, existing.manifest['purpose'], source_sha, evidence))
         require(method['method_id'] not in methods, 'spatial method identity already exists')
         methods[method['method_id']] = method
-        tables = _season_tables(year, state, people, method['method_id'])
+        tables = (_season_tables if family == 'ev' else _special_teams_tables)(year, state, people, method['method_id'])
+        if family == 'st':
+            def inherited_rows(table, rows):
+                generated = iter(rows)
+                for row in existing.rows(record['tables'][table], table, 'spatial'):
+                    if row['strength'] == '5v5':
+                        yield row
+                    else:
+                        replacement = next(generated, None)
+                        require(replacement is not None and
+                                tuple(row[field] for field in publication.KEYS[table]) ==
+                                tuple(replacement[field] for field in publication.KEYS[table]),
+                                'special-teams replacement differs from the promised key')
+                        yield replacement
+                require(next(generated, None) is None, 'special-teams replacement adds an unexpected key')
+            tables = {table: inherited_rows(table, rows) for table, rows in tables.items()}
         record.update(availability='provided', explanation=None, tables={table: write_member(f'{year}-spatial-{table}.jsonl', rows, table) for table, rows in tables.items()})
     for name in ('people', 'sources', 'supports'):
         copy_member(manifest['catalogs'][name])
-    manifest['catalogs']['methods'] = write_member('methods.jsonl', sorted(methods.values(), key=lambda row: row['method_id']), 'methods')
+    if family == 'st':
+        pending = iter(sorted(methods.keys() - existing.catalogs['method'].keys()))
+        current = next(pending, None)
+        sha, count = hashlib.sha256(), 0
+        with (
+            publication.member_path(existing.directory, manifest['catalogs']['methods']).open('rb') as source,
+            (output / 'methods.jsonl').open('xb') as destination,
+        ):
+            for line in source:
+                method_id = strict_json(line)['method_id']
+                while current is not None and current < method_id:
+                    encoded = publication.json_bytes(methods[current]) + b'\n'
+                    destination.write(encoded)
+                    sha.update(encoded)
+                    count += 1
+                    current = next(pending, None)
+                destination.write(line)
+                sha.update(line)
+                count += 1
+            while current is not None:
+                encoded = publication.json_bytes(methods[current]) + b'\n'
+                destination.write(encoded)
+                sha.update(encoded)
+                count += 1
+                current = next(pending, None)
+        manifest['catalogs']['methods'] = dict(path='methods.jsonl', sha256=sha.hexdigest(), rows=count)
+    else:
+        manifest['catalogs']['methods'] = write_member('methods.jsonl', sorted(methods.values(), key=lambda row: row['method_id']), 'methods')
     write_json(output / 'manifest.json.incomplete', manifest)
     read_started = perf_counter()
     publication.read_results(output, 'manifest.json.incomplete')
@@ -442,6 +661,19 @@ def compose_results(existing_results, state_selection, output, *, product_admiss
                output_member_bytes=sum((output / member['path']).stat().st_size
                                        for member in [*manifest['catalogs'].values(),
                                                       *(member for record in manifest['families'] for member in record['tables'].values())])))
+    if family == 'st':
+        write_json(output / 'special-teams-composition.json', dict(
+            schema_version=1, kind='special-teams-composition', purpose=manifest['purpose'], producer=manifest['producer'],
+            source_results=dict(path=str(existing.directory / 'manifest.json'), sha256=source_sha),
+            source_producer_receipt=dict(path=source_evidence[0]['uri'], sha256=source_evidence[0]['sha256']) if source_evidence else None,
+            accepted_source_evidence=source_evidence, selection=identity(Path(state_selection).resolve()), states=selection['states'],
+            output=identity(output / 'manifest.json'),
+            inherited_members=[member for row in manifest['families'] if row['family'] != 'spatial' for member in row['tables'].values()]
+                              + [manifest['catalogs'][name] for name in ('people', 'sources', 'supports')],
+            owned_members=[member for row in manifest['families'] if row['family'] == 'spatial' for member in row['tables'].values()]
+                          + [manifest['catalogs']['methods']],
+            source_families=existing.manifest['families'], output_families=manifest['families'],
+            resources=identity(output / 'composition-resources.json')))
     return manifest
 
 
@@ -483,7 +715,7 @@ def complete_results(result_dir, expected_donor_sha256, state_selection, product
                 and header['valued']['sha256'] == ACCEPTED_VALUED[item['season']]
                 and [r['head'] for r in header['heads']] == ['volume', 'shape', 'quality']
                 and all(r['status'] == 'complete' for r in header['heads']), 'saved annual header differs')
-        annuals[item['season']] = _AnnualProjection(path.parent, header, [], {}, [])
+        annuals[item['season']] = _AnnualProjection(path.parent, header, [], {}, [], None, None)
     for left, right in zip(YEARS, YEARS[1:]):
         before, after = annuals[left], annuals[right]
         require(after.manifest['previous'] == dict(season=left, path=str(before.path / 'manifest.json'),

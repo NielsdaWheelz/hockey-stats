@@ -1,0 +1,94 @@
+{
+  "status": "explicit_heavy_slot_release_by_v1_18",
+  "recorded_at": "2026-11-10T10:08:18.139610+00:00",
+  "owner_releasing": "v1-18 / t-16b64d1338b85a48",
+  "release_to_both": [
+    "v1-07 / t-a59b0562801254be",
+    "v1-09 / t-b0f21da1ddb96760"
+  ],
+  "checked_scope": "saved-only donor38 conversion, ordinary inactive publication and ONE actual normal strict startup on41919; all passed with independent adjudication",
+  "accepted_complete_existing_family_predecessor": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+    "bytes": 19787,
+    "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee"
+  },
+  "transport": {
+    "exchange": 3,
+    "publication_schema": 9
+  },
+  "donor": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/manifest.json",
+    "sha256": "38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8",
+    "original_immutable_donor_sha256": "a40ca1c0291579b773db22294f26998f154309b2b65926f00f901331ef0b17d5",
+    "retained_correction_receipt_sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4"
+  },
+  "proofs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-evidence-projection.json",
+      "bytes": 9547,
+      "sha256": "803f9bc1260f8d666426dc6272ff6256cf79db803ec1cfcb806e61b57684d9b5"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-exchange-conversion.json",
+      "bytes": 12749,
+      "sha256": "c68cd39613f23b42c6c558913d2ab6965b3ff53dc406b005f424cda47efef535"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-conversion-independent-adjudication.json",
+      "bytes": 5601,
+      "sha256": "1cb1d49b4fb8c1f2bbd8f6a91cda93adc08e87506c3db7b5397add03ca8b53ea"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-publication-independent-adjudication.json",
+      "bytes": 4665,
+      "sha256": "460f3614fa3dea7cc6df4a977536f689b37d59a46aa90c83fb19f3bba115a695"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-strict-startup.json",
+      "bytes": 3941,
+      "sha256": "7fd73a25d7a42d68edfbc86a3e470fd33484b40042d02143437fef227546d04e"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-startup-independent-adjudication.json",
+      "bytes": 17799,
+      "sha256": "481605a0bb96d382020f4d2eee5f6389f5178a34394b4ccef2462074515689cf"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-saved-publication-reconciliation.json",
+      "bytes": 31936,
+      "sha256": "4795dec4f744ebfe57d0bb16023258755612f0df5e1de070b1589b7689ce09ea"
+    }
+  ],
+  "publication": {
+    "publication_id": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+    "database": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/player-analysis.sqlite",
+    "bytes": 13370183680,
+    "sha256_from_ordinary_publisher": "ba12c7f7dd990b4d345d06afcf39c80bf20b2b43aefbfbe838218062e7be692b",
+    "top_verification_sha256": "d7c4ac9c767741288eb0d1b95b7704fa45cdc1f5ecfcd3a09fd45b39144400bf"
+  },
+  "actual_separate_costs": {
+    "conversion_seconds": 2100.826749,
+    "conversion_peak_rss_bytes": 552878080,
+    "publication_seconds": 6335.504955,
+    "publication_peak_rss_bytes": 3332374528,
+    "strict_startup_seconds": 766.080017042,
+    "strict_startup_peak_rss_bytes": 1152319488,
+    "reconciliation_seconds": 1.669763333,
+    "reconciliation_consumed_saved_bytes": 50126425
+  },
+  "normal_strict_validation_passes": 1,
+  "failed_prior_launches": 2,
+  "failed_launch_full_validation_passes": 0,
+  "remaining_v1_18": "bounded selected API/browser/download verification, documentation and task-owned temporary test cleanup; existing PID7640 stays only for bounded serving, no second startup/fullread/hash/conversion/publication or numerical command",
+  "next_reserved_command": {
+    "owner": "v1-09, awaits explicit v1-07 confirmation to BOTH after this release",
+    "scope": "ONE20212022 triple-baseline annual only; no blanket or bulk-fixture reservation",
+    "producer": "ba41c2b8",
+    "analysis_tree": "856575a9",
+    "script": "016249ee",
+    "preflight": "1c4b8f11"
+  },
+  "final_composition_contract": "serialize G/ST on exact actual accepted COMPLETE predecessor plus producer receipt; initial8b32 parent valid before either family; last composer preserves every earlier nonowned family/table/catalog and annual/base-score binding; no independent forks overwritten onto the initial parent",
+  "activation": false,
+  "whole_card_and_future_families": "pending v1-09/10/11/12; no scientific admission or browser acceptance inferred from this release"
+}

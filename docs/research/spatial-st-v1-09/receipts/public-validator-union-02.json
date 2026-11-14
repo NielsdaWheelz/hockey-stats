@@ -1,0 +1,281 @@
+{
+  "kind": "public-validator-revision02-implemented-and-separated-handoff",
+  "status": "implemented_green_pending_independent_review_not_adopted_by_goalie",
+  "implementation": {
+    "production_files_changed": [
+      "analysis/src/hockey_stats/analysis_publication.py",
+      "app/src/server/analysis-publication.ts"
+    ],
+    "applied_exact_approved_refinements": true,
+    "approved_patch": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-02/planned-refinements.patch",
+      "bytes": 3465,
+      "sha256": "f9325811b5d14630e3f568ae386a6158ba867c01f573bb9140bca1174d8b4be4"
+    },
+    "before_public_source_commit": "0e70b25d37869461f69fbcbd0337c0e2196b3710",
+    "before_public_analysis_tree": "950b7af77ce6204f6a825d463002e45653612b8c"
+  },
+  "donor_commit": "2b2a550e19540aa145926d2a19f9e3ee6ebd8488",
+  "donor_analysis_tree": "9f91292ffa125b34f0edb9e9837d94d3b2606545",
+  "target_commit": null,
+  "target_commit_status": "root commit pending; working blobs are the complete target identity",
+  "provider_head_at_preparation": "9d1ca64c0ec24f3b77bda76e20396ddf1ac70014",
+  "provider_head_analysis_tree": "bee79c53c4abe766f38f9ced314cc475c25d38f1",
+  "patch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-02/public-validators.patch",
+    "bytes": 21652,
+    "sha256": "ed8a4e644a09f1fef3421864a1bca42efa7c8865b6c90e22a3bd2a3e2f60dc53"
+  },
+  "files": [
+    {
+      "path": "analysis/src/hockey_stats/analysis_publication.py",
+      "donor_blob": "cc5b0d7a9da3a1c884e2396e1dc9c763653d766e",
+      "target_working_blob": "e6fa457b90b6a2d482d8c26bc02b8d4c7be0efdd",
+      "donor_sha256": "3c22d43dd1a82697176ea1cb4eea3256b2d108877425b72fd260c71ea2ba22ad",
+      "target_sha256": "710c984f6a2b1c1a2b53b5e6d429a5c03474f60951c2313967b5911a9f2921cb",
+      "donor_bytes": 175123,
+      "target_bytes": 181826,
+      "mode": "100644",
+      "additions": 103,
+      "deletions": 4,
+      "hunks": [
+        "@@ -1489,6 +1489,8 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):",
+        "@@ -1501,8 +1503,9 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):",
+        "@@ -1933,6 +1936,78 @@ def member_path(directory, member):",
+        "@@ -1979,15 +2054,39 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:"
+      ],
+      "imports_unchanged": true,
+      "in_memory_application_exact": true
+    },
+    {
+      "path": "app/src/server/analysis-publication.ts",
+      "donor_blob": "8a4612d20bc7d1c913887340476281af637f3824",
+      "target_working_blob": "7bf8cce5572af8b4cb9b2f4a4c4fd0f2b0a9f9d9",
+      "donor_sha256": "7b3cb93276f547658f98410407cbce059dd476fda83f5d09927259d3732b54a9",
+      "target_sha256": "57985c805c60d3fb8a09d61b19c75036d943fb79685b07fbef435324a5f87cff",
+      "donor_bytes": 65616,
+      "target_bytes": 72374,
+      "mode": "100644",
+      "additions": 118,
+      "deletions": 13,
+      "hunks": [
+        "@@ -80,6 +80,43 @@ export const parseObject = (value: unknown): Record<string, unknown> => {",
+        "@@ -96,11 +133,28 @@ export const resultFromRow = <T extends SummaryTable>(",
+        "@@ -469,6 +523,8 @@ export const validateAnalysis = (",
+        "@@ -537,17 +593,17 @@ export const validateAnalysis = (",
+        "@@ -581,6 +637,9 @@ export const validateAnalysis = (",
+        "@@ -1061,6 +1120,13 @@ export const validateCrossRecords = (",
+        "@@ -1081,7 +1147,22 @@ export const validateCrossRecords = (",
+        "@@ -1135,6 +1216,30 @@ export const validateCrossRecords = ("
+      ],
+      "imports_unchanged": true,
+      "in_memory_application_exact": true
+    }
+  ],
+  "preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-02/prepare-handoff.py",
+    "bytes": 14911,
+    "sha256": "c76d20dcaddad29d992e2d6a7ae7efde5b061d90e1b3913f5645d50344cae76a"
+  },
+  "source_preservation": {
+    "only_three_approved_refinements": true,
+    "helper_body_and_error_proof": {
+      "validate_spatial_mixtures": {
+        "new_name": "_validate_spatial_mixtures",
+        "body_and_errors_source_sha256": "c497d8fbef2db7f479f05d2168669d031ba7d3536614ca887509ba59443ea960",
+        "body_ast_identical": true
+      },
+      "validate_spatial_map_mixtures": {
+        "new_name": "_validate_spatial_map_mixtures",
+        "body_and_errors_source_sha256": "3ff3c9b060d2498cd1803796bc6ac78460cc2abccca8989809315fa6dbc1a579",
+        "body_ast_identical": true
+      }
+    },
+    "all_other_top_level_functions_source_identical": [
+      "fields",
+      "text",
+      "number",
+      "identifier",
+      "season",
+      "iso_date",
+      "strings",
+      "close",
+      "reference",
+      "estimate",
+      "reason_counts",
+      "support",
+      "fact_value",
+      "_receipts",
+      "validate_catalog",
+      "game_id",
+      "json_bytes",
+      "actual_state",
+      "_usage",
+      "_scoring",
+      "_on_off",
+      "_penalty",
+      "_descriptive",
+      "_strength_usage",
+      "_counterparts",
+      "_source_counts",
+      "_paired",
+      "_goalie_summary",
+      "_goalie_stages",
+      "_method",
+      "_available_method",
+      "native_display_mass",
+      "_map",
+      "_evidence_mass",
+      "_execution_details",
+      "spatial_selection",
+      "_spatial_head_support",
+      "validate_spatial_evidence",
+      "validate_spatial_evidence_selection",
+      "_spatial_evidence_binding",
+      "validate_payload",
+      "_goalie_distribution",
+      "validate_fact",
+      "disposition",
+      "validate_row",
+      "_has_available_estimate",
+      "map_keys",
+      "member_path",
+      "write_results",
+      "_write_method_successor",
+      "grids",
+      "_insert",
+      "store_person",
+      "insert_results",
+      "stored_result",
+      "required_keys",
+      "check_results",
+      "_check_spatial_evidence",
+      "_check_execution_evidence",
+      "_check_intervals",
+      "_check_maps",
+      "_check_repeated_facts",
+      "_actual_selection",
+      "_actual_masses",
+      "_goalie_actual_states",
+      "source_reference",
+      "_supplement_population",
+      "_method_supports"
+    ],
+    "all_nonfunction_module_ast_identical": true,
+    "established_public_signatures_unchanged": true,
+    "read_results_header": "def read_results(directory: Path, manifest_name='manifest.json') -> Results:",
+    "removed_python_public_names": [
+      "validate_spatial_mixtures",
+      "validate_spatial_map_mixtures"
+    ],
+    "removed_server_export": "validateSpatialMixtures",
+    "server_entire_source_except_export_keyword_identical": true,
+    "goalie_regions_source_exact": {
+      "_source_counts": "0087916079c04db7d140f7a466ec6b0db0c8268a56df845da250b69fdc2fecc3",
+      "_goalie_summary": "dc6b6f56859def9eb425ea01a852f7e6e011fe14d656532870495cb3c92707b6",
+      "_goalie_actual_states": "df943734d13cbd20d05a24898d8e5860b4a6ff5a7b949b2ca67cdb99f914cfd3",
+      "python_execution_breakdown_branch": "b0fb8eeeed25cf31ad30a4d6542ea2390c4e2834ddcf7488eb727a8f21214a27",
+      "server_person_kind_breakdown_dispatch": "4c25b35fd6b0c3f701aa355564af6ffd1543d58618e03c9f65b8215033d346de",
+      "server_goalie_cross_record_tail": "52457263f96fca7f0ba8b78f9ef40a25b1b7a0b2241f551265b3c87763c08700"
+    },
+    "shared_schema_blob": "30f12cec988dda9f576ca7604c3087f14c18f8f3",
+    "no_import_dependency_schema_recipe_or_numerical_provider_change": true
+  },
+  "controls": {
+    "source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-02/controls.py",
+      "bytes": 7193,
+      "sha256": "c80f98470a74ca756f425a7747c2248515a37743f976dc68d976cd28c24033bb"
+    },
+    "red": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/public-validator-union-02-red.json",
+      "bytes": 1754,
+      "sha256": "d1c8fd27c9b746ec037ccbe0415e47623da893450129779a5c8219a422a213f8"
+    },
+    "green": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/public-validator-union-02-green.json",
+      "bytes": 1269,
+      "sha256": "46adf74485a23b4f893550fe751c247470ec50e2161780965bca4b9533587352"
+    },
+    "red_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-02/red-02.log",
+      "bytes": 1754,
+      "sha256": "d1c8fd27c9b746ec037ccbe0415e47623da893450129779a5c8219a422a213f8"
+    },
+    "red_exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-02/red-02.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "green_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-02/green-01.log",
+      "bytes": 1269,
+      "sha256": "46adf74485a23b4f893550fe751c247470ec50e2161780965bca4b9533587352"
+    },
+    "green_exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-02/green-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "red_summary": {
+      "passed": 3,
+      "failed": 3
+    },
+    "green_summary": {
+      "passed": 6,
+      "failed": 0
+    },
+    "actual_public_boundaries": [
+      "default and named tiny canonical exchange read",
+      "nonspatial descriptive insertion-order first error",
+      "spatial scalar-first error despite map-first insertion",
+      "public failed writer staging"
+    ],
+    "static_contracts": [
+      "Python helper names and their one-plus-two internal calls",
+      "TypeScript module-private helper"
+    ],
+    "controller_production_edits_field": "false describes the controller itself; the separately approved implementation changed exactly two production files",
+    "controller_made_production_edits": false,
+    "green_resources": {
+      "python_version": "3.14.8",
+      "wall_seconds": 0.033052499871701,
+      "peak_rss_bytes": 52396032
+    }
+  },
+  "historical_red_review_packet": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/public-validator-union-02-red-review.json",
+    "bytes": 5789,
+    "sha256": "a5fc4c4cfe786e5047a45d48764588cd4e54062694174c16ae1ae9709971f006"
+  },
+  "retained_before_source_ast": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/public-validator-union-02-before.json",
+    "bytes": 18032,
+    "sha256": "cb1bbb0664f5d817e1a3b2ecee96b1c933b5b705c09e3a22ede03c1d3536c406"
+  },
+  "setup_failure": "initial standalone interpreter bs4 setup failure remains retained in red-review packet and original source/log/exit; never counted as product red",
+  "revision01_unchanged": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-01/public-validators.patch",
+      "bytes": 21582,
+      "sha256": "ffa62d0b5616a39c48d86ded7888db3164f80b84d8efd589a975fb4f971c6976"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/public-validator-union-01.json",
+      "bytes": 6233,
+      "sha256": "2737c9af2705cfe6a71080c347d7da483902abbd5b33da4941985aad20b0ba0d"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/public-validator-union-independent-review-01.json",
+      "bytes": 3831,
+      "sha256": "5cee7bfcc0ae8b28839595ede3b69d45ba737ca62fa3c10c53213167f589df59"
+    }
+  ],
+  "CROSSRECORD_IO": "deferred to required real composition and normal strict startup; older direct-helper controls are historical source proof only, with no current public export or alias restored",
+  "scope": "three approved refinements in two source files, six tiny local/static controls and in-memory donor patch proof; no real DB/full-reader campaign, arrays, model/evaluator, numerical fit, build/browser, external data or frozen producer changes",
+  "independent_review": "pending",
+  "goalie_adoption": false,
+  "docs_index_commit_changes": false,
+  "queue_or_parent_change": false,
+  "runtime_or_family_acceptance": false
+}

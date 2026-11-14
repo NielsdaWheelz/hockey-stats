@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "kind": "st-head-specific-probe-history-selector-repair",
+  "status": "local-green-independent-review-pending",
+  "source": {
+    "path": "analysis/src/hockey_stats/spatial_rates.py",
+    "before_sha256": "ef7964f1ca591eccb2287364e31a3d8997400c32c52790e872c4236d00c02277",
+    "after_sha256": "4c5ad4c57a7b61301f6f626af25f22587a13c13f97dacce541d01e0bc06193ca"
+  },
+  "diff": {
+    "path": ".tmp/st-probe-history-01/repair.patch",
+    "bytes": 2741,
+    "sha256": "ec36cddcc09f08e494a265c52d8896a53b8e5d851086b7f781cf956185047af8"
+  },
+  "controls": {
+    "path": ".tmp/st-probe-history-01/controls.py",
+    "bytes": 6922,
+    "sha256": "221340c40c027f215d9a4b8ebdf96a51943db0688d4b17badd9e7144fe8f9725"
+  },
+  "historical_first_controls": {
+    "path": ".tmp/st-probe-history-01/controls-red-01.py",
+    "bytes": 6828,
+    "sha256": "11252597568686be6d1b428076583625721558fcc876786f14424fd0eff1e561"
+  },
+  "historical_first_red": {
+    "path": ".tmp/st-probe-history-01/red-01.json",
+    "bytes": 914,
+    "sha256": "dd3873b54c36e652db7a199dda775552d4e7bf80391482b1fc1fd2f177a9f4f1"
+  },
+  "reviewed_red": {
+    "path": ".tmp/st-probe-history-01/red-02.json",
+    "bytes": 979,
+    "sha256": "fa0ac46e7d812d8004e635a8de859c266fc734ae0958f6ff5935835fbc0d6165"
+  },
+  "green": {
+    "path": ".tmp/st-probe-history-01/green-01.json",
+    "bytes": 691,
+    "sha256": "870812fd71e023ff631e107ed69d3b523130887e8d5ae29a5097210ffa71dd0e"
+  },
+  "proof": {
+    "all_source_text_outside_select_probe_rows_identical": true,
+    "all_executable_ast_outside_select_probe_rows_identical": true,
+    "state_role_category_names_and_append_order_identical": true,
+    "lexicographic_witness_union_fill_and_256_bound_tail_identical": true,
+    "sparse_exposure_and_trade_boundary_missing_rules_identical": true,
+    "ev_selection_and_requirements_fingerprint_identical": "d1d01e209bfdf059e8e0f596d42d703e392ad3340bc2788af98f5cb4c08e3db3",
+    "no_new_public_helper_or_protocol": true
+  },
+  "rationale": "st raw history is head-specific; any head can supply an entry/return witness for the same role/player. volume-only proxy can falsely report no matching context",
+  "tradeoff": "two actor-key sets add one bounded scan of three prior tables and avoid head scans per candidate; sparse exposure remains volume physical seconds; EV retains its historical volume-only classification",
+  "scope": {
+    "solver_or_model_calls": 0,
+    "external_data_reads_or_stats": 0,
+    "saved_array_reads": 0,
+    "frozen_producer_mutations": 0,
+    "index_or_commit_changes": 0
+  },
+  "future_execution": "real final20252026 producer must deliberately pin this repaired source; no heavy readiness or reservation is granted"
+}

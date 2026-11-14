@@ -1,0 +1,43 @@
+{
+  "kind": "accepted-complete-parent-cutover",
+  "status": "source_and_bounded_tests_passed",
+  "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+  "source_sha256": "be27696acfefae50b8f4d6f630608cc360450676b7de4a99e69dbb1fd51d9c98",
+  "parent_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+  "conversion_adjudication_sha256": "1cb1d49b4fb8c1f2bbd8f6a91cda93adc08e87506c3db7b5397add03ca8b53ea",
+  "release_sha256": "339a33db0459ec05bcd0b4dd8875060c2d9ba453dbe29c99455c36cfbc49231f",
+  "small_metadata_bytes": 30326,
+  "checks": {
+    "green_tests": 5,
+    "red": "four early-rejection controls reached full-reader sentinel; separate obsolete direct-helper argument mismatch is not an additional product defect",
+    "coverage": [
+      "changed parent including old raw2 and added goalie descendant reject before full reader",
+      "changed receipt rejects before full reader",
+      "fixture path delegates to ordinary reader",
+      "small mocked-reader copy preservation"
+    ]
+  },
+  "unchanged": [
+    "five fixed annual valued pins",
+    "chronological/coaches/basis joins",
+    "execution method bindings",
+    "streamed nonowned copies",
+    "preserved 5v5 rows",
+    "historical ev admission"
+  ],
+  "logs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-parent-pin-red-02.log",
+      "sha256": "bb9c17ed5f245eea2e0a58da29c457133a49087f06538750c8eab1487e6379be",
+      "bytes": 8024
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-parent-pin-green.log",
+      "sha256": "dae97527feaa5f4404b7cf8a367c36b5834935509ab9babacf648b1bb8476a3b",
+      "bytes": 103
+    }
+  ],
+  "independent_review": "passed source, local pinned metadata and retained red/green evidence; no reviewer reexecution",
+  "scope": "three small metadata documents and fabricated tests only; no real body/full reader/array/fit/composition",
+  "future_order": "a later accepted complete goalie successor requires deliberately reviewed exact source and receipt pin update; no implicit descendant admission"
+}

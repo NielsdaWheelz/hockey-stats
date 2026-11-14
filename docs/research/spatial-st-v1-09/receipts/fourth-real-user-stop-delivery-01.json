@@ -1,0 +1,20 @@
+{
+  "kind": "st-user-stop-eject-notifications",
+  "recorded_at_utc": "2026-11-11T16:51:59.173392+00:00",
+  "stop_eject_receipt_sha256": "b9a77a2da24efae263bfb035fbbfdfac2f477c10da7d7aa0cb77a4349502da37",
+  "root_notice": {
+    "target": "t-a59b0562801254be",
+    "exit_code": 0,
+    "outcome": "written",
+    "provider_acceptance": "unconfirmed"
+  },
+  "v1_18_notice": {
+    "target": "t-16b64d1338b85a48",
+    "exit_code": 1,
+    "outcome": "handle_not_found",
+    "sent": false,
+    "replayed": false
+  },
+  "external_work": "held until reconnect and explicit coordination",
+  "numerical_acceptance": "not_assessed"
+}

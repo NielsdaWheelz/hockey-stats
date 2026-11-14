@@ -1,0 +1,220 @@
+{
+  "kind": "st-fourth-real-retry-native-boundary-metadata",
+  "checked_at_utc": "2026-11-12T09:05:40.964924+00:00",
+  "output_root": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01",
+  "season": "20242025",
+  "native_exit_status": 0,
+  "native_wall_seconds": 6267.43,
+  "native_user_seconds": 5766.84,
+  "native_sys_seconds": 36.25,
+  "native_peak_rss_bytes": 6744752128,
+  "native_peak_footprint_bytes": 7391550016,
+  "preserved_native_evidence": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-native-fit-01.log",
+      "bytes": 864,
+      "sha256": "758a455703c908d2bbd68d4d5853dc21425b8d8144c1bb3fe9bb2d2c86321a63"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-native-fit-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ],
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/manifest.json",
+    "bytes": 366549,
+    "sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c"
+  },
+  "payloads": [
+    {
+      "declared": {
+        "role": "design",
+        "path": "design.json",
+        "sha256": "4b17737789fda8721dae01bd4191cc0c7a5b5c8a1e1fcac7e71fed0019875604"
+      },
+      "actual_bytes": 139589756,
+      "mtime_ns": 1794473852737459952
+    },
+    {
+      "declared": {
+        "role": "design_arrays",
+        "path": "design.npz",
+        "sha256": "616c8e4748756de02cd2109c2c46023de768b51f9e91d57bfe60a2cbccc2ef1f"
+      },
+      "actual_bytes": 596144078,
+      "mtime_ns": 1794473851461153259
+    },
+    {
+      "declared": {
+        "role": "coverage",
+        "path": "coverage.json",
+        "sha256": "a29c37cd2c628fb77a7cdcca2c4d0b1738b23e8144911f4e3a03a2c71eac93e3"
+      },
+      "actual_bytes": 20548386,
+      "mtime_ns": 1794473852836835265
+    },
+    {
+      "declared": {
+        "role": "reference",
+        "path": "reference.json",
+        "sha256": "1d256d75041da76df5ede0ea8f1386ac31142783e730dd60e2bd00e2dc240c2f"
+      },
+      "actual_bytes": 858910,
+      "mtime_ns": 1794473852870493875
+    },
+    {
+      "declared": {
+        "role": "projection_diagnostics",
+        "path": "diagnostics.json",
+        "sha256": "ab8b5484d2118383a9abc99e258a2b8eb90760ad21e9b28a025a7711a755d48a"
+      },
+      "actual_bytes": 17234,
+      "mtime_ns": 1794473852990496075
+    },
+    {
+      "declared": {
+        "role": "projections",
+        "path": "projections.jsonl",
+        "sha256": "c13aa4b0eca8e55c533fd8ea1c42783f2c01dc7a9cd504ff675be55e9bfaac8d"
+      },
+      "actual_bytes": 8204457,
+      "mtime_ns": 1794473853106903362
+    },
+    {
+      "declared": {
+        "role": "adjustments",
+        "path": "adjustments.jsonl",
+        "sha256": "671fa6206364f11fb595029c3c6a59b694604c0fcbc031e983eeb4831777c0b8"
+      },
+      "actual_bytes": 4438344,
+      "mtime_ns": 1794473853201387122
+    },
+    {
+      "declared": {
+        "role": "coefficient_support",
+        "path": "coefficient-support.jsonl",
+        "sha256": "350969743c391f2f24995fddb21de04706ac7a3431e24606185f90d6ebcb2350"
+      },
+      "actual_bytes": 3569013,
+      "mtime_ns": 1794473853252890298
+    },
+    {
+      "declared": {
+        "role": "projection_arrays",
+        "path": "projections.npz",
+        "sha256": "6c08fb87f3a669171e7fb4dc037252dbcbe6bba5f043bc35ac3c571f43b5df0f"
+      },
+      "actual_bytes": 772506118,
+      "mtime_ns": 1794473857234103381
+    },
+    {
+      "declared": {
+        "role": "head_metadata",
+        "path": "heads/volume.json",
+        "sha256": "09b62479a0b5b5500fba957b018f5ab9b0dd05aaab8b1b11dac89d49ab1b3882"
+      },
+      "actual_bytes": 3246960,
+      "mtime_ns": 1794472890620544412
+    },
+    {
+      "declared": {
+        "role": "head_arrays",
+        "path": "heads/volume.npz",
+        "sha256": "de385c9512e609bb5ccd8c5280c19616a1b1e831bba8b9df8cf7d51b85fd960f"
+      },
+      "actual_bytes": 18542,
+      "mtime_ns": 1794472890631261402
+    },
+    {
+      "declared": {
+        "role": "head_metadata",
+        "path": "heads/shape.json",
+        "sha256": "a8d3a71cd0fc30bc4c644b7b8e90a7b48fcf5dbf7fbd193c5f6525da8c7ae37d"
+      },
+      "actual_bytes": 13255518,
+      "mtime_ns": 1794473027678072282
+    },
+    {
+      "declared": {
+        "role": "head_arrays",
+        "path": "heads/shape.npz",
+        "sha256": "07cdca577cf102816621ad07303065d679d856a44adbbb25e9c0495f4615a1ba"
+      },
+      "actual_bytes": 728278,
+      "mtime_ns": 1794473027697238779
+    },
+    {
+      "declared": {
+        "role": "head_metadata",
+        "path": "heads/quality.json",
+        "sha256": "53f2ec0fe7eb3ae3dc76646ead6edf36a7dd577a61aa11d6a2a7dc3cc61b6e74"
+      },
+      "actual_bytes": 13678420,
+      "mtime_ns": 1794473317726551770
+    },
+    {
+      "declared": {
+        "role": "head_arrays",
+        "path": "heads/quality.npz",
+        "sha256": "1524ac284828bcdd03b6ec0ed25709a404a0a64466e62e4afdba7e4ecf2ac248"
+      },
+      "actual_bytes": 746478,
+      "mtime_ns": 1794473317844441823
+    }
+  ],
+  "declared_payload_count": 15,
+  "actual_payload_bytes": 1577550492,
+  "resources_output_bytes": 1577550492,
+  "resource_bytes_match": true,
+  "collection_body_read_bytes": 367415,
+  "scope": "native log and exit copied byte-for-byte; current manifest metadata read; declared payload stat only; no payload bodies, previous, arrays, evaluator, inputs, fit or second canonical reader",
+  "collection_wall_seconds": null,
+  "collection_cost_note": "metadata collection wall unmeasured; native and saved-json audit costs are separate",
+  "acceptance": "not_assessed",
+  "slot_release": false,
+  "manifest_header": {
+    "kind": "spatial_st_state",
+    "purpose": "real",
+    "family": "st",
+    "season": "20242025",
+    "implementation": {
+      "git_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+      "git_dirty": false,
+      "python_version": "3.14.8",
+      "numpy_version": "2.5.3",
+      "scipy_version": "1.18.1",
+      "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    },
+    "basis_source": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+      "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509",
+      "archive": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/design.npz",
+        "sha256": "daa879d5e036b77c85957952cea642a7883750db48d5aca6ac4c9f7508f12a5a"
+      }
+    },
+    "basis_identity": {
+      "sha256": "f70933a396c86b819ea65b420ff736c03d968047dd8b6e7294e048e9b7c02cc6",
+      "array_sha256": "4fa1d565e939dae706a7f3fa0d060b06b647602ba32d2850174b80c6267fa42b",
+      "reference": "uniform-native-656",
+      "modes": 40
+    },
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/real/states/20232024/manifest.json",
+      "sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7",
+      "season": "20232024",
+      "purpose": "real",
+      "usage": "annual"
+    }
+  },
+  "stage_costs": {
+    "design_wall_seconds": 5218.352015542099,
+    "input_read_wall_seconds": 27.056200500112027,
+    "input_read_bytes": 84362473166,
+    "fit_wall_seconds": 466.2910707080737,
+    "projection_wall_seconds": 521.6335918749683,
+    "write_wall_seconds": 18.867345542181283,
+    "producer_phase_peak_rss_bytes": 6637780992
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "kind": "goalie-first-complete-exchange-checked-release",
+  "status": "complete_exchange_accepted_next_single_ST_annual_assigned_not_dispatched",
+  "recorded_at_utc": "2026-11-12T14:01:08.815610+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/manifest.json",
+    "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12",
+    "bytes": 23317
+  },
+  "producer_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-composition.json",
+    "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28",
+    "bytes": 54924
+  },
+  "source_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+    "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee"
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores-selection.json",
+    "sha256": "2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed"
+  },
+  "producer": {
+    "git_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "native": {
+    "operator": "t-f9f0b50f2271131d",
+    "exit_code": 0,
+    "processes_closed": true,
+    "wall_seconds": 4416.4,
+    "user_seconds": 4021.06,
+    "system_seconds": 21.57,
+    "peak_resident_bytes": 3580559360,
+    "peak_footprint_bytes": 3559312360
+  },
+  "producer_resources": {
+    "wall_seconds": 4416.0747326251585,
+    "peak_memory_bytes": 3580559360,
+    "strict_read_wall_seconds": 1578.2863287909422,
+    "output_member_bytes": 23961214711
+  },
+  "actual_launch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-actual-launch.json",
+    "bytes": 4035,
+    "sha256": "a3ef330b4e3caa5d54cdb43c5ecb00d483c7d570acb565c264035412d2e48241"
+  },
+  "preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-preflight.json",
+    "bytes": 6353,
+    "sha256": "bda92c0ebe2f27040e360eff8138ce0960dc9af0f89e29381cd22bfdd2b8ecaf"
+  },
+  "launch_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-launch-independent-review.json",
+    "bytes": 4528,
+    "sha256": "e4e769ff6b4cb0098539a2f8e554b9c0e775a9503ac9da75943f6dc07c0bdc5b"
+  },
+  "admission": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-native-admission.json",
+    "bytes": 2612,
+    "sha256": "e3b344339da1842f4e675fe522a87753aea240758ac34aca00334a771618eb1b"
+  },
+  "nonowned_preservation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-nonowned-preservation.json",
+    "bytes": 8547,
+    "sha256": "7b1116c94384422ccc0b500a7cccd847a266d4bc5e4a1d5e641d735509e63058"
+  },
+  "independent_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-independent-adjudication.json",
+    "bytes": 8769,
+    "sha256": "549c1c959443e130003451a3f5ab672d248bdb9f225afe81f093ae7a38b02391"
+  },
+  "preservation_summary": {
+    "nonowned_family_entries": 27,
+    "inherited_member_descriptors": 59,
+    "owned_member_descriptors": 20,
+    "inherited_catalog_raw_lines": 51,
+    "sources": [
+      21,
+      24
+    ],
+    "methods": [
+      12,
+      15
+    ],
+    "supports": [
+      18,
+      18
+    ],
+    "people_observed_prepared_header_annual_base_bindings_exact": true
+  },
+  "canonical_scope": "all five accepted goalie scores read through current implementation including preserved first score; complete parent and staged output strict validation; final receipt after rename; no extra independent full reader",
+  "bounded_review_scope": {
+    "admission_external_bodies": 3,
+    "admission_logical_bytes": 79132,
+    "preservation_json_bodies": 4,
+    "preservation_json_bytes": 99377,
+    "catalog_streams": 6,
+    "catalog_bytes": 201973,
+    "preservation_logical_bytes": 301350,
+    "overlap_header_bytes": 78241,
+    "preservation_native_wall_seconds": 0.15,
+    "preservation_native_peak_rss_bytes": 24788992,
+    "admission_native_wall_seconds": 0.02,
+    "admission_native_peak_rss_bytes": 19038208
+  },
+  "accepted_complete_predecessor_promoted": true,
+  "scientific_admission": false,
+  "publication_or_runtime_or_browser_acceptance": false,
+  "activation": false,
+  "next_scope": {
+    "owner": "v1-09",
+    "scope": "ONLY ONE final20252026 ST annual, three baseline heads plus at most one prescribed continuation per completed head (max3), no joint fit or basis import/first-year replay/base rerun/rescore",
+    "status": "assigned_preflight_not_run_dispatch_not_run",
+    "ready_packet": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-fit-preparation-03.json",
+      "bytes": 7828,
+      "sha256": "b27369bdac3dc2afbc00d7a5b7e67fd67f329271dd3839a12c5cc4d64671b233"
+    },
+    "source_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+    "analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+    "app_tree_pin": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-03",
+    "script_path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/final-real-fit-held-01.sh",
+    "script_sha256": "d95df4998c2d5c23dbe86534b5be2d5a31aa7b194fd706dc8926e90edd2a2bd3",
+    "previous_manifest_sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c",
+    "original_base_score_manifest_sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+    "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-02/real/states/20252026",
+    "child_threads": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 only; G six-unset unchanged",
+    "preconditions": "fresh actual source/clean/script/runtime/module ownership/mount/run/output/log/exit checks and one explicit owner confirmation before one dispatch; no new preparation/input-header/member traversal",
+    "return_condition": "actual native exit/cost/payload evidence, source-reviewed bounded saved-state/probe adjudication and explicit checked return; preserve and attribute any failure, no automatic replay",
+    "cost": "unknown; no forecast from earlier baselines or G composition",
+    "source03_unchanged": true,
+    "scope_limits": "no other annual, G fit/score, converter, composition/publication/startup/activation or chain reservation"
+  },
+  "shared_path": "first family waits for the one final ST numerical boundary, then actual timing/readiness is adjudicated; preferred serial complete successor then one shared ordinary inactive publication/normal strict startup remains conditional, not a later dispatch grant",
+  "ST_admission_development": "LOCAL accepted cached G manifest/receipt + root preservation/adjudication may now pin exact7a43/0376/2964 contract in DEV; hard replace v18-specific admission, preserve all earlier families/rows/catalog bytes/bindings; no runtime verdict reader/fuzzy ancestor/hash-only replacement/provider import/source03 mutation",
+  "retired_v18_not_contacted": true
+}

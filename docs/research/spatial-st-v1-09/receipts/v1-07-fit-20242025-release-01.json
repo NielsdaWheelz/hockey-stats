@@ -1,0 +1,99 @@
+{
+  "kind": "goalie-20242025-fit-review-inventory-explicit-handoff",
+  "recorded_at_utc": "2026-11-11T12:00:00.138675+00:00",
+  "status": "native_metadata_and_one_inventory_passed",
+  "owner_releasing": "v1-07",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20242025/manifest.json",
+    "bytes": 345276,
+    "sha256": "711763dd26881dace10f0956a1d576d8bee979734634889de21ee62787da61d3"
+  },
+  "producer": {
+    "git_commit": "04e4ea5c42a43cbcc94da254d8262d0eb6dc4122",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "analysis_tree": "0aba863d0efaf5ace3f0e96ab87920540b669e11",
+  "native": {
+    "session_id": 22697,
+    "exit_code": 0,
+    "wall_seconds": 5205.47,
+    "peak_resident_bytes": 21254356992,
+    "peak_footprint_bytes": 21136277128,
+    "owned_command_closed": true
+  },
+  "producer_resources": {
+    "wall_seconds": 47.949044834123924,
+    "peak_memory_bytes": 21254356992,
+    "design_wall_seconds": 5113.808337667026,
+    "input_read_wall_seconds": 19.20131583395414,
+    "dimensions": {
+      "h": 3534,
+      "d": 3534
+    },
+    "solve_counts": {
+      "h": 2,
+      "d": 2
+    },
+    "probe_solve_counts": {
+      "h": 0,
+      "d": 0
+    },
+    "output_bytes": 81531590
+  },
+  "state_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20242025-review.json",
+    "sha256": "3708d75545b232b236a84145a2fe2a283cb04af60637faf438cd852b2b7a9e5a",
+    "json_members": 6,
+    "json_bytes": 9966916,
+    "native_wall_seconds": 0.19,
+    "native_peak_rss_bytes": 60211200
+  },
+  "target_inventory": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-20242025-target-inventory.json",
+    "sha256": "3316c992ee857259dfa73e176ecf66c372fccd0b06b36c392ac13be76d9ef6ad",
+    "coverage_reads": 1,
+    "coverage_bytes": 76704591,
+    "total_external_documents": 4,
+    "external_bytes": 81819502,
+    "native_wall_seconds": 1.19,
+    "native_peak_rss_bytes": 411877376,
+    "rows": 156622,
+    "games": 1312,
+    "groups": 1632,
+    "h_observations": 66190,
+    "positive_h": 9102,
+    "d_observations": 9082,
+    "d_target_mass": 882.6751203016521,
+    "missing_d": 20,
+    "missing_d_reason": "successor_execution_score_unavailable; all20 checked successor goalies unresolved",
+    "original_source_candidates": []
+  },
+  "numerical_status": "both3534-dimensional heads complete; two starts each,zero probes; ftol termination abovegtol, unknown remaining accuracy",
+  "original_source_proofs": "three remain open after four inventories; no absence or original-event proof inferred",
+  "no_owned_heavy_command_remaining": true,
+  "handoff": {
+    "owner": "v1-09",
+    "scope": "ONLY20232024 annual,3sequential baselines,zero probes,no basis import; full predecessor/history/projections/accounting/native readback",
+    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "ready_receipt": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-fit-preparation-02.json",
+    "ready_sha256": "958d73ec3205b24dbae7c8fae439bc9e8901939e4372c1b00945426682a7889c",
+    "script": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/third-real-fit-held-01.sh",
+    "script_sha256": "837b8e86d232fa3692c524bac64ac1eed7274967218da7f7d222f9210666d2a0",
+    "previous_ST_manifest_sha256": "2ce8f5cf777c9f252da4c053955281fea0c345a93b8b0154e8f4e24622205175",
+    "base_score_sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238",
+    "root_local_pins_clean_analysis_rechecked": true,
+    "operator_launch_preconditions": "fresh source/script/mount/run/output/log/exit checks immediately before one dispatch",
+    "return_boundary": "actual native exit/cost, bounded independent adjudication and explicit release to BOTH; no additional annual or chain reserved"
+  },
+  "tradeoff": "G20242025 score waits for this unknown nextSTduration; second6022.36s is context only. independently reviewed local source-interface cleanup and tiny local IO checks may proceed without external data/model/fullreader calls",
+  "accepted_complete_predecessor": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+  "activation": false,
+  "scientific_admission": false,
+  "notifications": "recorded separately after this exact receipt is sent"
+}

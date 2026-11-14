@@ -1,0 +1,68 @@
+{
+  "kind": "independent-source-only-public-validator-handoff-review",
+  "status": "passed_not_adopted",
+  "recorded_at_utc": "2026-11-11T14:41:12.538968+00:00",
+  "reviewer": "/root/st_publication_review",
+  "patch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-01/public-validators.patch",
+    "bytes": 21582,
+    "sha256": "ffa62d0b5616a39c48d86ded7888db3164f80b84d8efd589a975fb4f971c6976"
+  },
+  "facts": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/public-validator-union-01.json",
+    "bytes": 6233,
+    "sha256": "2737c9af2705cfe6a71080c347d7da483902abbd5b33da4941985aad20b0ba0d"
+  },
+  "generator": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/public-validator-union-01/prepare.py",
+    "bytes": 7671,
+    "sha256": "8dcd7ed25cbb5b3b1b0050fa4c1913a164eb6e9b1942c9de07b1a361b4dd5040",
+    "executed_by_reviewer": false
+  },
+  "source_identity": {
+    "donor_commit": "2b2a550e19540aa145926d2a19f9e3ee6ebd8488",
+    "donor_analysis_tree": "9f91292ffa125b34f0edb9e9837d94d3b2606545",
+    "target_commit": "0e70b25d37869461f69fbcbd0337c0e2196b3710",
+    "target_analysis_tree": "950b7af77ce6204f6a825d463002e45653612b8c"
+  },
+  "files": [
+    {
+      "path": "analysis/src/hockey_stats/analysis_publication.py",
+      "donor_blob": "cc5b0d7a9da3a1c884e2396e1dc9c763653d766e",
+      "target_blob": "d42dd993993c682883f342d59aaf48e45f243fe6",
+      "donor_sha256": "3c22d43dd1a82697176ea1cb4eea3256b2d108877425b72fd260c71ea2ba22ad",
+      "target_sha256": "cc38bac76076811445bbf98b8f7094f8e8e71352aa1711e020ac98d68aaafce9",
+      "additions": 101,
+      "deletions": 4
+    },
+    {
+      "path": "app/src/server/analysis-publication.ts",
+      "donor_blob": "8a4612d20bc7d1c913887340476281af637f3824",
+      "target_blob": "9b0120090853abdb6cd6f0066c81546a8450f977",
+      "donor_sha256": "7b3cb93276f547658f98410407cbce059dd476fda83f5d09927259d3732b54a9",
+      "target_sha256": "0909501b5868733691b1492e173467f17bdf13811b13ff4f5a7372ed14bb55bb",
+      "additions": 118,
+      "deletions": 13
+    }
+  ],
+  "independent_source_checks": [
+    "own strict hunk-text reconstruction from pinned donor git blobs yields exact pinned target and local working bytes for both files; no production apply or generator execution",
+    "all removed lines inspected: Python tightens the ST contrast condition and replaces spatial loop setup; TypeScript relocates retained ST selector validation from the analysis loop into row decoding",
+    "no donor-only goalie guard loss; imports unchanged, no numerical ST provider dependency, recipe/schema/version/math change, compatibility alias or fallback",
+    "both sides already have public read_results(directory, manifest_name=manifest.json); no staged-reader seam replay"
+  ],
+  "goalie_preservation_facts": {
+    "_source_counts": "source-exact",
+    "_goalie_summary": "source-exact",
+    "_goalie_actual_states": "source-exact",
+    "python_execution_breakdown_branch": "body-exact",
+    "server_person_kind_breakdown_dispatch": "retained unchanged",
+    "server_goalie_cross_record_tail": "source-exact",
+    "shared_public_schema": "donor, target and working bytes identical; blob30f12cec988dda9f576ca7604c3087f14c18f8f3",
+    "additional_python_goalie_observed_branch": "body-exact"
+  },
+  "limits": "source blobs, patch and supplied local facts only. exact source reconstruction is not behaviour, real composition, runtime or family acceptance. no production imports/tests, generator run, build/browser, external reads/stats, array/model/evaluator/full-reader calls or numerical work by this reviewer. production and frozen producer sources were not changed.",
+  "adoption": false,
+  "runtime_or_scientific_acceptance_issued": false,
+  "queue_parent_or_window_changed": false
+}

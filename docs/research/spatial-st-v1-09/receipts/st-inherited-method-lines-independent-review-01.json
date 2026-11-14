@@ -1,0 +1,70 @@
+{
+  "kind": "st-inherited-method-lines-independent-source-control-review",
+  "verdict": "PASS",
+  "reviewed_at_utc": "2026-11-12T13:07:43.001328+00:00",
+  "reviewer": "/root/st_interrupt_review",
+  "evidence": {
+    "historical_source_plan": {
+      "bytes": 8239,
+      "sha256": "8d3cdfc1f432cfcebd2cdd1070a96bdf9450977462f74868d7b7fafd0227be27"
+    },
+    "patch": {
+      "bytes": 2382,
+      "sha256": "97484ec8a760aec52d009b3d3cd645b83d69c1c16890184246e686bf1ca053c9"
+    },
+    "source_inverse_proof": {
+      "bytes": 577,
+      "sha256": "5852d4b4c9dc1b8b523bae4765c93c1d93d0df36b5f492037c264f418cdb68f1"
+    },
+    "control_source": {
+      "bytes": 13121,
+      "sha256": "6df4cf10f01ee7c3176e03f33b9ce6ddd6158fa93dc875753295e009ee08cbb3"
+    },
+    "controls_summary": {
+      "bytes": 6309,
+      "sha256": "bef6c2dc4e22059eb8aaaa9c2dab5ffea81b43ead2f675bc2eaf79c3111c73b6"
+    },
+    "red_result": {
+      "bytes": 1935,
+      "sha256": "828c22c5cdaa755362060ce89df0144b86514271219f746573cea10f6149a0ce"
+    },
+    "green_result": {
+      "bytes": 911,
+      "sha256": "70e570a0a2f7bad124ad52962ce7644970ca563d82b7195eb67b175c5d6e5bff"
+    }
+  },
+  "findings": [],
+  "source_review": {
+    "before_sha256": "55b0d62f1b8a3d630b03f5abd58bbdd17c1cb900ca4acf0d40c38b29e6207038",
+    "after_sha256": "4fe63004da8d9c71849dfaccfd11ecd8f942f30c4ccee6112ae3918f82eb4b7e",
+    "independent_byte_inverse": "AST-located new ST branch replaced by exact old EV write statement recovers the entire55b0 preimage, matching retained Git-HEAD inverse proof",
+    "change": "one inline ST-only sorted merge; input catalog comes from member descriptor, inherited raw lines pass unchanged, only new methods use existing json_bytes",
+    "reuse": "public G streaming pattern and existing catalog newline/order/uniqueness and ID-collision contracts; no new helper, API, import or framework",
+    "preserved": "EV statement and all source bytes outside that branch, current8b admission, numeric/provider/validator/app contracts; no frozen03/G mutation by these operations"
+  },
+  "observed_cached_controls": {
+    "actual_owner": "spatial_composition._compose_results copy/write/hash/count/rename path",
+    "red": "once exit1:4tests,1intended raw-byte preservation failure at109,0errors; other cases passed",
+    "green": "once exit0:4tests,0failures,0errors; identical driver and noncanonical inherited literal",
+    "cases": "literal full valid noncanonical methods, goalie-methods.jsonl input, before/between/after additions, raw rows/definitions/order/descriptors, duplicate and inherited collisions, unchanged EV canonical serialization",
+    "additional_oracles": "nonmethod byte-copy sentinels, inheritedEV5v5 values, public default-to-named-staging call order and final manifest rename",
+    "status": "result.wasSuccessful() alone selects status/exit; error text is evidence only",
+    "limits": "unrelated admission/state/method/table/implementation providers and canonical full reader stubbed; nonmethod rows are copy sentinels, not complete artifacts"
+  },
+  "docs_review": {
+    "paths": [
+      "docs/plan.md",
+      "docs/research/spatial-st-v1-09/verification.md",
+      "docs/issues/special-teams-parent-pin.md"
+    ],
+    "result": "PASS; corrected score-outcome tense at launch checkpoint; owner facts remain attributed; historical plan01 and real-parent acceptance remain distinct",
+    "receipt_copies": "source plan, controls summary and source proof match exact local originals; new target links inspected; final independent receipt copy/link remains root responsibility"
+  },
+  "remaining_limits": {
+    "method_mechanism": "locally repaired and checked; actual G catalog bytes/real ST preservation NOT_RUN",
+    "parent_issue": "OPEN; actual checked G manifest/producer-receipt/selection and independent preservation pins still required; active8b unchanged",
+    "numerical_or_runtime_acceptance": "none from this change; ST12/15 and complete public parent8b unchanged; no new window, fit or provider transfer",
+    "cleanup": "temporary driver/tiny artifacts retained for root cleanup gate; no test-deletion claim",
+    "reviewer_operations": "local source/diff/AST, cached results/logs and documentation/copy checks only; no tests/full reader/numerical model/build, external data/HDD/process/G-HEAD query or source/docs mutation; one local independent receipt"
+  }
+}

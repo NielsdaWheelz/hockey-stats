@@ -79,6 +79,32 @@ class SpatialDesign:
     basis_identity: dict = field(default_factory=dict)
     annual_offsets: dict = field(default_factory=dict)
 
+ST_STATES = ('5v4', '5v3', '4v3')
+ST_ROLE_COUNTS = ((5, 4), (5, 3), (4, 3))
+ST_DEFINITION = dict(DEFINITION, version='spatial-st-v1-09-1',
+    support_policy='ordinary-attempt-segment-valued-advantaged-union-1',
+    coach_subblocks=['base'], score_clock=False,
+    state_order=list(ST_STATES), role_counts=[list(value) for value in ST_ROLE_COUNTS],
+    centering='pooled matched physical special-teams exposure; available-only means; absent transformed zero',
+    reference='virtual centered linear design; exact physical state player slot counts')
+ST_RECIPE = dict(name='experimental-v1', version=ST_DEFINITION['version'], definition=ST_DEFINITION,
+    sha256=hashlib.sha256(json.dumps(ST_DEFINITION, sort_keys=True, separators=(',', ':')).encode()).hexdigest())
+
+
+@dataclass
+class SpecialTeamsDesign(SpatialDesign):
+    state_time: np.ndarray = field(default_factory=lambda: np.empty(0, dtype=np.int64))
+    state_event: np.ndarray = field(default_factory=lambda: np.empty(0, dtype=np.int64))
+    basis_source: dict = field(default_factory=dict)
+
+    @property
+    def family(self):
+        return 'st'
+
+    @property
+    def role_counts(self):
+        return ST_ROLE_COUNTS
+
 
 def _workload_values(records, counter):
     """complete and partial members are disjoint; a known zero is evidence."""
@@ -90,13 +116,13 @@ def _workload_values(records, counter):
         elif known is not None:
             partial.append(known)
     count = len(records)
-    require(count == 5, 'workload requires exactly five physical unit members')
+    require(count > 0, 'workload requires physical unit members')
     return (fsum(complete) / len(complete) if complete else np.nan,
             fsum(partial) / len(partial) if partial else np.nan,
             len(complete) / count, len(partial) / count, (count - len(complete) - len(partial)) / count)
 
 
-def _context_axes():
+def _context_axes(family='ev'):
     axes = []
     def add(name, continuous=False, unit='fraction'):
         axes.append(dict(name=name, continuous=continuous, unit=unit))
@@ -104,8 +130,11 @@ def _context_axes():
         for period in ('1', '2', '3', 'OT'):
             add(f'home_period:{side}:{period}')
     for score in DEFINITION['score']:
-        for band in DEFINITION['bands']:
-            add(f'score_band:{score}:{band}')
+        if family == 'st':
+            add(f'score:{score}')
+        else:
+            for band in DEFINITION['bands']:
+                add(f'score_band:{score}:{band}')
     for role in ('attacking', 'defending'):
         add(f'{role}:missing_coach')
         for start in STARTS:
@@ -125,6 +154,7 @@ def _context_axes():
 
 
 CONTEXT_AXES = _context_axes()
+ST_CONTEXT_AXES = _context_axes('st')
 
 
 def _age_bin(value):
@@ -133,7 +163,7 @@ def _age_bin(value):
     return AGES[int(np.searchsorted((10, 20, 40, 60, 90), value, side='right'))]
 
 
-def _context(game, segment, chunk, side, coach_game, score, transition, *, focal_order=None, focal_seconds=None, order_by_source=None):
+def _context(game, segment, chunk, side, coach_game, score, transition, *, focal_order=None, focal_seconds=None, order_by_source=None, family='ev'):
     other = 'away' if side == 'home' else 'home'
     period = segment['period_number']
     period_label = str(period) if period <= 3 else 'OT'
@@ -141,11 +171,13 @@ def _context(game, segment, chunk, side, coach_game, score, transition, *, focal
     # a terminal event uses its final child's left endpoint, including its time band.
     margin = score.get(side) - score.get(other) if score.get(side) is not None and score.get(other) is not None else None
     score_level = str(max(-3, min(3, margin))) if margin is not None else 'unknown'
-    raw = {f'home_period:{side}:{period_label}': 1., f'score_band:{score_level}:{band}': 1.}
+    score_column = f'score:{score_level}' if family == 'st' else f'score_band:{score_level}:{band}'
+    raw = {f'home_period:{side}:{period_label}': 1., score_column: 1.}
     members = {str(row['player_id']): row for row in chunk['member_contexts']}
     shifts = game['player_shifts'] or []
     for role, source_side in (('attacking', side), ('defending', other)):
         ids = [str(p) for p in segment['membership'][source_side + '_skaters']]
+        require(len(ids) in (3, 4, 5) if family == 'st' else len(ids) == 5, 'invalid physical unit size')
         raw[f'{role}:missing_coach'] = float(coach_game[source_side]['coach_id'] is None)
         for player in ids:
             context = members[player]
@@ -160,13 +192,13 @@ def _context(game, segment, chunk, side, coach_game, score, transition, *, focal
             start = zone if start == 'faceoff' and zone in STARTS[:3] else 'on_the_fly' if start == 'on_the_fly' else 'unknown'
             age = _age_bin(_value(context['shift_age_seconds'], 'value'))
             name = f'{role}:start_age:{start}:{age}'
-            raw[name] = raw.get(name, 0.) + .2
+            raw[name] = raw.get(name, 0.) + 1 / len(ids)
             person = (game['people'] or {}).get(player, {})
             rest = person.get('calendar_rest', {})
             one, two = _value(rest, 'prior_one_date'), _value(rest, 'prior_two_date')
             rest_level = f'{int(one)}{int(two)}' if one is not None and two is not None else 'unknown'
             name = f'{role}:rest:{rest_level}'
-            raw[name] = raw.get(name, 0.) + .2
+            raw[name] = raw.get(name, 0.) + 1 / len(ids)
         for scope, counters in (('current', CURRENT), ('days_7', DATED), ('days_14', DATED)):
             records = [members[p]['elapsed_prefix'] if scope == 'current' else
                        (game['people'] or {}).get(p, {}).get('workload', {}).get(scope, {}) for p in ids]
@@ -177,7 +209,7 @@ def _context(game, segment, chunk, side, coach_game, score, transition, *, focal
     level = 'none' if exists is False else 'unknown' if exists is None or short is None else (
         'previously_shorthanded' if short == side else 'previously_advantaged')
     raw[f'transition:{level}'] = 1.
-    return [raw.get(axis['name'], 0.) for axis in CONTEXT_AXES], margin
+    return [raw.get(axis['name'], 0.) for axis in (ST_CONTEXT_AXES if family == 'st' else CONTEXT_AXES)], margin
 
 
 def _transform_context(time, event, exposure, continuous):
@@ -205,8 +237,21 @@ def _physical_5v5(membership):
                for side in ('home', 'away'))
 
 
-def _collect_game(game, coach_game, scored, targets):
+def _specialty_state(membership):
+    if any(len(membership[side + '_goalies']) != 1 for side in ('home', 'away')):
+        return None
+    home, away = (len(membership[side + '_skaters']) for side in ('home', 'away'))
+    counts = (max(home, away), min(home, away))
+    if counts not in ST_ROLE_COUNTS:
+        return None
+    return ST_STATES[ST_ROLE_COUNTS.index(counts)], 'home' if home > away else 'away'
+
+
+def _collect_game(game, coach_game, scored, targets, *, family='ev'):
     """consume saved assignments; added target exclusions apply to complete segments."""
+    require(family in ('ev', 'st'), 'unknown spatial family')
+    axes = ST_CONTEXT_AXES if family == 'st' else CONTEXT_AXES
+    eligible = (lambda membership: _specialty_state(membership) is not None) if family == 'st' else _physical_5v5
     game_id = game['game_id']
     support = game['ordinary_attempt_support']
     segments = {row['segment_index']: row for row in game['segments'] or []}
@@ -218,6 +263,7 @@ def _collect_game(game, coach_game, scored, targets):
     require(set(saved_segments) == set(segments), f'{game_id}: saved support segment keys differ')
     base = {index for index, row in saved_segments.items() if row['disposition'] != 'included'}
     added, reasons, kept_events = set(), [], []
+    ignored_shorthanded = []
     for ordinal, assigned in enumerate(support['events'] or []):
         index, segment_index = assigned['source_index'], assigned['segment_index']
         if assigned['disposition'] != 'included' or segment_index is None:
@@ -226,21 +272,34 @@ def _collect_game(game, coach_game, scored, targets):
                 f'{game_id}:{index}: saved source assignment does not resolve')
         segment, chunk = segments[segment_index], children[assigned['chunk_index']]
         require(chunk['segment_index'] == segment_index, f'{game_id}:{index}: source chunk/segment disagree')
-        if not _physical_5v5(segment['membership']):
+        if not eligible(segment['membership']):
             continue
         require(index in attempts and index in events, f'{game_id}:{index}: saved attempt/event join missing')
         attempt, event = attempts[index], events[index]
         state, details = attempt['feature_facts']['state'], attempt['details']
         key = f'{game_id}:{index}'
-        require(key in scored, f'{key}: execution source key absent')
-        score = scored[key]
-        require(score['source_index'] == index and score['game_id'] == game_id,
-                f'{key}: execution source identity differs')
         side = _value(state, 'home_away')
+        if family == 'st':
+            _, advantaged = _specialty_state(segment['membership'])
+            if side in ('home', 'away') and side != advantaged:
+                team = game['game']['identity'][side + '_team_id']
+                if _value(details, 'shooting_team_id') == _value(state, 'shooting_team_id') == team:
+                    ignored_shorthanded.append(index)
+                    continue
+        else:
+            require(key in scored, f'{key}: execution source key absent')
+        score = scored.get(key)
+        if score is not None:
+            require(score['source_index'] == index and score['game_id'] == game_id,
+                    f'{key}: execution source identity differs')
+        if family == 'st' and score is not None:
+            outcome, shooter = _value(details, 'outcome'), _value(details, 'physical_shooter_id')
+            require(score.get('outcome') is None or outcome is None or score['outcome'] == outcome, f'{key}: execution outcome binding differs')
+            require(score.get('shooter_id') is None or shooter is None or score['shooter_id'] == str(shooter), f'{key}: execution shooter binding differs')
         problem = []
         if _value(details, 'physical_status') != 'ordinary': problem.append('physical_attempt_unresolved')
         if _value(details, 'outcome') not in ('block', 'miss', 'save', 'goal'): problem.append('outcome_unresolved')
-        if side not in ('home', 'away'): problem.append('shooting_team_unresolved')
+        if side not in ('home', 'away') or family == 'st' and side != advantaged: problem.append('shooting_team_unresolved')
         if side in ('home', 'away'):
             expected_team = game['game']['identity'][side + '_team_id']
             if _value(details, 'shooting_team_id') != expected_team or _value(state, 'shooting_team_id') != expected_team:
@@ -253,7 +312,7 @@ def _collect_game(game, coach_game, scored, targets):
                 authoritative = _value(state, source_side + '_' + kind)
                 if authoritative is None or sorted(authoritative) != sorted(segment['membership'][source_side + '_' + kind]):
                     problem.append('authoritative_membership_inconsistent')
-        if score['status'] == 'complete':
+        if score is not None and score['status'] == 'complete':
             if side in ('home', 'away'):
                 other = 'away' if side == 'home' else 'home'
                 source_members = [_value(state, source_side + '_' + kind)
@@ -263,9 +322,11 @@ def _collect_game(game, coach_game, scored, targets):
                             f'{key}: execution physical state differs from authoritative event membership')
             require(score['outcome'] == _value(details, 'outcome') and score['shooter_id'] == str(_value(details, 'physical_shooter_id')),
                     f'{key}: execution outcome/shooter join differs')
-            if tuple(score['physical_state']) == (5, 5, 1, 1):
+            expected_state = (*ST_ROLE_COUNTS[ST_STATES.index(_specialty_state(segment['membership'])[0])], 1, 1) if family == 'st' else (5, 5, 1, 1)
+            if tuple(score['physical_state']) == expected_state:
                 require(key in targets, f'{key}: complete execution event missing from exact physical panel')
             else:
+                require(family != 'st', f'{key}: execution physical state differs from assigned advantaged state')
                 require(key not in targets, f'{key}: non5v5 execution event appears in physical 5v5 panel')
                 problem.append('authoritative_membership_inconsistent')
         else:
@@ -281,12 +342,13 @@ def _collect_game(game, coach_game, scored, targets):
     time_rows, event_rows = [], []
     for chunk in children.values():
         segment = segments[chunk['segment_index']]
-        if segment['segment_index'] in excluded or not _physical_5v5(segment['membership']):
+        if segment['segment_index'] in excluded or not eligible(segment['membership']):
             continue
         seconds = chunk['end_seconds'] - chunk['start_seconds']
         require(seconds > 0, f'{game_id}: nonpositive saved elapsed chunk')
-        for side in ('home', 'away'):
-            raw, margin = _context(game, segment, chunk, side, coach_game, chunk['score']['values'], chunk['strength_transition'])
+        sides = (_specialty_state(segment['membership'])[1],) if family == 'st' else ('home', 'away')
+        for side in sides:
+            raw, margin = _context(game, segment, chunk, side, coach_game, chunk['score']['values'], chunk['strength_transition'], family=family)
             other = 'away' if side == 'home' else 'home'
             key = dict(game_id=game_id, segment_index=segment['segment_index'], chunk_index=chunk['chunk_index'],
                        source_index=None, attacking_side=side, attacking_players=list(map(str, segment['membership'][side + '_skaters'])),
@@ -295,7 +357,8 @@ def _collect_game(game, coach_game, scored, targets):
                        defending_team_id=game['game']['identity'][other + '_team_id'],
                        optional_missing=any(not np.isfinite(value) or value > 0 and (
                            ':unknown' in axis['name'] or axis['name'].endswith('missing_coach'))
-                           for axis, value in zip(CONTEXT_AXES, raw, strict=True)))
+                           for axis, value in zip(axes, raw, strict=True)))
+            if family == 'st': key['physical_state'] = _specialty_state(segment['membership'])[0]
             time_rows.append((key, seconds / 3600, raw, margin, segment['period_number']))
     for assigned, attempt, event, side, target in kept_events:
         if assigned['segment_index'] in excluded:
@@ -304,7 +367,7 @@ def _collect_game(game, coach_game, scored, targets):
         raw, margin = _context(game, segment, chunk, side, coach_game, event['pre_score']['values'],
                                event['context']['strength_transition'], focal_order=event_orders[assigned['source_index']],
                                focal_seconds=event['source']['elapsed_seconds'],
-                               order_by_source=event_orders)
+                               order_by_source=event_orders, family=family)
         other = 'away' if side == 'home' else 'home'
         key = dict(game_id=game_id, segment_index=segment['segment_index'], chunk_index=chunk['chunk_index'],
                    source_index=assigned['source_index'], attacking_side=side,
@@ -318,26 +381,31 @@ def _collect_game(game, coach_game, scored, targets):
                        event['source']['elapsed_seconds'] in (segment['start_seconds'], segment['end_seconds'])),
                    optional_missing=any(not np.isfinite(value) or value > 0 and (
                        ':unknown' in axis['name'] or axis['name'].endswith('missing_coach'))
-                       for axis, value in zip(CONTEXT_AXES, raw, strict=True)))
+                       for axis, value in zip(axes, raw, strict=True)))
+        if family == 'st': key['physical_state'] = _specialty_state(segment['membership'])[0]
         event_rows.append((key, target, raw, margin, segment['period_number']))
     retained = [chunk for chunk in children.values() if chunk['segment_index'] not in excluded
-                and _physical_5v5(segments[chunk['segment_index']]['membership'])]
+                and eligible(segments[chunk['segment_index']]['membership'])]
     physical = fsum(chunk['end_seconds'] - chunk['start_seconds'] for chunk in retained) / 3600
     physical_keys = {(game_id, chunk['segment_index'], chunk['chunk_index']) for chunk in retained}
-    for side in ('home', 'away'):
+    for side in (() if family == 'st' else ('home', 'away')):
         directed = [row for row in time_rows if row[0]['attacking_side'] == side]
         require(len(directed) == len(physical_keys) and
                 {(row[0]['game_id'], row[0]['segment_index'], row[0]['chunk_index']) for row in directed} == physical_keys
                 and abs(fsum(row[1] for row in directed) - physical) <= 1e-10 * (1 + physical),
                 f'{game_id}: {side} directed exposure differs from saved physical chunks')
+    if family == 'st':
+        require(len(time_rows) == len(physical_keys) and abs(fsum(row[1] for row in time_rows) - physical) <= 1e-10 * (1 + physical),
+                f'{game_id}: advantaged exposure differs from saved physical chunks')
     expected_events = {assigned['source_index'] for assigned, *_ in kept_events if assigned['segment_index'] not in excluded}
     require(len(event_rows) == len(expected_events) and {row[0]['source_index'] for row in event_rows} == expected_events,
             f'{game_id}: physical attempts not assigned once to their attacking direction')
     lost = {str(p): 0. for segment in segments.values() for p in
             segment['membership']['home_skaters'] + segment['membership']['away_skaters']}
     player_reasons = {p: set() for p in lost}
+    segment_reason_codes = {}
     for segment in segments.values():
-        if segment['segment_index'] in excluded and _physical_5v5(segment['membership']):
+        if segment['segment_index'] in excluded and eligible(segment['membership']):
             seconds = segment['end_seconds'] - segment['start_seconds']
             codes = {support['reasons'][i]['code'] for i in saved_segments[segment['segment_index']].get('reason_indices', [])}
             for reason in reasons:
@@ -345,27 +413,74 @@ def _collect_game(game, coach_game, scored, targets):
                     codes.update('value_unavailable' if code == 'joint_neutral_value_unavailable' else
                                  'event_exposure_conflict' if code == 'authoritative_membership_inconsistent' else
                                  'event_evidence_unresolved' for code in reason['reasons'])
+            segment_reason_codes[segment['segment_index']] = codes
             for side in ('home', 'away'):
                 for p in segment['membership'][side + '_skaters']:
                     lost[str(p)] += seconds
                     player_reasons[str(p)].update(codes)
     lost_events = [row['source_index'] for row in support['events'] or [] if row['segment_index'] in excluded
-                   and _physical_5v5(segments[row['segment_index']]['membership'])]
-    directions = {side: dict(included_hours=physical,
+                   and eligible(segments[row['segment_index']]['membership'])]
+    directions = {side: dict(included_hours=fsum(row[1] for row in time_rows if row[0]['attacking_side'] == side) if family == 'st' else physical,
         attempts=sum(row[0]['attacking_side'] == side for row in event_rows),
         origin_mass=fsum(float(row[1]['origin_weights'].sum()) for row in event_rows if row[0]['attacking_side'] == side),
         neutral_chance_mass=fsum(float(row[1]['origin_weights'] @ row[1]['neutral_goal_probability'])
                                for row in event_rows if row[0]['attacking_side'] == side)) for side in ('home', 'away')}
-    return time_rows, event_rows, dict(game_id=game_id, physical_included_hours=physical,
-        directed_included_hours=2 * physical, attempts=len(event_rows),
+    coverage = dict(game_id=game_id, physical_included_hours=physical,
+        directed_included_hours=physical if family == 'st' else 2 * physical, attempts=len(event_rows),
         directions=directions, known_lost_physical_hours=fsum(segment['end_seconds'] - segment['start_seconds']
-            for index, segment in segments.items() if index in excluded and _physical_5v5(segment['membership'])) / 3600,
+            for index, segment in segments.items() if index in excluded and eligible(segment['membership'])) / 3600,
         known_lost_event_source_indices=lost_events,
         player_reason_codes={p: sorted(codes) for p, codes in player_reasons.items() if codes},
         base_excluded_segments=sorted(base), added_excluded_segments=sorted(added),
         excluded_segment_union=sorted(excluded), added_reasons=reasons, base_reasons=support['reasons'],
         known_lost_seconds=lost, unquantified_gap=game['game']['ledger']['status'] != 'reconstructed' or
             any(not row['affected_segment_indices'] for row in support['reasons']))
+
+    if family == 'st':
+        coverage['ignored_shorthanded_event_source_indices'] = ignored_shorthanded
+        coverage['states'] = []
+        for state_name, (attacking, defending) in zip(ST_STATES, ST_ROLE_COUNTS, strict=True):
+            hours = fsum(row[1] for row in time_rows if row[0]['physical_state'] == state_name)
+            selected_events = [row for row in event_rows if row[0]['physical_state'] == state_name]
+            coverage['states'].append(dict(state=state_name, included_hours=hours,
+                attacking_slot_hours=attacking * hours, defending_slot_hours=defending * hours,
+                attempts=len(selected_events), origin_mass=fsum(float(row[1]['origin_weights'].sum()) for row in selected_events),
+                neutral_chance_mass=fsum(float(row[1]['origin_weights'] @ row[1]['neutral_goal_probability']) for row in selected_events),
+                state_extrapolated=hours == 0))
+        coverage['attacking_slot_hours'] = fsum(row['attacking_slot_hours'] for row in coverage['states'])
+        coverage['defending_slot_hours'] = fsum(row['defending_slot_hours'] for row in coverage['states'])
+        coverage['role_known_lost_seconds'] = {}
+        role_reason_codes = {}
+        for segment in segments.values():
+            state = _specialty_state(segment['membership'])
+            if segment['segment_index'] not in excluded or state is None:
+                continue
+            state_name, attacking_side = state
+            for role, side in (('offense', attacking_side), ('defense', 'away' if attacking_side == 'home' else 'home')):
+                selector = state_name if role == 'offense' else state_name[::-1]
+                for player in segment['membership'][side + '_skaters']:
+                    values = coverage['role_known_lost_seconds'].setdefault(str(player), {}).setdefault(role, {})
+                    values[selector] = values.get(selector, 0.) + segment['end_seconds'] - segment['start_seconds']
+                    role_reason_codes.setdefault(str(player), {}).setdefault(role, {}).setdefault(selector, set()).update(segment_reason_codes[segment['segment_index']])
+        coverage['role_reason_codes'] = {player: {role: {selector: sorted(codes) for selector, codes in states.items()}
+            for role, states in roles.items()} for player, roles in role_reason_codes.items()}
+        known_advantaged, known_shorthanded, ambiguous = [], [], []
+        for assigned in support['events'] or []:
+            if assigned['segment_index'] not in excluded or assigned['segment_index'] not in segments:
+                continue
+            state = _specialty_state(segments[assigned['segment_index']]['membership'])
+            if state is None:
+                continue
+            attempt = attempts.get(assigned['source_index'])
+            side = _value(attempt['feature_facts']['state'], 'home_away') if attempt else None
+            team = game['game']['identity'].get(str(side) + '_team_id')
+            known_side = side in ('home', 'away') and _value(attempt['details'], 'shooting_team_id') == _value(attempt['feature_facts']['state'], 'shooting_team_id') == team
+            (known_advantaged if known_side and side == state[1] else known_shorthanded if known_side else ambiguous).append(assigned['source_index'])
+        coverage['known_lost_advantaged_event_source_indices'] = known_advantaged
+        coverage['known_lost_ambiguous_event_source_indices'] = ambiguous
+        coverage['ignored_shorthanded_event_source_indices'] = sorted(set(ignored_shorthanded) | set(known_shorthanded))
+        coverage['known_lost_event_source_indices'] = sorted(known_advantaged + ambiguous)
+    return time_rows, event_rows, coverage
 
 
 @cache
@@ -375,25 +490,26 @@ def _basis():
                          reference='uniform-native-656', modes=40)
 
 
-def _actor_columns(players, coaches):
-    columns = [dict(kind='intercept', name='intercept')]
+def _actor_columns(players, coaches, *, family='ev'):
+    columns = ([dict(kind='intercept', name=f'intercept:{state}') for state in ST_STATES]
+               if family == 'st' else [dict(kind='intercept', name='intercept')])
     for role in ('attacking', 'defending'):
         for actor in players:
             columns.append(dict(kind='actor', name=f'{role}_player:{actor}', block=role + '_player', id=actor, subblock='base'))
-        for subblock in DEFINITION['coach_subblocks']:
+        for subblock in (ST_DEFINITION if family == 'st' else DEFINITION)['coach_subblocks']:
             for actor in coaches:
                 columns.append(dict(kind='actor', name=f'{role}_coach:{subblock}:{actor}', block=role + '_coach', id=actor, subblock=subblock))
     return columns
 
 
-def _actor_matrix(rows, columns, coach_games):
+def _actor_matrix(rows, columns, coach_games, *, family='ev'):
     axis = {(col['block'], col['id'], col['subblock']): i for i, col in enumerate(columns) if col['kind'] == 'actor'}
     data, indices, indptr = [], [], [0]
     for row in rows:
         key, _, _, margin, period = row
         side = key['attacking_side']
         other = 'away' if side == 'home' else 'home'
-        entries = {0: 1.}
+        entries = {ST_STATES.index(key['physical_state']) if family == 'st' else 0: 1.}
         for role, source_side, sign in (('attacking', side, 1), ('defending', other, -1)):
             for actor in key[role + '_players']:
                 require((role + '_player', actor, 'base') in axis, f'{actor}: physical member missing from skater roster axis')
@@ -402,9 +518,9 @@ def _actor_matrix(rows, columns, coach_games):
             if coach is not None:
                 entries[axis[role + '_coach', coach, 'base']] = 1.
                 team_margin = margin * sign if margin is not None else None
-                if team_margin in range(-2, 3):
+                if family == 'ev' and team_margin in range(-2, 3):
                     entries[axis[role + '_coach', coach, f'score:{team_margin}']] = 1.
-                if period == 3 and team_margin in (0, 1, 2):
+                if family == 'ev' and period == 3 and team_margin in (0, 1, 2):
                     entries[axis[role + '_coach', coach, 'shell']] = 1.
         for index, value in sorted(entries.items()):
             indices.append(index); data.append(value)
@@ -412,8 +528,11 @@ def _actor_matrix(rows, columns, coach_games):
     return csr_matrix((data, indices, indptr), shape=(len(rows), len(columns)), dtype=np.float64)
 
 
-def prepare_spatial(prepared, coaches, valued, season):
+def prepare_spatial(prepared, coaches, valued, season, *, family='ev'):
     """read each prepared game once and bind the exact accepted execution target."""
+    require(family in ('ev', 'st'), 'unknown spatial family')
+    axes = ST_CONTEXT_AXES if family == 'st' else CONTEXT_AXES
+    recipe = ST_RECIPE if family == 'st' else RECIPE
     started = perf_counter()
     if not isinstance(prepared, PreparedManifest):
         path = Path(prepared)
@@ -429,24 +548,32 @@ def prepare_spatial(prepared, coaches, valued, season):
     coach_ref = dict(purpose=purpose, **identity(coach_path), selected_game_ids=list(selected['selected_game_ids']))
     prepared_ref = dict(purpose=purpose, **identity(prepared.directory / 'manifest.json'),
                         members=[row for row in prepared['files'] if row['season'] == season])
-    scores = valued if isinstance(valued, ExecutionScores) else read_execution_scores(valued, purpose, physical_state=(5, 5, 1, 1))
+    scores = valued if isinstance(valued, ExecutionScores) else read_execution_scores(valued, purpose, physical_state=(5, 5, 1, 1) if family == 'ev' else (5, 4, 1, 1))
     require(scores.manifest['season'] == season and scores.manifest['purpose'] == purpose,
             'spatial valued season/purpose differs')
     require(scores.manifest['prepared'] == prepared_ref and scores.manifest['coaches'] == coach_ref,
             'spatial preparation/coach bindings differ from execution targets')
-    panel = read_panel(scores, (5, 5, 1, 1))
-    targets = {row['key']: row for row in iter_neutral_origins(panel)}
+    states = [(*counts, 1, 1) for counts in ST_ROLE_COUNTS] if family == 'st' else [(5, 5, 1, 1)]
+    targets = {}
+    for physical_state in states:
+        panel = read_panel(scores, physical_state)
+        targets.update((row['key'], row) for row in iter_neutral_origins(panel))
     scored = {row['key']: row for row in scores.events()}
     people = {str(_value(row, 'player_id')): row for row in read_prepared_people(prepared, season)['people']}
     players = tuple(sorted(p for p, row in people.items() if _value(row, 'position_group') != 'G'))
     player_facts = {p: dict(position_group=_value(people[p], 'position_group'), age_days=_value(people[p], 'age_days')) for p in players}
     coach_ids = tuple(sorted(row['coach_id'] for row in read_json(coach_path.parent / 'identities.json')['coaches']))
-    actor_columns = _actor_columns(players, coach_ids)
+    actor_columns = _actor_columns(players, coach_ids, family=family)
     time_keys, event_keys, exposure, time_actors, event_actors, raw_time, raw_event = [], [], [], [], [], [], []
     cells, weights, probabilities, offsets, game_coverage, dates = [], [], [], [0], [], []
     input_bytes = 0
     qualification = {p: dict(included_seconds=0., events=0, known_excluded_seconds=0., unquantified_gap=False,
                             reason_counts={}, inferred_inputs=[]) for p in players}
+    if family == 'st':
+        for support in qualification.values():
+            support['roles'] = {role: {selector: dict(included_seconds=0., events=0, known_excluded_seconds=0.,
+                unquantified_gap=False, reason_counts={}, inferred_inputs=[]) for selector in ('common', *selectors)}
+                for role, selectors in (('offense', ST_STATES), ('defense', tuple(state[::-1] for state in ST_STATES)))}
     for game_id in selected['selected_game_ids']:
         game = read_prepared_game(prepared, season, game_id)
         input_bytes += next(row['bytes'] if 'bytes' in row else (prepared.directory / row['path']).stat().st_size
@@ -454,19 +581,19 @@ def prepare_spatial(prepared, coaches, valued, season):
         require(game['game']['identity'] is None or all(game['game']['identity'][field] == coach_games[game_id][field]
                 for field in ('home_team_id', 'away_team_id')), f'{game_id}: dated coach team identity differs')
         dates.append(game['game']['inventory']['game_date'])
-        times, events, coverage = _collect_game(game, coach_games[game_id], scored, targets)
+        times, events, coverage = _collect_game(game, coach_games[game_id], scored, targets, family=family)
         source = next(row for row in prepared['files'] if row['kind'] == 'game' and row['game_id'] == game_id)
         coverage['source'] = dict(path=str(prepared.directory / source['path']), sha256=source['sha256'])
         coverage['possible_gap_player_ids'] = sorted((game['people'] or {}).keys()) if coverage['unquantified_gap'] else []
         game_coverage.append(coverage)
         time_keys.extend(row[0] for row in times); event_keys.extend(row[0] for row in events)
         exposure.extend(row[1] for row in times)
-        time_actors.append(_actor_matrix(times, actor_columns, coach_games))
-        event_actors.append(_actor_matrix(events, actor_columns, coach_games))
-        raw_time.append(np.asarray([row[2] for row in times], dtype=np.float64).reshape(-1, len(CONTEXT_AXES)))
-        raw_event.append(np.asarray([row[2] for row in events], dtype=np.float64).reshape(-1, len(CONTEXT_AXES)))
+        time_actors.append(_actor_matrix(times, actor_columns, coach_games, family=family))
+        event_actors.append(_actor_matrix(events, actor_columns, coach_games, family=family))
+        raw_time.append(np.asarray([row[2] for row in times], dtype=np.float64).reshape(-1, len(axes)))
+        raw_event.append(np.asarray([row[2] for row in events], dtype=np.float64).reshape(-1, len(axes)))
         for key, hours, *_ in times:
-            if key['attacking_side'] == 'home':
+            if family == 'st' or key['attacking_side'] == 'home':
                 for p in key['attacking_players'] + key['defending_players']: qualification[p]['included_seconds'] += hours * 3600
         for key, target, *_ in events:
             cells.append(target['cells']); weights.append(target['origin_weights']); probabilities.append(target['neutral_goal_probability'])
@@ -480,14 +607,41 @@ def prepare_spatial(prepared, coaches, valued, season):
                 qualification[p]['reason_counts'][code] = qualification[p]['reason_counts'].get(code, 0) + 1
             # missing whole-game evidence cannot establish who was on ice.
             qualification[p]['unquantified_gap'] |= p in coverage['possible_gap_player_ids']
+        if family == 'st':
+            for key, hours, *_ in times:
+                for role, membership in (('offense', 'attacking_players'), ('defense', 'defending_players')):
+                    selector = key['physical_state'] if role == 'offense' else key['physical_state'][::-1]
+                    for player in key[membership]:
+                        for selected_state in ('common', selector):
+                            qualification[player]['roles'][role][selected_state]['included_seconds'] += hours * 3600
+            for key, *_ in events:
+                for role, membership in (('offense', 'attacking_players'), ('defense', 'defending_players')):
+                    selector = key['physical_state'] if role == 'offense' else key['physical_state'][::-1]
+                    for player in key[membership]:
+                        for selected_state in ('common', selector):
+                            support = qualification[player]['roles'][role][selected_state]
+                            support['events'] += 1
+                            if key['inferred_origin']: support['inferred_inputs'] = ['blocked_origin']
+            for player in players:
+                for role, selectors in qualification[player]['roles'].items():
+                    lost_by_state = coverage['role_known_lost_seconds'].get(player, {}).get(role, {})
+                    for selector, support in selectors.items():
+                        lost = fsum(lost_by_state.values()) if selector == 'common' else lost_by_state.get(selector, 0.)
+                        support['known_excluded_seconds'] += lost
+                        support['unquantified_gap'] |= player in coverage['possible_gap_player_ids']
+                        if lost:
+                            state_codes = coverage['role_reason_codes'].get(player, {}).get(role, {})
+                            codes = {code for values in state_codes.values() for code in values} if selector == 'common' else set(state_codes.get(selector, []))
+                            for code in codes:
+                                support['reason_counts'][code] = support['reason_counts'].get(code, 0) + 1
         del game
     exposure = np.asarray(exposure, dtype=np.float64)
-    require(len(exposure) > 0 and np.all(exposure > 0), 'spatial season has no positive supported elapsed exposure')
-    continuous = [axis['continuous'] for axis in CONTEXT_AXES]
+    require((family == 'st' or len(exposure) > 0) and np.all(exposure > 0), 'spatial season has no positive supported elapsed exposure')
+    continuous = [axis['continuous'] for axis in axes]
     context_time, context_event = np.vstack(raw_time), np.vstack(raw_event)
     raw_time.clear(); raw_event.clear()
     context_time, context_event, moments = _transform_context(context_time, context_event, exposure, continuous)
-    columns = tuple(actor_columns + [dict(kind='context', name=axis['name']) for axis in CONTEXT_AXES])
+    columns = tuple(actor_columns + [dict(kind='context', name=axis['name']) for axis in axes])
     X_time = vstack(time_actors, format='csr')
     X_event = vstack(event_actors, format='csr')
     del time_actors, event_actors
@@ -504,32 +658,75 @@ def prepare_spatial(prepared, coaches, valued, season):
     pooled_quality = (float(neutral.sum()) + .5) / (attempts + 1)
     qmean = (float(neutral.sum()) + 10 * pooled_quality) / (attempts + 10)
     qbar = (neutral + 10 * pi * qmean) / (mass + 10 * pi)
-    basis, basis_identity = _basis() if season == prepared['seasons'][0]['season'] else (None, {})
-    transforms = dict(axes=[dict(axis, **moment) for axis, moment in zip(CONTEXT_AXES, moments, strict=True)])
-    definition_hash = hashlib.sha256(json.dumps(dict(recipe=RECIPE['sha256'], columns=columns, transforms=transforms),
+    annual_offsets = dict(r=rate, pi=pi.tolist(), qbar=qbar.tolist())
+    state_time = np.asarray([ST_STATES.index(key['physical_state']) for key in time_keys], dtype=np.int64) if family == 'st' else None
+    state_event = np.asarray([ST_STATES.index(key['physical_state']) for key in event_keys], dtype=np.int64) if family == 'st' else None
+    if family == 'st':
+        rates, shares, qualities = [], [], []
+        for state_index in range(3):
+            selected_events = state_event == state_index
+            selected_origins = np.repeat(selected_events, np.diff(offsets))
+            state_mass = np.bincount(origin_cells[selected_origins], weights=origin_weights[selected_origins], minlength=656)
+            state_neutral = np.bincount(origin_cells[selected_origins], weights=(origin_weights * q0)[selected_origins], minlength=656)
+            count = int(selected_events.sum())
+            state_hours = float(exposure[state_time == state_index].sum())
+            require(state_hours > 0 or count == 0, 'special-teams orphan events have no retained state exposure')
+            state_pi = (state_mass + 10 * pi_pool) / (count + 10)
+            state_qmean = (float(state_neutral.sum()) + 10 * pooled_quality) / (count + 10)
+            rates.append((count + pooled_rate) / (state_hours + 1))
+            shares.append(state_pi.tolist())
+            qualities.append(((state_neutral + 10 * state_pi * state_qmean) / (state_mass + 10 * state_pi)).tolist())
+        annual_offsets = dict(r=rates, pi=shares, qbar=qualities)
+    basis, basis_identity = _basis() if family == 'ev' and season == prepared['seasons'][0]['season'] else (None, {})
+    transforms = dict(axes=[dict(axis, **moment) for axis, moment in zip(axes, moments, strict=True)])
+    definition_hash = hashlib.sha256(json.dumps(dict(recipe=recipe['sha256'], columns=columns, transforms=transforms),
                                                 sort_keys=True, separators=(',', ':')).encode()).hexdigest()
     transforms['design_sha256'] = definition_hash
     for player in qualification.values():
         player['reason_counts'] = [dict(code=code, count=count) for code, count in sorted(player['reason_counts'].items())]
+        if family == 'st':
+            for selectors in player['roles'].values():
+                for support in selectors.values():
+                    support['reason_counts'] = [dict(code=code, count=count) for code, count in sorted(support['reason_counts'].items())]
     coverage = dict(purpose=purpose, season=season, games=game_coverage, players=qualification,
                     player_reason_count_unit='games with a located excluded segment, once per reason code',
-                    physical_included_hours=hours / 2, directed_included_hours=hours, attempts=attempts,
+                    physical_included_hours=hours if family == 'st' else hours / 2, directed_included_hours=hours, attempts=attempts,
                     origin_mass=float(origin_weights.sum()), neutral_chance_mass=float(neutral.sum()),
                     supported_players=sum(row['included_seconds'] > 0 or row['events'] > 0 for row in qualification.values()),
                     zero_information_roster_players=sum(row['included_seconds'] == 0 and row['events'] == 0 for row in qualification.values()),
                     optional_missingness={axis['name']: dict(absent_mean_hours=moment['missing_hours'],
                         unknown_fraction_hours=moment['location'] * hours if ':unknown' in axis['name'] or
                         axis['name'].endswith('missing_coach') else None)
-                        for axis, moment in zip(CONTEXT_AXES, moments, strict=True)},
+                        for axis, moment in zip(axes, moments, strict=True)},
                     unassigned_gap_game_ids=[row['game_id'] for row in game_coverage
                                              if row['unquantified_gap'] and not row['possible_gap_player_ids']])
+    if family == 'st':
+        coverage['states'] = []
+        for state_index, state_name in enumerate(ST_STATES):
+            state_rows = [game['states'][state_index] for game in game_coverage]
+            coverage['states'].append(dict(state=state_name,
+                **{key: fsum(row[key] for row in state_rows) for key in ('included_hours', 'attacking_slot_hours', 'defending_slot_hours', 'origin_mass', 'neutral_chance_mass')},
+                attempts=sum(row['attempts'] for row in state_rows),
+                state_extrapolated=not any(row['included_hours'] > 0 for row in state_rows)))
+        coverage['attacking_slot_hours'] = fsum(row['attacking_slot_hours'] for row in coverage['states'])
+        coverage['defending_slot_hours'] = fsum(row['defending_slot_hours'] for row in coverage['states'])
+        coverage['ignored_shorthanded_attempts'] = sum(len(row['ignored_shorthanded_event_source_indices']) for row in game_coverage)
+        coverage['state_support'] = []
+        for row in coverage['states']:
+            seconds = row['included_hours'] * 3600
+            coverage['state_support'].append(dict(state=row['state'], physical_seconds=seconds,
+                directed_seconds=seconds, attempts=row['attempts'], origin_weight=row['origin_mass'],
+                baseline_current_information=dict(volume=seconds > 0 or row['attempts'] > 0,
+                    shape=row['origin_mass'] > 0, quality=row['origin_mass'] > 0)))
     resources = dict(design_wall_seconds=perf_counter() - started, input_read_bytes=input_bytes,
                      time_rows=X_time.shape[0], event_rows=X_event.shape[0], columns=len(columns),
                      actor_columns=X_time.shape[1], context_columns=context_time.shape[1],
                      design_bytes=sum(array.nbytes for array in (X_time.data, X_time.indices, X_time.indptr,
                          X_event.data, X_event.indices, X_event.indptr, context_time, context_event,
                          exposure, origin_cells, origin_weights, q0)))
-    return SpatialDesign(purpose, season, prepared_ref, coach_ref, dict(identity(scores.path), season=season, purpose=purpose),
+    design_type = SpecialTeamsDesign if family == 'st' else SpatialDesign
+    extra = dict(state_time=state_time, state_event=state_event) if family == 'st' else {}
+    return design_type(purpose, season, prepared_ref, coach_ref, dict(identity(scores.path), season=season, purpose=purpose),
         max(dates, default=None), players, player_facts, coach_ids, columns, X_time, X_event, context_time, context_event, exposure,
         tuple(time_keys), tuple(event_keys), np.asarray(offsets, dtype=np.int64), origin_cells, origin_weights, q0,
-        transforms, coverage, RECIPE, resources, basis, basis_identity, dict(r=rate, pi=pi.tolist(), qbar=qbar.tolist()))
+        transforms, coverage, recipe, resources, basis, basis_identity, annual_offsets, **extra)

@@ -1,0 +1,32 @@
+{
+  "kind": "coordination_reservation_report",
+  "source": "explicit user v1-07 reservation to both sessions",
+  "status": "reserved_not_released",
+  "current_heavy_owner": "v1-07",
+  "current_scope": "G20232024 native fit, bounded saved-state review and one required target inventory",
+  "next_scope": "one20212022 st retry only",
+  "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+  "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+  "script_sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf",
+  "preflight_sha256": "ab33a95c58371d2c65574fab0265f4da7394cecf120c93cb392af5a95133e750",
+  "scope": "three baselines, no first-year probe, projections/accounting/readback; same inputs and child-only three thread variables at1",
+  "launch_preconditions": [
+    "current goalie native exit",
+    "bounded saved-state review",
+    "one required target inventory",
+    "explicit ownership confirmation to both sessions",
+    "fresh output/log/exit checks"
+  ],
+  "scheduling_tradeoff": "delays goalie20232024 score to give st another first-annual attempt; user acknowledged",
+  "cost": "complete annual cost unknown; prior70.66-second source-contract failure is not a forecast",
+  "excluded": [
+    "fixture job",
+    "other annual",
+    "base fit/rescore",
+    "converter",
+    "activation",
+    "whole-chain reservation"
+  ],
+  "dispatch_authorized": false,
+  "readiness_receipt_note": "preflight04 remains byte-identical held/not_reserved historical preparation; this later reservation report changes queue only"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "st-fourth-real-retry-audit-caller-binding",
+  "season": "20242025",
+  "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+  "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025",
+  "packet_sha256": "633516d911773036b4b88e9f649dcb5394b8212407a79eeabcf5663a9c1b9326",
+  "fresh_launch_preflight_sha256": "ff89103a0697405fe8008a4f285e870713f2677481ff9c87ee48f5547380a91c",
+  "actual_launch_sha256": "2995e44adcbbdb1a787e4faa2e200b7fbdd0debca0516ec789b4a5ae4bfc26e1",
+  "prior_G_release_sha256": "20311fed1d6070070d03cf292018934e14ddbfed5ab9b99326a29a5e8a229696",
+  "auditor_sha256": "ee0e66e62d3952d3124c8c0bc8d1dd781f8143a60bfeef65f20e5268074476af",
+  "audit_execution": "NOT_RUN",
+  "meaning": "separate local caller contract for the unchanged saved-json auditor; derived from pinned local facts only, without external verification; no new readiness, numerical acceptance, reservation or dispatch authority"
+}

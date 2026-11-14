@@ -1,0 +1,46 @@
+{
+  "kind": "st-third-annual-two-document-metadata",
+  "status": "passed",
+  "season": "20232024",
+  "inputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+      "bytes": 18633830
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024/manifest.json",
+      "sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238",
+      "bytes": 383426
+    }
+  ],
+  "selected_games": 1312,
+  "inventory_games": 1312,
+  "prepared_file_descriptors": 1313,
+  "prepared_game_descriptors": 1312,
+  "prepared_people_descriptors": 1,
+  "score_file_descriptors": 73,
+  "score_panel_descriptors": 32,
+  "score_declared_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20232024/manifest.json",
+    "sha256": "dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa",
+    "season": "20232024",
+    "purpose": "real",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual",
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/manifest.json",
+      "sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c"
+    }
+  },
+  "physical_member_bytes": null,
+  "physical_member_bytes_status": "unmeasured; no member stat or body read",
+  "scope": "two pinned metadata documents: identity, selected-year counts and direct declared bindings only; no external stat, member/coaches/previous bodies, arrays, source games, model imports or canonical reader",
+  "fit_reservation": false,
+  "dispatch": "not_authorized_by_this_receipt",
+  "resources": {
+    "wall_seconds": 0.23216908308677375,
+    "logical_input_body_read_bytes": 19017256,
+    "peak_rss_bytes": 107020288
+  }
+}

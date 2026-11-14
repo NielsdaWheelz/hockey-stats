@@ -1,0 +1,56 @@
+{
+  "kind": "st-final-producer-cached-source-version-independent-review",
+  "verdict": "PASS",
+  "reviewed_at_utc": "2026-11-12T10:08:44.247839+00:00",
+  "reviewer": "/root/st_interrupt_review",
+  "source_pins_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-producer-source-pins-01.json",
+    "bytes": 8782,
+    "sha256": "a6e5b12662e741280ad54ad2ed2e1b790a35bac421ed41125166b0fedfbed5fa"
+  },
+  "preserved_setup_failure": {
+    "bytes": 5890,
+    "sha256": "e4181d1679187f332b7aa526b7c73ae5542510f273843ccc8eb9c756868db044"
+  },
+  "local_binding_sha256": [
+    "8d62446dde84e46d1fcb1521b1a059cf78e322025708145a4dac7856c8055835",
+    "8e39dd391e0dcdc46919a332962e9549dfdf8a957ae9420e79fbeec515b797fa",
+    "4d9c8a4da991517f5002d6a0057d1a545d152c75bd008942884a98f7ae63af81",
+    "a3712f07927bbd5152f3977c68333189831ae4c50e899b4381280b57cc7fe9dd",
+    "7379280b6e5e70511af094e160ccb3c69f4850ef3c4ad777e6ab28210ca30c65",
+    "24d52d03ae36d0b013551ec2aff113b6fdd5e260e8a6f759d0ad54e94a91b6a5"
+  ],
+  "findings": [],
+  "checked": {
+    "detached_source_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+    "analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+    "source_tree": "bcee5ca7d5b71d4e81935f6451f3a2acb35a4edb",
+    "app_commit_tree_pin": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "app_materialized": false,
+    "cached_clean_status_and_index_match": true,
+    "index_entries": 3111,
+    "source_files": 59,
+    "source_bytes": 2651370,
+    "source_manifest_sha256": "e39792ff3b7227134bf0e15c097f3a3e24caa48d2d2e1e308b32a069a9bbe4f1",
+    "lock_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd",
+    "sparse_scope": "exact existing analysis-cone pattern/settings and excluded fixture/reference/app/dependency paths match recorded checks",
+    "common_config_sha256": "541299213627608759bf3e0fc5b8783b33fbeb996e19aa371f5b72c757dcbfed",
+    "common_config_changed": false
+  },
+  "command_evidence": [
+    "initial add--detach--no-checkout and sparse-set commands exited0; first cleanliness assertion exited1, original status stdout remains unretained",
+    "later empty-index diagnosis is root-attributed; one root-authorized read-tree -mu HEAD correction exited0 in new03 only",
+    "retained post-correction inline checker and actual exit0/stdout were reviewed as text: source/identity/index/sparse assertions, Git-blob comparison of59 analysis/src files plus lock/project/version; no swallowed error/status truthiness",
+    "checker body reads stay within src plus lock/pyproject/.python-version and local Git/control receipts; no analysis/data config bodies or model evaluation",
+    "one earlier successful version-only command is byte-identical in failure/final records; sys/importlib.metadata/json query,3.14.8/2.5.3/1.18.1,empty numerical/model module list, no rerun"
+  ],
+  "limits": {
+    "setup_failure": "source initialization/check-order failure; no native/model/data failure inferred",
+    "version_meaning": "stdlib/distribution metadata only; numerical imports, source import ownership, ABI, model or application runtime not validated",
+    "readiness_promotion": false,
+    "READY_packet_created": false,
+    "fit_reservation_dispatch_or_window": false,
+    "actual_pins_reporting": "root reports actual pins were presented before any READY claim; this receipt supplies the later cached review only",
+    "review_scope": "cached local receipts and retained author command/stdout text only; no producer/G/frozen/source/runtime/OS queries, imports/evaluation/tests/build, external read/stat, worktree mutation or docs/index changes; one exclusive local independent receipt"
+  }
+}

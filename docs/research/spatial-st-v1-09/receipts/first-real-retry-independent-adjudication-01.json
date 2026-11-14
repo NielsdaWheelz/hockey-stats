@@ -1,0 +1,130 @@
+{
+  "kind": "independent-st-native-boundary-adjudication",
+  "status": "bounded_evidence_review_passed",
+  "recorded_at_utc": "2026-11-10T13:49:32.219699+00:00",
+  "reviewer": "/root/st_publication_review",
+  "scope": "source contracts and supplied local native/stat/audit proof only; no external artifact/input bodies, second reader, arrays, model, fit or audit rerun",
+  "consumed_local_proofs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-exit-observation-01.json",
+      "sha256": "e68a4ea107759713be0d3df727a3f2562ba92c55049f7c1d79e7d737cb8b3bc7",
+      "bytes": 1299
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-metadata-02.json",
+      "sha256": "24ab2e16cfad3554268c9f0f875ec378b73090ee11f9af4720c6039f8ba7788c",
+      "bytes": 29086
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-01.json",
+      "sha256": "b3434950ca8a3968d6921a7043202f4b2c29e14383982615dc2677ec27ed159f",
+      "bytes": 4181
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-metadata-controller-failure-01.json",
+      "sha256": "2245a9be064c16b7db564be8af41bec4cbf82e584a760537369235433174318e",
+      "bytes": 722
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-fit-01.log",
+      "sha256": "8d25cfe1a9225973378244f729ddf0d8cc56ba69f1b10fbf5ca4795e28426270",
+      "bytes": 864
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-fit-01.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-run-01.log",
+      "sha256": "081ed266fa68339ff7e29d10e8fd824aef5d043e298a4a0755af9bac3732ab4e",
+      "bytes": 248
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-run-01.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-boundary-metadata-01.py",
+      "sha256": "155f2bc70ef882a50b41bb7c75fa3af4a8494a90dfb51fd24135b404eeb8bdfe",
+      "bytes": 3374
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-boundary-metadata-02.py",
+      "sha256": "10721a4daff80fdf4a0d3bc42e9ee7179e2865412348672ceca579403163bcc4",
+      "bytes": 3308
+    }
+  ],
+  "manifest": {
+    "sha256": "7ec561e9c273b833339b8446d7e1a2bb6d0c422d536f72c2c534f71930e16c61",
+    "bytes": 366247
+  },
+  "native": {
+    "exit_status": 0,
+    "wall_seconds": 5091.46,
+    "peak_rss_bytes": 5325340672,
+    "peak_footprint_bytes": 4730622608,
+    "declared_payloads": 15,
+    "payload_stat_sum_bytes": 1577314784,
+    "resources_output_bytes": 1577314784,
+    "payload_sum_matches": true,
+    "output_bytes_excludes": "manifest.json and native run logs"
+  },
+  "saved_json_audit": {
+    "receipt_sha256": "b3434950ca8a3968d6921a7043202f4b2c29e14383982615dc2677ec27ed159f",
+    "exit_status": 0,
+    "annual_json_files": 9,
+    "prepared_preflight_sha256": "ab33a95c58371d2c65574fab0265f4da7394cecf120c93cb392af5a95133e750",
+    "all_three_jsonl_streams_complete": true,
+    "all_annual_digest_and_size_bindings_match_native_metadata": true,
+    "players": 1004,
+    "baseline_heads": 3,
+    "resources": {
+      "wall_seconds": 0.604833000106737,
+      "read_bytes": 49100690,
+      "peak_rss_bytes": 164397056
+    },
+    "gradient_inf_norms": {
+      "volume": 0.002603422661195509,
+      "shape": 0.0023276264506222333,
+      "quality": 0.00016855091694711888
+    },
+    "diagnostics": {
+      "status": "unassessed",
+      "reason": "earlier_annual_not_assessed"
+    }
+  },
+  "controller_failure": {
+    "receipt_sha256": "2245a9be064c16b7db564be8af41bec4cbf82e584a760537369235433174318e",
+    "attribution": "collector01 expected a nonexistent per-member bytes field; frozen member contract is role/path/sha256. failure occurred after native log/exit preservation, one manifest read and fifteen stats. collector02 removes this invented field check; no product, solver or artifact failure follows.",
+    "failed_external_body_read_bytes": 367113,
+    "successor_manifest_read_bytes": 366247,
+    "note": "collector02 reports866B unique preserved local native evidence; its source reads those local copies twice,1732B logical local reads. no physical io quantity is inferred."
+  },
+  "source_binding": {
+    "producer": {
+      "git_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+      "git_dirty": false,
+      "python_version": "3.14.8",
+      "numpy_version": "2.5.3",
+      "scipy_version": "1.18.1",
+      "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    },
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "script_sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf",
+    "fresh_launch_sha256": "c46c4822bcc5aa5d6a7fd9d39030686487718f72713171330ad5244b87b15ed2",
+    "actual_launch_sha256": "e828eec6917aa689c0b525e1eb476ce8ec536f9a9acb260825773fdded522e28",
+    "binding": "prepared ab33 is the audit argument; fresh c46 and actual e828 were separately reviewed before launch"
+  },
+  "limits": [
+    "native EXIT0 supplies canonical strict state/array/projection readback; this reviewer did not repeat it",
+    "independent audit checks saved JSON arithmetic/bindings/history/centering/scalar/accounting only",
+    "all recorded raw gradient norms exceed1e-6; no gradient accuracy or optimizer sensitivity claim",
+    "earlier annual diagnostics unassessed as specified; no first-year continuation",
+    "no independent raw source/predictor/objective/array coefficient/native-map proof",
+    "no real five-year/full v1-09, publication/runtime/browser or scientific acceptance issued"
+  ],
+  "acceptance_issued": false,
+  "slot_release": false
+}

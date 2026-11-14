@@ -1,0 +1,148 @@
+{
+  "kind": "st-composition-native-boundary-metadata",
+  "collection_status": "collected",
+  "started_at_utc": "2026-11-13T06:26:38.573066+00:00",
+  "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results",
+  "native_exit_status": 0,
+  "native_wall_seconds": 6578.68,
+  "native_user_seconds": 6052.65,
+  "native_sys_seconds": 51.91,
+  "native_peak_rss_bytes": 8745664512,
+  "native_peak_footprint_bytes": 8830655304,
+  "native_block_input_operations": 0,
+  "native_block_output_operations": 0,
+  "local_inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-actual-launch-01.json",
+      "bytes": 7299,
+      "sha256": "66dee07a0c67aac13696feedc1ae4369e6ffa2049cb6524498b26aa3bf842757"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-state-selection-candidate-01.json",
+      "bytes": 1364,
+      "sha256": "9325d1be205742b3d95c4a37aa9ba2a26fcbc64fe54183036f61d8b590c2afa7"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-manifest.json",
+      "bytes": 23317,
+      "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-producer.json",
+      "bytes": 54924,
+      "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+    }
+  ],
+  "documents": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/logs/compose.log",
+      "cache": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-native-compose-01.log",
+      "bytes": 899,
+      "sha256": "ac651e4ba173323f429144fa6dd36014abb9a9412b10d86ee5a77b350d139d1a",
+      "complete": true,
+      "cap_bytes": 1048576,
+      "cache_written": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/logs/compose.exit",
+      "cache": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-native-compose-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "complete": true,
+      "cap_bytes": 64,
+      "cache_written": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+      "cache": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-output-manifest-01.json",
+      "bytes": 23310,
+      "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+      "complete": true,
+      "cap_bytes": 65536,
+      "cache_written": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/special-teams-composition.json",
+      "cache": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-producer-receipt-01.json",
+      "bytes": 60964,
+      "sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654",
+      "complete": true,
+      "cap_bytes": 131072,
+      "cache_written": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/composition-resources.json",
+      "cache": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-resources-01.json",
+      "bytes": 464,
+      "sha256": "0e643fbceb72e4a6baf8f7a4dc44c38fa76ff321f2cee454c2081dcb1e2d8ddd",
+      "complete": true,
+      "cap_bytes": 16384,
+      "cache_written": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-spatial-composition.json",
+      "cache": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-20232024-receipt-01.json",
+      "bytes": 15487,
+      "sha256": "fb5eb02fd776764a59e058c51808850ac41001c507c0d561a54354c5c8ba55c3",
+      "complete": true,
+      "cap_bytes": 65536,
+      "cache_written": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-spatial-composition.json",
+      "cache": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-20242025-receipt-01.json",
+      "bytes": 15427,
+      "sha256": "d8dddcb18e385ab41d373a7833bde1ba90d7483b5df52eee8ef494f6b195eece",
+      "complete": true,
+      "cap_bytes": 65536,
+      "cache_written": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-spatial-composition.json",
+      "cache": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-20252026-receipt-01.json",
+      "bytes": 15727,
+      "sha256": "8f51f4379aa638b2ac613afa1dc6416f57a762917184e449e4c7f97436585899",
+      "complete": true,
+      "cap_bytes": 65536,
+      "cache_written": true
+    }
+  ],
+  "external_body_read_bytes": 132280,
+  "unknowns": [],
+  "payload_reads": 0,
+  "member_stats": 0,
+  "acceptance": "not_assessed",
+  "slot_release": false,
+  "actual_launch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-actual-launch-01.json",
+    "bytes": 7299,
+    "sha256": "66dee07a0c67aac13696feedc1ae4369e6ffa2049cb6524498b26aa3bf842757"
+  },
+  "producer": {
+    "git_commit": "1431d80e905fe14f2af900a896fd5a3ef5c730e6",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+    "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+  },
+  "producer_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/special-teams-composition.json",
+    "sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654"
+  },
+  "sidecar_wall_seconds": 6577.984334249981,
+  "strict_read_wall_seconds": 2828.352449416183,
+  "output_member_bytes": 32083871277,
+  "source_and_header_correspondence": "checked; independent preservation pending",
+  "output_member_bytes_scope": "producer-measured stat total; not independently rehashed",
+  "canonical_hash_validation": "native read_results named staging call validates every output descriptor/hash before rename and final root-receipt write",
+  "resources": {
+    "wall_seconds": 13.900253458879888,
+    "peak_rss_bytes": 24772608,
+    "external_body_bytes": 132280,
+    "local_input_bytes": 86904,
+    "physical_io_bytes": "unmeasured"
+  },
+  "finished_at_utc": "2026-11-13T06:26:52.473488+00:00"
+}

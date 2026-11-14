@@ -1,0 +1,130 @@
+{
+  "kind": "st-fourth-post-interruption-source-proposal",
+  "status": "source_prepared_pending_independent_review_not_executed",
+  "prepared_at_utc": "2026-11-12T04:36:37.452305+00:00",
+  "source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-interruption-boundary-02.py",
+    "bytes": 10609,
+    "sha256": "de24508af28c25f39a48187c33ea6619bfb3c3be93b2e46ee13bc0d954a3774b"
+  },
+  "checks": [
+    "ast parse and compile; controller not imported or executed",
+    "literal parser checks from extracted AST patterns against synthetic shell exit/signal/mac time/RSS strings",
+    "receipt newline AST value is actual newline",
+    "stdlib imports only; seven fixed output paths and three capped evidence paths",
+    "no directory enumeration, recursive traversal or external file mutation"
+  ],
+  "proposed_scope": {
+    "external_body_reads": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/logs/20242025-fit.log",
+        "maximum_bytes": 1048576
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/logs/20242025-fit.exit",
+        "maximum_bytes": 64
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025/manifest.json",
+        "maximum_bytes": 1048576,
+        "parse": "selected unvalidated envelope/status/binding/resource fields only"
+      }
+    ],
+    "maximum_body_bytes": 2097216,
+    "body_read_calls_maximum": 3,
+    "native_evidence_lstats": 2,
+    "output_metadata_lstats": 7,
+    "output_metadata_paths": [
+      "run05",
+      "run05/real/states/20242025",
+      "run05/real/states/20242025/heads",
+      "run05/real/states/20242025/manifest.json",
+      "run05/real/states/20242025/heads/volume.json",
+      "run05/real/states/20242025/heads/shape.json",
+      "run05/real/states/20242025/heads/quality.json"
+    ],
+    "availability_queries": [
+      "/Volumes/Expansion is_mount",
+      "/Volumes/Expansion/hockey-stats is_dir"
+    ],
+    "probe_count_note": "nine explicit lstat calls after successful availability checks; two availability queries may use multiple underlying OS metadata calls",
+    "excluded": [
+      "directory enumeration",
+      "array/design path stat or body read",
+      "coverage/reference/probe body read",
+      "source/prepared/coaches/predecessor read",
+      "provider import",
+      "evaluator",
+      "full reader",
+      "audit",
+      "fit",
+      "retry",
+      "external writes",
+      "head/member bodies",
+      "following any manifest member reference"
+    ],
+    "manifest_lstat": "reuse the manifest observation among the seven output lstats; no additional query",
+    "manifest_header_keys": [
+      "schema_version",
+      "kind",
+      "purpose",
+      "family",
+      "season",
+      "recipe",
+      "implementation",
+      "prepared",
+      "coaches",
+      "valued",
+      "previous",
+      "basis_source",
+      "basis_identity",
+      "design_identity",
+      "training_cutoff",
+      "heads",
+      "resources"
+    ]
+  },
+  "preservation": {
+    "result": "fourth-real-interruption-boundary-02.json",
+    "raw_log": "fourth-real-interruption-native-02.log",
+    "raw_exit": "fourth-real-interruption-native-02.exit",
+    "destination_root": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification",
+    "exclusive": true,
+    "missing_or_oversized": "missing is unknown; cap overflow retains a local bounded-read controller failure and raises nonzero without reading/truncating or retry",
+    "malformed_or_partial_exit": "raw preserved, native exit remains null",
+    "controller_failure": "retained separately from artifact judgment; no automatic rerun",
+    "raw_manifest": "fourth-real-interruption-native-manifest-02.json",
+    "malformed_manifest": "raw bytes retained; selected envelope remains unknown, not native/artifact failure"
+  },
+  "interpretation": {
+    "native_status": "reported only from an exact saved shell exit record; never inferred from absence or signal",
+    "missing_timing": "null, not zero",
+    "head_completion": "unknown",
+    "head_reusability": "unknown",
+    "payload_total": "unknown",
+    "artifact_acceptance": "not_assessed",
+    "slot_release": false,
+    "fit_window": false
+  },
+  "authorization": "user confirmed one actual invocation after independent source PASS and fresh mount availability; root owns dispatch, this preparation executes nothing",
+  "actual_external_reads": 0,
+  "actual_external_stats": 0,
+  "actual_execution": "not_run",
+  "supersedes": {
+    "source_sha256": "3d6af58f746d4584a50d83f39b425c97765546e430807635d0c8a005a90fdc69",
+    "proposal_sha256": "01ca286406f20195974a5ba44092451d2a6df034359905557f9ca525229f58b3",
+    "reason": "revision02 expands the original smaller proposal with the subsequently authorized manifest envelope and nonzero cap-overflow failure semantics; source01 has no demonstrated regex or newline defect"
+  },
+  "review_history": {
+    "initial_finding": "reviewer initially misread JSON-rendered escaping and incorrectly flagged source01 regexes and receipt newline",
+    "correction": "independent AST-literal synthetic parser checks and parent checks confirm both source01 and source02 parse actual newline/signal/mac time/RSS records correctly",
+    "source01_classification": "valid smaller source proposal, preserved unchanged; not a controller or native failure",
+    "prior_inaccurate_proposal": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-interruption-source-proposal-02.json",
+      "sha256": "2dbf631c9bf8aa751df630148c8a22548d3c10e67149c2f7ec7817ecd603ac91"
+    },
+    "source02_changed_by_correction": false,
+    "controller_executions": 0,
+    "external_calls": 0
+  }
+}

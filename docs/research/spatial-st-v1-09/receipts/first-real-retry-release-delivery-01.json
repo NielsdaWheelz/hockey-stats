@@ -1,0 +1,44 @@
+{
+  "kind": "st-first-real-retry-explicit-release-delivery",
+  "recorded_at_utc": "2026-11-10T13:51:42.885298+00:00",
+  "release_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-boundary-release-01.json",
+    "sha256": "39d555266d091793c6cb360d7f08ad41be2ee55691ed9f4a6e866c3166acd4bb"
+  },
+  "exact_message": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-release-message-01.txt",
+    "sha256": "ae8ffe2d66c39dff0d9ec5de905576548b272b5349ce90e71693efb44f662335"
+  },
+  "deliveries": [
+    {
+      "target": "t-a59b0562801254be",
+      "machine": "macbook",
+      "tool_chunk": "0fedb7",
+      "cli_exit_status": 0,
+      "result": {
+        "ok": true,
+        "result": {
+          "method": "terminal",
+          "outcome": "written"
+        }
+      }
+    },
+    {
+      "target": "t-16b64d1338b85a48",
+      "machine": "macbook",
+      "tool_chunk": "99206d",
+      "cli_exit_status": 0,
+      "result": {
+        "ok": true,
+        "result": {
+          "method": "terminal",
+          "outcome": "written"
+        }
+      }
+    }
+  ],
+  "interpretation": "both terminal writes confirmed; provider acknowledgement and next-owner confirmation are separate",
+  "replayed_deliveries": 0,
+  "next_owner_assigned": false,
+  "further_heavy_command_dispatched": false
+}

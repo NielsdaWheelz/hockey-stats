@@ -1,0 +1,7 @@
+# exact accepted complete-parent cutover
+
+`74d12c2bb340a52cb43c55e39ed0e89e48f87d8f` pins selected real manifest `8b32c23e` before the ordinary full reader. exact conversion-adjudication `1cb1d49b` and complete-release `339a33db` receipts bind that parent, original donor `38c1d8e` and correction `a732f988`. three hash-checked local metadata copies total 30,326 bytes. no donor2/catalog ancestry scan or implicit added-goalie override remains.
+
+[five bounded fabricated tests](../receipts/accepted-parent-cutover-01.json) pass: wrong/old/added-goalie parent variants and changed receipts reject before full reading; fixtures delegate to the normal reader; small mocked-reader composition preserves nonowned copies. four red controls genuinely reached the full-reader sentinel before the cutover. a separate obsolete direct-helper argument mismatch is not counted as another product defect. independent source and retained-evidence review passes; no real body/full validator or composition was run.
+
+the five fixed annual score pins, chronology/coaches/basis/method joins, pending-only replacement, old 5v5 row transport and streamed nonowned copies are unchanged. reviewed parent receipts enter the existing per-season composition receipt already linked by method evidence. a later accepted complete goalie successor requires an explicit reviewed pin/receipt update. this deliberately keeps final source selection with the coordinated serial g/st boundary; no speculative ancestor lookup, converter, refit or automatic latest-parent mechanism is added.

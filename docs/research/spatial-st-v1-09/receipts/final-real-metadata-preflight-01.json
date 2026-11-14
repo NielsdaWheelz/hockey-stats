@@ -1,0 +1,46 @@
+{
+  "kind": "st-final-annual-two-document-metadata",
+  "status": "passed",
+  "season": "20252026",
+  "inputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+      "bytes": 18633830
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026/manifest.json",
+      "sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+      "bytes": 383423
+    }
+  ],
+  "selected_games": 1312,
+  "inventory_games": 1312,
+  "prepared_file_descriptors": 1313,
+  "prepared_game_descriptors": 1312,
+  "prepared_people_descriptors": 1,
+  "score_file_descriptors": 73,
+  "score_panel_descriptors": 32,
+  "score_declared_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01/20252026/manifest.json",
+    "sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276",
+    "season": "20252026",
+    "purpose": "real",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual",
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json",
+      "sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe"
+    }
+  },
+  "physical_member_bytes": null,
+  "physical_member_bytes_status": "unmeasured; no member stat or body read",
+  "scope": "two pinned metadata documents: identity, selected-year counts and direct declared bindings only; no external stat, member/coaches/previous bodies, arrays, source games, model imports or canonical reader",
+  "fit_reservation": false,
+  "dispatch": "not_authorized_by_this_receipt",
+  "resources": {
+    "wall_seconds": 0.17079004109837115,
+    "logical_input_body_read_bytes": 19017253,
+    "peak_rss_bytes": 107036672
+  }
+}

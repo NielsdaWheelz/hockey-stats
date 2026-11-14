@@ -1,0 +1,119 @@
+{
+  "kind": "temporary-st-saved-json-audit",
+  "status": "passed",
+  "inputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/manifest.json",
+      "sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c",
+      "bytes": 366549
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-audit-binding-01.json",
+      "sha256": "5646ac31ae6d4a1c72b3f543fafcc1dba07a541c9d1da3e73e62c3ab46773fb6",
+      "bytes": 975
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/real/states/20232024/manifest.json",
+      "sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7",
+      "bytes": 366538
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/real/states/20232024/heads/volume.json",
+      "sha256": "1107d3c040b83884588fd63b4fc2db00961cc44fca0406c21ffabefac1dbd7bb",
+      "bytes": 3117312
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/real/states/20232024/heads/shape.json",
+      "sha256": "a2f0c5503cecbc29b546fbde8197961fec6d13a27754039465fbcc261afe3b95",
+      "bytes": 12852545
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/real/states/20232024/heads/quality.json",
+      "sha256": "78efdaabc72429f2c581a63649300107e6e1830186faed7d68e2c58e40af415b",
+      "bytes": 13264303
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/heads/volume.json",
+      "sha256": "09b62479a0b5b5500fba957b018f5ab9b0dd05aaab8b1b11dac89d49ab1b3882",
+      "bytes": 3246960
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/heads/shape.json",
+      "sha256": "a8d3a71cd0fc30bc4c644b7b8e90a7b48fcf5dbf7fbd193c5f6525da8c7ae37d",
+      "bytes": 13255518
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/heads/quality.json",
+      "sha256": "53f2ec0fe7eb3ae3dc76646ead6edf36a7dd577a61aa11d6a2a7dc3cc61b6e74",
+      "bytes": 13678420
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/coverage.json",
+      "sha256": "a29c37cd2c628fb77a7cdcca2c4d0b1738b23e8144911f4e3a03a2c71eac93e3",
+      "bytes": 20548386
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/reference.json",
+      "sha256": "1d256d75041da76df5ede0ea8f1386ac31142783e730dd60e2bd00e2dc240c2f",
+      "bytes": 858910
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/coefficient-support.jsonl",
+      "sha256": "350969743c391f2f24995fddb21de04706ac7a3431e24606185f90d6ebcb2350",
+      "bytes": 3569013,
+      "complete": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/projections.jsonl",
+      "sha256": "c13aa4b0eca8e55c533fd8ea1c42783f2c01dc7a9cd504ff675be55e9bfaac8d",
+      "bytes": 8204457,
+      "complete": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/adjustments.jsonl",
+      "sha256": "671fa6206364f11fb595029c3c6a59b694604c0fcbc031e983eeb4831777c0b8",
+      "bytes": 4438344,
+      "complete": true
+    }
+  ],
+  "season": "20242025",
+  "players": 920,
+  "baseline_heads": 3,
+  "state_weights": {
+    "5v4": 0.9737109004225643,
+    "5v3": 0.016273909562896108,
+    "4v3": 0.010015190014539679
+  },
+  "reference_sha256": "642605f181396201ba87c931b44fb9d55f72eef3a9110af3275fd8c45d4be9e4",
+  "basis_source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+    "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509",
+    "archive": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/design.npz",
+      "sha256": "daa879d5e036b77c85957952cea642a7883750db48d5aca6ac4c9f7508f12a5a"
+    }
+  },
+  "producer": {
+    "git_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "diagnostics": {
+    "status": "unassessed",
+    "reason": "earlier_annual_not_assessed"
+  },
+  "gradient_inf_norms": {
+    "volume": 0.0008747044630581513,
+    "shape": 0.0004159497157791847,
+    "quality": 0.0001561027925295333
+  },
+  "scope": "saved-json arithmetic, bindings, raw history, center transfers, scalar mixtures and accounting; no source, arrays, model/evaluator, objective, native-map proof or scientific admission",
+  "resources": {
+    "wall_seconds": 12.144603041931987,
+    "read_bytes": 97768230,
+    "peak_rss_bytes": 320290816
+  }
+}

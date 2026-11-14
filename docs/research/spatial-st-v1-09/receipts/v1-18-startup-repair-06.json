@@ -1,0 +1,42 @@
+{
+  "kind": "coordination_report",
+  "source": "user-supplied v1-18 ready05 review and dispatch update",
+  "prior_report": "v1-18-startup-repair-05.json",
+  "local_artifact_acceptance_repeated": false,
+  "heavy_owner": "v1-18",
+  "second_failed_launch": {
+    "pid_reported": 50701,
+    "entered_javascript": true,
+    "failed_stage": "SqliteClient acquisition before strict queries",
+    "candidate_physical_io_bytes": null,
+    "candidate_physical_io_status": "unmeasured",
+    "failure_json_name_reported": "failed-startup-sql-open-02.json",
+    "failure_log_and_policy04": "preserved"
+  },
+  "ordinary_full_validations_in_both_failed_launches": 0,
+  "ready05": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-05.json",
+    "sha256": "3673ff6d32c9d894b6a7566058058c254b8266abe90c0344045e47cd9c0900f9",
+    "bytes": 11372,
+    "independent_review_sha256": "49f3aa63fae1cc929d2ce4f15ee92b195aca278a394460bd5a24b715faa52a3c",
+    "profile": {
+      "bytes": 234,
+      "sha256": "305c54592b4d5a11b39e04cb5c1c0ab0477a6de57f2436c19c28229a94177952",
+      "correction": "exact candidate exclusion inside external file-read-data denial",
+      "metadata": "ordinary metadata allowed",
+      "contents_denied": "original source and log contents"
+    },
+    "unchanged_pins": "normal argv, source, inputs, outputs and publication"
+  },
+  "actual_normal_strict_validation": {
+    "status_reported": "dispatching",
+    "count": 1,
+    "port": 41919,
+    "runtime_accepted": false
+  },
+  "fit_rescore_or_additional_full_read_reported": false,
+  "accepted_complete_predecessor": false,
+  "v1_09_actions": "documentation only; no candidate, external body, server import, diagnostic probe or numerical work",
+  "st_annual_and_bulk_fixtures": "held until explicit release to both sessions and v1-07 confirmation",
+  "activation": "not_assigned"
+}

@@ -1,0 +1,123 @@
+{
+  "kind": "st-final-producer-local-materialization-setup-failure",
+  "status": "setup_incomplete_not_ready",
+  "recorded_at_utc": "2026-11-12T09:58:37.640318+00:00",
+  "producer_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-03",
+  "source_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+  "analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "commands": [
+    {
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+      "argv": [
+        "git",
+        "worktree",
+        "add",
+        "--detach",
+        "--no-checkout",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-03",
+        "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5"
+      ],
+      "exit_status": 0,
+      "combined_output": "Preparing worktree (detached HEAD c4cfb7d)\n"
+    },
+    {
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-03",
+      "argv": [
+        "git",
+        "sparse-checkout",
+        "set",
+        "--cone",
+        "analysis"
+      ],
+      "exit_status": 0,
+      "combined_output": ""
+    }
+  ],
+  "failed_checker": {
+    "kind": "author local inline source/index/lock/sparse checker",
+    "executions": 1,
+    "exit_status": 1,
+    "retained_combined_output": "Traceback (most recent call last):\n  File \"<stdin>\", line 12, in <module>\nAssertionError\n",
+    "failed_line": 12,
+    "failed_expression": "assert not status",
+    "exception_type": "AssertionError",
+    "exception_message": "",
+    "original_git_status_stdout": null,
+    "status_stdout_retention": "captured in the failed process but not printed; original text is not retained and is not reconstructed from later diagnosis",
+    "checks_reached": [
+      "HEAD, analysis tree and app tree matched declared pins",
+      "detached HEAD verified",
+      "git status captured; cleanliness assertion failed"
+    ],
+    "checks_not_reached": [
+      "index match",
+      "sparse settings/pattern",
+      "source-byte checks",
+      "lockfile",
+      "common-config-after hash"
+    ]
+  },
+  "version_check": {
+    "executions": 1,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-03",
+    "argv": [
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+      "-B",
+      "-c",
+      "import importlib.metadata,json,sys; print(json.dumps({\"python\":\".\".join(map(str,sys.version_info[:3])),\"numpy\":importlib.metadata.version(\"numpy\"),\"scipy\":importlib.metadata.version(\"scipy\"),\"sys_executable\":sys.executable,\"dont_write_bytecode\":sys.dont_write_bytecode,\"numerical_or_model_modules_imported\":[name for name in sys.modules if name in (\"numpy\",\"scipy\",\"hockey_stats\") or name.startswith((\"numpy.\",\"scipy.\",\"hockey_stats.\"))]},sort_keys=True))"
+    ],
+    "exit_status": 0,
+    "actual_stdout": "{\"dont_write_bytecode\": true, \"numerical_or_model_modules_imported\": [], \"numpy\": \"2.5.3\", \"python\": \"3.14.8\", \"scipy\": \"1.18.1\", \"sys_executable\": \"/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python\"}\n",
+    "actual": {
+      "dont_write_bytecode": true,
+      "numerical_or_model_modules_imported": [],
+      "numpy": "2.5.3",
+      "python": "3.14.8",
+      "scipy": "1.18.1",
+      "sys_executable": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python"
+    },
+    "scope": "stdlib sys/importlib.metadata/json only; distribution versions read without importing numpy, scipy or hockey_stats; no rerun"
+  },
+  "local_header_receipts_checked": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-metadata-preflight-01.json",
+      "bytes": 2016,
+      "sha256": "4d9c8a4da991517f5002d6a0057d1a545d152c75bd008942884a98f7ae63af81"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-metadata-preflight-independent-adjudication-01.json",
+      "bytes": 4034,
+      "sha256": "a3712f07927bbd5152f3977c68333189831ae4c50e899b4381280b57cc7fe9dd"
+    }
+  ],
+  "root_diagnosis": {
+    "attribution": "later fresh bounded local observations supplied by /root; not the failed checker original stdout and not reexecuted by this record writer",
+    "HEAD": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+    "detached": true,
+    "top_level_names": [
+      ".git"
+    ],
+    "index_entry_count": 0,
+    "git_status_entry_count": 3111,
+    "git_status_all_entry_codes": "D ",
+    "sparseCheckout": true,
+    "sparseCheckoutCone": true,
+    "sparse_pattern": "/*\n!/*/\n/analysis/\n",
+    "analysis_cli_and_lock_presence": "absent",
+    "cause": "--no-checkout left an empty index; setting sparse patterns did not populate HEAD",
+    "classification": "materialization/check-order setup failure; no source, native, model or data failure established"
+  },
+  "proposed_repair": "git read-tree -mu HEAD inside this new producer03 only",
+  "repair_execution": "NOT_RUN; root GO after independent repair review required",
+  "remaining_source_checks": "NOT_RUN after the setup failure; do not infer clean materialization or readiness",
+  "common_config_sha256_before": "541299213627608759bf3e0fc5b8783b33fbeb996e19aa371f5b72c757dcbfed",
+  "source_packet01_sha256": "e54c2fd7239aac3b3d8d2ddb7073e87a4437719f8a174277443721fc26f4372d",
+  "source_packet02_sha256": "8d62446dde84e46d1fcb1521b1a059cf78e322025708145a4dac7856c8055835",
+  "script_sha256": "d95df4998c2d5c23dbe86534b5be2d5a31aa7b194fd706dc8926e90edd2a2bd3",
+  "readiness": "NOT_READY",
+  "ready_packet_created": false,
+  "fit_execution": "NOT_RUN",
+  "reservation": false,
+  "record_writer_scope": "retained tool output and root-supplied local diagnosis only; no new git/source/runtime/OS query, external read/stat/create, checkout repair, numerical/model import, fit, old-producer/G/docs/index mutation or coordination"
+}

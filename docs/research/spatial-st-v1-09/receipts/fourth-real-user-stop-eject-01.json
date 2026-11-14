@@ -1,0 +1,68 @@
+{
+  "kind": "st-fourth-annual-user-interrupt-and-normal-eject",
+  "status": "stopped_and_ejected_numerically_unassessed",
+  "interrupt": {
+    "count": 1,
+    "method": "owned operator ctrl-c",
+    "terminal_delivery": "written",
+    "terminal_observation": "^C followed by plain prompt reporting INT 35m 24s",
+    "coordinator_additional_sigint": false,
+    "numeric_native_exit_code": null
+  },
+  "processes": {
+    "python_pid": 76792,
+    "time_pid": 76791,
+    "ps_exit": 1,
+    "ps_stdout": "",
+    "owned_fit_or_wrapper_matches": [],
+    "lsof_volume_exit": 1,
+    "lsof_volume_stdout": "",
+    "lsof_volume_diagnostics": ""
+  },
+  "disk": {
+    "volume": "Expansion",
+    "mountpoint": "/Volumes/Expansion",
+    "volume_device": "disk5s1",
+    "apfs_physical_store": "disk4s2",
+    "physical_device": "disk4",
+    "media_name": "Expansion HDD",
+    "bus": "USB",
+    "whole_disk": true,
+    "internal": false
+  },
+  "eject": {
+    "command": [
+      "diskutil",
+      "eject",
+      "/dev/disk4"
+    ],
+    "exit_code": 0,
+    "stdout": "Disk /dev/disk4 ejected\n",
+    "force": false,
+    "os_mount_verification": "Expansion absent from OS mount table"
+  },
+  "partial_output": {
+    "run": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05",
+    "files_and_logs": "left untouched; no external read/stat/copy after stop request",
+    "native_wall_seconds": null,
+    "native_peak_rss_bytes": null,
+    "payload_bytes": null,
+    "artifact_acceptance": "not_assessed"
+  },
+  "held": {
+    "new_heavy_commands": true,
+    "external_metadata_and_data_reads": true,
+    "collector": "not_run",
+    "audit": "not_run",
+    "retry": "not_authorized",
+    "resume": "awaits reconnect and explicit coordination"
+  },
+  "cached_local": {
+    "launch": "fourth-real-actual-launch-01.json",
+    "preflight": "fourth-real-launch-preflight-01.json",
+    "process_journal": "fourth-real-process-presence-01.jsonl",
+    "terminal": "fourth-real-user-stop-terminal-01.txt",
+    "terminal_sha256": "ded6813d739a1e9df5ef5716433ae712ea075069d1466b329afcacf38c7e906a"
+  },
+  "cached_at_utc": "2026-11-11T16:50:08.100463+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "kind": "st-inherited-method-lines-source-proof",
+  "status": "passed",
+  "production_diff_paths": [
+    "analysis/src/hockey_stats/spatial_composition.py"
+  ],
+  "source_sha256": "4fe63004da8d9c71849dfaccfd11ecd8f942f30c4ccee6112ae3918f82eb4b7e",
+  "original_sha256": "55b0d62f1b8a3d630b03f5abd58bbdd17c1cb900ca4acf0d40c38b29e6207038",
+  "inverse_branch_sha256": "55b0d62f1b8a3d630b03f5abd58bbdd17c1cb900ca4acf0d40c38b29e6207038",
+  "inverse_branch_byte_equal": true,
+  "scope": "local source bytes and git only; no production import, control, runtime or external data"
+}

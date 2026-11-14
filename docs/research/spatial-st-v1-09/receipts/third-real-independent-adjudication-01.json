@@ -1,0 +1,160 @@
+{
+  "kind": "independent-st-native-boundary-adjudication",
+  "status": "bounded_evidence_review_passed",
+  "recorded_at_utc": "2026-11-11T13:53:27.726268+00:00",
+  "reviewer": "/root/st_publication_review",
+  "season": "20232024",
+  "scope": "source contracts and supplied local native/stat/audit proofs only; no external artifact/input reads or stats, second canonical reader, arrays, model, fit or audit rerun by this reviewer",
+  "consumed_local_proofs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-native-exit-observation-01.json",
+      "bytes": 493,
+      "sha256": "05083e733e7d85649013979c93fce4658c43274684c58ae7f0aca60e1ef65ed8"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-native-metadata-01.json",
+      "bytes": 7581,
+      "sha256": "f3466ae4a2671bfd0e7e0ce2e7b431cb2cda660a522a2fa43266679538148b23"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-saved-json-audit-01.json",
+      "bytes": 5145,
+      "sha256": "f57eb8335c266fd3ab4079638793275254c9de4752c54a9bf2313ee1a6267fc5"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-native-fit-01.log",
+      "bytes": 864,
+      "sha256": "79df6a3587968ad4032deff71e81663dd3ff9b2c647d5429728688a083e151a3"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-native-fit-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-saved-json-audit-run-01.log",
+      "bytes": 243,
+      "sha256": "2483fab3b16bcbb67bab25f830abc1c2040f716718305af44ee5e6cb494f3678"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-saved-json-audit-run-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-saved-json-audit-01.json",
+      "bytes": 5144,
+      "sha256": "916969ff72eecef03edc9e56ed6cf28bb5d4a0287c802abd29576525a26e71bb"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-launch-preflight-01.json",
+      "bytes": 2202,
+      "sha256": "5bc9e4f0651d07c1baa215015d9144ae2fd92fb4c782d643a1115f326f0c45ba"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-actual-launch-01.json",
+      "bytes": 3600,
+      "sha256": "e99acb657a930b4236b2486b935045cdb5fec0a6b0c480342f93b22a65ceaab1"
+    }
+  ],
+  "reviewed_controller_sources": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-boundary-metadata-01.py",
+      "bytes": 4385,
+      "sha256": "80f3370e9cfb04bd7dd972e01e856a601de1fc305c854e1e4d81ad132b299ab3"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-real-saved-audit-temporary.py",
+      "bytes": 27303,
+      "sha256": "ee0e66e62d3952d3124c8c0bc8d1dd781f8143a60bfeef65f20e5268074476af"
+    }
+  ],
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/real/states/20232024/manifest.json",
+    "bytes": 366538,
+    "sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7"
+  },
+  "native": {
+    "exit_status": 0,
+    "wall_seconds": 6383.31,
+    "peak_rss_bytes": 8613314560,
+    "peak_footprint_bytes": 7917132736,
+    "declared_payloads": 15,
+    "payload_stat_sum_bytes": 1684307099,
+    "resources_output_bytes": 1684307099,
+    "payload_sum_matches": true,
+    "output_bytes_excludes": "manifest.json and native run logs"
+  },
+  "metadata_collection": {
+    "controller_invocations": 1,
+    "controller_failure": false,
+    "body_read_bytes": 367404,
+    "declared_payload_stats": 15,
+    "wall_seconds": null,
+    "note": "one manifest and raw native log/exit read; declared role/path/sha256 member descriptors use actual stat sizes; collection wall unmeasured and physical io not inferred"
+  },
+  "saved_json_audit": {
+    "receipt_sha256": "f57eb8335c266fd3ab4079638793275254c9de4752c54a9bf2313ee1a6267fc5",
+    "exit_status": 0,
+    "invocations": 1,
+    "external_json_documents": 13,
+    "current_json_documents": 9,
+    "previous_json_documents": 4,
+    "local_preflight": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/docs/research/spatial-st-v1-09/receipts/third-real-fit-held-02.json",
+      "bytes": 8173,
+      "sha256": "958d73ec3205b24dbae7c8fae439bc9e8901939e4372c1b00945426682a7889c"
+    },
+    "explicit_previous_manifest_sha256": "2ce8f5cf777c9f252da4c053955281fea0c345a93b8b0154e8f4e24622205175",
+    "previous_manifest_and_three_head_pins_equal_second_accepted_audit": true,
+    "all_current_digest_and_size_bindings_match_native_metadata": true,
+    "all_three_jsonl_streams_complete": true,
+    "players": 924,
+    "baseline_heads": 3,
+    "resources": {
+      "wall_seconds": 15.024656291818246,
+      "read_bytes": 90076573,
+      "peak_rss_bytes": 315899904
+    },
+    "gradient_inf_norms": {
+      "volume": 0.003629465676453947,
+      "shape": 0.0010687042789889745,
+      "quality": 2.889901685909635e-05
+    },
+    "diagnostics": {
+      "status": "unassessed",
+      "reason": "earlier_annual_not_assessed"
+    },
+    "scope": "saved-json arithmetic, bindings, raw history, center transfers, scalar mixtures and accounting; no source, arrays, model/evaluator, objective, native-map proof or scientific admission"
+  },
+  "source_binding": {
+    "producer": {
+      "git_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+      "git_dirty": false,
+      "python_version": "3.14.8",
+      "numpy_version": "2.5.3",
+      "scipy_version": "1.18.1",
+      "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    },
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "script_sha256": "837b8e86d232fa3692c524bac64ac1eed7274967218da7f7d222f9210666d2a0",
+    "ready_sha256": "958d73ec3205b24dbae7c8fae439bc9e8901939e4372c1b00945426682a7889c",
+    "fresh_launch_sha256": "5bc9e4f0651d07c1baa215015d9144ae2fd92fb4c782d643a1115f326f0c45ba",
+    "actual_launch_sha256": "e99acb657a930b4236b2486b935045cdb5fec0a6b0c480342f93b22a65ceaab1",
+    "prior_owner_release_sha256": "2ff90ebea4ecd1f70388a4fe27de574cf2acf106373fcb5a6cf8f1fad1ab2553",
+    "original_base_score_sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238",
+    "accepted_complete_publication_predecessor": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "binding": "flat ready02 is the audit argument; fresh launch preflight and actual launch are separate reviewed local proofs; frozen producer was not modified or rehashed by this adjudication"
+  },
+  "limits": [
+    "native EXIT0 supplies the canonical predecessor/current state, array and projection readback under the reviewed source contract; this reviewer did not repeat it",
+    "independent audit adds saved-json arithmetic, bindings, raw history, center transfers, scalar mixtures and accounting; prior four input pins match accepted second-year evidence",
+    "all recorded raw gradient norms exceed 1e-6; no optimizer precision, sensitivity or scientific-quality claim",
+    "earlier annual diagnostics remain unassessed; this annual has zero continuation probes",
+    "no independent raw source, predictor, objective, array coefficient or native-map proof",
+    "three annuals supply nine of fifteen baseline heads only; two remaining annuals, final diagnostics, real composition, publication/runtime/browser and full v1-09 acceptance remain pending",
+    "this evidence review grants no next command, ownership, fit reservation, release or scientific admission"
+  ],
+  "acceptance_issued": false,
+  "slot_release": false
+}

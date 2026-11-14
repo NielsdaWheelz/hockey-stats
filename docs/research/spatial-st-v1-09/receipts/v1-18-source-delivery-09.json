@@ -1,0 +1,229 @@
+{
+  "status": "complete_pr_merged_primary_synchronized_owned_cleanup_verified",
+  "recorded_at": "2026-11-11T09:00:25.039962+00:00",
+  "assignment": "user authorized pr, merge, primary source synchronization and scoped cleanup on 2026-11-11",
+  "github": {
+    "pr": 61,
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/61",
+    "actual_read_api_state": "closed",
+    "merged": true,
+    "merged_at": "2026-11-11T08:47:49Z",
+    "merge_commit": "65c777fe52c29fd1ab70950cd7525aec6f65d566",
+    "reviewed_head": "47c2c7a7725f5395cc038c73ae2f9b0bd1fa65ee",
+    "check": {
+      "id": 130418133787,
+      "name": "GitGuardian Security Checks",
+      "head_sha": "47c2c7a7725f5395cc038c73ae2f9b0bd1fa65ee",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-11T08:44:03Z"
+    },
+    "functional_CI": "not asserted; the only hosted check is GitGuardian security"
+  },
+  "primary": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats",
+    "branch": "main",
+    "head": "65c777fe52c29fd1ab70950cd7525aec6f65d566",
+    "tree": "15c99a5c28f1b7a11dea39122fb8f9e890acbcea",
+    "clean": true,
+    "live_origin_main_exact": true,
+    "reviewed_tree_exact": true,
+    "receipt_bound_ancestry_preserved": true,
+    "accepted_source_hashes_exact": 32,
+    "original_f3_context_blobs_preserved": 13
+  },
+  "verification": {
+    "primary_node": "24.21.0",
+    "normal_typecheck_exit_code": 0,
+    "typecheck_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-primary-typecheck.txt",
+      "bytes": 866,
+      "sha256": "0a835efe35fa8cd5b8b24f7fd8a4a5d3e03956efa50b62d6e79bcf1e31edabbe"
+    },
+    "dependency_install_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-primary-dependencies.txt",
+      "bytes": 804,
+      "sha256": "73c3a29c3363f8ecdb9bfcdc5af3e2b82a9508aca1fcabc6bb38244d115f4128"
+    },
+    "new_dependencies": "exactly six reviewed D3/type packages; all existing locked dependencies unchanged",
+    "functional_hosted_ci": "not configured or asserted; hosted GitGuardian security check passed",
+    "source_unchanged_since_accepted_full_build_and_live_integration": true
+  },
+  "cleanup": {
+    "removed_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-18",
+    "removed_local_branches": [
+      "implement/v1-18-analytical-skater-sheet",
+      "handoff/v1-18-web"
+    ],
+    "removed_remote_branch": "refs/heads/implement/v1-18-analytical-skater-sheet",
+    "removed_owned_stash": "2cbf107d15f70ed7c6be5cc9e45ec28c2a66e4dc",
+    "source_alias": {
+      "link": "/Users/nnandal/Documents/code/hockey-stats-v1-18",
+      "target": "/Users/nnandal/Documents/code/hockey-stats",
+      "tracked_sources_exact": [
+        {
+          "path": "AGENTS.md",
+          "sha256": "c71c4ba7ef7900655e3ecb95b3c7fe2292da89fdac9b28533a576dc4adbfa290"
+        },
+        {
+          "path": "docs/specs/experimental-application.md",
+          "sha256": "1d557380ccad393c54764a94517f73f506a8ff6fac51d3f71c7a90e8b49e7aa2"
+        },
+        {
+          "path": "docs/specs/v1-18-analytical-skater-sheet.md",
+          "sha256": "2c5526542da817626e863df2e399d3bea63aab5249055a1c7955ba35153fe5a6"
+        },
+        {
+          "path": "fixtures/publication-v1-13/results/manifest.json",
+          "sha256": "38c35b8c40b4e4e592d48710cd47c7b624467f56ac0168c949c7dccbc9901c02"
+        },
+        {
+          "path": "fixtures/publication-v1-13/analytical-v1-18-support-correction.json",
+          "sha256": "6743983f4e57243b71995c9f97f9e83aa3e54281445efee13cddff2db1dee49d"
+        }
+      ],
+      "meaning": "tracked source/docs/fixtures alias; not a frozen runnable task build"
+    },
+    "retained_worktrees": [
+      "/Users/nnandal/Documents/code/hockey-stats",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02"
+    ],
+    "retained_protected_handoff": {
+      "name": "refs/heads/handoff/v1-07-web",
+      "sha": "333f6a74592315f1c431296ae30382743fac4b38"
+    },
+    "remaining_stashes": [],
+    "remaining_refs": "refs/heads/handoff/v1-07-web 333f6a74592315f1c431296ae30382743fac4b38\nrefs/heads/implement/v1-07-goalie-continuation df56a19444c7cc6d14eab00bfd49b63d1cb6e00e\nrefs/heads/implement/v1-09-special-teams 6a3a39eebfbedadda8a3659cc46dbf0a9d5ed9f3\nrefs/heads/main 65c777fe52c29fd1ab70950cd7525aec6f65d566\nrefs/remotes/origin/HEAD 65c777fe52c29fd1ab70950cd7525aec6f65d566\nrefs/remotes/origin/main 65c777fe52c29fd1ab70950cd7525aec6f65d566"
+  },
+  "preservation": {
+    "protected_local_file_size_mtime_mode_exact": 40,
+    "primary_listener": "COMMAND  PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    9645 nnandal   15u  IPv4 0xc2742b6b63798716      0t0  TCP 127.0.0.1:3000 (LISTEN)\n",
+    "task_listener41919": "absent",
+    "local_receipts_fixture_typed_evidence": "retained; independent name inventory in cleanup review",
+    "original_implementation_receipts": "retained byte-exact",
+    "detached_producers": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer",
+        "head": "ba41c2b8fe89977618fe4f0d3826592b60641f8e",
+        "clean": true
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+        "head": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+        "clean": true
+      }
+    ],
+    "other_owner_heads": {
+      "refs/heads/implement/v1-07-goalie-continuation": "df56a19444c7cc6d14eab00bfd49b63d1cb6e00e",
+      "refs/heads/implement/v1-09-special-teams": "6a3a39eebfbedadda8a3659cc46dbf0a9d5ed9f3"
+    },
+    "other_owner_advances": "retained without reset or source/index mutation",
+    "external_artifacts": "no access or mutation during this source delivery"
+  },
+  "retained_implementation_acceptance": {
+    "receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/research/application-v1-18/delivery.json",
+      "bytes": 4377,
+      "sha256": "a6877b9c483b0568a13f9436edd1ce7de4fd41b5df832fa13cd9984032f2dff8"
+    },
+    "verification": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/research/application-v1-18/verification.md",
+      "bytes": 28258,
+      "sha256": "cd0b2862f15258e5e900ff22633f36708bc312283ad53b29c14dec26e0fd6602"
+    },
+    "states": {
+      "software": "accepted",
+      "available_output_real_integration": "accepted",
+      "whole_card_integration": "pending v1-09/10/11/12 real components; v1-20 owns final five-card closure"
+    },
+    "accepted_complete_predecessor": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+      "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+      "exchange_version": 3
+    },
+    "inactive_publication_identity_from_original_acceptance": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/player-analysis.sqlite",
+      "publication_id": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+      "bytes": 13370183680,
+      "sha256_from_publisher": "ba12c7f7dd990b4d345d06afcf39c80bf20b2b43aefbfbe838218062e7be692b",
+      "schema_version": 9,
+      "inactive": true
+    },
+    "scientific_admission": false
+  },
+  "independent_reviews": {
+    "source_and_merge": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-final-independent-review.json",
+      "bytes": 5707,
+      "sha256": "ce54169aa90b30d610109a2eeb268d82c41bba2912d5fd81b6fb77fda38dd5b1"
+    },
+    "actual_cleanup_and_preservation": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-cleanup-post-review.json",
+      "bytes": 6026,
+      "sha256": "b6eb72e77ec23f98d6e38c951041f2ed71d986038e916f7fd14c492237cc72fd"
+    }
+  },
+  "execution_receipts": {
+    "pr-merge-preflight-01.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-merge-preflight-01.json",
+      "bytes": 14121,
+      "sha256": "a8ae845ddaa71923d1d54d8ac04ab3e194fa9c5cd0601db1d617be77ec9c16e0"
+    },
+    "pr-merge-cleanup-plan-01.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-merge-cleanup-plan-01.json",
+      "bytes": 3819,
+      "sha256": "55111b653e1a2470e5e3ef1b68932a6beb86ed9f3131a4f56e186c36f8d1bae5"
+    },
+    "pr-cleanup-independent-review.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-cleanup-independent-review.json",
+      "bytes": 15603,
+      "sha256": "c847d861a12f52a0bbe1478c6fb21ab30ca516cc3bdbf614bae1614291a41ae7"
+    },
+    "pr-hosted-readiness-01.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-hosted-readiness-01.json",
+      "bytes": 1164,
+      "sha256": "7069bb4783d310e4685701cf39e7d454dcf16bc88a97bfea9fb1658be63412f5"
+    },
+    "pr-merged-tree-verification.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-merged-tree-verification.json",
+      "bytes": 1298,
+      "sha256": "85fc2ef97b36cd8548f3defc63f0cd71098c7480bdfdfe638e5dc4c4af00c7d3"
+    },
+    "pr-primary-sync-01.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-primary-sync-01.json",
+      "bytes": 4102,
+      "sha256": "5b186be16ae3e0063f2a6a89ed4c72d6c346423db9b0ce7faef11a7621da3037"
+    },
+    "pr-primary-validation-01.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-primary-validation-01.json",
+      "bytes": 1323,
+      "sha256": "48d75f7f1f0c8a98d5b2b83ee5b79254f86ac8179db6f3af4f7a85434804e750"
+    },
+    "pr-scoped-cleanup-01.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-scoped-cleanup-01.json",
+      "bytes": 4880,
+      "sha256": "edfa4534bd33f562c1c2bca21a43109cd40b989a4c0328e24f633e34f471e1eb"
+    }
+  },
+  "material_choices": [
+    "merge commit preserves exact source/producer receipt-bound ancestry",
+    "source alias preserves canonical held source/fixture paths after removing task checkout; it is not a frozen runnable build",
+    "incremental offline dependency installation adds only six required packages while preserving live dependencies",
+    "primary live build is retained; no build/restart/activation was assigned"
+  ],
+  "actions_excluded_and_not_run": [
+    "external volume stats or body reads",
+    "database body reads or rehashes",
+    "fit, rescore, preparation or projection recomputation",
+    "publication or another strict startup",
+    "primary live build, runtime restart or activation",
+    "producer source/index/head mutation",
+    "broad cleanup, pruning, garbage collection or unrelated ref deletion"
+  ],
+  "queue_context_from_latest_user_notice": "ST20222023 is the sole heavy owner; this source-only delivery claims no heavy window; G20242025 remains held; no publication predecessor change",
+  "remaining_v1_18_delivery_work": [],
+  "pending_beyond_accepted_v1_18_scope": "pending v1-09/10/11/12 real components; v1-20 owns final five-card closure"
+}

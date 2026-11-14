@@ -1,0 +1,29 @@
+{
+  "status": "source_review_passed",
+  "owner": "/Users/nnandal/Documents/code/hockey-stats-v1-18",
+  "inspected_head": "afa16b6156a13fda2e522cefda33c77a79e94934",
+  "working_tree_changes_committed": false,
+  "reviewer": "/root/st_real_command_review",
+  "hashes_stable_across_source_passes": 2,
+  "files": {
+    "app/src/web/analysis-values.ts": "56fffdd08351ac6ddfcacb2b19a50b5707638fc0113999f4b8aa3da4eab4fda8",
+    "app/src/web/analysis-discovery.ts": "8dca55b0ceff7db1df9b4ba74cb18f2d3c6a056a7071ff8d77aef09b081aea46",
+    "app/src/web/analysis-history.tsx": "5419f84917ca486ee541bcb5f16ce668c2dd44fa0e7ad4e1443a25d1bcc35bea",
+    "app/src/web/client.ts": "b9d00dc5c57931aae6d6421a4bcb18112f4b6e4712333a964579927cc0e2ca3d",
+    "app/src/web/explorer.ts": "148209fd87fdcc36c76e413a16441ae6ec3d2e1dcf5c0c25915ab4b0c7dbed85",
+    "app/src/web/routes/league.tsx": "ef97383fa188029cd0921ee2c32df091e504c215aa3a1b288a6ea73494f13922"
+  },
+  "observed": [
+    "all nine spatial strengths use dedicated family and explicit strength",
+    "selector-owned strength list, transport and revalidation agree",
+    "discovery minutes use selected role/state support seconds",
+    "detail and export retain four saved values, state weights and rate-first meaning",
+    "wrong-strength requests and missing provided history rows are contract errors",
+    "raw pk signs, optimizer disclosures and analytical rendering remain"
+  ],
+  "integration": "take the owner's final reviewed commit; do not transplant the older six-file patch",
+  "production_changes": 0,
+  "builds": 0,
+  "bulk_input_reads": 0,
+  "runtime_browser_download_acceptance": "not_run"
+}

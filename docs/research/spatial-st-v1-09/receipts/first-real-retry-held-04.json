@@ -1,0 +1,70 @@
+{
+  "status": "held_not_reserved",
+  "season": "20212022",
+  "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+  "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+  "selected_games": 1312,
+  "prepared_member_bytes": 63710567455,
+  "score": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022/manifest.json",
+    "sha256": "37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d"
+  },
+  "basis": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+    "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509"
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/first-real-fit-02.sh",
+    "sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf"
+  },
+  "scope": "one annual prepared pass, saved score validation, basis-only import, three baseline heads, full projections/accounting and strict read; no final-year continuations",
+  "new_execution_fits": 0,
+  "new_execution_scores": 0,
+  "new_preparations": 0,
+  "actual_runtime": "retry not_run; the prior 70.66-second failure is source setup cost, not an annual forecast; measure the first complete triple before forecasting later years",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "hold": "no execution or reservation from this receipt; a separate explicit heavy-slot handoff is required after the goalie 20232024 window",
+  "supersedes": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-preflight-03.json",
+    "sha256": "1c4b8f112ea31fbc521386d11ffd8898ede2997d8092149de8eeb68d76d70de9",
+    "reason": "failed source guard repaired in 0d670607ea3fe344de31540c0a8d2de79339f305; direct adapter controls 8eb13104a26a8992a42797a7eddfec89a27288e17d7ae2bf75910a488505e865; fresh frozen source and output root only"
+  },
+  "producer_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+  "logs": {
+    "native_resource_log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/logs/20212022-fit.log",
+    "native_exit": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/logs/20212022-fit.exit"
+  },
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "coaches": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+  },
+  "basis_array_sha256": "4fa1d565e939dae706a7f3fa0d060b06b647602ba32d2850174b80c6267fa42b",
+  "queue": "after the separately owned goalie 20232024 window, only with a new explicit handoff to both sessions; retry is NOT_RESERVED",
+  "reservation": "not_reserved",
+  "source_guard_repair": {
+    "git_commit": "0d670607ea3fe344de31540c0a8d2de79339f305",
+    "direct_adapter_controls": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/neutral-origins-adapter-01/receipt.json",
+      "sha256": "8eb13104a26a8992a42797a7eddfec89a27288e17d7ae2bf75910a488505e865"
+    },
+    "controls": "previously recorded small direct adapter controls; not rerun by this readiness preparation"
+  },
+  "prior_failed_attempt": {
+    "output_root": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-01",
+    "exit_status": 1,
+    "wall_seconds": 70.66,
+    "baseline_heads_completed": 0,
+    "meaning": "failed source-contract cost before fitting; not a completed annual forecast; original producer and failure records preserved"
+  },
+  "input_identity_verification": "inherited from pinned preflight03; no new live input stat, hash, body or array read",
+  "source_isolation": "fresh detached analysis-only sparse worktree; no fixture bodies or fit outputs copied"
+}

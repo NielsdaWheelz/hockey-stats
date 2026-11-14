@@ -1,0 +1,160 @@
+{
+  "kind": "st-first-real-retry-reviewed-boundary-and-explicit-release",
+  "status": "reviewed_native_and_saved_json_pass",
+  "recorded_at_utc": "2026-11-10T13:50:46.028626+00:00",
+  "owner": "v1-09",
+  "season": "20212022",
+  "output_root": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/manifest.json",
+    "bytes": 366247,
+    "sha256": "7ec561e9c273b833339b8446d7e1a2bb6d0c422d536f72c2c534f71930e16c61"
+  },
+  "producer": {
+    "git_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "script_sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf",
+    "prepared_preflight_sha256": "ab33a95c58371d2c65574fab0265f4da7394cecf120c93cb392af5a95133e750"
+  },
+  "launch": {
+    "fresh_preflight": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-launch-preflight-01.json",
+      "bytes": 1722,
+      "sha256": "c46c4822bcc5aa5d6a7fd9d39030686487718f72713171330ad5244b87b15ed2"
+    },
+    "actual_launch": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-actual-launch-01.json",
+      "bytes": 3356,
+      "sha256": "e828eec6917aa689c0b525e1eb476ce8ec536f9a9acb260825773fdded522e28"
+    }
+  },
+  "native": {
+    "exit_status": 0,
+    "wall_seconds": 5091.46,
+    "peak_rss_bytes": 5325340672,
+    "peak_footprint_bytes": 4730622608,
+    "log_and_exit": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-fit-01.log",
+        "bytes": 864,
+        "sha256": "8d25cfe1a9225973378244f729ddf0d8cc56ba69f1b10fbf5ca4795e28426270"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-fit-01.exit",
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      }
+    ],
+    "declared_payloads_statted": 15,
+    "actual_payload_bytes": 1577314784,
+    "resources_output_bytes": 1577314784,
+    "manifest_and_logs_excluded_from_payload_sum": true,
+    "full_readback": "completed by frozen native command; no second canonical reader",
+    "metadata": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-metadata-02.json",
+      "bytes": 29086,
+      "sha256": "24ab2e16cfad3554268c9f0f875ec378b73090ee11f9af4720c6039f8ba7788c"
+    }
+  },
+  "saved_json_audit": {
+    "status": "passed",
+    "executions": 1,
+    "auditor_path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-real-saved-audit-temporary.py",
+    "auditor_sha256": "ee0e66e62d3952d3124c8c0bc8d1dd781f8143a60bfeef65f20e5268074476af",
+    "annual_json_bodies": 9,
+    "local_preflight_bodies": 1,
+    "wall_seconds": 0.604833000106737,
+    "logical_input_body_read_bytes": 49100690,
+    "peak_rss_bytes": 164397056,
+    "receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-01.json",
+      "bytes": 4181,
+      "sha256": "b3434950ca8a3968d6921a7043202f4b2c29e14383982615dc2677ec27ed159f"
+    },
+    "log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-run-01.log",
+      "bytes": 248,
+      "sha256": "081ed266fa68339ff7e29d10e8fd824aef5d043e298a4a0755af9bac3732ab4e"
+    },
+    "exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-run-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "collection_controller": {
+    "failure": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-metadata-controller-failure-01.json",
+      "bytes": 722,
+      "sha256": "2245a9be064c16b7db564be8af41bec4cbf82e584a760537369235433174318e"
+    },
+    "failed_script": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-boundary-metadata-01.py",
+      "bytes": 3374,
+      "sha256": "155f2bc70ef882a50b41bb7c75fa3af4a8494a90dfb51fd24135b404eeb8bdfe"
+    },
+    "successor_script": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-boundary-metadata-02.py",
+      "bytes": 3308,
+      "sha256": "10721a4daff80fdf4a0d3bc42e9ee7179e2865412348672ceca579403163bcc4"
+    },
+    "attribution": "collector01 invented a per-file bytes field; the producer file contract declares role/path/sha256; not a native, audit or artifact defect",
+    "native_numerical_reruns": 0,
+    "auditor_reruns": 0,
+    "manifest_body_reads": 2,
+    "external_collection_body_read_bytes": 733360,
+    "declared_payload_stat_calls": 30,
+    "successor_unique_local_native_evidence_bytes": 866,
+    "successor_logical_local_native_evidence_read_bytes": 1732,
+    "collection_wall_seconds": null,
+    "wall_cost_note": "collection wall not measured; native and audit costs above are separate"
+  },
+  "independent_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-independent-adjudication-01.json",
+    "bytes": 6308,
+    "sha256": "95b611bdd787dc4ab9e07c76a1957910af8abb707bd99a7e6bddc865293e35ec"
+  },
+  "computational_scope": {
+    "players": 1004,
+    "complete_baseline_heads": 3,
+    "total_v1_09_baseline_heads": 15,
+    "first_year_probes": 0,
+    "gradient_inf_norms": {
+      "volume": 0.002603422661195509,
+      "shape": 0.0023276264506222333,
+      "quality": 0.00016855091694711888
+    },
+    "sensitivity": {
+      "status": "unassessed",
+      "reason": "earlier_annual_not_assessed"
+    },
+    "optimizer_precision": "unassessed; all raw gradient infinity norms exceed 1e-6",
+    "scientific_admission": false,
+    "full_v1_09_acceptance": false,
+    "no_independent_proof": [
+      "full predictor/objective",
+      "native map",
+      "scientific quality"
+    ]
+  },
+  "publication": {
+    "accepted_complete_parent_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "activation": false
+  },
+  "release": {
+    "explicit_owner_release": true,
+    "native_child_pid": 70935,
+    "time_pid": 70934,
+    "both_pids_absent_checked_at_utc": "2026-11-10T13:50:46.028626+00:00",
+    "no_heavy_child_remaining": true,
+    "chain_reservation": false,
+    "next_heavy_command_dispatched": false,
+    "next_owner": "coordinator confirms actual next owner; no assignment by this receipt",
+    "notice_targets": [
+      "t-a59b0562801254be",
+      "t-16b64d1338b85a48"
+    ],
+    "notice_delivery": "recorded separately after transmission"
+  },
+  "limits": "one completed first annual only; remaining annuals, final-year continuations, fixture, composition/publication/application acceptance remain outstanding; no arrays/design/inputs/evaluator/second full reader or further heavy command was run by this boundary review"
+}

@@ -1,0 +1,151 @@
+{
+  "kind": "st-fourth-real-retry-checked-heavy-slot-release",
+  "recorded_at_utc": "2026-11-12T09:15:26.893301+00:00",
+  "status": "checked_release",
+  "owner_releasing": "v1-09",
+  "season": "20242025",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/manifest.json",
+    "bytes": 366549,
+    "sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c"
+  },
+  "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+  "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+  "producer": {
+    "git_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "bindings": {
+    "actual_launch_sha256": "2995e44adcbbdb1a787e4faa2e200b7fbdd0debca0516ec789b4a5ae4bfc26e1",
+    "preflight_sha256": "ff89103a0697405fe8008a4f285e870713f2677481ff9c87ee48f5547380a91c",
+    "packet_sha256": "633516d911773036b4b88e9f649dcb5394b8212407a79eeabcf5663a9c1b9326",
+    "script_sha256": "524605372c37d9d9b7a12e9fa71cd9c22c1336696696e6217ed0da74f7672860",
+    "collector_source_sha256": "36145a615c5950c60cb1af3d75ffc7df5045bbd7f6e423573a44c4789160b3a0",
+    "auditor_source_sha256": "ee0e66e62d3952d3124c8c0bc8d1dd781f8143a60bfeef65f20e5268074476af",
+    "post_exit_source_review_sha256": "07fbfc4667921f524fdd6cec20190ccd44d146749714b23d9d51c4a8c2916b80",
+    "audit_binding_sha256": "5646ac31ae6d4a1c72b3f543fafcc1dba07a541c9d1da3e73e62c3ab46773fb6",
+    "prior_G_release_sha256": "20311fed1d6070070d03cf292018934e14ddbfed5ab9b99326a29a5e8a229696"
+  },
+  "evidence": {
+    "native_metadata": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-native-metadata-01.json",
+      "bytes": 7605,
+      "sha256": "d987d3cd648a025655331f0314daf1b7417af2adc26fe64b2f34a816b4ff2d64"
+    },
+    "audit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-saved-json-audit-01.json",
+      "bytes": 5136,
+      "sha256": "cf08fd321266b2289125acdb32b5ab597542a4dfa2933404331a4a255e660fb3"
+    },
+    "independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-independent-adjudication-01.json",
+      "bytes": 6088,
+      "sha256": "24d52d03ae36d0b013551ec2aff113b6fdd5e260e8a6f759d0ad54e94a91b6a5"
+    }
+  },
+  "native": {
+    "exit_status": 0,
+    "wall_seconds": 6267.43,
+    "user_seconds": 5766.84,
+    "sys_seconds": 36.25,
+    "peak_rss_bytes": 6744752128,
+    "peak_footprint_bytes": 7391550016
+  },
+  "collector": {
+    "owner_reported_executions": 1,
+    "control_exit": 0,
+    "caller_wall_seconds": 0.04,
+    "caller_peak_rss_bytes": 20807680,
+    "internal_wall_seconds": null,
+    "external_body_reads": 3,
+    "logical_body_bytes": 367415,
+    "payload_stats": 15,
+    "acceptance": "metadata only; not a native/artifact verdict"
+  },
+  "audit": {
+    "owner_reported_executions": 1,
+    "control_exit": 0,
+    "status": "passed",
+    "internal_wall_seconds": 12.144603041931987,
+    "caller_wall_seconds": 12.19,
+    "peak_rss_bytes": 320290816,
+    "external_json_documents": 13,
+    "current_documents": 9,
+    "previous_documents": 4,
+    "current_bytes": 68166557,
+    "previous_bytes": 29600698,
+    "external_logical_bytes": 97767255,
+    "local_binding_bytes": 975,
+    "total_logical_bytes": 97768230
+  },
+  "payload_stat_count": 15,
+  "payload_bytes": 1577550492,
+  "resources_bytes_reconcile": true,
+  "players": 920,
+  "baseline_heads_completed_this_annual": 3,
+  "baseline_heads_checked_total": 12,
+  "baseline_heads_required": 15,
+  "continuation_probes_this_annual": 0,
+  "numerical_limits": {
+    "gradient_inf_norms": {
+      "volume": 0.0008747044630581513,
+      "shape": 0.0004159497157791847,
+      "quality": 0.0001561027925295333
+    },
+    "remaining_optimizer_accuracy": "unknown; baseline gradients above gtol, no precision claim",
+    "sensitivity": {
+      "status": "unassessed",
+      "reason": "earlier_annual_not_assessed"
+    },
+    "scientific_admission": false
+  },
+  "external_review_scope": {
+    "collector_bodies": "native log, exit record and current manifest",
+    "collector_body_bytes": 367415,
+    "payload_stats": 15,
+    "audit_external_json_documents": 13,
+    "audit_external_logical_bytes": 97767255,
+    "local_audit_binding_bytes": 975,
+    "audit_total_logical_bytes": 97768230,
+    "manifest_overlap_bytes": 366549,
+    "total_external_logical_body_bytes": 98134670,
+    "post_exit_array_or_source_or_evaluator_or_full_reader_calls": 0
+  },
+  "execution_accounting": {
+    "assigned_native_retry_executions": 1,
+    "collector_executions": 1,
+    "audit_executions": 1,
+    "controller_failures": 0,
+    "automatic_replays": 0,
+    "all_cost_scopes_separate": true,
+    "physical_input_bytes": "unmeasured; logical body bytes and saved payload stat bytes have separate meanings"
+  },
+  "boundary": {
+    "owned_python_pid": 15429,
+    "owned_time_pid": 15428,
+    "os_observed_closed_at_utc": "2026-11-12T09:05:25Z",
+    "operator": "t-796454dbbecf0889",
+    "cached_operator_prompt_returned": true,
+    "numeric_native_exit_proved_by_retained_exit_record": true,
+    "no_owned_heavy_command_remaining": true,
+    "slot_release": true,
+    "return_control_to": "coordinator t-a59b0562801254be and user",
+    "next_owner_or_command": "not assigned by this receipt; requires explicit coordinator confirmation",
+    "no_chain_reservation": true
+  },
+  "preservation": {
+    "interrupted_run05_and_ready10856": "preserved; this completed retry neither overwrites nor retrospectively accepts them",
+    "accepted_prior_annuals": "not rewritten; four prior audit inputs matched accepted local f57 evidence",
+    "future_final_packet_e54c": "immutable source-only snapshot; previous pins remain NULL there, no new readiness/header check/checkout/window inferred"
+  },
+  "remaining_scope": "final20252026 triple and up to three prescribed final-head continuations, five-year selection, serial complete exchange/preservation, inactive publication/strict startup, family API/browser/download acceptance and campaign cleanup",
+  "accepted_complete_predecessor": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+  "public_parent_status": "unchanged; c3d495a9 is a numerical ST annual, not a complete publication successor",
+  "activation": false,
+  "forecast": "none; final-year baseline/probe/comparison cost remains unknown",
+  "delivery": "receipt declares this checked release; terminal delivery/provider acknowledgement are separate and not established by these bytes"
+}

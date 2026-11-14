@@ -1,0 +1,140 @@
+{
+  "kind": "st-composition-actual-native-launch",
+  "status": "running_observed",
+  "observed_at_utc": "2026-11-13T04:36:58.936367+00:00",
+  "native_start_utc": "2026-11-13T04:35:18+00:00",
+  "source_commit": "1431d80e905fe14f2af900a896fd5a3ef5c730e6",
+  "analysis_tree": "923d95b5e6d98ea056f4d6111979c03a0de81e91",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+  "cwd_observation": {
+    "pid": 62546,
+    "method": "lsof -nP -a -p 62546 -d cwd -Fn",
+    "stdout": "p62546\nfcwd\nn/Users/nnandal/Documents/code/hockey-stats-v1-09\n"
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results",
+  "selection": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-state-selection-01.json",
+    "sha256": "9325d1be205742b3d95c4a37aa9ba2a26fcbc64fe54183036f61d8b590c2afa7"
+  },
+  "accepted_parent": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/manifest.json",
+    "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12"
+  },
+  "accepted_parent_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-composition.json",
+    "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+  },
+  "runtime": {
+    "python": "3.14.8",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "runtime_observation": "passed assigned fresh preflight, same frozen interpreter/source; no repeated model/runtime probe",
+  "native_pid": 62546,
+  "time_pid": 62545,
+  "shell_pid": 62542,
+  "observed_processes": [
+    {
+      "pid": 62542,
+      "ppid": 85089,
+      "start_local": "Thu Nov 12 20:35:18 2026",
+      "argv": [
+        "/bin/sh",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/compose-real-st-held-01.sh"
+      ],
+      "command": "/bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/compose-real-st-held-01.sh"
+    },
+    {
+      "pid": 62545,
+      "ppid": 62542,
+      "start_local": "Thu Nov 12 20:35:18 2026",
+      "argv": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "-B",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "summarize",
+        "--family",
+        "spatial-st",
+        "--results",
+        "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results",
+        "--states",
+        "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-state-selection-01.json",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results"
+      ],
+      "command": "/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python -B -m hockey_stats.analysis_cli summarize --family spatial-st --results /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results --states /Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-state-selection-01.json --out /Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results"
+    },
+    {
+      "pid": 62546,
+      "ppid": 62545,
+      "start_local": "Thu Nov 12 20:35:18 2026",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python",
+        "-B",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "summarize",
+        "--family",
+        "spatial-st",
+        "--results",
+        "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results",
+        "--states",
+        "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-state-selection-01.json",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results"
+      ],
+      "command": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -B -m hockey_stats.analysis_cli summarize --family spatial-st --results /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results --states /Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-state-selection-01.json --out /Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results"
+    }
+  ],
+  "actual_child_environment": {
+    "PYTHONPATH": "/Users/nnandal/Documents/code/hockey-stats-v1-09/analysis/src",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "environment_observation": "four assignments appear literally in observed time-parent argv; no full environment dump",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/compose-real-st-held-01.sh",
+    "bytes": 1314,
+    "sha256": "61e92f0c01572cac86d48346e6a4ac98c26ede4cfb11289758396c33ba24cedf"
+  },
+  "preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-launch-preflight-01.json",
+    "sha256": "83b9e322c16dc5bfa6083f1f4e2296bf35596c7a7d43309f524578a8aeacb4dd"
+  },
+  "preflight_independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-launch-preflight-independent-review-01.json",
+    "sha256": "cde0f908669409c20c9c4f65cd64a41597f35264640376cf63d277afc328ed00"
+  },
+  "preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-preparation-03.json",
+    "sha256": "ba307230a913e4b6d0a478360ca179bdc39e9285453f67a2a5b27e2807a5a3b9"
+  },
+  "operator": {
+    "handle": "t-796454dbbecf0889",
+    "machine": "macbook",
+    "pane": "%25",
+    "native_submission": "one /bin/sh exact reviewed held script after checked idle prompt; written then owned process chain observed"
+  },
+  "log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/logs/compose.log",
+  "exit_record": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/logs/compose.exit",
+  "scope": "one ordinary ST complete composer; allfive canonical saved-array/projection/probe validations included; no new fits/probe solves, source preparation, acquisition, base/G rescore or second fullreader",
+  "source_freeze": "actual composer HEAD1431/analysis923d/app3242 frozen through native exit; no edits to G4aa or numerical producer03",
+  "native_exit_status": null,
+  "native_cost": "UNKNOWN until actual native boundary",
+  "acceptance": "not_assessed",
+  "post_exit": "only actual owned closure permits assigned collector9c082; only successfulcontrol/native0/completed correspondence permits assigned proof fa3a; failures/unknowns preserved/no automaticreplay; STOP overrides",
+  "publication": false,
+  "startup": false,
+  "activation": false,
+  "slot_release": false
+}

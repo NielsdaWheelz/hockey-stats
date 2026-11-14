@@ -1,0 +1,74 @@
+{
+  "status": "one_ordinary_strict_startup_passed_actual_listening",
+  "recorded_at": "2026-11-10T10:00:21.967985+00:00",
+  "command_session": 72531,
+  "pid": 7640,
+  "measurement": {
+    "elapsed_seconds": 766.080017042,
+    "peak_rss_bytes": 1152319488,
+    "user_cpu_seconds": 452.398678,
+    "system_cpu_seconds": 44.905672,
+    "ready_at": "2026-11-10T09:57:54.607Z",
+    "pid": 7640,
+    "node_version": "v24.21.0",
+    "argv": [
+      "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-runtime.mjs",
+      "--publication",
+      "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/player-analysis.sqlite",
+      "--port",
+      "41919"
+    ],
+    "elapsed_scope": "wrapper entry to actual listening event; excludes node boot and wrapper static imports",
+    "resource_scope": "process lifetime through listening, including boot and static imports; kernel peak resident set",
+    "operation": "one ordinary strict publication startup"
+  },
+  "log_snapshot": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-strict-startup.log",
+    "bytes": 3412,
+    "sha256": "58c3773a5c6b8398d4f50a2b47d7534442b0e5f7626fbe151e3a91d29faad156"
+  },
+  "ongoing_log": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/startup.log",
+  "ready_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-05.json",
+    "bytes": 11372,
+    "sha256": "3673ff6d32c9d894b6a7566058058c254b8266abe90c0344045e47cd9c0900f9"
+  },
+  "ready_independent_review": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready05-independent-review.json",
+    "bytes": 3439,
+    "sha256": "49f3aa63fae1cc929d2ce4f15ee92b195aca278a394460bd5a24b715faa52a3c"
+  },
+  "launch": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-startup-launch-05.json",
+    "bytes": 985,
+    "sha256": "2d803336eebe611c04c14ccc679cbc93f2d0b9f4ee667af889ea33e8c7f0e4c6"
+  },
+  "retained_meter": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-startup-meter.mjs",
+    "bytes": 1105,
+    "sha256": "6cfa806b4e6827218c65fdb39f0edfb59ae7b72b4c27b4f51f19df7930f2e2bc"
+  },
+  "retained_policy": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-startup-policy-05.sb",
+    "bytes": 234,
+    "sha256": "305c54592b4d5a11b39e04cb5c1c0ab0477a6de57f2436c19c28229a94177952"
+  },
+  "publication_id": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+  "schema_version": 9,
+  "results_manifest_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+  "database_sha256_from_publisher": "ba12c7f7dd990b4d345d06afcf39c80bf20b2b43aefbfbe838218062e7be692b",
+  "database_bytes_by_stat": 13370183680,
+  "strict_validation_invocations": 1,
+  "failed_prior_launches": 2,
+  "prior_failed_full_validations": 0,
+  "production_source_hashes": "all32 frozen-production-source-03 hashes reverified unchanged",
+  "normal_validator_unchanged": true,
+  "detached_boundary": "external project file-read-data denied except exact final SQLite; ordinary metadata allowed; server reads no saved source contents",
+  "candidate_body_rehash_or_second_full_read": false,
+  "runtime_stays_running_for_bounded_browser_api_checks": true,
+  "activation": false,
+  "heavy_slot": "root still holds until independent metadata adjudication and explicit release to BOTH; no handoff inferred from this receipt alone",
+  "real_browser_and_selected_api_reconciliation": "pending separate bounded checks",
+  "receipt_writer_correction": "first receipt-only argv assertion indexed option values at3 instead of2; it failed before any writes; corrected to actual Node argv layout, with normal command/process/source unchanged"
+}

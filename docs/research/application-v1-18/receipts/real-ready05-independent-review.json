@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-11-10T09:44:26.045844+00:00",
+  "scope": "immutable final ready05 source/metadata launch-binding review only; no node/control/application launch, candidate open/hash/query or large read",
+  "consumed_small_receipts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-04.json",
+      "bytes": 9204,
+      "sha256": "350156933b41a5c362a0e438789077bc56e8e33eee968f796dd58021fb3c2f34"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-05.json",
+      "bytes": 11372,
+      "sha256": "3673ff6d32c9d894b6a7566058058c254b8266abe90c0344045e47cd9c0900f9"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/failed-startup-pre-js-01.json",
+      "bytes": 1670,
+      "sha256": "141507260f9d28478485f4bacbffd2fce7de890d2be829b333c49cea8424add1"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/failed-startup-sql-open-02.json",
+      "bytes": 1769,
+      "sha256": "ad5367be586fb19c38f325b1960a154e9d3a657fb0dde3a95e6dd7d50e7e5465"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/followup/diagnosis.json",
+      "bytes": 4869,
+      "sha256": "e6f6af4866f658be8a72a349db5cf6503a3ed850fc66e04970f78115d435a7dc"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-connection-independent-adjudication.json",
+      "bytes": 8124,
+      "sha256": "9e508a27a60c60ca8cd767b0535c7965ba4e7896327f95303d63c12e06444455"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/applied-profile.json",
+      "bytes": 1822,
+      "sha256": "d37c5a1ac2c588fd1a1291af68352bafa0972763ca349a2805a3c33c1aacf9a8"
+    }
+  ],
+  "ready05_sha256": "3673ff6d32c9d894b6a7566058058c254b8266abe90c0344045e47cd9c0900f9",
+  "tested_applied_profile_sha256": "305c54592b4d5a11b39e04cb5c1c0ab0477a6de57f2436c19c28229a94177952",
+  "policy": "(version 1)\n(allow default)\n(deny file-read-data (require-all (subpath \"/Volumes/Expansion/hockey-stats\") (require-not (literal \"/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/player-analysis.sqlite\"))))\n",
+  "preserved_bindings": "normal argv/cwd/log, all ordinary source/input/output/publication pins and measurement semantics are identical04; only the exact tested policy and attributed repair/ownership metadata changed",
+  "failure_evidence": "native50548 exit134 and SQLite-open50701 exit1 logs/profiles retained with exact hashes; two attempted launches, zero ordinary strict validation passes; second attempt reached JS and attempted candidate open; physical candidate reads unmeasured",
+  "tradeoff": "ordinary filesystem metadata is permitted; original source and startup-log contents remain denied; only the exact candidate is excluded from the data-read denial; no separate overlapping allows",
+  "fresh_startup_log_absent_at_review": true,
+  "next": "clear for the planned one actual normal detached full strict validation under ready05 after coordinator notification; this review performs none and implies no activation or heavy-slot release"
+}

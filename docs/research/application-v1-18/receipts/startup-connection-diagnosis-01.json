@@ -1,0 +1,103 @@
+{
+  "schema": "v1-18-startup-connection-diagnosis-v1",
+  "created_utc": "2026-11-10T09:31:39.811049+00:00",
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/player-analysis.sqlite",
+  "node": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+  "query": "SELECT schema_version, publication_id FROM publication WHERE id = 1",
+  "query_limit": "single metadata row via integer primary key id=1; exactly two selected columns; no other SQL",
+  "sqlite_connections_attempted": 2,
+  "application_imports": 0,
+  "server_launches": 0,
+  "full_validator_invocations": 0,
+  "numerical_input_reads": 0,
+  "original_donor_content_bytes_returned": 0,
+  "database_byte_reads": "not measured; sqlite pager performs bounded schema and primary-key lookup; returned metadata row only",
+  "policy_delta": {
+    "removed": "(deny file-read* (subpath \"/Volumes/Expansion/hockey-stats\"))",
+    "added": "(deny file-read-data (subpath \"/Volumes/Expansion/hockey-stats\"))"
+  },
+  "before": {
+    "head": "afa16b6156a13fda2e522cefda33c77a79e94934",
+    "index_sha256": "1b03933bd59018c29a2e40cef17ed762104e5520ae89bf86f7ed04cff969bf76",
+    "tracked_delta_sha256": "ec09979994e25247b2204a4dcda52a90e2e8753f181c33f7505ac7a5ca560cd8",
+    "profile_sha256": "7f15190a8b61b25f1fc5efdcd91a0b14c0feaa97ac4751c566a5e465d0ce66a5"
+  },
+  "after": {
+    "head": "afa16b6156a13fda2e522cefda33c77a79e94934",
+    "index_sha256": "1b03933bd59018c29a2e40cef17ed762104e5520ae89bf86f7ed04cff969bf76",
+    "tracked_delta_sha256": "ec09979994e25247b2204a4dcda52a90e2e8753f181c33f7505ac7a5ca560cd8",
+    "profile_sha256": "7f15190a8b61b25f1fc5efdcd91a0b14c0feaa97ac4751c566a5e465d0ce66a5"
+  },
+  "original_profile_head_index_tracked_diff_unchanged": true,
+  "cases": [
+    {
+      "name": "policy04-connection",
+      "returncode": 1,
+      "elapsed_seconds": 0.030162333976477385,
+      "stdout": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/policy04-connection.stdout",
+      "stdout_bytes": 26,
+      "stderr": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/policy04-connection.stderr",
+      "stderr_bytes": 84
+    },
+    {
+      "name": "data-denial-connection",
+      "returncode": 1,
+      "elapsed_seconds": 0.05234429216943681,
+      "stdout": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/data-denial-connection.stdout",
+      "stdout_bytes": 26,
+      "stderr": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/data-denial-connection.stderr",
+      "stderr_bytes": 84
+    },
+    {
+      "name": "data-denial-original-donor-content",
+      "returncode": 1,
+      "elapsed_seconds": 0.03457262506708503,
+      "stdout": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/data-denial-original-donor-content.stdout",
+      "stdout_bytes": 0,
+      "stderr": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/data-denial-original-donor-content.stderr",
+      "stderr_bytes": 119
+    }
+  ],
+  "files": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/metadata-allowed-content-denied.sb",
+      "bytes": 343,
+      "sha256": "61482306d40eb1be06d7ea9c9a1e894bef85234545ac4f93c63b2db06a2eceb0"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/connection-probe.cjs",
+      "bytes": 599,
+      "sha256": "ada58738195e0dae445b9a64b1bf55fe76502eee856c138a99c2ec80c8a470ed"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/data-denial-original-donor-content.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/data-denial-connection.stderr",
+      "bytes": 84,
+      "sha256": "45d8928b510db3a6c775f832c9b9ef5a566237260104d425f214e89961bf33ef"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/policy04-connection.stderr",
+      "bytes": 84,
+      "sha256": "45d8928b510db3a6c775f832c9b9ef5a566237260104d425f214e89961bf33ef"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/data-denial-connection.stdout",
+      "bytes": 26,
+      "sha256": "7f98830e864ce5456e5b0bc3655e4da21d27695a4e1d5a3d19c19cc9f9e20b2f"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/policy04-connection.stdout",
+      "bytes": 26,
+      "sha256": "7f98830e864ce5456e5b0bc3655e4da21d27695a4e1d5a3d19c19cc9f9e20b2f"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/data-denial-original-donor-content.stderr",
+      "bytes": 119,
+      "sha256": "5cbc26b99f95d7c6af9a113538cb42f7d8e8f6a4b766d9ad89c2ce5f89d59935"
+    }
+  ]
+}

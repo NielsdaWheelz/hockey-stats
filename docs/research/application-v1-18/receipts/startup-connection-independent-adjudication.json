@@ -1,0 +1,120 @@
+{
+  "status": "passed_tested_data_read_boundary",
+  "recorded_at": "2026-11-10T09:37:45.304252+00:00",
+  "scope": "independent small source/control-artifact adjudication only; no new node probe, candidate open/query, application launch, numerical read or real profile mutation",
+  "consumed": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/diagnosis.json",
+      "bytes": 5671,
+      "sha256": "2dab5c7b747a02419c8b5d3cc432d3530dea55e104b22efe09d1e0990b8bc546"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/followup/diagnosis.json",
+      "bytes": 4869,
+      "sha256": "e6f6af4866f658be8a72a349db5cf6503a3ed850fc66e04970f78115d435a7dc"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/metadata-allowed-content-denied.sb",
+      "bytes": 343,
+      "sha256": "61482306d40eb1be06d7ea9c9a1e894bef85234545ac4f93c63b2db06a2eceb0"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/connection-probe.cjs",
+      "bytes": 599,
+      "sha256": "ada58738195e0dae445b9a64b1bf55fe76502eee856c138a99c2ec80c8a470ed"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/data-denial-original-donor-content.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/data-denial-connection.stderr",
+      "bytes": 84,
+      "sha256": "45d8928b510db3a6c775f832c9b9ef5a566237260104d425f214e89961bf33ef"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/policy04-connection.stderr",
+      "bytes": 84,
+      "sha256": "45d8928b510db3a6c775f832c9b9ef5a566237260104d425f214e89961bf33ef"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/data-denial-connection.stdout",
+      "bytes": 26,
+      "sha256": "7f98830e864ce5456e5b0bc3655e4da21d27695a4e1d5a3d19c19cc9f9e20b2f"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/policy04-connection.stdout",
+      "bytes": 26,
+      "sha256": "7f98830e864ce5456e5b0bc3655e4da21d27695a4e1d5a3d19c19cc9f9e20b2f"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/data-denial-original-donor-content.stderr",
+      "bytes": 119,
+      "sha256": "5cbc26b99f95d7c6af9a113538cb42f7d8e8f6a4b766d9ad89c2ce5f89d59935"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/followup/explicit-exclusion-connection.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/followup/explicit-exclusion-connection.stdout",
+      "bytes": 475,
+      "sha256": "ae30ff98fec01b02f4499cc1ee8ad34f341b4af444cf94cca592ba63cc8d0ea2"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/followup/allow-default-connection.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/followup/data-denial-explicit-exclusion.sb",
+      "bytes": 234,
+      "sha256": "305c54592b4d5a11b39e04cb5c1c0ab0477a6de57f2436c19c28229a94177952"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/followup/connection-probe.cjs",
+      "bytes": 641,
+      "sha256": "9db6ecd24e8285ed3a00a5fdc2f7820ab857b69521245dac77f5defae140f525"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/followup/explicit-exclusion-donor.stderr",
+      "bytes": 119,
+      "sha256": "5cbc26b99f95d7c6af9a113538cb42f7d8e8f6a4b766d9ad89c2ce5f89d59935"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/followup/explicit-exclusion-donor.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/followup/allow-default-control.sb",
+      "bytes": 28,
+      "sha256": "d130f968d5a3351927ae34b556c1e9821242ff5af875a761bffed57aa40e765c"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/followup/allow-default-connection.stdout",
+      "bytes": 476,
+      "sha256": "2162f9461c771794bd46dcf8af89db8dadf90ff24cdf5e25e9b86f8b4a2c71ce"
+    }
+  ],
+  "cases": "four read-only connection attempts total;04 and data-only with overlapping separate candidate allow fail; allow-default control and explicit candidate exclusion succeed; exactly one two-column publication primary-key row returned per success; donor content remains denied",
+  "metadata_row_observed_by_diagnosis": {
+    "schema_version": 9,
+    "publication_id": "0fcf4cf3-0eb6-4180-bfed-f36290318db9"
+  },
+  "query_budget": "SELECT schema_version, publication_id FROM publication WHERE id = 1",
+  "physical_database_bytes": "unmeasured; no zero-I/O claim",
+  "approved_final_profile": "(version 1)\n(allow default)\n(deny file-read-data (require-all (subpath \"/Volumes/Expansion/hockey-stats\") (require-not (literal \"/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/player-analysis.sqlite\"))))\n",
+  "approved_final_profile_sha256": "305c54592b4d5a11b39e04cb5c1c0ab0477a6de57f2436c19c28229a94177952",
+  "policy_meaning": "deny original external project file contents, explicitly exclude only the final candidate SQLite from that deny, and allow ordinary metadata through allow-default; source and startup-log content remain denied; no extra literal allows or provenance access needed",
+  "source_ordering": {
+    "sql_driver": "@effect/sql-sqlite-node/dist/SqliteClient.js:66,213,256 opens DatabaseSync before providing the client service",
+    "publication": "app/src/server/publication.ts:92 requires client before validatePhysical at93 or validateAnalysis/Observed at150-151",
+    "classification_50701": "application JS entered and candidate open was attempted, but SqliteClient acquisition failed before any ordinary strict query or row validation; zero candidate I/O is not claimed"
+  },
+  "hypothesis_correction": "allowing metadata alone with a separate overlapping candidate allow did not solve SQLite open; clearance is for the exact tested exclusion predicate, without speculation about individual VFS calls",
+  "source_profile_head_index": "original04 profile and recorded task head/index/tracked-source deltas unchanged during diagnosis",
+  "next": "root preserves04 failure/profile, binds this exact minimal predicate in05, notifies both coordinators, and performs the planned actual normal full strict pass once; no acceptance, activation or heavy-slot release is implied"
+}

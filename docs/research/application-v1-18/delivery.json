@@ -1,0 +1,86 @@
+{
+  "status": "complete_verified_for_v1_18_scope",
+  "recorded_at": "2026-11-10T11:01:00.320229+00:00",
+  "branch": "implement/v1-18-analytical-skater-sheet",
+  "worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-18",
+  "base": "08b5294c60d41d665d71cece47ed48813449786c",
+  "original_context_commit": "f3c61a4e2ea52c3860bc8b9a6beb1bd1331956a2",
+  "source_commit": "a983886b64469ab77d4127a86ec24763658d35db",
+  "fixture_commit": "1abe84725e168d54c9d0049fb7506a8919e9f9dc",
+  "frontend_transport_tree_equal": "333f6a74592315f1c431296ae30382743fac4b38",
+  "critical_trees": {
+    "analysis": "d3d9ba599e23a517e9bf18130b48a867559f9673",
+    "app/src/shared": "2fdc0f4135883dfc2c59868e32272de563b90972",
+    "app/src/server": "29a88cbc39d96206718437026180473cafb53219",
+    "app/src/operator": "cefd9f6da4532ba8a675ef39af08afaa76dc804b"
+  },
+  "states": {
+    "software": "accepted",
+    "available_output_real_integration": "accepted",
+    "whole_card_integration": "pending v1-09/10/11/12 real components; v1-20 owns final five-card closure"
+  },
+  "verification": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/docs/research/application-v1-18/verification.md",
+    "bytes": 28258,
+    "sha256": "cd0b2862f15258e5e900ff22633f36708bc312283ad53b29c14dec26e0fd6602"
+  },
+  "source_fingerprint": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/docs/research/application-v1-18/receipts/frozen-production-source-03.json",
+    "bytes": 9129,
+    "sha256": "2917bc35f1218c030ffd4661e2ee17af6bf060294f1031bd33324079ce73ab1b"
+  },
+  "real_acceptance": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/docs/research/application-v1-18/receipts/real-browser-checked-facts.json",
+    "bytes": 45767,
+    "sha256": "6fd59f24b35b3b805a7880d256f8199229c60ed02f32fa2460c4f31b8ccda250"
+  },
+  "independent_final_pixels": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/docs/research/application-v1-18/receipts/independent-real-pixel-review-completion.json",
+    "bytes": 1948,
+    "sha256": "1d358027a4fae8ad36ee554721dd961bf6d6d7f823f2152fec4c5bd0826554fb"
+  },
+  "cleanup": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/docs/research/application-v1-18/receipts/temporary-check-cleanup.json",
+    "bytes": 10554,
+    "sha256": "172ba82da202d7ab5ee8b41d51c0c55b343680c0606fcf0271ab2cb7fbc2974b"
+  },
+  "independent_cleanup": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/docs/research/application-v1-18/receipts/postcleanup-independent-review.json",
+    "bytes": 4435,
+    "sha256": "c7a4df5067ba2274ca6d1c16f4d212b5cc529453b8eba71cabdb15d210e3ee34"
+  },
+  "result_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+    "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "exchange_version": 3
+  },
+  "publication": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/candidate/player-analysis.sqlite",
+    "publication_id": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+    "bytes": 13370183680,
+    "sha256_from_publisher": "ba12c7f7dd990b4d345d06afcf39c80bf20b2b43aefbfbe838218062e7be692b",
+    "schema_version": 9,
+    "inactive": true
+  },
+  "proof_scope": {
+    "all_published_spatial_skater_seasons": 2784,
+    "exact_spatial_estimates": 44544,
+    "exact_head_records": 16704,
+    "exact_adjustment_values": 77952,
+    "actual_fixture_downloads": 55,
+    "actual_real_downloads": 46,
+    "current_node_typecheck_and_build": "passed; final production bytes unchanged since those checks",
+    "normal_strict_startup_passes": 1,
+    "temporary_test_files_deleted": 37,
+    "temporary_directories_deleted": 8
+  },
+  "preservation": "40 primary artifact stat identities and13 original primary document hashes exact; primary3000 remains9645; owned7640/41919 stopped; source32 fingerprints unchanged; all fits/sources/external results and evidence retained",
+  "current_heavy_slot": "v1-07 G20232024 fit; v1-18 released339a33db and claims no further heavy window",
+  "remaining_scoped_issues": [
+    "docs/issues/spatial-actual-context-extremes.md",
+    "docs/issues/shared-goalie-guard-integration.md"
+  ],
+  "scientific_admission": false,
+  "merge_or_activation": false,
+  "pr_or_primary_checkout_update": "not assigned; isolated branch/worktree retained for review"
+}

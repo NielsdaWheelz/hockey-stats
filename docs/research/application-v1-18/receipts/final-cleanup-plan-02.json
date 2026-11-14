@@ -1,0 +1,231 @@
+{
+  "status": "ready_for_task_owned_cleanup_after_final_green",
+  "recorded_at": "2026-11-10T10:48:45.632198+00:00",
+  "root": "/Users/nnandal/Documents/code/hockey-stats-v1-18",
+  "accepted_real_facts": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real/checked-facts-final.json",
+    "bytes": 45767,
+    "sha256": "6fd59f24b35b3b805a7880d256f8199229c60ed02f32fa2460c4f31b8ccda250"
+  },
+  "files_to_delete": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-browser.mjs",
+      "bytes": 2430,
+      "sha256": "af4fe12768b040a4b0f0e3ca452fb617a603daf8548f535099617967f748f57d"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-card-compat.tsx",
+      "bytes": 2797,
+      "sha256": "a03ca54a8706cef6e74a008fca0e199992952a19d061a9ba22dd2a68819e421a"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-client-test.ts",
+      "bytes": 11052,
+      "sha256": "625c390cfeae5b20e42b5a9a7a0afb92d49b1829e5f0eee772e565e50f7abfc9"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-detached-probe.sb",
+      "bytes": 210,
+      "sha256": "7f34022c885649baa767e3d3e96771af66456b0de63f85693e5da21b80f5bbd1"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-detached.sb",
+      "bytes": 234,
+      "sha256": "305c54592b4d5a11b39e04cb5c1c0ab0477a6de57f2436c19c28229a94177952"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-detail-live.tsx",
+      "bytes": 5615,
+      "sha256": "7abcb950f69226d25680dd4ba91008c1e0a0c05f9477ae4341eeb79f736aeb0f"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-detail-test.tsx",
+      "bytes": 2140,
+      "sha256": "d8bae8c7ad1a0637524b41ecf68b05918dbc366693dd253b2703b22617e9be25"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-distribution.ts",
+      "bytes": 1941,
+      "sha256": "d81dc441addc3a7b1e197e6012ffb1e2ad45ec992013648fc55dd96621738d71"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-full-sheet.tsx",
+      "bytes": 8929,
+      "sha256": "6ee3c9ce1a5629402249088689cddcfa8111d27a7b03ba9206adc6e9b42ef556"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-goalie-consumers.ts",
+      "bytes": 6511,
+      "sha256": "a33bf9cae22aa4fb15c626f6b1d3db586d4576dfe552ad7020660257815dd2d0"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-goalie-contracts.ts",
+      "bytes": 1975,
+      "sha256": "ecb9500fce45bcad83ba2983b8c527c000aa67b94de55c0245170c5474f1ce28"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-goalie-map-selection.ts",
+      "bytes": 906,
+      "sha256": "e8d8299089811ec17755f68b486af6411d1c1eab732a4c49712d36253116b8e7"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-goalie-namespace.ts",
+      "bytes": 784,
+      "sha256": "7b536bec23a73bbe99755fc78bf76af72cc3f4ce38d9c99aab84c6ad4feedc97"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-goalie-selectors.ts",
+      "bytes": 2963,
+      "sha256": "f689948dcc0c827d22ddf2d0bafb9a2bb77464f693f46278294e5b95a6cd39b9"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-interface-check.ts",
+      "bytes": 2865,
+      "sha256": "3884d599a2b88cbd2d5bca4fac9e2a68e9af0a0b3169e54861bf3f7c658d6094"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-journeys.mjs",
+      "bytes": 40343,
+      "sha256": "3d811e1b3be74708ea5d532bfe7afda67020464d3d4f1ae0e0816e92779c3fcd"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-map-copy.tsx",
+      "bytes": 2718,
+      "sha256": "97009af3f6a353b4e022c73878a8a490ea5be0d4f4edae1867599360fd68c808"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-matrix-test.ts",
+      "bytes": 2623,
+      "sha256": "c0e1b02c2a8a375ecf35c967eda53b99e0b92026c9d2777be09eeebf198ac900"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-overflow-probe.mjs",
+      "bytes": 2612,
+      "sha256": "40164583f6640593c339dd98370b4c4d81d5861c584d97fda9f18c0dfccfe173"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-pending-plot-pixels.mjs",
+      "bytes": 2064,
+      "sha256": "829a2beaa5ac2f041912c96ad64064891c9b414dc379cdfb738dda6063ac5854"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-pending-plot.tsx",
+      "bytes": 1974,
+      "sha256": "d8a023895e8ee99c6dbdbe5468c59067a2b3c2c84ea2a4a4d44fa05f83f92281"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-browser-review-red.mjs",
+      "bytes": 33452,
+      "sha256": "2e6d4249e19f52ff0c91740ad4b82aff5836cf69de2ce06744c49bd760b283ed"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-browser.mjs",
+      "bytes": 49716,
+      "sha256": "7814b336799e7f5c8f53850df48bc6b6658bc92b9e97e458607c8db5e9406886"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-card-pixels.mjs",
+      "bytes": 6536,
+      "sha256": "f38614ee4ca63199864250f7f27d16303b5ad10e422723f1a06b344e0cb850dd"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-native-pixels.mjs",
+      "bytes": 7055,
+      "sha256": "f94fe818099cb9fb4331e448ebadf1533cdb915efd2e5cde580e071de6542eae"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-sheet.py",
+      "bytes": 5972,
+      "sha256": "641ef1b4ddccdfb6d832d2613f22a306edd79b94f0bf438a11445da107030f70"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-sheet.ts",
+      "bytes": 1034,
+      "sha256": "b4becd58332bb39853693abaaf8ac825aa83344e303da03d6b544150c9d39fcc"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-runtime.mjs",
+      "bytes": 1105,
+      "sha256": "6cfa806b4e6827218c65fdb39f0edfb59ae7b72b4c27b4f51f19df7930f2e2bc"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-selection.ts",
+      "bytes": 2322,
+      "sha256": "c1613cc37caf7fe0ac4855cbc9d30528d21e88021c0ce79798ae22251ca72138"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-sheet-check.tsx",
+      "bytes": 10841,
+      "sha256": "b1fd945f36951558d7fd5235f4761abd393fb356bd1ec80b403126d206068bf3"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-sheet-pixels.mjs",
+      "bytes": 2221,
+      "sha256": "349401d7b3de726e77ef1214c3e36359dc37a1426d685e6e5799bee26639a79c"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-typed-test.ts",
+      "bytes": 11903,
+      "sha256": "56d50b951cc6ad84ef23567560e4f2e3e88e67f465715c27f8643e9b6dfb1058"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-variation-validate.mjs",
+      "bytes": 2074,
+      "sha256": "9d9a3d7ebba9785de82310ef6596502e246532b22d3f7da3e54b3012955b7d5f"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-variation.mjs",
+      "bytes": 13636,
+      "sha256": "0d28e47cf5786f48ac71ebcf7d1d5e3c109112bb235d1ad7c3a292dd8a4fabee"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-zoom-probe.mjs",
+      "bytes": 1333,
+      "sha256": "aaedcb0818472aa1443527bcefa443f25fbf14c58ea9b997b30bc6b1bf7d69ac"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/.v1-18-real-verify.py",
+      "bytes": 24536,
+      "sha256": "894c864887af973ef426710fbf9cdcbdd1bd784dcc95566aee2a5ae34ae93798"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/__pycache__/.v1-18-convert.cpython-315.pyc",
+      "bytes": 27624,
+      "sha256": "ce1dc28b3b1155ec86114206b953e16d64ca67d8b6aa2660a68ba183c8adbb91"
+    }
+  ],
+  "directories_to_delete": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-18/.tmp/v1-18-evidence",
+    "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/browser-runtime",
+    "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/native-zoom-final-1",
+    "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/native-zoom-final-2",
+    "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/native-zoom-probe",
+    "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/native-zoom-probe-x",
+    "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/native-zoom-real-2",
+    "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/native-zoom-real-card-pixels-2"
+  ],
+  "process_to_stop": {
+    "pid": 7640,
+    "command_session": 72531,
+    "port": 41919,
+    "purpose": "owned verification server only"
+  },
+  "preserve": [
+    "all external run results/candidate/receipts/downloads",
+    "primary checkout and its app/dist",
+    "active/previous databases",
+    "current G/ST source/producer worktrees and every fit",
+    "canonical fixture data and expected facts",
+    "task normal app dependencies and build",
+    "task branch/worktree and original context commit"
+  ],
+  "production_hashes_before_after": "frozen-production-source-03 all32",
+  "protected_check": "preflight40statidentities+13primarycontexthashes, no database body rehash",
+  "new_full_validation_or_heavy_command": false,
+  "supersedes": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/final-cleanup-plan.json",
+    "bytes": 9652,
+    "sha256": "6a89a6140b7cc23e2077b23c6d507c9a0a0277c3c32296a5e34eb15aa397cdcd"
+  },
+  "independent_review_amendment": "remove exact task-owned compiled one-off converter cache as well; no broad cache directory deletion"
+}

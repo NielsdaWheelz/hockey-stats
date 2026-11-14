@@ -1,0 +1,32 @@
+{
+  "status": "source_review_requires_bounded_repairs",
+  "recorded_at": "2026-11-10T10:05:26.381047+00:00",
+  "source": "app/.v1-18-real-browser.mjs",
+  "source_sha256": "2e6d4249e19f52ff0c91740ad4b82aff5836cf69de2ce06744c49bd760b283ed",
+  "scope": "adversarial controller source review only; no controller execution, browser/network/API/data/candidate read",
+  "findings": [
+    {
+      "line": 65,
+      "issue": "direct API helper binds publication/purpose but not requested season/player/selection; internally valid wrong-selection payloads could become the oracle",
+      "required": "independent literal request/response identity assertions"
+    },
+    {
+      "line": 212,
+      "issue": "57 unique returned metric ids do not establish the required57 inventory; unknown blank ids can map to null and pass",
+      "required": "fixed independent metric/section/slot inventory, not production selector import"
+    },
+    {
+      "line": 361,
+      "issue": "selected spatial distribution csv is downloaded without numeric/cohort/identity validation",
+      "required": "reuse the already-requested UI league response as the independent raw/cohort oracle; no extra direct GET"
+    },
+    {
+      "line": 451,
+      "issue": "300ms canvas delay does not prove navigation changes before export completion",
+      "required": "hold the callback explicitly, prove changed navigation, then release and compare the captured export"
+    }
+  ],
+  "other_review": "no route fulfillment/mocking, new server, numerical/provenance traversal or silent failure waiver found; true native zoom geometry and export hash comparisons are meaningful; direct errors produce a failing receipt",
+  "budget": "initial two-extra-profile plan45 downloads; root added one20252026 forward sheet, so final cap must explicitly be46; direct selected GET cap remains23",
+  "next": "review finite repairs before cases/execution clearance; product source unchanged"
+}

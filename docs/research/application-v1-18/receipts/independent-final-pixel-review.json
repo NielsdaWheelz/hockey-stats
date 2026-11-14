@@ -1,0 +1,85 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-11-10T06:50:59.768086+00:00",
+  "scope": "independent source and actual rebuilt served-asset fixture download pixel review; no real producer acceptance or numerical artifact read",
+  "reviewed_artifacts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/colorful-selected-map.png",
+      "sha256": "e915ef153c754e86e22f2ad34abd71ad5c887f12d0ac3dc97aea727a0afe28c7",
+      "bytes": 218078,
+      "width": 1200,
+      "height": 1800
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/colorful-complete-map.png",
+      "sha256": "139e46810d48872dca40b2ff351f5a042820637e85075e83b82de340a101e865",
+      "bytes": 231121,
+      "width": 1200,
+      "height": 1827
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/colorful-common-pk-map.png",
+      "sha256": "d7cce8be925d0f10d248b680dcb99955200988d8ca022146a2f1a13896672c6f",
+      "bytes": 210607,
+      "width": 1200,
+      "height": 1773
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/colorful-comparison-defense.png",
+      "sha256": "ff2c2d4a72b03330cfad359552c7c0215862d996bbd49896ae8528cff54f8d69",
+      "bytes": 585626,
+      "width": 1200,
+      "height": 2678
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/colorful-sheet.png",
+      "sha256": "a3aca59401204a9fea7d8ce78685f4ff281a94a1b393416026014cfc3126bb30",
+      "bytes": 691037,
+      "width": 1200,
+      "height": 2929
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/long_name-sheet.png",
+      "sha256": "c533f5f972da72c2728a0786d61d08ee9b7be6038b6f47f11047dd49e7781e5b",
+      "bytes": 706916,
+      "width": 1200,
+      "height": 2968
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/narrow-spatial-overflow-delivered-green.json",
+      "sha256": "a830255f2aa8967a6c8db1428ae77ccf54b91cae647412d4b3df732e9893cda9",
+      "bytes": 10852
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/normal.json",
+      "sha256": "aed9309d8f0fb434dc37a6851003ec3bdc902a2002276ef399959d032048aa67",
+      "bytes": 39622
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/zoom.json",
+      "sha256": "d67f01aa624792b932738a3baa631c21145b7e00a9d64c58a133fb327b7ba4ca",
+      "bytes": 20710
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-journeys/variants.json",
+      "sha256": "b2fd46b38b7bf0fc9c2c1831dc82392eb8960518ed5b2a8e2b2062bef06eb8e5",
+      "bytes": 44431
+    }
+  ],
+  "observations": [
+    "signed effect legend explicitly states magnitude below 0.18045 is the central neutral band, not exact zero",
+    "complete nonnegative legend explicitly states density below 1.02175; no false signed band",
+    "common pk standalone png states positive differences mean more against and retains the full 180 degree rotation",
+    "pending comparison inferred-setting value and units are visibly separated from the zero-reference stem",
+    "colorful default sheet retains four colored full rinks, eight named support populations, seven method references, supplied accounting values and required interpretation",
+    "long name wraps without clipping; all reviewed sheet pngs have width1200 and height below3200; body20/footer18 source sizes remain readable in actual rasters",
+    "delivered narrow controls use ordinary rebuilt assets without injected styles; viewport and document both375, controls end by359",
+    "normal, native zoom and strict variation receipts are green without page errors or external requests"
+  ],
+  "verifier": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/.v1-18-real-verify.py",
+    "sha256": "894c864887af973ef426710fbf9cdcbdd1bd784dcc95566aee2a5ae34ae93798",
+    "review": "evidence family, year, full selection and provided-result identity now asserted before sqlite comparison; source only, not executed"
+  },
+  "remaining": "real converter metadata adjudication awaits explicit completed identities; real acceptance remains separate"
+}

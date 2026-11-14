@@ -1,0 +1,33 @@
+{
+  "status": "javascript_entered_sqlite_connection_acquisition_failed",
+  "recorded_at": "2026-11-10T09:37:53.271844+00:00",
+  "command_session": 50701,
+  "exit_code": 1,
+  "ready_receipt": "receipts/real-ready-scope-04.json",
+  "preserved_log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/failed-startup-sql-open-02.log",
+    "bytes": 913,
+    "sha256": "985abd9b6386e5524bf9c3bbd2c9718a99233e31f476bea7f1879ac00308b2cd"
+  },
+  "preserved_policy": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/failed-startup-policy-04.sb",
+    "sha256": "7f15190a8b61b25f1fc5efdcd91a0b14c0feaa97ac4751c566a5e465d0ce66a5"
+  },
+  "application_javascript_entered": true,
+  "sqlite_open_attempted": true,
+  "candidate_io_bytes": "unmeasured; do not claim zero",
+  "ordinary_strict_validation_invocations": 0,
+  "source_ordering": "SqliteClient.make eagerly acquires DatabaseSync before service provisioning, busy_timeout or publication validatePhysical/Analysis/Observed",
+  "runtime_accepted": false,
+  "connection_controls": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/startup-diagnosis-connection/20261110T093139Z/followup/diagnosis.json",
+    "sha256": "e6f6af4866f658be8a72a349db5cf6503a3ed850fc66e04970f78115d435a7dc",
+    "four_tiny_connection_attempts": true,
+    "successful_single_metadata_rows": 2,
+    "app_or_full_validator_imports": 0
+  },
+  "repair": "use the tested exact-candidate exclusion in a project data-content denial; filesystem metadata permitted for ordinary I/O; source and log content remain denied",
+  "inputs_database_source": "unchanged",
+  "slot": "still held by v1-18; no release inferred",
+  "activation": false
+}

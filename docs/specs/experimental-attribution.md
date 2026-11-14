@@ -223,6 +223,8 @@ for player `i`, weight is summed all-strength toi on team stints where that play
 
 ## interfaces, ownership and acceptance
 
+[v1-18](v1-18-analytical-skater-sheet.md) brings saved per-role/head/state evidence and actual-context allocations into the analytical sheet through [schema9's finite projection](experimental-application.md#spatial-evidence-projection). `spatial_state.py` reads the small bound evidence members; `spatial_composition.py` serializes them without refitting or projection recomputation. v1-09 saves the named per-state breakdown/actual weights for that same consumer. standardized summary weights, actual role weights, likelihood information and reference extrapolation remain separate. the typed adjustment validator adopts the existing term-scaled arithmetic rule; no numerical tolerance or scientific verdict changes.
+
 `analysis_data.py` owns prepared elapsed/event/mechanism facts and source joins; reuse `reconstruct`, `game_chronology`, `feature_data`, `feature_history` and `scoring_credits`. `spatial_rates.py` owns positive rate objectives, annual states and projections. `player_mechanisms.py` owns penalties, territory and shootiness; `player_value.py` owns references and the sole ten-term ledger. reuse `attribution` geometry/identity helpers, not its incompatible gaussian likelihood. ordinary functions and the parent command suffice:
 
 ```text

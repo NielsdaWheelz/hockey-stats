@@ -1,259 +1,231 @@
 {
-  "schema_version": 3,
-  "kind": "player_analysis_results",
-  "purpose": "fixture",
-  "seasons": [
-    "20232024",
-    "20242025",
-    "20252026"
-  ],
-  "observed_bindings": [
-    {
-      "season": "20232024",
-      "corpus_sha256": "5ef7a0cb757f0283386377308687b854d84b2ff144e7085d80ca0242cf0cbbb0"
-    },
-    {
-      "season": "20242025",
-      "corpus_sha256": "12276e3802058e11eb1493bdbc8de4c9f2eeb8a50649c57a2f1c9e252aca0813"
-    },
-    {
-      "season": "20252026",
-      "corpus_sha256": "5d9e84d335097513b523b37ca972d116685741f323bc15e0ed9d9fd878431e07"
-    }
-  ],
-  "prepared_sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
-  "producer": {
-    "git_commit": "c80aa0a5fca340bcbffe72c92be4f325ec22c1ff",
-    "git_dirty": true,
-    "python_version": "3.14.8"
-  },
   "catalogs": {
+    "methods": {
+      "path": "methods.jsonl",
+      "rows": 10,
+      "sha256": "76771d0fa0819bb8e495fa90ffcf01b1ae24d3424ab60c3010e5044b30bd1bae"
+    },
     "people": {
       "path": "people.jsonl",
-      "sha256": "2d8921451ecaf14135606f7cce9c3242a82adcc915c9f139281ab6ab967fefab",
-      "rows": 255
+      "rows": 255,
+      "sha256": "2d8921451ecaf14135606f7cce9c3242a82adcc915c9f139281ab6ab967fefab"
     },
     "sources": {
       "path": "sources.jsonl",
-      "sha256": "3e681c9109a8bee4f2837f4c153899aa23b8728a7bd146695249a2131c97ae0d",
-      "rows": 5
-    },
-    "methods": {
-      "path": "methods.jsonl",
-      "sha256": "76771d0fa0819bb8e495fa90ffcf01b1ae24d3424ab60c3010e5044b30bd1bae",
-      "rows": 10
+      "rows": 5,
+      "sha256": "3e681c9109a8bee4f2837f4c153899aa23b8728a7bd146695249a2131c97ae0d"
     },
     "supports": {
       "path": "supports.jsonl",
-      "sha256": "a5f667daedc340a006758e9aef46bccf109f6554d3db923d8be903cf16444862",
-      "rows": 18
+      "rows": 18,
+      "sha256": "a5f667daedc340a006758e9aef46bccf109f6554d3db923d8be903cf16444862"
     }
   },
   "families": [
     {
-      "season": "20232024",
-      "family": "descriptive",
       "availability": "provided",
       "explanation": null,
+      "family": "descriptive",
+      "season": "20232024",
       "tables": {
-        "skater_descriptive": {
-          "path": "20232024-descriptive-skater_descriptive.jsonl",
-          "sha256": "98eda8440dfa41e6e50ed9b6e0b6c22c2f308b0dc842649bb597a920d68670f5",
-          "rows": 84
-        },
         "skater_context": {
           "path": "20232024-descriptive-skater_context.jsonl",
-          "sha256": "8b3353552ef1bb462bf03249fee0c660eadc61faf96226215532fd62f12e99a1",
-          "rows": 84
+          "rows": 84,
+          "sha256": "8b3353552ef1bb462bf03249fee0c660eadc61faf96226215532fd62f12e99a1"
+        },
+        "skater_descriptive": {
+          "path": "20232024-descriptive-skater_descriptive.jsonl",
+          "rows": 84,
+          "sha256": "98eda8440dfa41e6e50ed9b6e0b6c22c2f308b0dc842649bb597a920d68670f5"
         }
       }
     },
     {
-      "season": "20232024",
-      "family": "evidence",
       "availability": "provided",
       "explanation": null,
+      "family": "evidence",
+      "season": "20232024",
       "tables": {
         "attempt_fact": {
           "path": "20232024-evidence-attempt_fact.jsonl",
-          "sha256": "43486984bbfb40db6602790b0f03166ee435e6d8eeb555424115a9a8f6964145",
-          "rows": 23
-        },
-        "dressed_game": {
-          "path": "20232024-evidence-dressed_game.jsonl",
-          "sha256": "ce8e36c301ca87aee9831876fe5c9fcf7f671e9106a990d803fa34be426c513b",
-          "rows": 14
-        },
-        "interval_fact": {
-          "path": "20232024-evidence-interval_fact.jsonl",
-          "sha256": "52ff8b1fe9ff7c3f87086e6c10dd291d75846daa8592b8833c5435043d4e4e86",
-          "rows": 24
-        },
-        "interval_player": {
-          "path": "20232024-evidence-interval_player.jsonl",
-          "sha256": "ad6a1c019ae05e070573c0877e6958249c207f85748d6f2fd1d5d4739ada0c97",
-          "rows": 40
-        },
-        "interval_location": {
-          "path": "20232024-evidence-interval_location.jsonl",
-          "sha256": "b73bb126c93bfc3dd82a8503c51b6d4fd891ea9a7927760e413f125ad93b9beb",
-          "rows": 6
+          "rows": 23,
+          "sha256": "43486984bbfb40db6602790b0f03166ee435e6d8eeb555424115a9a8f6964145"
         },
         "context_coverage": {
           "path": "20232024-evidence-context_coverage.jsonl",
-          "sha256": "3de54a5f509129db07b9fe4cb199db59dbd702c76d0b3361507f31b4588aa317",
-          "rows": 420
+          "rows": 420,
+          "sha256": "3de54a5f509129db07b9fe4cb199db59dbd702c76d0b3361507f31b4588aa317"
+        },
+        "dressed_game": {
+          "path": "20232024-evidence-dressed_game.jsonl",
+          "rows": 14,
+          "sha256": "ce8e36c301ca87aee9831876fe5c9fcf7f671e9106a990d803fa34be426c513b"
+        },
+        "interval_fact": {
+          "path": "20232024-evidence-interval_fact.jsonl",
+          "rows": 24,
+          "sha256": "52ff8b1fe9ff7c3f87086e6c10dd291d75846daa8592b8833c5435043d4e4e86"
+        },
+        "interval_location": {
+          "path": "20232024-evidence-interval_location.jsonl",
+          "rows": 6,
+          "sha256": "b73bb126c93bfc3dd82a8503c51b6d4fd891ea9a7927760e413f125ad93b9beb"
+        },
+        "interval_player": {
+          "path": "20232024-evidence-interval_player.jsonl",
+          "rows": 40,
+          "sha256": "ad6a1c019ae05e070573c0877e6958249c207f85748d6f2fd1d5d4739ada0c97"
         }
       }
     },
     {
-      "season": "20232024",
-      "family": "execution",
       "availability": "provided",
       "explanation": null,
+      "family": "execution",
+      "season": "20232024",
       "tables": {
-        "skater_execution": {
-          "path": "20232024-execution-skater_execution.jsonl",
-          "sha256": "4094cf8bf68c46a1cbfde4892560f92a8731277a2cb1bfb1fd5cadfb785bcf60",
-          "rows": 588
-        },
         "analysis_map": {
           "path": "20232024-execution-analysis_map.jsonl",
-          "sha256": "80929306644560e1654008a3801e53091a0ebc0c42bd1254268b857fcf31eaeb",
-          "rows": 1176
-        },
-        "execution_breakdown": {
-          "path": "20232024-execution-execution_breakdown.jsonl",
-          "sha256": "5bc4f8f08f862c270e37982f33a92f470a41afec24e84c8f0c41b713cd13e10c",
-          "rows": 5292
-        },
-        "attempt_value": {
-          "path": "20232024-execution-attempt_value.jsonl",
-          "sha256": "511c250b316d644ae9168cf73b14cfaaf110f3b50049029d248718b9187d7024",
-          "rows": 23
-        },
-        "attempt_setter": {
-          "path": "20232024-execution-attempt_setter.jsonl",
-          "sha256": "23c3fbe5ffacb595e17da1d40a9899760ecc1c93b795c5999b38298ac8587d7d",
-          "rows": 5
+          "rows": 1176,
+          "sha256": "6c45b1226b43097df9798dfabe93e9524dc25f7f5837f89f62a4daee74b47f49"
         },
         "attempt_execution_share": {
           "path": "20232024-execution-attempt_execution_share.jsonl",
-          "sha256": "dedfd3fa54a139c4da7a77e6cc9c281040d4f5491b38cb78c79a0e8786db10d2",
-          "rows": 11
+          "rows": 11,
+          "sha256": "dedfd3fa54a139c4da7a77e6cc9c281040d4f5491b38cb78c79a0e8786db10d2"
+        },
+        "attempt_setter": {
+          "path": "20232024-execution-attempt_setter.jsonl",
+          "rows": 5,
+          "sha256": "23c3fbe5ffacb595e17da1d40a9899760ecc1c93b795c5999b38298ac8587d7d"
+        },
+        "attempt_value": {
+          "path": "20232024-execution-attempt_value.jsonl",
+          "rows": 23,
+          "sha256": "511c250b316d644ae9168cf73b14cfaaf110f3b50049029d248718b9187d7024"
+        },
+        "execution_breakdown": {
+          "path": "20232024-execution-execution_breakdown.jsonl",
+          "rows": 5292,
+          "sha256": "5bc4f8f08f862c270e37982f33a92f470a41afec24e84c8f0c41b713cd13e10c"
+        },
+        "skater_execution": {
+          "path": "20232024-execution-skater_execution.jsonl",
+          "rows": 588,
+          "sha256": "4094cf8bf68c46a1cbfde4892560f92a8731277a2cb1bfb1fd5cadfb785bcf60"
         }
       }
     },
     {
-      "season": "20232024",
-      "family": "goalie",
       "availability": "provided",
       "explanation": null,
+      "family": "goalie",
+      "season": "20232024",
       "tables": {
-        "goalie_result": {
-          "path": "20232024-goalie-goalie_result.jsonl",
-          "sha256": "7b3378f3cebb6cf437cf4cba80ebe18bac8b642a5498f48965b2303404727673",
-          "rows": 22
-        },
-        "goalie_observed": {
-          "path": "20232024-goalie-goalie_observed.jsonl",
-          "sha256": "1e5e7f6a3df9a69808caacc4247aba002824ed3c65419e216cd58a988c4479a8",
-          "rows": 24
-        },
-        "goalie_evidence_map": {
-          "path": "20232024-goalie-goalie_evidence_map.jsonl",
-          "sha256": "ed4947801490ba0fc3d727a269803c2f04dbf627a9fb3a9aa59430c763111d48",
-          "rows": 288
-        },
-        "goalie_danger": {
-          "path": "20232024-goalie-goalie_danger.jsonl",
-          "sha256": "81f6d9a7ae7db1737bd74b135df36fba3539cec6e6003a421430ad0ec59c88df",
-          "rows": 48
-        },
         "analysis_map": {
           "path": "20232024-goalie-analysis_map.jsonl",
-          "sha256": "ca0d7d17f7143524e925ed4b3a9630c1555cdad89e2fb750b819289c08160cc5",
-          "rows": 22
+          "rows": 22,
+          "sha256": "ca0d7d17f7143524e925ed4b3a9630c1555cdad89e2fb750b819289c08160cc5"
         },
         "execution_breakdown": {
           "path": "20232024-goalie-execution_breakdown.jsonl",
-          "sha256": "84624f78d30b57adc7015e6506addbce587ad16d97cab7f6fd7a424f5531cd21",
-          "rows": 198
+          "rows": 198,
+          "sha256": "84624f78d30b57adc7015e6506addbce587ad16d97cab7f6fd7a424f5531cd21"
+        },
+        "goalie_danger": {
+          "path": "20232024-goalie-goalie_danger.jsonl",
+          "rows": 48,
+          "sha256": "81f6d9a7ae7db1737bd74b135df36fba3539cec6e6003a421430ad0ec59c88df"
+        },
+        "goalie_evidence_map": {
+          "path": "20232024-goalie-goalie_evidence_map.jsonl",
+          "rows": 288,
+          "sha256": "ed4947801490ba0fc3d727a269803c2f04dbf627a9fb3a9aa59430c763111d48"
+        },
+        "goalie_observed": {
+          "path": "20232024-goalie-goalie_observed.jsonl",
+          "rows": 24,
+          "sha256": "1e5e7f6a3df9a69808caacc4247aba002824ed3c65419e216cd58a988c4479a8"
+        },
+        "goalie_result": {
+          "path": "20232024-goalie-goalie_result.jsonl",
+          "rows": 22,
+          "sha256": "7b3378f3cebb6cf437cf4cba80ebe18bac8b642a5498f48965b2303404727673"
         }
       }
     },
     {
-      "season": "20232024",
-      "family": "ledger",
       "availability": "provided",
       "explanation": null,
+      "family": "ledger",
+      "season": "20232024",
       "tables": {
         "value_ledger": {
           "path": "20232024-ledger-value_ledger.jsonl",
-          "sha256": "a58fb4c330c737e0ee9d4f22e7eff101a37094fcbca1c3cd6c6675ccc8f333ab",
-          "rows": 84
+          "rows": 84,
+          "sha256": "a58fb4c330c737e0ee9d4f22e7eff101a37094fcbca1c3cd6c6675ccc8f333ab"
         }
       }
     },
     {
-      "season": "20232024",
-      "family": "microstats",
       "availability": "provided",
       "explanation": null,
+      "family": "microstats",
+      "season": "20232024",
       "tables": {
         "skater_microstats": {
           "path": "20232024-microstats-skater_microstats.jsonl",
-          "sha256": "83101113bbe0b7a4f7612746da728ce1588fb8bca78267074a9d19d533675891",
-          "rows": 84
+          "rows": 84,
+          "sha256": "83101113bbe0b7a4f7612746da728ce1588fb8bca78267074a9d19d533675891"
         }
       }
     },
     {
-      "season": "20232024",
-      "family": "penalties",
       "availability": "provided",
       "explanation": null,
+      "family": "penalties",
+      "season": "20232024",
       "tables": {
         "skater_penalties": {
           "path": "20232024-penalties-skater_penalties.jsonl",
-          "sha256": "3e6993c997a55af2f0cdac2dcdd8774155868cab6ba1d1f443dc90180c427d60",
-          "rows": 84
+          "rows": 84,
+          "sha256": "3e6993c997a55af2f0cdac2dcdd8774155868cab6ba1d1f443dc90180c427d60"
         }
       }
     },
     {
-      "season": "20232024",
-      "family": "shootiness",
       "availability": "provided",
       "explanation": null,
+      "family": "shootiness",
+      "season": "20232024",
       "tables": {
         "skater_shootiness": {
           "path": "20232024-shootiness-skater_shootiness.jsonl",
-          "sha256": "bd9a99aeab500fed7e0c53c9bf3a294a4596b84f7680ec0f9837399181a624fd",
-          "rows": 588
+          "rows": 588,
+          "sha256": "bd9a99aeab500fed7e0c53c9bf3a294a4596b84f7680ec0f9837399181a624fd"
         }
       }
     },
     {
-      "season": "20232024",
-      "family": "spatial",
       "availability": "provided",
       "explanation": null,
+      "family": "spatial",
+      "season": "20232024",
       "tables": {
-        "skater_spatial": {
-          "path": "20232024-spatial-skater_spatial.jsonl",
-          "sha256": "13e2a435ca1937db206b127f71149cc223e6c5236d79b3950f9869bdd3b1330a",
-          "rows": 756
+        "adjustment_decomposition": {
+          "path": "20232024-spatial-adjustment_decomposition.jsonl",
+          "rows": 1680,
+          "sha256": "028d81a26b29160b5e581f03014670f0db87e5f93d7cc0eb914e41865742b769"
         },
         "analysis_map": {
           "path": "20232024-spatial-analysis_map.jsonl",
-          "sha256": "5f53645e6c0f52f54ea509bae4bf52829d7b32964e57c0024b80740d8bf9a313",
-          "rows": 3360
+          "rows": 3360,
+          "sha256": "f2319e64a75f7194628ec1df878e2721c436edfdb2e6a74815241d48b7318925"
         },
-        "adjustment_decomposition": {
-          "path": "20232024-spatial-adjustment_decomposition.jsonl",
-          "sha256": "028d81a26b29160b5e581f03014670f0db87e5f93d7cc0eb914e41865742b769",
-          "rows": 1680
+        "skater_spatial": {
+          "path": "20232024-spatial-skater_spatial.jsonl",
+          "rows": 756,
+          "sha256": "13e2a435ca1937db206b127f71149cc223e6c5236d79b3950f9869bdd3b1330a"
         },
         "spatial_evidence": {
           "path": "20232024-spatial-spatial_evidence.jsonl",
@@ -263,230 +235,258 @@
       }
     },
     {
-      "season": "20232024",
-      "family": "territory",
       "availability": "provided",
       "explanation": null,
+      "family": "territory",
+      "season": "20232024",
       "tables": {
-        "skater_territory": {
-          "path": "20232024-territory-skater_territory.jsonl",
-          "sha256": "47cb02f9d14b282a4b130bca49554dd01bb11b8db52e9dd49147d0e2fb1471ca",
-          "rows": 84
-        },
         "analysis_map": {
           "path": "20232024-territory-analysis_map.jsonl",
-          "sha256": "0b01c1ff20479aa426a2f2fa5a9d9b429b883eefb129742b328ece303f66b381",
-          "rows": 168
+          "rows": 168,
+          "sha256": "a6ddea39042f9310381cd791643419b41ef51e50c002fa1bb11d00fdb19a06e2"
+        },
+        "skater_territory": {
+          "path": "20232024-territory-skater_territory.jsonl",
+          "rows": 84,
+          "sha256": "47cb02f9d14b282a4b130bca49554dd01bb11b8db52e9dd49147d0e2fb1471ca"
         }
       }
     },
     {
-      "season": "20242025",
-      "family": "descriptive",
       "availability": "not_computed",
       "explanation": "not computed; later-season fixture family pending",
+      "family": "descriptive",
+      "season": "20242025",
       "tables": {}
     },
     {
-      "season": "20242025",
-      "family": "evidence",
       "availability": "provided",
       "explanation": null,
+      "family": "evidence",
+      "season": "20242025",
       "tables": {
         "attempt_fact": {
           "path": "20242025-evidence-attempt_fact.jsonl",
-          "sha256": "df2197bab9e9f29c72dbd697ae41700cdc14f5d134e83f8ea7822b8828e79b83",
-          "rows": 23
-        },
-        "dressed_game": {
-          "path": "20242025-evidence-dressed_game.jsonl",
-          "sha256": "79af5e0a0ab10a2d2efdb3a2f4415924622dc84625c0d7b6f2c843a7fff4e5d7",
-          "rows": 14
-        },
-        "interval_fact": {
-          "path": "20242025-evidence-interval_fact.jsonl",
-          "sha256": "0a0462b09681de60d89fcdf629afcc211d7996ea54138a28cd923c24d40abc46",
-          "rows": 24
-        },
-        "interval_player": {
-          "path": "20242025-evidence-interval_player.jsonl",
-          "sha256": "4374f9dc22e4e2efb6070d5de1eff493a6ce313b476b05ce1449989d9f03a125",
-          "rows": 40
-        },
-        "interval_location": {
-          "path": "20242025-evidence-interval_location.jsonl",
-          "sha256": "38679c7a975bbd56f83785e4991215f5edf6bc6fdc7df6ce03d948fc46dfa726",
-          "rows": 6
+          "rows": 23,
+          "sha256": "df2197bab9e9f29c72dbd697ae41700cdc14f5d134e83f8ea7822b8828e79b83"
         },
         "context_coverage": {
           "path": "20242025-evidence-context_coverage.jsonl",
-          "sha256": "972a7a1725bc94e0e83df5be5efd285af52b1e0264e66ed35f1f5614d2313dfa",
-          "rows": 420
+          "rows": 420,
+          "sha256": "972a7a1725bc94e0e83df5be5efd285af52b1e0264e66ed35f1f5614d2313dfa"
+        },
+        "dressed_game": {
+          "path": "20242025-evidence-dressed_game.jsonl",
+          "rows": 14,
+          "sha256": "79af5e0a0ab10a2d2efdb3a2f4415924622dc84625c0d7b6f2c843a7fff4e5d7"
+        },
+        "interval_fact": {
+          "path": "20242025-evidence-interval_fact.jsonl",
+          "rows": 24,
+          "sha256": "0a0462b09681de60d89fcdf629afcc211d7996ea54138a28cd923c24d40abc46"
+        },
+        "interval_location": {
+          "path": "20242025-evidence-interval_location.jsonl",
+          "rows": 6,
+          "sha256": "38679c7a975bbd56f83785e4991215f5edf6bc6fdc7df6ce03d948fc46dfa726"
+        },
+        "interval_player": {
+          "path": "20242025-evidence-interval_player.jsonl",
+          "rows": 40,
+          "sha256": "4374f9dc22e4e2efb6070d5de1eff493a6ce313b476b05ce1449989d9f03a125"
         }
       }
     },
     {
-      "season": "20242025",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "execution",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20242025",
       "tables": {}
     },
     {
-      "season": "20242025",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "goalie",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20242025",
       "tables": {}
     },
     {
-      "season": "20242025",
-      "family": "ledger",
       "availability": "provided",
       "explanation": null,
+      "family": "ledger",
+      "season": "20242025",
       "tables": {
         "value_ledger": {
           "path": "20242025-ledger-value_ledger.jsonl",
-          "sha256": "2f5c10631456021327b7351f7213cbdf771972ccc56bc58937034689e4ce8917",
-          "rows": 84
+          "rows": 84,
+          "sha256": "2f5c10631456021327b7351f7213cbdf771972ccc56bc58937034689e4ce8917"
         }
       }
     },
     {
-      "season": "20242025",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "microstats",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20242025",
       "tables": {}
     },
     {
-      "season": "20242025",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "penalties",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20242025",
       "tables": {}
     },
     {
-      "season": "20242025",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "shootiness",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20242025",
       "tables": {}
     },
     {
-      "season": "20242025",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "spatial",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
-      "tables": {}
-    },
-    {
       "season": "20242025",
+      "tables": {}
+    },
+    {
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "territory",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20242025",
       "tables": {}
     },
     {
-      "season": "20252026",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "descriptive",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20252026",
       "tables": {}
     },
     {
-      "season": "20252026",
-      "family": "evidence",
       "availability": "provided",
       "explanation": null,
+      "family": "evidence",
+      "season": "20252026",
       "tables": {
         "attempt_fact": {
           "path": "20252026-evidence-attempt_fact.jsonl",
-          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "rows": 0
-        },
-        "dressed_game": {
-          "path": "20252026-evidence-dressed_game.jsonl",
-          "sha256": "2c6b8f634ad4509cfb1b99879f7d6051ff73dfbc725610eb04fa60e92f520364",
-          "rows": 12
-        },
-        "interval_fact": {
-          "path": "20252026-evidence-interval_fact.jsonl",
-          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "rows": 0
-        },
-        "interval_player": {
-          "path": "20252026-evidence-interval_player.jsonl",
-          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "rows": 0
-        },
-        "interval_location": {
-          "path": "20252026-evidence-interval_location.jsonl",
-          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "rows": 0
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         },
         "context_coverage": {
           "path": "20252026-evidence-context_coverage.jsonl",
-          "sha256": "8075ed1af8eb19bda1f41ed598cbc097dc0d71eac8b08fe01608b39f0b02e9db",
-          "rows": 420
+          "rows": 420,
+          "sha256": "8075ed1af8eb19bda1f41ed598cbc097dc0d71eac8b08fe01608b39f0b02e9db"
+        },
+        "dressed_game": {
+          "path": "20252026-evidence-dressed_game.jsonl",
+          "rows": 12,
+          "sha256": "2c6b8f634ad4509cfb1b99879f7d6051ff73dfbc725610eb04fa60e92f520364"
+        },
+        "interval_fact": {
+          "path": "20252026-evidence-interval_fact.jsonl",
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "interval_location": {
+          "path": "20252026-evidence-interval_location.jsonl",
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "interval_player": {
+          "path": "20252026-evidence-interval_player.jsonl",
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         }
       }
     },
     {
-      "season": "20252026",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "execution",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20252026",
       "tables": {}
     },
     {
-      "season": "20252026",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "goalie",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20252026",
       "tables": {}
     },
     {
-      "season": "20252026",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "ledger",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20252026",
       "tables": {}
     },
     {
-      "season": "20252026",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "microstats",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20252026",
       "tables": {}
     },
     {
-      "season": "20252026",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "penalties",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20252026",
       "tables": {}
     },
     {
-      "season": "20252026",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "shootiness",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20252026",
       "tables": {}
     },
     {
-      "season": "20252026",
+      "availability": "not_computed",
+      "explanation": "not computed; later-season fixture family pending",
       "family": "spatial",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
+      "season": "20252026",
       "tables": {}
     },
     {
-      "season": "20252026",
-      "family": "territory",
       "availability": "not_computed",
       "explanation": "not computed; later-season fixture family pending",
+      "family": "territory",
+      "season": "20252026",
       "tables": {}
     }
+  ],
+  "kind": "player_analysis_results",
+  "observed_bindings": [
+    {
+      "corpus_sha256": "5ef7a0cb757f0283386377308687b854d84b2ff144e7085d80ca0242cf0cbbb0",
+      "season": "20232024"
+    },
+    {
+      "corpus_sha256": "12276e3802058e11eb1493bdbc8de4c9f2eeb8a50649c57a2f1c9e252aca0813",
+      "season": "20242025"
+    },
+    {
+      "corpus_sha256": "5d9e84d335097513b523b37ca972d116685741f323bc15e0ed9d9fd878431e07",
+      "season": "20252026"
+    }
+  ],
+  "prepared_sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+  "producer": {
+    "git_commit": "c80aa0a5fca340bcbffe72c92be4f325ec22c1ff",
+    "git_dirty": true,
+    "python_version": "3.14.8"
+  },
+  "purpose": "fixture",
+  "schema_version": 3,
+  "seasons": [
+    "20232024",
+    "20242025",
+    "20252026"
   ]
 }

@@ -1,0 +1,349 @@
+{
+  "purpose": "actual native200 card pixels; CSS-to-DIP capture repair",
+  "publication": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+  "main_controller_sha256": "7814b336799e7f5c8f53850df48bc6b6658bc92b9e97e458607c8db5e9406886",
+  "main_receipt_sha256": "f20741c7ec34bb9bf8261310788336871365977aea424ce45b50516e5007fe18",
+  "protocol_contract": {
+    "viewport_clip_units": "device independent pixels",
+    "cssVisualViewport_zoom": "CSS to device independent pixels ratio",
+    "primary_source": "browser-runtime/node_modules/playwright-core/types/protocol.d.ts:14953-14984"
+  },
+  "passed": false,
+  "failure": {
+    "message": "AssertionError [ERR_ASSERTION]: every console error must have an observed optional-browser-icon404 identity\n+ actual - expected\n\n+ [\n+   {\n+     location: {\n+       column: 0,\n+       columnNumber: 0,\n+       line: 0,\n+       lineNumber: 0,\n+       url: 'http://127.0.0.1:41919/favicon.ico'\n+     },\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)',\n+     type: 'error'\n+   }\n+ ]\n- []\n",
+    "stack": "AssertionError [ERR_ASSERTION]: every console error must have an observed optional-browser-icon404 identity\n+ actual - expected\n\n+ [\n+   {\n+     location: {\n+       column: 0,\n+       columnNumber: 0,\n+       line: 0,\n+       lineNumber: 0,\n+       url: 'http://127.0.0.1:41919/favicon.ico'\n+     },\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)',\n+     type: 'error'\n+   }\n+ ]\n- []\n\n    at file:///Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-native-pixels.mjs:90:10"
+  },
+  "pages": [
+    {
+      "label": "comparison",
+      "url": "http://127.0.0.1:41919/compare?season=20232024&view=analytical&a=8477492&b=8477504&peerMin=0&specialtyMin=0",
+      "elapsed_ms": 9552.474542,
+      "geometry": {
+        "innerWidth": 640,
+        "outerWidth": 1280,
+        "devicePixelRatio": 2,
+        "documentWidth": 640,
+        "cards": [
+          {
+            "name": "Nathan MacKinnon",
+            "header": "analytical skater sheetNathan MacKinnon2023–24 · experimental adjusted estimatesC · COL · age 28.4189 as of 2024-02-0182 positive-toi appearances · 22.8142 reported min/appearance",
+            "footer": "construction, support and limitationscalibrated player uncertainty is unknown; empirical population spread is not uncertainty.reference execution: virtual neutral shooter, inferred setter and goalie. complete maps insert one focal player, not actual deployment.workload: 1,000 5v5 / 100 pp / 100 pk min. pp/pk use league-time mixtures; specialty time may be hypothetical or prior-only.attempt integrals differ from xg insets. positive against is more against; positive taking contrasts are more penalties.10ft pooling and contours do not establish fine-scale reliability. aggregate support need not inform every head.s1 · 5v5 spatial · included/excluded min 1278.68/70.6667 · some current focal information; unquantified gapss2 · finishing · included/excluded min 1349.35/0 · some current focal information; unquantified gapss3 · inferred setting · included/excluded min 1349.35/0 · some current focal information; unquantified gapsm1: spatial-v1-08-20232024; reference spatial-league-centered-virtual-v1m2: execution-v1-06-20232024; reference reference-execution-zeroexperimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not establishedexperimental point estimates; calibration, recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicitpublication 0fcf4cf3-0eb6-4180-bfed-f36290318db9 · real · shared comparison scales with player 8477504",
+            "css_box": {
+              "x": 16,
+              "y": 1402.609375,
+              "width": 608,
+              "height": 4710.421875
+            },
+            "fonts": {
+              "body": "16px",
+              "heading": "25.6px",
+              "caption": "16.8px",
+              "footer": "13.92px"
+            }
+          },
+          {
+            "name": "Josh Morrissey",
+            "header": "analytical skater sheetJosh Morrissey2023–24 · experimental adjusted estimatesD · WPG · age 28.8487 as of 2024-02-0181 positive-toi appearances · 24.1823 reported min/appearance",
+            "footer": "construction, support and limitationscalibrated player uncertainty is unknown; empirical population spread is not uncertainty.reference execution: virtual neutral shooter, inferred setter and goalie. complete maps insert one focal player, not actual deployment.workload: 1,000 5v5 / 100 pp / 100 pk min. pp/pk use league-time mixtures; specialty time may be hypothetical or prior-only.attempt integrals differ from xg insets. positive against is more against; positive taking contrasts are more penalties.10ft pooling and contours do not establish fine-scale reliability. aggregate support need not inform every head.s1 · 5v5 spatial · included/excluded min 1568.53/20.4167 · some current focal information; unquantified gapss2 · finishing · included/excluded min 1588.95/0 · some current focal information; unquantified gapss3 · inferred setting · included/excluded min 1588.95/0 · some current focal information; unquantified gapsm1: spatial-v1-08-20232024; reference spatial-league-centered-virtual-v1m2: execution-v1-06-20232024; reference reference-execution-zeroexperimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not establishedexperimental point estimates; calibration, recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicitpublication 0fcf4cf3-0eb6-4180-bfed-f36290318db9 · real · shared comparison scales with player 8477492",
+            "css_box": {
+              "x": 16,
+              "y": 13940.3359375,
+              "width": 608,
+              "height": 4710.421875
+            },
+            "fonts": {
+              "body": "16px",
+              "heading": "25.6px",
+              "caption": "16.8px",
+              "footer": "13.92px"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "profile",
+      "url": "http://127.0.0.1:41919/players/8477492?season=20232024&view=analytical&peerMin=0&specialtyMin=0",
+      "elapsed_ms": 8650.984416,
+      "geometry": {
+        "innerWidth": 640,
+        "outerWidth": 1280,
+        "devicePixelRatio": 2,
+        "documentWidth": 640,
+        "cards": [
+          {
+            "name": "Nathan MacKinnon",
+            "header": "analytical skater sheetNathan MacKinnon2023–24 · experimental adjusted estimatesC · COL · age 28.4189 as of 2024-02-0182 positive-toi appearances · 22.8142 reported min/appearance",
+            "footer": "construction, support and limitationscalibrated player uncertainty is unknown; empirical population spread is not uncertainty.reference execution: virtual neutral shooter, inferred setter and goalie. complete maps insert one focal player, not actual deployment.workload: 1,000 5v5 / 100 pp / 100 pk min. pp/pk use league-time mixtures; specialty time may be hypothetical or prior-only.attempt integrals differ from xg insets. positive against is more against; positive taking contrasts are more penalties.10ft pooling and contours do not establish fine-scale reliability. aggregate support need not inform every head.s1 · 5v5 spatial · included/excluded min 1278.68/70.6667 · some current focal information; unquantified gapss2 · finishing · included/excluded min 1349.35/0 · some current focal information; unquantified gapss3 · inferred setting · included/excluded min 1349.35/0 · some current focal information; unquantified gapsm1: spatial-v1-08-20232024; reference spatial-league-centered-virtual-v1m2: execution-v1-06-20232024; reference reference-execution-zeroexperimental point estimates with aggregate qualification only; predictive calibration, recovery, causal isolation and calibrated uncertainty are not establishedexperimental point estimates; calibration, recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicitpublication 0fcf4cf3-0eb6-4180-bfed-f36290318db9 · real",
+            "css_box": {
+              "x": 16,
+              "y": 885.515625,
+              "width": 608,
+              "height": 4689.5390625
+            },
+            "fonts": {
+              "body": "16px",
+              "heading": "25.6px",
+              "caption": "16.8px",
+              "footer": "13.92px"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "pictures": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-native-card-pixels-02/comparison-1.png",
+      "name": "Nathan MacKinnon",
+      "bytes": 1318314,
+      "sha256": "0be120e91f94a804ec1834356b292f4c54101e7c5e6eda427d25f95028920400",
+      "width": 1216,
+      "height": 9422,
+      "css_box": {
+        "x": 16,
+        "y": 1402.609375,
+        "width": 608,
+        "height": 4710.421875
+      },
+      "zoom": 2,
+      "clip_dip": {
+        "x": 32,
+        "y": 2805,
+        "width": 1216,
+        "height": 9422,
+        "scale": 1
+      },
+      "metrics": {
+        "layoutViewport": {
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 813
+        },
+        "visualViewport": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 813,
+          "scale": 1,
+          "zoom": 2
+        },
+        "contentSize": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 62578
+        },
+        "cssLayoutViewport": {
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 640,
+          "clientHeight": 406
+        },
+        "cssVisualViewport": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 640,
+          "clientHeight": 406.5,
+          "scale": 1,
+          "zoom": 2
+        },
+        "cssContentSize": {
+          "x": 0,
+          "y": 0,
+          "width": 640,
+          "height": 31289
+        }
+      }
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-native-card-pixels-02/comparison-2.png",
+      "name": "Josh Morrissey",
+      "bytes": 1312072,
+      "sha256": "b8734e90b9e20d58a1fa7801a50e7ba3e96b4f980f5379fd6ea476cb97a47887",
+      "width": 1216,
+      "height": 9422,
+      "css_box": {
+        "x": 16,
+        "y": 13940.3359375,
+        "width": 608,
+        "height": 4710.421875
+      },
+      "zoom": 2,
+      "clip_dip": {
+        "x": 32,
+        "y": 27880,
+        "width": 1216,
+        "height": 9422,
+        "scale": 1
+      },
+      "metrics": {
+        "layoutViewport": {
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 813
+        },
+        "visualViewport": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 813,
+          "scale": 1,
+          "zoom": 2
+        },
+        "contentSize": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 62578
+        },
+        "cssLayoutViewport": {
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 640,
+          "clientHeight": 406
+        },
+        "cssVisualViewport": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 640,
+          "clientHeight": 406.5,
+          "scale": 1,
+          "zoom": 2
+        },
+        "cssContentSize": {
+          "x": 0,
+          "y": 0,
+          "width": 640,
+          "height": 31289
+        }
+      }
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-native-card-pixels-02/profile-1.png",
+      "name": "Nathan MacKinnon",
+      "bytes": 1309112,
+      "sha256": "4dc5a291ec744d1b630ff97b522ae5ca6e1b0650a79139c8a4b1c6b0d4245028",
+      "width": 1216,
+      "height": 9380,
+      "css_box": {
+        "x": 16,
+        "y": 885.515625,
+        "width": 608,
+        "height": 4689.5390625
+      },
+      "zoom": 2,
+      "clip_dip": {
+        "x": 32,
+        "y": 1771,
+        "width": 1216,
+        "height": 9380,
+        "scale": 1
+      },
+      "metrics": {
+        "layoutViewport": {
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 813
+        },
+        "visualViewport": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 813,
+          "scale": 1,
+          "zoom": 2
+        },
+        "contentSize": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 32350
+        },
+        "cssLayoutViewport": {
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 640,
+          "clientHeight": 406
+        },
+        "cssVisualViewport": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 640,
+          "clientHeight": 406.5,
+          "scale": 1,
+          "zoom": 2
+        },
+        "cssContentSize": {
+          "x": 0,
+          "y": 0,
+          "width": 640,
+          "height": 16175
+        }
+      }
+    }
+  ],
+  "requests": [
+    "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/players/8477492?season=20232024",
+    "http://127.0.0.1:41919/api/players/8477504?season=20232024",
+    "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=offense_attempts&strength=5v5&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=offense_attempts&strength=pp&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=defense_attempts&strength=5v5&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492%2C8477504&family=defense_attempts&strength=pk&view=effect",
+    "http://127.0.0.1:41919/api/players/8477492/evidence?season=20232024&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/players/8477504/evidence?season=20232024&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/players/8477492?season=20232024",
+    "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/league?season=20252026&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/league?season=20242025&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=overview",
+    "http://127.0.0.1:41919/api/league?season=20232024&kind=skater&family=spatial&strength=5v5",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492&family=offense_attempts&strength=5v5&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492&family=offense_attempts&strength=pp&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492&family=defense_attempts&strength=5v5&view=effect",
+    "http://127.0.0.1:41919/api/maps?season=20232024&players=8477492&family=defense_attempts&strength=pk&view=effect",
+    "http://127.0.0.1:41919/api/players/8477492/evidence?season=20232024&family=spatial&strength=5v5"
+  ],
+  "non200": [],
+  "consoleMessages": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:41919/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  ],
+  "pageErrors": [],
+  "external": [],
+  "owned_profile": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/native-zoom-real-card-pixels-2",
+  "exports": 0,
+  "direct_api_gets": 0,
+  "server_starts": 0
+}

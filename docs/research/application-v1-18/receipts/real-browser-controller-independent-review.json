@@ -1,0 +1,130 @@
+{
+  "status": "passed_source_review_execution_not_run",
+  "recorded_at": "2026-11-10T10:17:12.270025+00:00",
+  "scope": "independent bounded review of four repaired false-green gaps, literal case pins and one approved warning PNG addition; source and existing small receipts only",
+  "source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-browser.mjs",
+    "bytes": 49716,
+    "sha256": "7814b336799e7f5c8f53850df48bc6b6658bc92b9e97e458607c8db5e9406886"
+  },
+  "initial_source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-18/app/.v1-18-real-browser-review-red.mjs",
+    "bytes": 33452,
+    "sha256": "2e6d4249e19f52ff0c91740ad4b82aff5836cf69de2ce06744c49bd760b283ed"
+  },
+  "repair_owner_review": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/browser-real-controller-review.json",
+    "bytes": 2173,
+    "sha256": "ceb4f3a84e6846042bb145cb15efd626af56490e46d937b37e9b191565bbf0b7"
+  },
+  "literal_pin_source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-saved-publication-reconciliation.json",
+    "bytes": 31936,
+    "sha256": "4795dec4f744ebfe57d0bb16023258755612f0df5e1de070b1589b7689ce09ea"
+  },
+  "publication_id": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+  "closed_findings": [
+    {
+      "source_line": 132,
+      "finding": "request identity",
+      "result": "typed direct responses bind exact season/player or complete map/evidence selection; the observed existing league response binds season/kind/family/strength"
+    },
+    {
+      "source_line": 25,
+      "finding": "required57 inventory",
+      "result": "independent ordered section/slot/metric tuples reject missing, duplicated, substituted or unknown blank fields before scalar comparison"
+    },
+    {
+      "source_line": 344,
+      "finding": "spatial distribution oracle",
+      "result": "reuses one already-requested UI league response; independently derives reported-forward positive-exposure cohort with the selected recipe/reference/support identity, compares all raw values and member identities, exact n/support/method context and midpoint ranks"
+    },
+    {
+      "source_line": 673,
+      "finding": "asynchronous export snapshot",
+      "result": "holds the real toBlob callback, verifies new-year card header and no download while held, releases callback, then requires opening-snapshot filename and complete PNG byte equality"
+    }
+  ],
+  "literal_pins": {
+    "annual_pairs": [
+      {
+        "season": "20232024",
+        "forward": "8477492",
+        "defense": "8477504",
+        "forward_seconds": 76721,
+        "defense_seconds": 94112,
+        "reference_sha256": "96be662278a04ce47be0c419c7fd47244ddb47ed17b49807a22d122062d8bbb4"
+      },
+      {
+        "season": "20242025",
+        "forward": "8477492",
+        "defense": "8478460",
+        "forward_seconds": 79037,
+        "defense_seconds": 95696,
+        "reference_sha256": "471c8f10e7d14dc8a01d6e06da07de692d615eb3a655ad3fe9380988716ef97a"
+      },
+      {
+        "season": "20252026",
+        "forward": "8476460",
+        "defense": "8478882",
+        "forward_seconds": 80796,
+        "defense_seconds": 94366,
+        "reference_sha256": "72ef3db36abe59c217e8d64de574e1241f811ff365c8cfbfc69bbe781067be95"
+      }
+    ],
+    "distinct_extra_profiles": [
+      {
+        "kind": "traded",
+        "season": "20232024",
+        "player_id": "8478396",
+        "included_seconds": 83332,
+        "teams": [
+          "20",
+          "54"
+        ]
+      },
+      {
+        "kind": "sparse",
+        "season": "20232024",
+        "player_id": "8480274",
+        "included_seconds": 45,
+        "teams": [
+          "22"
+        ]
+      }
+    ]
+  },
+  "preserved_checks": [
+    "strict shared wire decoding and publication/purpose identity",
+    "all57 raw card values and all171 annual rows compared with direct selected payload fields rather than production selectors",
+    "spatial evidence counts, native units, raw values, state weights, support and method identities",
+    "native/display map geometry and exact masses/densities, integrated closure and current scale/levels",
+    "true owned-profile200 percent zoom geometry and complete PNG/CSV byte equality",
+    "375px overflow checks, direct page errors and external requests fail the receipt",
+    "no silent catch or waived assertion; failures set exitCode1 and record stack"
+  ],
+  "approved_addition": {
+    "downloads": 1,
+    "purpose": "20252026 forward strongest-warning actual sheet PNG",
+    "checks": "1200px width and maximum3200px height; observes unchanged actual SVG blob for body20px/footer18px minimum fonts; retains scoped warnings"
+  },
+  "bounds": {
+    "maximum_actual_downloads": 46,
+    "download_derivation": "21 annual card/evidence/map CSV +9 representative profile exports +3 representative comparison PNG +5 distinct-extra-profile exports +1 navigation snapshot +6 native zoom exports +1 approved final-year warning PNG",
+    "maximum_direct_selected_api_gets": 23,
+    "direct_get_derivation": "18 across three annual pairs +2 representative complete/xg maps +2 extra selected player payloads +1 sparse evidence",
+    "observed_existing_ui_league_responses": 1,
+    "additional_ui_league_gets": 0,
+    "new_servers": 0
+  },
+  "review_boundary": {
+    "controller_executed": false,
+    "browser_or_network_requests": 0,
+    "candidate_db_opens_queries_or_hashes": 0,
+    "numerical_member_or_provenance_reads": 0,
+    "production_writes": 0,
+    "source_diff": "finite controller assertions and approved literal pins only; no route mocking or fulfillment, no production model/card imports, no app/server launch, no new direct league GET"
+  },
+  "remaining": "actual bounded browser run, resulting download reconciliation and independent real pixel/content review are required; this receipt grants source clearance only",
+  "cleanup": "both temporary controller sources must be deleted after accepted final proof; retain review receipts and useful data/download artifacts"
+}

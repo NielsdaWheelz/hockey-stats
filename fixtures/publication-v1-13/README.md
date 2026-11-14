@@ -20,6 +20,10 @@ the rebuild exposed missing fixture identity evidence. correct-team synthetic go
 
 source-backed attacking goalie `8477424` (Juuse Saros, nsh) is the sole added person axis. original `2023020001` play-by-play `/rosterSpots` and boxscore `/playerByGameStats/awayTeam/goalies` identify his name, team, position and sweater74. his current synthetic setter witness preserves that person id with zero setter share; all added goalie selector rows remain explicitly not computed. this creates no recorded pass or goalie estimate.
 
+## v1-07 prospective amendment
+
+the one provided synthetic goalie breakdown now obeys paired-unblocked arithmetic: three attempts, one goal and 1.5 expected goals yield probability .5 and saved-goal effect `1/6` per attempt. its support carries three events, weight three and null elapsed seconds. the old placeholder effect3 and unrelated five-event/600-second support are removed from the current fixture. frozen historical checked facts and accepted external artifacts remain unchanged. this is transport evidence, not a real goalie estimate or complete paired-strata example.
+
 ## v1-18 saved evidence and analytical rendering
 
 [spatial checked facts](spatial-v1-18-checked-facts.json) bind the finite saved-evidence amendment: nine explicit spatial strength keys, role/head/state/prior support and actual-context adjustments. the [support correction](analytical-v1-18-support-correction.json) records three historical map supports copied from their matching canonical scalar records. substantive numerical values are unchanged; live client reconciliation correctly rejected the original mismatch.

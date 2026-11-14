@@ -1,0 +1,34 @@
+{
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "base_url": "http://127.0.0.1:3407",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite",
+    "publisher_sha256": "17241928149f70bbd353815a4ec8feab39210d570205b494ad6c2af8cfb9a612",
+    "bytes": 31261470720
+  },
+  "results": {
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+      "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+    },
+    "producer_receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/special-teams-composition.json",
+      "sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654"
+    }
+  },
+  "serving_source": {
+    "commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "85201961284eb628e70afbcf976190d209ef6229"
+  },
+  "build_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-history-label-build.json",
+    "sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4"
+  },
+  "retained_node_pid": 89887,
+  "startup_release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-03-checked-boundary.json",
+    "sha256": "b1006db8e6f590470a02da06595bbd041c13aa794b475a95c2bce821a5e5de85"
+  }
+}

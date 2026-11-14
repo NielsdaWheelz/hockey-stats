@@ -1,0 +1,50 @@
+publication response could not be used {
+  reason: {
+    request: {
+      _id: 'HttpClientRequest',
+      method: 'GET',
+      url: '/api/league',
+      urlParams: [Object],
+      hash: [Object],
+      headers: [Object],
+      body: [Object]
+    },
+    cause: [TypeError: fetch failed] { [cause]: [Error] },
+    _tag: 'TransportError'
+  },
+  cause: [TypeError: fetch failed] {
+    [cause]: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:216:20) {
+      errno: -54,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    }
+  },
+  _tag: 'HttpClientError',
+  '~effect/http/HttpClientError': '~effect/http/HttpClientError'
+}
+
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+Response {}
+
+Node.js v24.21.0
+       98.03 real         1.05 user         0.10 sys
+           434716672  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               32655  page reclaims
+                 287  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                 499  messages sent
+                1179  messages received
+                  76  signals received
+                 168  voluntary context switches
+                8130  involuntary context switches
+           444970607  instructions retired
+           161380350  cycles elapsed
+            19057328  peak memory footprint

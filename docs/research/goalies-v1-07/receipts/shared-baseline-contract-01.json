@@ -1,0 +1,25 @@
+{
+  "kind": "goalie-shared-frozen-descriptor-contract",
+  "status": "passed",
+  "scope": "shared detached descriptor/probe validators and contained baseline accessor; no fit/schema/recipe/prediction change",
+  "interfaces": [
+    "validate_goalie_baseline_descriptor(value,purpose,season,recipe_sha256,base_scores,targets)",
+    "validate_goalie_probe_comparison(value,complete)",
+    "read_goalie_baseline(state) -> descriptor, absolute contained-file identity"
+  ],
+  "script": {
+    "path": "/tmp/goalie-v1-07-checks/baseline_descriptor_api.py",
+    "sha256": "b2764ea0e133786ee25da316616e4070ad9f89b02cb5a0f57acb0bfd430cb227"
+  },
+  "checks": [
+    "closed descriptor fields and exact h/d hash axes",
+    "recipe/base-score/ordered-target digest bindings",
+    "frozen unique source keys, fixed coverage requirements and exact-state selector shape",
+    "eleven malformed descriptor mutations rejected",
+    "accessor returns exact original indent2 JSON bytes and bound file digest",
+    "accessor array loading prohibited by temporary mock; no provenance opened",
+    "own annual reader additionally binds individual probe context count to frozen key count",
+    "existing first-fixture strict target/state negatives remain green"
+  ],
+  "preservation": "no original state, baseline descriptor, probe array, fit, score or serving file was modified; no source replay, model evaluation or heavy command ran"
+}

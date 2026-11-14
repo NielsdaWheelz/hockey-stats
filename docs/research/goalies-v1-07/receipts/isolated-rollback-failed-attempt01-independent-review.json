@@ -1,0 +1,115 @@
+{
+  "status": "failed_attempt01_confirmed_no_rollback_credit",
+  "reviewer": "/root/trace_review",
+  "scope": "four fixed local cached files only; no generated payload, referenced path, source revalidation or replay",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/result.json",
+      "bytes": 10665,
+      "sha256": "2f5e35d5d7e8cbb3360f96341783795b9bb6a0d1358b5905ecb91b6c080e472a"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01-native.log",
+      "bytes": 905,
+      "sha256": "d5ee52ed49af52944d1381224594956fad841d2c46a1edd1e9ef376fe6c2043a"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01-native.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/publish_a.stderr.log",
+      "bytes": 182,
+      "sha256": "75e0d0a6e17836c7a94661350600552ef22940291b6c0604daffc85493c0ebfc"
+    }
+  ],
+  "identity_verification": "all four complete-file sha256 values match the supplied fixed identities",
+  "execution_binding": {
+    "controller_argv": [
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01.py"
+    ],
+    "controller_source": {
+      "bytes": 12233,
+      "sha256": "fb47b2adbe5b328993548c1a609dc5e148c962c93d93e04e9c3f004a73c404bc",
+      "basis": "result-reported source identity equals the previously reviewed source pin; source was not reopened"
+    },
+    "python_executable": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+    "implementation": {
+      "git_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+      "git_dirty": false,
+      "python_version": "3.14.8"
+    },
+    "limit": "cached controller/child argv and source records only; no independent kernel process-frame or environment observation"
+  },
+  "completed_scoped_facts": {
+    "native_corpus_exits": {
+      "20232024": 0,
+      "20242025": 0,
+      "20252026": 0
+    },
+    "present_games_by_controller_assertion": {
+      "20232024": [
+        "2023020001",
+        "2023020012"
+      ],
+      "20242025": [
+        "2024020001",
+        "2024020022"
+      ],
+      "20252026": [
+        "2025020001",
+        "2025020006"
+      ]
+    },
+    "all_six_present_statuses": "reconstructed",
+    "derivation": "reaching publish_a in the pinned controller entails the original manifest digest check, copied-member hash checks, unchanged manifest fields except attributed observed_bindings/producer, successful canonical read_results and completed derivation receipt write",
+    "proof_limit": "source-ordered assertion evidence only; no corpus, member, derivation body or database was independently reopened"
+  },
+  "failure": {
+    "result_status": "failed",
+    "native_exit": 1,
+    "native_exit_body": "1 followed by one LF",
+    "native_log_summary": "failed",
+    "phase": "publish_a",
+    "publication_child_exit": 1,
+    "error_type": "InputContractError",
+    "controller_message": "publish_a: native exit 1; retained logs own the failure",
+    "publisher_stderr": "publish failed: /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus-20232024/corpus.json: fixture corpus must explicitly declare purpose:fixture",
+    "propagation": "publisher failure becomes the retained controller error and final native1; no success inferred from corpus exits or derivation assertions",
+    "review_limitation": "the prior static review missed this public fixture-purpose boundary"
+  },
+  "unreached": {
+    "successful_publications": 0,
+    "actual_rotation_observations": 0,
+    "operator_steps": 0,
+    "publication_b": false,
+    "activate_a": false,
+    "activate_b": false,
+    "restore_a": false
+  },
+  "costs": {
+    "native_whole_command": {
+      "wall_seconds": 5.34,
+      "user_seconds": 4.56,
+      "system_seconds": 0.28,
+      "reported_max_rss_bytes": 140427264,
+      "raw_peak_memory_footprint_bytes": 112378456
+    },
+    "controller": {
+      "wall_seconds": 5.254673500079662,
+      "peak_rss_bytes": 135069696,
+      "largest_waited_child_peak_rss_bytes": 140427264,
+      "children_user_seconds": 4.077597,
+      "children_system_seconds": 0.17876999999999998
+    },
+    "scope": "native meter covers the complete command; controller scope ends before result serialization. child peak is a maximum, not simultaneous aggregate memory; raw peak footprint is separate",
+    "generated_payload_total_bytes": "unknown; descriptor sizes in the result are controller-reported and do not inventory all partial outputs",
+    "independent_review_wall_rss_and_io": "unmetered"
+  },
+  "capture": "not applicable; this review directly reads the four fixed local failed-test files, not a separate capture boundary",
+  "disposition": "retain the failed receipt, native evidence, stderr and every partial output under the cleanup hold",
+  "acceptance": "no publication artifact, rollback, scientific, real analytical or activation pass",
+  "successor": "source-only purpose-label fix02 is separate, unreviewed here and not pre-admitted",
+  "actions": "this receipt was exclusively created; no test, import, validator replay, source/runtime/OS/http/external-drive/database query, path following, cleanup or further execution"
+}

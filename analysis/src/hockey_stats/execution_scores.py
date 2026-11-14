@@ -3,7 +3,6 @@
 from collections import Counter
 from dataclasses import dataclass, replace
 from datetime import date
-import json
 from math import fsum, isclose, isfinite, log
 from pathlib import Path
 import re
@@ -12,7 +11,10 @@ from time import perf_counter
 
 import numpy as np
 
-from .artifacts import digest, implementation, require
+from .artifacts import (
+    decode_jsonl_line, digest, implementation, json_line, read_jsonl, require,
+    require_count, require_fields, require_number, require_season_label, write_json, write_jsonl,
+)
 from .captures import InputContractError, strict_json
 from .chance_cli import identity, output_path, read_json
 from .execution_composition import compose_results  # spec interface; composition owns its implementation
@@ -51,21 +53,6 @@ WALL_SCOPE = 'input read+prepare_execution+scoring+streamed projection+resolutio
 NOT_FINAL = dict(status='not_applicable', explanation='bounded propagation applies only to the final annual state')
 
 
-def _closed(value, keys, label):
-    require(type(value) is dict and set(value) == set(keys), f'{label}: invalid fields')
-
-
-def _number(value, label, *, low=None, high=None):
-    require(type(value) in (int, float) and isfinite(value) and (low is None or value >= low)
-            and (high is None or value <= high), f'{label}: invalid number')
-    return value
-
-
-def _count(value, label):
-    require(type(value) is int and value >= 0, f'{label}: invalid count')
-    return value
-
-
 def _id(value, label):
     require(value is None or type(value) is str and bool(value), f'{label}: invalid identity')
     return value
@@ -97,43 +84,6 @@ def _represents(value, numerator, denominator, terms, *, complement=False):
     ratio = numerator / denominator
     error = (_log_error(numerator, terms) + _log_error(denominator, terms) + 2 * ULP) * ratio + _log_error(value, terms) * value + ULP
     return abs(value - (1 - ratio if complement else ratio)) <= error
-
-
-def _season_label(season):
-    require(type(season) is str and re.fullmatch(r'20\d{2}20\d{2}', season) is not None
-            and int(season[4:]) == int(season[:4]) + 1, 'invalid season')
-    return season
-
-
-def _line(value):
-    return json.dumps(value, allow_nan=False, separators=(',', ':')).encode() + b'\n'
-
-
-def _write_jsonl(path, values):
-    with path.open('xb') as target:
-        for value in values:
-            target.write(_line(value))
-
-
-def _write_document(path, value):
-    with path.open('x', encoding='utf-8') as target:
-        target.write(json.dumps(value, allow_nan=False, indent=2) + '\n')
-
-
-def _decode(path, number, line):
-    require(line.endswith(b'\n') and line.strip(), f'{path.name}:{number}: incomplete or blank record')
-    try:
-        value = strict_json(line)
-    except ValueError as error:
-        raise InputContractError(f'{path.name}:{number}: invalid finite json: {error}') from error
-    require(type(value) is dict, f'{path.name}:{number}: record must be an object')
-    return value
-
-
-def _jsonl(path):
-    with path.open('rb') as source:
-        for number, line in enumerate(source, 1):
-            yield _decode(path, number, line)
 
 
 def _panel_name(state):
@@ -374,30 +324,30 @@ def write_execution_scores(prepared, coaches, state, output):
     def bind(path, role):
         files.append(dict(path=path, sha256=identity(output / path)['sha256'], role=role))
     began = perf_counter()
-    _write_jsonl(output / 'events.jsonl', (_event_row(event) for event in scored['events']))
+    write_jsonl(output / 'events.jsonl', (_event_row(event) for event in scored['events']))
     bind('events.jsonl', 'event')
     key = lambda row: (row['season'], row['game_id'], row['source_index'])
-    _write_jsonl(output / 'setters.jsonl', sorted(scored['setters'], key=lambda row: (*key(row), row['candidate_id'])))
+    write_jsonl(output / 'setters.jsonl', sorted(scored['setters'], key=lambda row: (*key(row), row['candidate_id'])))
     bind('setters.jsonl', 'setter')
-    _write_jsonl(output / 'shares.jsonl', sorted(scored['shares'], key=lambda row: (*key(row), row['group'], row['recipient_id'])))
+    write_jsonl(output / 'shares.jsonl', sorted(scored['shares'], key=lambda row: (*key(row), row['group'], row['recipient_id'])))
     bind('shares.jsonl', 'share')
     people = sorted((dict(season=season, player_id=str(fact['values']['player_id']),
                           kind={'F': 'skater', 'D': 'skater', 'G': 'goalie'}.get(fact['values']['position_group']),
                           position_group=fact['values']['position_group'], name=fact['values']['name'])
                      for fact in read_prepared_people(prepared, season)['people']), key=lambda row: row['player_id'])
-    _write_jsonl(output / 'people.jsonl', people)
+    write_jsonl(output / 'people.jsonl', people)
     bind('people.jsonl', 'person')
     selected = next(row['selected_game_ids'] for row in prepared['seasons'] if row['season'] == season)
     coach_rows = read_json(Path(design.coaches['path']).parent / 'identities.json')['coaches']
     used = {row[side]['coach_id'] for row in read_json(Path(design.coaches['path']))['games']
             if row['season'] == season and row['game_id'] in selected for side in ('home', 'away')} - {None}
-    _write_jsonl(output / 'coach_ids.jsonl', sorted((dict(coach_id=row['coach_id'], display_name=row['display_name'])
+    write_jsonl(output / 'coach_ids.jsonl', sorted((dict(coach_id=row['coach_id'], display_name=row['display_name'])
                                                      for row in coach_rows if row['coach_id'] in used), key=lambda row: row['coach_id']))
     bind('coach_ids.jsonl', 'coach')
     for state_key in PANEL_STATES:
         panel = scored['panels'][state_key]
         name = _panel_name(state_key)
-        _write_jsonl(output / f'panels/{name}.jsonl', panel.events)
+        write_jsonl(output / f'panels/{name}.jsonl', panel.events)
         bind(f'panels/{name}.jsonl', 'panel_events')
         with (output / f'panels/{name}.npz').open('xb') as target:
             np.savez(target, **{array: panel.arrays[array] for array in ARRAYS})
@@ -415,9 +365,9 @@ def write_execution_scores(prepared, coaches, state, output):
             panel = scored['panels'][(int(strength[0]), int(strength[2]), 1)]
             for projection in execution.summarize_execution(state, panel, people, participation):
                 row = _projection_row(projection)
-                projection_file.write(_line(row))
+                projection_file.write(json_line(row))
                 for map_row in _map_rows(projection):
-                    map_file.write(_line(map_row))
+                    map_file.write(json_line(map_row))
                 records.append(row)
     bind('projections.jsonl', 'projection')
     bind('maps.jsonl', 'map')
@@ -425,13 +375,13 @@ def write_execution_scores(prepared, coaches, state, output):
     began = perf_counter()
     resolution = _resolve(state, design, scored, records, people, participation) if season == '20252026' else NOT_FINAL
     resolution_seconds = perf_counter() - began
-    _write_document(output / 'resolution.json', resolution)
+    write_json(output / 'resolution.json', resolution)
     bind('resolution.json', 'resolution')
     if resolution['status'] == 'failed':
         raise InputContractError(f'{output}: final-year numerical propagation failed ('
                                  + '; '.join(f"{row['head']} {row['status']} {row['maximum_changes']}" for row in resolution['probes'])
                                  + '); resolution.json retained without a completion manifest')
-    _write_document(output / 'coverage.json', dict(_coverage(purpose, season, scored['events'], panels),
+    write_json(output / 'coverage.json', dict(_coverage(purpose, season, scored['events'], panels),
                                                    setter_discrepancies=_discrepancies(design.coverage['attempts'])))
     bind('coverage.json', 'coverage')
     previous = state.manifest['previous']
@@ -453,9 +403,9 @@ def write_execution_scores(prepared, coaches, state, output):
                     training_cutoff=state.manifest['training_cutoff'], panels=panels, files=files,
                     coverage=dict(path='coverage.json'), resources=dict(sorted(measured.items())),
                     numerical_resolution=dict(status=resolution['status'], path='resolution.json'))
-    manifest = strict_json(_line(manifest))
+    manifest = strict_json(json_line(manifest))
     scores = _validate(output / 'manifest.json', manifest, purpose)
-    _write_document(output / 'manifest.json', manifest)
+    write_json(output / 'manifest.json', manifest)
     return scores
 
 
@@ -474,22 +424,22 @@ class ExecutionScores:
         return self.path.parent / next(row['path'] for row in self.manifest['files'] if row['role'] == role)
 
     def events(self):
-        return _jsonl(self._member('event'))
+        return read_jsonl(self._member('event'))
 
     def setters(self):
-        return _jsonl(self._member('setter'))
+        return read_jsonl(self._member('setter'))
 
     def shares(self):
-        return _jsonl(self._member('share'))
+        return read_jsonl(self._member('share'))
 
     def projections(self):
-        return _jsonl(self._member('projection'))
+        return read_jsonl(self._member('projection'))
 
     def native_map(self, player_id, strength, kind):
         path = self._member('map')
         with path.open('rb') as source:
             source.seek(self.map_offsets[player_id, strength, kind])
-            return _decode(path, 0, source.readline())
+            return decode_jsonl_line(path, 0, source.readline())
 
 
 def read_execution_scores(path, expected_purpose, *, physical_state=None):
@@ -498,7 +448,9 @@ def read_execution_scores(path, expected_purpose, *, physical_state=None):
         path = Path(path).resolve(strict=True)
         path = path / 'manifest.json' if path.is_dir() else path
         require(path.name == 'manifest.json', 'execution scores locator must be manifest.json')
-        require(physical_state is None or tuple(physical_state) == (5, 5, 1, 1), 'unsupported retained physical panel')
+        require(physical_state is None or all(type(value) is int for value in physical_state)
+                and tuple(physical_state) in tuple((*state, 1) for state in PANEL_STATES),
+                'unsupported retained physical panel')
         return _validate(path, read_json(path), expected_purpose, physical_state=physical_state)
     except (KeyError, TypeError, ValueError, IndexError, AttributeError) as error:
         if isinstance(error, InputContractError):
@@ -511,14 +463,14 @@ def read_panel(scores, physical_state):
     from .execution import ExecutionPanel
     require(isinstance(scores, ExecutionScores), 'read_execution_scores must precede read_panel')
     state = tuple(physical_state[k] for k in STATE_FIELDS) if type(physical_state) is dict else tuple(physical_state)
-    require(len(state) == 4 and state == (5, 5, 1, 1), 'spatial panel requires physical 5v5 with both goalies')
-    if scores.checked_panel is not None:
+    require(all(type(value) is int for value in state) and state in tuple((*key, 1) for key in PANEL_STATES), 'physical panel state is outside the saved exact-state enum')
+    if scores.checked_panel is not None and (*scores.checked_panel.strength, 1) == state:
         return scores.checked_panel
     records = [row for row in scores.manifest['panels'] if tuple(row['state'][k] for k in STATE_FIELDS) == state]
     require(len(records) == 1, 'physical panel not uniquely selected')
     record = records[0]
     root = scores.path.parent
-    rows = tuple(_jsonl(root / record['events_path']))
+    rows = tuple(read_jsonl(root / record['events_path']))
     with np.load(root / record['arrays_path'], allow_pickle=False) as saved:
         arrays = {name: saved[name] for name in ARRAYS}
     keys = {row['key'] for row in rows}
@@ -531,30 +483,30 @@ def read_panel(scores, physical_state):
 
 def _manifest(value, purpose):
     from .execution_design import RECIPE
-    _closed(value, MANIFEST_KEYS, 'score manifest')
+    require_fields(value, MANIFEST_KEYS, 'score manifest')
     require(value['schema_version'] == 1 and type(value['schema_version']) is int and value['kind'] == 'execution-scores'
             and value['scoring_version'] == SCORING_VERSION, 'invalid execution score schema')
     require(purpose in ('real', 'fixture') and value['purpose'] == purpose, 'execution score purpose differs')
-    season = _season_label(value['season'])
+    season = require_season_label(value['season'])
     require(season in ('20212022', '20222023', '20232024', '20242025', '20252026'), 'season outside execution scope')
     require(value['recipe'] == RECIPE, 'execution recipe definition differs')
     require(type(value['implementation']) is dict and bool(value['implementation']), 'missing implementation identity')
-    _closed(value['prepared'], ('purpose', 'path', 'sha256', 'members'), 'prepared binding')
-    _closed(value['coaches'], ('purpose', 'path', 'sha256', 'selected_game_ids'), 'coach binding')
+    require_fields(value['prepared'], ('purpose', 'path', 'sha256', 'members'), 'prepared binding')
+    require_fields(value['coaches'], ('purpose', 'path', 'sha256', 'selected_game_ids'), 'coach binding')
     for name in ('prepared', 'coaches'):
         require(value[name]['purpose'] == purpose and type(value[name]['path']) is str and Path(value[name]['path']).is_absolute(), f'{name}: invalid binding')
         digest(value[name]['sha256'])
     members = value['prepared']['members']
     require(type(members) is list, 'invalid prepared members')
     for row in members:
-        _closed(row, ('kind', 'season', 'game_id', 'path', 'sha256'), 'prepared member')
+        require_fields(row, ('kind', 'season', 'game_id', 'path', 'sha256'), 'prepared member')
         require(row['season'] == season and row['kind'] in ('game', 'people'), 'cross-season prepared member')
         digest(row['sha256'])
     games = [row['game_id'] for row in members if row['kind'] == 'game']
     require(len(set(games)) == len(games) and value['coaches']['selected_game_ids'] == games
             and sum(row['kind'] == 'people' for row in members) == 1, 'prepared/coach selected games differ')
     state = value['state']
-    _closed(state, ('path', 'sha256', 'season', 'purpose', 'recipe_sha256', 'usage', 'previous'), 'state binding')
+    require_fields(state, ('path', 'sha256', 'season', 'purpose', 'recipe_sha256', 'usage', 'previous'), 'state binding')
     digest(state['sha256'])
     require(type(state['path']) is str and Path(state['path']).is_absolute() and Path(state['path']).name == 'manifest.json'
             and state['season'] == season and state['purpose'] == purpose and state['recipe_sha256'] == RECIPE['sha256']
@@ -562,7 +514,7 @@ def _manifest(value, purpose):
     if state['previous'] is None:
         require(purpose != 'real' or season == '20212022', 'real score chain must begin at 20212022')
     else:
-        _closed(state['previous'], ('path', 'sha256'), 'previous state')
+        require_fields(state['previous'], ('path', 'sha256'), 'previous state')
         digest(state['previous']['sha256'])
     try:
         cutoff = date.fromisoformat(value['training_cutoff'])
@@ -571,37 +523,37 @@ def _manifest(value, purpose):
     require(int(season[:4]) <= cutoff.year <= int(season[4:]), 'training cutoff outside season')
     require(type(value['panels']) is list and len(value['panels']) == len(PANEL_STATES), 'panels must enumerate all 32 states')
     for row, key in zip(value['panels'], PANEL_STATES):
-        _closed(row, ('state', 'panel_id', 'events_path', 'arrays_path', 'events', 'origins'), 'panel binding')
+        require_fields(row, ('state', 'panel_id', 'events_path', 'arrays_path', 'events', 'origins'), 'panel binding')
         require(row['state'] == _state_record((*key, 1)) and row['panel_id'] == f'{SCORING_VERSION}:{season}:' + ','.join(map(str, key))
                 and row['events_path'] == f'panels/{_panel_name(key)}.jsonl' and row['arrays_path'] == f'panels/{_panel_name(key)}.npz',
                 'panel binding differs from its exact state')
-        _count(row['events'], 'panel events')
-        _count(row['origins'], 'panel origins')
+        require_count(row['events'], 'panel events')
+        require_count(row['origins'], 'panel origins')
     require(value['coverage'] == dict(path='coverage.json'), 'coverage member binding differs')
     resolution = value['numerical_resolution']
-    _closed(resolution, ('status', 'path'), 'numerical resolution')
+    require_fields(resolution, ('status', 'path'), 'numerical resolution')
     require(resolution['path'] == 'resolution.json' and resolution['status'] == ('passed' if season == '20252026' else 'not_applicable'),
             'final annual scores need passed propagation; earlier years are not applicable')
     costs = value['resources']
-    _closed(costs, RESOURCE_KEYS, 'resources')
+    require_fields(costs, RESOURCE_KEYS, 'resources')
     require(costs['wall_scope'] == WALL_SCOPE, 'resource wall-time scope differs')
     for key in RESOURCE_KEYS:
         if key.endswith('wall_seconds'):
-            _number(costs[key], key, low=0.)
+            require_number(costs[key], key, low=0.)
         elif key != 'wall_scope':
-            _count(costs[key], key)
+            require_count(costs[key], key)
 
 
 def _prefix(value, label, upper):
-    _closed(value, PREFIXES, label)
+    require_fields(value, PREFIXES, label)
     previous = upper
     for key in PREFIXES:
-        _number(value[key], label, low=0., high=previous)
+        require_number(value[key], label, low=0., high=previous)
         previous = value[key]
 
 
 def _event(row, games, people, coaches, season):
-    _closed(row, ('season', 'game_id', 'source_index', 'key', 'shooter_id', 'goalie_id', 'attacking_coach_id', 'defending_coach_id',
+    require_fields(row, ('season', 'game_id', 'source_index', 'key', 'shooter_id', 'goalie_id', 'attacking_coach_id', 'defending_coach_id',
                   'physical_state', 'shot_type', 'outcome', 'heads', 'status', 'reasons', 'prefixes', 'coalition_goal_mass',
                   'conditional_probabilities'), 'event')
     require(row['season'] == season and row['game_id'] in games and type(row['source_index']) is int and row['source_index'] >= 0
@@ -613,10 +565,10 @@ def _event(row, games, people, coaches, season):
     state = row['physical_state']
     require(state is None or type(state) is list and len(state) == 4 and all(type(x) is int and x >= 0 for x in state), 'invalid physical state')
     require(row['shot_type'] in (None, *TYPES) and row['outcome'] in (None, *OUTCOMES), 'invalid event type/outcome')
-    _closed(row['heads'], HEADS, 'event heads')
+    require_fields(row['heads'], HEADS, 'event heads')
     for head in HEADS:
         record = row['heads'][head]
-        _closed(record, ('included', 'target', 'reasons'), 'head disposition')
+        require_fields(record, ('included', 'target', 'reasons'), 'head disposition')
         require(type(record['included']) is bool and type(record['reasons']) is list
                 and all(type(reason) is str and reason for reason in record['reasons'])
                 and (record['target'] in (0., 1.) and type(record['target']) is float and not record['reasons']
@@ -625,7 +577,7 @@ def _event(row, games, people, coaches, season):
         require(row['prefixes'] is None and row['coalition_goal_mass'] is None and row['conditional_probabilities'] is None
                 and type(row['reasons']) is list and bool(row['reasons']), 'excluded event invents values or lacks reasons')
         for reason in row['reasons']:
-            _closed(reason, ('code', 'game_id', 'source_index', 'pointer'), 'located reason')
+            require_fields(reason, ('code', 'game_id', 'source_index', 'pointer'), 'located reason')
             require(type(reason['code']) is str and reason['code'] and reason['game_id'] == row['game_id']
                     and reason['source_index'] == row['source_index'] and type(reason['pointer']) is str
                     and reason['pointer'].startswith('/attempts/'), 'reason is not located at its event')
@@ -634,24 +586,24 @@ def _event(row, games, people, coaches, season):
             row['shot_type'], row['outcome']), 'complete event lacks its full-joint facts')
     require(3 <= state[0] <= 6 and 3 <= state[1] <= 6 and state[2] in (0, 1) and state[3] == 1
             and people[row['goalie_id']]['kind'] == 'goalie', 'complete event lies outside the scored population')
-    _closed(row['prefixes'], ('actor', 'neutral', 'neutral_goalie'), 'event prefixes')
+    require_fields(row['prefixes'], ('actor', 'neutral', 'neutral_goalie'), 'event prefixes')
     for name in ('actor', 'neutral', 'neutral_goalie'):
         _prefix(row['prefixes'][name], f'{name} prefix', 1.)
     masses = row['coalition_goal_mass']
     require(type(masses) is list and len(masses) == 16, 'coalition masses need sixteen subsets')
     for mass in masses:
-        _number(mass, 'coalition goal mass', low=0., high=1.)
+        require_number(mass, 'coalition goal mass', low=0., high=1.)
     for index, name in ((0, 'neutral'), (11, 'neutral_goalie'), (15, 'actor')):
         require(masses[index] == row['prefixes'][name]['uqrg'], f'coalition {index} differs from {name} goal prefix')
     conditional = row['conditional_probabilities']
-    _closed(conditional, CONDITIONALS, 'conditional probabilities')
+    require_fields(conditional, CONDITIONALS, 'conditional probabilities')
     applicable = dict(actor_unblocked_goal_probability=row['outcome'] != 'block', actor_on_net_goal_probability=row['outcome'] in ('save', 'goal'),
                       neutral_goalie_on_net_goal_probability=row['outcome'] in ('save', 'goal'),
                       neutral_on_net_goal_probability=True, neutral_goalie_unblocked_goal_probability=True)
     for name, (prefix, denominator) in CONDITIONALS.items():
         require((conditional[name] is not None) == applicable[name], f'{name} outside its observed population')
         if conditional[name] is not None:
-            _number(conditional[name], name, low=0., high=1.)
+            require_number(conditional[name], name, low=0., high=1.)
             require(_represents(conditional[name], row['prefixes'][prefix]['uqrg'], row['prefixes'][prefix][denominator],
                                 656 if row['outcome'] == 'block' else 1), f'{name} differs from its integrated prefixes')
 
@@ -671,7 +623,7 @@ def _validate(path, manifest, expected_purpose, *, physical_state=None):
         expected[row['arrays_path']] = 'panel_arrays'
     bound = {}
     for row in files:
-        _closed(row, ('path', 'sha256', 'role'), 'member binding')
+        require_fields(row, ('path', 'sha256', 'role'), 'member binding')
         digest(row['sha256'])
         require(row['path'] not in bound and expected.get(row['path']) == row['role'], 'duplicate, unknown or cross-wired score member')
         member = (root / row['path']).resolve(strict=True)
@@ -684,8 +636,8 @@ def _validate(path, manifest, expected_purpose, *, physical_state=None):
     require(manifest['resources']['output_bytes'] == sum(p.stat().st_size for p in bound.values()), 'saved output bytes differ')
     games = set(manifest['coaches']['selected_game_ids'])
     people, previous = {}, None
-    for row in _jsonl(root / 'people.jsonl'):
-        _closed(row, ('season', 'player_id', 'kind', 'position_group', 'name'), 'person')
+    for row in read_jsonl(root / 'people.jsonl'):
+        require_fields(row, ('season', 'player_id', 'kind', 'position_group', 'name'), 'person')
         require(row['season'] == season and type(row['player_id']) is str and row['player_id'].isdigit()
                 and (previous is None or previous < row['player_id'])
                 and row['kind'] in ('skater', 'goalie', None) and row['position_group'] in ('F', 'D', 'G', None)
@@ -694,13 +646,13 @@ def _validate(path, manifest, expected_purpose, *, physical_state=None):
         people[row['player_id']] = row
         previous = row['player_id']
     coaches = {}
-    for row in _jsonl(root / 'coach_ids.jsonl'):
-        _closed(row, ('coach_id', 'display_name'), 'coach')
+    for row in read_jsonl(root / 'coach_ids.jsonl'):
+        require_fields(row, ('coach_id', 'display_name'), 'coach')
         require(type(row['coach_id']) is str and row['coach_id'] and row['coach_id'] not in coaches
                 and type(row['display_name']) is str and row['display_name'], 'invalid bound coach')
         coaches[row['coach_id']] = row
     complete, previous, events = {}, None, []
-    for row in _jsonl(root / 'events.jsonl'):
+    for row in read_jsonl(root / 'events.jsonl'):
         _event(row, games, people, coaches, season)
         key = (row['game_id'], row['source_index'])
         require(previous is None or previous < key, 'events duplicate or are not ordered by source key')
@@ -721,7 +673,7 @@ def _validate(path, manifest, expected_purpose, *, physical_state=None):
     require(type(discrepancies) is list, 'coverage lacks located setter discrepancies')
     previous = None
     for row in discrepancies:
-        _closed(row, ('key', 'game_id', 'source_index', 'code', 'pointer'), 'setter discrepancy')
+        require_fields(row, ('key', 'game_id', 'source_index', 'code', 'pointer'), 'setter discrepancy')
         order = (row['game_id'], row['source_index'])
         require(row['key'] in keys and row['key'] == f"{row['game_id']}:{row['source_index']}" and (previous is None or previous < order)
                 and row['code'] == DISCREPANCY and type(row['pointer']) is str and re.fullmatch(r'/attempts/\d+', row['pointer']) is not None,
@@ -729,8 +681,8 @@ def _validate(path, manifest, expected_purpose, *, physical_state=None):
         previous = order
     del events
     setters, previous = {}, None
-    for row in _jsonl(root / 'setters.jsonl'):
-        _closed(row, ('season', 'game_id', 'source_index', 'candidate_id', 'pre_outcome_weight', 'posterior_weight', 'recorded_assist_evidence'), 'setter')
+    for row in read_jsonl(root / 'setters.jsonl'):
+        require_fields(row, ('season', 'game_id', 'source_index', 'candidate_id', 'pre_outcome_weight', 'posterior_weight', 'recorded_assist_evidence'), 'setter')
         key = f"{row['game_id']}:{row['source_index']}"
         order = (row['game_id'], row['source_index'], row['candidate_id'])
         require(row['season'] == season and key in complete and (previous is None or previous < order), 'setter parent/order invalid')
@@ -738,8 +690,8 @@ def _validate(path, manifest, expected_purpose, *, physical_state=None):
         candidate = row['candidate_id']
         require(candidate in ('none', 'unknown') or candidate in people and candidate not in (complete[key]['shooter'], complete[key]['goalie']),
                 'setter candidate does not resolve or repeats the shooter or defending goalie')
-        _number(row['pre_outcome_weight'], 'setter prior', low=0., high=1.)
-        require(row['posterior_weight'] is None or _number(row['posterior_weight'], 'setter posterior', low=0., high=1.) is not None,
+        require_number(row['pre_outcome_weight'], 'setter prior', low=0., high=1.)
+        require(row['posterior_weight'] is None or require_number(row['posterior_weight'], 'setter posterior', low=0., high=1.) is not None,
                 'invalid setter posterior')
         require(row['recorded_assist_evidence'] == [], 'scores carry no recorded assist evidence')
         setters.setdefault(key, []).append(row)
@@ -752,13 +704,13 @@ def _validate(path, manifest, expected_purpose, *, physical_state=None):
         require(all(p is None for p in posteriors) if not complete[key]['g'] else
                 all(p is not None for p in posteriors) and isclose(fsum(posteriors), 1., abs_tol=1e-12), 'setter posterior applicability differs')
     shares, previous = {}, None
-    for row in _jsonl(root / 'shares.jsonl'):
-        _closed(row, ('season', 'game_id', 'source_index', 'group', 'recipient_id', 'goals'), 'share')
+    for row in read_jsonl(root / 'shares.jsonl'):
+        require_fields(row, ('season', 'game_id', 'source_index', 'group', 'recipient_id', 'goals'), 'share')
         key = f"{row['game_id']}:{row['source_index']}"
         order = (row['game_id'], row['source_index'], row['group'], row['recipient_id'])
         require(row['season'] == season and key in complete and (previous is None or previous < order), 'share parent/order invalid')
         previous = order
-        _number(row['goals'], 'share goals', low=-1., high=1.)
+        require_number(row['goals'], 'share goals', low=-1., high=1.)
         shares.setdefault(key, []).append(row)
     require(set(shares) == set(complete), 'complete events and share parents differ')
     for key, rows in shares.items():
@@ -776,7 +728,7 @@ def _validate(path, manifest, expected_purpose, *, physical_state=None):
     panel_of, neutral, retained_panel = {}, {}, None
     for record in manifest['panels']:
         state = tuple(record['state'][k] for k in STATE_FIELDS)
-        rows = list(_jsonl(root / record['events_path']))
+        rows = list(read_jsonl(root / record['events_path']))
         with np.load(root / record['arrays_path'], allow_pickle=False) as saved:
             require(saved.files == list(ARRAYS), 'panel array names/order differ')
             arrays = {name: saved[name] for name in saved.files}
@@ -792,7 +744,7 @@ def _validate(path, manifest, expected_purpose, *, physical_state=None):
         require(np.all((arrays['origin_cells'] >= 0) & (arrays['origin_cells'] < 656)) and np.all(arrays['origin_weights'] >= 0)
                 and np.all(arrays['setup_weights'] == np.array([.2, .8])), 'invalid panel origin cells, masses or setup law')
         for index, row in enumerate(rows):
-            _closed(row, ('season', 'game_id', 'source_index', 'key', 'shot_type', 'tip', 'role', 'hand',
+            require_fields(row, ('season', 'game_id', 'source_index', 'key', 'shot_type', 'tip', 'role', 'hand',
                           'attacking_coach_applicable', 'defending_coach_applicable'), 'panel event')
             event = complete.get(row['key'])
             require(event is not None and row['key'] not in panel_of and row['season'] == season
@@ -834,25 +786,25 @@ def _validate(path, manifest, expected_purpose, *, physical_state=None):
 
 def _resolution(value, people, complete):
     """bind the saved propagation receipt to its frozen selector and probe populations."""
-    _closed(value, ('status', 'baseline', 'selector', 'event_probes', 'probes', 'tolerances', 'scope'), 'resolution')
+    require_fields(value, ('status', 'baseline', 'selector', 'event_probes', 'probes', 'tolerances', 'scope'), 'resolution')
     require(value['status'] == 'passed' and value['tolerances'] == TOLERANCES, 'final annual scores need a passed bounded propagation')
-    _closed(value['baseline'], ('path', 'sha256', 'annual_manifest_sha256'), 'resolution baseline')
+    require_fields(value['baseline'], ('path', 'sha256', 'annual_manifest_sha256'), 'resolution baseline')
     selector = value['selector']
-    _closed(selector, ('pairs', 'requirements', 'tip_fraction_definition', 'scope'), 'resolution selector')
+    require_fields(selector, ('pairs', 'requirements', 'tip_fraction_definition', 'scope'), 'resolution selector')
     pairs = [tuple(pair) for pair in selector['pairs']]
     require(len(pairs) <= 45 and len(set(pairs)) == len(pairs)
             and pairs == sorted(pairs, key=lambda pair: (STRENGTHS.index(pair[1]), pair[0]))
             and all(people.get(player, {}).get('kind') == 'skater' for player, _ in pairs), 'invalid frozen focal pairs')
     selected = set()
     for row in selector['requirements']:
-        _closed(row, ('requirement', 'pair', 'disposition'), 'pair requirement')
+        require_fields(row, ('requirement', 'pair', 'disposition'), 'pair requirement')
         require(row['disposition'] in ('selected', 'unavailable') and (row['pair'] is None) == (row['disposition'] == 'unavailable'),
                 'invalid pair requirement')
         if row['pair'] is not None:
             selected.add(tuple(row['pair']))
     require(selected == set(pairs), 'frozen pairs differ from their requirements')
     probes = value['event_probes']
-    _closed(probes, ('actual_keys', 'fixture_witnesses', 'synthetic_geometry'), 'event probes')
+    require_fields(probes, ('actual_keys', 'fixture_witnesses', 'synthetic_geometry'), 'event probes')
     keys = probes['actual_keys']
     require(type(keys) is list and 0 < len(keys) <= 256 and len(set(keys)) == len(keys) and set(keys) <= set(complete),
             'actual probe keys are not unique complete source events')
@@ -865,9 +817,9 @@ def _resolution(value, people, complete):
     bins = Counter(_danger(complete[key]['neutral_on_net']) for key in keys)
     require([row['head'] for row in value['probes']] == list(HEADS), 'resolution heads differ')
     for row in value['probes']:
-        _closed(row, ('head', 'status', 'probe', 'maximum_changes', 'actual_keys', 'neutral_panels', 'pairs'), 'head propagation')
+        require_fields(row, ('head', 'status', 'probe', 'maximum_changes', 'actual_keys', 'neutral_panels', 'pairs'), 'head propagation')
         changes = row['maximum_changes']
-        _closed(changes, ('actual_probability', 'synthetic_probability', 'posterior_diagnostic', 'stage', 'per100', 'map_l1'), 'maximum changes')
+        require_fields(changes, ('actual_probability', 'synthetic_probability', 'posterior_diagnostic', 'stage', 'per100', 'map_l1'), 'maximum changes')
         require(row['status'] == 'passed'
                 and max(changes['actual_probability'], changes['synthetic_probability'], changes['stage']) <= TOLERANCES['probability']
                 and changes['per100'] <= TOLERANCES['per100'] and changes['map_l1'] <= TOLERANCES['map_l1'],
@@ -882,11 +834,11 @@ def _resolution(value, people, complete):
 
 
 def _support(value, label):
-    _closed(value, ('included_seconds', 'events', 'eligible_weight', 'known_excluded_seconds', 'unquantified_gap', 'reason_counts',
+    require_fields(value, ('included_seconds', 'events', 'eligible_weight', 'known_excluded_seconds', 'unquantified_gap', 'reason_counts',
                     'inferred_inputs', 'current_season_information', 'prior_only', 'prior_seasons'), label)
-    require(value['eligible_weight'] is None and all(value[k] is None or _number(value[k], label, low=0.) is not None
+    require(value['eligible_weight'] is None and all(value[k] is None or require_number(value[k], label, low=0.) is not None
                                                      for k in ('included_seconds', 'known_excluded_seconds'))
-            and (value['events'] is None or _count(value['events'], label) is not None)
+            and (value['events'] is None or require_count(value['events'], label) is not None)
             and all(type(value[k]) is bool for k in ('unquantified_gap', 'current_season_information', 'prior_only'))
             and type(value['reason_counts']) is list
             and all(type(r) is dict and set(r) == {'code', 'count'} and type(r['code']) is str and type(r['count']) is int and r['count'] > 0
@@ -899,15 +851,15 @@ def _support(value, label):
 
 def _coefficient(value, label, setter):
     keys = ('available', 'likelihood_events', 'prior_only', 'prior_seasons', 'reason') + (('candidate_events', 'mean_coupled_events') if setter else ())
-    _closed(value, keys, label)
+    require_fields(value, keys, label)
     require(type(value['prior_seasons']) is list and value['prior_seasons'] == sorted(set(value['prior_seasons'])), f'{label}: invalid prior seasons')
     if value['available']:
         require(value['available'] is True and type(value['prior_only']) is bool
                 and (value['likelihood_events'] is None) == (value['reason'] is not None), f'{label}: invalid coefficient support')
         if value['likelihood_events'] is not None:
-            _count(value['likelihood_events'], label)
+            require_count(value['likelihood_events'], label)
         if setter and value['likelihood_events'] is not None:
-            candidate, mean = _count(value['candidate_events'], label), _count(value['mean_coupled_events'], label)
+            candidate, mean = require_count(value['candidate_events'], label), require_count(value['mean_coupled_events'], label)
             require(max(candidate, mean) <= value['likelihood_events'] <= candidate + mean, f'{label}: setter union differs')
     else:
         require(value['available'] is False and value['likelihood_events'] is None and value['prior_only'] is None
@@ -919,34 +871,34 @@ def _projections(root, season, people, panels):
     skaters = sorted(pid for pid, row in people.items() if row['kind'] == 'skater')
     expected = iter([(pid, strength) for strength in STRENGTHS for pid in skaters])
     values = {}
-    for row in _jsonl(root / 'projections.jsonl'):
-        _closed(row, ('season', 'player_id', 'strength', 'values', 'unavailable', 'reference_panel', 'coefficient_support', 'support'), 'projection')
+    for row in read_jsonl(root / 'projections.jsonl'):
+        require_fields(row, ('season', 'player_id', 'strength', 'values', 'unavailable', 'reference_panel', 'coefficient_support', 'support'), 'projection')
         require(row['season'] == season and (row['player_id'], row['strength']) == next(expected, None), 'projections omit, repeat or misorder skater strengths')
         panel = row['reference_panel']
-        _closed(panel, ('panel_id', 'opportunities', 'setup_weight', 'neutral', 'focal_shooter', 'setting_setup'), 'reference panel')
+        require_fields(panel, ('panel_id', 'opportunities', 'setup_weight', 'neutral', 'focal_shooter', 'setting_setup'), 'reference panel')
         bound = panels[row['strength']]
         n, common, terms = bound['rows'], bound['masses'], bound['origins']
         require(panel['panel_id'] == bound['record']['panel_id'] and panel['opportunities'] == n
-                and isclose(_number(panel['setup_weight'], 'setup weight', low=0.), .8 * n, rel_tol=1e-12, abs_tol=1e-12), 'reference panel denominators differ')
+                and isclose(require_number(panel['setup_weight'], 'setup weight', low=0.), .8 * n, rel_tol=1e-12, abs_tol=1e-12), 'reference panel denominators differ')
         _prefix(panel['neutral'], 'neutral panel', n)
         setup = panel['setting_setup']
-        _closed(setup, ('neutral_goal_mass', 'focal_goal_mass'), 'setting setup')
+        require_fields(setup, ('neutral_goal_mass', 'focal_goal_mass'), 'setting setup')
         require(all(_near(panel['neutral'][k], common['prefixes'][k], terms) for k in PREFIXES)
                 and _near(setup['neutral_goal_mass'], common['setup_goal_mass'], terms), 'projection neutral masses differ from saved panel logits')
-        _closed(panel['focal_shooter'], PREFIXES, 'focal panel')
+        require_fields(panel['focal_shooter'], PREFIXES, 'focal panel')
         previous = n
         for key in PREFIXES:
             mass = panel['focal_shooter'][key]
-            require(mass is None or previous is not None and _number(mass, 'focal mass', low=0., high=previous) is not None, 'focal prefix nullability/order invalid')
+            require(mass is None or previous is not None and require_number(mass, 'focal mass', low=0., high=previous) is not None, 'focal prefix nullability/order invalid')
             previous = mass
-        _number(setup['neutral_goal_mass'], 'neutral setup mass', low=0., high=panel['setup_weight'])
+        require_number(setup['neutral_goal_mass'], 'neutral setup mass', low=0., high=panel['setup_weight'])
         require(setup['neutral_goal_mass'] <= panel['neutral']['uqrg'] * (1 + 1e-12)
-                and (setup['focal_goal_mass'] is None or _number(setup['focal_goal_mass'], 'focal setup mass', low=0., high=panel['setup_weight']) is not None),
+                and (setup['focal_goal_mass'] is None or require_number(setup['focal_goal_mass'], 'focal setup mass', low=0., high=panel['setup_weight']) is not None),
                 'setting setup mass outside its panel')
         support = row['coefficient_support']
-        _closed(support, ('shooter', 'setter'), 'coefficient support')
-        _closed(support['shooter'], HEADS, 'shooter coefficient support')
-        _closed(support['setter'], ('g',), 'setter coefficient support')
+        require_fields(support, ('shooter', 'setter'), 'coefficient support')
+        require_fields(support['shooter'], HEADS, 'shooter coefficient support')
+        require_fields(support['setter'], ('g',), 'setter coefficient support')
         for head in HEADS:
             _coefficient(support['shooter'][head], f'shooter {head}', False)
         _coefficient(support['setter']['g'], 'setter g', True)
@@ -956,19 +908,19 @@ def _projections(root, season, people, panels):
             chain.append(available)
             require((panel['focal_shooter'][key] is not None) == available, 'focal prefix availability differs from coefficient support')
         require((setup['focal_goal_mass'] is not None) == support['setter']['g']['available'], 'setting mass availability differs from setter support')
-        _closed(row['values'], FIELDS, 'projection values')
-        _closed(row['support'], FIELDS, 'projection support')
+        require_fields(row['values'], FIELDS, 'projection values')
+        require_fields(row['support'], FIELDS, 'projection support')
         require(type(row['unavailable']) is dict and set(row['unavailable']) == {f for f in FIELDS if row['values'][f] is None},
                 'unavailable reasons differ from null values')
         for field in FIELDS:
             _support(row['support'][field], field)
             if row['values'][field] is None:
                 reason = row['unavailable'][field]
-                _closed(reason, ('reason', 'explanation'), 'unavailable value')
+                require_fields(reason, ('reason', 'explanation'), 'unavailable value')
                 require(reason['reason'] in REASONS and type(reason['explanation']) is str and reason['explanation'], 'invalid unavailable reason')
             else:
                 level = field in STAGES
-                _number(row['values'][field], field, low=0. if level else None, high=1. if level else None)
+                require_number(row['values'][field], field, low=0. if level else None, high=1. if level else None)
         focal, base = panel['focal_shooter'], panel['neutral']
         # the scalar sums per-origin contributions (sequential within a cell, exact
         # across cells) while each mass is a log-domain integral: both roundings bound it.
@@ -1007,8 +959,8 @@ def _projections(root, season, people, panels):
             if not line:
                 break
             number += 1
-            row = _decode(path, number, line)
-            _closed(row, ('season', 'player_id', 'strength', 'map_kind', 'panel_id', 'cells', 'integrated_value'), 'map')
+            row = decode_jsonl_line(path, number, line)
+            require_fields(row, ('season', 'player_id', 'strength', 'map_kind', 'panel_id', 'cells', 'integrated_value'), 'map')
             selector = (row['player_id'], row['strength'], row['map_kind'])
             require(row['season'] == season and selector == next(expected, None), 'maps omit, repeat or misorder projections')
             offsets[selector] = offset

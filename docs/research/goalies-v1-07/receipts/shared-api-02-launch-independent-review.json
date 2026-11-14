@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "kind": "shared-api-02-launch-independent-review",
+  "status": "cached_launch_matches_admission_not_api_accepted",
+  "sha256": {
+    "shared-api-02-actual-launch.json": "f662be9281a0c67ef112ce85432c3af458d9fa561d9eae0c8cc4ac5170dca9b5",
+    "shared-api-02-admission.json": "8d86e0c1568f812129523359bf01cb56326ec2d034f94f3e74f7f5fe90e892de",
+    "api-held-02.sh": "98637d480371e2f906fcd90c2feec09d44508ace596d20a5626424a320c9eb2e",
+    "api-boundary-02.py": "1594b3ee88be36ec82ffc1b1c9f937a28a03929bc173df7c92de143534bbb94c",
+    "check_api.py": "3a89e054eaaaa7c06eada98eb485b226fc3bdb96a0c529e3c41460b2fb957cb5"
+  },
+  "findings": [
+    "admission binds accepted runtime c90/analysis fee5/app 8ca793/build e885 and server 33587, checked startup boundary d5e5 and overview preservation 5470. same fb604 candidate intentionally retains stored publisher 4aa; actual --publisher-commit 4aa is correct.",
+    "cached python 48999/time 48998/parent 48997 chain starts 14:57:52Z and matches the held caller: pinned python 3.14.8 lineage, -B, unchanged checker 3a89, exact manifest 21de/results, publication fb604, localhost 3407 and fresh api-02.json output. framework-resolved child executable is consistent with the admitted virtualenv lineage; no actual cwd observation is claimed.",
+    "embedded availability facts declare mount/parent present, three api-02 paths absent and zero input bodies read. availability and the observed running frame establish no completed requests, native exit, cost or matrix outcome. earlier-pass costs remain historical context."
+  ],
+  "capture_scope": "api_dispatch owns the watch and conditional single 1594 capture only after actual native closure plus terminal marker/prompt; capture completeness is separate from API adjudication. no subsequent live window is granted here.",
+  "blocking_mismatches": [],
+  "limits": "local frame/admission/caller review only; no OS/HDD/HTTP query, checker import/execution, replay or active output read. consumer-04/browser-04/ST, final preservation, science and activation remain held for separate admissions."
+}

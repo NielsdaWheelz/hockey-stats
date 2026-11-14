@@ -1,0 +1,19 @@
+{
+  "status": "shared_contract_repair_adopted_before_fit",
+  "owner_commit": "0d670607ea3fe344de31540c0a8d2de79339f305",
+  "picked_commit": "03a2322f4086a48429045a7d37f14ead6c6af77d",
+  "changed_path": "analysis/src/hockey_stats/execution.py",
+  "diff": "four insertions, two deletions in iterator admission only",
+  "source_before_sha256": "460d7e09824d7ef72642ee837c082061e9630fcc1e3150ced67876fd039a1e13",
+  "source_after_sha256": "367f5d18975ad8565c994f0870ec2a950d502b48637e8a6bd264dccbb1e32efa",
+  "probability_and_evidence_tail_byte_exact": true,
+  "tail_sha256": "a926580ce04c623d351fc3cc02cddf448bf8997d11786ed267b69bcfb2464fe2",
+  "owner_actual_adapter_receipt_sha256": "8eb13104a26a8992a42797a7eddfec89a27288e17d7ae2bf75910a488505e865",
+  "owner_ev_exact_fingerprint": "95690a6c5fca68553bca9b50b429f8b6dd96a83a38b5bd72928e20dd4399b784",
+  "owner_controls": "actual checked prepare_spatial adapter red/green;3ST states,6events,12origins; independent joint/event/aggregate closure; bad state/goalie/type/mass negatives",
+  "root_checks": "same complete before/after module hashes as owner; exact probability/evidence tail and whitespace; independent static G consumer review clear",
+  "goalie_dependency": "current G fit/score paths do not call this iterator; base score validation uses untouched neutral_panel_event_masses",
+  "fit_launched": false,
+  "source_refresh": "only producer/tree/frame changes in already-passed preflight; immutable input hashes reused without repeated read",
+  "arrays_source_bodies_or_fits": false
+}

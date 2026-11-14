@@ -1,0 +1,381 @@
+{
+  "kind": "shared-browser-04-complete-pixel-coverage",
+  "status": "accepted_all_49_actual_raster_identities",
+  "created_at": "2026-11-14T05:14:59.454848+00:00",
+  "browser_result_sha256": "2777f188f2e686f6430024f7cdbaf3c04c32271217e170623f4c19682a489335",
+  "reviews": {
+    "viewport": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-04-viewport-pixel-review.json",
+      "sha256": "22058fd16eb8792309f0160341c7a7d0471fc93fd59466246db41d8e2ec69bb8"
+    },
+    "ev": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-04-ev-export-pixel-review.json",
+      "sha256": "39dc20d8f80c3f7f9524f832037c3acaf2eaf0515d59721ac8d44300fadd9bfc"
+    },
+    "pk": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-04-pk-export-pixel-review.json",
+      "sha256": "05741f5bb59e64aae56163c3525e046b70e4c2dc54539cfcc84812cbdd44220b"
+    }
+  },
+  "coverage": {
+    "actual_png_downloads": 30,
+    "actual_viewport_captures": 19,
+    "total_raster_identities": 49,
+    "unique_png_hashes": 44,
+    "fresh_unique_actual_images_viewed": 31,
+    "prior_individually_inspected_exact_bit_matches": 13,
+    "current_duplicate_identities": 5
+  },
+  "images": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/001-normal-profile.png",
+      "sha256": "e0220826fe20110aa5f1947c8c4bcd66b70efafb576aa8c4c57c3bda7edd9955",
+      "bytes": 157970,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/080-normal-profile.png",
+      "sha256": "e0220826fe20110aa5f1947c8c4bcd66b70efafb576aa8c4c57c3bda7edd9955",
+      "bytes": 157970,
+      "evidence": "viewport",
+      "basis": "accepted_by_exact_current_pixel_identity"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/081-normal-detail.png",
+      "sha256": "b8ae7d897fc82fa132640cb3edb2bb9aade106e5c3de2e73ec6df8fe6d8e4b41",
+      "bytes": 158983,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/082-normal-history.png",
+      "sha256": "25934c1adbf90ef5a88981f29aaeb4e777af4e5be13203e4af93b01c0d2cc77e",
+      "bytes": 132496,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/083-normal-history-table.png",
+      "sha256": "77045e5b657e58cfba51ef9c465c98a403464e433118601bd1ec28d260e33747",
+      "bytes": 135709,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/084-normal-history.png",
+      "sha256": "1e5e55a3b5202232210e5ba7c3e2cf04fd4bc51ff8ee5a8c18a7ff8724e534ea",
+      "bytes": 139264,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/085-normal-history-table.png",
+      "sha256": "be0995de5d4097ceeec656e33dc50250e3a7631147bb9be4bb98959bd4a90208",
+      "bytes": 141257,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/086-narrow-profile.png",
+      "sha256": "aaf78ff6dcce0686070fe0fa4060645cc312a4fee31a22d034c24e6687050ac1",
+      "bytes": 71188,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/087-narrow-detail.png",
+      "sha256": "c9fa1489b6dfcbfba16eaa5a8268190d7ec950d68821614bacd791ff41318e24",
+      "bytes": 71321,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/088-narrow-history.png",
+      "sha256": "3d6e65e5efe227c953b1a7af1e54662fbfcf0b4bb9d634b2c16114a3dccdd785",
+      "bytes": 56409,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/089-narrow-history-table.png",
+      "sha256": "d522fcd823556ef14bd3112d6ca90b279ab8b36f7c40f9250eef41032619a704",
+      "bytes": 52006,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/093-narrow-history.png",
+      "sha256": "69233f17c56da992dedc48c87e99d6991f08e0bb4e59734e305b26542f91cd6b",
+      "bytes": 55135,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/094-narrow-history-table.png",
+      "sha256": "5ecb81b36efd75cc264647a6be39954054c85efb22cbfef7acde0563b9c436b8",
+      "bytes": 51048,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/098-native200-profile.png",
+      "sha256": "3f357f42e6a2fbe3d5a1b6092fee965898669c623da3f9c6ed593f522bea997e",
+      "bytes": 112342,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/099-native200-detail.png",
+      "sha256": "c59d617bb7e0de0f0a65901f0187e12b0583399319181c5c783398913d9e7766",
+      "bytes": 112627,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/100-native200-history.png",
+      "sha256": "332472fe26a536481bcbc9414a08fb1a02d976ddde35b138f4aadbfb36e487a0",
+      "bytes": 74104,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/101-native200-history-table.png",
+      "sha256": "6f7e0af6d22b1d4d45e300c0079dd55d3487a5c8e0a3abfcc69a61522c469ccd",
+      "bytes": 141847,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/105-native200-history.png",
+      "sha256": "10e7e11f6834fe825fe2d668a83b0097999d2f67959fdb51ff543f32367f81ac",
+      "bytes": 72608,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/106-native200-history-table.png",
+      "sha256": "0ae66529a06c8b39458fa760052f7cea40df06bc54d00c71754bcbb77ea98246",
+      "bytes": 147527,
+      "evidence": "viewport",
+      "basis": "accepted_actual_viewport_pixels"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/003-normal-goalie.ev.stopping_goals_per100_on_net.png",
+      "sha256": "a239932e0532439b3a966cfe0b923ff6f2ca1e4d05b6288e4dcfeccac75d763c",
+      "bytes": 2846294,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/006-normal-goalie.ev.miss_probability.png",
+      "sha256": "754aa65b50566cfe32f0f4c2fcdeaf4a4c65b847ceb505de7f58bd4738849637",
+      "bytes": 2798290,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/009-normal-goalie.ev.recorded_stop_probability.png",
+      "sha256": "56da23edd2cdb88439b9220682b5a75c266d29c1016a3aa0b2fddf3bb2b03d08",
+      "bytes": 2834148,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/012-normal-goalie.ev.conversion_probability.png",
+      "sha256": "2f813290e37ee33ddc3b3bf4b8fbef7e420db1738ff569cc8bc229da6cacfd0d",
+      "bytes": 2824554,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/015-normal-goalie.ev.recorded_reattempt_probability.png",
+      "sha256": "f3a23459923211f259154970ba9cc2a3db6a5616da93a083eaaae5bd5b793578",
+      "bytes": 2853880,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/018-normal-goalie.ev.reattempt_neutral_goal_probability.png",
+      "sha256": "b0c0d4fa5807bbfbd2a98a199602a5a6c94302ebaa3f1b1ab3e32e2aa5d8c356",
+      "bytes": 2848073,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/021-normal-goalie.ev.followup_danger.png",
+      "sha256": "273338c8bf1a6fe2321ed9f6eee2a9b987c0dc36bfa462cef561d42d9fac8b7d",
+      "bytes": 2839903,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/024-normal-goalie.ev.miss_probability_difference.png",
+      "sha256": "3f74d690585a5cd9942cc297338fed676aa3e520cb1ffbdae18d184957876e74",
+      "bytes": 2834608,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/027-normal-goalie.ev.recorded_stop_probability_difference.png",
+      "sha256": "a392af566424f27bbda625e8be44c4ca5be26d701c609248984d7fa9ec22afbe",
+      "bytes": 2853522,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/030-normal-goalie.ev.conversion_probability_difference.png",
+      "sha256": "1863996e2905b26033018385f24b9bf1f121a06bf17ba3ff45b6cd26473c7857",
+      "bytes": 2844155,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/033-normal-goalie.ev.recorded_reattempt_probability_difference.png",
+      "sha256": "5a6ff6f8aa9084c08f066927706b0ce39f78d48013aad0f6cd62b651a0571268",
+      "bytes": 2888029,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/036-normal-goalie.ev.reattempt_neutral_goal_probability_difference.png",
+      "sha256": "b0ed3f30e85fa0995a73b2b18aa66d7d7cb996b90c27ad74cb6474f4e39063ab",
+      "bytes": 2876964,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/039-normal-goalie.ev.followup_danger_difference.png",
+      "sha256": "be945111a4e15adb4e5e464e82b8b45489f1913a60781e0d14ed6f5959622002",
+      "bytes": 2869117,
+      "evidence": "ev",
+      "basis": "accepted_by_exact_identity_to_individually_inspected_prior_png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/042-normal-goalie.pk.stopping_goals_per100_on_net.png",
+      "sha256": "1ca9dae10795f9080dc6dfa3a6f5a2286968c02ba44bf8091a206cff8d6fae09",
+      "bytes": 2859245,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/045-normal-goalie.pk.miss_probability.png",
+      "sha256": "fad6ec5f710738cef52ac60d5a1ea0de523a9ff8f377a8369c4e88e8774af73e",
+      "bytes": 2798736,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/048-normal-goalie.pk.recorded_stop_probability.png",
+      "sha256": "38e83bdf2d2bba5e8c149389b12aadccf86b4049dc30df9d0c0137edbdec08ac",
+      "bytes": 2841353,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/051-normal-goalie.pk.conversion_probability.png",
+      "sha256": "b8a8fc0e37f60248da9081f6e73e96e1024ab4438e6ad40441840aca8d1330df",
+      "bytes": 2822483,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/054-normal-goalie.pk.recorded_reattempt_probability.png",
+      "sha256": "72c08bfe9d7f8b92728db5ee3ca5d02a407e178d3e8bcd5cab9931c47e1f71c5",
+      "bytes": 2858383,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/057-normal-goalie.pk.reattempt_neutral_goal_probability.png",
+      "sha256": "babd9f90986be163576d220bc0ce283ac6f133cb19a088c32168c29c75de8d8c",
+      "bytes": 2847635,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/060-normal-goalie.pk.followup_danger.png",
+      "sha256": "e9230480d5d7840e3b9e01df31e042532dcaadee9c323937d20be3060d8ebaa5",
+      "bytes": 2840675,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/063-normal-goalie.pk.miss_probability_difference.png",
+      "sha256": "904ba016d9b05e3c23fff235476b014ffd7f1ba7895550ca876c69f96a0fcbb7",
+      "bytes": 2835914,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/066-normal-goalie.pk.recorded_stop_probability_difference.png",
+      "sha256": "265968214f83ff04f930776fbbea78101742c224182a043a868e4bde3c806640",
+      "bytes": 2858668,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/069-normal-goalie.pk.conversion_probability_difference.png",
+      "sha256": "7e08f133e3ac9e8d3df7114f65d7a065c1104718b2abccff0db0f343017ef516",
+      "bytes": 2859890,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/072-normal-goalie.pk.recorded_reattempt_probability_difference.png",
+      "sha256": "90bd4628999727b2a4dc469a9419131e58375c500c742841e6c0d99c53f90e14",
+      "bytes": 2888417,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/075-normal-goalie.pk.reattempt_neutral_goal_probability_difference.png",
+      "sha256": "9d46c251fac9179d5b968f268be5d59449784690945109c4e05edc69a6df3822",
+      "bytes": 2876403,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/078-normal-goalie.pk.followup_danger_difference.png",
+      "sha256": "ed80152e06c0e72321a1dbd10001d339233fd5f4d9e032379f7477d65a3195dc",
+      "bytes": 2873240,
+      "evidence": "pk",
+      "basis": "direct_actual_full_height_pixel_inspection"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/091-narrow-goalie.ev.stopping_goals_per100_on_net.png",
+      "sha256": "a239932e0532439b3a966cfe0b923ff6f2ca1e4d05b6288e4dcfeccac75d763c",
+      "bytes": 2846294,
+      "evidence": "exact_current_normal_png",
+      "basis": "identical_png_pixels_at_actual_downloaded_layout",
+      "same_pixels_as": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/003-normal-goalie.ev.stopping_goals_per100_on_net.png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/096-narrow-goalie.pk.followup_danger_difference.png",
+      "sha256": "ed80152e06c0e72321a1dbd10001d339233fd5f4d9e032379f7477d65a3195dc",
+      "bytes": 2873240,
+      "evidence": "exact_current_normal_png",
+      "basis": "identical_png_pixels_at_actual_downloaded_layout",
+      "same_pixels_as": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/078-normal-goalie.pk.followup_danger_difference.png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/103-native200-goalie.ev.stopping_goals_per100_on_net.png",
+      "sha256": "a239932e0532439b3a966cfe0b923ff6f2ca1e4d05b6288e4dcfeccac75d763c",
+      "bytes": 2846294,
+      "evidence": "exact_current_normal_png",
+      "basis": "identical_png_pixels_at_actual_downloaded_layout",
+      "same_pixels_as": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/003-normal-goalie.ev.stopping_goals_per100_on_net.png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/108-native200-goalie.pk.followup_danger_difference.png",
+      "sha256": "ed80152e06c0e72321a1dbd10001d339233fd5f4d9e032379f7477d65a3195dc",
+      "bytes": 2873240,
+      "evidence": "exact_current_normal_png",
+      "basis": "identical_png_pixels_at_actual_downloaded_layout",
+      "same_pixels_as": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/078-normal-goalie.pk.followup_danger_difference.png"
+    }
+  ],
+  "consequential_findings": [],
+  "nonblocking_followup": "docs/issues/history-export-repeated-method-notes.md: long repeated method notes remain legible and complete; no compact selected-export height budget was specified",
+  "limits": "identity aggregation of actual direct/independent pixel reviews. no new image read/stat, browser/HTTP/database/provider/model or numerical run. this closes pixels, not independent semantic adjudication, ST matrices, final preservation/cleanup, scientific admission or activation"
+}

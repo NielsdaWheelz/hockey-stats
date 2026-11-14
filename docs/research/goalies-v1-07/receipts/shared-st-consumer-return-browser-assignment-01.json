@@ -1,0 +1,68 @@
+{
+  "kind": "shared-st-consumer-return-browser-assignment",
+  "created_at": "2026-11-14T06:53:46.480135+00:00",
+  "status": "scoped_consumer_return_accepted_one_browser_window_assigned_not_launched",
+  "accepted_return": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-consumer-checked-return-01.json",
+    "sha256": "8344ebf977115c38f1f984fdb8a502c8d84adecade34e8a1fca039ff340f14f8",
+    "independent_return_review_sha256": "eac1a89866b6dd5dbc774800c8292843f810053f14078183f46a55a31e83ed09",
+    "independent_consumer_adjudication_sha256": "9de3becad5a1dbc66276234bd417fabd9dbd8abde93956ab57ba20995fdefda4",
+    "scope": "10actualpublicloaders/onepairedjourney/40compositions/120annualpoints/85requests and responses; publicCSVformatter/assertion construction and successful write only",
+    "unexercised": "zero-cutoff0/unavailable0 among normal anchors; no independent originalCSV body/stat/hash/download pass",
+    "native_cost": {
+      "wall_seconds": 145.99,
+      "peak_rss_bytes": 1156022272,
+      "internal_node_rss_bytes": 1151598592,
+      "declared_content_length_sum_bytes": 1171145856,
+      "limits": "declared HTTP lengths only; actual decoded/transfer/physical bytes unmeasured; driver and retained server scopes distinct"
+    }
+  },
+  "target": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+    "sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+    "retained_node_pid": 89887,
+    "serving_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+    "build_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+    "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+    "complete_parent": "unchanged21de manifest/15d root producer; no new publication or numerical artifact"
+  },
+  "next_scope": {
+    "owner": "v1-09",
+    "only_stage": "ONEbrowser05 actual public journey/download/layout campaign plus conditional fixed3bodycapture and cached independent semantic/cost adjudication, then explicit checked return",
+    "source_sha256": "35c3b7eea2f3fe971e79c7553cc3c53e69d24eefc1911bacded6037deb2886f4",
+    "held_shell_sha256": "f682b8df4e38ffb6ff1059bde6032d05f00a48c0d3eedd650d7d2aaba2e6dcbe",
+    "source_plan_sha256": "51042fb031b9b15f130267007be708d63c211703b4b71fd3f01d153104bc4d2b",
+    "matrix_packet_sha256": "09ffeb5493b5d102ee18a40b3dfbf3d4376aad80a2acc2948b50931d2ae7f6f4",
+    "api_input": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json",
+      "bytes": 1232910,
+      "sha256": "7b6b645c5a2b69dc657beec63d9f663427619b829bd9e7651ce208f25a7221a0"
+    },
+    "consumer_input": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/typed-consumer.json",
+      "bytes": 1097187,
+      "sha256": "b76decc83f84a88a5013aa323293cf325bb7bdeb1a2e658d81dd2b5805de347b"
+    },
+    "csv_input": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/typed-consumer.csv",
+      "rows_expected": 120,
+      "bytes_and_sha256": "unknown until FIRST actualbrowser read; require exact literal path from admitted consumerJSON, no preflightCSVread/stat/hash or path fanout"
+    },
+    "command_argv_from_st_cwd": [
+      "/bin/sh",
+      ".tmp/st-final-browser-held-05.sh",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+      "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+      "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json"
+    ],
+    "planned_scope": "40selectors/9discoveries/16maproutes/4full evidence panels+CSVs/nine observed case predicates+explicit unobserved extrapolation/cutoffs/keyboard/comparison/URLnegatives/asyncsnapshot/narrow320CSS/native200; planned101actualdownloads and85rasters, actual counts only after evidence",
+    "preconditions": "fresh source/build/Node24.21/Playwright1.65/Chrome ownership/current retained listener/target/accepted inputs; ordinary mount-parent and fresh browser output/profile/log/exit/postcapture paths. permit one fixed external consumerJSON1097187B preflight identity read if needed; no CSV or producer members. no loader/controller/browser journey or HTTP before one separately submitted browser command after passed preflight/peer review; actual argv/cwd/process frame then independent review",
+    "strict_failure_contract": "zero raw page errors/nonwhitelisted console/transport failures and successful required API responses, RECHECK full raw arrays THROUGH owned context closure in independent adjudication regardless of controller self-status. exact undeclared same-origin favicon404 exception only. no abort waiver, sleep/networkidle workaround, retry or expectation relaxation",
+    "postcapture": "only after independently checked actual frame and actual owned closure+numeric ST_BROWSER_NATIVE_EXIT marker/prompt/noSTOP:ONE d5db collector --stage browser with reviewed source d5db7fb66fa6a6b853f0a7b7422034e5f3b8f801a7e2b1b1c7b581397365f90c, actual accepted launch digest, same target digest and exclusive LOCAL st-final-browser-postexit-capture-01.json. exactly fixed browserreceipt/log/exit bodies/caps; no image/SVG/CSV/source/member/DBfollowup. cached semantic/cost/input adjudication then explicit return; collection0 is not browser/pixel pass",
+    "pixels": "source05 does not inherit G04 lifecycle/bbox source guards; planned85actualPNG/viewport identities still need separately assigned independent actualpixels after accepted metadata. SVG/blob/header/dimension checks cannot close pixels; preserve all artifacts/profiles/failures"
+  },
+  "held": "all new G live/drive work through this browser window. independent pixels, offline/rollback/protected-primary/final preservation/cleanup/source-build changes/publication/startup/fit/rescore/activation and later chain unassigned",
+  "limits": "no browser dispatch or pass inferred from this assignment. baseline-state extrapolation remains unobserved within inspected3years, no waiver/impossibility/synthetic substitute/newsearch. existing scientific sensitivity/accuracy caveats preserved. fixedLOCALreturn/review/adjudication plus3browser sources only read byroot; no original consumer/CSV/artifact/source-table, OS/HTTP/DB/HDD or model/provider replay"
+}

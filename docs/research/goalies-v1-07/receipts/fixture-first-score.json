@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "purpose": "fixture",
+  "status": "passed",
+  "artifact": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-04/20212022/manifest.json",
+    "sha256": "006f1c78fd3202860818831964e5fa33ff1a7b032081640a8d7a7f664f5becd5"
+  },
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20212022/manifest.json",
+    "sha256": "2c4bed99e41c71bce99d836f822ceb6ebaf14c7e62f3d5a081bbc5e7ddb2d8b7",
+    "season": "20212022",
+    "purpose": "fixture",
+    "recipe_sha256": "cd57b284183962a5795f0c1b2c15065881be3531a4de46b70a20e163907a97c6",
+    "previous": null
+  },
+  "base_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022/manifest.json",
+    "sha256": "93478145e952d2378fce912b0c5daffff553ce84d2a74cce3f327e59a3320baf",
+    "season": "20212022",
+    "purpose": "fixture",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual",
+    "previous": null
+  },
+  "base_scores": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022/manifest.json",
+    "sha256": "78e029e06cfb50ebdc247117faeb3849459e291be2267c250a9c15858dac7d60"
+  },
+  "prepared_sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+  "resources": {
+    "wall_seconds": 94.4169131249655,
+    "input_read_wall_seconds": 23.83808441599831,
+    "projection_wall_seconds": 23.793336834060028,
+    "sensitivity_wall_seconds": 0.35058312502224,
+    "validation_wall_seconds": 46.406900833011605,
+    "peak_memory_bytes": 1140195328,
+    "output_bytes": 486890600
+  },
+  "row_counts": {
+    "analysis_map": 264,
+    "execution_breakdown": 2376,
+    "goalie_danger": 576,
+    "goalie_evidence_map": 3456,
+    "goalie_observed": 288,
+    "goalie_result": 264
+  },
+  "checked_contracts": [
+    "exact-state panel selection and retained-cache isolation",
+    "independent origin/setup branch enumeration, fixed neutral saved-shot weighting and joint h*d",
+    "underflow-safe conditional ratio",
+    "raw source versus paired numerical population, defending strength, stage conditioning",
+    "additive native/display map mass, unmapped totals, league-relative ratio and histogram closure",
+    "all 101 declared danger-bin edges, last includes one",
+    "strict header, version, purpose, annual/base identities, event population, target label, extra field, projection mass axis, neutral support denominator and contained locator negatives",
+    "producer strict detached validation of every annual selector and public row"
+  ],
+  "temporary_checks": [
+    ".tmp/goalie-acceptance/check_panel.py",
+    ".tmp/goalie-acceptance/check_reference.py",
+    ".tmp/goalie-acceptance/check_evidence.py",
+    ".tmp/goalie-acceptance/check_score_contract.py"
+  ],
+  "historical_attempts": [
+    {
+      "output": "fixture-scores-01/20212022",
+      "status": "rejected_before_write",
+      "reason": "fitted target exclusions predated duplicate-reason hard cutover; fresh fixture state coefficients subsequently proved byte-identical"
+    },
+    {
+      "output": "fixture-scores-02/20212022",
+      "status": "passed_under_previous_contract",
+      "limitation": "resource wall excluded final validation; current contract requires explicit validation cost"
+    },
+    {
+      "output": "fixture-scores-03/20212022",
+      "status": "failed_with_members_preserved",
+      "reason": "public missing-source empty-state exception also classified supported zero with source gaps; fixed narrow all-null predicate"
+    }
+  ],
+  "limits": [
+    "fixture capability and arithmetic proof, not real annual acceptance or scientific quality",
+    "independent final detached consumer, other fixture years, real outputs and browser acceptance are owned by subsequent verification"
+  ]
+}

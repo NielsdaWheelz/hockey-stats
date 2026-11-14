@@ -1,0 +1,19 @@
+{"status":"passed","checks":[{"name":"goalie overview reads only four selected rows per goalie and no skater facts","status":"passed"},{"name":"goalie overview exact provided envelope, population, values and ev usage","status":"passed"},{"name":"pending goalie family keeps a provided overview with exact pending components","status":"passed"},{"name":"full goalie player retains all state keys and both annual summaries","status":"passed"},{"name":"skater overview retains component and observed-read contracts","status":"passed"},{"name":"missing selected row remains rejected","status":"passed"},{"name":"duplicate selected row remains rejected","status":"passed"},{"name":"invalid observed game remains rejected","status":"passed"}],"source_sha256":"5cf247686fd5842d54aa99e7f2e8b53463b4056644b980acf2e048e820c469d0","result":"/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/goalie-overview-green-02.json"}
+        0.14 real         0.11 user         0.01 sys
+            89767936  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                5616  page reclaims
+                 159  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                  10  messages sent
+                  19  messages received
+                   0  signals received
+                   1  voluntary context switches
+                 592  involuntary context switches
+          1466832266  instructions retired
+           514996411  cycles elapsed
+            46093016  peak memory footprint

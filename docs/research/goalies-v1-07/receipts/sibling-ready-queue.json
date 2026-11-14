@@ -1,0 +1,2280 @@
+{
+  "status": "one_ST_API_reported_running_unaccepted",
+  "current": {
+    "owner": "v1-09: API only, reported running and unaccepted",
+    "status": "reported_running_unaccepted",
+    "authority": "dated coordination frame only; docs/plan.md#current-boundary owns assignment and sequencing; this receipt dispatches nothing",
+    "observed_through_utc": "2026-11-14T05:43:50.343528+00:00",
+    "G": "current live/browser accepted; Node89887 retained, all new G live/drive work held through ST checked return",
+    "serving_source": "3763/fee5/app852/build18ef/fb604 at127.0.0.1:3407",
+    "G_checked_boundary_sha256": "9316e5a904d7c7c180eb4e1d50a17365db389330b7ab58f7e12feaaf4ce8c656",
+    "target_sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+    "startup_release_sha256": "b1006db8e6f590470a02da06595bbd041c13aa794b475a95c2bce821a5e5de85",
+    "ST_API": {
+      "intake": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-api-launch-intake-01.json",
+        "bytes": 3022,
+        "sha256": "57addfd9503e7f5ff21293393cd4c97496dfbe1cca3651a64d288f00bcbc63ae"
+      },
+      "started_utc": "2026-11-14T05:42:27Z",
+      "shell_pid": 8112,
+      "time_pid": 8113,
+      "python_pid": 8115,
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+      "preflight": "b8d5202f/4de380dd accepted cached native0;46 local pins/1623597B, zero external bodies/member stats/DB/HTTP",
+      "source": "ce058/923d/app3242; checkerfc030ac7/held49792690",
+      "actual_frame_peer_review": "pending_not_claimed",
+      "phase": "unknown",
+      "outcome": "unknown",
+      "complete_cost": "unknown",
+      "ETA": "none",
+      "identity": "first planned cohort response within<=860, not extra preflight HTTP",
+      "scope": "ONLY API plus conditional d5db three-body postcapture after actual frame/closure; no replay or next-stage grant"
+    },
+    "held": [
+      "ST consumer/browser/pixels and later windows",
+      "final preservation/cleanup",
+      "new G live/drive work",
+      "scientific admission/activation/delivery"
+    ],
+    "receipt_dispatches_commands": false
+  },
+  "history_label_pre_listening_checkpoint": {
+    "owner": "v1-07 root",
+    "status": "one_normal_strict_startup03_running_no_listening_cost_or_pass_yet",
+    "source_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+    "build_authority": {
+      "path": "shared-history-label-build.json",
+      "sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+      "status": "built_not_runtime_accepted",
+      "independent_review": "shared-history-label-build-independent-review.json/944ae3eda5d3b4ec296bc1bfcef7529216069c3272491ea34047e9cfb87d957a",
+      "compiled_node_javascript_files": 21,
+      "compiled_node_javascript_bytes": 351641,
+      "all_backend_paths_bytes_hashes_exact_to_e885": true,
+      "frontend_files": 16,
+      "ssr_files": 1,
+      "native_exit": 0,
+      "native_wall_seconds": 1.38,
+      "native_peak_rss_bytes": 594100224
+    },
+    "input_manifest_sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+    "root_receipt_sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654",
+    "observed_selection_sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+    "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+    "publication_release": "shared-publication-boundary-release.json/196468af0f77798428d53ef140ab00adfde6092e795193fd0023e7c592501e6a",
+    "database_sha256_publisher_reported": "17241928149f70bbd353815a4ec8feab39210d570205b494ad6c2af8cfb9a612",
+    "database_bytes": 31261470720,
+    "server": {
+      "node_pid": 89887,
+      "time_parent_pid": 89886,
+      "wrapper_pid": 89885,
+      "port": 3407,
+      "root_reported_status": "saved actual-launch frame running only; no listening, startup cost, completion or pass yet observed",
+      "started_at_utc": "2026-11-14T04:08:29Z",
+      "source_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+      "actual_launch": "shared-startup-03-actual-launch.json/708019c191a104de3028b2ecdf2748df841bcedf144ec16b8086fe9d7156c5ef",
+      "current_process_query_performed_for_this_reconciliation": false
+    },
+    "startup02": {
+      "actual_launch": "shared-startup-02-actual-launch.json",
+      "root_reported_dispatches": 1,
+      "started_at_utc": "2026-11-13T14:09:41Z",
+      "preflight_sha256_prefix": "0b71ad",
+      "command_sha256_prefix": "4878",
+      "meter_sha256_prefix": "bb37",
+      "policy_sha256_prefix": "dda6",
+      "cached_root_frame": "historical34-second launch frame; later startup accepted by retained meter/adjudication/root boundary",
+      "status": "accepted_strict_startup_and_detached_data_only",
+      "runtime": "shared-runtime-02-startup.json/505a7d68e4251faf430ca81138771064b80499dc5254671a30eaf4cf9839b748",
+      "adjudication": "shared-runtime-02-independent-adjudication.json/299e48be53842cd41bfa1dd5edac7e2d9eb7aed0c5ac02c2326e043360949b06",
+      "root_boundary": "shared-runtime-02-checked-boundary.json/d5e5b36da6adf1e74b47e768034186d8106846dd08a4a7508404d42008c08417",
+      "startup_cost": {
+        "meter_wall_seconds": 2020.983562,
+        "peak_rss_through_listen_bytes": 1967079424,
+        "scope": "meter entry through listen excludes node boot/static imports; process-lifetime peak rss includes them; outside time is ongoing service lifetime"
+      },
+      "readiness": "accepted_listening_not_complete_application_acceptance",
+      "service_status": "accepted startup retained; server33587 intentionally stopped once with SIGINT/native130 for user-requested eject; not restarted"
+    },
+    "accepted_startup01": {
+      "result": "shared-runtime-startup.json/8a511ca846e44f63437113333846d8bd36861db0fb8562f8b83faf1ed7464f47",
+      "adjudication": "shared-runtime-independent-adjudication.json/ff39ce55dbf65901026aa2ae114841f41a5901bcf8ae343fef1da2f5f2d4c2f0",
+      "release": "shared-runtime-boundary-release.json/097a78c2e8d3971bef8da4d8f3d805cd9113f3220045af233a40e7abb7cb83e3",
+      "invocations": 1,
+      "meter_wall_seconds": 1968.8546625,
+      "peak_rss_bytes": 2101248000,
+      "cost_scope": "meter entry through listening excludes node boot/static imports; process-lifetime peak rss includes them; outside time is eventual service lifetime",
+      "source_scope": "4aa/app3242/build007290; original acceptance preserved",
+      "service_stop": "root one intentional SIGINT at2026-11-13T14:01:10Z; node98454/time98453 closed; native130 is intentional service stop, not startup/source/numerical failure",
+      "service_archive": "shared-runtime-01-service-archive.json; external full log5283970 bytes and exit4 bytes, small local tail/exit retained"
+    },
+    "accepted_goalie_api": {
+      "result": "shared-api-result.json/68601a52b74c4585f5fc3df1b3e87230168cf96e4c8c0c4871b2dd63024dea34",
+      "adjudication": "shared-api-independent-adjudication.json/094076e87a11d547bf6e543fbb8409b282970af30ab5d59e343fe707be9a45d7",
+      "release": "shared-api-boundary-release.json/cf1271eaec20a06b6a233d43c14fe25341911a7c1d146329168693c514105d56",
+      "native_exit": 0,
+      "native_wall_seconds": 924.4,
+      "peak_rss_bytes": 641384448,
+      "requests": 36695,
+      "returned_http_body_bytes": 18275860581,
+      "logical_saved_bytes": 9592341395,
+      "scope": "complete goalie api on old app3242/build007290; repair response equality/live checks and full browser/st matrices remain separate"
+    },
+    "consumer_attempt01": {
+      "classification": "shared-consumer-attempt-01-classification.json/e9116569ea43f329880fd8d427f676c2b5b5a5916ef8dbc1b054c927142b973e",
+      "native_exit": 1,
+      "cause": "temporary controller lacks browser location; relative url construction fails before fetch",
+      "repair_review": "shared-consumer-origin-repair-review.json/9e3ba0a1a2f5a307674e8316e76db18066bab061b6862c53834a81e8f00e07c2"
+    },
+    "consumer_attempt02": {
+      "admission": "shared-consumer-attempt-02-admission.json/30dc8176f5d9060abbc97ba63aeefb71c5080221068bbc709c4d2b317ab42479",
+      "root_reported_dispatches": 1,
+      "dispatched_at_utc": "2026-11-13T13:13:41Z",
+      "checked_terminal_marker": "G_ST_CONSUMER_ATTEMPT_02_EXIT=1",
+      "failure_capture": "shared-consumer-attempt-02-failure-capture.json",
+      "raw_log": "shared-consumer-attempt-02-native.log/304f5345eeb1cec9d800e8cdb6e8a230b6c71e040f69c6618060a5ca8429a247",
+      "raw_exit": "shared-consumer-attempt-02-native.exit/4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "native_exit": 1,
+      "native_wall_seconds": 98.03,
+      "peak_rss_bytes": 434716672,
+      "observed_failure": "ECONNRESET on GET /api/league",
+      "root_source_tail_review": "three completed detail/cohort batches; fourth fails; same node alive/listening",
+      "server_tail": "shared-consumer-attempt-02-server-tail.log; 32768 bytes; sha256 prefix36a938",
+      "classification": "unresolved; tail499 may follow effect sibling abort and does not establish server500",
+      "consumer_acceptance": false,
+      "automatic_retry_released_by_attempt02": false,
+      "historical_limit": "failed controller transport remains unexplained; consumer03 and chrome navigation do not fix or establish its cause"
+    },
+    "accepted_consumer_attempt03": {
+      "result": "shared-consumer-attempt-03-result.json/317d3d3f08a553f777d34b65ac41e360fbaf93bd2bf3034faa271115c2b021d9",
+      "independent_review": "shared-consumer-attempt-03-independent-review.json/7cbb45fc99911168df55189c254815278da5259a23f7845eb9198d5be4b925d8",
+      "loader_journeys": 2,
+      "metric_compositions": 26,
+      "annual_and_csv_rows": 78,
+      "raised_cutoff_checks": 78,
+      "requests": 8,
+      "declared_response_body_bytes": 40415998,
+      "internal_wall_seconds": 55.605936332999995,
+      "native_wall_seconds": 56.09,
+      "native_peak_rss_bytes": 448102400,
+      "refinement": "two ev/pk actual stopping loaders supply identical overview/null-strength annual populations; all26 composition/raw/rank/cutoff/78csv assertions retained",
+      "limits": "old-build typed composition/csv only; all26 actual browser selections/transports, present representative/view routes, downloads and pixels remain required"
+    },
+    "accepted_chrome_navigation_diagnostic": {
+      "result": "shared-chrome-profile-diagnostic-result.json/25b4dbc70466c79678138b1670c83a2b1ae4dc8f3b22aeceb2637a2f5a2b5273",
+      "independent_review": "shared-chrome-profile-diagnostic-independent-review.json/28795513ef102e5e5edd5b6ba0183f187161529a9764118e49e9d6c86efdcda1",
+      "internal_wall_seconds": 47.3844165,
+      "native_wall_seconds": 47.42,
+      "api_responses_200": 4,
+      "all_recorded_requests_finished_200": 16,
+      "scope": "one actual chrome navigation on4aa/app3242/build007290 only; no response-value reconciliation/full browser/export/pixel or node02-cause claim"
+    },
+    "assigned_goalie_overview_projection_repair": {
+      "owner": "v1-07 root",
+      "issue": "docs/issues/goalie-overview-extra-reads.md",
+      "source_owner": "app/src/server/publication.ts",
+      "status": "c90_source_startup02_overview_api02_consumer04_passed_new_frontend_startup03_and_full_browser_pending_issue_open",
+      "source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+      "app_tree": "8ca79395276ab733c6ee32e21465adb8b8229372",
+      "source_controls": "shared-goalie-overview-source-controls.json/c95b126de1ede888fac669db0e635a798a71198858b7c1d511bc0a153bd7a9b1",
+      "build": "shared-goalie-overview-build.json; root supplied digest prefixe885",
+      "scope": "goalie overview only:23 state rows per goalie to four required ev/pk rows; skip unused skater read using current readSummary/observed-summary projection",
+      "preserve": "full player/evidence, skater/st reads, validators and schemas",
+      "verification": "tiny temporary public-owner red/green query scope; full three-season old/new response equality; changed compile/new ordinary detached strict reader and live consumer/browser",
+      "old_http_baseline": "shared-goalie-overview-before-01.json retains the old-source baseline; old service01 intentionally closed/archived; after three-season preservation now accepted",
+      "latency_contribution": "unquantified; no speed forecast/arbitrary latency threshold/reset-cause claim",
+      "fit_or_publication_rerun": false
+    },
+    "accepted_overview_after_comparison": {
+      "result": "shared-goalie-overview-after-01.json/74af52aa8edeaefcccd7c597dee22b317115f076c64a87f9ecfddb38326ab3b1",
+      "independent_review": "shared-goalie-overview-after-01-independent-review.json/5470a4b991bf6f7fcfefb1ce45ffaee7e238f596a4708e4bf27ad23d6887fd77",
+      "people": 361,
+      "season_counts": [
+        117,
+        121,
+        123
+      ],
+      "full_canonical_and_raw_hashes_equal_before": true,
+      "returned_http_body_bytes": 18971357,
+      "before_internal_wall_seconds": 27.168003333033994,
+      "after_internal_wall_seconds": 24.644541084067896,
+      "before_request_read_seconds": [
+        8.917207624996081,
+        8.857016833033413,
+        9.05157620809041
+      ],
+      "after_request_read_seconds": [
+        16.455789083149284,
+        3.603677666047588,
+        4.273316208971664
+      ],
+      "timing_limit": "one season slower/two faster; no uniform speedup, cache cause, repeatability or server-memory/physical-traffic claim",
+      "delivery": "goalie-overview-after-terminal-delivery.json; one manual terminal-reference typo rejected not_sent, then one actual14:49:58Z comparison/native0; no http replay"
+    },
+    "api02": {
+      "admission": "shared-api-02-admission.json; root supplied sha256 prefix8d86",
+      "actual_launch": "shared-api-02-actual-launch.json",
+      "root_reported_dispatches": 1,
+      "started_at_utc": "2026-11-13T14:57:52Z",
+      "python_pid": 48999,
+      "time_parent_pid": 48998,
+      "wrapper_pid": 48997,
+      "checker_sha256": "3a89e054eaaaa7c06eada98eb485b226fc3bdb96a0c529e3c41460b2fb957cb5",
+      "status": "accepted_complete_goalie_api_on_repaired_build_only",
+      "result": "shared-api-02-result.json/355de762cb1f72cf496c8c690658d7a751e66d7caff6b3dc7994eb9e40d50472",
+      "independent_review": "shared-api-02-independent-adjudication.json/289cd0ef3f4720947e5914a134392ca27d91d82be42bbc93e076f8a590eb1fb6",
+      "outcome": "passed_native0",
+      "cost": {
+        "native_wall_seconds": 948.72,
+        "native_peak_rss_bytes": 640466944,
+        "requests": 36695,
+        "returned_http_body_bytes": 18275860581,
+        "logical_saved_bytes": 9592341395
+      },
+      "reason": "existing complete goalie api matrix on final common server because the changed helper also serves full goalie players",
+      "owner_boundary": "dispatch owner watches native closure and owns one fixed three-body postcapture1594 only afterward; independent retained-output review required; no active output/log read",
+      "source_scope": "accepted on c90/app8ca793/build e885/server33587/fb604 only; no fresh exhaustive new-runtime pass"
+    },
+    "accepted_consumer04": {
+      "result": "shared-consumer-attempt-04-result.json/c7e329ae247857e425c5db25a88afe8ee5c07130818c7ecd45032c1a4a044d66",
+      "independent_review": "shared-consumer-attempt-04-independent-review.json/4be99dce30cf17bbe395fad7892316236cd883c6a35ae9df4152d01c3e333cbe",
+      "loader_journeys": 2,
+      "metric_compositions": 26,
+      "annual_and_csv_rows": 78,
+      "raised_cutoff_checks": 78,
+      "requests": 8,
+      "declared_response_body_bytes": 40415998,
+      "native_wall_seconds": 11.73,
+      "native_peak_rss_bytes": 389480448,
+      "csv_sha256": "bc293b783cbd71a19d7f7fc7f506d08590dba23c6936caea4d1cef817b387653",
+      "scope": "final-build two-loader/26-composition/78csv boundary only; actual representatives/view routes/exports/pixels remain browser-owned",
+      "source_scope": "accepted on c90/app8ca793/build e885/server33587/fb604; not automatically a new-runtime pass"
+    },
+    "browser01": {
+      "failure_review": "shared-browser-attempt01-failure-review.json",
+      "status": "historical_native1_cutoff_assertion_failure",
+      "normal_export_pairs_before_failure": 26,
+      "failure_limit": "original rendered cutoff label was not captured; exact historical DOM state unavailable; partial artifacts remain failed evidence"
+    },
+    "accepted_cutoff_readiness_diagnostic": {
+      "independent_review": "shared-browser-cutoff-diagnostic-01-independent-review.json/039f9a33b5469419e917d6d9625a87fda8e8a4f780cc8d1048cf4f29cf4a1d51",
+      "finding": "URL peerMin3065 can precede visible cutoff300 commit; after rendered3065, raw values remain exact and numeric percentile is correctly withheld",
+      "limits": "one actual diagnostic proves controller-readiness defect; no settled product failure or retroactive browser01 pass"
+    },
+    "browser02": {
+      "controller_sha256": "a9c06edf5f9e167019e702eab8bb2d48db21a2d321c95f3ba29b620c0c1751fc",
+      "controller_scope": "exactly three visible-state readiness waits; semantic assertions unchanged; peer source review clear",
+      "freshness": "shared-browser-02-preflight.json; sha256 prefixf8c78329; passed once",
+      "admission": "shared-browser-02-admission.json; sha256 prefix27713af6",
+      "actual_launch": "shared-browser-02-actual-launch.json",
+      "launch_review": "shared-browser-02-launch-independent-review.json; sha256 prefix8fba4f7c",
+      "submissions": 1,
+      "started_at_utc": "2026-11-13T16:04:58Z",
+      "node_pid": 64058,
+      "time_pid": 64057,
+      "wrapper_pid": 64056,
+      "status": "failed_qualification_assertion_cause_unresolved",
+      "native_exit": 1,
+      "native_wall_seconds": 213.96,
+      "native_peak_rss_bytes": 723894272,
+      "normal_export_pairs_completed": 26,
+      "cutoffs_completed": 2,
+      "result": "shared-browser-attempt-02-result.json; sha256 prefix3f027f2c",
+      "native_log": "shared-browser-attempt-02-native.log; sha256 prefixe44c5520",
+      "capture": "shared-browser-attempt-02-boundary.json; sha256 prefix6255",
+      "failure": "first complete representative support.includes qualification183847 seconds immediately after details-summary click; no failing DOM snapshot",
+      "error_observations": "no request failures or page errors; sole exact favicon404 console event; owned context closed",
+      "hypothesis": "original failed DOM unavailable; later independently accepted diagnostic058e7bc9 records clicked-panel open/zero direct paragraphs then five with correct qualification183847/priorfalse; no recovered browser02 snapshot",
+      "acceptance": false,
+      "retry_or_product_change_assigned": false
+    },
+    "evidence_diagnostic01": {
+      "controller_sha256": "33e694495eeaf738b33250420ca0cfa41e580639beb017e7731c71b96312937a",
+      "result": "shared-browser-evidence-diagnostic-01-result.json; sha256 prefixf19fd53e",
+      "events": "shared-browser-evidence-diagnostic-01-events.jsonl; sha256 prefixa8a82ae9",
+      "native_log": "shared-browser-evidence-diagnostic-01-native.log; sha256 prefix80e13fe9",
+      "invocations": 1,
+      "native_exit": 0,
+      "native_wall_seconds": 6.4,
+      "native_peak_rss_bytes": 342458368,
+      "immediate": "selected details open, zero direct paragraphs, summary only",
+      "after_neutral_readiness": "clicked-row direct paragraphs count5; qualification183847 seconds/priorfalse",
+      "api_responses_200": 4,
+      "request_failures": 0,
+      "page_errors": 0,
+      "sole_console_event": "exact favicon404",
+      "owned_context_closed": true,
+      "independent_actual_review": "shared-browser-evidence-diagnostic-01-independent-review.json; sha256 prefix058e7bc9; accepted_concrete_zero_to_five_paragraph_readiness_witness",
+      "family_acceptance": false
+    },
+    "browser03_source_packet": {
+      "status": "peer_source_review_clear_preflight03_passed_one_browser03_dispatched_and_closed_failed",
+      "browser_source_sha256_prefix": "466034f4",
+      "scope": "only scoped neutral lazy-paragraph readiness and minimal failure DOM; semantic assertions unchanged",
+      "caller06_source_sha256_prefix": "0d6ea4d5",
+      "freshness03_preflight_source_sha256_prefix": "c2d64e38",
+      "capture03_source_sha256_prefix": "ee2459",
+      "peer_review": "clear browser03/caller06/preflight03/capture03; no semantic assertion weakened",
+      "actual_preflight_submissions": 1,
+      "actual_freshness_pass": true,
+      "actual_preflight_result": "shared-browser-03-preflight.json/367e24d82919dbe3e516a0fe8d5c139bf0731f23e21e20417b446ecd029138d9; native0 availability_only, zero input-body reads",
+      "full_browser_submissions": 1,
+      "full_browser_runtime_grant": "one browser03 only; exercised and closed; no later grant",
+      "api_consumer_or_product_rerun_change": false
+    },
+    "browser03": {
+      "status": "failed_unattributed_request_aborts_after_all_content_export_checks",
+      "admission": "shared-browser-03-admission.json/37ac9c7c463282a695cc8abd7c53da4f2af567218578651752be263ff222bb1b",
+      "actual_launch": "shared-browser-03-actual-launch.json/ffe0097ac26eaed161abb1e5c7e95662711389ce37e50b32390b24792572237d",
+      "launch_review": "shared-browser-03-launch-independent-review.json; sha256 prefix915f92d1",
+      "started_at_utc": "2026-11-13T16:21:26Z",
+      "node_pid": 68365,
+      "time_pid": 68364,
+      "wrapper_pid": 68363,
+      "native_exit": 1,
+      "native_wall_seconds": 333.3,
+      "native_peak_rss_bytes": 825180160,
+      "internal_wall_seconds": 333.06549925,
+      "internal_node_peak_rss_bytes": 227688448,
+      "result": "shared-browser-attempt-03-result.json/078c65ad8eebe94b58eb62043fe7f779a7004dd74450a5377a17c52fc534d54f",
+      "native_log": "shared-browser-attempt-03-native.log/455f7cbf7120fbb2dec5d3d6047b6104859d9f2b36e392efa8c1c5be1254121c",
+      "failure_review": "shared-browser-attempt-03-failure-review.json; sha256 prefix388fa3ed",
+      "completed_checks": {
+        "metrics": 26,
+        "cutoffs": 2,
+        "representatives": 6,
+        "smokes": 4,
+        "layouts": 3,
+        "actual_csv_png_pairs": 30
+      },
+      "api_requests": 202,
+      "api_responses": 199,
+      "declared_response_body_bytes": 1133241526,
+      "failure": "final failures.length === 0 rejects three normal-mode net::ERR_ABORTED goalie-overview requests, one per20252026/20242025/20232024",
+      "classification": "unattributed; no request ids/event times/action association/cancellation initiator; navigation cancellation plausible but no product defect or controller-only verdict proved; no abort waiver",
+      "page_errors": 0,
+      "console_events": "only exact favicon404, one per layout",
+      "owned_contexts_closed": 3,
+      "pixels_inspected": false,
+      "browser_acceptance": false,
+      "capture": {
+        "result": "shared-browser-attempt-03-boundary.json/5a9c9a7904318c0fab131cecf3b8a87559c9f694626123efef320f95137d9d1b",
+        "invocations": 1,
+        "native_exit": 0,
+        "native_wall_seconds": 0.04,
+        "native_peak_rss_bytes": 19857408,
+        "internal_wall_seconds": 0.0005241669714450836,
+        "internal_peak_rss_bytes": 19824640,
+        "external_logical_bytes": 164116,
+        "local_logical_bytes": 3584,
+        "total_logical_bytes": 167700,
+        "physical_io_bytes": null,
+        "internal_scope": "through capture/exit parsing; final serialization/write excluded"
+      },
+      "metadata_access": "six fixed local copies during tool-host Documents EPERM; relocationf00c031b9afec4bd6bdbf39dcfeb80710e9d4289e24433412f9dadd947b1b52c has zero external reads; user restored ordinary source access after tool-server restart; product server/build unchanged",
+      "pixels_inspected_scope": "partial only:13 original normal ev export pngs independently inspected full-height and legible; no full required current-build pixel pass",
+      "partial_ev_export_pixel_review": "shared-browser-03-ev-export-pixel-review.json/f6f5ef65fa4f1e79f28dae6b1bfe6270d32e5f57370237b09e446c50e23741b3"
+    },
+    "focused_canonicalization_trace": {
+      "status": "one_actual_diagnostic_completed_inconclusive_for_historical_aborts",
+      "previous_source_only_checkpoint": {
+        "status": "source_only_preparation_no_actual_run",
+        "source_owner": "/root/canonical_trace",
+        "independent_source_reviewer": "/root/trace_review",
+        "mechanism": "unsupported goalie analytical-view canonicalization followed by next controller navigation can cancel three reloaded cohorts; actual browser03 timing unproved",
+        "scope": "ordered action/navigation markers and per-request identity/start/response/finished/failed metadata; preserve assertions",
+        "actual_trace_or_preflight": false,
+        "full_browser04_granted": false,
+        "product_change_or_new_runtime_granted": false,
+        "pixels_or_ST_or_preservation_or_cleanup_granted": false
+      },
+      "source_sha256": "eb5877dcc4c46964add01167e652415dda55b751c81dd044942f3ef4f48d5301",
+      "result": "shared-browser-canonical-diagnostic-01-result.json/c8ae1e41eea35028fe32bfafebbd0e2b513bff34db63d1f5bdf0c7742391eccf",
+      "independent_review": "shared-browser-canonical-diagnostic-01-independent-review.json/0296c71d51369ea3019967023d22ae4b271cc860083f15fb8bab6c25239171ff",
+      "native_exit": 0,
+      "native_wall_seconds": 35.89,
+      "native_peak_rss_bytes": 460636160,
+      "request_count": 69,
+      "finished200": 69,
+      "failed_requests": 0,
+      "original_boundary": "next goto starts with canonical profile r17 pending; it then finishes successfully; outgoing canonical generation starts no annual cohorts",
+      "controlled_boundary": "canonical generation g5 profile plus three cohorts finish200; url commits; pending empty before next goto",
+      "historical_verdict": "old03 remains failed; exact three-cohort abort pattern not reproduced, no attribution or abort waiver",
+      "further_focused_reproduction_search_assigned": false
+    },
+    "held": [
+      "actual four-case label green after checked strict startup03",
+      "fullbrowser04 preflight/invocation and complete required current viewport/download pixels; all original failures remain retained",
+      "st independent api/consumer/browser matrices",
+      "final scoped preservation",
+      "temporary-check cleanup"
+    ],
+    "scientific_admission": false,
+    "activation": false,
+    "automatic_later_chain": false,
+    "accepted_c90_runtime_binding": {
+      "source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+      "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+      "app_tree": "8ca79395276ab733c6ee32e21465adb8b8229372",
+      "build_authority": {
+        "path": "shared-goalie-overview-build.json",
+        "sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+        "critical_members": 8,
+        "old_members_exact": 7
+      },
+      "server": {
+        "node_pid": 33587,
+        "time_parent_pid": 33586,
+        "wrapper_pid": 33585,
+        "port": 3407,
+        "root_reported_status": "accepted strict startup02/api02/consumer04 on retained final common server; browser03 closed failed; node33587 remains alive by root report; no product/build restart"
+      },
+      "scope": "accepted startup02/overview/api02/consumer04; browser01/02/03 failed; server33587 later intentionally stopped for user eject"
+    },
+    "api02_inheritance": {
+      "status": "conditional_not_yet_qualified",
+      "review": "shared-browser-04-refined-source-review.json/af5d64be1ef4f3274eaa00b9bafba067b9687f7f4f57e2f5e5cd73de4fea3762",
+      "backend_condition": "all21 backend javascript paths/bytes/hashes exact to accepted e885; build18ef independent saved review passes; fresh preflight hashes38 local compiled files",
+      "publication_condition": "same checked fb604 candidate and publication/artifact binding; startup03 preflight stat path/bytes/inode/mtime exact to accepted startup02, no new body/content check",
+      "remaining_conditions": [
+        "ordinary normal strict startup03 completes and listens",
+        "separately selected live identity and three-season full overview response-hash comparison against the accepted baseline"
+      ],
+      "limits": "inherited unchanged-api/publication evidence, not a fresh36695-request exhaustive run; no new consumer or frontend pass"
+    },
+    "history_label_repair": {
+      "issue": "docs/issues/history-chart-edge-labels.md",
+      "status": "red_confirmed_minimal_patch_committed_built_green_and_pixels_owed",
+      "observed_pixels": [
+        "088-narrow-history.png",
+        "093-narrow-history.png"
+      ],
+      "red_result": "shared-history-label-red-result.json/87e5f5e9b680cc3dc4cdc1abbb08e267d5514a9e00dabb83419a86a7181ef260",
+      "red_review": "shared-history-label-red-independent-review.json/f2fffd53b2f7adb8fa3eab19334cd089dea244123475a8005a947b28bdf77fab",
+      "red": {
+        "completed_cases": 4,
+        "normal_bounds_failures": 0,
+        "narrow_bounds_failures": 6,
+        "native_exit": 1,
+        "native_wall_seconds": 35.45,
+        "native_peak_rss_bytes": 403619840,
+        "one_player_api_abort": "retained unattributed; geometry only, no network pass"
+      },
+      "proposal_review": "shared-history-label-anchor-source-review.json/5e3a11bf8da99fea3c4d421165ed755121a4e06003ff8e328622deef54442d2e",
+      "applied_proof": "shared-history-label-anchor-applied.json/1c4b8b63dda4d44b943a367fd1c1322aa0dfb1ee3efdf906eb51ceea1c6fc386",
+      "before_source_sha256": "b86c4565872127990f158023fca42aaa408729745bea963d2e041712f03f595c",
+      "after_source_sha256": "d88386fc9705ef1b9fbd7485c17f5842608310ad5a5f378cabf7fb1bbec4ff5e",
+      "scope": "HistoryPlot shares existing first/start,last/end,otherwise/middle anchor across three live text nodes; outside owner byte-exact; values/point geometry/continuity/csv/export svg unchanged",
+      "typecheck": {
+        "log": "shared-history-label-typecheck-native.log/b62b9998171f72a4b13de2c93fd2d2df51c4b51a14fd3359551cfa7915889446",
+        "native_exit": 0,
+        "native_wall_seconds": 0.94,
+        "native_peak_rss_bytes": 410107904
+      },
+      "remaining": [
+        "actual four-case green after checked strict startup",
+        "six fullbrowser04 actual history-text bounds checks",
+        "independent required normal/narrow/native200 pixels"
+      ]
+    },
+    "browser04_source_packet": {
+      "status": "independently_reviewed_refined_source_only_execution_held",
+      "controller_sha256": "892a1a620f18043cfe2a687ea5b7ed55d4d6d6604852e75a5c41e4dfcf8488a7",
+      "controller_bytes": 41547,
+      "independent_review": "shared-browser-04-refined-source-review.json/af5d64be1ef4f3274eaa00b9bafba067b9687f7f4f57e2f5e5cd73de4fea3762",
+      "preserved": "all browser03 content/metric/cutoff/case/smoke/layout/download assertions plus strict final and post-owned-closure zero request failures",
+      "added": "all-mode request identities/lifecycles/action-pending markers, normal canonical required-request completion, six actual svg text bounds measurements",
+      "actual_invocations": 0,
+      "abort_exclusion": false,
+      "fresh_preflight_or_execution_granted": false
+    },
+    "startup03": {
+      "status": "one_actual_normal_strict_startup_running_not_accepted",
+      "source_review": "shared-startup-03-source-review.json/af52879258ba21f049839c511660efd73648a3828ac5e76b930e8388b74f1fbc",
+      "preflight": "shared-startup-03-preflight.json/8b2d26d1131f75d5246d31927c49398eba618c82541c93eb4d89994c39d7756b",
+      "preflight_native_exit": 0,
+      "preflight_native_wall_seconds": 0.19,
+      "preflight_native_peak_rss_bytes": 20742144,
+      "preflight_local_compiled_file_hashes": 38,
+      "preflight_candidate_stats": 1,
+      "preflight_external_body_reads": 0,
+      "candidate_metadata_equal_to_startup02": [
+        "path",
+        "bytes",
+        "inode",
+        "mtime_ns"
+      ],
+      "candidate_expected_metadata_only": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite",
+        "bytes": 31261470720,
+        "inode": 502213,
+        "device": 16777240,
+        "mtime_ns": 1794568235448270115,
+        "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+        "publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4"
+      },
+      "admission": "shared-startup-03-admission.json/2e33da434657769e67a731f501bda3751dfa99b615b7c52962b574294b61924f",
+      "actual_launch": "shared-startup-03-actual-launch.json/708019c191a104de3028b2ecdf2748df841bcedf144ec16b8086fe9d7156c5ef",
+      "actual_launches": 1,
+      "started_at_utc": "2026-11-14T04:08:29Z",
+      "node_pid": 89887,
+      "time_pid": 89886,
+      "wrapper_pid": 89885,
+      "runtime_meter_sha256": "bb37d4a06cbde3a7bf4e350f331e67a14ac34f655a7d877582ea0a6562066ec4",
+      "sandbox_sha256": "dda6d8f506d99c4fd595f226ade0e47023c858961ddad266aaf4ce1f6b0dfa6a",
+      "listening_observed": false,
+      "startup_cost": null,
+      "runtime_acceptance": false,
+      "limits": "saved launch frame running only; expected uuid/publisher and stat are not new database-content verification; service-lifetime native footer differs from listening-event startup cost"
+    },
+    "user_drive_disconnect_20261113": {
+      "receipt": "drive-disconnect-20261113-eject.json/1f9bb5095c3edb9b217014568c34db52f2b9eaca0570c70fce1ba1842c52685f",
+      "status": "normal_eject_completed_user_later_resumed",
+      "old_server33587": "one identity-verified SIGINT, intentional native130; node/time/wrapper absent and volume handles empty before ordinary eject",
+      "normal_ejects": 1,
+      "force_or_repeat": false,
+      "saved_source_and_evidence_preserved": true,
+      "primary3000_pid9645": "not signalled or changed",
+      "resume": "user resumed; root reports volume mounted; oldserver33587 remains stopped; only new startup03 launched"
+    },
+    "heavy_window": "startup03 only; source/HEAD frozen through actual boundary; all other heavy/live work held until checked boundaries"
+  },
+  "shared_publication_launch_checkpoint": {
+    "owner": "v1-07 ROOT",
+    "status": "ONE_ordinary_inactive_publication_actual_running",
+    "source_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "preflight": "shared-publication-preflight.json/7144eb762d322aa0dd4b1ed0afdf44426d3a1c7369d46d3c82b88e755b26cff7; native0/14.80s/25935872RSS/84985externalbytes",
+    "actual_frame": "shared-publication-actual-launch.json/e39fffa132d925fe86d8354191b7c7ca852008f39be28089a092b3525b527b5c",
+    "python_pid": 57287,
+    "time_pid": 57089,
+    "shell_pids": [
+      57087,
+      57088
+    ],
+    "time_parent_start_utc": "2026-11-13T06:51:56Z",
+    "python_child_start_utc": "2026-11-13T06:52:10Z",
+    "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01",
+    "input_manifest_sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+    "root_receipt_sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654",
+    "observed_selection_sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+    "scope": "ONE ordinary native input/copy validation, aggregation, SQLite insertion/readback/conservation/digest; source-reviewed bounded metadata adjudication only after closure",
+    "native_exit": null,
+    "native_cost": null,
+    "publication_id": null,
+    "database_sha256": null,
+    "source_freeze": "GHEAD4aa/analysisfee5/app3242 until native exit; ST1431/frozen03 unchanged",
+    "other_heavy_work": "HELD",
+    "startup_or_API_browser_or_activation_or_later_chain_granted": false
+  },
+  "queue": [
+    {
+      "owner": "v1-18",
+      "contact": "t-16b64d1338b85a48 on macbook",
+      "receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-05.json",
+      "sha256": "3673ff6d32c9d894b6a7566058058c254b8266abe90c0344045e47cd9c0900f9",
+      "receipt_bytes": 11372,
+      "source_commit": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
+      "scope": "saved-only donor conversion, one ordinary inactive publication, one strict startup41919",
+      "release_condition": "completed checked conversion/publication and one normal strict startup; explicit release to the next agreed owner",
+      "cost": "conversion2100.827s/552878080peakRSS; publication6335.505s/3332374528peakRSS; strict startup766.080017042s/1152319488peakRSS",
+      "previous_ready_scopes": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope.json",
+          "sha256": "1cae7da772aa4a4d9d782620bd6ed941497a7bb32c25a05efc1770cd8c686d52",
+          "reason": "user reports final spatial API response completeness strengthening; numerical inputs/converter/commands unchanged"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-02.json",
+          "sha256": "f2dfd59562971c07c2ee8dfd21f962432c3abfc46021637c2f2e845b82b999d9",
+          "reason": "superseded only for single-startup measurement and original-input denial; publication/numerical pins unchanged"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-03.json",
+          "sha256": "2cc6d4f969d7d7548c0537ab086999cc70d589ee7b209d204d90b46e8236b9be",
+          "reason": "native startup aborted before javascript/sqlite because redirected exact log metadata was denied; failed bytes retained, one exact-log metadata permission repaired after causal boot probes"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-ready-scope-04.json",
+          "sha256": "350156933b41a5c362a0e438789077bc56e8e33eee968f796dd58021fb3c2f34",
+          "reason": "second launcher entered javascript but failed sqlite client acquisition before ordinary strict queries; bounded controls select exact candidate exclusion inside data denial, metadata allowed"
+        }
+      ],
+      "status": "checked_scope_complete_explicitly_released"
+    },
+    {
+      "owner": "v1-09",
+      "contact": "t-b0f21da1ddb96760 on macbook",
+      "preflight": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-preflight-03.json",
+      "sha256": "1c4b8f112ea31fbc521386d11ffd8898ede2997d8092149de8eeb68d76d70de9",
+      "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer",
+      "producer_commit": "ba41c2b8fe89977618fe4f0d3826592b60641f8e",
+      "analysis_tree": "856575a97f2ff6e004888e04f400b77834566f20",
+      "analysis_clean_when_checked": true,
+      "script": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/first-real-fit.sh",
+      "script_sha256": "016249ee5c0de1b5bb1604f29f94dc6996a41db633ee1a16bb17a222fb8e1322",
+      "scope": "one20212022 spatial-st annual, three sequential baselines, no first-year continuation",
+      "prepared_games": 1312,
+      "prepared_member_bytes": 63710567455,
+      "thread_environment": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1"
+      },
+      "cost": "unmeasured; no short fixture forecast",
+      "status": "failed_before_baselines_adjudicated_explicitly_released"
+    },
+    {
+      "owner": "v1-07",
+      "scope": "20232024 goalie SCORE then bounded four-document metadata review; accepted9ff state reused, no fit or probe",
+      "thread_environment": "the same six-unset protocol; no sibling environment mutation here",
+      "status": "historical_20232024_score_completed_reviewed_and_released"
+    }
+  ],
+  "checks": "small v1-18 ready receipt bytes/hash and local v1-09 preflight/script hashes/frozen git identities checked; no numerical input or candidate body opened",
+  "activation": false,
+  "ownership": "confirm explicit owner to both sibling sessions before each handoff; no concurrent large i/o or blanket annual-chain reservation",
+  "parent_adoption": "exact accepted exchange3/schema9 successor plus donor-bound producer receipt required; numerical state-v1/score-v1 contracts unchanged",
+  "previous_score_adjudication": {
+    "native_session": 72245,
+    "exit_code": 0,
+    "score_sha256": "15d959531ea2561660eb65151a19a007506fffff102b12f96aadc82000091253",
+    "metadata_review_sha256": "95ea3ed60eaa7a6e2cc314510315eb7ca0ef41ce9b09d7ae92e10be0ebc8cb7e",
+    "all_owned_heavy_pids_absent": true,
+    "both_sessions_notified": true
+  },
+  "converted_input": {
+    "manifest": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+    "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "projection_receipt_sha256": "803f9bc1260f8d666426dc6272ff6256cf79db803ec1cfcb806e61b57684d9b5",
+    "completion_receipt_sha256": "c68cd39613f23b42c6c558913d2ab6965b3ff53dc406b005f424cda47efef535",
+    "adjudication": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/real-conversion-independent-adjudication.json",
+    "adjudication_sha256": "1cb1d49b4fb8c1f2bbd8f6a91cda93adc08e87506c3db7b5397add03ca8b53ea",
+    "inherited_member_descriptors_preserved": 57,
+    "exact_changed_method_ids": [
+      "spatial-v1-08-20232024",
+      "spatial-v1-08-20242025",
+      "spatial-v1-08-20252026"
+    ],
+    "evidence_bytes": 13712940,
+    "native_wall_seconds": 2100.827,
+    "peak_resident_bytes": 552878080,
+    "publication_and_runtime_acceptance": "accepted complete existing-family exchange3/schema9 predecessor; own goalie composition/publication/api/browser remain pending"
+  },
+  "publication_owner_report": {
+    "exit_code": 0,
+    "publication_id": "0fcf4cf3-0eb6-4180-bfed-f36290318db9",
+    "database_sha256": "ba12c7f7dd990b4d345d06afcf39c80bf20b2b43aefbfbe838218062e7be692b",
+    "database_bytes": 13370183680,
+    "native_wall_seconds": 6335.505,
+    "peak_resident_bytes": 3332374528,
+    "top_verification_sha256": "d7c4ac9c767741288eb0d1b95b7704fa45cdc1f5ecfcd3a09fd45b39144400bf",
+    "independent_small_metadata_review_sha256": "460f3614fa3dea7cc6df4a977536f689b37d59a46aa90c83fb19f3bba115a695",
+    "evidence_scope": "user relay of owner accepted boundary; no database rehash or second full reader here"
+  },
+  "startup_owner_report": {
+    "native_session": 50548,
+    "exit_code": 134,
+    "javascript_sqlite_or_meter_output": false,
+    "complete_strict_validation_pass_observed": false,
+    "listener_exists": false,
+    "status": "one actual ordinary strict startup passed under ready05 and independently adjudicated; two failed launchers performed zero ordinary full validations",
+    "causal_diagnosis_review_sha256": "4416c9d914c6391287397420f00aee47e188230dba38759ca82bc9af6bdd7d86",
+    "ready04_independent_review_sha256": "05838300a1343fa6450a0069a11dbda5a60a72faa49c57223f96c09506576733",
+    "repair": "exact candidate exclusion inside external file-read-data denial; ordinary metadata allowed; original source/log contents denied",
+    "second_launcher_failure": {
+      "native_session": 50701,
+      "application_javascript_entered": true,
+      "stage": "sqlite client acquisition before ordinary strict queries",
+      "ordinary_full_validations": 0,
+      "candidate_physical_io": "unmeasured; not claimed zero"
+    },
+    "ready05_independent_review_sha256": "49f3aa63fae1cc929d2ce4f15ee92b195aca278a394460bd5a24b715faa52a3c",
+    "profile_sha256": "305c54592b4d5a11b39e04cb5c1c0ab0477a6de57f2436c19c28229a94177952",
+    "profile_bytes": 234
+  },
+  "v1_18_release": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/heavy-slot-release.json",
+    "sha256": "339a33db0459ec05bcd0b4dd8875060c2d9ba453dbe29c99455c36cfbc49231f",
+    "bytes": 4938,
+    "root_small_receipt_hash_checked": true,
+    "actual_startup_receipt_sha256": "7fd73a25d7a42d68edfbc86a3e470fd33484b40042d02143437fef227546d04e",
+    "independent_startup_and_reconciliation_sha256": "481605a0bb96d382020f4d2eee5f6389f5178a34394b4ccef2462074515689cf",
+    "strict_startup_wall_seconds": 766.080017042,
+    "strict_startup_peak_resident_bytes": 1152319488,
+    "ordinary_strict_passes": 1,
+    "failed_launch_full_passes": 0,
+    "remaining_owner_scope": "none; bounded runtime work ended and owned7640 stopped after acceptance",
+    "activation": false
+  },
+  "v1_09_owner_confirmation": {
+    "explicit_scope": "only frozen20212022 triple baseline annual, no continuation/hidden bulk fixture/other annual",
+    "frozen_local_head_tree_script_preflight_rechecked": true,
+    "analysis_clean": true,
+    "sent_to_both": true,
+    "terminal_delivery": "both guarded sends written; v1-09 provider explicitly acknowledges actual launch",
+    "launch_acknowledged": true,
+    "goalies_20232024": "held until measured annual boundary, bounded adjudication and explicit return to both",
+    "fresh_output_log_exit_paths": true,
+    "thread_environment_confirmed_in_child_native_argv": true
+  },
+  "saved_api_reconciliation_owner_report": {
+    "sha256": "4795dec4f744ebfe57d0bb16023258755612f0df5e1de070b1589b7689ce09ea",
+    "skater_seasons": 2784,
+    "scalars": 44544,
+    "heads": 16704,
+    "adjustment_values": 77952,
+    "maps": 24,
+    "paired_map_responses": 12,
+    "evidence_joins": 6,
+    "scope": "existing skater family acceptance; no own goalie runtime/browser pass inferred"
+  },
+  "v1_09_failed_boundary": {
+    "error": "execution.py iter_neutral_origins requires physical5v5 while the actual ST adapter passes5v4",
+    "classification": "source-contract bug and missing real-adapter coverage; no completed annual estimate",
+    "native_log_bytes": 862,
+    "native_exit_receipt_bytes": 2,
+    "annual_manifest_exists": false,
+    "baselines_started": false,
+    "producer_and_failed_evidence_preserved": true,
+    "retry_or_other_heavy_reservation": false,
+    "development_scope": "source repair/direct adapter red-green only; no fits/arrays/source bodies",
+    "explicit_release_received": true
+  },
+  "v1_09_release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/docs/research/spatial-st-v1-09/receipts/first-real-failure-release-01.json",
+    "sha256": "643e719fa709da6cb0727b79d9577a301b1cb3d039734912d9e72b94431168e9",
+    "bytes": 2175,
+    "root_small_receipt_hash_checked": true,
+    "native_boundary_receipt_sha256": "1af15299155832c1abde1be97639ed28b1e56ec07ba6af0944d36b2caea9e192",
+    "no_heavy_retry_or_other_reservation": true,
+    "next_owner": "v1-07",
+    "owner_confirmation_to_both": "both guarded sends written, provider acknowledgement pending"
+  },
+  "v1_18_final_scope_owner_report": {
+    "head": "23027d7b212a7e6c8a8959837bd46b16f81261fc",
+    "tree": "199ba18d672d1ce233904296f97bce613bc65f58",
+    "web_package_source_equivalent_to_already_adopted_333f6a7": "a983886b64469ab77d4127a86ec24763658d35db",
+    "final_branch_receipt_sha256": "69170c667f64bf63f20c4f248942179be5073699c3de6152ce7b9de8cbefca8c",
+    "status": "software and available-output real integration accepted by owner; future-family/whole-card scope remains separate",
+    "owned_runtime_pid7640_stopped": true,
+    "port41919_closed": true,
+    "further_heavy_or_bounded_runtime_work": false,
+    "accepted_predecessor_unchanged": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "source_adoption_during_active_G_fit": false,
+    "own_goalie_acceptance_inferred": false
+  },
+  "last_G_boundary": {
+    "owner": "v1-07",
+    "scope": "20232024 goalie fit then bounded saved-state review and one required target inventory",
+    "boundary": "native59603 exit0; both pids absent; bounded saved-state review then ONE target inventory before reserved ST retry handoff",
+    "thread_environment": "six unset variables; no source or HEAD mutation during active numerical command",
+    "source_commit": "dc75b9c7d4b2e5a844a045926360e2cc20ed94c5",
+    "analysis_tree": "0aba863d0efaf5ace3f0e96ab87920540b669e11",
+    "native_session_id": 59603,
+    "native_python_pid": 27620,
+    "native_time_pid": 27614,
+    "preflight_sha256": "37956d27e535c94bb8c73e588edc4f749aa35f4beec14500d7738e75f1b99469",
+    "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20232024",
+    "native_log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/fit-20232024-01.log",
+    "native_exit_code": 0,
+    "native_wall_seconds": 5463.8,
+    "native_peak_resident_bytes": 21148712960,
+    "native_peak_footprint_bytes": 21622292320,
+    "state_manifest_sha256": "9ff479053abb700954831a932d414cb40adf92cfef6758de0c92dcc3be84be40",
+    "state_review_sha256": "f53c2c6977423edf191532daf76113816d3acdeac4d72dc8993dc51577aba45b",
+    "target_inventory_sha256": "ad80535186042ce13d5246afac4f43a18e46714a571149b49c5a22f8772bf25b",
+    "source_target_rows": 160123,
+    "games": 1312,
+    "saved_groups": 1728,
+    "three_original_proofs": "remain unfulfilled"
+  },
+  "G20232024_release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20232024-release.json",
+    "sha256": "ac0c53b484d1e5f980d908cb58d24f1fe5e4fd804021467b86156be402c8c742",
+    "bytes": 2634,
+    "both_guarded_sends_written": true,
+    "provider_launch_acknowledgement": true
+  },
+  "v1_09_retry_boundary": {
+    "owner": "v1-09",
+    "scope": "ONE20212022 retry,3sequential baselines/no first-year probe,full projections/accounting/readback; no fixture/other annual/base rerun/converter",
+    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "local_launch_pins": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/first-real-fit-02.sh",
+        "sha256": "f446e9657e9ad48284151ccb6f21b2237af2d15766427f27cbe8ad49124b1ddf",
+        "bytes": 1507
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-preflight-04.json",
+        "sha256": "ab33a95c58371d2c65574fab0265f4da7394cecf120c93cb392af5a95133e750",
+        "bytes": 4165
+      }
+    ],
+    "boundary": "actual retry launched; native exit/measured wall/rss/member bytes, bounded adjudication and explicit release to both required",
+    "launch_at_utc": "2026-11-10T12:17:10Z",
+    "native_python_pid": 70935,
+    "native_time_pid": 70934,
+    "shell_pid": 70931,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "native_log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/logs/20212022-fit.log",
+    "actual_launch_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-actual-launch-01.json",
+      "bytes": 3356,
+      "sha256": "e828eec6917aa689c0b525e1eb476ce8ec536f9a9acb260825773fdded522e28"
+    },
+    "fresh_output_log_exit_absence_checked": true,
+    "child_three_single_thread_variables_confirmed": true,
+    "status": "native_and_bounded_review_passed_explicitly_released",
+    "release_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-boundary-release-01.json",
+      "sha256": "39d555266d091793c6cb360d7f08ad41be2ee55691ed9f4a6e866c3166acd4bb",
+      "bytes": 7165
+    },
+    "native": {
+      "exit_status": 0,
+      "wall_seconds": 5091.46,
+      "peak_rss_bytes": 5325340672,
+      "peak_footprint_bytes": 4730622608,
+      "log_and_exit": [
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-fit-01.log",
+          "bytes": 864,
+          "sha256": "8d25cfe1a9225973378244f729ddf0d8cc56ba69f1b10fbf5ca4795e28426270"
+        },
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-fit-01.exit",
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      ],
+      "declared_payloads_statted": 15,
+      "actual_payload_bytes": 1577314784,
+      "resources_output_bytes": 1577314784,
+      "manifest_and_logs_excluded_from_payload_sum": true,
+      "full_readback": "completed by frozen native command; no second canonical reader",
+      "metadata": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-native-metadata-02.json",
+        "bytes": 29086,
+        "sha256": "24ab2e16cfad3554268c9f0f875ec378b73090ee11f9af4720c6039f8ba7788c"
+      }
+    },
+    "saved_json_audit": {
+      "status": "passed",
+      "executions": 1,
+      "auditor_path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-real-saved-audit-temporary.py",
+      "auditor_sha256": "ee0e66e62d3952d3124c8c0bc8d1dd781f8143a60bfeef65f20e5268074476af",
+      "annual_json_bodies": 9,
+      "local_preflight_bodies": 1,
+      "wall_seconds": 0.604833000106737,
+      "logical_input_body_read_bytes": 49100690,
+      "peak_rss_bytes": 164397056,
+      "receipt": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-01.json",
+        "bytes": 4181,
+        "sha256": "b3434950ca8a3968d6921a7043202f4b2c29e14383982615dc2677ec27ed159f"
+      },
+      "log": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-run-01.log",
+        "bytes": 248,
+        "sha256": "081ed266fa68339ff7e29d10e8fd824aef5d043e298a4a0755af9bac3732ab4e"
+      },
+      "exit": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-saved-json-audit-run-01.exit",
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      }
+    },
+    "independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-independent-adjudication-01.json",
+      "bytes": 6308,
+      "sha256": "95b611bdd787dc4ab9e07c76a1957910af8abb707bd99a7e6bddc865293e35ec"
+    },
+    "fresh_launch_preflight": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/first-real-retry-launch-preflight-01.json",
+      "bytes": 1722,
+      "sha256": "c46c4822bcc5aa5d6a7fd9d39030686487718f72713171330ad5244b87b15ed2"
+    }
+  },
+  "last_completed_reserved_scope": {
+    "owner": "v1-07",
+    "season": "20242025",
+    "status": "score_native_and_metadata_accepted_explicitly_released",
+    "score_sha256": "c398c0cb69549e9832cc3e4ce0b330b883a1926a9ca6a9fab6e04fe7237882a2",
+    "preflight_sha256": "f7fce43f9d0593bd6224b8e5e244baf0f6741d712cd9bc9ca740e927a7aab899",
+    "metadata_review_sha256": "1aee611da99c00d69df3aef83498daf10be2be124e75969c0d7ac3b1b4791cd1",
+    "independent_adjudication_sha256": "3fc6d7a71ef76ec781a65cd337d2a91da2004c54dfb15f8ba7af31ab842a3d0c",
+    "release_sha256": "f6f33443cb63b3e04777d9ced18ef438caf03651b95e8a28c160e72036e7475e",
+    "native_exit_code": 0,
+    "native_session_id": 98019,
+    "native_wall_seconds": 6860.84,
+    "native_peak_rss_bytes": 22022258688,
+    "payload_bytes": 3868630738,
+    "people": 121,
+    "raw_source_only": 2,
+    "raw_numerical_only": 0,
+    "possible_affiliation_gaps": 0,
+    "sensitivity": "not_assessed_for_annual_state",
+    "optimizer_accuracy": "unknown",
+    "no_owned_heavy_command_remaining": true
+  },
+  "next_reserved_scope": null,
+  "next_ST_candidate_report": {
+    "status": "completed_released",
+    "season": "20222023",
+    "checkpoint_commit": "8a53f01",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "script_sha256": "45223aab1da873acdd9de9d8526bb96a4395b3ba0fddcdd55510cdde968df248",
+    "prepared_receipt_sha256": "71b5a80d8a011c7f2e7d397e1895b3422c6d0ac1133293cd73e08203a35ac911",
+    "scope": "three baselines, zero probes; previous7ec56120212022, execution score296ae20222023; no basis import; fresh run03",
+    "allowed_independent_readiness": "only pinned preparation manifest18633830B and20222023score header; no members/arrays/design/evaluator/coaches/body/stat/fullreader",
+    "reservation": false,
+    "dispatch": true,
+    "readiness_complete": true,
+    "actual_launch_freshness": "pending any future explicit handoff",
+    "previous_year_cost_context_only": true,
+    "ready_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-fit-preparation-03.json",
+      "bytes": 8344,
+      "sha256": "8ac4d1f04408754362ab3a41119b564a2e7d7a1b9baec60cd2534652b4fb3cc5"
+    },
+    "script": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/second-real-fit-held-01.sh",
+    "metadata_proof_sha256": "5591712705268d8a35d4dcef98c742ded50cbc3c03de7cc8f5027633b83897d5",
+    "metadata_logical_bytes": 19017248,
+    "metadata_wall_seconds": 0.23660116689279675,
+    "metadata_peak_rss_bytes": 107102208,
+    "selected_games": 1312,
+    "prepared_file_descriptors": 1313,
+    "annual_physical_member_bytes": null,
+    "next_native_cost": "unknown; first annual context only, extra predecessor/history validation",
+    "root_review": "local ready03/script hashes, literal command, sh syntax, frozen git HEAD/tree and clean analysis checked; no external payload/header/array/input rehash"
+  },
+  "drive_removal_hold": {
+    "cached_native_receipt": "docs/research/goalies-v1-07/receipts/real-score-20232024-drive-removal-hold.json",
+    "all_external_reads_and_heavy_commands_held": false,
+    "eject_owner": "user",
+    "retry": false,
+    "new_owner_assigned": false,
+    "resume": "user resumed; original completed score bounded review passed; no rerun"
+  },
+  "last_G_score_boundary": {
+    "score_sha256": "5c75b215c50d3271ab2f4df4bc9d2dca39c26b846977dde251b0d0c39b6a25aa",
+    "review_sha256": "4415be75d5d627b763cc4ee97b18643385f3e5f5d79aa3814431a87dbb7e9964",
+    "native_session_id": 74808,
+    "native_exit_code": 0,
+    "native_wall_seconds": 7113.09,
+    "native_peak_resident_bytes": 21528248320,
+    "score_release": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20232024-release.json",
+      "sha256": "a9a3f23dd9097151105178027157b3e848a67346d6e382ace2ade0415ac1256f"
+    },
+    "independent_adjudication": {
+      "path": "docs/research/goalies-v1-07/receipts/real-score-20232024-independent-adjudication.json",
+      "sha256": "b8cf965d3ff712ae0e262ae89c2f1439d13c62c3bad3dd37e528ae5882a25dda"
+    }
+  },
+  "v1_18_delivery_owner_report": {
+    "merge_commit": "65c777fe52c29fd1ab70950cd7525aec6f65d566",
+    "primary_reviewed_tree": "15c99a5c",
+    "source_alias": "/Users/nnandal/Documents/code/hockey-stats-v1-18 -> primary; tracked source/spec/fixtures only, not frozen runnable build",
+    "receipt": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/receipts/pr-merge-cleanup-completion.json",
+    "sha256": "80158534eff86b5b7d3b1c4ef0c029175859df20657290e1747e6704041e2b5b",
+    "scope": "user-relayed source delivery; no artifact/reader/build recheck here",
+    "source_adoption_requested_or_performed": false,
+    "complete_predecessor_unchanged": true,
+    "no_heavy_slot_change": true
+  },
+  "last_ST20222023_boundary": {
+    "owner": "v1-09",
+    "scope": "ONLY20222023 annual; three sequential baselines, zero probes, full predecessor/history/projections/accounting/native readback",
+    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "ready_receipt": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-fit-preparation-03.json",
+    "ready_sha256": "8ac4d1f04408754362ab3a41119b564a2e7d7a1b9baec60cd2534652b4fb3cc5",
+    "script": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/second-real-fit-held-01.sh",
+    "script_sha256": "45223aab1da873acdd9de9d8526bb96a4395b3ba0fddcdd55510cdde968df248",
+    "root_local_pins_and_clean_analysis_rechecked": true,
+    "operator_launch_preconditions": "fresh mount/source/script/run/output/log/exit checks immediately before one dispatch",
+    "child_environment": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1; G six-unset policy unchanged",
+    "return_boundary": "actual native exit/cost/output bytes, bounded independent adjudication and explicit release to BOTH; no further ST annual reserved",
+    "status": "native_and_bounded_adjudication_passed_explicitly_released",
+    "dispatch": true,
+    "owner_confirmation_to_both": "coordinator assigned exact scope; owner explicitly acknowledges actual single launch",
+    "launch_at_utc": "2026-11-11T08:31:19Z",
+    "native_python_pid": 86985,
+    "native_time_pid": 86984,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "launch_preflight_sha256": "4d54e70e0ea7e032adad02f5691f0e219b8078ba380738e63d1e99d19adaf6d8",
+    "actual_launch_receipt_sha256": "ce5e568944da3389ba880f90a4664cb8fe4fccf74a9c407a0424a40749dfe400",
+    "fresh_source_script_mount_run_output_log_exit_checked": true,
+    "child_thread_environment_confirmed": true,
+    "native_log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-03/logs/20222023-fit.log",
+    "release_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-boundary-release-01.json",
+      "sha256": "19a14313d4d1e6bb38e6e6d88e7720c50837fbbc4a5d9c2c647b733d4a1e505d",
+      "bytes": 7274
+    },
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-03/real/states/20222023/manifest.json",
+      "bytes": 366514,
+      "sha256": "2ce8f5cf777c9f252da4c053955281fea0c345a93b8b0154e8f4e24622205175"
+    },
+    "native": {
+      "exit_status": 0,
+      "wall_seconds": 6022.36,
+      "peak_rss_bytes": 8669888512,
+      "peak_footprint_bytes": 7958682608,
+      "preserved_native_evidence": [
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-native-fit-01.log",
+          "bytes": 864,
+          "sha256": "11db0b52ac05495bb30e3e9d9eecbbecf70421b5164a6436accd790e61de6b5c"
+        },
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-native-fit-01.exit",
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      ],
+      "declared_payload_stat_count": 15,
+      "payload_stat_sum_bytes": 1717461465,
+      "resources_output_bytes": 1717461465,
+      "manifest_and_logs_excluded_from_payload_sum": true,
+      "stage_costs": {
+        "design_wall_seconds": 4743.203065792099,
+        "input_read_wall_seconds": 24.561423459090292,
+        "input_read_bytes": 78256735836,
+        "fit_wall_seconds": 591.1996742500924,
+        "projection_wall_seconds": 609.2632315829396,
+        "write_wall_seconds": 36.74344979203306,
+        "producer_phase_peak_rss_bytes": 7414333440
+      },
+      "canonical_readback": "completed within the frozen native command; not repeated",
+      "metadata": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-native-metadata-01.json",
+        "bytes": 7586,
+        "sha256": "db323641e276638b0ae0b764fb5c6dee52a1583ca04028c6d94c944ca641a426"
+      }
+    },
+    "audit": {
+      "status": "passed",
+      "exit_status": 0,
+      "executions": 1,
+      "auditor_sha256": "ee0e66e62d3952d3124c8c0bc8d1dd781f8143a60bfeef65f20e5268074476af",
+      "current_json_bodies": 9,
+      "previous_json_bodies": 4,
+      "external_json_bodies": 13,
+      "local_flat_ready_bodies": 1,
+      "wall_seconds": 14.737286334158853,
+      "logical_input_body_read_bytes": 73767882,
+      "peak_rss_bytes": 238419968,
+      "receipt": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-saved-json-audit-01.json",
+        "bytes": 5144,
+        "sha256": "916969ff72eecef03edc9e56ed6cf28bb5d4a0287c802abd29576525a26e71bb"
+      },
+      "log": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-saved-json-audit-run-01.log",
+        "bytes": 244,
+        "sha256": "6c11d1d6df5357b5b460929f0ba5a44fb8479d805c655a5cf03d766f30f41109"
+      },
+      "exit": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-saved-json-audit-run-01.exit",
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      }
+    },
+    "independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/second-real-independent-adjudication-01.json",
+      "bytes": 7873,
+      "sha256": "2d981be95883676aaded2a312ec2a44c1defef2e7e597979b45aa2928ef403f6"
+    }
+  },
+  "next_ST20232024_candidate": {
+    "status": "checked_explicitly_released",
+    "checkpoint_commit": "6a76e72",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "script": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/third-real-fit-held-01.sh",
+    "script_sha256": "837b8e86d232fa3692c524bac64ac1eed7274967218da7f7d222f9210666d2a0",
+    "flat_preparation_sha256": "2db0edd76c1d5c757caf1e7dac382fccf8ebbb1acbf1a02d3b2f520a4d6e53ad",
+    "base_score_sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238",
+    "previous_ST_state_sha256": "2ce8f5cf777c9f252da4c053955281fea0c345a93b8b0154e8f4e24622205175",
+    "metadata_scope_authorized": "one source-reviewed two-header read: prepared63 and originalbasef13 only; no members/stats/source/coaches/previous/arrays/fullreader/evaluator; measured logical bytes/wall/RSS",
+    "metadata_execution_reported": true,
+    "reservation": false,
+    "fit_dispatch": true,
+    "complete_native_cost": "6383.31 native seconds /8613314560 peak RSS bytes /1684307099 payload bytes",
+    "ready_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-fit-preparation-02.json",
+      "bytes": 8173,
+      "sha256": "958d73ec3205b24dbae7c8fae439bc9e8901939e4372c1b00945426682a7889c"
+    },
+    "metadata_proof_sha256": "daa358c6175be1d449ab6f82af1ee4c0731955e98742b6cbb2d78c66c05ccf92",
+    "metadata_logical_bytes": 19017256,
+    "metadata_wall_seconds": 0.23216908308677375,
+    "metadata_peak_rss_bytes": 107020288,
+    "selected_games": 1312,
+    "prepared_file_descriptors": 1313,
+    "score_descriptors": 73,
+    "panel_descriptors": 32,
+    "annual_physical_member_bytes": null,
+    "readiness_root_scope": "local packet/script hashes only; no external input/header/member/stat read; future freshness and ownership remain pending"
+  },
+  "last_G20242025_fit_boundary": {
+    "owner": "v1-07",
+    "scope": "ONLY20242025 goalie fit; bounded state metadata review and ONE current target inventory; zero probes",
+    "status": "native_state_review_and_one_inventory_passed",
+    "analysis_tree": "0aba863d0efaf5ace3f0e96ab87920540b669e11",
+    "producer_commit": "04e4ea5c42a43cbcc94da254d8262d0eb6dc4122",
+    "previous_goalie_sha256": "9ff479053abb700954831a932d414cb40adf92cfef6758de0c92dcc3be84be40",
+    "base_score_sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+    "base_state_sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe",
+    "thread_environment": "six numerical variables unset; sibling three thread variables remain child-only",
+    "owner_confirmation_to_both": "both guarded sends written; actual launch pending",
+    "dispatch": true,
+    "boundary": "actual native exit/cost, bounded saved state review and ONE target inventory before next-window adjudication",
+    "native_session_id": 22697,
+    "native_python_pid": 9319,
+    "native_time_pid": 9311,
+    "native_observed_at_utc": "2026-11-11T10:23:48.408369+00:00",
+    "preflight_sha256": "a61c437c26bec851c608b4b2019fc6430196883f17236baa76fcb247061aec85",
+    "prelaunch_sha256": "938d4e333c1766c40ded6548bcfb5ffa5a4e9c6a433a793701e2ddb1f5d955de",
+    "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20242025",
+    "native_log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/fit-20242025-01.log",
+    "manifest_sha256": "711763dd26881dace10f0956a1d576d8bee979734634889de21ee62787da61d3",
+    "review_sha256": "3708d75545b232b236a84145a2fe2a283cb04af60637faf438cd852b2b7a9e5a",
+    "inventory_sha256": "3316c992ee857259dfa73e176ecf66c372fccd0b06b36c392ac13be76d9ef6ad",
+    "release_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20242025-release.json",
+      "sha256": "2ff90ebea4ecd1f70388a4fe27de574cf2acf106373fcb5a6cf8f1fad1ab2553"
+    }
+  },
+  "last_ST20232024_boundary": {
+    "owner": "v1-09",
+    "season": "20232024",
+    "status": "checked_and_explicitly_released",
+    "manifest_sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7",
+    "release": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-boundary-release-01.json",
+      "sha256": "1762d705de3bb950acd2492ee71cdadc9289db461b474781e7990acd77fd4d6e"
+    },
+    "independent": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/third-real-independent-adjudication-01.json",
+      "sha256": "e25ede6e1e2457b4cada8f256c464a6d11f00775a5b379d1d135883e29f12d84"
+    },
+    "native_exit_code": 0,
+    "native_wall_seconds": 6383.31,
+    "native_peak_rss_bytes": 8613314560,
+    "payload_bytes": 1684307099,
+    "audit": {
+      "external_json_documents": 13,
+      "logical_read_bytes": 90076573,
+      "wall_seconds": 15.024656291818246,
+      "peak_rss_bytes": 315899904
+    },
+    "total_complete_heads": 9,
+    "required_heads": 15,
+    "precision_and_earlier_sensitivity": "unassessed",
+    "root_scope": "two small local receipts only; no external ST metadata, members, arrays, source, evaluator or full reader",
+    "no_owned_heavy_command_remaining": true,
+    "chain_reservation": false
+  },
+  "next_ST20242025_preparation": {
+    "status": "actual_one_annual_running",
+    "packet_sha256": "1b3414be01b1ea8720d7c783ba1f59ee541ccf849548f65cfb6f23f54a7bf040",
+    "script_sha256": "7fecf2aa8594b5045eb26ee9781a1fbb09ebcde1fa046c67b0f778bb2e5f0c61",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "previous_ST_manifest_sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7",
+    "original_base_score_sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+    "metadata_reader_sha256": "cd578df113fc9caf89ffac3500de8858afe0a6ca612c5b9b61110c5151f349eb",
+    "root_review": "exact local reader and packet reviewed; fixed two read_bytes calls, no external stat/member/model/reader/evaluator",
+    "metadata_authorization": "one invocation only of prepared63bd and original20242025 score86e headers; actual bytes/wall/RSS and direct bindings/counts; exclusive local output; preserve failure with no automatic rerun",
+    "metadata_run_reported": true,
+    "reservation": true,
+    "fit_dispatch": true,
+    "current_G_native_session": 98019,
+    "metadata_proof": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-metadata-preflight-01.json",
+      "sha256": "10d85ff86082a1385d9a6ac830181588352758df7d481c2ef14c26c753fdd82f",
+      "logical_bytes": 19017252,
+      "wall_seconds": 0.19836891698651016,
+      "peak_rss_bytes": 106921984
+    },
+    "ready_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-fit-preparation-02.json",
+      "sha256": "10856eb64cbb449f230295eaf9551f984dd59326c2f498e47952feba5647971a",
+      "bytes": 8732
+    },
+    "independent_review_sha256": "0b739fc0b2236a12044bdbb66a3b82ec10a5afcc44a8724ef7f91cc08454133e",
+    "root_native_local_review": "goalie_composition clears three exact local receipt pins and1509-byte script; no external access or execution",
+    "selected_games": 1312,
+    "prepared_file_descriptors": 1313,
+    "physical_member_bytes": null
+  },
+  "shared_interface_source_handoff": {
+    "status": "peer_development_interface_seams_closed_own_handoff_review_passed",
+    "peer_commits": [
+      "c5ff0ea7b165f50a6ca882bd4a2c4dfd7758faa8",
+      "0e70b25d37869461f69fbcbd0337c0e2196b3710"
+    ],
+    "peer_analysis_tree": "950b7af77ce6204f6a825d463002e45653612b8c",
+    "patch_sha256": "6528263ee13dda1c45485f12ec54d73915a1fc63ff08aba52fc2a758d9ee1ff8",
+    "patch_bytes": 101181,
+    "independent_review_sha256": "6d865b04e24024b77f62e67b731a4fdc60e700ae34942652e395bddd73039424",
+    "root_native_review": "api_verification confirms five owners byte-exact to current G source, narrow staged-reader promotion/four calls preserving preexisting ST/G guards",
+    "peer_controls": "three pass/five missing-interface red to eight green; attributed sibling software evidence only",
+    "remaining_public_validator_union": [
+      "analysis/src/hockey_stats/analysis_publication.py",
+      "app/src/server/analysis-publication.ts"
+    ],
+    "shared_typescript_schema_difference": false,
+    "remaining_provider_union": "ST composition/state/design/rates/CLI needs its separate complete owner handoff only if that producer is adopted; a checked ST exchange consumer does not require that provider transfer",
+    "adopted_into_frozen_G": false,
+    "real_runtime_or_parent_acceptance": false
+  },
+  "public_validator_union_handoff": {
+    "status": "adopted_two_files_actual_controls_build_and_independent_review_pass",
+    "patch_sha256": "ed8a4e644a09f1fef3421864a1bca42efa7c8865b6c90e22a3bd2a3e2f60dc53",
+    "patch_bytes": 21652,
+    "facts_sha256": "df16971d7043acb9447430fe9f4d55d7995d53f939857004d7a7fe9165727e82",
+    "peer_independent_review_sha256": "77c8c6f57743cddb153ae1bfd4c9535c20c5d3365510920561635b24e08eddd7",
+    "donor_commit": "2b2a550e19540aa145926d2a19f9e3ee6ebd8488",
+    "peer_source_commit": "c5189715e286c15e2823b7bafdf08772758b4620",
+    "peer_docs_closeout_commit": "24fb09baf28e2bfdf74e9b284bb8c106c924e443",
+    "files": [
+      "analysis/src/hockey_stats/analysis_publication.py",
+      "app/src/server/analysis-publication.ts"
+    ],
+    "target_sha256": {
+      "python": "710c984f6a2b1c1a2b53b5e6d429a5c03474f60951c2313967b5911a9f2921cb",
+      "typescript": "57985c805c60d3fb8a09d61b19c75036d943fb79685b07fbef435324a5f87cff"
+    },
+    "root_reviewer": "api_verification",
+    "refinements_closed": [
+      "spatial-only scalar-first table order, other family order preserved",
+      "only the two new owner-only python helpers private, three internal calls renamed",
+      "typescript helper private without test export"
+    ],
+    "peer_controls": "three pass/three red to six green through tiny empty-pending local reader/order/staging and static privacy; sibling attributed only",
+    "excluded_setup_failure": "wrong interpreter/bs4, retained and not a product red",
+    "crossrecord_IO": "deferred to required canonical composition and one normal strict startup",
+    "runtime_tests_by_root_review": 0,
+    "adopted": true,
+    "safe_boundary": "after active G98019 native exit and bounded adjudication only",
+    "revision01_history": {
+      "status": "source_logic_review_clear_three_scope_refinements_requested_before_adoption",
+      "patch_sha256": "ffa62d0b5616a39c48d86ded7888db3164f80b84d8efd589a975fb4f971c6976",
+      "facts_sha256": "2737c9af2705cfe6a71080c347d7da483902abbd5b33da4941985aad20b0ba0d",
+      "peer_independent_review_sha256": "5cee7bfcc0ae8b28839595ede3b69d45ba737ca62fa3c10c53213167f589df59",
+      "donor_commit": "2b2a550e19540aa145926d2a19f9e3ee6ebd8488",
+      "files": [
+        "analysis/src/hockey_stats/analysis_publication.py",
+        "app/src/server/analysis-publication.ts"
+      ],
+      "root_reviewer": "api_verification",
+      "refinements": [
+        "limit scalar-first table ordering to spatial family; preserve other family iteration order",
+        "make only the two new owner-only python mixture helpers private and rename their three internal calls",
+        "keep the new typescript mixture helper module-private; no test-only production export"
+      ],
+      "validation_logic": "source review clear; G bodies/dispatch/errors and shared schemas/imports unchanged",
+      "runtime_tests_by_this_review": 0,
+      "adopted": false,
+      "safe_boundary": "only after active G98019 native exit and bounded adjudication"
+    },
+    "own_analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "own_app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "integration_receipt_sha256": "0072909d5e75fa2c0cc05822859e9b2ff466edab0850f6ded6a08c07ab66cf7b",
+    "real_crossrecord_IO": "pending required composition and normal strict startup"
+  },
+  "ST_final_diagnostic_selector_owner_report": {
+    "commit": "9d1ca64c0ec24f3b77bda76e20396ddf1ac70014",
+    "analysis_tree": "bee79c53c4abe766f38f9ced314cc475c25d38f1",
+    "independent_review_sha256": "90f242f714e578e9eb70c134ad50883beee04a289e0dea43d2343eeaf04eb581",
+    "scope": "future ST diagnostic witness classification across all three head histories; baseline objective/prior/history/rates and probe count unchanged per owner",
+    "controls": "three fail/one pass to four pass; no solve, peer-attributed only",
+    "fourth_READY_source_changed": false,
+    "final_producer_window_reserved": false,
+    "G_provider_adoption": false,
+    "part_of_public_validator_patch": false
+  },
+  "last_G20242025_score_boundary": {
+    "owner": "v1-07",
+    "season": "20242025",
+    "status": "score_native_and_metadata_accepted_explicitly_released",
+    "score_sha256": "c398c0cb69549e9832cc3e4ce0b330b883a1926a9ca6a9fab6e04fe7237882a2",
+    "preflight_sha256": "f7fce43f9d0593bd6224b8e5e244baf0f6741d712cd9bc9ca740e927a7aab899",
+    "metadata_review_sha256": "1aee611da99c00d69df3aef83498daf10be2be124e75969c0d7ac3b1b4791cd1",
+    "independent_adjudication_sha256": "3fc6d7a71ef76ec781a65cd337d2a91da2004c54dfb15f8ba7af31ab842a3d0c",
+    "release_sha256": "f6f33443cb63b3e04777d9ced18ef438caf03651b95e8a28c160e72036e7475e",
+    "native_exit_code": 0,
+    "native_session_id": 98019,
+    "native_wall_seconds": 6860.84,
+    "native_peak_rss_bytes": 22022258688,
+    "payload_bytes": 3868630738,
+    "people": 121,
+    "raw_source_only": 2,
+    "raw_numerical_only": 0,
+    "possible_affiliation_gaps": 0,
+    "sensitivity": "not_assessed_for_annual_state",
+    "optimizer_accuracy": "unknown",
+    "no_owned_heavy_command_remaining": true
+  },
+  "drive_disconnection_hold_20261111": {
+    "kind": "user-drive-disconnection-hold",
+    "observed_at_utc": "2026-11-11T16:49:49.756681+00:00",
+    "user_request": "need to disconnect the harddrive",
+    "all_new_external_work_held": true,
+    "G_owned_heavy_processes_running": false,
+    "G_last_score": "accepted c398; native98019 and50279/50270 already closed before this request",
+    "ST_owned_processes": {
+      "python_pid": 76792,
+      "time_pid": 76791,
+      "both_absent_by_OS_check": true,
+      "owner_terminal_observation": "single ctrl-c reached owned operator; terminal shows INT",
+      "numerical_exit_or_acceptance": "deferred; no success inferred from absence"
+    },
+    "coordinator_signal": "none sent; verified child was already absent",
+    "open_handles_check": "lsof -nP +f -- /Volumes/Expansion returned exit1/no matches/no diagnostics",
+    "eject_owner": "v1-09 coordinator t-b0f21da1ddb96760; one normal eject using fresh device identity; no force or competing eject",
+    "eject_success_not_yet_observed": false,
+    "external_output_log_stat_or_body_adjudication": "deferred until reconnect",
+    "ST_checked_heads": 9,
+    "ST_required_heads": 15,
+    "complete_publication_parent": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "activation": false,
+    "normal_eject": {
+      "owner": "v1-09 coordinator",
+      "command": "diskutil eject /dev/disk4",
+      "result": "Disk /dev/disk4 ejected",
+      "exit_code": 0,
+      "evidence": "observed in owner terminal through bounded skid read; fresh device identification and no open handles preceded eject",
+      "force": false
+    }
+  },
+  "resume_after_drive_eject": {
+    "user_requested_resume": true,
+    "observed_at_utc": "2026-11-12T04:26:48.293960+00:00",
+    "mount_table": "Expansion mounted at /Volumes/Expansion as APFS disk6s1; no old device identity reused",
+    "access_check": "one byte of completed G20242025 manifest read successfully; no artifact validation",
+    "next_step": "checked interrupted ST return, then owned G final-fit preflight and separate one-time launch",
+    "native_retry_dispatched": false
+  },
+  "interrupted_ST_fourth_boundary": {
+    "owner": "v1-09",
+    "status": "interrupted_stop_boundary_checked_not_numerically_accepted",
+    "scope": "ONLY20242025 annual, three baseline heads, zero probes, no basis import; full prior/history/projections/accounting/native readback",
+    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "ready_sha256": "10856eb64cbb449f230295eaf9551f984dd59326c2f498e47952feba5647971a",
+    "script_sha256": "7fecf2aa8594b5045eb26ee9781a1fbb09ebcde1fa046c67b0f778bb2e5f0c61",
+    "previous_ST_manifest_sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7",
+    "original_base_score_sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+    "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025",
+    "child_threads": "OPENBLAS/OMP/VECLIB=1 only; G six-unset unchanged",
+    "fresh_source_script_mount_run_output_log_exit_checks": "mandatory before one actual launch",
+    "dispatch": false,
+    "owner_confirmation_to_both": "both guarded terminal writes succeed; provider acceptance unconfirmed",
+    "return_condition": "actual native exit/cost, payload stats, bounded independent adjudication and explicit release to both; no extra annual or chain",
+    "native_python_pid": 76792,
+    "native_time_pid": 76791,
+    "started_at_utc": "2026-11-11T16:11:18Z",
+    "observed_at_utc": "2026-11-11T16:12:09.219444Z",
+    "launch_preflight_sha256": "b7abd40109b3a05e73bfb61884667c9d532b4b2f951eea96adb10e222d5d98b7",
+    "actual_launch_receipt_sha256": "cc25d02a8b62f3debf33ee74263f29d3f726d39ef63d93d3f9061b2684f6cb13",
+    "fresh_source_script_mount_run_output_log_exit_checks_passed": true,
+    "root_local_receipt_hash_review": true,
+    "numeric_native_exit": null,
+    "completed_heads_accepted": 9,
+    "interrupted_native_wall_seconds": 2109.52,
+    "interrupted_native_peak_rss_bytes": 6462324736,
+    "stop_receipt_sha256": "6239dbf350d8d40eb84e8641efdd9d1b3f08c648b7553b665423c485983d4ad9",
+    "independent_stop_review_sha256": "54331aac40a1591dd161fdca3993940a8e4d77be9a9ca87890158fb962a97737",
+    "future_retry": "held_unreserved_new_scope_required_not_historical_ready_dispatch"
+  },
+  "previous_recorded_at_utc": "2026-11-12T17:13:24.876973+00:00",
+  "recorded_at_utc": "2026-11-14T05:43:50.343528+00:00",
+  "G_final_fit_boundary": {
+    "status": "accepted_fit_review_one_inventory",
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/manifest.json",
+      "bytes": 346105,
+      "sha256": "903092073a25b0afb0b6e153ede5f2685a0a4bf7b4dce1381c1a05f266a56502"
+    },
+    "producer": {
+      "git_commit": "76af911844cc53ccf6548f48bfd04970eb36d292",
+      "git_dirty": false,
+      "python_version": "3.14.8",
+      "numpy_version": "2.5.3",
+      "scipy_version": "1.18.1",
+      "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    },
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "native": {
+      "session_id": 32082,
+      "exit_code": 0,
+      "wall_seconds": 7212.36,
+      "user_seconds": 6246.05,
+      "system_seconds": 290.4,
+      "peak_resident_bytes": 20134002688,
+      "peak_footprint_bytes": 20516699256,
+      "swaps": 0,
+      "owned_commands_closed": true
+    },
+    "state_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20252026-review.json",
+      "bytes": 18802,
+      "sha256": "4aa6c6d92f15b6274f2eb5739b3c008afa89ce7a2e31526d6fa9323f4647d503",
+      "json_members": 9,
+      "json_bytes": 14772224,
+      "native_wall_seconds": 0.22,
+      "native_peak_rss_bytes": 79118336,
+      "native_peak_footprint_bytes": 69108264
+    },
+    "state_independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20252026-independent-adjudication.json",
+      "bytes": 7173,
+      "sha256": "c0f7d150d85b25c19e031e96488be0b59fe19149f39780dd2155699d8b09c9c0"
+    },
+    "target_inventory": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-20252026-target-inventory.json",
+      "bytes": 6496,
+      "sha256": "6a3329357cc0207e89fe0d81f44f53164c39c6a5cd445ddcec4cc226a010f3bd",
+      "coverage": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/coverage.json",
+        "sha256": "07e84e8718d20541cf1da27e587414afac37cb72d82f16aab5d447adde55f715",
+        "bytes": 75413304
+      },
+      "total_external_documents": 4,
+      "external_bytes": 80581771,
+      "native_wall_seconds": 1.29,
+      "native_peak_rss_bytes": 406192128,
+      "native_peak_footprint_bytes": 396395264,
+      "rows": 153754,
+      "games": 1312,
+      "groups": 1654,
+      "counts": {
+        "h_included": 64833,
+        "h_positive": 9479,
+        "h_negative": 55354,
+        "d_included": 9454,
+        "zero_d_target": 0,
+        "ordinary_saved_source_rows": 64953,
+        "ordinary_save_unknown_h": 0,
+        "otherwise_eligible_unknown_h": 0,
+        "source_positive_focal_excluded": 78,
+        "eligible_h_positive_d_unavailable": 25,
+        "eligible_h_positive_known_goalie_change": 0,
+        "eligible_h_positive_successor_goalie_unresolved": 25,
+        "predictor_excluded_h_positive_known_goalie_change": 0,
+        "predictor_excluded_unknown_h": 0
+      },
+      "d_target_mass_head": 865.6337367063065,
+      "d_target_mass_inventory": 865.6337367063064,
+      "missing_d_reasons": {
+        "successor_execution_score_unavailable": 25
+      },
+      "missing_d_successor_outcomes": {
+        "save": 21,
+        "miss": 1,
+        "block": 3
+      },
+      "original_source_candidates": []
+    },
+    "inventory_independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-20252026-target-inventory-independent-adjudication.json",
+      "bytes": 4914,
+      "sha256": "2254149b956f0348e0bdf6822074e4992c77c92a1e059c63700a112ee0d3de23"
+    },
+    "release_sha256": "20311fed1d6070070d03cf292018934e14ddbfed5ab9b99326a29a5e8a229696",
+    "G_final_score": "held"
+  },
+  "source_clause_decision": {
+    "status": "bounded_original_witness_amendment_verified_and_applied",
+    "requirements": [
+      "finder controls recognize all three deliberately constructed cases",
+      "minimally mutated preserved-capture copies exercise actual source-to-target boundary",
+      "independent expectations from contract; reuse passing controls",
+      "amend only original-witness requirement after green; preserve eight original checks and five inventories"
+    ],
+    "interpretation": "none found within searched scope; not proof these cases cannot occur",
+    "tradeoff": "less evidence about naturally occurring source irregularities; incorrect labels remain unacceptable",
+    "extra_search_acquisition_or_fits_for_clause": false,
+    "checked_admission": "docs/research/goalies-v1-07/receipts/source-witness-amendment-01.json",
+    "source_code_changes": 0,
+    "natural_case_status": "unobserved within inspected originals; not a global absence claim",
+    "eight_original_checks_and_five_inventories_preserved": true
+  },
+  "ST_fourth_retry_source_preparation_history": {
+    "status": "historical_source_preparation_superseded_by_current_actual_launch",
+    "packet": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-preparation-01.json",
+    "packet_sha256": "633516d911773036b4b88e9f649dcb5394b8212407a79eeabcf5663a9c1b9326",
+    "script": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-retry-held-01.sh",
+    "script_sha256": "524605372c37d9d9b7a12e9fa71cd9c22c1336696696e6217ed0da74f7672860",
+    "independent_peer_review_sha256": "ce350da8af24fc8670b74a319e76179917ba02489597b3ee2faf06dbc164a619",
+    "root_independent_local_review": "final_fit_review: exact hashes/sizes and six literal run-root substitutions; no findings; no external access or numerical execution",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "scope": "ONLY20242025 triple/zero probes/no basis; original base86e and accepted previous465; child-only OPENBLAS/OMP/VECLIB=1",
+    "proposed_run": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01",
+    "external_freshness_checks": "not_run; future explicit ownership and fresh source/script/runtime/mount/run/output/log/exit checks required",
+    "native_cost": "unknown; interrupted2109.52s is not a completed annual forecast",
+    "reservation": false,
+    "dispatch": false,
+    "consideration": "only at checked G final-fit boundary; no next-owner promise",
+    "interrupted_run05_and_historical10856_preserved": true,
+    "window_assigned": true,
+    "historical_snapshot": true,
+    "superseded_by": "current: actual launch2995e44a / preflightff89103a / independent owner frameb1332170"
+  },
+  "receipt_dispatches_commands": false,
+  "ST_fourth_retry_checked_return": {
+    "release": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-boundary-release-01.json",
+      "bytes": 6801,
+      "sha256": "7379280b6e5e70511af094e160ccb3c69f4850ef3c4ad777e6ab28210ca30c65"
+    },
+    "independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-independent-adjudication-01.json",
+      "bytes": 6088,
+      "sha256": "24d52d03ae36d0b013551ec2aff113b6fdd5e260e8a6f759d0ad54e94a91b6a5"
+    },
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/manifest.json",
+      "bytes": 366549,
+      "sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c"
+    },
+    "source_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "native": {
+      "exit_status": 0,
+      "wall_seconds": 6267.43,
+      "user_seconds": 5766.84,
+      "sys_seconds": 36.25,
+      "peak_rss_bytes": 6744752128,
+      "peak_footprint_bytes": 7391550016
+    },
+    "payload_bytes": 1577550492,
+    "checked_ST_baseline_heads": 12,
+    "numerical_limits": {
+      "gradient_inf_norms": {
+        "volume": 0.0008747044630581513,
+        "shape": 0.0004159497157791847,
+        "quality": 0.0001561027925295333
+      },
+      "remaining_optimizer_accuracy": "unknown; baseline gradients above gtol, no precision claim",
+      "sensitivity": {
+        "status": "unassessed",
+        "reason": "earlier_annual_not_assessed"
+      },
+      "scientific_admission": false
+    },
+    "no_owned_heavy_command_remaining": true,
+    "public_parent": "unchanged8b32; numerical c3d is not a complete composed successor"
+  },
+  "final_ST_source_preparation": {
+    "status": "owner_reported_running_single_assigned_scope_not_accepted",
+    "script_sha256": "d95df4998c2d5c23dbe86534b5be2d5a31aa7b194fd706dc8926e90edd2a2bd3",
+    "independent_peer_review_sha256": "1aac7ba3f5a71484cb28d2b9d5291ba45d17f3b1e63044a2436ff59e96dbf416",
+    "root_independent_source_review": "composition_preparation: exact pins/literal deltas/source contracts, no findings; no execution or external access",
+    "future_source_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+    "future_analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+    "producer03": "actual detached clean source-only sparse producer03; 59 files2651370B; no app/fixtures/captures/dependency trees",
+    "snapshot_previous_sha256": null,
+    "readiness_successor": "local02 deliberately binds c3d and its exact accepted release/review; immutable e54 retains null snapshot; source materialization/runtime/metadata/freshness still pending",
+    "snapshot01_packet": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-fit-source-preparation-01.json",
+    "snapshot01_packet_sha256": "e54c2fd7239aac3b3d8d2ddb7073e87a4437719f8a174277443721fc26f4372d",
+    "packet": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-fit-source-preparation-02.json",
+    "packet_sha256": "8d62446dde84e46d1fcb1521b1a059cf78e322025708145a4dac7856c8055835",
+    "successor_independent_peer_review_sha256": "8e39dd391e0dcdc46919a332962e9549dfdf8a957ae9420e79fbeec515b797fa",
+    "accepted_previous_sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c",
+    "previous_acceptance_release_sha256": "7379280b6e5e70511af094e160ccb3c69f4850ef3c4ad777e6ab28210ca30c65",
+    "previous_independent_adjudication_sha256": "24d52d03ae36d0b013551ec2aff113b6fdd5e260e8a6f759d0ad54e94a91b6a5",
+    "bounded_metadata_allowance": {
+      "status": "one_execution_passed_grant_exhausted",
+      "reader_sha256": "055341bf0b81b55bafa00896e5c1a260ca4049a945b07172be5f8ef2efbb470d",
+      "scope": "exactly prepared manifest63bd18633830B + original2025 base-score manifest40e383423B; no stats, members, coaches, previous/state/source bodies, arrays, evaluator or full reader",
+      "successful_logical_bytes": 19017253,
+      "result": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-metadata-preflight-01.json",
+      "failure_policy": "preserve actual failure, no automatic replay",
+      "delivery": "skid terminal input written; provider acceptance unconfirmed",
+      "grants_heavy_window_or_reservation": false,
+      "result_bytes": 2016,
+      "result_sha256": "4d9c8a4da991517f5002d6a0057d1a545d152c75bd008942884a98f7ae63af81",
+      "independent_adjudication_sha256": "a3712f07927bbd5152f3977c68333189831ae4c50e899b4381280b57cc7fe9dd",
+      "actual_logical_bytes": 19017253,
+      "actual_wall_seconds": 0.17079004109837115,
+      "actual_peak_rss_bytes": 107036672,
+      "root_checks": "two local receipt bodies/hash and scope only; no repeated external access"
+    },
+    "local_source_materialization_allowance": {
+      "status": "completed_source_only_with_preserved_setup_failure_one_ordinary_read_tree_correction",
+      "scope": "existing source-only sparse producer03 materialization at exact c4cf/analysis4c905/app3242; local git/source/lock and existing version-only runtime check",
+      "excluded": "fixtures/captures/dependency-tree checkout, model imports, tests/build, external reads/stats/output creation, fit or numerical dispatch",
+      "fit_window_or_reservation": false,
+      "delivery": "skid terminal input written; provider acceptance unconfirmed"
+    },
+    "ready_packet": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-fit-preparation-03.json",
+    "ready_packet_bytes": 7828,
+    "ready_packet_sha256": "b27369bdac3dc2afbc00d7a5b7e67fd67f329271dd3839a12c5cc4d64671b233",
+    "source_pins_sha256": "a6e5b12662e741280ad54ad2ed2e1b790a35bac421ed41125166b0fedfbed5fa",
+    "source_pins_independent_review_sha256": "a8cde625ba4e8d6c2df26fa7db76a898c865bde841e5f0b93295184a813ac982",
+    "runtime_qualification": "one sys/importlib.metadata version-only check3.14.8/numpy2.5.3/scipy1.18.1; numerical/model imports, ABI validation and launch freshness not run",
+    "setup_failure_sha256": "e4181d1679187f332b7aa526b7c73ae5542510f273843ccc8eb9c756868db044",
+    "root_scheduling_packet_review": "composition_preparation independent LOCAL review: no blockers; hash/frame/source qualification and accepted predecessor agree; no grant, imports or external calls",
+    "historical_READY03_reservation": false,
+    "current_single_scope_assigned": true,
+    "subsequent_chain_reserved": false
+  },
+  "last_G20252026_score_boundary": {
+    "kind": "real-goalie-final-score-checked-boundary",
+    "status": "numerical_boundary_passed_next_composition_preparing",
+    "recorded_at_utc": "2026-11-12T12:22:24.230587+00:00",
+    "season": "20252026",
+    "score": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20252026/manifest.json",
+      "bytes": 346601,
+      "sha256": "de378b2ee8cce1075b86d3e883bd29b64fb74fa90356a86753b9e123acfe2e5a"
+    },
+    "producer": {
+      "git_commit": "841ce6500ce22eaab095ab011b951542ecf8354b",
+      "git_dirty": false,
+      "python_version": "3.14.8",
+      "numpy_version": "2.5.3",
+      "scipy_version": "1.18.1",
+      "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    },
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "native": {
+      "exit_code": 0,
+      "wall_seconds": 9017.77,
+      "max_resident_bytes": 20601995264,
+      "peak_footprint_bytes": 21802909968,
+      "log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/score-20252026-01.log",
+      "native_operator": "t-f9f0b50f2271131d",
+      "source": "explicit root-observed completion bound to pinned launch preflight"
+    },
+    "producer_resources": {
+      "wall_seconds": 9013.660002249992,
+      "input_read_wall_seconds": 5648.667849916033,
+      "projection_wall_seconds": 2823.690640375018,
+      "sensitivity_wall_seconds": 232.18798245792277,
+      "validation_wall_seconds": 288.6340477501508,
+      "peak_memory_bytes": 20601995264,
+      "output_bytes": 4012314620
+    },
+    "preflight": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-preflight.json",
+      "bytes": 14242,
+      "sha256": "8e5d8c81e313e7bd46106c0e0f97cb03c0ea3d65ed66003c7f0f0774233d4e84"
+    },
+    "metadata_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-metadata-review.json",
+      "bytes": 10365,
+      "sha256": "2580800efd1808ba0687de8a17d1d59f5463b857e2911f0699c5167775d0d20d"
+    },
+    "independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-independent-adjudication.json",
+      "bytes": 10175,
+      "sha256": "e09b7a01b1c9628187fe410ec48e14465a1f665e2752b664a574e32cc3c3c5f9"
+    },
+    "native_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-native.log",
+      "bytes": 905,
+      "sha256": "f9af41acd4eaffc22a52adc17eff30b2525e89c40983e86d5d27934cafff28e9"
+    },
+    "native_terminal_completion": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-native-terminal-completion.txt",
+      "bytes": 827,
+      "sha256": "5747dd7e67082d702b56f6ed5f7e431109b195a8bd21391c95a97ce6c4201d4d"
+    },
+    "metadata_native_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-metadata-review-native.log",
+      "bytes": 1240,
+      "sha256": "e8bcb04d7182caa21d98e9e67a2399c56d6546a29ddae0f0cd5219d07aa6a605"
+    },
+    "people": 123,
+    "row_counts": {
+      "analysis_map": 1353,
+      "execution_breakdown": 12177,
+      "goalie_danger": 2952,
+      "goalie_evidence_map": 17712,
+      "goalie_observed": 1476,
+      "goalie_result": 1353
+    },
+    "sensitivity": {
+      "status": "assessed",
+      "summary_threshold": 0.0001,
+      "pointwise_threshold": 1e-05,
+      "variants": [
+        {
+          "variant": "h-tight",
+          "status": "assessed",
+          "goalie_strength_pairs": 1353,
+          "actual_summaries": 62973,
+          "maximum_summary_probability_change": 1.3001512613464161e-06,
+          "summary_flagged": false,
+          "pointwise": {
+            "status": "assessed",
+            "reason": null,
+            "contexts": 256,
+            "origin_rows": 167936,
+            "compared_rows": {
+              "h": 335872,
+              "d": 335872,
+              "joint": 335872
+            },
+            "maximum_absolute_change": {
+              "h": 1.494934723789143e-06,
+              "d": 0.0,
+              "joint": 1.872242919864764e-07
+            },
+            "flagged": {
+              "h": false,
+              "d": false,
+              "joint": false
+            }
+          },
+          "reported_nonoverlapping_covered_all_expected_mass": {
+            "next_attempt_danger": {
+              "count": 9454,
+              "baseline_expected": 865.3880289079397,
+              "variant_expected": 865.3880289079397,
+              "change": 0.0
+            },
+            "reattempt": {
+              "count": 64833,
+              "baseline_expected": 9454.105465517585,
+              "variant_expected": 9454.105614129807,
+              "change": 0.0001486122222134345
+            }
+          }
+        },
+        {
+          "variant": "d-tight",
+          "status": "assessed",
+          "goalie_strength_pairs": 1353,
+          "actual_summaries": 62973,
+          "maximum_summary_probability_change": 1.657690516798649e-07,
+          "summary_flagged": false,
+          "pointwise": {
+            "status": "assessed",
+            "reason": null,
+            "contexts": 256,
+            "origin_rows": 167936,
+            "compared_rows": {
+              "h": 335872,
+              "d": 335872,
+              "joint": 335872
+            },
+            "maximum_absolute_change": {
+              "h": 0.0,
+              "d": 4.2970558755683896e-07,
+              "joint": 4.576164968489449e-08
+            },
+            "flagged": {
+              "h": false,
+              "d": false,
+              "joint": false
+            }
+          },
+          "reported_nonoverlapping_covered_all_expected_mass": {
+            "next_attempt_danger": {
+              "count": 9454,
+              "baseline_expected": 865.3880289079397,
+              "variant_expected": 865.3880262058392,
+              "change": -2.702100862256307e-06
+            },
+            "reattempt": {
+              "count": 64833,
+              "baseline_expected": 9454.105465517585,
+              "variant_expected": 9454.105465517585,
+              "change": 0.0
+            }
+          }
+        },
+        {
+          "variant": "h+d-tight",
+          "status": "assessed",
+          "goalie_strength_pairs": 1353,
+          "actual_summaries": 62973,
+          "maximum_summary_probability_change": 1.3001512613464161e-06,
+          "summary_flagged": false,
+          "pointwise": {
+            "status": "assessed",
+            "reason": null,
+            "contexts": 256,
+            "origin_rows": 167936,
+            "compared_rows": {
+              "h": 335872,
+              "d": 335872,
+              "joint": 335872
+            },
+            "maximum_absolute_change": {
+              "h": 1.494934723789143e-06,
+              "d": 4.2970558755683896e-07,
+              "joint": 1.527731518166653e-07
+            },
+            "flagged": {
+              "h": false,
+              "d": false,
+              "joint": false
+            }
+          },
+          "reported_nonoverlapping_covered_all_expected_mass": {
+            "next_attempt_danger": {
+              "count": 9454,
+              "baseline_expected": 865.3880289079397,
+              "variant_expected": 865.3880262058392,
+              "change": -2.702100862256307e-06
+            },
+            "reattempt": {
+              "count": 64833,
+              "baseline_expected": 9454.105465517585,
+              "variant_expected": 9454.105614129807,
+              "change": 0.0001486122222134345
+            }
+          }
+        }
+      ]
+    },
+    "head_target_summary": {
+      "h": {
+        "included": 64833,
+        "excluded": 88921,
+        "target_mass": 9479.0,
+        "exclusion_reason_counts": {
+          "requires_saved_attempt": 88778,
+          "immediate_reattempt_label_unavailable": 88801,
+          "physical_attempt_not_supported_ordinary": 1362,
+          "outcome_unavailable": 1329,
+          "goalie_population_unavailable_or_outside": 2314,
+          "shooter_unavailable": 677,
+          "opposing_goalie_membership_unavailable": 2314,
+          "shot_type_unavailable": 998,
+          "membership_unavailable_or_outside_population": 1001,
+          "location_or_frame_unavailable": 799
+        }
+      },
+      "d": {
+        "included": 9454,
+        "excluded": 144300,
+        "target_mass": 865.6337367063064,
+        "exclusion_reason_counts": {
+          "focal_occurrence_population_unavailable": 88921,
+          "requires_positive_recorded_reattempt": 55354,
+          "successor_execution_score_unavailable": 25
+        }
+      }
+    },
+    "raw_stage_counts": {
+      "source_included": 151383,
+      "paired_unblocked": 110897,
+      "source_only": 2,
+      "numerical_only": 0,
+      "affiliation_gaps": 0
+    },
+    "counter_limit": "raw source-only and stage counters retain their meanings; no new reason/count-addition assumptions or source search",
+    "numerical_chain": {
+      "completed_baseline_heads": 10,
+      "accepted_annual_scores": 5,
+      "prescribed_final_probes": 2,
+      "accuracy": "unknown",
+      "earlier_annual_sensitivity": "unassessed",
+      "scientific_admission": false
+    },
+    "metadata_scope": {
+      "current_external_json_documents": 4,
+      "current_external_json_bytes": 121412732,
+      "local_receipt_documents": 3,
+      "local_receipt_bytes": 39540,
+      "native_wall_seconds": 1.43,
+      "native_peak_resident_bytes": 502759424,
+      "native_peak_footprint_bytes": 492995376,
+      "admission_completed_external_bytes": 347506,
+      "manifest_overlap_bytes": 346601,
+      "full_reader_or_array_or_model_replay": false
+    },
+    "controller_failures": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-admission-open-failure-01.json",
+        "bytes": 2115,
+        "sha256": "d41f764e6606c1b54c12ad4de70b0e11c1cc0a4042f8e206fa5614de4b4ad7a7"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-admission-open-failure-02.json",
+        "bytes": 1335,
+        "sha256": "bc29ae56a9bcf9d529252493f0cc1c3906333384d1e40387c404d341cec6e014"
+      }
+    ],
+    "failure_limit": "blocked direct-tool opens returned no complete body; physical IO/cause unknown; native terminal read succeeded; no interpreter causal claim and no numerical retry",
+    "score_scope_closed": true,
+    "owned_heavy_processes_remaining": false,
+    "next_scope": {
+      "owner": "v1-07",
+      "scope": "ONLY one G-first complete exchange composition on exact8b32, five accepted G scores, canonical complete validation and independent nonowned preservation; final manifest and goalie-composition.json required",
+      "status": "source_preparation_not_dispatched",
+      "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+      "complete_parent_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+      "required": "fresh actual source/runtime/selection/output/log frame before one dispatch; source and HEAD frozen through composer exit",
+      "tradeoff": "delays final ST fit by an unmeasured composition window; supplies actual complete G predecessor and producer receipt for deliberate serial ST admission; no intermediate sqlite/startup",
+      "ST_final": "READYb273 held/unreserved/not_run",
+      "further_chain_reserved": false,
+      "fit_or_rescore_or_converter_or_publication_or_activation": false
+    },
+    "complete_publication_parent_changed": false,
+    "activation": false
+  },
+  "historical_pre_final_fit_instruction": "G final20252026 fit after the checked explicit ST20242025 return; no further chain reserved",
+  "ST_raw_method_preservation_development": {
+    "status": "ST_owned_source_fix_and_focused_controls_independently_reviewed_pass_real_acceptance_pending",
+    "problem": "ST canonical method reserialization preserves definitions but does not guarantee inherited per-id raw-line identity",
+    "finding_scope": "local source review only; no actual G-output corruption or byte difference asserted",
+    "allowed": "minimal ST DEV sorted raw-line merge and tiny independent literal noncanonical-line/interleaving-ID/collision controls; existing primitives; no generic framework",
+    "preserve": "EV/nonspatial/people/source/support paths; numerical provider/state/recipe/CLI/shared validators; frozen STproducer03 and active Gsource4aa untouched",
+    "excluded": "HDD/activeoutput read/stat, models/design/arrays, fits/rescores, bulk fixture/build, real fullreader or numerical artifact mutation",
+    "actual_G_manifest_receipt_pins": "complete7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12 and producerreceipt037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28 are now accepted with7b11/549c/a7 proofs; ST DEV admission remains pending, source03 untouched",
+    "source_patch_or_tests_run": "owner red4cases/1intendedrawlinefailure/0errors then green4pass/0errors, one each; no real/fullreader/model/HDD/runtime acceptance",
+    "fit_window_or_chain_reservation": false,
+    "source_commit": "d87af3ab35f546bcf15dc381436c50a19cb2ec06",
+    "analysis_tree": "01680dcc2a997bfc3270ebecd3ae39b7c10f10fc",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "patch_sha256": "97484ec8a760aec52d009b3d3cd645b83d69c1c16890184246e686bf1ca053c9",
+    "controls_sha256": "bef6c2dc4e22059eb8aaaa9c2dab5ffea81b43ead2f675bc2eaf79c3111c73b6",
+    "peer_review_sha256": "01325b20ee91684364a231b14afcb24ea1a8cb36ea51668170b66a6b53d9da2f",
+    "source_proof_sha256": "5852d4b4c9dc1b8b523bae4765c93c1d93d0df36b5f492037c264f418cdb68f1",
+    "root_independent_review": "composition_preparation LOCAL: no blockers; source and 4controls scopedactualwriter/hash/count/rename; fullreader/providersstubbed; no rerun or Gadoption",
+    "frozen03_adopted": false,
+    "G_adopted": false
+  },
+  "last_G_complete_composition_boundary": {
+    "kind": "goalie-first-complete-exchange-checked-release",
+    "status": "complete_exchange_accepted_next_single_ST_annual_assigned_not_dispatched",
+    "recorded_at_utc": "2026-11-12T14:01:08.815610+00:00",
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/manifest.json",
+      "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12",
+      "bytes": 23317
+    },
+    "producer_receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-composition.json",
+      "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28",
+      "bytes": 54924
+    },
+    "source_results": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+      "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee"
+    },
+    "selection": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores-selection.json",
+      "sha256": "2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed"
+    },
+    "producer": {
+      "git_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+      "git_dirty": false,
+      "python_version": "3.14.8"
+    },
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "native": {
+      "operator": "t-f9f0b50f2271131d",
+      "exit_code": 0,
+      "processes_closed": true,
+      "wall_seconds": 4416.4,
+      "user_seconds": 4021.06,
+      "system_seconds": 21.57,
+      "peak_resident_bytes": 3580559360,
+      "peak_footprint_bytes": 3559312360
+    },
+    "producer_resources": {
+      "wall_seconds": 4416.0747326251585,
+      "peak_memory_bytes": 3580559360,
+      "strict_read_wall_seconds": 1578.2863287909422,
+      "output_member_bytes": 23961214711
+    },
+    "actual_launch": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-actual-launch.json",
+      "bytes": 4035,
+      "sha256": "a3ef330b4e3caa5d54cdb43c5ecb00d483c7d570acb565c264035412d2e48241"
+    },
+    "preflight": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-preflight.json",
+      "bytes": 6353,
+      "sha256": "bda92c0ebe2f27040e360eff8138ce0960dc9af0f89e29381cd22bfdd2b8ecaf"
+    },
+    "launch_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-launch-independent-review.json",
+      "bytes": 4528,
+      "sha256": "e4e769ff6b4cb0098539a2f8e554b9c0e775a9503ac9da75943f6dc07c0bdc5b"
+    },
+    "admission": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-native-admission.json",
+      "bytes": 2612,
+      "sha256": "e3b344339da1842f4e675fe522a87753aea240758ac34aca00334a771618eb1b"
+    },
+    "nonowned_preservation": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-nonowned-preservation.json",
+      "bytes": 8547,
+      "sha256": "7b1116c94384422ccc0b500a7cccd847a266d4bc5e4a1d5e641d735509e63058"
+    },
+    "independent_adjudication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-independent-adjudication.json",
+      "bytes": 8769,
+      "sha256": "549c1c959443e130003451a3f5ab672d248bdb9f225afe81f093ae7a38b02391"
+    },
+    "preservation_summary": {
+      "nonowned_family_entries": 27,
+      "inherited_member_descriptors": 59,
+      "owned_member_descriptors": 20,
+      "inherited_catalog_raw_lines": 51,
+      "sources": [
+        21,
+        24
+      ],
+      "methods": [
+        12,
+        15
+      ],
+      "supports": [
+        18,
+        18
+      ],
+      "people_observed_prepared_header_annual_base_bindings_exact": true
+    },
+    "canonical_scope": "all five accepted goalie scores read through current implementation including preserved first score; complete parent and staged output strict validation; final receipt after rename; no extra independent full reader",
+    "bounded_review_scope": {
+      "admission_external_bodies": 3,
+      "admission_logical_bytes": 79132,
+      "preservation_json_bodies": 4,
+      "preservation_json_bytes": 99377,
+      "catalog_streams": 6,
+      "catalog_bytes": 201973,
+      "preservation_logical_bytes": 301350,
+      "overlap_header_bytes": 78241,
+      "preservation_native_wall_seconds": 0.15,
+      "preservation_native_peak_rss_bytes": 24788992,
+      "admission_native_wall_seconds": 0.02,
+      "admission_native_peak_rss_bytes": 19038208
+    },
+    "accepted_complete_predecessor_promoted": true,
+    "scientific_admission": false,
+    "publication_or_runtime_or_browser_acceptance": false,
+    "activation": false,
+    "next_scope": {
+      "owner": "v1-09",
+      "scope": "ONLY ONE final20252026 ST annual, three baseline heads plus at most one prescribed continuation per completed head (max3), no joint fit or basis import/first-year replay/base rerun/rescore",
+      "status": "assigned_preflight_not_run_dispatch_not_run",
+      "ready_packet": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-fit-preparation-03.json",
+        "bytes": 7828,
+        "sha256": "b27369bdac3dc2afbc00d7a5b7e67fd67f329271dd3839a12c5cc4d64671b233"
+      },
+      "source_commit": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+      "analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+      "app_tree_pin": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+      "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-03",
+      "script_path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/final-real-fit-held-01.sh",
+      "script_sha256": "d95df4998c2d5c23dbe86534b5be2d5a31aa7b194fd706dc8926e90edd2a2bd3",
+      "previous_manifest_sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c",
+      "original_base_score_manifest_sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-02/real/states/20252026",
+      "child_threads": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 only; G six-unset unchanged",
+      "preconditions": "fresh actual source/clean/script/runtime/module ownership/mount/run/output/log/exit checks and one explicit owner confirmation before one dispatch; no new preparation/input-header/member traversal",
+      "return_condition": "actual native exit/cost/payload evidence, source-reviewed bounded saved-state/probe adjudication and explicit checked return; preserve and attribute any failure, no automatic replay",
+      "cost": "unknown; no forecast from earlier baselines or G composition",
+      "source03_unchanged": true,
+      "scope_limits": "no other annual, G fit/score, converter, composition/publication/startup/activation or chain reservation"
+    },
+    "shared_path": "first family waits for the one final ST numerical boundary, then actual timing/readiness is adjudicated; preferred serial complete successor then one shared ordinary inactive publication/normal strict startup remains conditional, not a later dispatch grant",
+    "ST_admission_development": "LOCAL accepted cached G manifest/receipt + root preservation/adjudication may now pin exact7a43/0376/2964 contract in DEV; hard replace v18-specific admission, preserve all earlier families/rows/catalog bytes/bindings; no runtime verdict reader/fuzzy ancestor/hash-only replacement/provider import/source03 mutation",
+    "retired_v18_not_contacted": true
+  },
+  "accepted_complete_predecessor": {
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+      "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+    },
+    "producer_receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/special-teams-composition.json",
+      "sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654"
+    },
+    "source": "1431/analysis923d/app3242",
+    "release": "29cd1cfe50446e74b1ed7b7f88758f314a664c05d28e84a90089c80477dc2276",
+    "adjudication": "d3ca0425727a8d2928a0d69c5d703f6149a4df7fe47c0f4b584773372970c5b9",
+    "scope": "COMPLETE EXCHANGE only; scientific and application acceptance separate"
+  },
+  "ST_G_parent_admission_development": {
+    "status": "source_hardcut_and_focused_cached_controls_independently_reviewed_real_consumption_pending",
+    "source_commit": "3af47ea36afd2405afcd8c2308abe49a7210627e",
+    "analysis_tree": "7a66d18af465d85dda6e0555ebee0ce6c13acdf0",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "patch_sha256": "b6fa1681924c960f8675ae06011d106c6eabd59010f175b07ca9983679be1b8e",
+    "cutover_facts_sha256": "56ddf5ff7641cbdb452039d3c3863c4ada0a684a9245a1c0ed45b5a02f506db8",
+    "source_proof_sha256": "0d6aba184e0730bc05d8c3c30528dc840d427f7837e04f4cba6690ae55c7b540",
+    "peer_review_sha256": "95ae04740c941c4902f18f84d446434824d30e8a01a11eab2ced5be2ddcdb921",
+    "source_change": "onlySTspatial_composition constants+_accepted_st_source39+/27-; closedpublicreceipt/manifest7a43+0376hardreplacev18gate",
+    "controls": "one targetRED6/1intendedfailure/0errors then unchangeddriverGREEN6/0errors; cachedtwoheadersonly/canonicalreaderstub",
+    "root_review": "composition_preparation LOCALsource/patch/cachedheaders: no blockers; no replay/import/runtime/OS/HDD/source03orGmutation",
+    "actual_complete_parent": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12",
+    "producer_receipt": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28",
+    "real_consumer_or_composition_run": false,
+    "source03_or_G_adopted": false,
+    "later_window_or_chain_granted": false
+  },
+  "last_ST_final_annual_boundary": {
+    "status": "checked_release_passed",
+    "release_path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-boundary-release-01.json",
+    "release_sha256": "18913f53685f7344bbb1a3bef8cf3452b620ec3aa707356aad590a1e52719b4a",
+    "independent_adjudication_sha256": "519ee932aafa530c5e821b7d214e91da79f983d40912880b742bcdf173c5e049",
+    "manifest_sha256": "784c045cba6d591d0da736a90c13f71823f10fc933d81cd82cb1611ce90e5e13",
+    "manifest_bytes": 370546,
+    "native_exit_code": 0,
+    "native_wall_seconds": 7084.96,
+    "native_peak_rss_bytes": 12182257664,
+    "native_peak_footprint_bytes": 11566212600,
+    "declared_payload_files": 38,
+    "payload_bytes": 2407363764,
+    "completed_baseline_heads_total": 15,
+    "final_continuations_attempted": 3,
+    "diagnostics": "volume/jointexceeded; shapequalitywithin_budget; numerical_movement_exceeds_diagnostic_flags retained, notsuccessgate",
+    "accuracy": "unknown",
+    "earlier_annual_sensitivity": "unassessed",
+    "root_review": "final_fit_review LOCAL: no blockers; twoLOCALreceipts and cached bindings only, no numerical/data/fullreader replay",
+    "numerical_only_not_complete_parent": true,
+    "prior_launch_record": {
+      "owner": "v1-09",
+      "status": "owner_reported_running_not_accepted",
+      "scope": "ONLY ONE final20252026 ST annual, three baseline heads plus at most one prescribed continuation per completed head (max3), no joint fit or basis import/first-year replay/base rerun/rescore",
+      "ready_packet_sha256": "b27369bdac3dc2afbc00d7a5b7e67fd67f329271dd3839a12c5cc4d64671b233",
+      "source_head": "c4cfb7d90c39e1fcefb6823fa9dc0e230f8ce8e5",
+      "analysis_tree": "4c905952a683aaab7ef4cecfff3bc40292d64afe",
+      "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-03",
+      "script_sha256": "d95df4998c2d5c23dbe86534b5be2d5a31aa7b194fd706dc8926e90edd2a2bd3",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-02/real/states/20252026",
+      "dispatch": true,
+      "source03_unchanged": true,
+      "return_condition": "actual native exit/cost/payload evidence, source-reviewed bounded saved-state/probe adjudication and explicit checked return; preserve and attribute any failure, no automatic replay",
+      "no_future_chain_reserved": true,
+      "owner_acceptance": "v1-09 explicitly accepts ONLY final20252026 annual; no actual launch yet",
+      "native_python_pid": 6883,
+      "native_time_pid": 6882,
+      "native_shell_pid": 6832,
+      "started_at_utc": "2026-11-12T14:16:38Z",
+      "actual_launch": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-actual-launch-01.json",
+        "bytes": 8013,
+        "sha256": "44c83575fc6e81ea9154996a40f2da7834906815dfa54c2dff5bb257569d9bee"
+      },
+      "launch_preflight": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-launch-preflight-01.json",
+        "bytes": 4099,
+        "sha256": "cab72e2b266d419da3a29c8006d58457b48a674cc563326cc034df6ccc751d9e"
+      },
+      "root_review_scope": "two LOCAL receipt bodies/hash only; actual process/argv/cwd/env observations owner-sourced, no OS/HDD/runtime query",
+      "preflight_resources": {
+        "native_wall_seconds": 14.29,
+        "peak_rss_bytes": 73105408,
+        "scope": "source/runtime/ABI-import/module ownership/mount/freshness; no numerical input body/header/member scan"
+      },
+      "native_cost": "unknown; no forecast",
+      "root_heavy_work": "held through ST checked return; GsourceHEAD4aa/fee5/app3242 unchanged",
+      "independent_launch_review": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/final-real-launch-independent-review-01.json",
+        "bytes": 3835,
+        "sha256": "c257d5273ca861227f011404ca0d9e643f9d6dfc78a07195419adb471603e0eb",
+        "scope": "peer LOCAL cached frame/source/argv/cwd/env consistency only; no repeated OS/runtime/HDD/source read; no numerical acceptance"
+      },
+      "post_exit_audit_proposal": {
+        "status": "independent_source_document_cost_review_passed_not_run",
+        "external_documents": 21,
+        "document_groups": "current9 + exactpreviousmanifest/3heads4 + baseline/3attempts/3comparisons/joint8",
+        "local_binding": "single LOCAL actual44c launch frame directly, no new adapter",
+        "collector": "native log/exit/currentmanifest plus declared finite<=38currentpayload stats only",
+        "overlap": "collector and audit manifest overlap to be explicit",
+        "excluded": "second canonical reader, NPZ/design/source/evaluator scan",
+        "execution_granted_by_this_record": true,
+        "plan_sha256": "87c7dfcfbd954e9388d99d7d06e3f38e05231c2913936f7d35846771538c902b",
+        "collector_sha256": "d3cd1b5ab7b990c72ff8a2f766da97f4f56c5a5f683f8f693da4ac1afe78b408",
+        "peer_source_review_sha256": "99c59db1afbb96eee5628931721663c7e8b1eec62e65292fd185896c4f91bc9e",
+        "root_source_review": "composition_preparation LOCAL: no blockers; scoped21docs/38stats, unknown/error propagation, truthful diagnostics; no actualoutputaccess or invocation",
+        "execution_gate": "only actualnativeclosure thenONEcollector; auditonlycollectorcontrol0+numericnative0+baselinecompleteness+payloadreconciliation; failureunknownsretained/noautoreplay",
+        "execution_scope": "bounded conditional post-exit collector/audit within the already assigned annual only; no later window"
+      },
+      "bounded_operator_delegation": {
+        "owner": "v1-09 unchanged",
+        "scope": "ONLY existing6883/6882/6832 OSclosure then approved onecollector/conditionaloneee0audit/LOCALadjudication/checkedrelease",
+        "new_heavy_job_or_owner_or_window": false,
+        "while_active": "no HDD read/stat, retry/signal/sourceedit",
+        "stop_hold_steering": "overrides postreads",
+        "later_scope_granted": false
+      }
+    }
+  },
+  "ST_root_producer_receipt_gap": {
+    "status": "source_gap_closed_at1431_launch_and_proof_packet_pending",
+    "previous_candidate": "3af/analysis7a66 lackscompletedrootreceipt",
+    "evidence": "perdisplay3receipts+composition-resources afterrename do not bindfullroot output/parent/selection/all5",
+    "scope": "oneSTproducerwrite aftercanonicalreadrename, existingprimitives/validatedobjects; focusedLOCALproof",
+    "source_review": "root reviewer report: independent source-only clearance, no new durable review receipt",
+    "patch_sha256": "f0261ad947a708aa307cb56cf091ea12d9bb1296b4b7fb3e17d074c5f6d86de9",
+    "target_source_sha256": "93495151cb15cee85f583d0fe10b208d8b5e30afeedfc676a7e14a4f3f03bcbe",
+    "actual_successor_commit": "1431d80e905fe14f2af900a896fd5a3ef5c730e6",
+    "launch_or_proof_packet": "ba307230a913e4b6d0a478360ca179bdc39e9285453f67a2a5b27e2807a5a3b9; source reviewed and next step only freshpreflight",
+    "actual_source_or_read_dispatch": false,
+    "frozen03_and_G_unchanged": true,
+    "no_new_heavy_window_or_chain": true,
+    "actual_analysis_tree": "923d95b5e6d98ea056f4d6111979c03a0de81e91",
+    "source_candidate_pin_cleared": true
+  },
+  "drive_disconnect_hold_20261112": {
+    "status": "user_drive_disconnect_hold_all_external_work",
+    "requested_at_utc": "2026-11-12T17:11:31.729502+00:00",
+    "root_OS_process_check": "88892/88891/6883/6882/6832 all absent; no root signal sent; their earlier numeric0/native completion receipts remain separate evidence",
+    "signals_sent_by_root": 0,
+    "root_owned_heavy_or_external_reader": false,
+    "ST_composition_dispatched": false,
+    "source_receipt_patch": "LOCALproposed13linesf026target934951; controlsreportedpass but rootsource/producerpin/pref/dispatchclearance pending",
+    "accepted_G_complete": "7a43/0376",
+    "accepted_ST_final_numerical": "784c; notcomposed/public",
+    "eject_owner": "v1-09 sole normal-eject owner delegated; freshOSidentity/handlecheck, noforce/repeat/stalenumber",
+    "eject_status": "not_yet_observed_by_root",
+    "root_external_data_or_metadata_calls_after_stop": 0,
+    "all_new_external_commands": "HELD until reconnect and explicitcoordination; no retry/parentchange/activation"
+  },
+  "drive_disconnect_eject_confirmation_20261112": {
+    "status": "normal_eject_confirmed_safe_to_disconnect_all_external_work_held",
+    "recorded_at_utc": "2026-11-12T17:13:24.876973+00:00",
+    "owner": "v1-09 sole normal-eject owner",
+    "device_identity": "Expansion disk6s1/APFSdisk6 physicalstore disk5s2 -> externalUSBwhole disk5, SeagateExpansionHDD; freshly checked by owner",
+    "command": "/usr/sbin/diskutil eject /dev/disk5",
+    "command_invocations": 1,
+    "exit_code": 0,
+    "stdout": "Disk /dev/disk5 ejected",
+    "mount_after": "no Expansion entry in OS mount table",
+    "use_before": "lsof filesystem check exit1/empty/no diagnostics, known G/ST native pids absent",
+    "root_observation": "bounded skid read of owner terminal showed actual eject output; peer LOCAL receipt hash matched",
+    "force": false,
+    "signals_sent": false,
+    "artifact_data_or_metadata_reads_after_stop": false,
+    "peer_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-user-stop-normal-eject-01.json",
+      "bytes": 2052,
+      "sha256": "233c51e8ea0358691b4e44802b4b0585db76831fa9547b0acd366a18de7bd215"
+    },
+    "acceptance_limit": "eject is not numerical/application acceptance; accepted G7a43/0376 and STnumerical784c retain their prior checked evidence; STcomposer never dispatched",
+    "next_step": "only after user resume/reconnect: review proposedLOCAL13line rootreceipt patchf026 target934951 and newsource/argv/proofpacket; no actualcomposersource/preflight/selection/launch clearance yet"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "kind": "shared-publication-checked-boundary-release",
+  "status": "accepted_inactive_publication_only",
+  "recorded_at_utc": "2026-11-13T11:37:56.371468+00:00",
+  "owner": "v1-07 root",
+  "native_exit": 0,
+  "native_chain_closed_observed_at_utc": "2026-11-13T11:28:39Z",
+  "closed_pids": [
+    57287,
+    57089,
+    57088,
+    57087
+  ],
+  "collector_invocations": 1,
+  "collector_source_sha256": "fa88cc5775f523e218a9b17a7808216a5f04681d8d1ea4da565101f2d4fefac6",
+  "metadata": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-publication-boundary.json",
+    "bytes": 14539,
+    "sha256": "7ef8fc5e24132029a7a850ec49663de28e93f3ec617e00bc977488f88bdccf93"
+  },
+  "independent_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-publication-independent-adjudication.json",
+    "bytes": 10410,
+    "sha256": "7dc62f019629e9761d46018976168848074de66f3a7edffdcd2018f2618692ba"
+  },
+  "candidate": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite",
+    "sha256": "17241928149f70bbd353815a4ec8feab39210d570205b494ad6c2af8cfb9a612",
+    "bytes": 31261470720,
+    "digest_status": "reported by ordinary publisher; not independently rehashed"
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "source_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "native_cost": {
+    "wall_seconds": 16360.66,
+    "user_seconds": 13160.36,
+    "system_seconds": 887.02,
+    "peak_rss_bytes": 3330129920,
+    "peak_footprint_bytes": 3316485024,
+    "scope": "native whole time command; no phase allocation inferred from parent/child start times",
+    "device_physical_bytes": null,
+    "block_operation_counters": "not converted to bytes"
+  },
+  "collector_external_returned_body_bytes": 40297,
+  "limits": [
+    "database digest is publisher reported; no independent DB rehash/full reader or annual-body reread",
+    "publication only; startup/api/browser/science/activation are not passed"
+  ],
+  "next_command": "unassigned until separate fresh startup admission"
+}

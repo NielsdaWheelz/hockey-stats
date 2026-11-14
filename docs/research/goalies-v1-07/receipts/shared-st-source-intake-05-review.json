@@ -1,0 +1,48 @@
+{
+  "disposition": "passed_held_source_only_intake",
+  "scope": "only the two named local metadata receipts were read and hashed; no source resweep, controller creation, import, test, build, OS/runtime query, live call, database or external read/stat",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-matrix-source-preparation-05.json",
+      "bytes": 27152,
+      "sha256": "09ffeb5493b5d102ee18a40b3dfbf3d4376aad80a2acc2948b50931d2ae7f6f4"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-matrix-source-review-05.json",
+      "bytes": 3492,
+      "sha256": "8b9a8362219d8de93fe8ab18c5a14edb309a6f1f0fce4412da08d90e3bd0bc39"
+    }
+  ],
+  "correspondence": {
+    "serving_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+    "build_receipt_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+    "node_pid": 89887,
+    "base_url": "http://127.0.0.1:3407",
+    "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+    "publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "results_manifest_sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+    "producer_receipt_sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654",
+    "meaning": "declared metadata matches the prospective G target; the ST preparation checkout remains distinct and supplies no serving-source adoption or new runtime acceptance"
+  },
+  "interfaces_and_cost": {
+    "api": "16 public JSONL streams,220357 rows; about10.17GB attributed to13 streams plus3 unmeasured catalogs; full2784 skater-year scalar parity/25056 strength rows/111360 datums,27 cohort and120 baseline paired-map requests, at most860 HTTP requests; bounded map/evidence/profile coverage is not exhaustive actor parity",
+    "typed": "at most85 HTTP requests,40 metric compositions and120 annual CSV rows through the admitted public owners",
+    "browser": "101 actual downloads and85 identified rasters require independent pixels across normal,narrow320 and true native200, including label ends; no G controller guard adoption is inferred",
+    "accounting": "row, HTTP, download and raster arithmetic reconcile; actual time/physical IO/aggregate Chrome RSS remain unknown; no ETA or window reservation follows"
+  },
+  "held_boundaries": {
+    "target": "closed nine-key target NOT created; startup_release path/hash missing; same explicit target digest required across all stages",
+    "readiness": "listening/outcome unknown; runtime_ready false and dispatch_authorized false; checked G strict release/current identity, label green and fullbrowser04 remain prerequisites to a separate ST handoff",
+    "admission": "each future stage needs exact source/runtime/interpreter/module, input digest, freshness and one owned launch-frame admission; no chaining or automatic replay",
+    "post_exit": "collector implementation/review is UNPREPARED; declared per-stage body caps sum20971536 bytes and authorize no read. actual command closure/exit must precede a separately reviewed capture; stops, partial/missing/overflow failures remain visible",
+    "completion": "independent actual pixels, isolated rollback, protected-primary preservation and owned temporary cleanup/final delivery remain separately owed"
+  },
+  "retained_history": "overbroad discovery and failed local-receipt access records remain attributed with unknown physical IO; neither was reopened or repeated",
+  "implementation_review": "the existing independent review reports unchanged eight source identities and no findings; this intake does not repeat or extend that implementation clearance",
+  "material_intake_findings": [],
+  "runtime_ready": false,
+  "dispatch_authorized": false,
+  "verdict_limit": "source-only intake approval grants no preflight, external pass, API, browser, collector, runtime, scientific, activation or future-window authority"
+}

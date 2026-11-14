@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "kind": "goalie-composition-nonowned-preservation-adjudication",
+  "status": "passed",
+  "native_exit_provided": 0,
+  "source_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+    "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee"
+  },
+  "output": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/manifest.json",
+    "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12"
+  },
+  "producer_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-composition.json",
+    "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores-selection.json",
+    "sha256": "2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed"
+  },
+  "expected_clean_producer_head": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "output_producer": {
+    "git_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "selected_scores": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20212022/manifest.json",
+      "sha256": "086a70c4ca0b41329d6879ea83e9d61a02787f7885f5fee89afb2dee1fb7948f"
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20222023/manifest.json",
+      "sha256": "15d959531ea2561660eb65151a19a007506fffff102b12f96aadc82000091253"
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20232024/manifest.json",
+      "sha256": "5c75b215c50d3271ab2f4df4bc9d2dca39c26b846977dde251b0d0c39b6a25aa"
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20242025/manifest.json",
+      "sha256": "c398c0cb69549e9832cc3e4ce0b330b883a1926a9ca6a9fab6e04fe7237882a2"
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20252026/manifest.json",
+      "sha256": "de378b2ee8cce1075b86d3e883bd29b64fb74fa90356a86753b9e123acfe2e5a"
+    }
+  ],
+  "preserved": {
+    "non_goalie_families": 27,
+    "inherited_member_descriptors": 59,
+    "people_descriptor_exact": true,
+    "nonowned_header_and_observed_prepared_bindings_exact": true,
+    "catalogs": [
+      {
+        "catalog": "sources",
+        "parent_rows": 21,
+        "output_rows": 24,
+        "added_ids": [
+          "goalie-source-v1-07-20232024",
+          "goalie-source-v1-07-20242025",
+          "goalie-source-v1-07-20252026"
+        ],
+        "inherited_raw_lines_exact": true,
+        "source_member": {
+          "path": "sources.jsonl",
+          "sha256": "a6a71595226d720ccc1e604454cfdbeadf74445d09075f0c159b96f7bf32c3de",
+          "rows": 21
+        },
+        "output_member": {
+          "path": "goalie-sources.jsonl",
+          "sha256": "f6ce1a2ec0a549ed87511418d5ba11a6e7cb30152f2b4f0af30b3e4763541df1",
+          "rows": 24
+        }
+      },
+      {
+        "catalog": "methods",
+        "parent_rows": 12,
+        "output_rows": 15,
+        "added_ids": [
+          "goalie-v1-07-20232024",
+          "goalie-v1-07-20242025",
+          "goalie-v1-07-20252026"
+        ],
+        "inherited_raw_lines_exact": true,
+        "source_member": {
+          "path": "methods.jsonl",
+          "sha256": "6246062a05a4a4b27b3d59eec5087f737ab2d8bc0cc94ce56d369af186631da2",
+          "rows": 12
+        },
+        "output_member": {
+          "path": "goalie-methods.jsonl",
+          "sha256": "ddb21e721ba0d8e078fb0d2c2d037debdee15bcba285dbc77e5ee582838f86ed",
+          "rows": 15
+        }
+      },
+      {
+        "catalog": "supports",
+        "parent_rows": 18,
+        "output_rows": 18,
+        "added_ids": [],
+        "inherited_raw_lines_exact": true,
+        "source_member": {
+          "path": "supports.jsonl",
+          "sha256": "fbcd7ac8bde28d6a3a6c17a6c1892cec0d419e2e92c072ee1c3f8072bf7bcc79",
+          "rows": 18
+        },
+        "output_member": {
+          "path": "supports.jsonl",
+          "sha256": "fbcd7ac8bde28d6a3a6c17a6c1892cec0d419e2e92c072ee1c3f8072bf7bcc79",
+          "rows": 18
+        }
+      }
+    ]
+  },
+  "owned_member_descriptors": 20,
+  "reads": [
+    {
+      "role": "source parent manifest",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+      "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+      "bytes": 19787
+    },
+    {
+      "role": "output manifest",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/manifest.json",
+      "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12",
+      "bytes": 23317
+    },
+    {
+      "role": "completed producer receipt",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-composition.json",
+      "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28",
+      "bytes": 54924
+    },
+    {
+      "role": "five-score selection",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores-selection.json",
+      "sha256": "2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed",
+      "bytes": 1349
+    },
+    {
+      "role": "output sources",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-sources.jsonl",
+      "sha256": "f6ce1a2ec0a549ed87511418d5ba11a6e7cb30152f2b4f0af30b3e4763541df1",
+      "bytes": 27006,
+      "rows": 24
+    },
+    {
+      "role": "source sources",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/sources.jsonl",
+      "sha256": "a6a71595226d720ccc1e604454cfdbeadf74445d09075f0c159b96f7bf32c3de",
+      "bytes": 22464,
+      "rows": 21
+    },
+    {
+      "role": "output methods",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-methods.jsonl",
+      "sha256": "ddb21e721ba0d8e078fb0d2c2d037debdee15bcba285dbc77e5ee582838f86ed",
+      "bytes": 84495,
+      "rows": 15
+    },
+    {
+      "role": "source methods",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/methods.jsonl",
+      "sha256": "6246062a05a4a4b27b3d59eec5087f737ab2d8bc0cc94ce56d369af186631da2",
+      "bytes": 54514,
+      "rows": 12
+    },
+    {
+      "role": "output supports",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/supports.jsonl",
+      "sha256": "fbcd7ac8bde28d6a3a6c17a6c1892cec0d419e2e92c072ee1c3f8072bf7bcc79",
+      "bytes": 6747,
+      "rows": 18
+    },
+    {
+      "role": "source supports",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/supports.jsonl",
+      "sha256": "fbcd7ac8bde28d6a3a6c17a6c1892cec0d419e2e92c072ee1c3f8072bf7bcc79",
+      "bytes": 6747,
+      "rows": 18
+    }
+  ],
+  "resources": {
+    "wall_seconds": 0.1228217501193285,
+    "peak_rss_bytes": 24772608,
+    "logical_input_bytes": 301350,
+    "small_json_bytes": 99377,
+    "catalog_stream_bytes": 201973,
+    "small_json_reads": 4,
+    "catalog_streams": 6
+  },
+  "runtime": {
+    "executable": "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python",
+    "python_version": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]"
+  },
+  "limits": [
+    "independent nonowned preservation only; completed canonical producer owns full strict exchange/annual validation",
+    "native exit0 is explicitly supplied completion evidence, not independently observed by this helper",
+    "catalog inheritance is exact raw-line equality by sorted id, not object-normalized byte equality",
+    "people and noncatalog member bodies are not opened or rehashed; only their descriptors are compared",
+    "no annual score/state, array, model, prepared game, original source or provider is opened/imported",
+    "logical bytes count exactly the four JSON bodies and six catalog streams; no kernel I/O-byte claim",
+    "wall time excludes interpreter boot/stdlib imports and final receipt serialization/write; peak RSS covers the process"
+  ]
+}

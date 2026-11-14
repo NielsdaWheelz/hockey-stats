@@ -1,0 +1,62 @@
+{
+  "kind": "goalie-score-independent-numerical-review",
+  "purpose": "bounded synthetic mathematics and code review",
+  "status": "passed",
+  "script": {
+    "path": "/tmp/goalie-v1-07-checks/score_math_independent.py",
+    "sha256": "a7a9b9ab38fc6828e77cdd137a71d7f5a54dc6aa15db6d9bf474230e3c87fd98"
+  },
+  "reviewed_members": [
+    {
+      "path": "analysis/src/hockey_stats/goalie_scores.py",
+      "sha256": "7668c36bbeff1c2df336594495e35da79063d6841cb20f8231878a7a78dc294e"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_scores.py",
+      "sha256": "f5f9b44a130c448df4a9e3364e7b06bf53c292d15fc6d2411d81a4580a2ccf21"
+    }
+  ],
+  "checks": [
+    "direct origin-by-setup enumeration of all prefix masses and six conditional levels",
+    "fixed neutral saved-shot weighting and branchwise h*d, not product of marginal averages",
+    "favorable-positive stopping with q focal effect excluded and map mass summing to scalar",
+    "absolute-prefix and h-mass underflow preserve finite conditional ratios",
+    "defending orientation, ev/pk constituents and covered-all extra-attacker distinction",
+    "actual d matched evidence remains available without completed h prediction",
+    "every declared histogram edge including 1 belongs to its lower-inclusive bin",
+    "scalar support uses focal dependency-key union and neutral unnormalized denominator",
+    "partial prior dependencies do not claim all-head current information",
+    "missing q withholds only its dependent fields and leaves stopping/map exact"
+  ],
+  "closed_findings": [
+    {
+      "problem": "int(p*100) misbins exact histogram edges",
+      "witnesses": [
+        {
+          "p": 0.29,
+          "old_bin": 28,
+          "expected_bin": 29
+        },
+        {
+          "p": 0.57,
+          "old_bin": 56,
+          "expected_bin": 57
+        },
+        {
+          "p": 0.58,
+          "old_bin": 57,
+          "expected_bin": 58
+        }
+      ],
+      "repair": "searchsorted on the same explicit edges with right side; final bin includes1"
+    },
+    {
+      "problem": "replayed common-panel assertion omitted predictor state",
+      "repair": "assert shared predictor attacking strength equals saved panel strength alongside key/type/tip"
+    }
+  ],
+  "limits": [
+    "does not establish real source inventories, fitted quality or publication/browser acceptance",
+    "no large source or score scan, fit or probe performed"
+  ]
+}

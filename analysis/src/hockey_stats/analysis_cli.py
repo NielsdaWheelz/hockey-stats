@@ -21,7 +21,7 @@ def main(argv=None) -> int:
     facts.add_argument("--observed", required=True, action=Once, metavar="FILE")
     facts.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     fit = commands.add_parser("fit", allow_abbrev=False)
-    fit.add_argument("--family", required=True, choices=("execution", "spatial"), action=Once)
+    fit.add_argument("--family", required=True, choices=("execution", "spatial", "goalie"), action=Once)
     fit.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
     fit.add_argument("--coaches", required=True, action=Once, metavar="FILE")
     fit.add_argument("--valued", action=Once, metavar="DIRECTORY")
@@ -29,13 +29,14 @@ def main(argv=None) -> int:
     fit.add_argument("--previous", action=Once, metavar="DIRECTORY")
     fit.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     score = commands.add_parser("score", allow_abbrev=False)
-    score.add_argument("--family", required=True, choices=("execution",), action=Once)
+    score.add_argument("--family", required=True, choices=("execution", "goalie"), action=Once)
     score.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
     score.add_argument("--coaches", required=True, action=Once, metavar="FILE")
     score.add_argument("--state", required=True, action=Once, metavar="DIRECTORY")
+    score.add_argument("--valued", action=Once, metavar="DIRECTORY")
     score.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     summarize = commands.add_parser("summarize", allow_abbrev=False)
-    summarize.add_argument("--family", required=True, choices=("execution", "spatial"), action=Once)
+    summarize.add_argument("--family", required=True, choices=("execution", "spatial", "goalie"), action=Once)
     summarize.add_argument("--prepared", action=Once, metavar="DIRECTORY")
     summarize.add_argument("--facts", action=Once, metavar="DIRECTORY")
     summarize.add_argument("--scores", action=Once, metavar="FILE")
@@ -49,13 +50,26 @@ def main(argv=None) -> int:
     publish.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     args = parser.parse_args(argv)
     if args.command == "fit":
-        if args.family == "spatial" and args.valued is None:
-            fit.error("spatial fit requires --valued")
+        if args.family in ("spatial", "goalie") and args.valued is None:
+            fit.error(f"{args.family} fit requires --valued")
         if args.family == "execution" and args.valued is not None:
             fit.error("execution fit does not accept --valued")
+    elif args.command == "score":
+        if args.family == "goalie" and args.valued is None:
+            score.error("goalie score requires --valued")
+        if args.family == "execution" and args.valued is not None:
+            score.error("execution score does not accept --valued")
     elif args.command == "summarize":
-        required = ("results", "states") if args.family == "spatial" else ("prepared", "facts", "scores")
-        forbidden = ("prepared", "facts", "scores") if args.family == "spatial" else ("results", "states", "product_admission")
+        required = {
+            "spatial": ("results", "states"),
+            "execution": ("prepared", "facts", "scores"),
+            "goalie": ("prepared", "results", "scores"),
+        }[args.family]
+        forbidden = {
+            "spatial": ("prepared", "facts", "scores"),
+            "execution": ("results", "states", "product_admission"),
+            "goalie": ("facts", "states", "product_admission"),
+        }[args.family]
         for flag in forbidden:
             if getattr(args, flag) is not None:
                 summarize.error(f"{args.family} summarize does not accept --{flag.replace('_', '-')}")
@@ -74,6 +88,32 @@ def main(argv=None) -> int:
 
             manifest = build_factual_results(Path(args.prepared), Path(args.observed), Path(args.out))
             print(f"factual results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
+        elif args.command == "fit" and args.family == "goalie":
+            from .analysis_data import read_prepared
+            from .artifacts import require
+            from .captures import strict_json
+            from .goalie import prepare_goalie, fit_goalie_year
+            from .goalie_state import read_goalie_state
+
+            started = perf_counter()
+            manifest = strict_json((Path(args.prepared) / "manifest.json").read_bytes())
+            require(type(manifest) is dict and manifest.get("purpose") in ("real", "fixture"), "invalid prepared manifest purpose")
+            purpose = manifest["purpose"]
+            prepared = read_prepared(args.prepared, purpose)
+            seasons = [row["season"] for row in prepared["seasons"]]
+            require(args.season in seasons, "goalie season is not selected in preparation")
+            require((args.previous is None) == (args.season == seasons[0]),
+                    "goalie first selected year requires no predecessor; later years require --previous")
+            previous = read_goalie_state(args.previous, purpose) if args.previous is not None else None
+            input_read_wall_seconds = perf_counter() - started
+            design = prepare_goalie(prepared, Path(args.coaches), Path(args.valued), args.season)
+            design.resources["input_read_wall_seconds"] = input_read_wall_seconds
+            state = fit_goalie_year(design, previous, Path(args.out))
+            print(str(state.path))
+            unavailable = [head for head in ("h", "d") if state.heads[head]["status"] != "complete"]
+            if unavailable:
+                print("goalie family incomplete: unavailable heads " + ",".join(unavailable), file=sys.stderr)
+                return 1
         elif args.command == "fit" and args.family == "spatial":
             from .analysis_data import read_prepared
             from .artifacts import require
@@ -137,6 +177,11 @@ def main(argv=None) -> int:
                     (["unavailable heads " + ",".join(unavailable)] if unavailable else [])
                     + (["unresolved numerical probes " + ",".join(unresolved)] if unresolved else [])), file=sys.stderr)
                 return 1
+        elif args.command == "score" and args.family == "goalie":
+            from .goalie_scores import score_goalie
+
+            scores = score_goalie(Path(args.state), Path(args.prepared), Path(args.coaches), Path(args.valued), Path(args.out))
+            print(f"goalie scores {scores.manifest['season']}: {scores.manifest['purpose']}; {scores.path}")
         elif args.command == "score":
             from .execution_scores import write_execution_scores
 
@@ -147,6 +192,11 @@ def main(argv=None) -> int:
 
             manifest = compose_results(Path(args.results), Path(args.states), Path(args.out),
                                        product_admission=Path(args.product_admission) if args.product_admission is not None else None)
+            print(f"composed results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
+        elif args.command == "summarize" and args.family == "goalie":
+            from .goalie_composition import compose_goalie
+
+            manifest = compose_goalie(Path(args.prepared), Path(args.results), Path(args.scores), Path(args.out))
             print(f"composed results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
         elif args.command == "summarize":
             from .execution_scores import compose_results

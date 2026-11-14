@@ -1607,7 +1607,7 @@ export const GoalieResult = Schema.Struct({
   support: goalieSupport,
   method_id: Text,
 });
-const sourceCounts = Schema.Struct({
+const sourceCountShape = Schema.Struct({
   provenance: SourceReference,
   unblocked_attempts: Schema.NullOr(Count),
   misses: Schema.NullOr(Count),
@@ -1616,23 +1616,24 @@ const sourceCounts = Schema.Struct({
   goals_against: Schema.NullOr(Count),
   save_percentage: ProbabilityEstimate,
   support: Support,
-}).check(
-  Schema.makeFilter(
-    (value) =>
-      (value.unblocked_attempts === null ||
-        value.misses === null ||
-        value.shots_on_goal === null ||
-        value.unblocked_attempts === value.misses + value.shots_on_goal) &&
-      (value.shots_on_goal === null ||
-        value.saves === null ||
-        value.goals_against === null ||
-        value.shots_on_goal === value.saves + value.goals_against) &&
-      (value.save_percentage.value === null ||
-        (value.saves !== null &&
-          value.shots_on_goal !== null &&
-          value.shots_on_goal > 0 &&
-          close(value.save_percentage.value, value.saves / value.shots_on_goal))),
-  ),
+});
+const validSourceCountTotals = (value: typeof sourceCountShape.Type) =>
+  (value.misses === null || value.shots_on_goal === null ||
+    value.unblocked_attempts === value.misses + value.shots_on_goal) &&
+  (value.saves === null || value.goals_against === null ||
+    value.shots_on_goal === value.saves + value.goals_against);
+const validSaveFraction = (value: typeof sourceCountShape.Type) =>
+  value.save_percentage.value === null ||
+  (value.saves !== null && value.shots_on_goal !== null && value.shots_on_goal > 0 &&
+    close(value.save_percentage.value, value.saves / value.shots_on_goal));
+const sourceCounts = sourceCountShape.check(
+  Schema.makeFilter((value) => validSourceCountTotals(value) && validSaveFraction(value)),
+);
+const reportedSourceCounts = sourceCountShape.check(
+  Schema.makeFilter((value) =>
+    (validSourceCountTotals(value) ||
+      (value.support.unquantified_gap && value.support.reason_counts.some(row => row.code === "source_unavailable"))) &&
+    validSaveFraction(value)),
 );
 const pairedFields = {
   attempts: Count,
@@ -1710,22 +1711,17 @@ const validGoalieStates = (value: {
   stage_evidence: typeof goalieStages.Type;
   actual_states: readonly (typeof GoalieActualState.Type)[];
 }) => {
-  for (const field of [
-    "unblocked_attempts",
-    "misses",
-    "shots_on_goal",
-    "saves",
-    "goals_against",
-  ] as const) {
+  const countFields = ["unblocked_attempts", "misses", "shots_on_goal", "saves", "goals_against"] as const;
+  const missingCollection = value.actual_states.length === 0 &&
+    countFields.every(field => value.source_counts[field] === null) &&
+    value.source_counts.support.unquantified_gap &&
+    value.source_counts.support.reason_counts.some(row => row.code === "source_unavailable");
+  for (const field of countFields) {
     const total = value.source_counts[field];
-    if (
-      total !== null &&
-      (value.actual_states.some((row) => row.source_counts[field] === null) ||
-        !close(
-          total,
-          value.actual_states.reduce((sum, row) => sum + (row.source_counts[field] ?? 0), 0),
-        ))
-    )
+    const expected = missingCollection || value.actual_states.some(row => row.source_counts[field] === null)
+      ? null
+      : value.actual_states.reduce((sum, row) => sum + row.source_counts[field]!, 0);
+    if (expected === null ? total !== null : total === null || !close(total, expected))
       return false;
   }
   for (const population of ["on_net_evidence", "unblocked_evidence"] as const)
@@ -1765,7 +1761,7 @@ const validGoalieStates = (value: {
 };
 const goalieSummaryFields = {
   source_counts: sourceCounts,
-  reported_boxscore_counts: sourceCounts,
+  reported_boxscore_counts: reportedSourceCounts,
   on_net_evidence: pairedOnNet,
   unblocked_evidence: paired,
   stage_evidence: goalieStages,
@@ -1910,7 +1906,7 @@ export const AnalysisMap = Schema.Struct({
 export const GoalieExecutionBreakdown = Schema.Struct({
   events: Count,
   eligible_weight: Rate,
-  observed_successes: Rate,
+  observed_successes: Count,
   expected_successes: Rate,
   probability: ProbabilityEstimate,
   effect: Estimate,
@@ -1919,8 +1915,18 @@ export const GoalieExecutionBreakdown = Schema.Struct({
 }).check(
   Schema.makeFilter(
     (value) =>
+      value.eligible_weight === value.events &&
       value.observed_successes <= value.eligible_weight &&
-      value.expected_successes <= value.eligible_weight,
+      value.expected_successes <= value.eligible_weight &&
+      value.support.events === value.events &&
+      value.support.eligible_weight === value.events &&
+      value.support.included_seconds === null &&
+      (value.events === 0
+        ? value.probability.value === null && value.effect.value === null
+        : value.probability.value !== null &&
+          value.effect.value !== null &&
+          close(value.probability.value, value.expected_successes / value.events) &&
+          close(value.effect.value, (value.expected_successes - value.observed_successes) / value.events)),
   ),
 );
 const skaterExpectation = Schema.Struct({

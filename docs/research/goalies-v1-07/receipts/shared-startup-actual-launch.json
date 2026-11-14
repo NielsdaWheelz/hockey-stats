@@ -1,0 +1,64 @@
+{
+  "kind": "shared-normal-strict-startup-actual-launch",
+  "status": "running_not_startup_accepted_at_observation",
+  "recorded_at_utc": "2026-11-13T11:41:03.212480+00:00",
+  "observed_at_utc": "2026-11-13T11:39:11.521203+00:00",
+  "dispatched_once_at_utc": "2026-11-13T11:38:35Z",
+  "root_assignment": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-startup-preflight.json",
+    "bytes": 4745,
+    "sha256": "c19b2b0921b8db60b7f2cb66cfffe72cb21972c513275472ef0749314f429dfd"
+  },
+  "accepted_publication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-publication-boundary-release.json",
+    "bytes": 2186,
+    "sha256": "196468af0f77798428d53ef140ab00adfde6092e795193fd0023e7c592501e6a"
+  },
+  "independent_publication_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-publication-independent-adjudication.json",
+    "bytes": 10410,
+    "sha256": "7dc62f019629e9761d46018976168848074de66f3a7edffdcd2018f2618692ba"
+  },
+  "source_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "candidate_sha256_publisher_reported": "17241928149f70bbd353815a4ec8feab39210d570205b494ad6c2af8cfb9a612",
+  "candidate_bytes": 31261470720,
+  "operator": "t-f9f0b50f2271131d on macbook; original captured pane ref retained",
+  "submitted_command": "/bin/zsh /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/startup-held.sh",
+  "time_parent": {
+    "pid": 98453,
+    "ppid": 98452,
+    "elapsed": "00:36",
+    "state": "S+",
+    "lstart_local": "Fri Nov 13 03:38:35 2026",
+    "start_utc": "2026-11-13T11:38:35Z",
+    "command": "/usr/bin/time -l /usr/bin/sandbox-exec -f /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/detached.sb /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-01.json --publication /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite --port 3407",
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+    "cwd_lsof_exit": 0,
+    "cwd_lsof_stderr": ""
+  },
+  "node_child": {
+    "pid": 98454,
+    "ppid": 98453,
+    "elapsed": "00:36",
+    "state": "U+",
+    "lstart_local": "Fri Nov 13 03:38:35 2026",
+    "start_utc": "2026-11-13T11:38:35Z",
+    "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-01.json --publication /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite --port 3407",
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+    "cwd_lsof_exit": 0,
+    "cwd_lsof_stderr": ""
+  },
+  "listening_receipt_present_at_observation": false,
+  "service_exit_present_at_observation": false,
+  "actual_startup_cost": null,
+  "scope": "one normal compiled-main validation under candidate-only external-read sandbox; exact listening event is required for acceptance",
+  "limits": [
+    "no listening or startup/API/browser/scientific acceptance is inferred from launch",
+    "native /usr/bin/time measures eventual service lifetime, not startup",
+    "latency/RSS boundaries remain as declared by the reviewed meter",
+    "no other heavy command, DB probe/hash/reader, fit or activation dispatched"
+  ]
+}

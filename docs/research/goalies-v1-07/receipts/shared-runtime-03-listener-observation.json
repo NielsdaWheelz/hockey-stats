@@ -1,0 +1,45 @@
+{
+  "kind": "shared-runtime-03-listener-observation",
+  "observed_at": "2026-11-14T04:49:56.569711+00:00",
+  "status": "actual_listener_observed_not_application_acceptance",
+  "captures": {
+    "shared-runtime-03-startup.json": {
+      "bytes": 1197,
+      "sha256": "faf3081803a82112c49bc74058f83eaf3d97f3fa9f89b260bcf3851fb0d7724a"
+    },
+    "shared-runtime-03-listening-log.txt": {
+      "bytes": 1143,
+      "sha256": "c39811a4df58a8c988d1deec649fac5c435f042908e3ff5c57a57bb3e44f7acb"
+    }
+  },
+  "observations": [
+    {
+      "argv": [
+        "/usr/sbin/lsof",
+        "-nP",
+        "-a",
+        "-p",
+        "89887",
+        "-iTCP:3407",
+        "-sTCP:LISTEN"
+      ],
+      "exit": 0,
+      "stdout": "COMMAND   PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    89887 nnandal   16u  IPv4 0xd5e9e2286b61745d      0t0  TCP 127.0.0.1:3407 (LISTEN)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/bin/ps",
+        "-p",
+        "89885,89886,89887",
+        "-o",
+        "pid=,ppid=,etime=,stat=,command="
+      ],
+      "exit": 0,
+      "stdout": "89885 89884 41:27 S+   /bin/zsh /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/startup-held-03.sh\n89886 89885 41:27 S+   /usr/bin/time -l /usr/bin/sandbox-exec -f /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/detached.sb /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-03.json --publication /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite --port 3407\n89887 89886 41:27 S+   /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-03.json --publication /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite --port 3407\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "two fixed local bodies plus OS listener/process queries; no HTTP, database, external body or candidate stat",
+  "native_service_exit": "not observed; server remains alive"
+}

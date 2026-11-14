@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "kind": "independent-original-event-goalie-target-checks",
+  "purpose": "fixture",
+  "status": "passed",
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20212022/manifest.json",
+    "sha256": "2c4bed99e41c71bce99d836f822ceb6ebaf14c7e62f3d5a081bbc5e7ddb2d8b7"
+  },
+  "coverage": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20212022/coverage.json",
+    "sha256": "de02f6fa172ee01349700a8b37b90d31dcdf51fe89115f463c563b2141472508"
+  },
+  "base_scores": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022/manifest.json",
+    "sha256": "78e029e06cfb50ebdc247117faeb3849459e291be2267c250a9c15858dac7d60"
+  },
+  "cases": [
+    {
+      "case": "known_nonattempt_missing_team",
+      "game_id": "2021020001",
+      "source": {
+        "path": "fixtures/captures/2021020001/play-by-play/body.bin",
+        "sha256": "a8c72219c44f27ab619d7b720786ae547466607fc583e275aa31f2b55c5556e7",
+        "focal_pointer": "/plays/6",
+        "next_pointer": "/plays/7"
+      },
+      "focal": {
+        "eventId": 54,
+        "sortOrder": 18,
+        "typeDescKey": "shot-on-goal",
+        "timeInPeriod": "01:03",
+        "situationCode": "1551",
+        "team_id": 14,
+        "goalie_id": 8477465
+      },
+      "next": {
+        "eventId": 11,
+        "sortOrder": 20,
+        "typeDescKey": "stoppage",
+        "timeInPeriod": "01:03",
+        "situationCode": "1551",
+        "team_id": null,
+        "goalie_id": null
+      },
+      "expected_h": false,
+      "h_included": true,
+      "successor_key": null,
+      "d_target": null,
+      "d_target_reference": null
+    },
+    {
+      "case": "blocked_successor",
+      "game_id": "2021020001",
+      "source": {
+        "path": "fixtures/captures/2021020001/play-by-play/body.bin",
+        "sha256": "a8c72219c44f27ab619d7b720786ae547466607fc583e275aa31f2b55c5556e7",
+        "focal_pointer": "/plays/20",
+        "next_pointer": "/plays/21"
+      },
+      "focal": {
+        "eventId": 62,
+        "sortOrder": 42,
+        "typeDescKey": "shot-on-goal",
+        "timeInPeriod": "03:07",
+        "situationCode": "1551",
+        "team_id": 14,
+        "goalie_id": 8477465
+      },
+      "next": {
+        "eventId": 17,
+        "sortOrder": 43,
+        "typeDescKey": "blocked-shot",
+        "timeInPeriod": "03:11",
+        "situationCode": "1551",
+        "team_id": 14,
+        "goalie_id": null
+      },
+      "expected_h": true,
+      "h_included": true,
+      "successor_key": "2021020001:21",
+      "d_target": 0.0996199071549284,
+      "d_target_reference": "saved fully neutral all-attempt prefixes.neutral.uqrg"
+    },
+    {
+      "case": "known_terminal",
+      "game_id": "2021020001",
+      "source": {
+        "path": "fixtures/captures/2021020001/play-by-play/body.bin",
+        "sha256": "a8c72219c44f27ab619d7b720786ae547466607fc583e275aa31f2b55c5556e7",
+        "focal_pointer": "/plays/114",
+        "next_pointer": "/plays/115"
+      },
+      "focal": {
+        "eventId": 257,
+        "sortOrder": 216,
+        "typeDescKey": "shot-on-goal",
+        "timeInPeriod": "19:51",
+        "situationCode": "1551",
+        "team_id": 5,
+        "goalie_id": 8476883
+      },
+      "next": {
+        "eventId": 218,
+        "sortOrder": 217,
+        "typeDescKey": "period-end",
+        "timeInPeriod": "20:00",
+        "situationCode": "1551",
+        "team_id": null,
+        "goalie_id": null
+      },
+      "expected_h": false,
+      "h_included": true,
+      "successor_key": null,
+      "d_target": null,
+      "d_target_reference": null
+    },
+    {
+      "case": "intervening_before_later_attempt",
+      "game_id": "2021020001",
+      "source": {
+        "path": "fixtures/captures/2021020001/play-by-play/body.bin",
+        "sha256": "a8c72219c44f27ab619d7b720786ae547466607fc583e275aa31f2b55c5556e7",
+        "focal_pointer": "/plays/287",
+        "next_pointer": "/plays/288"
+      },
+      "focal": {
+        "eventId": 658,
+        "sortOrder": 569,
+        "typeDescKey": "shot-on-goal",
+        "timeInPeriod": "14:18",
+        "situationCode": "1560",
+        "team_id": 14,
+        "goalie_id": 8477465
+      },
+      "next": {
+        "eventId": 602,
+        "sortOrder": 570,
+        "typeDescKey": "stoppage",
+        "timeInPeriod": "14:18",
+        "situationCode": "1560",
+        "team_id": null,
+        "goalie_id": null
+      },
+      "expected_h": false,
+      "h_included": true,
+      "successor_key": null,
+      "d_target": null,
+      "d_target_reference": null
+    },
+    {
+      "case": "exact_five_seconds",
+      "game_id": "2021020454",
+      "source": {
+        "path": "fixtures/captures/2021020454/play-by-play/body.bin",
+        "sha256": "d2578edbcbd19cd4c8dc3f86812ad1e3a3d308fffcd54866be6ad5853e74a6f5",
+        "focal_pointer": "/plays/15",
+        "next_pointer": "/plays/16"
+      },
+      "focal": {
+        "eventId": 80,
+        "sortOrder": 46,
+        "typeDescKey": "shot-on-goal",
+        "timeInPeriod": "02:51",
+        "situationCode": "1451",
+        "team_id": 8,
+        "goalie_id": 8479394
+      },
+      "next": {
+        "eventId": 59,
+        "sortOrder": 47,
+        "typeDescKey": "shot-on-goal",
+        "timeInPeriod": "02:56",
+        "situationCode": "1451",
+        "team_id": 8,
+        "goalie_id": 8479394
+      },
+      "expected_h": true,
+      "h_included": true,
+      "successor_key": "2021020454:16",
+      "d_target": 0.06396518637624661,
+      "d_target_reference": "saved fully neutral all-attempt prefixes.neutral.uqrg"
+    },
+    {
+      "case": "same_clock_source_order",
+      "game_id": "2021020615",
+      "source": {
+        "path": "fixtures/captures/2021020615/play-by-play/body.bin",
+        "sha256": "3cb0ad33b94df6b11c98c7d625dc1862d8b4ec6bbc51791cd6351aa7427145f7",
+        "focal_pointer": "/plays/34",
+        "next_pointer": "/plays/35"
+      },
+      "focal": {
+        "eventId": 72,
+        "sortOrder": 73,
+        "typeDescKey": "shot-on-goal",
+        "timeInPeriod": "06:10",
+        "situationCode": "1551",
+        "team_id": 6,
+        "goalie_id": 8476883
+      },
+      "next": {
+        "eventId": 73,
+        "sortOrder": 74,
+        "typeDescKey": "goal",
+        "timeInPeriod": "06:10",
+        "situationCode": "1551",
+        "team_id": 6,
+        "goalie_id": 8476883
+      },
+      "expected_h": true,
+      "h_included": true,
+      "successor_key": "2021020615:35",
+      "d_target": 0.18369745495421336,
+      "d_target_reference": "saved fully neutral all-attempt prefixes.neutral.uqrg"
+    },
+    {
+      "case": "strength_change",
+      "game_id": "2021020615",
+      "source": {
+        "path": "fixtures/captures/2021020615/play-by-play/body.bin",
+        "sha256": "3cb0ad33b94df6b11c98c7d625dc1862d8b4ec6bbc51791cd6351aa7427145f7",
+        "focal_pointer": "/plays/147",
+        "next_pointer": "/plays/148"
+      },
+      "focal": {
+        "eventId": 283,
+        "sortOrder": 304,
+        "typeDescKey": "shot-on-goal",
+        "timeInPeriod": "10:39",
+        "situationCode": "1351",
+        "team_id": 14,
+        "goalie_id": 8476999
+      },
+      "next": {
+        "eventId": 285,
+        "sortOrder": 306,
+        "typeDescKey": "shot-on-goal",
+        "timeInPeriod": "10:43",
+        "situationCode": "1451",
+        "team_id": 14,
+        "goalie_id": 8476999
+      },
+      "expected_h": true,
+      "h_included": true,
+      "successor_key": "2021020615:148",
+      "d_target": 0.056735498145211255,
+      "d_target_reference": "saved fully neutral all-attempt prefixes.neutral.uqrg"
+    }
+  ],
+  "limits": [
+    "bounded original-capture checks, not a full real inventory audit",
+    "same-clock order is recorded source order, not recovered physical chronology",
+    "eligible h-positive/d-unavailable, unknown terminal/order and goalie-change cases are not established by these seven original checks; synthetic controls and later real witness selection remain separate obligations"
+  ]
+}

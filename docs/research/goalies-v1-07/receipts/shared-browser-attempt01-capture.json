@@ -1,0 +1,62 @@
+{
+  "kind": "goalie-browser-post-exit-metadata-capture",
+  "status": "captured_complete_only",
+  "native_exit": 1,
+  "browser_judgment": "not_assessed",
+  "bodies": [
+    {
+      "location": "external",
+      "source": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/browser-receipt.json",
+      "local": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-boundary-01/browser-receipt.json.raw",
+      "cap_bytes": 16777216,
+      "present": true,
+      "returned_bytes": 83541,
+      "sha256": "51b5567453ef277c3f92dc40f764427f75e4145c904fedb0d6e8787c9ad2c488",
+      "read_complete": true,
+      "retained": true,
+      "overflow": false
+    },
+    {
+      "location": "local",
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-native-01.log",
+      "local": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-boundary-01/browser-native-01.log.raw",
+      "cap_bytes": 1048576,
+      "present": true,
+      "returned_bytes": 3410,
+      "sha256": "9cb2e57588d85d41a38c32b0506fd2b35ed9ed84a70a4f9512468bf0f19cf122",
+      "read_complete": true,
+      "retained": true,
+      "overflow": false
+    },
+    {
+      "location": "local",
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-native-01.exit",
+      "local": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-boundary-01/browser-native-01.exit.raw",
+      "cap_bytes": 64,
+      "present": true,
+      "returned_bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "read_complete": true,
+      "retained": true,
+      "overflow": false
+    }
+  ],
+  "unknowns": [],
+  "errors": [],
+  "precondition": "root must confirm actual owned browser Node/time closure, exact marker/prompt and no active user STOP/hold, then separately assign this single invocation",
+  "limits": [
+    "one fixed external and two fixed LOCAL body opens maximum; each bounded to cap+1 returned bytes",
+    "no stat, arbitrary path, image/SVG/download/member/database/source/model/provider read, http or browser replay",
+    "complete capture does not mean browser passed; root assesses retained json/log separately",
+    "physical i/o bytes remain unknown; returned body bytes are logical reads"
+  ],
+  "collector_cost": {
+    "wall_seconds": 0.000418792013078928,
+    "peak_rss_bytes": 19611648,
+    "external_returned_body_bytes": 83541,
+    "local_returned_body_bytes": 3412,
+    "total_returned_body_bytes": 86953,
+    "physical_io_bytes": null,
+    "scope": "through mixed-location capture/exit parsing, after local directory/receipt reservation; final serialization/write excluded"
+  }
+}

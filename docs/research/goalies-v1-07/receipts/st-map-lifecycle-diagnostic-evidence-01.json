@@ -1,0 +1,33 @@
+{
+  "kind": "paired-map-lifecycle-evidence",
+  "scope": "one completed two-arm diagnostic, not family acceptance",
+  "files": [
+    {
+      "path": "st-map-lifecycle-diagnostic-trace-01.json.gz",
+      "bytes": 30114,
+      "sha256": "25ca39a1e0d547744452a9d6ceb4fe017e948b1186cc288634c831a2b13fcaa9",
+      "original_bytes": 722060,
+      "original_sha256": "af9f721f29f8498af2406ce99ae07e6d546d9968bee3f854f4959211740650c7",
+      "encoding": "gzip lossless"
+    },
+    {
+      "path": "st-map-lifecycle-diagnostic-native-01.log",
+      "bytes": 986,
+      "sha256": "6ced4d2b0b232ea5350cff0cdc6ee3250756aa4e715fdb3120964b543578bff8",
+      "original_bytes": 986,
+      "original_sha256": "6ced4d2b0b232ea5350cff0cdc6ee3250756aa4e715fdb3120964b543578bff8",
+      "encoding": "byte-exact copy"
+    },
+    {
+      "path": "st-map-lifecycle-diagnostic-native-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "original_bytes": 2,
+      "original_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "encoding": "byte-exact copy"
+    }
+  ],
+  "archive_read_bytes": 723048,
+  "source_sha256": "b8ab0311a903f7a89ec1e00a22b5f1853aac439461bbdea17cef7b703e433b43",
+  "physical_io": "unknown"
+}

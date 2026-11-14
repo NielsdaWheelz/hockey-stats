@@ -1,0 +1,85 @@
+{
+  "kind": "shared-startup-02-preflight",
+  "status": "passed_availability_and_source_only",
+  "runtime_source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "8ca79395276ab733c6ee32e21465adb8b8229372",
+  "build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+  "selected_build_files": [
+    {
+      "path": "app/dist/node/server/main.js",
+      "bytes": 8073,
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+    },
+    {
+      "path": "app/dist/node/server/analysis-publication.js",
+      "bytes": 67929,
+      "sha256": "4454950587c03b0fe5040c49737ad82c2b360f4689159d94eba51362cc15e71f"
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis.js",
+      "bytes": 113222,
+      "sha256": "2877086226cf5a705d1e47870c37273457b822774f76b15c1204f9518d4562d9"
+    },
+    {
+      "path": "app/dist/server/index.js",
+      "bytes": 174762,
+      "sha256": "48d7161b17a6fcb125b72fcefca3019f55595c01c9881223a17fe1e0d160739d"
+    },
+    {
+      "path": "app/dist/client/index.html",
+      "bytes": 2114,
+      "sha256": "cbfb874a84f2edeed42f9aa03a44620463f2c643f15bee22d8749fb45aff420d"
+    },
+    {
+      "path": "app/dist/client/assets/entry.client-CimxyNE3.js",
+      "bytes": 214675,
+      "sha256": "f123592f11d56cc3c499149ae7c2b8ef315cfbadf89ad6c66dd6a55ea1f22785"
+    },
+    {
+      "path": "app/dist/client/assets/explorer-lHrtF-QX.js",
+      "bytes": 280904,
+      "sha256": "607bc1cee201bf62ce02a8d57a6b86995d9ab962b5080e51fde6898bc3d4afe9"
+    },
+    {
+      "path": "app/dist/node/server/publication.js",
+      "bytes": 15535,
+      "sha256": "2b8ae5d1c3cedc208a79a4870d47f36767bea1b4949c45489a51a4b5d63f0b03"
+    }
+  ],
+  "mechanisms": [
+    {
+      "path": "runtime.mjs",
+      "bytes": 2254,
+      "sha256": "bb37d4a06cbde3a7bf4e350f331e67a14ac34f655a7d877582ea0a6562066ec4"
+    },
+    {
+      "path": "detached.sb",
+      "bytes": 1256,
+      "sha256": "dda6d8f506d99c4fd595f226ade0e47023c858961ddad266aaf4ce1f6b0dfa6a"
+    },
+    {
+      "path": "startup-held-02.sh",
+      "bytes": 1154,
+      "sha256": "4878a241e48f3b42ebdc3ff85e7aebf0ae61b307483f69f954ba436bc0ce4805"
+    }
+  ],
+  "candidate": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite",
+    "bytes": 31261470720,
+    "inode": 502213,
+    "device": 16777242,
+    "mtime_ns": 1794568235448270115,
+    "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+    "publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4"
+  },
+  "fresh_outputs": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-02.json",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-02.log",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-02.exit"
+  ],
+  "external_body_reads": 0,
+  "external_stats": 1,
+  "node": "exact pinned24.21.0 executable in unchanged wrapper; meter independently asserts actual version",
+  "limits": "no sqlite open, candidate rehash, provider/model import, validation bypass or startup invocation; root checks port and separately assigns one normal strict startup"
+}

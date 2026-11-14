@@ -1,0 +1,68 @@
+{
+  "kind": "publication-boundary-literal-controller-controls",
+  "status": "passed_controller_controls_only",
+  "invocations": 1,
+  "test_count": 4,
+  "passed": 4,
+  "failed": 0,
+  "errors": 0,
+  "cases": [
+    "test_blank_failure_stays_failed_and_nonzero",
+    "test_native_failure_cannot_admit_completion_metadata",
+    "test_wrong_copied_manifest_cannot_admit_completion",
+    "test_overflow_is_bounded_retained_and_rejected"
+  ],
+  "sources": {
+    "publication-boundary.py": {
+      "bytes": 14143,
+      "sha256": "fa88cc5775f523e218a9b17a7808216a5f04681d8d1ea4da565101f2d4fefac6"
+    },
+    "publication-boundary-controls.py": {
+      "bytes": 2351,
+      "sha256": "f1ed3ce40fd9f4180dfd83649364ffcd402f8b2dc531e5c613f3bfd659aadc10"
+    }
+  },
+  "command": [
+    "/usr/bin/time",
+    "-l",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python",
+    "-B",
+    ".tmp/goalie-live-acceptance/publication-boundary-controls.py"
+  ],
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+  "control_process_exit": 0,
+  "real_publisher_exit": null,
+  "actual_publication_collector_invocations": 0,
+  "scope": "four literal LOCAL controls; imported collector definitions only; main called with _collect patched for empty-error case; native1/wrongcopy assessed as in-memory literals; capped read used LOCAL synthetic tempfile",
+  "no_real_operations": [
+    "no publication output/log/database body read or stat",
+    "no external data or fixed candidate traversal",
+    "no project/model/runtime qualification or server/API import",
+    "no active-job query, signal or dispatch"
+  ],
+  "native_cost": {
+    "wall_seconds": 0.15,
+    "user_seconds": 0.06,
+    "system_seconds": 0.03,
+    "peak_rss_bytes": 31309824,
+    "peak_footprint_bytes": 20578832,
+    "scope": "whole four-case LOCAL control command; not actual publisher or collector cost"
+  },
+  "raw": {
+    "publication-boundary-controls-01.log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-boundary-controls-01.log",
+      "bytes": 1561,
+      "sha256": "eb8d19620a2d97c95b56f511729270824dd5355d33d8489a55fa34024d8122f4"
+    },
+    "publication-boundary-controls-01.exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-boundary-controls-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "limits": [
+    "the printed failed/native_exit-null record is the intended empty-error negative control, not a real publication failure",
+    "actual post-exit helper remains NOT_RUN; publication outcome/cost remain unknown here",
+    "zero block-operation counters are not physical-byte measurements; no repeated or expanded tests"
+  ]
+}

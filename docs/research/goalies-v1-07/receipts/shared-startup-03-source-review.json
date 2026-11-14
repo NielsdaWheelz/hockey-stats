@@ -1,0 +1,69 @@
+{
+  "disposition": "startup03_source_review_clear_no_dispatch_grant",
+  "scope": "named local held03/preflight03, predecessor02, runtime meter and sandbox source reads, diff/hash review only; no script, git, build, runtime, live query, external read, database, process, mount or test execution",
+  "sources": {
+    "startup-held-03.sh": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/startup-held-03.sh",
+      "sha256": "045f60234c078f69db552367a0e16adb10ce509fd1fef886af5172c0eb4749e6",
+      "bytes": 1154
+    },
+    "startup-preflight-03.command": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/startup-preflight-03.command",
+      "sha256": "0e5c88234d539bab36469b069d7feceee8f5349c11571916b0289210ceb5148e",
+      "bytes": 4253
+    },
+    "startup-held-02.sh": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/startup-held-02.sh",
+      "sha256": "4878a241e48f3b42ebdc3ff85e7aebf0ae61b307483f69f954ba436bc0ce4805",
+      "bytes": 1154
+    },
+    "startup-preflight-02.command": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/startup-preflight-02.command",
+      "sha256": "c98b8939f6751852c9ea25dc21b3f0fdb1eed4f5912f3d85c992b8e0d141d7a1",
+      "bytes": 4038
+    },
+    "runtime.mjs": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs",
+      "sha256": "bb37d4a06cbde3a7bf4e350f331e67a14ac34f655a7d877582ea0a6562066ec4",
+      "bytes": 2254
+    },
+    "detached.sb": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/detached.sb",
+      "sha256": "dda6d8f506d99c4fd595f226ade0e47023c858961ddad266aaf4ce1f6b0dfa6a",
+      "bytes": 1256
+    }
+  },
+  "build_binding": {
+    "receipt_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+    "source_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+    "build_adjudication": {
+      "path": "/tmp/staging/shared-history-label-build-actual-review-01.json",
+      "sha256": "944ae3eda5d3b4ec296bc1bfcef7529216069c3272491ea34047e9cfb87d957a"
+    }
+  },
+  "checked_contract": [
+    "held03 differs from held02 only in runtime-startup03 json/log/exit basenames and the runtime03 exit marker; one normal compiled main import remains under the same pinned node, meter, sandbox, candidate and isolated port3407",
+    "preflight binds the exact archived build18ef bytes, sourceHEAD3763 and clean tracked app/analysis/package diff against HEAD",
+    "preflight reads and hashes exactly the build receipt21 compiled-node,16 frontend and1 SSR descriptors, rejecting any descriptor mismatch before startup",
+    "meterbb37 and sandboxdda6 remain byte-exact; the meter records actual listening after ordinary compiled main import without bypassing validation or queries, then restores normal event dispatch",
+    "ordinary mount check, one explicit candidate.stat kind/size check and three fresh runtime03 output checks add no candidate body, sqlite, model or provider read",
+    "preflight and held wrapper retain exclusive output behavior; preflight does not launch the service, check the port or automatically retry",
+    "sandbox permits the exact candidate body while denying project/external raw and numerical input data; no sandbox change is introduced"
+  ],
+  "remaining_material_findings": [],
+  "prerequisites_for_root": [
+    "archive the exact local18ef build receipt at the preflight’s fixed docs receipt locator before invoking preflight",
+    "separately grant and adjudicate the fresh preflight, and separately check isolated port readiness",
+    "separately grant one ordinary strict startup; listening remains startup-only evidence, with live selected identity and UI green checks afterward"
+  ],
+  "limits": [
+    "no preflight or startup was executed by this review; all current source and local runtime identity qualification here is source-level only",
+    "candidate UUID and publisher fields in preflight are expected pins, not results of a database-content read; one candidate stat plus mount metadata is not a publication-content verification",
+    "the saved unchanged21-node comparison supports API02 inheritance only when publication preservation, actual new normal strict startup and selected live identity also hold",
+    "native time covers eventual service lifetime; the meter listening receipt owns startup latency/maxRSS scope",
+    "four-case actual green, six full-browser label checks, complete browser04 flows/downloads and independent normal/narrow/native200 pixels remain owed",
+    "no numerical rerun, publication rebuild, family/scientific admission, activation or special-teams acceptance follows"
+  ]
+}

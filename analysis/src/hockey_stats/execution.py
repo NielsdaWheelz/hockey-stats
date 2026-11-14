@@ -36,7 +36,7 @@ def prepare_execution(base_prepared, coaches, recipe, season):
     return prepare(base_prepared, coaches, recipe, season)
 
 
-def _centered_state(result, previous_ledger, season):
+def centered_state(result, previous_ledger, season):
     """keep raw coordinates and last observed history; centers are references."""
     actors = result['actors']
     coefficients = result['coefficients']
@@ -70,7 +70,7 @@ def _metadata(design, result, incoming, season):
                                                   'age_delta', 'age_indices', 'transition_reason', 'prior_mean')})
         priors[-1]['last_supported'] = history.get((row['block'], str(row['id'])))
     complete = result['status'] == 'complete'
-    centers, ledger = _centered_state(result, incoming, season) if complete else (None, incoming)
+    centers, ledger = centered_state(result, incoming, season) if complete else (None, incoming)
     return dict(head=design['head'], target=TARGETS[design['head']], design=design['design'],
                 actors=actors, priors=priors, centers=centers, ledger=ledger,
                 origin=dict(cells=656, distance_ft=20., direction_strength=4.,
@@ -1036,8 +1036,10 @@ def neutral_panel_event_masses(panel):
 
 def iter_neutral_origins(panel):
     """stream the checked pre-outcome joint goal probability at each origin."""
-    require(isinstance(panel, ExecutionPanel) and panel.strength == (5, 5, 1),
-            'spatial targets require the checked physical 5v5 panel with both goalies')
+    from .execution_scores import PANEL_STATES
+    require(isinstance(panel, ExecutionPanel) and all(type(value) is int for value in panel.strength)
+            and panel.strength in PANEL_STATES and panel.strength[2] == 1,
+            'spatial targets require a checked physical panel with both goalies')
     arrays = panel.arrays
     expected = panel.support_keys.get('neutral_goal_mass')
     require(type(expected) is dict and set(expected) == {event['key'] for event in panel.events},

@@ -1,0 +1,47 @@
+{
+  "kind": "shared-st-browser-recovery-source-intake",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-recovery-source-packet-01.json",
+      "bytes": 15899,
+      "sha256": "7501b053f9552cb1cced46de6f6ee8d03452c096c2120af9c9438fa56236dc39"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-recovery-source-review-01.json",
+      "bytes": 7451,
+      "sha256": "6d421ebad73659323ae7e91cb242cbfb60dc102676212f4d690520d95df36cc9"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-recovery-source-packet-review-01.json",
+      "bytes": 2824,
+      "sha256": "ce2eeda118b8168fad5d838eaf04ede87c080aab014b1e0fe8e48c525e473239"
+    }
+  ],
+  "fixed_metadata_identities_verified": true,
+  "status": "HELD_NOT_READY_SOURCE_GUARD_AMENDMENT_REQUIRED",
+  "anchor_source": {
+    "bytes": 20918,
+    "sha256": "83ccc561d0f548ac33b9074fd8da7700980897dc6ca5be6717f9bc3b0e1e96b0"
+  },
+  "remainder_source": {
+    "bytes": 60612,
+    "sha256": "d49758cef44b63221a1c64958bd4cad624aa85160f82e4444eb7ded64e31e6ff"
+  },
+  "root_review_finding": {
+    "owner": "temporary test controllers only; no product change",
+    "anchor_sites": "request/response records119-120 truncate URLs; final172-174 compares counts only",
+    "remainder_site": "final628 compares counts only; its URLs already full",
+    "minimum_correction": "post-close equality of sorted full request/response URL multisets for single-mode anchor and sorted [mode,url] multisets for remainder; preserve duplicates, existing status/error/primary-failure/closure guards and count reporting; no request-id framework",
+    "plan_accuracy": "inputMode is recorded, not asserted"
+  },
+  "assigned_source_preparation": [
+    "narrow successor controllers/plans; old02/07 frozen",
+    "anchor-only fresh admission source with no external input bodies/member/DB reads",
+    "dedicated anchor three-literal-body bounded capture source; old d5db mapping incompatible"
+  ],
+  "anchor_credit": "0 of4 cutoff journeys until actual accepted result",
+  "prefix_pixels": "41 scoped originals accepted32a2c7f0; failed browser06 and unqualified old favicon unchanged",
+  "runtime": "same3763/fee5/app852/build18ef/retained89887/fb604/final21de+15d; not newly queried",
+  "execution": "NONE; no preflight/browser/capture/import/test/build/HTTP/DB/CSV/image/HDD command granted",
+  "remainder_admission": "NULL/UNKNOWN; accepted anchor, prefix artifact acceptance and old favicon issue remain separate; no current remainder authority"
+}

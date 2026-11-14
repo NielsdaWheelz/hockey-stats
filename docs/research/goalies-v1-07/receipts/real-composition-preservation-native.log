@@ -1,0 +1,19 @@
+{"status": "passed", "out": "/private/tmp/hockey-goalie-v1-07-checks/composition-01-preservation-adjudication.json", "preserved_non_goalie_families": 27, "catalog_parent_rows": 51, "resources": {"wall_seconds": 0.1228217501193285, "peak_rss_bytes": 24772608, "logical_input_bytes": 301350, "small_json_bytes": 99377, "catalog_stream_bytes": 201973, "small_json_reads": 4, "catalog_streams": 6}}
+        0.15 real         0.02 user         0.00 sys
+            24788992  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                2441  page reclaims
+                  48  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  45  voluntary context switches
+                  26  involuntary context switches
+           459620595  instructions retired
+           153612247  cycles elapsed
+            14811640  peak memory footprint

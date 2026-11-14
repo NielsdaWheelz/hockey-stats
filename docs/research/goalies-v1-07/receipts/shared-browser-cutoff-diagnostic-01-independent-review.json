@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "kind": "browser-cutoff-diagnostic-independent-review",
+  "status": "demonstrated_controller_readiness_defect_settled_ev_cutoff_correct",
+  "sha256": {
+    "shared-browser-cutoff-diagnostic-01-result.json": "020f4463f63dc001e21f33420b120d1b7ef60d0852ad9a9b6edbda46267baa23",
+    "shared-browser-cutoff-diagnostic-01-events.jsonl": "93523126882df8274385fe26de67bc9d1a88de725cf2301f81c740e391496345",
+    "shared-browser-cutoff-diagnostic-01-native.log": "ac98f0f5625842d8e8d9621a99ab67c83c96ef04802bc57c830abd66499666c2",
+    "shared-browser-cutoff-diagnostic-01-native.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "diagnostic_source": "9ee6c5a98bf8d0c2d6e929f7ee5885c6d0ec7b865c6248e88ef6788acf7079e7"
+  },
+  "finding": "the old URL-only predicate demonstrably permits stale rendered state. immediate snapshot has peerMin=3065 in the URL while both row/detail still show cutoff 300, n=74 and 85.8 percentile. after waiting only for the row's rendered cutoff, row/detail show cutoff 3065, n=0 and below cutoff without a numeric percentile. no settled product failure is demonstrated.",
+  "preserved_contract": {
+    "player_id": "8478872",
+    "season": "20252026",
+    "metric": "goalie.ev.stopping_goals_per100_on_net",
+    "qualification_seconds": 183847,
+    "raised_minutes": 3065,
+    "raw_value": 0.6491125816985565,
+    "facts": "all three annual raw values/units/references, selected metric/year, detailed value, construction/population/reference and qualification remain unchanged across the atomic snapshots. 183847 seconds is below 183900; withholding percentile after the raised cutoff is correct."
+  },
+  "attribution_limits": "the original failed attempt did not retain its row cutoff label; its exact historical DOM state cannot be recovered. this new witness establishes the controller-readiness defect and supports test-only rendered-state waits. old native 1 and partial 26 artifacts remain failed historical evidence, not a whole-browser pass. no product, numerical or build change is justified by this diagnostic.",
+  "execution": {
+    "native_exit": 0,
+    "one_navigation": true,
+    "api_requests": 4,
+    "api_statuses": [200, 200, 200, 200],
+    "request_failures": 0,
+    "page_errors": 0,
+    "sole_console_event": "exact same-origin favicon.ico 404; no broader console-policy acceptance",
+    "owned_context_closed": true,
+    "internal_wall_seconds": 6.625571,
+    "node_peak_rss_bytes": 137969664,
+    "native_wall_seconds": 6.65,
+    "native_peak_rss_bytes": 342982656,
+    "cost_scope": "internal timing after local reservation through owned context closure, serialization excluded; native command high-water is not aggregate browser memory"
+  },
+  "limits": "local raw review only; four facts copied byte-exact, profile retained locally. no live request, export/image read, replay or production edit. whole fresh 30-pair browser matrix and human pixels remain required after source review/freshness/separate root grant; ST, science and activation remain unassessed."
+}

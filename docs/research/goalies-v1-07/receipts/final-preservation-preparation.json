@@ -1,0 +1,47 @@
+{
+  "kind": "goalie-final-preservation-preparation",
+  "status": "source_reviewed_not_run",
+  "source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/final-preservation.py",
+    "bytes": 9379,
+    "sha256": "ba836b45f6d8f9ef043b473e1f3e35623a8dc7eb825e8de945c56aa829258909"
+  },
+  "baseline": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/protected-before.json",
+    "bytes": 17108,
+    "sha256": "fedd866f550590e42f08ce2611eb35c350e44edd4809beacab41c23e87a4e0f4"
+  },
+  "scope": {
+    "fixed_files": 53,
+    "external_metadata_files": 14,
+    "primary_build_files": 38,
+    "primary_spec_files": 1,
+    "baseline_declared_file_bytes": 63052907,
+    "local_database_stats": 2,
+    "immutable_publication_header_queries": 2,
+    "primary_pid": 9645,
+    "primary_port": 3000
+  },
+  "execution_precondition": "after both family live acceptances and explicit root assignment; stop/hold overrides",
+  "limits": [
+    "no full database hash/reader, fit/member/source-corpus/tree census, signal or activation",
+    "all differences remain reported for root attribution; authorized history is not silently waived",
+    "file-returned bytes measured separately; SQL result JSON size is not SQLite pager or device bytes"
+  ],
+  "review": {
+    "root_source_review": "clear",
+    "independent_native_source_review": "clear after partial-I/O reporting fix; report attributed, no separate reviewer file",
+    "original_source_sha256": "a94c93a77f729f3e6ef6361bf506efe13fdd25b0cf092d58a3d765872999df86",
+    "finding": "known stat changes were not classified if later hash/header read failed; overall status already failed",
+    "repair": "compare observed fields after each catch; retain errors and incomplete flags; unknown fields are not compared",
+    "patch": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/final-preservation-partial-io.patch",
+      "bytes": 1972,
+      "sha256": "bd50a2015f17232ba6487a64f745513bdc07ff9cbce29436aac85b6777af1bf8"
+    },
+    "inverse": "independent in-memory inverse restores entire original source",
+    "tests_or_checker_execution": "not_run; source inspection only"
+  },
+  "actual_native_cost": null,
+  "actual_outcome": null
+}

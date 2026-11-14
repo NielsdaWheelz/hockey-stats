@@ -1,0 +1,72 @@
+{
+  "disposition": "refined_browser04_source_review_clear_pending_new_build_startup_and_green",
+  "scope": "named local source/backup/wrapper reads, diff and hashes only; no source edit, execution, browser, http, database, external drive, process, build, typecheck rerun or test execution",
+  "sources": {
+    "browser-real-04.mjs": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-04.mjs",
+      "sha256": "892a1a620f18043cfe2a687ea5b7ed55d4d6d6604852e75a5c41e4dfcf8488a7",
+      "bytes": 41547
+    },
+    "browser-real-04-87464d3f.mjs": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-04-87464d3f.mjs",
+      "sha256": "87464d3f0de88cf3d04c070cd5783554ac665ea22e718c25fa5fa24b3245cb87",
+      "bytes": 39772
+    },
+    "browser-held-07.sh": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-held-07.sh",
+      "sha256": "92e73ac99fc612a80bc4e20052f7df0b393f80ba0294c5f5a5c4b4eab408371f",
+      "bytes": 1394
+    },
+    "browser-preflight-04.command": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-preflight-04.command",
+      "sha256": "449ddddba10f4c60849059e00d8766fef7b900f94b28e2f9b68cae2f3a8581e7",
+      "bytes": 1804
+    },
+    "browser-boundary-04.py": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-boundary-04.py",
+      "sha256": "f2d4f8b8f94d09796aa9b23f7d89e7a2e92b7939af5bdaf9df748328c9d02389",
+      "bytes": 6565
+    }
+  },
+  "prior_review": {
+    "path": "/tmp/staging/shared-browser-04-source-review-01.json",
+    "sha256": "dcad0646950c11bb6c9c3b6d5cb742ef87b71c7a649e8080727e70a22e1b9fca"
+  },
+  "checked_changes": [
+    "exact 87464d3f backup is retained; the new diff adds geometry assertions and all-mode trace only, preserving prior content/export/source-fidelity/network guards",
+    "at each history-position capture, all actual SVG/text client-coordinate rectangles, escaped sides, mode, selected metric, font status and document geometry are retained before any new assertion",
+    "one loaded-font, finite positive SVG viewport and nonempty finite positive text rectangles are required; every measured text rectangle must remain inside its SVG; the existing document-overflow check remains",
+    "the existing two metrics by three real layout modes execute six history measurements, with a final six-count assertion; old checkHistory and plot-value checks retain metric/annual numerical identity",
+    "request ids and lifecycle/action events now carry actual normal/narrow/native200 mode; pending sets cover all modes; the canonical negative-smoke required-request slice explicitly remains normal-only",
+    "no copied label strings or duplicate internal-call counts are added; final global zero request failures and post-owned-closure nonzero-failure rejection remain unchanged",
+    "wrappers retain prior reviewed pins and do not dispatch themselves"
+  ],
+  "remaining_material_findings": [],
+  "ui_facts": {
+    "reviewed_candidate_sha256": "d88386fc9705ef1b9fbd7485c17f5842608310ad5a5f378cabf7fb1bbec4ff5e",
+    "proposal_review_sha256": "5e3a11bf8da99fea3c4d421165ed755121a4e06003ff8e328622deef54442d2e",
+    "root_fresh_report": "applied source equals the reviewed candidate; one previously assigned typecheck passed with unchanged b62b9998 log; no check is repeated here",
+    "status": "new frontend build, ordinary strict startup, actual green and independent pixels remain pending"
+  },
+  "api02_reuse": {
+    "disposition": "conditionally_justified_as_inherited_evidence_not_fresh_revalidation",
+    "conditions": [
+      "after the frontend build, exact server/API/reader runtime artifact identities relevant to api02 remain unchanged, while the intended frontend change is separately bound",
+      "the inherited publication/artifact binding remains preserved with publication fb60493e-badf-4b11-9585-b5a541387e66; a UUID alone does not replace that binding",
+      "the newly launched ordinary strict reader/server completes normal startup on that publication",
+      "a bounded selected live identity check binds the new server endpoint to the inherited publication and selected player/season/quantity facts"
+    ],
+    "reason": "the only reviewed production change alters live SVG text alignment. an unchanged API implementation over the same checked publication retains api02 exhaustive boundary evidence; repeating its 36k requests would not test the changed renderer.",
+    "limits": [
+      "record the proof as inherited unchanged-api/publication evidence, with exact old/new artifact bindings; do not label it a fresh exhaustive run",
+      "if any condition fails, assess the concrete changed API boundary before deciding the additional verification required",
+      "new UI source/build, selected live identity, six label-bounds checks, complete browser04 flows/downloads and actual normal/narrow/native200 pixel review remain fully owed"
+    ]
+  },
+  "limits": [
+    "source controller remains unexecuted and is not a dispatch grant; root owns new-build/startup/green and any later invocation",
+    "new rectangle checks cover every actual text node, not independent completeness of every expected label; later pixel review must inspect the visible labels as required",
+    "old03 and the red checker request aborts remain retained and unattributed; no abort exclusion or further focused reproduction search follows",
+    "no numerical rerun, publication rebuild, family/scientific admission, activation or special-teams acceptance follows"
+  ]
+}

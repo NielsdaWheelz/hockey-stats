@@ -1,0 +1,45 @@
+{
+  "kind": "shared-st-remainder-checked-preflight-intake",
+  "status": "accepted_scoped_preflight_only",
+  "inputs": [
+    {
+      "name": "result",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-01.json",
+      "bytes": 21574,
+      "sha256": "a89f1325563fdd0b87e621d14ec28df445085c14c29ada5c48564d827df44dcf"
+    },
+    {
+      "name": "native_log",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-01-native.log",
+      "bytes": 892,
+      "sha256": "eb615d50b0f0ca4456a3d8badfd263ca9aa139105a622e7c09b09a3661976f53"
+    },
+    {
+      "name": "native_exit",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "name": "actual_submission",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-preflight-actual-submission-01.json",
+      "bytes": 11457,
+      "sha256": "856d85dbfb1c75d29c6923df78d5e3442095a1cb2189f289fda9deb792954ca4"
+    },
+    {
+      "name": "independent_review",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-review-01.json",
+      "bytes": 9260,
+      "sha256": "ffc13b7b321f4b0415384a0b0ad4f2de8192c93cad23e054081e3d875ef59d48"
+    }
+  ],
+  "root_check": "all five fixed local identities match; actual canonical0LF and native footer retained; review accepted with no findings; no reference/runtime/data replay",
+  "native_exit": 0,
+  "native_cost": {
+    "wall_seconds": 0.08,
+    "peak_rss_bytes": 23445504,
+    "raw_footprint_bytes": 13582840
+  },
+  "scope": "46 local pins2814190 bytes; eight metadata/version commands0; same retained89887/source/build/module and freshfive paths checked; no externalconsumerCSVpriorinputmemberDBbody/stat orHTTP",
+  "limits": "completion of one preflight, no browser/capture/media/scientific/activation pass"
+}

@@ -1,0 +1,198 @@
+{
+  "kind": "goalie-model-bounded-verification",
+  "purpose": "fixture",
+  "status": "passed",
+  "fixture_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-01/20212022/manifest.json",
+    "sha256": "24c4bfb50577a0a3c76bf684d908b28418f73585a9ae805becfd0168299ef413"
+  },
+  "prepared": {
+    "purpose": "fixture",
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+    "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+    "members": [
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021020001",
+        "path": "games/20212022/2021020001.json",
+        "sha256": "58996ac5ead52e7ef23236b053cf57033dd3f6a578009f2322d7f0dcb74e7e7a"
+      },
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021020454",
+        "path": "games/20212022/2021020454.json",
+        "sha256": "2a68251ea386d8ea0773ad0a215107fc703e0cb828a7e4719f210c5abfe9b016"
+      },
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021020615",
+        "path": "games/20212022/2021020615.json",
+        "sha256": "448e499d549d103fc2830de47af8bace679a456cf5dbd7fb645b42e465eb72db"
+      },
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021020617",
+        "path": "games/20212022/2021020617.json",
+        "sha256": "33ff83af95f7b569040b2ddd1df3a4bbacaced1f06b76820c26c7e174e1ec3ef"
+      },
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021020942",
+        "path": "games/20212022/2021020942.json",
+        "sha256": "668af622eb522689432823460376dc0969e5bfde854102c0d5520d38dcffe364"
+      },
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021021103",
+        "path": "games/20212022/2021021103.json",
+        "sha256": "d2ddd0694f8a7870277368ef19497a30a0ff6354ff45c9e299cf75ed93645965"
+      },
+      {
+        "kind": "game",
+        "season": "20212022",
+        "game_id": "2021021179",
+        "path": "games/20212022/2021021179.json",
+        "sha256": "ef637d7cda252220acb74de163882cb63b00eb02c04dd93af37f8b02b748f18a"
+      },
+      {
+        "kind": "people",
+        "season": "20212022",
+        "game_id": null,
+        "path": "people/20212022.json",
+        "sha256": "543ca9a5240c64ea2ded1f7a9e0f0f292a55d7cc9dc8e61cbf936eb3ee876979"
+      }
+    ]
+  },
+  "coaches": {
+    "purpose": "fixture",
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c",
+    "selected_game_ids": [
+      "2021020001",
+      "2021020454",
+      "2021020615",
+      "2021020617",
+      "2021020942",
+      "2021021103",
+      "2021021179"
+    ]
+  },
+  "base_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022/manifest.json",
+    "sha256": "93478145e952d2378fce912b0c5daffff553ce84d2a74cce3f327e59a3320baf",
+    "season": "20212022",
+    "purpose": "fixture",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual",
+    "previous": null
+  },
+  "base_scores": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022/manifest.json",
+    "sha256": "78e029e06cfb50ebdc247117faeb3849459e291be2267c250a9c15858dac7d60"
+  },
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "goalie-continuation-v1-07-1",
+    "sha256": "cd57b284183962a5795f0c1b2c15065881be3531a4de46b70a20e163907a97c6",
+    "definition": {
+      "version": "goalie-continuation-v1-07-1",
+      "heads": {
+        "h": "saved attempt: immediately next recorded same-team ordinary attempt within five seconds",
+        "d": "positive recorded reattempt: fully neutral successor all-attempt opportunity"
+      },
+      "encoding": {
+        "execution_recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+        "formula": "q/r geometry, circumstances and actors; own eligible-row moments and supports; no setter"
+      },
+      "target_kinds": {
+        "h": "binary",
+        "d": "fractional"
+      },
+      "history": "head-specific raw last-supported entry-or-carry; exact prior-only completion",
+      "solver": {
+        "maxiter": 10000,
+        "ftol": 1e-15,
+        "gtol": 1e-06,
+        "maxfun": 15000,
+        "continuation": {
+          "maxiter": 10000,
+          "ftol": 1e-16,
+          "gtol": 1e-07,
+          "maxfun": 15000
+        }
+      },
+      "sensitivity": {
+        "pointwise_threshold": 1e-05,
+        "summary_threshold": 0.0001,
+        "policy": "diagnostic, completed baseline is retained; no automatic retry"
+      },
+      "reference": "virtual neutral actor residuals; fixed neutral saved-shot branch weighting"
+    }
+  },
+  "baseline_dispositions": {
+    "h": "complete",
+    "d": "complete"
+  },
+  "head_targets": {
+    "h": {
+      "likelihood_rows": 400,
+      "target_mass": 41.0,
+      "objective": 116.75083979438382,
+      "gradient_max": 8.96799195834741e-07
+    },
+    "d": {
+      "likelihood_rows": 41,
+      "target_mass": 4.528535770104274,
+      "objective": 14.161106984351182,
+      "gradient_max": 9.322833322972235e-07
+    }
+  },
+  "resources": {
+    "wall_seconds": 0.2792112500173971,
+    "peak_memory_bytes": 947208192,
+    "design_wall_seconds": 21.645876041962765,
+    "input_read_wall_seconds": 0.0,
+    "dimensions": {
+      "h": 2610,
+      "d": 2610
+    },
+    "solve_counts": {
+      "h": 1,
+      "d": 1
+    },
+    "probe_solve_counts": {
+      "h": 0,
+      "d": 0
+    },
+    "output_bytes": 1408840
+  },
+  "command": "analysis/.venv/bin/python -u /tmp/goalie-v1-07-checks/fixture_model.py",
+  "checks": [
+    {
+      "scope": "independent intercept-only fractional cross-entropy, analytical/finite-difference gradient, constant fractional fit and empty/endpoint unavailability",
+      "script": {
+        "path": "/tmp/goalie-v1-07-checks/model_check.py",
+        "sha256": "b3d4d33581bfa757701c14a2e41067d033e4f5c728b0cd8e4b234c1400d371ba"
+      }
+    },
+    {
+      "scope": "immediate-next source labels: equal clock order, intervening nonattempt/invalid event, exact five-second cutoff, team-free nonattempt, unknown/known terminal, opponent and changed goalie/strength; exact old/new four-head design/target/actor/fixed and dynamic matrix/objective/gradient equality on attributed fixture contexts",
+      "baseline_commit": "c1b1903",
+      "script": {
+        "path": "/tmp/goalie-v1-07-checks/source_and_parity.py",
+        "sha256": "2089035c7c3657db6af9ea1cf4e4245274d4c17f1be8dd532b919b8cdc30f68f"
+      }
+    }
+  ],
+  "limitations": [
+    "seven attributed first-season fixture games; no real-season capability acceptance",
+    "no base fit, score regeneration, preparation or serving mutation",
+    "temporary checks retained until full assigned acceptance; not a permanent harness"
+  ]
+}

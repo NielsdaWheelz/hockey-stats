@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "kind": "shared-staged-result-reader-contract-review",
+  "status": "accepted-source-contract-runtime-composition-pending",
+  "recorded_at_utc": "2026-11-11T12:19:51.253920+00:00",
+  "starting_head": "d1286c1900f241c9e1bcd4316ab1d7b458ea25dc",
+  "starting_analysis_tree": "0a5993b1532bc0c6615e5d90e125f24853d9fb5f",
+  "patch_sha256": "903e74000f5e16795563ccf9db1287d88cd55cd489238b75718c7c5a7d7be0d2",
+  "files": [
+    {
+      "file": "analysis_publication.py",
+      "original_sha256": "7ade51ccdc807295da920b3b5c3b9cc1d459bccaecdaef2a81266d1b8e968852",
+      "current_sha256": "3c22d43dd1a82697176ea1cb4eea3256b2d108877425b72fd260c71ea2ba22ad"
+    },
+    {
+      "file": "spatial_composition.py",
+      "original_sha256": "a65ddacf1c21070fc30aead01fbf1ae2e5c876e7c27f96d153233372e96b4889",
+      "current_sha256": "6313fe3014d4ea4b5c1cd070ab8beaccc7c860778831fc1cdea478f57260e2f8"
+    },
+    {
+      "file": "goalie_composition.py",
+      "original_sha256": "87dad8fa794971da667c4fb6628c6177eea595c7bc3e23e44a594bbd12156ad6",
+      "current_sha256": "5f49f970252e934d290ea4a87fe4ce87092422112a2ee58d734aa6216e27cd2e"
+    }
+  ],
+  "public_contract": "read_results(directory: Path, manifest_name='manifest.json') -> Results",
+  "change": "the existing strict reader body is the single public definition; the redundant wrapper and private name are removed",
+  "red": {
+    "exit_code": 1,
+    "receipt_sha256": "ce368eeb714d6306b4205500b571750e84ce2cdca94e87d9273811b70fa98040",
+    "observed_public_parameters": [
+      "directory"
+    ],
+    "observed_defaults": [],
+    "expected_parameters": [
+      "directory",
+      "manifest_name"
+    ],
+    "expected_defaults": [
+      "manifest.json"
+    ]
+  },
+  "green": {
+    "exit_code": 0,
+    "receipt_sha256": "35a9c66769a6245a142e025f0a96d80aef22935c5848fbda165d7cc886459779",
+    "entire_existing_reader_body_exactly_preserved": true,
+    "full_three_module_ast_equal_after_only_approved_seam_changes": true,
+    "public_import_and_call_resolution": true,
+    "git_diff_check_exit_code": 0,
+    "staging_calls": [
+      {
+        "file": "analysis_publication.py",
+        "function": "write_results",
+        "arguments": [
+          "output",
+          "'manifest.json.incomplete'"
+        ],
+        "validation_precedes_existing_rename": true
+      },
+      {
+        "file": "analysis_publication.py",
+        "function": "_write_method_successor",
+        "arguments": [
+          "output",
+          "'manifest.json.incomplete'"
+        ],
+        "validation_precedes_existing_rename": true
+      },
+      {
+        "file": "spatial_composition.py",
+        "function": "compose_results",
+        "arguments": [
+          "output",
+          "'manifest.json.incomplete'"
+        ],
+        "validation_precedes_existing_rename": true
+      },
+      {
+        "file": "spatial_composition.py",
+        "function": "complete_results",
+        "arguments": [
+          "directory",
+          "staging.name"
+        ],
+        "validation_precedes_existing_rename": true
+      },
+      {
+        "file": "goalie_composition.py",
+        "function": "compose_goalie",
+        "arguments": [
+          "output",
+          "'manifest.json.incomplete'"
+        ],
+        "validation_precedes_existing_rename": true
+      }
+    ],
+    "single_public_default_and_no_private_wrapper_alias_fallback": true,
+    "schema3_spatial_evidence_union_member_guards_and_typed_errors_unchanged": true
+  },
+  "tradeoff": "the manifest-name choice becomes an explicit public argument; validation is unchanged and completed-manifest callers retain their default",
+  "scope": {
+    "source_ast_only": true,
+    "module_imports": 0,
+    "artifact_reads": 0,
+    "full_reader_calls": 0,
+    "model_or_source_calls": 0,
+    "external_reads": 0,
+    "serving_changes": 0
+  },
+  "runtime_io_validation": "the next required composition owns actual reader i/o; no extra fixture or corpus campaign was run",
+  "cleanup": "temporary red/green checks and patch retained through full v1-07 acceptance; no commit or issue deletion by this agent",
+  "independent_review": {
+    "reviewer": "api_verification",
+    "verdict": "passed-static-boundary",
+    "reviewed_receipt_sha256": "dc16fdfa96533fe760fa0348af8d65fc013719d90f9ed0c68edde7485fe00868",
+    "findings": "all three actual files, exact reader body, normal default, five staging arguments and validation-before-rename order preserved; spatial content otherwise unchanged",
+    "runtime_repeats": 0,
+    "external_reads": 0
+  }
+}

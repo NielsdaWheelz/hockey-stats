@@ -1,0 +1,68 @@
+{
+  "kind": "goalie-consumer-04-post-exit-capture",
+  "status": "captured_complete_only",
+  "native_exit": 0,
+  "consumer_judgment": "not_assessed",
+  "external_bodies": [
+    {
+      "source": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04.json",
+      "local": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/consumer-boundary-04/consumer-04.json.raw",
+      "cap_bytes": 16777216,
+      "present": true,
+      "returned_bytes": 2860,
+      "sha256": "c7e329ae247857e425c5db25a88afe8ee5c07130818c7ecd45032c1a4a044d66",
+      "read_complete": true,
+      "retained": true,
+      "overflow": false
+    },
+    {
+      "source": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04.csv",
+      "local": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/consumer-boundary-04/consumer-04.csv.raw",
+      "cap_bytes": 16777216,
+      "present": true,
+      "returned_bytes": 792692,
+      "sha256": "bc293b783cbd71a19d7f7fc7f506d08590dba23c6936caea4d1cef817b387653",
+      "read_complete": true,
+      "retained": true,
+      "overflow": false
+    },
+    {
+      "source": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04-native.log",
+      "local": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/consumer-boundary-04/consumer-04-native.log.raw",
+      "cap_bytes": 1048576,
+      "present": true,
+      "returned_bytes": 904,
+      "sha256": "5ce0e4ba2a84de30144ce874bcb519acb0be9c27f0e532cb1b7c9ff05f3a98ad",
+      "read_complete": true,
+      "retained": true,
+      "overflow": false
+    },
+    {
+      "source": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04-native.exit",
+      "local": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/consumer-boundary-04/consumer-04-native.exit.raw",
+      "cap_bytes": 64,
+      "present": true,
+      "returned_bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "read_complete": true,
+      "retained": true,
+      "overflow": false
+    }
+  ],
+  "unknowns": [],
+  "errors": [],
+  "precondition": "root must confirm actual consumer-04/native exit zero and separately assign this single invocation",
+  "limits": [
+    "exactly four fixed external body opens maximum; each bounded to cap+1 returned bytes",
+    "no stat, arbitrary path, declared member, source, model, archive, database, full reader, http or consumer replay",
+    "complete capture does not mean consumer passed; root assesses retained json/csv/log separately",
+    "physical i/o bytes remain unknown; returned body bytes are logical reads"
+  ],
+  "collector_cost": {
+    "wall_seconds": 0.0009582911152392626,
+    "peak_rss_bytes": 20430848,
+    "external_returned_body_bytes": 796458,
+    "physical_io_bytes": null,
+    "scope": "through capture/exit parsing, after local directory/receipt reservation; final serialization/write excluded"
+  }
+}

@@ -1024,16 +1024,19 @@ def _counterparts(value, catalogs, *, bands=None):
             require(value['known_slot_seconds'] > 0 and close(value['mean_band_index']['value'], sum(item['band']*item['slot_seconds'] for item in value['bands'])/value['known_slot_seconds']), 'mean band differs')
 
 
-def _source_counts(value, catalogs):
+def _source_counts(value, catalogs, *, reported=False):
     fields(value, ('unblocked_attempts', 'misses', 'shots_on_goal', 'saves', 'goals_against', 'save_percentage', 'support', 'provenance'))
     source_reference(value['provenance'],catalogs)
     for key in ('unblocked_attempts', 'misses', 'shots_on_goal', 'saves', 'goals_against'):
         number(value[key], minimum=0, integer=True, nullable=True)
     support(value['support'])
     estimate(value['save_percentage'], catalogs, probability=True)
-    for total, left, right in (('unblocked_attempts','misses','shots_on_goal'), ('shots_on_goal','saves','goals_against')):
-        if value[left] is not None and value[right] is not None:
-            require(value[total] == value[left]+value[right], 'goalie count closure differs')
+    partial_reports = reported and value['support']['unquantified_gap'] and any(
+        row['code'] == 'source_unavailable' for row in value['support']['reason_counts'])
+    if not partial_reports:
+        for total, left, right in (('unblocked_attempts','misses','shots_on_goal'), ('shots_on_goal','saves','goals_against')):
+            if value[left] is not None and value[right] is not None:
+                require(value[total] == value[left]+value[right], 'goalie count closure differs')
     if value['save_percentage']['value'] is not None:
         require(value['shots_on_goal'] is not None and value['shots_on_goal'] > 0 and value['saves'] is not None and close(value['save_percentage']['value'], value['saves']/value['shots_on_goal']), 'save fraction differs')
 
@@ -1089,8 +1092,8 @@ def _goalie_summary(value, catalogs, *, game=False):
             ids.append(row['game_id'])
         require(len(ids) == len(set(ids)), 'duplicate goalie game')
     source_reference(value['provenance'],catalogs)
-    for key in ('source_counts','reported_boxscore_counts'):
-        _source_counts(value[key], catalogs)
+    _source_counts(value['source_counts'], catalogs)
+    _source_counts(value['reported_boxscore_counts'], catalogs, reported=True)
     _paired(value['on_net_evidence'], catalogs, on_net=True)
     _paired(value['unblocked_evidence'], catalogs)
     _goalie_actual_states(value,catalogs)
@@ -1486,6 +1489,8 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
             require(len(states) == len(set(states)) and close(sum(item['weight'] for item in value['state_weights']),1), 'state weights differ')
             expected_states = ('5v4','5v3','4v3') if row['strength'] == 'pp' else ('4v5','3v5','3v4') if row['strength'] == 'pk' else (row['strength'],)
             require(set(states) == set(expected_states), 'state mixture differs from selector')
+            require(len(expected_states) != 1 or value['state_weights'][0]['weight'] == 1,
+                    'exact spatial state requires weight one')
             for role in ('offense','defense'):
                 if row['strength'] in (('5v4','5v3','4v3','pp') if role == 'defense' else ('4v5','3v5','3v4','pk')):
                     require(all(value[key]['value'] is None and value[key]['unavailable_reason'] == 'not_applicable' for key in ESTIMATE_FIELDS[table] if key.startswith(role+'_')), 'inapplicable spatial role carries an estimate')
@@ -1498,8 +1503,9 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
                     complete = value[f'{role}_{quantity}_per60_complete']['value']
                     neutral = value[f'{role}_{quantity}_per60_neutral']['value']
                     relative = value[f'{role}_{quantity}_relative_percent']['value']
-                    if all(item is not None for item in (effect,complete,neutral)):
-                        require(close(effect,complete-neutral), 'spatial contrast differs')
+                    if effect is not None:
+                        require(complete is not None and neutral is not None and close(effect,complete-neutral),
+                                'spatial contrast lacks its complete/neutral rates or differs')
                     if relative is not None:
                         require(effect is not None and neutral is not None and neutral > 0 and close(relative,100*effect/neutral), 'spatial relative contrast differs')
         elif table == 'skater_shootiness':
@@ -1605,12 +1611,23 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
         _available_method(value['method_id'],catalogs)
         fields(value, ('events','eligible_weight','observed_successes','expected_successes','probability','effect','support','method_id'))
         number(value['events'], minimum=0, integer=True)
-        for key in ('eligible_weight','observed_successes','expected_successes'):
+        for key in ('eligible_weight','expected_successes'):
             number(value[key], minimum=0)
+        number(value['observed_successes'], minimum=0, integer=True)
+        require(value['eligible_weight'] == value['events'], 'goalie breakdown weight differs from paired count')
         require(value['observed_successes'] <= value['eligible_weight'] and value['expected_successes'] <= value['eligible_weight'], 'breakdown exceeds denominator')
         estimate(value['probability'], catalogs, probability=True)
         estimate(value['effect'], catalogs)
         support(value['support'])
+        require(value['support']['events'] == value['events'] and value['support']['eligible_weight'] == value['events']
+                and value['support']['included_seconds'] is None, 'goalie breakdown support differs from paired count')
+        n = value['events']
+        probability, effect = value['probability']['value'], value['effect']['value']
+        if n:
+            require(probability is not None and close(probability, value['expected_successes']/n), 'goalie breakdown probability differs')
+            require(effect is not None and close(effect, (value['expected_successes']-value['observed_successes'])/n), 'goalie breakdown saved goals differ')
+        else:
+            require(probability is None and effect is None, 'empty goalie breakdown has a defined rate')
         _method(value['method_id'], catalogs)
     elif table == 'adjustment_decomposition':
         names = ('baseline','self','teammates','opponents','coaching_other_context','numerical_residual','factual_prediction')
@@ -1919,11 +1936,80 @@ def member_path(directory, member):
     return path
 
 
-def read_results(directory: Path) -> Results:
-    return _read_results(directory, 'manifest.json')
+def _validate_spatial_mixtures(rows):
+    """check the common native-rate mixture independently of its producer."""
+    for common, exact, role in (('pp', ('5v4','5v3','4v3'), 'offense'),
+                                ('pk', ('4v5','3v5','3v4'), 'defense')):
+        if common not in rows:
+            continue
+        value = rows[common]
+        weights = {item['strength']: item['weight'] for item in value['state_weights']}
+        require(set(weights) == set(exact) and len(value['state_weights']) == 3
+                and all(type(w) in (int,float) and math.isfinite(w) and 0 <= w <= 1 for w in weights.values())
+                and close(sum(weights.values()), 1), 'invalid common spatial weights')
+        require(all(state in rows for state in exact), 'common spatial result lacks exact states')
+        require(all(rows[state]['state_weights'] == [dict(strength=state, weight=1.)] for state in exact),
+                'exact spatial state weight differs')
+        for quantity in ('attempts','xg'):
+            for suffix in ('','_complete','_neutral'):
+                field = f'{role}_{quantity}_per60{suffix}'
+                values = [rows[state][field]['value'] for state in exact]
+                actual = value[field]['value']
+                if any(item is None for item in values):
+                    require(actual is None, 'common spatial rate substitutes a missing exact state')
+                else:
+                    expected = math.fsum(weights[state]*item for state,item in zip(exact,values,strict=True))
+                    require(actual is not None and close(actual,expected), 'common spatial rate differs from exact-state mixture')
+    if 'pp' in rows and 'pk' in rows:
+        attacking = {item['strength']: item['weight'] for item in rows['pp']['state_weights']}
+        defending = {item['strength']: item['weight'] for item in rows['pk']['state_weights']}
+        require(attacking == {state[::-1]: weight for state,weight in defending.items()},
+                'reciprocal spatial state weights differ')
 
 
-def _read_results(directory, manifest_name):
+def _validate_spatial_map_mixtures(scalars, maps):
+    if not any(strength in scalars for strength in ('pp','pk')):
+        return
+    for strength, scalar in scalars.items():
+        if strength == '5v5':
+            continue
+        roles = ('offense','defense') if strength == '5v5' else ('offense',) if strength in ('pp','5v4','5v3','4v3') else ('defense',)
+        for role in roles:
+            for quantity in ('attempts','xg'):
+                for view in ('complete','effect'):
+                    kind = f'{role}_{quantity}'
+                    field = kind + '_per60' + ('_complete' if view == 'complete' else '')
+                    value = maps.get((kind,strength,view))
+                    require(value is not None, 'computed spatial scalar lacks required provided map')
+                    require((value['cells'] is None) == (scalar[field]['value'] is None)
+                            and value['method_id'] == scalar['method_id'], 'spatial map/scalar availability or method differs')
+                    if value['cells'] is not None:
+                        require(close(value['integrated_value'],scalar[field]['value']), 'spatial map/scalar integral differs')
+    for common, exact, role in (('pp', ('5v4','5v3','4v3'), 'offense'),
+                                ('pk', ('4v5','3v5','3v4'), 'defense')):
+        if common not in scalars:
+            continue
+        weights = {item['strength']: item['weight'] for item in scalars[common]['state_weights']}
+        for quantity in ('attempts','xg'):
+            for view in ('complete','effect'):
+                key = (f'{role}_{quantity}', common, view)
+                require(key in maps, 'common spatial scalar lacks its map')
+                value = maps[key]
+                source = [maps.get((key[0],state,view)) for state in exact]
+                require(all(item is not None for item in source), 'common spatial map lacks exact states')
+                if any(item['cells'] is None for item in source):
+                    require(value['cells'] is None, 'common spatial map substitutes a missing exact state')
+                    continue
+                require(value['cells'] is not None, 'common spatial map is missing its exact-state mixture')
+                for field,measure in (('cells','value'), ('display_cells','mass'), ('display_cells','density_per100sqft')):
+                    for index,cell in enumerate(value[field]):
+                        expected = math.fsum(weights[state]*item[field][index][measure]
+                                             for state,item in zip(exact,source,strict=True))
+                        require(close(cell[measure],expected), 'common spatial map differs from exact-state mixture')
+
+
+def read_results(directory: Path, manifest_name='manifest.json') -> Results:
+    """validate one named complete or staged manifest and all result members."""
     directory = directory.resolve(strict=True)
     manifest = strict_json((directory/manifest_name).read_bytes())
     fields(manifest,('schema_version','kind','purpose','seasons','observed_bindings','prepared_sha256','producer','catalogs','families'))
@@ -1968,15 +2054,39 @@ def _read_results(directory, manifest_name):
         fields(family['tables'],FAMILY_TABLES[family['family']] if family['availability'] == 'provided' else ())
         require(family['availability'] != 'provided' or manifest['prepared_sha256'] is not None, 'provided family lacks prepared identity')
         inventory.append((family['season'],family['family']))
-        spatial = {}
-        for table,member in family['tables'].items():
+        spatial, spatial_rows, reference_weights = {}, {}, {}
+        tables = family['tables']
+        if family['family'] == 'spatial':
+            tables = sorted(tables, key=lambda table: (table != 'skater_spatial', table))
+        for table in tables:
+            member = family['tables'][table]
             path = member_path(directory,member)
             require(path not in paths, 'member reused across tables')
             paths.add(path)
+            map_player, maps = None, {}
             for row in result.rows(member,table,family['family']):
                 require(row['season'] == family['season'], 'row season differs from family')
                 if family['family'] == 'spatial' and table != 'analysis_map':
                     spatial.setdefault(table,{})[tuple(row[key] for key in KEYS[table])] = row['result']
+                if family['family'] == 'spatial' and table == 'skater_spatial' and row['result']['availability'] == 'provided':
+                    value = row['result']['data']
+                    spatial_rows.setdefault(row['player_id'], {})[row['strength']] = value
+                    if row['strength'] in ('pp','pk'):
+                        weights = {item['strength']: item['weight'] for item in value['state_weights']}
+                        prior = reference_weights.setdefault(row['strength'], weights)
+                        require(weights == prior, 'annual spatial reference weights differ between players')
+                elif family['family'] == 'spatial' and table == 'analysis_map':
+                    if map_player is not None and map_player != row['player_id']:
+                        _validate_spatial_map_mixtures(spatial_rows.get(map_player, {}), maps)
+                        maps = {}
+                    map_player = row['player_id']
+                    if row['result']['availability'] == 'provided':
+                        maps[row['map_kind'],row['strength'],row['view']] = row['result']['data']
+            if family['family'] == 'spatial' and table == 'skater_spatial':
+                for rows in spatial_rows.values():
+                    _validate_spatial_mixtures(rows)
+            if map_player is not None:
+                _validate_spatial_map_mixtures(spatial_rows.get(map_player, {}), maps)
             if table not in FACT_TABLES:
                 people_count = sum(person['season'] == family['season'] and ((person['kind'] == 'goalie') == (family['family'] == 'goalie')) for person in people.values())
                 require(member['rows'] == people_count * len(required_keys(table,family['family'])), f'{table}: missing promised person/selector rows')
@@ -2064,7 +2174,7 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
         manifest['catalogs'][table] = member(table+'.jsonl',rows,table)
     staging = output/'manifest.json.incomplete'
     write_json(staging,manifest)
-    _read_results(output, 'manifest.json.incomplete')
+    read_results(output, 'manifest.json.incomplete')
     staging.rename(output/'manifest.json')
     return manifest
 
@@ -2097,7 +2207,7 @@ def _write_method_successor(source, methods, output):
     manifest['catalogs']['methods'] = dict(path=path, rows=count, sha256=sha.hexdigest())
     staging = output/'manifest.json.incomplete'
     write_json(staging, manifest)
-    _read_results(output, 'manifest.json.incomplete')
+    read_results(output, 'manifest.json.incomplete')
     staging.rename(output/'manifest.json')
     return manifest
 
@@ -2485,9 +2595,13 @@ def _goalie_actual_states(value, catalogs):
         _paired(row['unblocked_evidence'],catalogs)
         _goalie_stages(row['stage_evidence'])
     require(len(identities) == len(set(identities)), 'duplicate goalie summary actual state')
-    for key in ('unblocked_attempts','misses','shots_on_goal','saves','goals_against'):
+    count_fields = ('unblocked_attempts','misses','shots_on_goal','saves','goals_against')
+    missing_collection = (not rows and all(value['source_counts'][key] is None for key in count_fields)
+        and value['source_counts']['support']['unquantified_gap'] and any(
+            row['code'] == 'source_unavailable' for row in value['source_counts']['support']['reason_counts']))
+    for key in count_fields:
         values = [row['source_counts'][key] for row in rows]
-        expected = sum(values) if all(item is not None for item in values) else None
+        expected = None if missing_collection or any(item is None for item in values) else sum(values)
         require(value['source_counts'][key] == expected, 'actual-state source counts do not close')
     for name in ('on_net_evidence','unblocked_evidence'):
         for key in ('attempts','goals','expected_goals'):

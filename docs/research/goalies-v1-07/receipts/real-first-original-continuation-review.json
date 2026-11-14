@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "kind": "bounded_original_capture_review",
+  "status": "passed",
+  "purpose": "independently check and preserve one original eligible occurrence-positive/danger-unavailable continuation boundary",
+  "annual_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20212022/manifest.json",
+    "sha256": "1898e7128a1e166cceec408784979a9e6fb62c045a0ed79840b0cfee471a5669",
+    "identity_source": "root supplied completed-fit pin; manifest not reopened"
+  },
+  "coverage": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20212022/coverage.json",
+    "sha256": "5d07c27669b294bec938efee0b1d52100192c15ed8a0e597586fb536a916dd13",
+    "bytes": 72037947
+  },
+  "source_admission": "fixtures/source-admission-v1-07.json",
+  "checked_source": {
+    "game_id": "2021020156",
+    "season": "20212022",
+    "game_date": "2021-11-04",
+    "away_team_id": 7,
+    "home_team_id": 55,
+    "focal": {
+      "source_index": 71,
+      "path": "/plays/71",
+      "event_id": 95,
+      "sort_order": 162,
+      "period_number": 1,
+      "time_in_period": "16:38",
+      "elapsed_seconds": 998,
+      "outcome": "save",
+      "physical_status": "ordinary",
+      "shooting_team_id": 55,
+      "shooter_id": 8479293,
+      "raw_goalie_id": 8474682,
+      "resolved_goalie_id": 8474682,
+      "matched_report": "/rows/74[PL-75]"
+    },
+    "immediate_successor": {
+      "source_index": 72,
+      "path": "/plays/72",
+      "event_id": 96,
+      "sort_order": 163,
+      "period_number": 1,
+      "time_in_period": "16:39",
+      "elapsed_seconds": 999,
+      "same_team": true,
+      "outcome": "save",
+      "raw_goalie_id": 8474682,
+      "checked_goalie_id": null,
+      "checked_membership": "ambiguous",
+      "matched_report": null,
+      "shot_type_unavailable": true
+    },
+    "same_clock_competitor": {
+      "source_index": 73,
+      "path": "/plays/73",
+      "event_id": 97,
+      "sort_order": 164,
+      "time_in_period": "16:39",
+      "shooter_id": 8479293,
+      "shot_type": "wrist",
+      "raw_goalie_id": 8474682
+    },
+    "raw_goalie_identity": {
+      "path": "/rosterSpots/4",
+      "player_id": 8474682,
+      "team_id": 7,
+      "position": "G",
+      "sweater_number": 31,
+      "boxscore_path": "/playerByGameStats/awayTeam/goalies"
+    },
+    "original_report_rows": [
+      {
+        "source_index": 74,
+        "row_id": "PL-75",
+        "cells": [
+          "75",
+          "1",
+          "EV",
+          "16:38 3:22",
+          "SHOT",
+          "SEA ONGOAL - #13 TANEV, Wrist, Off. Zone, 18 ft."
+        ],
+        "players": [
+          {
+            "title": "Center - RASMUS ASPLUND",
+            "sweater": "74"
+          },
+          {
+            "title": "Right Wing - TAGE THOMPSON",
+            "sweater": "72"
+          },
+          {
+            "title": "Left Wing - JEFF SKINNER",
+            "sweater": "53"
+          },
+          {
+            "title": "Defense - WILL BUTCHER",
+            "sweater": "4"
+          },
+          {
+            "title": "Defense - RASMUS DAHLIN",
+            "sweater": "26"
+          },
+          {
+            "title": "Goalie - DUSTIN TOKARSKI",
+            "sweater": "31"
+          },
+          {
+            "title": "Center - CALLE JARNKROK",
+            "sweater": "19"
+          },
+          {
+            "title": "Center - YANNI GOURDE",
+            "sweater": "37"
+          },
+          {
+            "title": "Left Wing - BRANDON TANEV",
+            "sweater": "13"
+          },
+          {
+            "title": "Defense - HAYDN FLEURY",
+            "sweater": "4"
+          },
+          {
+            "title": "Defense - VINCE DUNN",
+            "sweater": "29"
+          },
+          {
+            "title": "Goalie - PHILIPP GRUBAUER",
+            "sweater": "31"
+          }
+        ]
+      },
+      {
+        "source_index": 75,
+        "row_id": "PL-76",
+        "cells": [
+          "76",
+          "1",
+          "EV",
+          "16:39 3:21",
+          "SHOT",
+          "SEA ONGOAL - #13 TANEV, Wrist, Off. Zone, 14 ft."
+        ],
+        "players": [
+          {
+            "title": "Center - RASMUS ASPLUND",
+            "sweater": "74"
+          },
+          {
+            "title": "Right Wing - TAGE THOMPSON",
+            "sweater": "72"
+          },
+          {
+            "title": "Left Wing - JEFF SKINNER",
+            "sweater": "53"
+          },
+          {
+            "title": "Defense - WILL BUTCHER",
+            "sweater": "4"
+          },
+          {
+            "title": "Defense - RASMUS DAHLIN",
+            "sweater": "26"
+          },
+          {
+            "title": "Goalie - DUSTIN TOKARSKI",
+            "sweater": "31"
+          },
+          {
+            "title": "Center - CALLE JARNKROK",
+            "sweater": "19"
+          },
+          {
+            "title": "Center - YANNI GOURDE",
+            "sweater": "37"
+          },
+          {
+            "title": "Left Wing - BRANDON TANEV",
+            "sweater": "13"
+          },
+          {
+            "title": "Defense - HAYDN FLEURY",
+            "sweater": "4"
+          },
+          {
+            "title": "Defense - VINCE DUNN",
+            "sweater": "29"
+          },
+          {
+            "title": "Goalie - PHILIPP GRUBAUER",
+            "sweater": "31"
+          }
+        ]
+      },
+      {
+        "source_index": 76,
+        "row_id": "PL-77",
+        "cells": [
+          "77",
+          "1",
+          "EV",
+          "16:39 3:21",
+          "SHOT",
+          "SEA ONGOAL - #13 TANEV, Wrist, Off. Zone, 12 ft."
+        ],
+        "players": [
+          {
+            "title": "Center - RASMUS ASPLUND",
+            "sweater": "74"
+          },
+          {
+            "title": "Right Wing - TAGE THOMPSON",
+            "sweater": "72"
+          },
+          {
+            "title": "Left Wing - JEFF SKINNER",
+            "sweater": "53"
+          },
+          {
+            "title": "Defense - WILL BUTCHER",
+            "sweater": "4"
+          },
+          {
+            "title": "Defense - RASMUS DAHLIN",
+            "sweater": "26"
+          },
+          {
+            "title": "Goalie - DUSTIN TOKARSKI",
+            "sweater": "31"
+          },
+          {
+            "title": "Center - CALLE JARNKROK",
+            "sweater": "19"
+          },
+          {
+            "title": "Center - YANNI GOURDE",
+            "sweater": "37"
+          },
+          {
+            "title": "Left Wing - BRANDON TANEV",
+            "sweater": "13"
+          },
+          {
+            "title": "Defense - HAYDN FLEURY",
+            "sweater": "4"
+          },
+          {
+            "title": "Defense - VINCE DUNN",
+            "sweater": "29"
+          },
+          {
+            "title": "Goalie - PHILIPP GRUBAUER",
+            "sweater": "31"
+          }
+        ]
+      }
+    ],
+    "source_check": "the saved api array gives direct adjacency and increasing sort order. both events are ordinary same-team shots on goal in the same period one second apart. report PL-75 supplies the uniquely matched focal lineup. api events72/73 and report rowsPL-76/PL-77 share clock, team, shooter and shot type; their distances differ, but the frozen report association is ambiguous and does not infer a lineup from distance or the raw goalie role alone.",
+    "expected": {
+      "h_label": true,
+      "h_included": true,
+      "d_target": null,
+      "d_included": false,
+      "d_reason": "successor_execution_score_unavailable",
+      "successor_checked_goalie_unavailable": true
+    },
+    "distinction": "a known occurrence label does not require a valued successor. this case has a raw goalie role on both events, not an observed goalie change; unavailable checked successor membership/type blocks its frozen execution score. do not impute the danger target, drop the h label, search for a later successor, or relabel this proxy as a physical rebound."
+  },
+  "saved_target": {
+    "key": "2021020156:71",
+    "game_id": "2021020156",
+    "source_index": 71,
+    "outcome": "save",
+    "physical_status": "ordinary",
+    "goalie_id": 8474682,
+    "physical_state": [
+      5,
+      5,
+      1,
+      1
+    ],
+    "h_label": true,
+    "h_included": true,
+    "h_reason": null,
+    "h_exclusions": [],
+    "successor_key": "2021020156:72",
+    "d_included": false,
+    "d_target": null,
+    "d_reason": "successor_execution_score_unavailable"
+  },
+  "saved_successor_metadata": {
+    "key": "2021020156:72",
+    "outcome": "save",
+    "physical_status": "ordinary",
+    "goalie_id": null,
+    "physical_state": null,
+    "h_exclusions": [
+      "membership_unavailable_or_outside_population",
+      "goalie_population_unavailable_or_outside",
+      "shot_type_unavailable",
+      "opposing_goalie_membership_unavailable"
+    ]
+  },
+  "preservation": {
+    "complete_game_source_pairs": 6,
+    "new_files": 12,
+    "body_bytes": 1523363,
+    "receipt_bytes": 4035,
+    "all_original_and_copied_hashes_match": true,
+    "required_existing_season_reference_files": 8,
+    "existing_reference_bytes_match_originals": true,
+    "existing_captures_overwritten": false
+  },
+  "limits": [
+    "original api/report/roster/boxscore checked independently with stdlib json and literal html rows; no project parser or source reconstruction",
+    "saved prepared associations retain the frozen match-status decision; this check does not change or replay the matching policy",
+    "d missingness is checked against the saved annual target and successor metadata; no base score/model/array reader was opened",
+    "one new game only; the existing excluded-focal control2021020942:278 was not reopened",
+    "no original witness was found here for an intervening invalid event, unknown terminal or known goalie change"
+  ],
+  "cost": {
+    "verification_and_preservation_wall_seconds": 14.328004291048273,
+    "peak_memory_bytes": 25427968,
+    "peak_memory_platform_units": "darwin ru_maxrss bytes",
+    "new_original_game_bundles": 1,
+    "prepared_game_reads": 1,
+    "prepared_game_bytes": 36375973,
+    "source_parser_or_replay_calls": 0,
+    "model_or_array_reads": 0,
+    "network_requests": 0,
+    "full_corpus_scans": 0,
+    "measurement_scope": "verification/copy process only; earlier one-game locator read and targeted original inspection commands are excluded from wall/peak. prepared member opened once; the selected 9,776,638-byte saved corpus metadata manifest was also inspected only for original reference locators.",
+    "saved_corpus_metadata_bytes": 9776638
+  }
+}

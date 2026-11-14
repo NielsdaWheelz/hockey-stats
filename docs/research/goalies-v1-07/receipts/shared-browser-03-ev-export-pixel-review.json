@@ -1,0 +1,259 @@
+{
+  "scope": "actual full-height pixel inspection of exactly the thirteen declared normal goalie ev png downloads from browser attempt 03",
+  "reviewer": "/root/ev_export_pixels",
+  "review_date": "2026-11-13",
+  "source_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-attempt-03-result.json",
+    "sha256": "078c65ad8eebe94b58eb62043fe7f779a7004dd74450a5377a17c52fc534d54f",
+    "status": "failed"
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "method": "each declared original was individually opened with view_image and visually inspected from title through bottom footer; no crops, copies or replacement images were created",
+  "pixel_result": "no consequential rendering defect observed in the thirteen declared originals",
+  "common_observations": [
+    "each image has the correct player, goalie ev quantity identifier, native and display unit labels, multiplier, three plotted annual points and three annual sections for 2023-24, 2024-25 and selected 2025-26",
+    "display units are goals per 100 common on-net opportunities for stopping, percent for six raw probabilities, and percentage points for six focal-minus-neutral differences; multiplier labels are 1, 100 and 100 respectively",
+    "each annual section shows player/team, percentile, goalies, cutoff 300 min, cohort n=76/76/74 and incompatible peers 0",
+    "qualification and quantity support, included seconds, known excluded seconds, gap, prior-only status, inferred inputs, current-season information, prior season and elapsed-unavailable reason counts are readable",
+    "construction and method text preserves ev pooling, common-panel normalization, quantity-specific conditioning and reference; proxy, experimental-estimate, no-causal-isolation, no-calibrated-interval and conditional-danger uncertainty caveats remain readable",
+    "2023-24 and 2024-25 explicitly say numerical sensitivity was not assessed for that annual state; 2025-26 shows assessed sensitivity, remaining optimizer accuracy unknown and diagnostic-only thresholds",
+    "all three corpus hashes, method blocks and final publication/provenance and percentile interpretation footer render within the canvas; no overlap, missing annual section, clipped text, truncation or unreadable block was observed"
+  ],
+  "nonblocking_findings": [
+    {
+      "issue": "docs/issues/history-export-repeated-method-notes.md",
+      "observation": "raw json-like method limitations and findings repeat within each annual section and produce a very tall export; they remain legible and complete",
+      "disposition": "known generic presentation issue; no specified export height budget and no consequential defect inferred from height alone"
+    }
+  ],
+  "limits": [
+    "only these thirteen ev originals were inspected; no claim about pk exports, viewport captures or other downloads",
+    "sha256 values below are copied from the completed local browser receipt and were not independently recalculated from png bytes",
+    "prior machine csv/raw-value/svg equality was provided as completed context and was not rerun; pixel review does not independently establish arithmetic or scientific validity",
+    "browser attempt 03 remains failed at its final zero-network-failure guard on three unattributed net::ERR_ABORTED league requests; this review neither attributes those failures nor establishes browser or family acceptance",
+    "no source changes, http, browser, database, model, tests, build, process queries or directory scans were performed"
+  ],
+  "files": [
+    {
+      "basename": "003-normal-goalie.ev.stopping_goals_per100_on_net.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/003-normal-goalie.ev.stopping_goals_per100_on_net.png",
+      "receipt_sha256": "a239932e0532439b3a966cfe0b923ff6f2ca1e4d05b6288e4dcfeccac75d763c",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "goals per 100 common on-net opportunities",
+      "display_multiplier": 1,
+      "visible_conditioning_and_reference": "common on-net opportunities; neutral minus focal goals allowed; positive means favorable stopping",
+      "visible_annual_display_values": {
+        "2023-24": "-0.348407",
+        "2024-25": "0.647094",
+        "2025-26": "0.649113"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    },
+    {
+      "basename": "006-normal-goalie.ev.miss_probability.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/006-normal-goalie.ev.miss_probability.png",
+      "receipt_sha256": "754aa65b50566cfe32f0f4c2fcdeaf4a4c65b847ceb505de7f58bd4738849637",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "%",
+      "display_multiplier": 100,
+      "visible_conditioning_and_reference": "given an unblocked opportunity; focal goalie probability of a recorded miss",
+      "visible_annual_display_values": {
+        "2023-24": "30.4274",
+        "2024-25": "32.9389",
+        "2025-26": "34.8225"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    },
+    {
+      "basename": "009-normal-goalie.ev.recorded_stop_probability.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/009-normal-goalie.ev.recorded_stop_probability.png",
+      "receipt_sha256": "56da23edd2cdb88439b9220682b5a75c266d29c1016a3aa0b2fddf3bb2b03d08",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "%",
+      "display_multiplier": 100,
+      "visible_conditioning_and_reference": "given an on-net opportunity; immediate recorded stopped-save proxy; explicitly distinct from ordinary save percentage",
+      "visible_annual_display_values": {
+        "2023-24": "20.4755",
+        "2024-25": "20.7937",
+        "2025-26": "21.5435"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    },
+    {
+      "basename": "012-normal-goalie.ev.conversion_probability.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/012-normal-goalie.ev.conversion_probability.png",
+      "receipt_sha256": "2f813290e37ee33ddc3b3bf4b8fbef7e420db1738ff569cc8bc229da6cacfd0d",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "%",
+      "display_multiplier": 100,
+      "visible_conditioning_and_reference": "given an on-net opportunity with no recorded stop; increasing means more goals allowed",
+      "visible_annual_display_values": {
+        "2023-24": "11.1841",
+        "2024-25": "10.2631",
+        "2025-26": "11.0705"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    },
+    {
+      "basename": "015-normal-goalie.ev.recorded_reattempt_probability.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/015-normal-goalie.ev.recorded_reattempt_probability.png",
+      "receipt_sha256": "f3a23459923211f259154970ba9cc2a3db6a5616da93a083eaaae5bd5b793578",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "%",
+      "display_multiplier": 100,
+      "visible_conditioning_and_reference": "given a neutral saved-shot reference opportunity; immediately next recorded same-team attempt within five seconds; fixed neutral saved-shot weighting",
+      "visible_annual_display_values": {
+        "2023-24": "12.2751",
+        "2024-25": "12.052",
+        "2025-26": "13.096"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    },
+    {
+      "basename": "018-normal-goalie.ev.reattempt_neutral_goal_probability.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/018-normal-goalie.ev.reattempt_neutral_goal_probability.png",
+      "receipt_sha256": "b0c0d4fa5807bbfbd2a98a199602a5a6c94302ebaa3f1b1ab3e32e2aa5d8c356",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "%",
+      "display_multiplier": 100,
+      "visible_conditioning_and_reference": "conditional on recorded reattempt; fully neutral successor all-attempt goal opportunity; h-weighted successor danger under fixed neutral saved-shot weighting",
+      "visible_annual_display_values": {
+        "2023-24": "9.22652",
+        "2024-25": "9.49081",
+        "2025-26": "8.88742"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    },
+    {
+      "basename": "021-normal-goalie.ev.followup_danger.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/021-normal-goalie.ev.followup_danger.png",
+      "receipt_sha256": "273338c8bf1a6fe2321ed9f6eee2a9b987c0dc36bfa462cef561d42d9fac8b7d",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "%",
+      "display_multiplier": 100,
+      "visible_conditioning_and_reference": "per neutral saved-shot reference opportunity; joint reattempt probability times next-attempt neutral danger inside each branch; joint h times d under fixed neutral saved-shot weighting",
+      "visible_annual_display_values": {
+        "2023-24": "1.13256",
+        "2024-25": "1.14384",
+        "2025-26": "1.1639"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    },
+    {
+      "basename": "024-normal-goalie.ev.miss_probability_difference.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/024-normal-goalie.ev.miss_probability_difference.png",
+      "receipt_sha256": "3f74d690585a5cd9942cc297338fed676aa3e520cb1ffbdae18d184957876e74",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "percentage points",
+      "display_multiplier": 100,
+      "visible_conditioning_and_reference": "given an unblocked opportunity; focal minus fully neutral probability",
+      "visible_annual_display_values": {
+        "2023-24": "-0.575324",
+        "2024-25": "-1.2967",
+        "2025-26": "-0.377576"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    },
+    {
+      "basename": "027-normal-goalie.ev.recorded_stop_probability_difference.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/027-normal-goalie.ev.recorded_stop_probability_difference.png",
+      "receipt_sha256": "a392af566424f27bbda625e8be44c4ca5be26d701c609248984d7fa9ec22afbe",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "percentage points",
+      "display_multiplier": 100,
+      "visible_conditioning_and_reference": "given an on-net opportunity; immediate recorded stopped-save proxy; focal minus fully neutral probability",
+      "visible_annual_display_values": {
+        "2023-24": "1.08385",
+        "2024-25": "1.35876",
+        "2025-26": "2.19516"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    },
+    {
+      "basename": "030-normal-goalie.ev.conversion_probability_difference.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/030-normal-goalie.ev.conversion_probability_difference.png",
+      "receipt_sha256": "1863996e2905b26033018385f24b9bf1f121a06bf17ba3ff45b6cd26473c7857",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "percentage points",
+      "display_multiplier": 100,
+      "visible_conditioning_and_reference": "given an on-net opportunity with no recorded stop; focal minus fully neutral probability",
+      "visible_annual_display_values": {
+        "2023-24": "0.577636",
+        "2024-25": "-0.643221",
+        "2025-26": "-0.507317"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    },
+    {
+      "basename": "033-normal-goalie.ev.recorded_reattempt_probability_difference.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/033-normal-goalie.ev.recorded_reattempt_probability_difference.png",
+      "receipt_sha256": "5a6ff6f8aa9084c08f066927706b0ce39f78d48013aad0f6cd62b651a0571268",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "percentage points",
+      "display_multiplier": 100,
+      "visible_conditioning_and_reference": "given a neutral saved-shot reference opportunity; immediately next recorded same-team attempt within five seconds; focal minus fully neutral probability",
+      "visible_annual_display_values": {
+        "2023-24": "-1.17798",
+        "2024-25": "-1.11155",
+        "2025-26": "-0.894624"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    },
+    {
+      "basename": "036-normal-goalie.ev.reattempt_neutral_goal_probability_difference.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/036-normal-goalie.ev.reattempt_neutral_goal_probability_difference.png",
+      "receipt_sha256": "b0ed3f30e85fa0995a73b2b18aa66d7d7cb996b90c27ad74cb6474f4e39063ab",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "percentage points",
+      "display_multiplier": 100,
+      "visible_conditioning_and_reference": "conditional on recorded reattempt; fully neutral successor all-attempt goal opportunity; focal minus fully neutral probability",
+      "visible_annual_display_values": {
+        "2023-24": "0.0616643",
+        "2024-25": "0.0563067",
+        "2025-26": "0.102305"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    },
+    {
+      "basename": "039-normal-goalie.ev.followup_danger_difference.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-03/039-normal-goalie.ev.followup_danger_difference.png",
+      "receipt_sha256": "be945111a4e15adb4e5e464e82b8b45489f1913a60781e0d14ed6f5959622002",
+      "actually_viewed": "original full height via view_image",
+      "pixel_status": "observed_pass",
+      "display_unit": "percentage points",
+      "display_multiplier": 100,
+      "visible_conditioning_and_reference": "per neutral saved-shot reference opportunity; joint reattempt probability times next-attempt neutral danger inside each branch; focal minus fully neutral probability",
+      "visible_annual_display_values": {
+        "2023-24": "-0.100391",
+        "2024-25": "-0.0980829",
+        "2025-26": "-0.0651959"
+      },
+      "layout": "title, unit header, plot, all three annual/cohort/support/method/sensitivity sections and final footer legible and complete; no consequential overlap, clipping or truncation observed",
+      "findings": []
+    }
+  ]
+}

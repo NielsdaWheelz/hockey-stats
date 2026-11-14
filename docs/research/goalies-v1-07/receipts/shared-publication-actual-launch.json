@@ -1,0 +1,129 @@
+{
+  "kind": "shared-inactive-publication-actual-launch",
+  "status": "running_observed",
+  "observed_at_utc": "2026-11-13T06:53:36.901661+00:00",
+  "time_parent_start_utc": "2026-11-13T06:51:56Z",
+  "python_child_start_utc": "2026-11-13T06:52:10Z",
+  "source_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+  "cwd_observation": "p57287\nfcwd\nn/Users/nnandal/Documents/code/hockey-stats-v1-07\n",
+  "observed_processes": [
+    {
+      "pid": 57087,
+      "ppid": 56266,
+      "start_local": "Thu Nov 12 22:51:56 2026",
+      "elapsed": "01:40",
+      "argv": [
+        "/bin/zsh",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-held.sh"
+      ],
+      "command": "/bin/zsh /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-held.sh"
+    },
+    {
+      "pid": 57088,
+      "ppid": 57087,
+      "start_local": "Thu Nov 12 22:51:56 2026",
+      "elapsed": "01:40",
+      "argv": [
+        "/bin/zsh",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-held.sh"
+      ],
+      "command": "/bin/zsh /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-held.sh"
+    },
+    {
+      "pid": 57089,
+      "ppid": 57088,
+      "start_local": "Thu Nov 12 22:51:56 2026",
+      "elapsed": "01:40",
+      "argv": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "-u",
+        "OPENBLAS_NUM_THREADS",
+        "-u",
+        "OMP_NUM_THREADS",
+        "-u",
+        "MKL_NUM_THREADS",
+        "-u",
+        "VECLIB_MAXIMUM_THREADS",
+        "-u",
+        "NUMEXPR_NUM_THREADS",
+        "-u",
+        "BLIS_NUM_THREADS",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/src",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python",
+        "-B",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "publish",
+        "--observed",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+        "--results",
+        "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01"
+      ],
+      "command": "/usr/bin/time -l env -u OPENBLAS_NUM_THREADS -u OMP_NUM_THREADS -u MKL_NUM_THREADS -u VECLIB_MAXIMUM_THREADS -u NUMEXPR_NUM_THREADS -u BLIS_NUM_THREADS PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python -B -m hockey_stats.analysis_cli publish --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json --results /Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results --out /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01"
+    },
+    {
+      "pid": 57287,
+      "ppid": 57089,
+      "start_local": "Thu Nov 12 22:52:10 2026",
+      "elapsed": "01:26",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python",
+        "-B",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "publish",
+        "--observed",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+        "--results",
+        "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01"
+      ],
+      "command": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -B -m hockey_stats.analysis_cli publish --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json --results /Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results --out /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01"
+    }
+  ],
+  "native_python_pid": 57287,
+  "time_pid": 57089,
+  "shell_pids": [
+    57087,
+    57088
+  ],
+  "operator": "t-f9f0b50f2271131d",
+  "operator_machine": "macbook",
+  "environment_evidence": "time-parent argv explicitly unsets all6 G thread variables and supplies owned PYTHONPATH; not a full child environment dump",
+  "preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-preflight-01.json",
+    "bytes": 6986,
+    "sha256": "7144eb762d322aa0dd4b1ed0afdf44426d3a1c7369d46d3c82b88e755b26cff7"
+  },
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-held.sh",
+    "bytes": 1225,
+    "sha256": "14b7e23c90998e4a6cd697df8dfacebe69ac8dde27ae655465b756f994a9c23c"
+  },
+  "results": {
+    "manifest_path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+    "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+    "root_receipt_sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654"
+  },
+  "observed_selection_sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+  "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01",
+  "log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/publication-final-g-st-01.log",
+  "exit_record": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/publication-final-g-st-01.exit",
+  "scope": "ONE ordinary inactive publication: native input/copy validation, observed aggregation, SQLite insertion/readback/conservation/digest included; no model/fit/rescore or extra full reader",
+  "source_freeze": "source/HEAD4aa retained through native exit; all other heavy work held",
+  "native_exit": null,
+  "native_cost": null,
+  "publication_id": null,
+  "database_sha256": null,
+  "startup": false,
+  "api_browser_acceptance": false,
+  "activation": false
+}

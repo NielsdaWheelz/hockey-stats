@@ -1,0 +1,29 @@
+{
+  "kind": "accepted-goalie-header-cache-recovery",
+  "status": "passed",
+  "scope": "two pinned header bodies only; no member traversal, model or full reader",
+  "inputs": [
+    {
+      "source": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/manifest.json",
+      "local": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/g-parent-manifest.json",
+      "expected_bytes": 23317,
+      "expected_sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12",
+      "bytes_read": 23317,
+      "retained": true,
+      "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12"
+    },
+    {
+      "source": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-composition.json",
+      "local": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/g-parent-producer-receipt.json",
+      "expected_bytes": 54924,
+      "expected_sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28",
+      "bytes_read": 54924,
+      "retained": true,
+      "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+    }
+  ],
+  "error": null,
+  "wall_seconds": 13.960085332859308,
+  "peak_rss_bytes": 18939904,
+  "logical_external_bytes": 78241
+}

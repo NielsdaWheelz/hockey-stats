@@ -1,0 +1,308 @@
+{
+  "disposition": "targeted_history_label_green_geometry_confirmed",
+  "scope": "independent saved local receipts, native log/exit, admission, source patch and hashes; local rectangle arithmetic only; no live call, browser, http, external access/stat, process query, runtime or test execution",
+  "sources": {
+    "green_result": {
+      "path": "docs/research/goalies-v1-07/receipts/shared-history-label-green-result.json",
+      "bytes": 13376,
+      "sha256": "78eb669c221219f7e8be72079f36ec2fa8e5a65694818636f1325e82c4918ea3"
+    },
+    "green_native_log": {
+      "path": "docs/research/goalies-v1-07/receipts/shared-history-label-green-native.log",
+      "bytes": 954,
+      "sha256": "1ca850bda9b555c9aa6d25777ccb791d11d524d7171bdee48acc08a4962c3dc6"
+    },
+    "green_native_exit": {
+      "path": "docs/research/goalies-v1-07/receipts/shared-history-label-green-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "red_result": {
+      "path": "docs/research/goalies-v1-07/receipts/shared-history-label-red-result.json",
+      "bytes": 17242,
+      "sha256": "87e5f5e9b680cc3dc4cdc1abbb08e267d5514a9e00dabb83419a86a7181ef260"
+    },
+    "prior_red_review": {
+      "path": "docs/research/goalies-v1-07/receipts/shared-history-label-red-independent-review.json",
+      "sha256": "f2fffd53b2f7adb8fa3eab19334cd089dea244123475a8005a947b28bdf77fab"
+    },
+    "green_admission": {
+      "path": "docs/research/goalies-v1-07/receipts/shared-history-label-green-admission.json",
+      "sha256": "4a5ae1d2bfc472bb3fdd5282b8c24ca9e705163983d40534be6f3759ea910d80"
+    },
+    "applied_source_receipt": {
+      "path": "docs/research/goalies-v1-07/receipts/shared-history-label-anchor-applied.json",
+      "sha256": "1c4b8b63dda4d44b943a367fd1c1322aa0dfb1ee3efdf906eb51ceea1c6fc386"
+    },
+    "source_patch": {
+      "path": "docs/research/goalies-v1-07/receipts/shared-history-label-anchor-source.patch",
+      "sha256": "cd48e18bec3cd82fa6479777490bbfe55fceef3a383b3c9c9539e25e6f39752a"
+    },
+    "checker": {
+      "path": ".tmp/goalie-live-acceptance/browser-history-label-bounds.mjs",
+      "sha256": "3d0e335e9c72f4ac34fb46d589be2ba236db514bf61c248e074964da3295c07a"
+    },
+    "caller": {
+      "path": ".tmp/goalie-live-acceptance/browser-history-label-green-01.command",
+      "sha256": "2ed5363bf2dd6bfbc5ff2df0b71bd1e0462b8b7cd5192d7e19f007fd17cc81da"
+    }
+  },
+  "binding": {
+    "source_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "build_receipt_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+    "node_pid": 89887,
+    "provenance": "saved green admission binds the reviewed checker/caller to source3763/build18ef and the accepted startup/current selected-live receipts; no runtime or process qualification was repeated",
+    "strict_startup_adjudication_sha256": "0d13786262af694f37039bdc73fffd54655807bca8c832d164dfeaed689f2fdb",
+    "current_live_overview_result_sha256": "7a04ebe124ef47409fd8a3f1fc867dd7a45beacb4a43cc575a4795c3d5a7b4e3"
+  },
+  "independent_reconciliation": {
+    "exact_four_case_matrix": true,
+    "same_checker_as_red": true,
+    "same_declared_node_playwright_chrome": true,
+    "all_navigation200": true,
+    "all_selected_identity": true,
+    "all_exact_history_seasons": true,
+    "all_raw_metric_aria": true,
+    "all_fonts_loaded": true,
+    "all_single_plot": true,
+    "all_required_labels_once": true,
+    "all_rectangles_finite_nonempty": true,
+    "declared_outside_lists_match_recalculation": true,
+    "all_viewport_widths_correct": true,
+    "document_width_equals_inner_width": true,
+    "svg_dimensions_match_red": true,
+    "middle_label_local_bounds_unchanged": true,
+    "both_owned_contexts_closed": true,
+    "saved_geometry_failures_and_errors_empty": true,
+    "recomputed_green_escapes_zero": true,
+    "recomputed_red_narrow_escapes_six": true
+  },
+  "geometry": {
+    "case_count": 4,
+    "label_count": 16,
+    "green_label_escapes": 0,
+    "green_side_escapes": 0,
+    "red_narrow_label_escapes": 6,
+    "red_normal_label_escapes": 0,
+    "normal_viewport": {
+      "inner_width": 1280,
+      "document_width": 1280,
+      "svg_width": 1136,
+      "svg_height": 240
+    },
+    "narrow_viewport": {
+      "inner_width": 320,
+      "document_width": 320,
+      "outer_width_observed": 500,
+      "svg_left": 56,
+      "svg_right": 264,
+      "svg_width": 208,
+      "svg_height": 240
+    },
+    "minimum_green_horizontal_clearance_css_px": 19.066665649414062,
+    "minimum_green_vertical_clearance_css_px": 13,
+    "narrow_red_to_green": [
+      {
+        "mode": "narrow",
+        "metric": "goalie.ev.stopping_goals_per100_on_net",
+        "svg_width_css_px": 208,
+        "labels": [
+          {
+            "text": "2023–24",
+            "before_overruns": [
+              {
+                "side": "left",
+                "outside_css_px": 8.120830535888672
+              }
+            ],
+            "after_outside": [],
+            "after_clearance_css_px": {
+              "left": 19.066665649414062,
+              "top": 186,
+              "right": 134.55833435058594,
+              "bottom": 39
+            }
+          },
+          {
+            "text": "2024–25",
+            "before_overruns": [],
+            "after_outside": [],
+            "after_clearance_css_px": {
+              "left": 76.875,
+              "top": 186,
+              "right": 76.875,
+              "bottom": 39
+            }
+          },
+          {
+            "text": "2025–26",
+            "before_overruns": [
+              {
+                "side": "right",
+                "outside_css_px": 8.113037109375
+              }
+            ],
+            "after_outside": [],
+            "after_clearance_css_px": {
+              "left": 134.57395935058594,
+              "top": 186,
+              "right": 19.066665649414062,
+              "bottom": 39
+            }
+          },
+          {
+            "text": "selected",
+            "before_overruns": [
+              {
+                "side": "right",
+                "outside_css_px": 6.488037109375
+              }
+            ],
+            "after_outside": [],
+            "after_clearance_css_px": {
+              "left": 137.82395935058594,
+              "top": 212,
+              "right": 19.066665649414062,
+              "bottom": 13
+            }
+          }
+        ]
+      },
+      {
+        "mode": "narrow",
+        "metric": "goalie.pk.followup_danger_difference",
+        "svg_width_css_px": 208,
+        "labels": [
+          {
+            "text": "2023–24",
+            "before_overruns": [
+              {
+                "side": "left",
+                "outside_css_px": 8.120830535888672
+              }
+            ],
+            "after_outside": [],
+            "after_clearance_css_px": {
+              "left": 19.066665649414062,
+              "top": 186,
+              "right": 134.55833435058594,
+              "bottom": 39
+            }
+          },
+          {
+            "text": "2024–25",
+            "before_overruns": [],
+            "after_outside": [],
+            "after_clearance_css_px": {
+              "left": 76.875,
+              "top": 186,
+              "right": 76.875,
+              "bottom": 39
+            }
+          },
+          {
+            "text": "2025–26",
+            "before_overruns": [
+              {
+                "side": "right",
+                "outside_css_px": 8.113037109375
+              }
+            ],
+            "after_outside": [],
+            "after_clearance_css_px": {
+              "left": 134.57395935058594,
+              "top": 186,
+              "right": 19.066665649414062,
+              "bottom": 39
+            }
+          },
+          {
+            "text": "selected",
+            "before_overruns": [
+              {
+                "side": "right",
+                "outside_css_px": 6.488037109375
+              }
+            ],
+            "after_outside": [],
+            "after_clearance_css_px": {
+              "left": 137.82395935058594,
+              "top": 212,
+              "right": 19.066665649414062,
+              "bottom": 13
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "geometry_verdict": "the same checker confirms the targeted geometry repair in four selected cases: both metrics at native normal1280 and explicit narrow320. all sixteen finite nonempty text rectangles are fully inside their own SVG rectangles, with correct raw metric/season labels and no document overflow. red had six narrow overruns; green has none. this is a geometry verdict, not pixel or full browser/network acceptance.",
+  "source_fix_comparison": {
+    "reviewed_change": "HistoryPlot shares its existing per-point start/end/middle anchor across unavailable, season and selected labels; point coordinates and plot geometry remain unchanged in the reviewed patch",
+    "applied_source_sha256": "d88386fc9705ef1b9fbd7485c17f5842608310ad5a5f378cabf7fb1bbec4ff5e",
+    "measured_consistency": "at narrow320 the first-year label has 19.066665649414062 CSS px left clearance; last-year and selected labels have the same right clearance. the middle label's local bounds and SVG dimensions are unchanged. the measured change is consistent with the intended edge-anchor repair."
+  },
+  "network_observations": {
+    "green": [
+      {
+        "mode": "normal",
+        "phase": "normal:goalie.ev.stopping_goals_per100_on_net",
+        "event": "consoleerror",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "location": {
+          "url": "http://127.0.0.1:3407/favicon.ico",
+          "line": 0,
+          "column": 0,
+          "lineNumber": 0,
+          "columnNumber": 0
+        }
+      },
+      {
+        "mode": "narrow",
+        "phase": "narrow:goalie.ev.stopping_goals_per100_on_net",
+        "event": "consoleerror",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "location": {
+          "url": "http://127.0.0.1:3407/favicon.ico",
+          "line": 0,
+          "column": 0,
+          "lineNumber": 0,
+          "columnNumber": 0
+        }
+      }
+    ],
+    "green_console_error_count": 2,
+    "green_recorded_page_error_count": 0,
+    "green_recorded_request_failure_count": 0,
+    "adjudication": "two exact same-origin favicon404 console events remain recorded, one per mode. no pageerror or requestfailed is recorded in green. this checker does not collect icon declarations, full response status/lifecycle evidence or a strict network acceptance gate.",
+    "retained_red_request_failures": [
+      {
+        "mode": "narrow",
+        "phase": "narrow:goalie.pk.followup_danger_difference",
+        "event": "requestfailed",
+        "url": "http://127.0.0.1:3407/api/players/8478872?season=20252026",
+        "failure": {
+          "errorText": "net::ERR_ABORTED"
+        }
+      }
+    ],
+    "red_abort_attribution": "the earlier narrow profile ERR_ABORTED remains unattributed; green does not explain, erase or waive it or browser03 failures."
+  },
+  "cost": {
+    "saved_native_exit": 0,
+    "native_wall_seconds": 40.28,
+    "native_max_rss_bytes": 417497088,
+    "internal_wall_seconds": 40.2307585,
+    "internal_driver_peak_rss_bytes": 139395072,
+    "internal_scope": "after local output reservation through owned context closure; final receipt serialization excluded",
+    "limit": "native process-lifetime and internal driver measurements keep their separate scopes; no performance improvement or physical i/o claim follows"
+  },
+  "issue_disposition": "retain the existing label/browser issue until fresh required-layout pixels are independently inspected; geometry alone does not resolve it",
+  "remaining_material_findings": [],
+  "limits": [
+    "saved local evidence only; no current live/process/runtime state was queried",
+    "normal1280 and narrow320 geometry were exercised; native200 and the full browser04 six-case geometry matrix remain separate required work",
+    "no fresh pixel, downloaded-image/export or full network pass is claimed",
+    "all raw observations and historical failures remain preserved; no full family/ST acceptance, scientific admission, activation or numerical/publication rerun follows"
+  ]
+}

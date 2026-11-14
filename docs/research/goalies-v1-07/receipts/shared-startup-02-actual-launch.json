@@ -1,0 +1,19 @@
+{
+  "kind": "shared-startup-02-actual-launch",
+  "status": "observed_running_not_runtime_accepted",
+  "observed_at": "2026-11-13T14:10:15.632463+00:00",
+  "submitted_once_at_utc": "2026-11-13T14:09:41Z",
+  "runtime_source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "8ca79395276ab733c6ee32e21465adb8b8229372",
+  "build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+  "preflight_sha256": "b71adcbba4589283dd8ddc9e6b7caf13fb220aecb2de449c397e7b0347983bcf",
+  "command_sha256": "4878a241e48f3b42ebdc3ff85e7aebf0ae61b307483f69f954ba436bc0ce4805",
+  "observed_processes": [
+    "33586 33585 Fri Nov 13 06:09:41 2026           00:34 S+   /usr/bin/time -l /usr/bin/sandbox-exec -f /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/detached.sb /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-02.json --publication /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite --port 3407",
+    "33587 33586 Fri Nov 13 06:09:41 2026           00:34 R+   /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-02.json --publication /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite --port 3407"
+  ],
+  "candidate": "same fb60493e-badf-4b11-9585-b5a541387e66 /31,261,470,720 bytes; stored publisher4aa",
+  "scope": "one ordinary strict compiled-main startup3407 after reviewed read-owner repair; same accepted meter and input-denial policy; no fit, publication rerun or bypass",
+  "outcome": "unknown until actual listening/failure; future API/consumer/browser/ST work remains held"
+}

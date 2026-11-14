@@ -1,0 +1,63 @@
+{
+  "kind": "shared-st-browser06-failed-checked-return-intake",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-checked-return-01.json",
+      "bytes": 15665,
+      "sha256": "8518f88ec0c4fa7789599831fce144c09a7cd63fe594c92ee1cbf61089a0ca5c"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-return-review-01.json",
+      "bytes": 2865,
+      "sha256": "b71aa1239b9d18810e8a53e8ca026655f21ed610de166561f30a74a36fd0f498"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-independent-adjudication-01.json",
+      "bytes": 8654,
+      "sha256": "2815bf1768a28c2149e017ca5b85210b069f988a23e72480aefe0024b6b38f54"
+    }
+  ],
+  "input_identities_verified": true,
+  "status": "FAILED_SCOPED_BROWSER",
+  "native_exit": 1,
+  "capture_exit": 0,
+  "completed_records": {
+    "normal_selectors": 40,
+    "annual_source_assertions": 120,
+    "discoveries": 9,
+    "actual_csv_downloads": 40,
+    "actual_png_downloads": 40,
+    "viewport_captures": 1
+  },
+  "acceptance": {
+    "overall_browser": false,
+    "independent_pixels": false,
+    "favicon_exception": "UNQUALIFIED; no declaration evidence retained"
+  },
+  "failure": {
+    "kind": "TimeoutError",
+    "action": "getByRole(button, exact name apply peer minimum).click",
+    "timeout_ms": 90000,
+    "historical_failure_dom": "NOT_RETAINED",
+    "controller_or_product_cause": "UNESTABLISHED"
+  },
+  "source_csv_identity": {
+    "bytes": 932444,
+    "sha256": "94c350774d646ac99753f953d31c9aaff555bd98588d11e452b3c1bb3dea8ac4",
+    "scope": "admitted source06 original-buffer receipt; no independent csv reopen"
+  },
+  "native_cost": {
+    "wall_seconds": 4936.31,
+    "peak_rss_bytes": 695353344
+  },
+  "driver_internal_cost": {
+    "wall_seconds": 4935.9552835409995,
+    "peak_node_rss_bytes": 234504192
+  },
+  "declared_content_length_bytes": 9014053178,
+  "actual_transfer_or_physical_io_bytes": "UNKNOWN",
+  "owner": "root; failed st window returned, no st command remains assigned",
+  "next_scope": "local source-only diagnosis of current public cutoff contract and temporary controller; no live/drive query, retry, pixel or later-stage grant",
+  "retained_runtime": "node89887/source3763/analysisfee5/app852/build18ef/publicationfb604/final21de+15d unchanged",
+  "review_scope": "three fixed local receipt bodies only; no original result/log/csv/image/member/db/http/os replay"
+}

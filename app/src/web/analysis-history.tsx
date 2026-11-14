@@ -563,55 +563,53 @@ function HistoryPlot({ view }: { readonly view: HistoryView }) {
         aria-label={`${view.metric.label}: ${view.scale} history; all values and gaps are in the following table`}
       >
         <line x1="9.17%" x2="90.83%" y1="160" y2="160" stroke="currentColor" />
-        {view.points.map((point, i) => (
-          <g key={point.season.season}>
-            {i > 0 &&
-              values[i - 1] !== null &&
-              values[i] !== null &&
-              !prepared[i].breakBefore && (
-                <line
-                  x1={nativeX(i - 1)}
-                  x2={nativeX(i)}
-                  y1={nativeY(values[i - 1]!)}
-                  y2={nativeY(values[i]!)}
-                  stroke="currentColor"
-                  strokeWidth="2"
+        {view.points.map((point, i) => {
+          const anchor =
+            i === 0 ? "start" : i === view.points.length - 1 ? "end" : "middle";
+          return (
+            <g key={point.season.season}>
+              {i > 0 &&
+                values[i - 1] !== null &&
+                values[i] !== null &&
+                !prepared[i].breakBefore && (
+                  <line
+                    x1={nativeX(i - 1)}
+                    x2={nativeX(i)}
+                    y1={nativeY(values[i - 1]!)}
+                    y2={nativeY(values[i]!)}
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                )}
+              {values[i] !== null ? (
+                <circle
+                  data-season={point.season.season}
+                  data-value={values[i]}
+                  cx={nativeX(i)}
+                  cy={nativeY(values[i]!)}
+                  r="5"
+                  fill="currentColor"
                 />
+              ) : (
+                <text
+                  x={nativeX(i)}
+                  y="100"
+                  textAnchor={anchor}
+                >
+                  unavailable
+                </text>
               )}
-            {values[i] !== null ? (
-              <circle
-                data-season={point.season.season}
-                data-value={values[i]}
-                cx={nativeX(i)}
-                cy={nativeY(values[i]!)}
-                r="5"
-                fill="currentColor"
-              />
-            ) : (
-              <text
-                x={nativeX(i)}
-                y="100"
-                textAnchor={
-                  i === 0
-                    ? "start"
-                    : i === view.points.length - 1
-                      ? "end"
-                      : "middle"
-                }
-              >
-                unavailable
+              <text x={nativeX(i)} y="198" textAnchor={anchor}>
+                {seasonLabel(point.season.season)}
               </text>
-            )}
-            <text x={nativeX(i)} y="198" textAnchor="middle">
-              {seasonLabel(point.season.season)}
-            </text>
-            {point.season.season === view.selectedSeason && (
-              <text x={nativeX(i)} y="224" textAnchor="middle">
-                selected
-              </text>
-            )}
-          </g>
-        ))}
+              {point.season.season === view.selectedSeason && (
+                <text x={nativeX(i)} y="224" textAnchor={anchor}>
+                  selected
+                </text>
+              )}
+            </g>
+          );
+        })}
       </svg>
       {domain && (
         <div className="axis-endpoints">

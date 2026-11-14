@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "kind": "independent-detached-goalie-score-review",
+  "purpose": "fixture",
+  "status": "passed",
+  "score": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-04/20212022/manifest.json",
+    "sha256": "006f1c78fd3202860818831964e5fa33ff1a7b032081640a8d7a7f664f5becd5"
+  },
+  "scope": "one current-reader pass with all Path.open calls confined to the annual score directory; no original input traversal",
+  "wall_seconds": 49.07543254108168,
+  "people": 24,
+  "row_counts": {
+    "analysis_map": 264,
+    "execution_breakdown": 2376,
+    "goalie_danger": 576,
+    "goalie_evidence_map": 3456,
+    "goalie_observed": 288,
+    "goalie_result": 264
+  },
+  "opened_members": [
+    "analysis_map.jsonl",
+    "catalogs.json",
+    "coverage.json",
+    "event_values.jsonl",
+    "execution_breakdown.jsonl",
+    "goalie_danger.jsonl",
+    "goalie_evidence_map.jsonl",
+    "goalie_observed.jsonl",
+    "goalie_result.jsonl",
+    "manifest.json",
+    "people.jsonl",
+    "projections.jsonl",
+    "sensitivity.json",
+    "source_games.jsonl",
+    "targets.jsonl"
+  ],
+  "original_input_opens": 0,
+  "canonical_public_row_check": {
+    "actual_goalie_result_rows": 264,
+    "ordered_writer_sha256": "26f6fd44a49d88d72bf9a16a21abe919161b6f4b018cd542856ea0aff8eb8cc0",
+    "exact_row_objects_preserved": true,
+    "synthetic_grouped_evidence_rows": 288,
+    "split_person_groups_rejected": true
+  },
+  "limits": [
+    "fixture contract acceptance only; no real or browser acceptance",
+    "later cheap reader person-group validation was reviewed separately; this does not claim a second full pass"
+  ]
+}

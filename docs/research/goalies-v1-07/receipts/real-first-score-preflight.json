@@ -1,0 +1,63 @@
+{
+  "kind": "first-real-goalie-score-preflight",
+  "status": "completed_and_independently_checked",
+  "recorded_at_utc": "2026-11-09T09:03:49.108347+00:00",
+  "launch_commit": "e0dae525abc8d25acbadbb5246b9fd88d57179bb",
+  "analysis_tree": "d072db603bc719af9ac8de4a6027fb326c4cbd25",
+  "analysis_clean": true,
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20212022/manifest.json",
+    "sha256": "1898e7128a1e166cceec408784979a9e6fb62c045a0ed79840b0cfee471a5669"
+  },
+  "base_scores": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022/manifest.json",
+    "sha256": "37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d"
+  },
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "coaches": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+  },
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "VECLIB_MAXIMUM_THREADS": null,
+    "NUMEXPR_NUM_THREADS": null,
+    "BLIS_NUM_THREADS": null
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20212022",
+  "log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/score-20212022-02.log",
+  "parent_created": true,
+  "prerequisites": [
+    "producer completed first real state",
+    "independent head metadata review passed",
+    "one saved target inventory reconciled",
+    "original eligible h-positive/d-unavailable source witness preserved"
+  ],
+  "other_owned_heavy_commands": [],
+  "scoring_started": true,
+  "fits_or_probes_started": 0,
+  "activation": false,
+  "previous_setup_failure": {
+    "preflight_session": 3556,
+    "score_session": 20536,
+    "native_score_exit": 1,
+    "native_elapsed_seconds": 6.27,
+    "native_peak_rss_bytes": 535592960,
+    "log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/score-20212022-01.log",
+    "cause": "root launched the dependent scorer before the preflight process completed; output parent had not been created",
+    "output_created": false,
+    "model_fit_or_probe_rerun": false
+  },
+  "native_session_id": 31867,
+  "started_observed_at_utc": "2026-11-09T09:04:00Z",
+  "native_process_id": 23342,
+  "native_exit_code": 0,
+  "manifest_sha256": "086a70c4ca0b41329d6879ea83e9d61a02787f7885f5fee89afb2dee1fb7948f",
+  "native_wall_seconds": 13179.2,
+  "native_peak_memory_bytes": 20419985408
+}

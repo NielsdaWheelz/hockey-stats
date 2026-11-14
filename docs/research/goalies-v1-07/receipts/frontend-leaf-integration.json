@@ -1,0 +1,68 @@
+{
+  "status": "source_integration_and_bounded_checks_passed_real_acceptance_pending",
+  "owner_leaf": "3feb1a3f3219ea208536651f8f749568b9180524",
+  "picked": "9075433",
+  "previous_head": "386209cb06ee471007c9a7a927aab1dfaadfdf21",
+  "scope": "only the standalone20-path web/package leaf; no data parent, ui ancestors or implementation-branch merge",
+  "owner_source_review": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/receipts/frontend-source-handoff-independent-review.json",
+    "sha256": "18e9852b2392e5a2b708f7d852876d40fe45c92d5ee6381562fd958d5ac16562"
+  },
+  "preserved_goalie_differences": {
+    "analysis-values.ts": "all26 ev/pk meanings, native/display units, selected strength and explicit population/reference overrides",
+    "analysis-history.tsx": "csv api_strength uses selectionStrength before physical observed strength"
+  },
+  "red": {
+    "command": "node24 npm run typecheck after npm ci",
+    "exit_code": 1,
+    "errors": [
+      "explorer.ts307 TS2322: goalie ev is not a spatial map strength",
+      "explorer.ts309 TS2322: goalie ev is not a spatial map strength"
+    ]
+  },
+  "repair": {
+    "file": "app/src/web/explorer.ts",
+    "sha256": "da819693509377658c1500e9ef9e42cfc783633947dbdbf7039d4ae8d32bf346",
+    "mechanism": "existing ExecutionStrength schema narrows the local execution-map strength; no cast or public metric/map union change",
+    "diff": "six insertions, three deletions"
+  },
+  "checks": {
+    "node": "24.21.0",
+    "isolated_dependency_install": "passed;109 packages,2seconds",
+    "typecheck": {
+      "exit_code": 0,
+      "native_wall_seconds": 0.92,
+      "peak_resident_bytes": 411975680
+    },
+    "isolated_build": "passed",
+    "goalie_selected_meanings": "all26 passed",
+    "goalie_csv_fields": "all26 passed",
+    "independent_annual_cohort_and_cutoff_oracles": "three annual cases passed",
+    "source_review": "root and two native reviewers clear; map-strength fix independently reviewed",
+    "source_whitespace": "passed"
+  },
+  "unchanged_critical_trees": [
+    "analysis",
+    "app/src/shared",
+    "app/src/server",
+    "app/src/operator"
+  ],
+  "analysis_tree": "18c5188d0f939a77819b59afaedbbd26eba68d0d",
+  "tradeoff": "the complete leaf keeps component/import dependencies coherent and also adds the skater analytical sheet and pinned contour dependency to this build",
+  "new_dependency_family": {
+    "runtime": "d3-contour4.0.3",
+    "development": "@types/d3-contour3.0.6"
+  },
+  "acceptance_limits": "source and bounded local checks only; required real goalie api/browser/download acceptance remains pending; no inherited v1-18 analytical runtime pass",
+  "heavy_owner": "v1-18 ordinary inactive publication then one strict startup; reserved one v1-09 annual follows before the next goalie fit",
+  "numerical_rerun": false,
+  "activation": false,
+  "temporary_analytical_goalie_negative": {
+    "status": "prepared_syntax_and_root_static_review_passed_live_execution_pending",
+    "consumer_sha256": "1b8a0f61350fac3302bd5f3c380f9f89ac71d856fae8eb65dc07c1a3a42c283b",
+    "browser_sha256": "d730e01e440d6a314d599af4b12b423dd21917cd950150e87fde00f734ca7237",
+    "api_sha256": "f02dd270ede9ac31d1f2f41cbe1c884a9e1f41645f45d9a97dd2210b588b6468",
+    "scope": "one additional pk goalie skater-view negative; existing26 metric/cohort/history/PNG controls unchanged",
+    "preparation_sha256": "a4483014351cd190870877ff9dc428490b77ecaa5956d69da8a90e6dc00da009"
+  }
+}

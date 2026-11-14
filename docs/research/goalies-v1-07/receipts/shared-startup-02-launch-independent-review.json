@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "kind": "shared-startup-02-launch-independent-review",
+  "status": "cached_launch_matches_not_startup_accepted",
+  "sha256": {
+    "shared-startup-02-actual-launch.json": "43520374d633689fab2e288905acd98aa23f29a01089f778a8a4b9b45eb6b36b",
+    "shared-startup-02-preflight.json": "b71adcbba4589283dd8ddc9e6b7caf13fb220aecb2de449c397e7b0347983bcf",
+    "shared-goalie-overview-build.json": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+    "startup-held-02.sh": "4878a241e48f3b42ebdc3ff85e7aebf0ae61b307483f69f954ba436bc0ce4805",
+    "runtime.mjs": "bb37d4a06cbde3a7bf4e350f331e67a14ac34f655a7d877582ea0a6562066ec4",
+    "detached.sb": "dda6d8f506d99c4fd595f226ade0e47023c858961ddad266aaf4ce1f6b0dfa6a"
+  },
+  "findings": [
+    "preflight, cached launch and build agree on runtime c90cb73f/analysis fee5/app 8ca793. all eight build descriptors match; reviewed publication source 0c0045 and compiled 2b8ae5 are bound by e885. stored candidate publisher remains 4aa intentionally.",
+    "cached time 33586/node 33587 rows agree with wrapper 4878: pinned node 24, sandbox dda6, meter bb37, runtime-startup-02.json, exact candidate-final-g-st-01/player-analysis.sqlite and port 3407. parent 33585 and 14:09:41Z start are consistent; no actual cwd observation is claimed.",
+    "same fb604/31261470720-byte candidate remains selected. source-reviewed normal compiled main and meter add no validation bypass. cached running state at 34 seconds establishes launch only; listening, completion and startup cost remain unknown."
+  ],
+  "next_boundary_review": "one fresh-output rerun of unchanged complete G API driver after accepted startup is reasonable final-build verification because the projection helper also serves full goalie players. retain publisher-commit 4aa and bind the new application build separately. that matrix does not replace the three-season overview canonical comparison. no model/provider/fit/publication rerun is needed.",
+  "blocking_mismatches": [],
+  "limits": "local cached/source review only; no startup receipt/log, OS/HTTP/SQL/HDD query, execution or repeated startup/database read. no dispatch granted here; future live work remains held pending root assignment."
+}

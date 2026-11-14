@@ -1,0 +1,45 @@
+{"phase":"metric_completed","metric":"goalie.ev.stopping_goals_per100_on_net","completed":1}
+{"phase":"metric_completed","metric":"goalie.ev.miss_probability","completed":2}
+{"phase":"metric_completed","metric":"goalie.ev.recorded_stop_probability","completed":3}
+{"phase":"metric_completed","metric":"goalie.ev.conversion_probability","completed":4}
+{"phase":"metric_completed","metric":"goalie.ev.recorded_reattempt_probability","completed":5}
+{"phase":"metric_completed","metric":"goalie.ev.reattempt_neutral_goal_probability","completed":6}
+{"phase":"metric_completed","metric":"goalie.ev.followup_danger","completed":7}
+{"phase":"metric_completed","metric":"goalie.ev.miss_probability_difference","completed":8}
+{"phase":"metric_completed","metric":"goalie.ev.recorded_stop_probability_difference","completed":9}
+{"phase":"metric_completed","metric":"goalie.ev.conversion_probability_difference","completed":10}
+{"phase":"metric_completed","metric":"goalie.ev.recorded_reattempt_probability_difference","completed":11}
+{"phase":"metric_completed","metric":"goalie.ev.reattempt_neutral_goal_probability_difference","completed":12}
+{"phase":"metric_completed","metric":"goalie.ev.followup_danger_difference","completed":13}
+{"phase":"metric_completed","metric":"goalie.pk.stopping_goals_per100_on_net","completed":14}
+{"phase":"metric_completed","metric":"goalie.pk.miss_probability","completed":15}
+{"phase":"metric_completed","metric":"goalie.pk.recorded_stop_probability","completed":16}
+{"phase":"metric_completed","metric":"goalie.pk.conversion_probability","completed":17}
+{"phase":"metric_completed","metric":"goalie.pk.recorded_reattempt_probability","completed":18}
+{"phase":"metric_completed","metric":"goalie.pk.reattempt_neutral_goal_probability","completed":19}
+{"phase":"metric_completed","metric":"goalie.pk.followup_danger","completed":20}
+{"phase":"metric_completed","metric":"goalie.pk.miss_probability_difference","completed":21}
+{"phase":"metric_completed","metric":"goalie.pk.recorded_stop_probability_difference","completed":22}
+{"phase":"metric_completed","metric":"goalie.pk.conversion_probability_difference","completed":23}
+{"phase":"metric_completed","metric":"goalie.pk.recorded_reattempt_probability_difference","completed":24}
+{"phase":"metric_completed","metric":"goalie.pk.reattempt_neutral_goal_probability_difference","completed":25}
+{"phase":"metric_completed","metric":"goalie.pk.followup_danger_difference","completed":26}
+{"status":"failed","receipt":"/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/browser-receipt.json","exports":26}
+      181.24 real        13.20 user         2.86 sys
+           700858368  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              605680  page reclaims
+                 757  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+               12812  messages sent
+               14771  messages received
+                   9  signals received
+                3641  voluntary context switches
+              193011  involuntary context switches
+          9722396197  instructions retired
+          4875078143  cycles elapsed
+           177213432  peak memory footprint

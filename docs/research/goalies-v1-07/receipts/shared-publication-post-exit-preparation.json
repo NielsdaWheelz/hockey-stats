@@ -1,0 +1,26 @@
+{
+  "kind": "shared-publication-post-exit-source-preparation",
+  "status": "source_reviewed_LOCAL_controls_pass_actual_collector_NOT_RUN",
+  "source": {
+    "publication-boundary.py": "fa88cc5775f523e218a9b17a7808216a5f04681d8d1ea4da565101f2d4fefac6",
+    "publication-boundary-controls.py": "f1ed3ce40fd9f4180dfd83649364ffcd402f8b2dc531e5c613f3bfd659aadc10",
+    "publication-boundary-controls-01.json": "32c18618246ffa52a309f03f9b0b343abfc680c1b7229b900eb43c3f551df979"
+  },
+  "fixed_bodies": {
+    "log": 1048576,
+    "exit": 64,
+    "top_verification": 1048576,
+    "copied_manifest": 65536,
+    "copied_selection": 711
+  },
+  "successful_max_returned_bytes": 2163463,
+  "fail_fast_max_returned_bytes": 2163464,
+  "exact_database_metadata": "two fixed lstats only: finalfilebytes and incompletepresence; no database body/hash/query",
+  "season_receipt_identity": "top verification and immutable native writer/hash contract bind all3 season paths/SHA/UUID/corpus/coverage/checks; no large seasonal-body reread or mirror",
+  "controller_tests": "one pinned3.14-B LOCAL suite4/4; native0/.15s/31309824RSS; fixtures only, no actual publication/artifact operation",
+  "actual_external_collector_invocations": 0,
+  "invocation_precondition": "actual owned publisher/time/shell closure and no user stop/hold; never infer numerical success from absence; collect exact native exit separately",
+  "native_cost_scope": "whole outside time command; producer internal wall excludes topwriting/finalrename; physical IObytes unmeasured; zero block counters not bytes",
+  "prohibited": "result member, seasonbody, model/array/corpus traversal, independent DBhash/query or second fullreader; no automatic retry",
+  "next_scope": "normal strict Node startup/API/browser/activation remain separate unassigned boundaries"
+}

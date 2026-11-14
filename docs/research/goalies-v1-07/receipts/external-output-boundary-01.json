@@ -1,0 +1,25 @@
+{
+  "kind": "goalie-expensive-output-boundary",
+  "status": "passed",
+  "scope": "synthetic real/fixture command-owner negatives; no source replay or fit",
+  "script": {
+    "path": "/tmp/goalie-v1-07-checks/output_boundary.py",
+    "sha256": "f6c89224a64c819c82b38347662ff6a5d847569a7822833a0262540796a45963"
+  },
+  "red": {
+    "path": "/tmp/goalie-v1-07-checks/output-boundary-red.log",
+    "sha256": "9730b7ae184341a88a4cbb2a1f708fd537797f7ebae5935fb69641a2eaaf4d5f"
+  },
+  "green": {
+    "path": "/tmp/goalie-v1-07-checks/output-boundary-green.log",
+    "sha256": "1c58e88962c21e94b8402aae873577fd882f3fc1f6ac17f6e739d25c63c9a21b"
+  },
+  "checks": [
+    "real fit destination outside /Volumes/Expansion/hockey-stats rejected before output mkdir",
+    "real score destination outside external root rejected before source replay",
+    "fixture local destinations remain permitted",
+    "occupied destinations rejected before mutation/source replay"
+  ],
+  "boundary": "checked design/state purpose; ordinary output_path canonicalizes destination and retains input-overlap checks",
+  "preservation": "no preparation, capture, fit, score, candidate, serving or sibling artifact changed; no heavy command run"
+}

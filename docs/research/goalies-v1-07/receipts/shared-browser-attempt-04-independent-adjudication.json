@@ -1,0 +1,584 @@
+{
+  "status": "passed_content_download_trace_boundary_with_separate_complete_pixels",
+  "scope": "cached local browser/native/capture/source/green/pixel-coverage/target metadata only; no browser replay, HTTP, database, external file, image body, model, application import, process query or test execution",
+  "sources": {
+    "shared-browser-attempt-04-result.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-attempt-04-result.json",
+      "bytes": 458090,
+      "sha256": "2777f188f2e686f6430024f7cdbaf3c04c32271217e170623f4c19682a489335"
+    },
+    "shared-browser-attempt-04-native.log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-attempt-04-native.log",
+      "bytes": 3613,
+      "sha256": "0c5758d985134ece99ee884e73bde21dca88871e16a901727a81833840b4a7c1"
+    },
+    "shared-browser-attempt-04-native.exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-attempt-04-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "shared-browser-attempt-04-boundary.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-attempt-04-boundary.json",
+      "bytes": 2838,
+      "sha256": "bd25a108acb2df59176068725c60d5e4dbb55b1385e18d70f04dfed8c754d091"
+    },
+    "shared-browser-attempt-04-boundary-native.log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-attempt-04-boundary-native.log",
+      "bytes": 954,
+      "sha256": "12e92520457674bb0dc47de857da3a1f59a6df35324136fad6feaf137434750b"
+    },
+    "shared-browser-attempt-04-boundary-native.exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-attempt-04-boundary-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "shared-final-g-st-live-target.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+      "bytes": 1645,
+      "sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a"
+    },
+    "shared-runtime-03-checked-boundary.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-03-checked-boundary.json",
+      "bytes": 2445,
+      "sha256": "b1006db8e6f590470a02da06595bbd041c13aa794b475a95c2bce821a5e5de85"
+    },
+    "shared-browser-04-complete-pixel-coverage.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-04-complete-pixel-coverage.json",
+      "bytes": 20976,
+      "sha256": "bca8f3f58883e0c8741ca8c987fff6ca5b0dcbcfbe5e560e832aaddf6ca4345d"
+    },
+    "shared-history-label-green-independent-review.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-history-label-green-independent-review.json",
+      "bytes": 12300,
+      "sha256": "a55f909eb4292fa5a021a28b88686ef74206c013f66ea4c65d0e96873524dcdb"
+    }
+  },
+  "controller": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-04.mjs",
+    "sha256": "892a1a620f18043cfe2a687ea5b7ed55d4d6d6604852e75a5c41e4dfcf8488a7",
+    "review_sha256": "af5d64be1ef4f3274eaa00b9bafba067b9687f7f4f57e2f5e5cd73de4fea3762"
+  },
+  "accepted_input_identity": {
+    "api": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/api-02.json",
+      "sha256": "355de762cb1f72cf496c8c690658d7a751e66d7caff6b3dc7994eb9e40d50472"
+    },
+    "consumer": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04.json",
+      "sha256": "c7e329ae247857e425c5db25a88afe8ee5c07130818c7ecd45032c1a4a044d66"
+    },
+    "consumer_csv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04.csv",
+      "sha256": "bc293b783cbd71a19d7f7fc7f506d08590dba23c6936caea4d1cef817b387653"
+    },
+    "controller": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-04.mjs",
+      "sha256": "892a1a620f18043cfe2a687ea5b7ed55d4d6d6604852e75a5c41e4dfcf8488a7"
+    }
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "purpose": "real",
+  "content": {
+    "metrics": {
+      "count": 26,
+      "unique": 26,
+      "all_three_years": true,
+      "cutoffs_by_strength": true
+    },
+    "cases": [
+      {
+        "category": "complete",
+        "player": "8478872",
+        "season": "20252026",
+        "qualification_seconds": 183847,
+        "prior_only": false,
+        "value": 0.6491125816985565,
+        "qualification_text_correct": true
+      },
+      {
+        "category": "traded",
+        "player": "8477465",
+        "season": "20252026",
+        "qualification_seconds": 88164,
+        "prior_only": false,
+        "value": -0.9244695612693337,
+        "qualification_text_correct": true
+      },
+      {
+        "category": "relief",
+        "player": "8471734",
+        "season": "20252026",
+        "qualification_seconds": 71613,
+        "prior_only": false,
+        "value": -0.8805896110922142,
+        "qualification_text_correct": true
+      },
+      {
+        "category": "sparse",
+        "player": "8476316",
+        "season": "20252026",
+        "qualification_seconds": 3016,
+        "prior_only": false,
+        "value": -0.6411288293923063,
+        "qualification_text_correct": true
+      },
+      {
+        "category": "no_current_minutes",
+        "player": "8480022",
+        "season": "20252026",
+        "qualification_seconds": 0,
+        "prior_only": false,
+        "value": -0.9145760409119412,
+        "qualification_text_correct": true
+      },
+      {
+        "category": "unavailable",
+        "player": "8477361",
+        "season": "20252026",
+        "qualification_seconds": 0,
+        "prior_only": false,
+        "value": null,
+        "qualification_text_correct": true
+      }
+    ],
+    "case_value_and_qualification_reconciliation": [
+      {
+        "category": "complete",
+        "native_value_matches": true,
+        "zero_minutes_percentile_withheld": true,
+        "below_default_cutoff_withheld": true
+      },
+      {
+        "category": "traded",
+        "native_value_matches": true,
+        "zero_minutes_percentile_withheld": true,
+        "below_default_cutoff_withheld": true
+      },
+      {
+        "category": "relief",
+        "native_value_matches": true,
+        "zero_minutes_percentile_withheld": true,
+        "below_default_cutoff_withheld": true
+      },
+      {
+        "category": "sparse",
+        "native_value_matches": true,
+        "zero_minutes_percentile_withheld": true,
+        "below_default_cutoff_withheld": true
+      },
+      {
+        "category": "no_current_minutes",
+        "native_value_matches": true,
+        "zero_minutes_percentile_withheld": true,
+        "below_default_cutoff_withheld": true
+      },
+      {
+        "category": "unavailable",
+        "native_value_matches": true,
+        "zero_minutes_percentile_withheld": true,
+        "below_default_cutoff_withheld": true
+      }
+    ],
+    "absent_case_categories": [
+      "prior_only"
+    ],
+    "absent_case_reasons": {
+      "prior_only": "none found among all saved goalie EV/PK rows and all13 browser fields in the three published seasons; not a claim of impossibility"
+    },
+    "cutoffs": [
+      {
+        "strength": "ev",
+        "raised_minutes": 3065,
+        "raw_history_unchanged": true,
+        "selected_percentile_withheld": true,
+        "history_scale_and_annual_reload": true
+      },
+      {
+        "strength": "pk",
+        "raised_minutes": 300,
+        "raw_history_unchanged": true,
+        "selected_percentile_withheld": true,
+        "history_scale_and_annual_reload": true
+      }
+    ],
+    "smokes": [
+      "forward",
+      "defense",
+      "goalie_microstats_negative",
+      "goalie_analytical_negative"
+    ],
+    "meaning": "the exact reviewed controller retains all original table/plot/csv/unit/reference/support/caveat comparisons against accepted api02/consumer04/csv. actual native progress reaches all26 metrics and every required later boundary, with failure null and no weakened assertion."
+  },
+  "downloads": {
+    "events": 60,
+    "unique_paths": 60,
+    "saved_no_failure": true,
+    "csv": 30,
+    "png": 30,
+    "pairs": 30,
+    "all_pairs_associate_recorded_downloads": true,
+    "all_svg_rasterizer_inputs_observed": true,
+    "layout_downloads_match_normal": [
+      {
+        "mode": "narrow",
+        "metric": "goalie.ev.stopping_goals_per100_on_net",
+        "csv": true,
+        "png": true
+      },
+      {
+        "mode": "narrow",
+        "metric": "goalie.pk.followup_danger_difference",
+        "csv": true,
+        "png": true
+      },
+      {
+        "mode": "native200",
+        "metric": "goalie.ev.stopping_goals_per100_on_net",
+        "csv": true,
+        "png": true
+      },
+      {
+        "mode": "native200",
+        "metric": "goalie.pk.followup_danger_difference",
+        "csv": true,
+        "png": true
+      }
+    ]
+  },
+  "trace": {
+    "events": 824,
+    "contiguous": true,
+    "monotonic": true,
+    "successful_unique_request_lifecycles": 202,
+    "pending_markers_reconciled": 122,
+    "lifecycle_issues": [],
+    "final_pending_ids": [],
+    "canonical": {
+      "seq": 705,
+      "required_ids": [
+        "normal-r171",
+        "normal-r172",
+        "normal-r173",
+        "normal-r174",
+        "normal-r175",
+        "normal-r176",
+        "normal-r177",
+        "normal-r178"
+      ],
+      "all_success_finished_before": true,
+      "canonical_url_has_no_view": true,
+      "pending": [],
+      "next_action": {
+        "seq": 706,
+        "action": {
+          "mode": "normal",
+          "name": "layout_profile_goto"
+        },
+        "pending": []
+      }
+    },
+    "owned_closing_markers": [
+      {
+        "seq": 822,
+        "elapsed_ms": 328219.537584,
+        "action": {
+          "mode": "native200",
+          "name": "closing_owned_context"
+        },
+        "event": "action",
+        "pending_api_request_ids": []
+      },
+      {
+        "seq": 823,
+        "elapsed_ms": 328387.587917,
+        "action": {
+          "mode": "narrow",
+          "name": "closing_owned_context"
+        },
+        "event": "action",
+        "pending_api_request_ids": []
+      },
+      {
+        "seq": 824,
+        "elapsed_ms": 328552.5765,
+        "action": {
+          "mode": "normal",
+          "name": "closing_owned_context"
+        },
+        "event": "action",
+        "pending_api_request_ids": []
+      }
+    ],
+    "scope": "stable all-mode ids match one GET/200 response/finished terminal each. canonical observed required work finishes before seq705 and the next goto seq706 has no pending work; no exact internal generation count is an acceptance condition."
+  },
+  "errors": {
+    "request_failures": [],
+    "page_errors": [],
+    "console_errors": [
+      {
+        "mode": "normal",
+        "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "source": "console",
+        "location": {
+          "url": "http://127.0.0.1:3407/favicon.ico",
+          "line": 0,
+          "column": 0,
+          "lineNumber": 0,
+          "columnNumber": 0
+        }
+      },
+      {
+        "mode": "narrow",
+        "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "source": "console",
+        "location": {
+          "url": "http://127.0.0.1:3407/favicon.ico",
+          "line": 0,
+          "column": 0,
+          "lineNumber": 0,
+          "columnNumber": 0
+        }
+      },
+      {
+        "mode": "native200",
+        "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "source": "console",
+        "location": {
+          "url": "http://127.0.0.1:3407/favicon.ico",
+          "line": 0,
+          "column": 0,
+          "lineNumber": 0,
+          "columnNumber": 0
+        }
+      }
+    ],
+    "classification": "only three exact undeclared same-origin favicon404 console messages, one per mode with zero icon declarations; the reviewed narrow predicate requires no response event. all raw events remain retained.",
+    "strict_guard": "the original global zero-failure assertion and final post-owned-closure nonzero-failure rejection both remain in exact controller892a; actual raw failures remain zero through all three closures."
+  },
+  "layouts": {
+    "modes": [
+      {
+        "mode": "normal",
+        "requests": 186,
+        "exports": 26,
+        "captures": 7,
+        "zoom": {
+          "mode": "normal",
+          "viewport_mechanism": "native_window_viewport_null",
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1,
+          "horizontalScrollRegions": 0
+        }
+      },
+      {
+        "mode": "narrow",
+        "requests": 8,
+        "exports": 2,
+        "captures": 6,
+        "zoom": {
+          "mode": "narrow",
+          "viewport_mechanism": "explicit_css_viewport_320x913",
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1,
+          "horizontalScrollRegions": 3
+        }
+      },
+      {
+        "mode": "native200",
+        "requests": 8,
+        "exports": 2,
+        "captures": 6,
+        "zoom": {
+          "mode": "native200",
+          "viewport_mechanism": "native_window_viewport_null",
+          "innerWidth": 640,
+          "innerHeight": 456,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 2,
+          "documentWidth": 640,
+          "visualScale": 1,
+          "horizontalScrollRegions": 2
+        }
+      }
+    ],
+    "bounds": [
+      {
+        "mode": "normal",
+        "metric": "goalie.ev.stopping_goals_per100_on_net",
+        "labels": 4,
+        "fonts_loaded": true,
+        "finite_positive_svg": true,
+        "finite_positive_labels": true,
+        "computed_outside": [],
+        "document_within": true
+      },
+      {
+        "mode": "normal",
+        "metric": "goalie.pk.followup_danger_difference",
+        "labels": 4,
+        "fonts_loaded": true,
+        "finite_positive_svg": true,
+        "finite_positive_labels": true,
+        "computed_outside": [],
+        "document_within": true
+      },
+      {
+        "mode": "narrow",
+        "metric": "goalie.ev.stopping_goals_per100_on_net",
+        "labels": 4,
+        "fonts_loaded": true,
+        "finite_positive_svg": true,
+        "finite_positive_labels": true,
+        "computed_outside": [],
+        "document_within": true
+      },
+      {
+        "mode": "narrow",
+        "metric": "goalie.pk.followup_danger_difference",
+        "labels": 4,
+        "fonts_loaded": true,
+        "finite_positive_svg": true,
+        "finite_positive_labels": true,
+        "computed_outside": [],
+        "document_within": true
+      },
+      {
+        "mode": "native200",
+        "metric": "goalie.ev.stopping_goals_per100_on_net",
+        "labels": 4,
+        "fonts_loaded": true,
+        "finite_positive_svg": true,
+        "finite_positive_labels": true,
+        "computed_outside": [],
+        "document_within": true
+      },
+      {
+        "mode": "native200",
+        "metric": "goalie.pk.followup_danger_difference",
+        "labels": 4,
+        "fonts_loaded": true,
+        "finite_positive_svg": true,
+        "finite_positive_labels": true,
+        "computed_outside": [],
+        "document_within": true
+      }
+    ],
+    "actual_viewport_captures": 19,
+    "capture_identity": "all captures declare actual viewport and no clip; document widths stay within actual inner widths. normal1280/dpr1, explicit narrow320/dpr1 with outer500, and native200 inner640/outer1280/dpr2/visualScale1 are recorded."
+  },
+  "cost": {
+    "native_exit": 0,
+    "native_wall_seconds": 328.84,
+    "native_max_rss_bytes": 828882944,
+    "internal_driver_wall_seconds": 328.725641334,
+    "internal_driver_peak_rss_bytes": 227950592,
+    "api_requests": 202,
+    "api_responses": 202,
+    "declared_api_content_length_bytes": 1152212883,
+    "responses_without_content_length": 0,
+    "limits": "declared HTTP Content-Length is not independently measured transfer/decoded bytes or physical IO. native whole-command and internal driver boundaries remain distinct; no aggregate Chrome/retained-server memory or performance-cause claim."
+  },
+  "post_exit_capture": {
+    "status": "captured_complete_only",
+    "native_exit": 0,
+    "raw_copy_hashes_bytes_match": true,
+    "unknowns": [],
+    "errors": [],
+    "logical_external_returned_bytes": 458090,
+    "logical_local_returned_bytes": 3615,
+    "total_returned_body_bytes": 461705,
+    "native_wall_seconds": 0.04,
+    "native_max_rss_bytes": 20234240,
+    "internal_wall_seconds": 0.00099641690030694,
+    "physical_io_bytes": null,
+    "limit": "capture completeness alone was not treated as application acceptance; actual command marker/prompt closure is owner-reported and exact copied result/log/exit agree."
+  },
+  "green_geometry": {
+    "review_sha256": "a55f909eb4292fa5a021a28b88686ef74206c013f66ea4c65d0e96873524dcdb",
+    "independent_disposition": "targeted_history_label_green_geometry_confirmed",
+    "four_cases": 4,
+    "labels": 16,
+    "outside": 0,
+    "full_browser_six_checks": 6
+  },
+  "pixel_attribution": {
+    "aggregate": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-04-complete-pixel-coverage.json",
+      "bytes": 20976,
+      "sha256": "bca8f3f58883e0c8741ca8c987fff6ca5b0dcbcfbe5e560e832aaddf6ca4345d"
+    },
+    "coverage": {
+      "actual_png_downloads": 30,
+      "actual_viewport_captures": 19,
+      "total_raster_identities": 49,
+      "unique_png_hashes": 44,
+      "fresh_unique_actual_images_viewed": 31,
+      "prior_individually_inspected_exact_bit_matches": 13,
+      "current_duplicate_identities": 5
+    },
+    "all49path_hash_byte_identities_match": true,
+    "review_refs": {
+      "viewport": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-04-viewport-pixel-review.json",
+        "sha256": "22058fd16eb8792309f0160341c7a7d0471fc93fd59466246db41d8e2ec69bb8"
+      },
+      "ev": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-04-ev-export-pixel-review.json",
+        "sha256": "39dc20d8f80c3f7f9524f832037c3acaf2eaf0515d59721ac8d44300fadd9bfc"
+      },
+      "pk": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-browser-04-pk-export-pixel-review.json",
+        "sha256": "05741f5bb59e64aae56163c3525e046b70e4c2dc54539cfcc84812cbdd44220b"
+      }
+    },
+    "meaning": "root and peers own actual pixel inspection. this reviewer checks complete49-identity aggregation against the actual browser receipt; no image was reread here. all49 resolve to31 fresh unique actual inspections,13 old individually inspected exact-bit matches and5 current duplicates; combined pixel coverage supports full current browser acceptance."
+  },
+  "closed_target": {
+    "target": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+      "bytes": 1645,
+      "sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a"
+    },
+    "release": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-03-checked-boundary.json",
+      "bytes": 2445,
+      "sha256": "b1006db8e6f590470a02da06595bbd041c13aa794b475a95c2bce821a5e5de85"
+    },
+    "coherence": {
+      "closed_nine_keys": true,
+      "eight_fields_exact_owner_target": true,
+      "startup_release_hash_exact": true,
+      "startup_release_path_exact": true,
+      "release_current_binding": true,
+      "release_service_source_match": true,
+      "authority_qualifier": "runtime qualification evidence only; no ST command/window/chain, browser/pixel, preservation, scientific or activation grant"
+    },
+    "raw_top_level_keys": 9,
+    "meaning": "all eight owner-declared packet05 fields match exactly; ninth startup_release path/hash binds actual b100. this is local target coherence, not ST source/interpreter/freshness qualification, handoff, window or dispatch."
+  },
+  "remaining_material_findings": [],
+  "content_download_acceptance": true,
+  "combined_current_browser_acceptance_supported": true,
+  "pixels_read_by_this_reviewer": false,
+  "full_v1_19_acceptance": false,
+  "scientific_admission": false,
+  "activation_authorized": false,
+  "st_dispatch_authorized": false,
+  "limits": [
+    "browser01/02/03 remain failed. new success does not reproduce, attribute, excuse or prove a fix for historical aborts; no further focused reproduction search follows.",
+    "long repeated method notes remain a nonblocking follow-up; the aggregate records complete legible pixels and no compact-height budget was specified.",
+    "all actual ST matrices, final scoped preservation and temporary cleanup require separate root admission; the previously failed ST notice is not a provider acknowledgment.",
+    "normal strict startup plus actual same-server journeys establish this detached boundary without an additional G rollback rotation; no full family delivery/merge/activation follows."
+  ]
+}

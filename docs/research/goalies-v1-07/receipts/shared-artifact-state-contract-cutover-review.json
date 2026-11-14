@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "kind": "shared-artifact-state-interface-cutover-review",
+  "status": "accepted",
+  "recorded_at_utc": "2026-11-11T12:13:18.803784+00:00",
+  "starting_head": "92fcb491eedabb856eceb5a7faf364769d828bc7",
+  "starting_analysis_tree": "0aba863d0efaf5ace3f0e96ab87920540b669e11",
+  "patch": {
+    "sha256": "5ecdc3fa5bdea5f4e802771f5e076b880b4dfb709a5ba7b3fd50b0fe8c1e480f",
+    "applied_once": true,
+    "files": [
+      {
+        "path": "analysis/src/hockey_stats/artifacts.py",
+        "original_sha256": "984895fe323e915ad299fd688f57fe685ec7e7692549b4c3144bb8080d2f2b86",
+        "proposed_sha256": "ee49723daf7375e1b8d04965a94f16a434d1b3a7e636f21552dce8cf38faae99"
+      },
+      {
+        "path": "analysis/src/hockey_stats/execution_scores.py",
+        "original_sha256": "6e07168e9614f0fed04c158f3f9fb65f41818380b9a2888609fd6a8266585414",
+        "proposed_sha256": "f0240aab80496e394d175bcb3d26edee057f167cb53492f858f21b8c05a79492"
+      },
+      {
+        "path": "analysis/src/hockey_stats/goalie_scores.py",
+        "original_sha256": "8e605e41f6fc1213496e0451e77ad13a10b54a8b5d667e7a51a7b3dd274143e0",
+        "proposed_sha256": "782d0081798ac90728ab859687773500607237664ac9b63355054281a8e016f3"
+      },
+      {
+        "path": "analysis/src/hockey_stats/execution_state.py",
+        "original_sha256": "2f65ae947777eefee441af15e7609d3cae2edb5375bc9f99a85a4cf82e57cf14",
+        "proposed_sha256": "bc71ac918d6aceb8b8304ca5a23402ea2c0c7192bc3458c78f081c9ca9dcb883"
+      },
+      {
+        "path": "analysis/src/hockey_stats/goalie_state.py",
+        "original_sha256": "7641d0eaec401bad49f61b0cab2ef31ff5c7f643b0b1b8931ddca60ef2a21577",
+        "proposed_sha256": "0edbef94543cd0a4dfe16149c2d96bcdea1c2067a2928fb622da50fe3bcc9343"
+      },
+      {
+        "path": "analysis/src/hockey_stats/execution.py",
+        "original_sha256": "367f5d18975ad8565c994f0870ec2a950d502b48637e8a6bd264dccbb1e32efa",
+        "proposed_sha256": "08d4519ebab177fd513d424db6716537b0394cf2db0ea111d8db9a3b0a08560b"
+      },
+      {
+        "path": "analysis/src/hockey_stats/execution_u_repair.py",
+        "original_sha256": "4c7dfb499cccca81735594389a510850dba68aad700776059500fb7a05cb6522",
+        "proposed_sha256": "d7da17c6c129627b9f67f899e4180062f9a813514cab45b48854fd2d4a22e7ee"
+      },
+      {
+        "path": "analysis/src/hockey_stats/goalie.py",
+        "original_sha256": "462793da938e92105b3a4d359cccf4e8963987b8f1da6be73d262810d211d377",
+        "proposed_sha256": "b7fd10aeb50fc249ae77272ce92e97c4c543c1bb38dde686ef4ac9883d32f241"
+      }
+    ]
+  },
+  "public_owners": {
+    "artifacts": [
+      "require_fields",
+      "require_number",
+      "require_count",
+      "require_season_label",
+      "json_line",
+      "write_jsonl",
+      "read_jsonl",
+      "decode_jsonl_line",
+      "write_json"
+    ],
+    "execution_state": [
+      "validate_design",
+      "validate_actor_history",
+      "validate_solve_record",
+      "coefficient_array_contract",
+      "read_coefficient_arrays",
+      "season_start_year",
+      "require_state_reference",
+      "state_member_path",
+      "require_finite_state",
+      "require_nonnegative"
+    ],
+    "execution": [
+      "centered_state"
+    ]
+  },
+  "source_proof": {
+    "all_eight_executable_modules_equal_after_only_approved_names_imports_and_docstrings": true,
+    "all_eight_moved_generic_bodies_equal_except_names_and_math_qualification": true,
+    "closed_fields_duplicate_exact_original_body_reused": true,
+    "existing_artifact_and_state_formats_unchanged": true,
+    "public_names_have_no_aliases_wrappers_reexports_or_fallbacks": true,
+    "exact_integer_physical_state_and_checked_panel_reuse_guards_preserved": true,
+    "typed_error_wrapping_and_member_guards_preserved": true,
+    "season_start_year_still_returns_int": true,
+    "centers_are_references_and_ledger_coordinates_remain_raw": true
+  },
+  "red": {
+    "exit_code": 1,
+    "status": "red",
+    "expected": "invalid documents leave no file",
+    "exception": "ValueError",
+    "message": "Out of range float values are not JSON compliant: nan",
+    "file_exists_after_failure": true,
+    "bytes_after_failure": 0,
+    "proof_sha256": "83c9a4389b626e8e1752996d69f106918d4dc110735fd1f28c3aafea6cb86987"
+  },
+  "green": {
+    "artifact_io": {
+      "exit_code": 0,
+      "receipt_sha256": "620c1b6f1f00ef324543295bfc2285cdf0beb4ffc0f9b2b4fd3c2245121cb6cd",
+      "oracle_sha256": "14c0e15f8970bb0b071b2f05205438f9144328e8df7bd5f6f7e7b9ff24d809f2",
+      "checks": 94,
+      "oracle_wall_seconds": 0.004035500111058354,
+      "oracle_peak_memory_bytes": 94355456,
+      "native_wall_seconds": 0.35,
+      "native_max_rss_bytes": 94388224,
+      "native_peak_footprint_bytes": 72237608,
+      "coverage": "actual events/goalie-row streams and indexed map seeks; independent literal bytes; invalid lines/values; exact scalar/field/season checks; exclusive files"
+    },
+    "state_interface": {
+      "exit_code": 0,
+      "receipt_sha256": "41d6ffffaf18d223cefeca54ed5754f0e5a7b1317ebf2fdd92e026caef38810d",
+      "oracle_sha256": "853dfb42a2069b40a8abba7efc1f8954938beb2557d86afa8805633b58155766",
+      "checks": 10,
+      "oracle_wall_seconds": 0.0012439580168575048,
+      "oracle_peak_memory_bytes": 87261184,
+      "native_wall_seconds": 0.26,
+      "native_max_rss_bytes": 87277568,
+      "native_peak_footprint_bytes": 65323560,
+      "coverage": "public imports; recursive metadata; integer season; reference/member guards; two local coefficients; raw ledger and prior-only actor history"
+    }
+  },
+  "accepted_behavior_change": {
+    "nonfinite_document": "canonical write_json serializes before exclusive creation, leaving no empty file",
+    "invalid_payload_and_occupied_destination": "ValueError precedes FileExistsError; original destination bytes are unchanged",
+    "successful_document_bytes": "unchanged insertion order, unicode escaping, finite float representation, indentation and final newline",
+    "jsonl_partial_failure": "successful prefix remains, unchanged"
+  },
+  "scope": {
+    "external_data_reads": 0,
+    "full_artifact_reader_calls": 0,
+    "model_evaluator_or_fit_calls": 0,
+    "serving_changes": 0,
+    "scientific_reruns": 0
+  },
+  "temporary_checks": "retained until full v1-07 acceptance cleanup; preparation-only first AST normalizer failure and old-writer red proof remain separately preserved",
+  "limits": [
+    "local contract verification does not reassess scientific accuracy",
+    "no unrelated private interfaces migrated",
+    "no commit or issue deletion by this agent"
+  ],
+  "independent_review": {
+    "reviewer": "api_verification",
+    "reviewed_receipt_sha256": "90502fd100fba9edf369aa905f10af22012a36497c0cb46da279c7f51680689b",
+    "verdict": "passed",
+    "scope": "actual eight-file diff, exact proposed bytes, executable-body proof, public imports, unchanged physical-state/panel/error contracts and actual first-run green receipts",
+    "runtime_repeats": 0,
+    "external_reads": 0,
+    "diff_statistics": "actual git diff 395 insertions/386 deletions; literal reviewed patch 399/390; same exact files and net nine lines. earlier 398/390 wording was incorrect, not a source difference"
+  }
+}

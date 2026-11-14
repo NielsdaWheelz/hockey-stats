@@ -1,0 +1,1141 @@
+{
+  "kind": "shared-st-browser06-prefix-pixel-review",
+  "reviewer": "trace_review",
+  "assigned_indices": [
+    21,
+    40
+  ],
+  "input_manifest": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-browser06-prefix-pixel-inputs-01.json",
+    "bytes": 22541,
+    "sha256": "729a843ce11acaa01b9abc96b6d2ce0aeac7d849fccf3e4e1b2f13fc8f1af22c",
+    "identity_verified": true
+  },
+  "browser_boundary": "FAILED_SCOPED_BROWSER",
+  "acceptance_scope": "positive completed normal-mode history/export records from the failed browser06 prefix only; no whole-browser, scientific, numerical or later-stage pass",
+  "method": "each of the 20 exact original PNGs had its bytes/hash and PNG header dimensions verified, then was independently displayed with tools.view_image and inspected in full; no duplicate inheritance, crop, contact sheet, transformation, regeneration or browser use",
+  "shared_pixel_findings": {
+    "season_order": [
+      "2023–24",
+      "2024–25",
+      "2025–26"
+    ],
+    "selected_season": "2025–26",
+    "layout": "title, quantity identifier, unit, one-series chart, three season blocks, caveats and footer are legible and complete in every original; no observed clipping, overlap, blankness or corruption",
+    "axes": "all three season ticks and both numerical endpoint labels are visible; the single raw-history trace is identified by the title and quantity header",
+    "raw_history": "the displayed estimates retain raw signs; offense says positive means more for, defense says positive means more against; higher percentile means higher rate",
+    "reference": "every original names annual spatial-st-league-centered-virtual-v1 and its exact-state reference with weight one",
+    "experimental_caveats": "experimental conditional seasonal estimates, historical borrowing, inferred blocked origins, no calibrated uncertainty, no causal effects/calibrated ability/held-out forecast claim; aggregate exposure does not establish evidence for every term; shared coefficients and thin specialty data limitations are visible",
+    "optimizer_caveats": "2023–24 and 2024–25 sensitivity unassessed; 2025–26 sensitivity exceeded; remaining optimizer accuracy unknown and earlier annual sensitivity not assessed retrospectively",
+    "footer": "percentiles describe standing in the published quantity, not confidence or ability separation; missing years and changed definitions break lines",
+    "unknowns": "pixels do not establish source, join, CSV, probability, component or numerical correctness; scientific quality, admission and all runtime/browser behavior remain unassessed here"
+  },
+  "entries": [
+    {
+      "index": 21,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.5v3.offense_attempts_per60",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/063-normal-spatial.5v3.offense_attempts_per60.png",
+      "bytes": 2037089,
+      "sha256": "1cf251c5d2fd906c0f79f18e7030e99966bc8d57147aa0f9452b4ede4da97407",
+      "actual_bytes": 2037089,
+      "actual_sha256": "1cf251c5d2fd906c0f79f18e7030e99966bc8d57147aa0f9452b4ede4da97407",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Nick Suzuki · experimental 5v3 offense attempt difference",
+        "native_unit": "attempts_per60",
+        "display_unit": "attempts per 60 min",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "0.810967",
+          "3.86371",
+          "0.158543"
+        ],
+        "chart_bounds_visible": [
+          "0.158543",
+          "3.86371"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 344, 510, 731; gap true",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 5v3=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 22,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.5v3.offense_xg_per60",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/066-normal-spatial.5v3.offense_xg_per60.png",
+      "bytes": 2027528,
+      "sha256": "9ef5391e75beb056c0cf3867711784c2ed771c5d1d02652bc3df3bb9426b3c27",
+      "actual_bytes": 2027528,
+      "actual_sha256": "9ef5391e75beb056c0cf3867711784c2ed771c5d1d02652bc3df3bb9426b3c27",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Nick Suzuki · experimental 5v3 offense xg difference",
+        "native_unit": "xg_per60",
+        "display_unit": "xg per 60 min",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "0.164694",
+          "0.420234",
+          "0.203437"
+        ],
+        "chart_bounds_visible": [
+          "0.164694",
+          "0.420234"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 344, 510, 731; gap true",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 5v3=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 23,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.5v3.offense_attempts_relative_percent",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/069-normal-spatial.5v3.offense_attempts_relative_percent.png",
+      "bytes": 2023775,
+      "sha256": "15a026f7a762990ec1da300006ae326b2f8c65c7221080aa7a6f8e644a041e07",
+      "actual_bytes": 2023775,
+      "actual_sha256": "15a026f7a762990ec1da300006ae326b2f8c65c7221080aa7a6f8e644a041e07",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Nick Suzuki · experimental 5v3 offense attempt relative difference",
+        "native_unit": "%",
+        "display_unit": "%",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "0.992452",
+          "4.50494",
+          "0.185441"
+        ],
+        "chart_bounds_visible": [
+          "0.185441",
+          "4.50494"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 344, 510, 731; gap true",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 5v3=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 24,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.5v3.offense_xg_relative_percent",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/072-normal-spatial.5v3.offense_xg_relative_percent.png",
+      "bytes": 2017361,
+      "sha256": "98e5decd2a0c31d3b18be2d165052e6006acff0071ef8fe155b54481abf2afda",
+      "actual_bytes": 2017361,
+      "actual_sha256": "98e5decd2a0c31d3b18be2d165052e6006acff0071ef8fe155b54481abf2afda",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Nick Suzuki · experimental 5v3 offense xg relative difference",
+        "native_unit": "%",
+        "display_unit": "%",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "3.00176",
+          "5.13293",
+          "2.42862"
+        ],
+        "chart_bounds_visible": [
+          "2.42862",
+          "5.13293"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 344, 510, 731; gap true",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 5v3=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 25,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.4v3.offense_attempts_per60",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/075-normal-spatial.4v3.offense_attempts_per60.png",
+      "bytes": 2037947,
+      "sha256": "c6bbd6f92896e060475bba0a9f34aa966847c40fa15b6c46e5f20ccae05522ab",
+      "actual_bytes": 2037947,
+      "actual_sha256": "c6bbd6f92896e060475bba0a9f34aa966847c40fa15b6c46e5f20ccae05522ab",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Nick Suzuki · experimental 4v3 offense attempt difference",
+        "native_unit": "attempts_per60",
+        "display_unit": "attempts per 60 min",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "0.85451",
+          "3.88834",
+          "0.13779"
+        ],
+        "chart_bounds_visible": [
+          "0.13779",
+          "3.88834"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 667, 168, 509; gap true",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 4v3=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 26,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.4v3.offense_xg_per60",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/078-normal-spatial.4v3.offense_xg_per60.png",
+      "bytes": 2023429,
+      "sha256": "ea930c735682679a85e178019577c40a89700d7c5d70b761c14d06f9f7ee0645",
+      "actual_bytes": 2023429,
+      "actual_sha256": "ea930c735682679a85e178019577c40a89700d7c5d70b761c14d06f9f7ee0645",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Nick Suzuki · experimental 4v3 offense xg difference",
+        "native_unit": "xg_per60",
+        "display_unit": "xg per 60 min",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "0.179525",
+          "0.332844",
+          "0.114352"
+        ],
+        "chart_bounds_visible": [
+          "0.114352",
+          "0.332844"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 667, 168, 509; gap true",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 4v3=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 27,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.4v3.offense_attempts_relative_percent",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/081-normal-spatial.4v3.offense_attempts_relative_percent.png",
+      "bytes": 2023475,
+      "sha256": "c70665ffbed8cfb4a514914e3f3a0678e4d2fa398d3201bee8d638074211d586",
+      "actual_bytes": 2023475,
+      "actual_sha256": "c70665ffbed8cfb4a514914e3f3a0678e4d2fa398d3201bee8d638074211d586",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Nick Suzuki · experimental 4v3 offense attempt relative difference",
+        "native_unit": "%",
+        "display_unit": "%",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "0.992452",
+          "4.50494",
+          "0.185441"
+        ],
+        "chart_bounds_visible": [
+          "0.185441",
+          "4.50494"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 667, 168, 509; gap true",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 4v3=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 28,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.4v3.offense_xg_relative_percent",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/084-normal-spatial.4v3.offense_xg_relative_percent.png",
+      "bytes": 2017090,
+      "sha256": "56f5781be31d60e2e55f5c30244e02a8fb2c5aa4ba22b148ece3969070b8f123",
+      "actual_bytes": 2017090,
+      "actual_sha256": "56f5781be31d60e2e55f5c30244e02a8fb2c5aa4ba22b148ece3969070b8f123",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Nick Suzuki · experimental 4v3 offense xg relative difference",
+        "native_unit": "%",
+        "display_unit": "%",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "2.85793",
+          "5.17304",
+          "2.70846"
+        ],
+        "chart_bounds_visible": [
+          "2.70846",
+          "5.17304"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 667, 168, 509; gap true",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 4v3=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 29,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.4v5.defense_attempts_per60",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/087-normal-spatial.4v5.defense_attempts_per60.png",
+      "bytes": 2053875,
+      "sha256": "419ffd6c37ed30cc523688ba7c5b0afbc69a46450e5f967c8d4ad0f527425080",
+      "actual_bytes": 2053875,
+      "actual_sha256": "419ffd6c37ed30cc523688ba7c5b0afbc69a46450e5f967c8d4ad0f527425080",
+      "reported_dimensions": [
+        1200,
+        5559
+      ],
+      "actual_dimensions": [
+        1200,
+        5559
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Esa Lindell · experimental 4v5 defense attempt difference",
+        "native_unit": "attempts_per60",
+        "display_unit": "attempts per 60 min",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "-7.95507",
+          "-8.18617",
+          "-3.88275"
+        ],
+        "chart_bounds_visible": [
+          "-8.18617",
+          "-3.88275"
+        ],
+        "percentiles_visible": [
+          "1.6",
+          "1.0",
+          "11.7"
+        ],
+        "support": "50 min cutoff; reported defense; n=161,148,158; included seconds 15823,15956,17991; excluded seconds 30,0,495; gap true; support reason lists visible",
+        "sign": "positive means more against; higher percentile means higher rate; raw negative values retained",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 4v5=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 30,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.4v5.defense_xg_per60",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/090-normal-spatial.4v5.defense_xg_per60.png",
+      "bytes": 2048760,
+      "sha256": "4b5dd607f6a65cc4d69ea7dd6c8456110765de9d6565a7a9519ab89f2af63a99",
+      "actual_bytes": 2048760,
+      "actual_sha256": "4b5dd607f6a65cc4d69ea7dd6c8456110765de9d6565a7a9519ab89f2af63a99",
+      "reported_dimensions": [
+        1200,
+        5559
+      ],
+      "actual_dimensions": [
+        1200,
+        5559
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Esa Lindell · experimental 4v5 defense xg difference",
+        "native_unit": "xg_per60",
+        "display_unit": "xg per 60 min",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "-0.35412",
+          "-0.424809",
+          "-0.162376"
+        ],
+        "chart_bounds_visible": [
+          "-0.424809",
+          "-0.162376"
+        ],
+        "percentiles_visible": [
+          "5.9",
+          "3.0",
+          "22.5"
+        ],
+        "support": "50 min cutoff; reported defense; n=161,148,158; included seconds 15823,15956,17991; excluded seconds 30,0,495; gap true; support reason lists visible",
+        "sign": "positive means more against; higher percentile means higher rate; raw negative values retained",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 4v5=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 31,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.4v5.defense_attempts_relative_percent",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/093-normal-spatial.4v5.defense_attempts_relative_percent.png",
+      "bytes": 2046454,
+      "sha256": "0d8f26b4d104f83c90e8cd49c899fbe19139bc594e77ccb21c12679edbd12509",
+      "actual_bytes": 2046454,
+      "actual_sha256": "0d8f26b4d104f83c90e8cd49c899fbe19139bc594e77ccb21c12679edbd12509",
+      "reported_dimensions": [
+        1200,
+        5559
+      ],
+      "actual_dimensions": [
+        1200,
+        5559
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Esa Lindell · experimental 4v5 defense attempt relative difference",
+        "native_unit": "%",
+        "display_unit": "%",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "-11.9869",
+          "-12.8567",
+          "-6.09426"
+        ],
+        "chart_bounds_visible": [
+          "-12.8567",
+          "-6.09426"
+        ],
+        "percentiles_visible": [
+          "1.6",
+          "1.0",
+          "11.7"
+        ],
+        "support": "50 min cutoff; reported defense; n=161,148,158; included seconds 15823,15956,17991; excluded seconds 30,0,495; gap true; support reason lists visible",
+        "sign": "positive means more against; higher percentile means higher rate; raw negative values retained",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 4v5=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 32,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.4v5.defense_xg_relative_percent",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/096-normal-spatial.4v5.defense_xg_relative_percent.png",
+      "bytes": 2036922,
+      "sha256": "f5e70271872e82133439b3821b4fe5b081316e2caaffb62274ae2151caf77feb",
+      "actual_bytes": 2036922,
+      "actual_sha256": "f5e70271872e82133439b3821b4fe5b081316e2caaffb62274ae2151caf77feb",
+      "reported_dimensions": [
+        1200,
+        5559
+      ],
+      "actual_dimensions": [
+        1200,
+        5559
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Esa Lindell · experimental 4v5 defense xg relative difference",
+        "native_unit": "%",
+        "display_unit": "%",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "-9.76608",
+          "-11.1665",
+          "-4.42179"
+        ],
+        "chart_bounds_visible": [
+          "-11.1665",
+          "-4.42179"
+        ],
+        "percentiles_visible": [
+          "5.9",
+          "3.0",
+          "22.5"
+        ],
+        "support": "50 min cutoff; reported defense; n=161,148,158; included seconds 15823,15956,17991; excluded seconds 30,0,495; gap true; support reason lists visible",
+        "sign": "positive means more against; higher percentile means higher rate; raw negative values retained",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 4v5=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 33,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.3v5.defense_attempts_per60",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/099-normal-spatial.3v5.defense_attempts_per60.png",
+      "bytes": 2038990,
+      "sha256": "eb11db987d25fe43c547df7dffeb469d76019d681e5950a3fabe43b4584beeda",
+      "actual_bytes": 2038990,
+      "actual_sha256": "eb11db987d25fe43c547df7dffeb469d76019d681e5950a3fabe43b4584beeda",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Nikita Zadorov · experimental 3v5 defense attempt difference",
+        "native_unit": "attempts_per60",
+        "display_unit": "attempts per 60 min",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "6.23754",
+          "-1.95358",
+          "-1.80029"
+        ],
+        "chart_bounds_visible": [
+          "-1.95358",
+          "6.23754"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 88,71,631; excluded seconds 0; gap true",
+        "sign": "positive means more against; higher percentile means higher rate; mixed raw positive and negative values retained",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 3v5=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 34,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.3v5.defense_xg_per60",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/102-normal-spatial.3v5.defense_xg_per60.png",
+      "bytes": 2035733,
+      "sha256": "9df052ad17fa81c8afc8b94a904bce42162fb58ba9fc18da4c565f3239b1ef29",
+      "actual_bytes": 2035733,
+      "actual_sha256": "9df052ad17fa81c8afc8b94a904bce42162fb58ba9fc18da4c565f3239b1ef29",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Nikita Zadorov · experimental 3v5 defense xg difference",
+        "native_unit": "xg_per60",
+        "display_unit": "xg per 60 min",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "0.673774",
+          "0.0549834",
+          "-0.0831398"
+        ],
+        "chart_bounds_visible": [
+          "-0.0831398",
+          "0.673774"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 88,71,631; excluded seconds 0; gap true",
+        "sign": "positive means more against; higher percentile means higher rate; mixed raw positive and negative values retained",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 3v5=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 35,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.3v5.defense_attempts_relative_percent",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/105-normal-spatial.3v5.defense_attempts_relative_percent.png",
+      "bytes": 2027494,
+      "sha256": "6eb2b9c9d2540515306b1728e49340e07c27f5209ed950094e28f1969686b6dc",
+      "actual_bytes": 2027494,
+      "actual_sha256": "6eb2b9c9d2540515306b1728e49340e07c27f5209ed950094e28f1969686b6dc",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Nikita Zadorov · experimental 3v5 defense attempt relative difference",
+        "native_unit": "%",
+        "display_unit": "%",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "7.63344",
+          "-2.27781",
+          "-2.10573"
+        ],
+        "chart_bounds_visible": [
+          "-2.27781",
+          "7.63344"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 88,71,631; excluded seconds 0; gap true",
+        "sign": "positive means more against; higher percentile means higher rate; mixed raw positive and negative values retained",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 3v5=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 36,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.3v5.defense_xg_relative_percent",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/108-normal-spatial.3v5.defense_xg_relative_percent.png",
+      "bytes": 2023283,
+      "sha256": "6153d3d13afc3480a165e743e6902edb3d6bd74dc074e2e1c6b0e04afb7b3f39",
+      "actual_bytes": 2023283,
+      "actual_sha256": "6153d3d13afc3480a165e743e6902edb3d6bd74dc074e2e1c6b0e04afb7b3f39",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Nikita Zadorov · experimental 3v5 defense xg relative difference",
+        "native_unit": "%",
+        "display_unit": "%",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "12.2804",
+          "0.671593",
+          "-0.992517"
+        ],
+        "chart_bounds_visible": [
+          "-0.992517",
+          "12.2804"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 88,71,631; excluded seconds 0; gap true",
+        "sign": "positive means more against; higher percentile means higher rate; mixed raw positive and negative values retained",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 3v5=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 37,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.3v4.defense_attempts_per60",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/111-normal-spatial.3v4.defense_attempts_per60.png",
+      "bytes": 2032976,
+      "sha256": "d7581eac681d92eb1942d04539c3b2eab70df1816012efeeb26ccbe908cb21d4",
+      "actual_bytes": 2032976,
+      "actual_sha256": "d7581eac681d92eb1942d04539c3b2eab70df1816012efeeb26ccbe908cb21d4",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Travis Sanheim · experimental 3v4 defense attempt difference",
+        "native_unit": "attempts_per60",
+        "display_unit": "attempts per 60 min",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "-5.44782",
+          "-4.32074",
+          "-2.45767"
+        ],
+        "chart_bounds_visible": [
+          "-5.44782",
+          "-2.45767"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 148,188,432; excluded seconds 0; gap true",
+        "sign": "positive means more against; higher percentile means higher rate; raw negative values retained",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 3v4=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 38,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.3v4.defense_xg_per60",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/114-normal-spatial.3v4.defense_xg_per60.png",
+      "bytes": 2026941,
+      "sha256": "b830d33df78ff7631b4f5dc1882f058ad100f4f261a7413d049c6d7d92fd05fa",
+      "actual_bytes": 2026941,
+      "actual_sha256": "b830d33df78ff7631b4f5dc1882f058ad100f4f261a7413d049c6d7d92fd05fa",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Travis Sanheim · experimental 3v4 defense xg difference",
+        "native_unit": "xg_per60",
+        "display_unit": "xg per 60 min",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "-0.440287",
+          "-0.309502",
+          "-0.118883"
+        ],
+        "chart_bounds_visible": [
+          "-0.440287",
+          "-0.118883"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 148,188,432; excluded seconds 0; gap true",
+        "sign": "positive means more against; higher percentile means higher rate; raw negative values retained",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 3v4=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 39,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.3v4.defense_attempts_relative_percent",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/117-normal-spatial.3v4.defense_attempts_relative_percent.png",
+      "bytes": 2025560,
+      "sha256": "5730ab83888bae32055c5d9f3aff901d30282fa8650bb3844888576a283826f2",
+      "actual_bytes": 2025560,
+      "actual_sha256": "5730ab83888bae32055c5d9f3aff901d30282fa8650bb3844888576a283826f2",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Travis Sanheim · experimental 3v4 defense attempt relative difference",
+        "native_unit": "%",
+        "display_unit": "%",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "-6.32725",
+          "-5.0059",
+          "-3.30757"
+        ],
+        "chart_bounds_visible": [
+          "-6.32725",
+          "-3.30757"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 148,188,432; excluded seconds 0; gap true",
+        "sign": "positive means more against; higher percentile means higher rate; raw negative values retained",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 3v4=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    },
+    {
+      "index": 40,
+      "kind": "downloaded-history-png",
+      "mode": "normal",
+      "metric": "spatial.3v4.defense_xg_relative_percent",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/120-normal-spatial.3v4.defense_xg_relative_percent.png",
+      "bytes": 2015855,
+      "sha256": "b4173255764f0d0c572d5ee714a0911318d34a8bceab658a34ce803a3d8994c2",
+      "actual_bytes": 2015855,
+      "actual_sha256": "b4173255764f0d0c572d5ee714a0911318d34a8bceab658a34ce803a3d8994c2",
+      "reported_dimensions": [
+        1200,
+        5503
+      ],
+      "actual_dimensions": [
+        1200,
+        5503
+      ],
+      "dimension_method": "PNG IHDR metadata",
+      "identity_verified": true,
+      "dimensions_match_reported": true,
+      "individually_viewed": true,
+      "view_method": "tools.view_image original pixels emitted as image object",
+      "inherited_duplicate_identity": null,
+      "pixel_findings": {
+        "title": "Travis Sanheim · experimental 3v4 defense xg relative difference",
+        "native_unit": "%",
+        "display_unit": "%",
+        "display_multiplier": 1,
+        "season_values_visible": [
+          "-7.00909",
+          "-4.81027",
+          "-2.81576"
+        ],
+        "chart_bounds_visible": [
+          "-7.00909",
+          "-2.81576"
+        ],
+        "percentiles_visible": [],
+        "support": "all three below cutoff; n=0; included seconds 148,188,432; excluded seconds 0; gap true",
+        "sign": "positive means more against; higher percentile means higher rate; raw negative values retained",
+        "reference": "annual spatial-st-league-centered-virtual-v1; exact-state 3v4=1",
+        "season_labels_and_selected_annotation_visible": true,
+        "shared_caveats_independently_seen": true,
+        "chart_and_text_agree_visually": true,
+        "clipping_observed": false,
+        "overlap_observed": false,
+        "blankness_or_corruption_observed": false,
+        "legibility": "readable original full image"
+      },
+      "outcome": "accepted_completed_prefix_png_pixels_with_visible_experimental_limits",
+      "acceptance_scope": "this completed normal-mode history PNG only; shared unknowns apply"
+    }
+  ],
+  "aggregate": {
+    "assigned": 20,
+    "identity_verified": 20,
+    "dimension_matches": 20,
+    "originals_individually_viewed": 20,
+    "duplicate_inheritance": 0,
+    "visually_accepted_with_scope": 20,
+    "visible_defects": [],
+    "outcome": "assigned completed-prefix PNG visual review complete",
+    "whole_browser_pass": false,
+    "scientific_pass": false,
+    "later_stage_authority": "none"
+  },
+  "hash_process": {
+    "logical_png_bytes_read": 40620537,
+    "manifest_bytes_read": 22541,
+    "wall_seconds": 0.4048494170419872,
+    "peak_rss_raw": 25247744,
+    "peak_rss_raw_unit": "bytes",
+    "scope": "only this hash/header process; image-tool and physical i/o costs unknown"
+  },
+  "unmeasured_costs": {
+    "image_tool_read_bytes": "unknown",
+    "image_tool_wall_time": "unknown",
+    "image_tool_RSS": "unknown",
+    "Chrome_or_server_cost": "unknown",
+    "physical_io_bytes": "unknown",
+    "end_to_end_cost": "unknown"
+  },
+  "holds": "all live/browser/HTTP/DB/service/source/build/CSV/SVG/member/numerical commands remained held; only exact manifest/assigned PNG reads and this exclusive new receipt write were performed"
+}

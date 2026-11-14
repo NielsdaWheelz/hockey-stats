@@ -1,0 +1,79 @@
+{
+  "status": "explicit_user_heavy_slot_release",
+  "recorded_at_utc": "2026-11-09T07:06:57.092368+00:00",
+  "real_parent": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results/manifest.json",
+    "sha256": "38c1d8e105e244c5e45cf071b18bb98be10c78268ab2688a40f5bc3dca84c9b8"
+  },
+  "correction_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/results-reference-xg-correction.json",
+    "sha256": "a732f9885dab11c902f08bedf35366c01eb6b22150b9e64fe6f347c0df6d1bf4"
+  },
+  "sibling_publication": {
+    "publication_id": "dd469700-19ec-4e70-b024-382204b9ae1c",
+    "publisher_sha256": "3e6d430cdb455f29f2843d46d0c39ab0db2ca3b4f37e5232691adebfe0b0874e",
+    "database_bytes": 13356380160,
+    "native_elapsed_seconds": 6555.91,
+    "publisher_wall_seconds": 6555.186,
+    "peak_rss_bytes": 3328049152
+  },
+  "startup_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-17/docs/research/application-v1-17/receipts/runtime-startup.json",
+    "sha256": "d18fb49a71d450a3f72967710e34db728544e4b05a0ac1d06d7278caba883d7d",
+    "data": {
+      "status": "strict_publication_startup_passed",
+      "started_at": "2026-11-09T06:56:49.063Z",
+      "ready_at": "2026-11-09T07:04:42.863Z",
+      "elapsed_seconds": 473.79433679199997,
+      "peak_rss_bytes": 1101021184,
+      "user_cpu_seconds": 460.697153,
+      "system_cpu_seconds": 28.491624,
+      "pid": 99292,
+      "port": 41918,
+      "node_version": "v24.21.0",
+      "argv": [
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-17/app/.tmp/v1-17/runtime.mjs",
+        "--publication",
+        "/Volumes/Expansion/hockey-stats/runs/application-v1-17-20261108-01/candidate/player-analysis.sqlite",
+        "--port",
+        "41918"
+      ],
+      "server_module_sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05",
+      "measurement": "wrapper-entry to actual listening event; excludes node boot and wrapper static imports; whole-process kernel RSS high-water at ready; ordinary compiled server; one strict startup read"
+    }
+  },
+  "release_scope": "final fixture score, chronological real goalie fits/scores and corrected-parent composition; no further v1-17 release cadence; bounded sibling api/browser work may continue",
+  "activation": false,
+  "source": "explicit user coordination message; small startup receipt read only; no candidate or large member read",
+  "final_user_handoff": {
+    "received_at_utc": "2026-11-09T07:34:24.563785+00:00",
+    "branch": "implement/v1-17-microstat-cards",
+    "final_commit": "f5f4c0a",
+    "software_and_available_field_real_integration": "accepted",
+    "listeners_41917_41918": "stopped",
+    "owned_heavy_commands": 0,
+    "heavy_slot_stays_released": true,
+    "parent_and_correction_unchanged": true,
+    "activation": false,
+    "whole_card": "pending v1-12 six ledger rows",
+    "verification": "/Users/nnandal/Documents/code/hockey-stats-v1-17/docs/research/application-v1-17/verification.md",
+    "scope": "coordination only; no sibling source/candidate read and no v1-07 acceptance inferred"
+  },
+  "delivery_user_handoff": {
+    "pr": 60,
+    "merge_commit": "951cb2692dd36074ae1bf39a424e66f771974c72",
+    "primary_documentation_closeout": "08b5294",
+    "reviewed_tree_equals": "f5f4c0a",
+    "context_preserved": "06df291",
+    "producer_ancestor_preserved": "148d60f",
+    "task_worktree_path": "symlink to primary",
+    "task_scratch_and_branches": "removed",
+    "serving_build_databases_pid_9645": "unchanged per explicit user handoff",
+    "external_parent_and_correction": "unchanged",
+    "v1_07_worktree_jobs": "untouched",
+    "activation": false,
+    "record": "/Users/nnandal/Documents/code/hockey-stats/docs/research/application-v1-17/delivery.json",
+    "scope": "user-reported coordination; no new sibling read"
+  }
+}

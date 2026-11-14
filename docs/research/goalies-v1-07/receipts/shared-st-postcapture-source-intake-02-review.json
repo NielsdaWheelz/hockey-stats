@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "kind": "st-postcapture-source-intake-review",
+  "disposition": "source_intake_clear_no_execution_grant",
+  "scope": "exactly three named local files sized and hashed; collector and supplied review read; plan body hash-only. static intake only: no import, invocation, syntax/test execution, process/runtime/http/database/external access/stat, or result-path inspection",
+  "inputs": [
+    {
+      "role": "collector",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-postexit-collector-02.py",
+      "bytes": 6818,
+      "sha256": "d5db7fb66fa6a6b853f0a7b7422034e5f3b8f801a7e2b1b1c7b581397365f90c",
+      "content_reviewed": true
+    },
+    {
+      "role": "plan",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-postexit-source-plan-02.md",
+      "bytes": 5114,
+      "sha256": "5cee525e1adb39fec40c5a70ca092c9429e6f93c6695ebe9c9e5149b9eee3fa5",
+      "content_reviewed": false
+    },
+    {
+      "role": "supplied_review",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-postexit-source-review-02.json",
+      "bytes": 4368,
+      "sha256": "6a10b2bb26e08921dcc4f69cb07cf583e9a65cdfd244b78e8f9cb189fa768bc7",
+      "content_reviewed": true
+    }
+  ],
+  "supplied_packet05_binding": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-matrix-source-preparation-05.json",
+    "sha256": "09ffeb5493b5d102ee18a40b3dfbf3d4376aad80a2acc2948b50931d2ae7f6f4",
+    "independently_reopened": false,
+    "meaning": "source and supplied review name the same packet05 identity; this intake checks the supplied fixed-three-body contract without expanding the three-file input scope"
+  },
+  "fixed_scope": {
+    "stages": [
+      "api",
+      "consumer",
+      "browser"
+    ],
+    "roles": [
+      "result",
+      "log",
+      "exit"
+    ],
+    "literal_path_sets_only": true,
+    "caps_bytes": {
+      "result": 16777216,
+      "log": 4194304,
+      "exit": 16
+    },
+    "maximum_returned_logical_bytes": 20971536,
+    "maximum_base64_bytes": 27962056,
+    "physical_io_bytes": "unknown; ordinary buffered prefetch is not a physical-byte bound",
+    "receipt": "exclusive local open('x') under the fixed BASE; owner must separately admit a fresh output distinct from every input"
+  },
+  "static_contract_findings": [
+    "closed --stage choices select exactly three literal paths; no supplied input path, scan, stat, alternate path, body-path following or retry is present",
+    "one ordinary blocking buffered source.read(cap) per selected body; no cap-plus-one read, second read or explicit eof probe",
+    "below-cap return is complete for the stated ordinary blocking-file contract; at-cap return stays ambiguous, retains base64/partial hash, and fails collection",
+    "returned byte count, base64, hash and native-exit facts are recorded inside the input context before close; close errors preserve known facts and still fail collection",
+    "errors are structured entries and success requires an empty error list; blank exception text cannot turn an error into success",
+    "exit accepts only canonical decimal0..255 plus one lf; malformed, missing or capped exit stays unknown and fails collection",
+    "valid native1 or130 can yield successful collection while artifact_acceptance remains NOT_ASSESSED; result/log bodies remain opaque",
+    "outer BaseException stops subsequent fixed-body reads and preserves already recorded evidence; receipt serialization/write/close failures propagate nonzero",
+    "source/launch/target hashes are declared argv identities, explicitly owned by external admission; no self-hash, launch/target read, live qualification, sqlite/model import or native-log interpretation is hidden"
+  ],
+  "concrete_contract_mismatches": [],
+  "verdict": "no concrete mismatch found between collector02, the supplied review and the supplied packet05 fixed-three-body scope. this is source intake, not capture, native-stage, artifact or runtime acceptance",
+  "source01": {
+    "status": "invalidated_never_run",
+    "provenance": "root instruction and supplied review; source01 was not opened in this intake",
+    "supplied_sha256": "bc35fbaf6ec00099cf84cf8ff49c396362b457868f7b5bba8a7abe545a56f4a7"
+  },
+  "owner_prerequisites_retained": [
+    "actual owned closure and marker/prompt; absence alone is insufficient",
+    "no user stop or hold; stop overrides pending reads",
+    "source, actual launch, target and fresh distinct local output admitted separately",
+    "one separately granted invocation; no retry, alternate output or acceptance inferred from this review"
+  ],
+  "dispatch_authorized": false
+}

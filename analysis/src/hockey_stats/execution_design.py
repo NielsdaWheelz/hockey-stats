@@ -175,6 +175,26 @@ class ExecutionDesign:
     observed_setters: dict = field(default_factory=dict)
 
 
+@dataclass(frozen=True)
+class ExecutionSources:
+    purpose: str
+    season: str
+    prepared: dict
+    coaches: dict
+    training_cutoff: str | None
+    predictors: tuple
+    coverage: dict
+    seasons: tuple
+    resources: dict
+    scoring_facts: dict
+    observed_setters: dict
+    labels: tuple
+    people: dict
+    source_actors: dict
+    source_rows: tuple
+    source_games: tuple
+
+
 def _sha(path):
     with Path(path).open("rb") as source:
         return hashlib.file_digest(source, "sha256").hexdigest()
@@ -183,6 +203,38 @@ def _sha(path):
 def _role(person):
     role = _value(person.get("people", {}), "reported_position")
     return "F" if role in ("F", "C", "L", "R") else role if role in ("D", "G") else None
+
+
+def resolve_goalie_identity(attempt, game, event, attempt_pointer, event_position):
+    """resolve opposing goalie from source membership and dated identity only."""
+    state = attempt["feature_facts"]["state"]
+    side = _value(state, "home_away")
+    opposing_side = "away" if side == "home" else "home" if side == "away" else None
+    members = _value(state, str(opposing_side) + "_goalies")
+    member = members[0] if members is not None and len(members) == 1 else None
+    person = (game.get("people") or {}).get(str(member), {}).get("people", {})
+    dated_team = _value(person, "team_id")
+    credited = _value(attempt["details"], "opposing_goalie_id")
+    native = (event["source"].get("roles") or {}).get("goalie") if event is not None else None
+    status, reason, goalie = "unavailable", "opposing_goalie_membership_unavailable", None
+    if member is not None:
+        positive = [value for value in (credited, native) if type(value) is int and value > 0]
+        if any(value != member for value in positive):
+            status, reason = "conflict", "positive_credited_or_native_goalie_conflicts_with_membership"
+        elif dated_team is None:
+            reason = "dated_goalie_team_identity_unavailable"
+        elif dated_team != _value(state, "opponent_team_id"):
+            status, reason = "conflict", "dated_goalie_team_conflicts_with_opposing_membership"
+        else:
+            goalie, status, reason = member, "identified", None
+    return dict(status=status, player_id=goalie, membership_id=member, dated_team_id=dated_team,
+                reported_position=_value(person, "reported_position"), reason=reason,
+                pointers=[attempt_pointer + "/feature_facts/state/values"
+                          + ("/" + opposing_side + "_goalies" if opposing_side else ""),
+                          attempt_pointer + "/details/values/opposing_goalie_id"]
+                         + (["/people/" + str(member) + "/people/values/team_id"] if member is not None else [])
+                         + (["/events/" + str(event_position) + "/source/roles/goalie"]
+                            if event is not None and "goalie" in (event["source"].get("roles") or {}) else []))
 
 
 def _feature_context(attempt, game, shooter, goalie, strength, coaches, team_rest, history):
@@ -374,7 +426,7 @@ def _origin_features(predictor, cells):
     return result
 
 
-def predictor_matrix(layout, predictors, origin_cells):
+def predictor_matrix(layout, predictors, origin_cells, *, omit_actors=()):
     """full global-coordinate sparse base logits; setup/setter stay separate."""
     _require(len(predictors) == len(origin_cells), "predictors and explicit origins differ")
     n = len(predictors)
@@ -421,7 +473,7 @@ def predictor_matrix(layout, predictors, origin_cells):
                 value = np.asarray(value) - mean
             append(coordinate, value)
         for block, axis in actor_indices.items():
-            if block == "setter" or block == "shooter" and predictor.tip:
+            if block in omit_actors or block == "setter" or block == "shooter" and predictor.tip:
                 continue
             actor = predictor.actors.get(block)
             if actor is None:
@@ -496,7 +548,12 @@ def _setter_prior(game, attempt, state, people, history):
     return tuple(result), True
 
 
-def _head_design(head, predictors, labels, people, source_actors=None):
+def build_head_design(head, predictors, labels, people, source_actors=None):
+    """build one head from aligned predictors and nullable labels.
+
+    only included rows determine training moments and likelihood support;
+    source actors retain independently identified prior-only coordinates.
+    """
     rows = np.asarray([i for i, label in enumerate(labels) if label[head] is not None], dtype=np.int64)
     targets = np.asarray([labels[i][head] for i in rows], dtype=np.float64)
     template = predictors[0].context["features"] if predictors else {}
@@ -743,13 +800,9 @@ def _head_design(head, predictors, labels, people, source_actors=None):
     return result
 
 
-def prepare_execution(base_prepared, coaches, recipe, season, *, training_heads=HEADS):
+def prepare_execution_sources(base_prepared, coaches, season, *, game_reducer=None):
     """bind exact selected evidence, keeping every recognized attempt disposition."""
     started = perf_counter()
-    _require(isinstance(training_heads, (tuple, list)) and bool(training_heads)
-             and all(head in HEADS for head in training_heads)
-             and len(set(training_heads)) == len(training_heads), "invalid execution training heads")
-    _require(recipe == RECIPE, "execution recipe differs")
     _require(isinstance(base_prepared, PreparedManifest), "execution needs a checked prepared manifest")
     purpose = base_prepared["purpose"]
     # re-read detached identities to bind supplied objects to their member bytes.
@@ -773,6 +826,9 @@ def prepare_execution(base_prepared, coaches, recipe, season, *, training_heads=
     _require(set(selected["selected_game_ids"]) <= set(coaches_by_game), "coach binder misses selected prepared games")
     predictors, labels, coverage_rows, game_rows, dates = [], [], [], [], []
     scoring_facts = {}
+    source_rows = []
+    source_games = []
+    centers, _ = grid()
     # team history was computed but not serialized by v1-01. reuse its arithmetic
     # only over a verified complete prepared inventory; sparse fixture dates do
     # not prove that a team had no earlier game.
@@ -797,6 +853,8 @@ def prepare_execution(base_prepared, coaches, recipe, season, *, training_heads=
     source_actors = {block: Counter() for block in BLOCKS}
     for game_id in selected["selected_game_ids"]:
         game = read_prepared_game(prepared, season, game_id)
+        if game_reducer is not None:
+            source_games.append(game_reducer(game))
         inventory = game["game"]["inventory"]
         coach_game = coaches_by_game[game_id]
         _require(all(coach_game[field] == inventory[field] for field in ("season", "game_id", "game_date", "home_team_id", "away_team_id")),
@@ -861,32 +919,10 @@ def prepare_execution(base_prepared, coaches, recipe, season, *, training_heads=
             if strength[0][1] not in (0, 1) or strength[1][1] != 1: reasons.append("goalie_population_unavailable_or_outside")
             local_people = game.get("people") or {}
             if shooter is None or str(shooter) not in local_people: reasons.append("shooter_unavailable")
-            goalie_members = _value(state, str(opposing_side) + "_goalies")
-            goalie_member = goalie_members[0] if goalie_members is not None and len(goalie_members) == 1 else None
-            goalie_person = local_people.get(str(goalie_member), {}).get("people", {})
-            dated_team = _value(goalie_person, "team_id")
-            native_goalie = (event["source"].get("roles") or {}).get("goalie") if event is not None else None
-            goalie_status, goalie_reason = "unavailable", "opposing_goalie_membership_unavailable"
-            goalie = None
-            if goalie_member is not None:
-                positive_ids = [value for value in (projected_goalie, native_goalie) if type(value) is int and value > 0]
-                if any(value != goalie_member for value in positive_ids):
-                    goalie_status, goalie_reason = "conflict", "positive_credited_or_native_goalie_conflicts_with_membership"
-                elif dated_team is None:
-                    goalie_reason = "dated_goalie_team_identity_unavailable"
-                elif dated_team != _value(state, "opponent_team_id"):
-                    goalie_status, goalie_reason = "conflict", "dated_goalie_team_conflicts_with_opposing_membership"
-                else:
-                    goalie, goalie_status, goalie_reason = goalie_member, "identified", None
             attempt_pointer = "/attempts/" + str(len(coverage_rows) - start_count)
-            goalie_identity = {"status": goalie_status, "player_id": goalie, "membership_id": goalie_member,
-                               "dated_team_id": dated_team, "reported_position": _value(goalie_person, "reported_position"),
-                               "reason": goalie_reason,
-                               "pointers": [attempt_pointer + "/feature_facts/state/values" + ("/" + opposing_side + "_goalies" if opposing_side else ""),
-                                            attempt_pointer + "/details/values/opposing_goalie_id"]
-                               + (["/people/" + str(goalie_member) + "/people/values/team_id"] if goalie_member is not None else [])
-                               + (["/events/" + str(event_positions[source_index]) + "/source/roles/goalie"]
-                                  if event is not None and "goalie" in (event["source"].get("roles") or {}) else [])}
+            goalie_identity = resolve_goalie_identity(attempt, game, event, attempt_pointer,
+                                                      event_positions.get(source_index))
+            goalie = goalie_identity["player_id"]
             if shot_type not in TYPES: reasons.append("shot_type_unavailable")
             try:
                 if outcome == "block" and event is not None:
@@ -895,9 +931,9 @@ def prepare_execution(base_prepared, coaches, recipe, season, *, training_heads=
                              "block contact frame unavailable")
                     sign = 1 if side == "home" else -1
                     x, y = _value(contact, "x_ft"), _value(contact, "y_ft")
-                    proxy = cell_id((sign * x, sign * y)) if x is not None and y is not None else cell_id((None, None))
+                    proxy = cell_id((sign * x, sign * y), centers) if x is not None and y is not None else cell_id((None, None), centers)
                 else:
-                    proxy = cell_id((_value(geometry, "x"), _value(geometry, "y")))
+                    proxy = cell_id((_value(geometry, "x"), _value(geometry, "y")), centers)
             except (InputContractError, TypeError):
                 reasons.append("location_or_frame_unavailable"); proxy = None
             stop = _value(attempt["immediate_outcomes"], "recorded_goalie_stop")
@@ -957,6 +993,18 @@ def prepare_execution(base_prepared, coaches, recipe, season, *, training_heads=
                                   "pointer": "/attempts/" + str(len(coverage_rows) - start_count), "heads": dispositions,
                                   "source_supported": not reasons, "candidate_universe_complete": candidate_complete,
                                   "setter_discrepancy": setter_discrepancy, "immediate_stop_known": stop is not None})
+            immediate = attempt["immediate_outcomes"]
+            successor = _value(immediate, "reattempt_source_index")
+            source_rows.append(dict(key=key, game_id=game_id, source_index=source_index,
+                                    outcome=outcome, physical_status=_value(details, "physical_status"),
+                                    goalie_identity=goalie_identity,
+                                    physical_state=[strength[0][0], strength[1][0], strength[0][1], strength[1][1]]
+                                        if all(value is not None for pair in strength for value in pair) else None,
+                                    predictor_reasons=reasons,
+                                    h_label=_value(immediate, "reattempt_within_5s"),
+                                    h_problem=immediate["problems"].get("reattempt_within_5s"),
+                                    successor_key=None if successor is None else game_id + ":" + str(successor),
+                                    next_event_source_index=_value(immediate, "next_event_source_index")))
             scoring_facts[key] = dict(shooter_id=str(shooter) if shooter is not None and str(shooter) in local_people else None,
                 goalie_id=str(goalie) if goalie is not None else None,
                 attacking_coach_id=coach_game[side]["coach_id"] if side in ("home", "away") else None,
@@ -966,16 +1014,33 @@ def prepare_execution(base_prepared, coaches, recipe, season, *, training_heads=
                 shot_type=shot_type if shot_type in TYPES else None)
         game_rows.append({"game_id": game_id, "game_date": inventory["game_date"], "status": game["game"]["ledger"]["status"],
                           "recognized_attempts": len(coverage_rows) - start_count, "prepared_member": next(row for row in prepared["files"] if row["kind"] == "game" and row["game_id"] == game_id)})
-    heads = {head: _head_design(head, predictors, labels, people, source_actors) for head in training_heads}
     selected_members = [row for row in prepared["files"] if row["season"] == season]
     prepared_ref = {"purpose": purpose, **prepared_identity, "members": selected_members}
     coach_ref = {"purpose": purpose, "path": str(coach_path), "sha256": _sha(coach_path), "selected_game_ids": list(selected["selected_game_ids"])}
     coverage = {"purpose": purpose, "season": season, "games": game_rows, "attempts": coverage_rows,
                 "heads": {head: dict(counts) for head, counts in totals.items()},
-                "optional_features": {head: heads[head]["design"]["feature_support"] for head in training_heads}}
-    return ExecutionDesign(purpose, season, prepared_ref, coach_ref, max(dates, default=None), tuple(predictors), heads, coverage, seasons, RECIPE,
-                           {"design_wall_seconds": perf_counter() - started, "input_read_wall_seconds": 0.},
-                           scoring_facts, {p.key:label["observed_setter"] for p,label in zip(predictors,labels,strict=True)})
+                "optional_features": {}}
+    return ExecutionSources(purpose, season, prepared_ref, coach_ref, max(dates, default=None), tuple(predictors), coverage, seasons,
+                            {"design_wall_seconds": perf_counter() - started, "input_read_wall_seconds": 0.},
+                            scoring_facts, {p.key:label["observed_setter"] for p,label in zip(predictors,labels,strict=True)},
+                            tuple(labels), people, source_actors, tuple(source_rows), tuple(source_games))
+
+
+def prepare_execution(base_prepared, coaches, recipe, season, *, training_heads=HEADS):
+    """construct existing annual heads from the shared source-only replay."""
+    _require(isinstance(training_heads, (tuple, list)) and bool(training_heads)
+             and all(head in HEADS for head in training_heads)
+             and len(set(training_heads)) == len(training_heads), "invalid execution training heads")
+    _require(recipe == RECIPE, "execution recipe differs")
+    started = perf_counter()
+    source = prepare_execution_sources(base_prepared, coaches, season)
+    heads = {head: build_head_design(head, source.predictors, source.labels,
+                               source.people, source.source_actors) for head in training_heads}
+    source.coverage["optional_features"] = {head: heads[head]["design"]["feature_support"] for head in training_heads}
+    measured = dict(source.resources, design_wall_seconds=perf_counter()-started)
+    return ExecutionDesign(source.purpose, source.season, source.prepared, source.coaches, source.training_cutoff,
+                           source.predictors, heads, source.coverage, source.seasons, RECIPE, measured,
+                           source.scoring_facts, source.observed_setters)
 
 
 def build_resolution_witness(design, requirement, block, actor_id):

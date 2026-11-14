@@ -1,0 +1,925 @@
+{
+  "kind": "st-browser12-independent-original-png-pixel-review",
+  "reviewer_range": {
+    "first": 13,
+    "last": 24,
+    "count": 12
+  },
+  "status": "completed_with_unresolved_visible_table_readability",
+  "fixed_input_identity": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/st-browser12-pixel-inputs-01.json",
+    "bytes": 56555,
+    "sha256": "b176a914759f4fca30396aab64a52c2cf6313524667f4a1bbf7f0617dbbe0510",
+    "source_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-browser12-independent-adjudication-05.json",
+      "bytes": 113505,
+      "sha256": "7707314602c95cb169a7e4c5c02aa30382076e8d9ddcb9bc77580372c4a1e269"
+    },
+    "prior_accepted_pixel_coverage": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-browser06-completed-prefix-pixel-coverage.json",
+      "bytes": 4053,
+      "sha256": "32a2c7f0475b8fe23ba38bbacdfc193eccf8bd87c3caad81b91966f43044ca99",
+      "scope": "41 original PNGs individually viewed and identity checked; positive content/media only, old browser failure remains"
+    },
+    "prior_ledger_sha256": "729a843ce11acaa01b9abc96b6d2ce0aeac7d849fccf3e4e1b2f13fc8f1af22c"
+  },
+  "scope": {
+    "original_directory": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/",
+    "selected_originals_only": true,
+    "original_byte_read_method": "one stdlib binary body read per selected PNG using /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python -B; SHA256, length, PNG signature and IHDR derived from that body",
+    "pixel_view_method": "each current original displayed individually with tools.view_image via functions.exec and image(result.image_url)",
+    "viewed_original_count": 12,
+    "inherited_original_count": 0,
+    "transformed_or_substitute_images": false,
+    "view_rechecks": 0,
+    "other_originals_or_artifacts_opened": false,
+    "prohibited_work_performed": false,
+    "later_stage_authority": "none",
+    "scientific_or_numerical_acceptance": "not established by pixels",
+    "report_creation": "exclusive create only; no replacement"
+  },
+  "hash_read_metrics": {
+    "unique_pngs": 12,
+    "unique_png_bytes": 897721,
+    "original_body_read_calls": 12,
+    "read_seconds": 0.04460766655392945,
+    "sha256_seconds": 0.00038599944673478603,
+    "elapsed_seconds": 0.04509245790541172,
+    "process_max_rss": 18677760,
+    "process_max_rss_units": "bytes",
+    "physical_io": "unmetered",
+    "viewer_io": "unmetered",
+    "metadata_rereads": "excluded from unique PNG bytes"
+  },
+  "entries": [
+    {
+      "index": 13,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/016-normal-map.png",
+      "manifest_context": {
+        "kind": "viewport_capture",
+        "source_record": "captures[12]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8477507?season=20252026&metric=spatial.3v5.defense_attempts_per60&view=analytical",
+        "metric": "spatial.3v5.defense_attempts_per60",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "prior_pixel_match_candidate": null
+      },
+      "expected": {
+        "bytes": 61145,
+        "sha256": "cb3474dcd9080b90d41ea0e52b76c9333f68ab64f238de98316ef5a16e964ff8",
+        "encoded_dimensions": "UNKNOWN",
+        "viewport_width": 1280,
+        "viewport_height": 913
+      },
+      "actual": {
+        "bytes": 61145,
+        "sha256": "cb3474dcd9080b90d41ea0e52b76c9333f68ab64f238de98316ef5a16e964ff8",
+        "png_signature_valid": true,
+        "ihdr_width": 1280,
+        "ihdr_height": 913,
+        "recorded_bytes_match": true,
+        "recorded_sha256_match": true,
+        "read_seconds": 0.000615124823525548,
+        "hash_seconds": 2.7542002499103546e-05
+      },
+      "dimension_assessment": {
+        "ihdr_measured_from_original_bytes": true,
+        "ihdr_matches_recorded_viewport": true,
+        "expected_encoded_dimensions_were_unknown": true,
+        "geometry_alone_was_not_used_as_png_proof": true
+      },
+      "pixel_review": {
+        "method": "viewed_current_original_individually",
+        "viewed": true,
+        "inherited": false,
+        "display_count": 1,
+        "visible_title_or_identity": "3v5 defense attempts · effect",
+        "observations": [
+          "the complete vertical rink, defended-goal marker below, red effect patch at the lower left and blue effect patches at the lower right are visible.",
+          "orientation text is readable: full rink; defended goal below; +x down, +y left; both axes rotated 180°.",
+          "integral -1.80029 attempts/60 min and density attempts/60 min/100 sqft are legible; the diverging legend runs from -0.420052 through 0 to 0.420052.",
+          "the neutral-band explanation is readable and distinguishes density below 0.105013 from exact zero.",
+          "the later repeated legend paragraph continues at the lower viewport edge; no missing below-fold text is required by this viewport review."
+        ],
+        "findings": [],
+        "limits": [
+          "player identity, selected season, history and broader experimental/reference caveats are outside this map viewport; numerical construction is unverified."
+        ]
+      }
+    },
+    {
+      "index": 14,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/017-normal-map.png",
+      "manifest_context": {
+        "kind": "viewport_capture",
+        "source_record": "captures[13]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8477507?season=20252026&metric=spatial.3v5.defense_attempts_per60&view=analytical&map=absolute",
+        "metric": "spatial.3v5.defense_attempts_per60",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "prior_pixel_match_candidate": null
+      },
+      "expected": {
+        "bytes": 69850,
+        "sha256": "f1a3834b8325bdaa09f38bf991472abd646edfed8fe0f2a8cfe4decf1da299e0",
+        "encoded_dimensions": "UNKNOWN",
+        "viewport_width": 1280,
+        "viewport_height": 913
+      },
+      "actual": {
+        "bytes": 69850,
+        "sha256": "f1a3834b8325bdaa09f38bf991472abd646edfed8fe0f2a8cfe4decf1da299e0",
+        "png_signature_valid": true,
+        "ihdr_width": 1280,
+        "ihdr_height": 913,
+        "recorded_bytes_match": true,
+        "recorded_sha256_match": true,
+        "read_seconds": 0.0221820417791605,
+        "hash_seconds": 3.8624973967671394e-05
+      },
+      "dimension_assessment": {
+        "ihdr_measured_from_original_bytes": true,
+        "ihdr_matches_recorded_viewport": true,
+        "expected_encoded_dimensions_were_unknown": true,
+        "geometry_alone_was_not_used_as_png_proof": true
+      },
+      "pixel_review": {
+        "method": "viewed_current_original_individually",
+        "viewed": true,
+        "inherited": false,
+        "display_count": 1,
+        "visible_title_or_identity": "3v5 defense attempts · complete focal rate",
+        "observations": [
+          "the complete vertical rink and nested nonnegative blue contours near the defended goal below are visible.",
+          "the orientation line remains readable and states +x down, +y left and both axes rotated 180°.",
+          "integral 83.6948 attempts/60 min and density attempts/60 min/100 sqft are readable; the sequential legend runs from 0 to 3.83986.",
+          "the complete nonnegative-density explanation and neutral-fill threshold below 0.479983 are readable.",
+          "the longer repeated legend prose continues at the viewport bottom; the map, title and primary legend do not overlap or clip."
+        ],
+        "findings": [],
+        "limits": [
+          "no history or selected-season control is visible in this map viewport; the numerical surface and integral are not validated by pixels."
+        ]
+      }
+    },
+    {
+      "index": 15,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/019-normal-map.png",
+      "manifest_context": {
+        "kind": "viewport_capture",
+        "source_record": "captures[14]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8477507?season=20252026&metric=spatial.3v5.defense_xg_per60&view=analytical",
+        "metric": "spatial.3v5.defense_xg_per60",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "prior_pixel_match_candidate": null
+      },
+      "expected": {
+        "bytes": 59796,
+        "sha256": "99f6e161dd94cd7af997be8ae70f92b5e6be6d049fd19cbacf9b64b165c3727d",
+        "encoded_dimensions": "UNKNOWN",
+        "viewport_width": 1280,
+        "viewport_height": 913
+      },
+      "actual": {
+        "bytes": 59796,
+        "sha256": "99f6e161dd94cd7af997be8ae70f92b5e6be6d049fd19cbacf9b64b165c3727d",
+        "png_signature_valid": true,
+        "ihdr_width": 1280,
+        "ihdr_height": 913,
+        "recorded_bytes_match": true,
+        "recorded_sha256_match": true,
+        "read_seconds": 0.010962332831695676,
+        "hash_seconds": 3.316695801913738e-05
+      },
+      "dimension_assessment": {
+        "ihdr_measured_from_original_bytes": true,
+        "ihdr_matches_recorded_viewport": true,
+        "expected_encoded_dimensions_were_unknown": true,
+        "geometry_alone_was_not_used_as_png_proof": true
+      },
+      "pixel_review": {
+        "method": "viewed_current_original_individually",
+        "viewed": true,
+        "inherited": false,
+        "display_count": 1,
+        "visible_title_or_identity": "3v5 defense xg · effect",
+        "observations": [
+          "the full vertical rink contains a pink lower-left patch and a blue lower-right patch; the defended goal is below.",
+          "the orientation text explicitly states +x down, +y left and both axes rotated 180°.",
+          "integral -0.0831398 xg/60 min and density xg/60 min/100 sqft are legible; the diverging legend spans -0.0554325 to 0.0554325 through zero.",
+          "the neutral-band sentence uses threshold 0.0138581 and explicitly says not exact zero.",
+          "the repeated legend paragraph reaches the lower viewport boundary; the primary labels and rink remain intact."
+        ],
+        "findings": [],
+        "limits": [
+          "selected year, history and the player heading are outside this viewport; xg arithmetic and scientific quality are unverified."
+        ]
+      }
+    },
+    {
+      "index": 16,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/020-normal-map.png",
+      "manifest_context": {
+        "kind": "viewport_capture",
+        "source_record": "captures[15]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8477507?season=20252026&metric=spatial.3v5.defense_xg_per60&view=analytical&map=absolute",
+        "metric": "spatial.3v5.defense_xg_per60",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "prior_pixel_match_candidate": null
+      },
+      "expected": {
+        "bytes": 68701,
+        "sha256": "8ced5822de1f4badb5c16daeb126f254609ea6e9cd11fb0ba3e7448042e3803f",
+        "encoded_dimensions": "UNKNOWN",
+        "viewport_width": 1280,
+        "viewport_height": 913
+      },
+      "actual": {
+        "bytes": 68701,
+        "sha256": "8ced5822de1f4badb5c16daeb126f254609ea6e9cd11fb0ba3e7448042e3803f",
+        "png_signature_valid": true,
+        "ihdr_width": 1280,
+        "ihdr_height": 913,
+        "recorded_bytes_match": true,
+        "recorded_sha256_match": true,
+        "read_seconds": 0.0005834589246660471,
+        "hash_seconds": 2.750009298324585e-05
+      },
+      "dimension_assessment": {
+        "ihdr_measured_from_original_bytes": true,
+        "ihdr_matches_recorded_viewport": true,
+        "expected_encoded_dimensions_were_unknown": true,
+        "geometry_alone_was_not_used_as_png_proof": true
+      },
+      "pixel_review": {
+        "method": "viewed_current_original_individually",
+        "viewed": true,
+        "inherited": false,
+        "display_count": 1,
+        "visible_title_or_identity": "3v5 defense xg · complete focal rate",
+        "observations": [
+          "the full vertical rink and concentric blue nonnegative contours centered near the bottom defended goal are visible.",
+          "the readable orientation line states defended goal below, +x down, +y left and both axes rotated 180°.",
+          "integral 8.29352 xg/60 min and density xg/60 min/100 sqft are readable; the sequential legend spans 0 to 0.577629.",
+          "the complete nonnegative-density sentence and neutral-fill threshold below 0.0722036 are readable.",
+          "the long repeated legend text continues at the lower viewport edge; no blank or corrupt map, title overlap or primary-legend clipping is visible."
+        ],
+        "findings": [],
+        "limits": [
+          "history and selected season are not visible; the displayed integral and density are transcribed, not mathematically verified."
+        ]
+      }
+    },
+    {
+      "index": 17,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/021-normal-detail.png",
+      "manifest_context": {
+        "kind": "viewport_capture",
+        "source_record": "captures[16]",
+        "mode": "normal",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/compare?season=20252026&metric=spatial.pk.defense_xg_per60&a=8476902&b=8478831&view=analytical",
+        "metric": "spatial.pk.defense_xg_per60",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "prior_pixel_match_candidate": null
+      },
+      "expected": {
+        "bytes": 151186,
+        "sha256": "7492617a8ef035c0519cce12a0e49186d42c731098d046f39218f62ecec0c231",
+        "encoded_dimensions": "UNKNOWN",
+        "viewport_width": 1280,
+        "viewport_height": 913
+      },
+      "actual": {
+        "bytes": 151186,
+        "sha256": "7492617a8ef035c0519cce12a0e49186d42c731098d046f39218f62ecec0c231",
+        "png_signature_valid": true,
+        "ihdr_width": 1280,
+        "ihdr_height": 913,
+        "recorded_bytes_match": true,
+        "recorded_sha256_match": true,
+        "read_seconds": 0.00080512510612607,
+        "hash_seconds": 5.8999983593821526e-05
+      },
+      "dimension_assessment": {
+        "ihdr_measured_from_original_bytes": true,
+        "ihdr_matches_recorded_viewport": true,
+        "expected_encoded_dimensions_were_unknown": true,
+        "geometry_alone_was_not_used_as_png_proof": true
+      },
+      "pixel_review": {
+        "method": "viewed_current_original_individually",
+        "viewed": true,
+        "inherited": false,
+        "display_count": 1,
+        "visible_title_or_identity": "experimental pk defense xg difference · empirical distribution",
+        "observations": [
+          "side-by-side cards identify first: Esa Lindell and second: Kevin Stenlund, with -0.166455 and -0.283396 xg per 60 min respectively.",
+          "22.0 percentile, reported defense, n=161 and cutoff 50 min are readable for the first card; 18.2 percentile, reported forwards, n=184 and cutoff 50 min are readable for the second.",
+          "both cards retain legible experimental conditional seasonal-estimate text, annual hypothetical centered linear-predictor reference, state-unit/pooled-slot/known-coach limits, common physical-time weighting, virtual neutral execution and reference hash.",
+          "qualification counts 18342 and 13429 matching seconds and the spatial.pk.support.included_seconds identifier fit within their respective cards.",
+          "the empirical-distribution explanation retains shared xg per 60 min units, one mark per eligible peer, out-of-cohort selected markers, exact ties and six-significant-digit display precision.",
+          "the two peer distributions, first-player circle and second-player diamond are visible without overlap; support disclosures remain closed and readable.",
+          "minimum -0.794251 and maximum 1.18712 appear at the lower viewport edge, with their lower text portions cut by that edge."
+        ],
+        "findings": [],
+        "limits": [
+          "endpoint labels are only partially visible at the viewport bottom and are not claimed fully verified; lower content and selected season are outside the capture; pixels do not validate ranks, peer membership or values."
+        ]
+      }
+    },
+    {
+      "index": 18,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/023-narrow-profile.png",
+      "manifest_context": {
+        "kind": "viewport_capture",
+        "source_record": "captures[17]",
+        "mode": "narrow",
+        "position": "profile",
+        "url": "http://127.0.0.1:3407/players/8476460?season=20252026&metric=spatial.5v5.offense_attempts_per60&view=comparative",
+        "metric": "spatial.5v5.offense_attempts_per60",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "prior_pixel_match_candidate": null
+      },
+      "expected": {
+        "bytes": 67978,
+        "sha256": "c527813806359c949824ce6c63478106bdab821ac6a7f5ee798dce5b760ecd4d",
+        "encoded_dimensions": "UNKNOWN",
+        "viewport_width": 320,
+        "viewport_height": 913
+      },
+      "actual": {
+        "bytes": 67978,
+        "sha256": "c527813806359c949824ce6c63478106bdab821ac6a7f5ee798dce5b760ecd4d",
+        "png_signature_valid": true,
+        "ihdr_width": 320,
+        "ihdr_height": 913,
+        "recorded_bytes_match": true,
+        "recorded_sha256_match": true,
+        "read_seconds": 0.0005481250118464231,
+        "hash_seconds": 3.550015389919281e-05
+      },
+      "dimension_assessment": {
+        "ihdr_measured_from_original_bytes": true,
+        "ihdr_matches_recorded_viewport": true,
+        "expected_encoded_dimensions_were_unknown": true,
+        "geometry_alone_was_not_used_as_png_proof": true
+      },
+      "pixel_review": {
+        "method": "viewed_current_original_individually",
+        "viewed": true,
+        "inherited": false,
+        "display_count": 1,
+        "visible_title_or_identity": "Mark Scheifele profile",
+        "observations": [
+          "Mark Scheifele, WPG, reported position C and player 8476460 are readable at the top.",
+          "comparative card, observed results, microstat card and analytical sheet links wrap into two clear rows without overlap.",
+          "the reported-position reference-group selector, general minimum 300, specialty minimum 50, apply buttons and reset peers button stay within the 320-pixel layout.",
+          "the membership caveat is readable: exact matching seconds; zero cutoff still requires positive support; viewing choice changes relative standing, not published values, model references or scientific support.",
+          "the next card begins with experimental seasonal level · comparative skater, repeats Mark Scheifele and shows 2025–26 · player 8476460 at the bottom."
+        ],
+        "findings": [],
+        "limits": [
+          "the selected metric value, chart, history and any lower caveats are outside this profile viewport; their absence here is not a defect."
+        ]
+      }
+    },
+    {
+      "index": 19,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/024-narrow-detail.png",
+      "manifest_context": {
+        "kind": "viewport_capture",
+        "source_record": "captures[18]",
+        "mode": "narrow",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_xg_per60&view=comparative",
+        "metric": "spatial.pp.offense_xg_per60",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "prior_pixel_match_candidate": null
+      },
+      "expected": {
+        "bytes": 89421,
+        "sha256": "ad7421841075c8311a275ad08e1b11aade0c87578731062be22754dc829fdd16",
+        "encoded_dimensions": "UNKNOWN",
+        "viewport_width": 320,
+        "viewport_height": 913
+      },
+      "actual": {
+        "bytes": 89421,
+        "sha256": "ad7421841075c8311a275ad08e1b11aade0c87578731062be22754dc829fdd16",
+        "png_signature_valid": true,
+        "ihdr_width": 320,
+        "ihdr_height": 913,
+        "recorded_bytes_match": true,
+        "recorded_sha256_match": true,
+        "read_seconds": 0.0006313330959528685,
+        "hash_seconds": 5.041714757680893e-05
+      },
+      "dimension_assessment": {
+        "ihdr_measured_from_original_bytes": true,
+        "ihdr_matches_recorded_viewport": true,
+        "expected_encoded_dimensions_were_unknown": true,
+        "geometry_alone_was_not_used_as_png_proof": true
+      },
+      "pixel_review": {
+        "method": "viewed_current_original_individually",
+        "viewed": true,
+        "inherited": false,
+        "display_count": 1,
+        "visible_title_or_identity": "Alex Ovechkin estimate detail",
+        "observations": [
+          "Alex Ovechkin, 0.202169 xg per 60 min, 73.5 percentile, reported forwards, n=274 and cutoff 50 min are readable.",
+          "the dense experimental conditional seasonal-estimate paragraph remains legible and preserves the reference construction, ordinary advantaged-side states, both-goalies condition, actual state-unit sizes, common physical-time weighting and virtual neutral execution.",
+          "the annual reference SHA256 wraps across lines without clipping.",
+          "qualification 21812 matching seconds is visible; spatial.pp.support.included_seconds wraps onto an additional short line rather than overflowing.",
+          "the expanded support disclosure shows published value available, 21812 included seconds, 119 known excluded seconds, unquantified gap: true and prior only: false near the bottom."
+        ],
+        "findings": [
+          {
+            "severity": "nonblocking",
+            "kind": "dense_wrapping",
+            "detail": "the long support identifier ends with a short wrapped 'ds' line; it remains readable."
+          }
+        ],
+        "limits": [
+          "the full metric heading and history lie outside this detail viewport; values, support accounting and model meaning are not independently verified."
+        ]
+      }
+    },
+    {
+      "index": 20,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/025-narrow-history.png",
+      "manifest_context": {
+        "kind": "viewport_capture",
+        "source_record": "captures[19]",
+        "mode": "narrow",
+        "position": "history",
+        "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_xg_per60&view=comparative",
+        "metric": "spatial.pp.offense_xg_per60",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "prior_pixel_match_candidate": null
+      },
+      "expected": {
+        "bytes": 51048,
+        "sha256": "4994ff6f90042c2bdd3057ebad3ae59896151c82447cac213f1398cb9557e1f4",
+        "encoded_dimensions": "UNKNOWN",
+        "viewport_width": 320,
+        "viewport_height": 913
+      },
+      "actual": {
+        "bytes": 51048,
+        "sha256": "4994ff6f90042c2bdd3057ebad3ae59896151c82447cac213f1398cb9557e1f4",
+        "png_signature_valid": true,
+        "ihdr_width": 320,
+        "ihdr_height": 913,
+        "recorded_bytes_match": true,
+        "recorded_sha256_match": true,
+        "read_seconds": 0.0003631250001490116,
+        "hash_seconds": 1.4999881386756897e-05
+      },
+      "dimension_assessment": {
+        "ihdr_measured_from_original_bytes": true,
+        "ihdr_matches_recorded_viewport": true,
+        "expected_encoded_dimensions_were_unknown": true,
+        "geometry_alone_was_not_used_as_png_proof": true
+      },
+      "pixel_review": {
+        "method": "viewed_current_original_individually",
+        "viewed": true,
+        "inherited": false,
+        "display_count": 1,
+        "visible_title_or_identity": "experimental pp offense xg difference: published history",
+        "observations": [
+          "the pp offense xg difference history title and raw magnitude selector are readable at 320 pixels.",
+          "the paragraph states one slot per published season, each year's own person/support/published meaning, zero is a value, absence is not zero and display unit xg per 60 min.",
+          "the line joins three visible years, 2023–24, 2024–25 and 2025–26; selected appears under 2025–26.",
+          "minimum 0.202169 and maximum 0.527352 are readable; the caption says no line crosses a missing year or changed quantity definition.",
+          "the lower table's support / breaks header and support, sources and method disclosure are readable, but neighboring left-side row text is only visible as fragments, including n=272 · cutoff and an excluded fragment."
+        ],
+        "findings": [
+          {
+            "severity": "unresolved",
+            "kind": "visible_table_clipping",
+            "detail": "full left-side table-cell text is unreadable at the visible left boundary. pixels cannot determine whether intentional horizontal scrolling exposes it; full table readability remains unknown/blocked."
+          }
+        ],
+        "limits": [
+          "no below-fold content is required; table scrolling behavior was not inspected; the history values, chronology and line semantics are not proved by pixels."
+        ]
+      }
+    },
+    {
+      "index": 21,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/029-narrow-detail.png",
+      "manifest_context": {
+        "kind": "viewport_capture",
+        "source_record": "captures[20]",
+        "mode": "narrow",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_xg_per60&view=comparative",
+        "metric": "spatial.pk.defense_xg_per60",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "prior_pixel_match_candidate": null
+      },
+      "expected": {
+        "bytes": 88971,
+        "sha256": "b522d8fd1454fa533f9bc188a8c768c11de54bb443316dce60fc0534bc935a7a",
+        "encoded_dimensions": "UNKNOWN",
+        "viewport_width": 320,
+        "viewport_height": 913
+      },
+      "actual": {
+        "bytes": 88971,
+        "sha256": "b522d8fd1454fa533f9bc188a8c768c11de54bb443316dce60fc0534bc935a7a",
+        "png_signature_valid": true,
+        "ihdr_width": 320,
+        "ihdr_height": 913,
+        "recorded_bytes_match": true,
+        "recorded_sha256_match": true,
+        "read_seconds": 0.0004930419381707907,
+        "hash_seconds": 2.71662138402462e-05
+      },
+      "dimension_assessment": {
+        "ihdr_measured_from_original_bytes": true,
+        "ihdr_matches_recorded_viewport": true,
+        "expected_encoded_dimensions_were_unknown": true,
+        "geometry_alone_was_not_used_as_png_proof": true
+      },
+      "pixel_review": {
+        "method": "viewed_current_original_individually",
+        "viewed": true,
+        "inherited": false,
+        "display_count": 1,
+        "visible_title_or_identity": "Esa Lindell estimate detail",
+        "observations": [
+          "Esa Lindell, -0.166455 xg per 60 min, 22.0 percentile, reported defense, n=161 and cutoff 50 min are readable.",
+          "the experimental conditional seasonal-estimate paragraph stays legible, including ordinary advantaged-side states, both-goalies condition, hypothetical centered annual reference, state-unit sizes, pooled-slot/known-coach applicability, weighting and virtual neutral execution.",
+          "the annual reference SHA256 wraps without visible overlap.",
+          "qualification 18342 matching seconds and spatial.pk.support.included_seconds are visible; the identifier wraps its final 'ds' onto a short line.",
+          "expanded support text shows published value available, 18342 included seconds, 495 known excluded seconds, unquantified gap: true and prior only: false at the bottom."
+        ],
+        "findings": [
+          {
+            "severity": "nonblocking",
+            "kind": "dense_wrapping",
+            "detail": "the long support identifier wraps onto a short final line but remains readable."
+          }
+        ],
+        "limits": [
+          "the full metric heading, history and lower sections lie outside this viewport; numerical support and scientific quality remain unverified."
+        ]
+      }
+    },
+    {
+      "index": 22,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/030-narrow-history.png",
+      "manifest_context": {
+        "kind": "viewport_capture",
+        "source_record": "captures[21]",
+        "mode": "narrow",
+        "position": "history",
+        "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_xg_per60&view=comparative",
+        "metric": "spatial.pk.defense_xg_per60",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "prior_pixel_match_candidate": null
+      },
+      "expected": {
+        "bytes": 51787,
+        "sha256": "a615ffa0bdcccb2f9b80bdebc98699c2054ab70319ada4d3d4187e81b6942c51",
+        "encoded_dimensions": "UNKNOWN",
+        "viewport_width": 320,
+        "viewport_height": 913
+      },
+      "actual": {
+        "bytes": 51787,
+        "sha256": "a615ffa0bdcccb2f9b80bdebc98699c2054ab70319ada4d3d4187e81b6942c51",
+        "png_signature_valid": true,
+        "ihdr_width": 320,
+        "ihdr_height": 913,
+        "recorded_bytes_match": true,
+        "recorded_sha256_match": true,
+        "read_seconds": 0.0003612081054598093,
+        "hash_seconds": 1.6165897250175476e-05
+      },
+      "dimension_assessment": {
+        "ihdr_measured_from_original_bytes": true,
+        "ihdr_matches_recorded_viewport": true,
+        "expected_encoded_dimensions_were_unknown": true,
+        "geometry_alone_was_not_used_as_png_proof": true
+      },
+      "pixel_review": {
+        "method": "viewed_current_original_individually",
+        "viewed": true,
+        "inherited": false,
+        "display_count": 1,
+        "visible_title_or_identity": "experimental pk defense xg difference: published history",
+        "observations": [
+          "the pk defense xg difference history title, raw magnitude selector and xg per 60 min display-unit paragraph are readable.",
+          "three plotted seasons are labeled 2023–24, 2024–25 and 2025–26, with selected under the last year; the line decreases to 2024–25 then rises to the selected year.",
+          "minimum -0.436558 and maximum -0.166455 are readable, as is the no-line-crosses-missing-year-or-changed-definition caption.",
+          "the support / breaks header and its disclosure are visible beneath the chart.",
+          "left-side table text is incomplete at the visible boundary, including a partial n=163 · cutoff row and an excluded fragment."
+        ],
+        "findings": [
+          {
+            "severity": "unresolved",
+            "kind": "visible_table_clipping",
+            "detail": "full left-side table-cell text cannot be read from this capture. intentional horizontal scrolling versus layout clipping is unknown; full table readability remains unknown/blocked."
+          }
+        ],
+        "limits": [
+          "selected year and history endpoints are visually readable, but chronology and values are not independently validated; no interaction or below-fold inspection was performed."
+        ]
+      }
+    },
+    {
+      "index": 23,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/034-narrow-detail.png",
+      "manifest_context": {
+        "kind": "viewport_capture",
+        "source_record": "captures[22]",
+        "mode": "narrow",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_xg_relative_percent&view=comparative",
+        "metric": "spatial.5v3.offense_xg_relative_percent",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "prior_pixel_match_candidate": null
+      },
+      "expected": {
+        "bytes": 87256,
+        "sha256": "e2d991c3cc6a6e8bf8b51d5c12f6a57bb50c40df4f540b1f4f4671a2d2d3cfeb",
+        "encoded_dimensions": "UNKNOWN",
+        "viewport_width": 320,
+        "viewport_height": 913
+      },
+      "actual": {
+        "bytes": 87256,
+        "sha256": "e2d991c3cc6a6e8bf8b51d5c12f6a57bb50c40df4f540b1f4f4671a2d2d3cfeb",
+        "png_signature_valid": true,
+        "ihdr_width": 320,
+        "ihdr_height": 913,
+        "recorded_bytes_match": true,
+        "recorded_sha256_match": true,
+        "read_seconds": 0.006574833067134023,
+        "hash_seconds": 4.0790997445583344e-05
+      },
+      "dimension_assessment": {
+        "ihdr_measured_from_original_bytes": true,
+        "ihdr_matches_recorded_viewport": true,
+        "expected_encoded_dimensions_were_unknown": true,
+        "geometry_alone_was_not_used_as_png_proof": true
+      },
+      "pixel_review": {
+        "method": "viewed_current_original_individually",
+        "viewed": true,
+        "inherited": false,
+        "display_count": 1,
+        "visible_title_or_identity": "Nick Suzuki estimate detail",
+        "observations": [
+          "Nick Suzuki and 2.42862 % are readable; the peer status explicitly says below cutoff, reported forwards, n=0 and cutoff 50 min.",
+          "the estimate remains explicitly experimental and conditional; the long construction/reference paragraph wraps legibly and retains ordinary advantaged-side states, both-goalies condition, annual hypothetical centered reference, state-unit sizes, physical-time weighting and virtual neutral execution.",
+          "the reference SHA256 wraps without clipping.",
+          "qualification 731 matching seconds and spatial.5v3.support.included_seconds are visible; the identifier's final 'nds' wraps onto a short line.",
+          "expanded support text shows published value available, 731 included seconds, 0 known excluded seconds, unquantified gap: true and prior only: false at the bottom."
+        ],
+        "findings": [
+          {
+            "severity": "nonblocking",
+            "kind": "dense_wrapping",
+            "detail": "the long support identifier wraps its final characters; the text remains readable."
+          }
+        ],
+        "limits": [
+          "the full metric title and history are outside this viewport; the percent estimate and below-cutoff logic are transcribed, not validated."
+        ]
+      }
+    },
+    {
+      "index": 24,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/035-narrow-history.png",
+      "manifest_context": {
+        "kind": "viewport_capture",
+        "source_record": "captures[23]",
+        "mode": "narrow",
+        "position": "history",
+        "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_xg_relative_percent&view=comparative",
+        "metric": "spatial.5v3.offense_xg_relative_percent",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "prior_pixel_match_candidate": null
+      },
+      "expected": {
+        "bytes": 50582,
+        "sha256": "07e85edf145b09b507cd7bdf16e43bf4884292ac184f605b8a04719947a6dc7b",
+        "encoded_dimensions": "UNKNOWN",
+        "viewport_width": 320,
+        "viewport_height": 913
+      },
+      "actual": {
+        "bytes": 50582,
+        "sha256": "07e85edf145b09b507cd7bdf16e43bf4884292ac184f605b8a04719947a6dc7b",
+        "png_signature_valid": true,
+        "ihdr_width": 320,
+        "ihdr_height": 913,
+        "recorded_bytes_match": true,
+        "recorded_sha256_match": true,
+        "read_seconds": 0.0004879168700426817,
+        "hash_seconds": 1.5125144273042679e-05
+      },
+      "dimension_assessment": {
+        "ihdr_measured_from_original_bytes": true,
+        "ihdr_matches_recorded_viewport": true,
+        "expected_encoded_dimensions_were_unknown": true,
+        "geometry_alone_was_not_used_as_png_proof": true
+      },
+      "pixel_review": {
+        "method": "viewed_current_original_individually",
+        "viewed": true,
+        "inherited": false,
+        "display_count": 1,
+        "visible_title_or_identity": "experimental 5v3 offense xg relative difference: published history",
+        "observations": [
+          "the 5v3 offense xg relative difference history title, raw magnitude selector and display unit % are readable.",
+          "the history paragraph preserves the zero-versus-absence distinction and each year's own person, support and published meaning.",
+          "the line shows three labeled years 2023–24, 2024–25 and 2025–26, with the middle point highest and selected under 2025–26.",
+          "minimum 2.42862 and maximum 5.13293 are readable; the percent caption states no line crosses a missing year or changed quantity definition.",
+          "the support / breaks header and support, sources and method disclosure are readable; the left-side table rows show only partial context, including n=0 · cutoff and an excluded fragment."
+        ],
+        "findings": [
+          {
+            "severity": "unresolved",
+            "kind": "visible_table_clipping",
+            "detail": "the complete left-side table text is not readable in this capture. whether horizontal scrolling supplies it cannot be inferred from pixels; full table readability remains unknown/blocked."
+          }
+        ],
+        "limits": [
+          "no below-fold text was required and no scrolling behavior was tested; percentage arithmetic and history semantics remain unverified."
+        ]
+      }
+    }
+  ],
+  "aggregate": {
+    "all_recorded_bytes_match": true,
+    "all_recorded_sha256_match": true,
+    "all_png_signatures_valid": true,
+    "actual_dimensions": {
+      "1280x913": 5,
+      "320x913": 7
+    },
+    "all_selected_originals_displayed": true,
+    "blank_or_corrupt_images_observed": false,
+    "visible_primary_map_chart_card_overlap_observed": false,
+    "unresolved_findings": [
+      {
+        "kind": "visible_table_clipping",
+        "indices": [
+          20,
+          22,
+          24
+        ],
+        "impact": "full left-side history-table-cell readability is unknown/blocked in the narrow captures; chart labels, selected year, endpoints and visible support disclosure remain readable.",
+        "resolution_criterion": "evidence that the complete affected table-cell content is readable in the intended narrow presentation; intentional scrolling behavior cannot be established from these static captures."
+      }
+    ],
+    "nonblocking_findings": [
+      {
+        "kind": "dense_wrapping",
+        "indices": [
+          19,
+          21,
+          23
+        ],
+        "impact": "long support identifiers wrap final characters onto short lines but remain legible."
+      }
+    ],
+    "viewport_boundaries": "normal map repeated explanatory prose and comparison endpoint labels reach the lower viewport edge; no below-fold content was required.",
+    "conditional_reference_caveats": "visible estimate/reference prose remains legible in comparison/detail captures; sections outside each viewport were not assessed.",
+    "precision_caveat": "the normal comparison explicitly retains six-significant-digit display precision and exact table/CSV values; no numeric correctness was inferred.",
+    "no_new_stage_or_scientific_grant": true
+  }
+}

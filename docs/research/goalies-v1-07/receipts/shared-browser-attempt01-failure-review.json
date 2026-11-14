@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "kind": "browser-attempt01-independent-failure-review",
+  "status": "browser_failed_cutoff_assertion_attribution_unresolved",
+  "sha256": {
+    "shared-browser-attempt01-result.json": "51b5567453ef277c3f92dc40f764427f75e4145c904fedb0d6e8787c9ad2c488",
+    "shared-browser-attempt01-native.log": "9cb2e57588d85d41a38c32b0506fd2b35ed9ed84a70a4f9512468bf0f19cf122",
+    "shared-browser-attempt01-native.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "shared-browser-attempt01-capture.json": "1096ddeba579d371da8fb167848c0b5c9ee9d7646af3b907706e0dd4f1474e19",
+    "browser_controller": "e86cf8d730fbbebdf6a52cc47b76c50e915d5b74148f2da1ce0b875d97ee60a9"
+  },
+  "finding": "native exit is exactly 1 plus newline; receipt failed at e86 line 307 because selected-year EV standing still contained a numeric percentile after the source guard observed URL peerMin 3065. capture completed correctly with native_exit 1; it grants no browser pass. the receipt does not preserve the failing row's rendered cutoff label, so race versus product-state failure cannot be decided from this capture.",
+  "contract_review": [
+    "3065 minutes is valid and exceeds anchor exposure 183847 seconds. parseMinutes accepts it; settings are read from search params and scalarViews memo depends on peerMin/specialtyMin. the same pure preparation passed 78 raised-cutoff real-data assertions. these support the expected behavior, not proof of this browser render.",
+    "the failing test waits for URL state before reading cells. URL readiness is not the rendered-state contract. later zero-cutoff coverage already waits for the selected row's cutoff label. adding that readiness condition preserves the semantic assertion; it does not establish that a race caused the saved failure."
+  ],
+  "minimal_observation": "one separately assigned EV stopping profile: capture atomic URL/input/selected-row snapshots before change, immediately after URL peerMin 3065, and after waiting only for rendered 'cutoff 3065 min'. then assert raw value unchanged and numeric percentile absent. stale 300 transitioning to 3065 with percentile removal supports a race mechanism; rendered 3065 with numeric percentile implicates product; missing rendered update is a distinct failure. no retry or production change is justified yet.",
+  "partial_evidence": "26 normal metric associations with three annual rows and 26 saved CSV/PNG pairs are recorded. 108 requests/responses, no request-failure or page-error events; sole console error is local favicon 404. full HTTP final guard and human pixels were not admitted. cutoff records, representative cases, smoke journeys and alternate layouts are empty. owned context closed. partial completion is not whole-browser acceptance.",
+  "cost": {
+    "internal_wall_seconds": 167.013399667,
+    "node_peak_rss_bytes": 215138304,
+    "native_wall_seconds": 181.24,
+    "native_peak_rss_bytes": 700858368,
+    "external_capture_bytes": 83541,
+    "local_capture_bytes": 3412,
+    "total_capture_bytes": 86953,
+    "capture_internal_wall_seconds": 0.000418792013078928,
+    "capture_peak_rss_bytes": 19611648,
+    "scope": "diagnostic/browser timing scopes remain as declared in raw receipts; captured logical bytes are not physical traffic"
+  },
+  "limits": "local raw/source review only; four fixed facts copied byte-exact before changes. no repeat, export/image/SVG/download/HDD/HTTP/OS query or production edit. API/consumer acceptances remain separate; browser, ST, science and activation are not passed."
+}

@@ -1,0 +1,23 @@
+{
+  "status": "normal_eject_confirmed_safe_to_disconnect_all_external_work_held",
+  "recorded_at_utc": "2026-11-12T17:13:24.876973+00:00",
+  "owner": "v1-09 sole normal-eject owner",
+  "device_identity": "Expansion disk6s1/APFSdisk6 physicalstore disk5s2 -> externalUSBwhole disk5, SeagateExpansionHDD; freshly checked by owner",
+  "command": "/usr/sbin/diskutil eject /dev/disk5",
+  "command_invocations": 1,
+  "exit_code": 0,
+  "stdout": "Disk /dev/disk5 ejected",
+  "mount_after": "no Expansion entry in OS mount table",
+  "use_before": "lsof filesystem check exit1/empty/no diagnostics, known G/ST native pids absent",
+  "root_observation": "bounded skid read of owner terminal showed actual eject output; peer LOCAL receipt hash matched",
+  "force": false,
+  "signals_sent": false,
+  "artifact_data_or_metadata_reads_after_stop": false,
+  "peer_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-user-stop-normal-eject-01.json",
+    "bytes": 2052,
+    "sha256": "233c51e8ea0358691b4e44802b4b0585db76831fa9547b0acd366a18de7bd215"
+  },
+  "acceptance_limit": "eject is not numerical/application acceptance; accepted G7a43/0376 and STnumerical784c retain their prior checked evidence; STcomposer never dispatched",
+  "next_step": "only after user resume/reconnect: review proposedLOCAL13line rootreceipt patchf026 target934951 and newsource/argv/proofpacket; no actualcomposersource/preflight/selection/launch clearance yet"
+}

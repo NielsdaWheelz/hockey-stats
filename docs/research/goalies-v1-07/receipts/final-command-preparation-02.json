@@ -1,0 +1,94 @@
+{
+  "kind": "final-goalie-controller-preparation",
+  "status": "source_and_tiny_local_controller_checks_passed_real_commands_not_run",
+  "recorded_at_utc": "2026-11-12T05:05:45.676673+00:00",
+  "frozen_fit_producer": "76af911844cc53ccf6548f48bfd04970eb36d292",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "references": {
+    "final_score_preflight": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/prepare_score_20252026.py",
+      "sha256": "30c4082b3709c0affb5c828af6ad7ba975b29b57b69855b754747913a6e7519f",
+      "bytes": 12073
+    },
+    "final_score_notes": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/score-20252026-dispatch-preparation.md",
+      "sha256": "32b8736f633ce9cdf503ed9b7ca18bccb6da22cf0c186e45c31a629edcfabc98",
+      "bytes": 5053
+    },
+    "final_inventory": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/inventory_final_goalie_targets.py",
+      "sha256": "73cd3066a2e9fc27db3044b874296378a697530c041cac843f65bf2ec6da2a18",
+      "bytes": 17275
+    },
+    "inventory_diff": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/inventory-final-excluded-unknown.patch",
+      "sha256": "fe959b4df10cfc54d86b254a1874fd668d8d98f28a813a05dae0ddf5906a9700",
+      "bytes": 8036
+    },
+    "inventory_red": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/red-final-inventory-check.json",
+      "sha256": "7e01b4166ecaf792fa40911d12f46c6af4966b47a417fa937caedc67e839f42a",
+      "bytes": 2337
+    },
+    "inventory_green_system_python": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/green-final-inventory-check.json",
+      "sha256": "870e05e0ca21d828013f12da0814e8d93eb034d755b996b95f467e15978a65d2",
+      "bytes": 2769
+    },
+    "inventory_green_pinned_python": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/green-py314-final-inventory-check.json",
+      "sha256": "8e379e47336f883d8b4f692b8dcc86bab36500777be7652f05a1a5c18093ff03",
+      "bytes": 3188
+    }
+  },
+  "final_score": {
+    "status": "source_reviewed_not_run_not_reserved",
+    "future_pins": "actual final state, accepted fit review and accepted current target inventory digests required",
+    "scope": "seven named metadata bodies plus two local accepted reviews; no head/coverage/array/source/model reads",
+    "diagnostics": "actual final dispositions retained without zero-probe or sensitivity-success gate"
+  },
+  "final_inventory": {
+    "status": "source_reviewed_not_run",
+    "supersedes_only_final_inventory_source": "fdd7b06aa265c58ab2901e75892e2be8b42d9c79d5f3be3b2511f89be2c2bbf4 remains immutable and owns earlier inventories",
+    "change": "retain at most three earliest distinct games per exact reason for ordinary-save unknown labels with resolved focal goalie and only missing-label plus type/location exclusions; separate category/counts and no fit-inclusion claim",
+    "scope": "same one final coverage traversal, current manifest and two head JSONs; no previous coverage/input/array/provider reads",
+    "tradeoff": "small additional candidate packets; no added external body read or numerical work",
+    "proof": "candidate selection only; actual original adjacency/action/timing and applicable identities still require independent inspection"
+  },
+  "synthetic_check": {
+    "fixture": "four local synthetic metadata files, fourteen targets; not original-source/model/real acceptance",
+    "old_native_exit": 0,
+    "old_oracle": "red: four required candidate packets absent after existing categories pass",
+    "new_native_exit": 0,
+    "checks": [
+      "existing eligible-unknown and both known-goalie-change categories/order preserved",
+      "earliest row per game; earliest three distinct games per exact reason; separate second reason retained",
+      "new candidate count/reason counts remain separate from original broad and otherwise-eligible counts",
+      "h/d exclusion, original order of reasons and explicit no-fit/no-original-proof claims preserved",
+      "all previous counters, reconciliation, exclusion summaries and candidate payloads equal old output",
+      "unchanged manifest/two-head/coverage read scope; no source/prepared/array/model calls"
+    ],
+    "runtime": {
+      "executable": "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python",
+      "version": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]",
+      "version_info": [
+        3,
+        14,
+        8
+      ],
+      "attribution": "checker and native command use this same pinned interpreter; standard-library controller only"
+    },
+    "wall_seconds": 0.06666970788501203,
+    "initial_runtime": "system python3.15 stdlib checks preserved; one pinned3.14 compatibility-green resolves target-runtime question; no native/model failure attributed"
+  },
+  "independent_review": {
+    "agent": "final_fit_review",
+    "verdict": "no genuine findings in exact helper/diff and saved red/green evidence",
+    "scope": "local source and retained facts only; no external execution"
+  },
+  "original_source_proofs_remaining": 3,
+  "real_inventory_executed": false,
+  "score_dispatched": false,
+  "activation": false
+}

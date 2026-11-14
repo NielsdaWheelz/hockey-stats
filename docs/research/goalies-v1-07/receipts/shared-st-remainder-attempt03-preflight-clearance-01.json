@@ -1,0 +1,47 @@
+{
+  "kind": "shared-st-remainder-attempt03-preflight-clearance",
+  "owner": "v1-09",
+  "assignment": "one native attempt03 preflight only, then bounded cached admission review and explicit checked return",
+  "source_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-attempt03-source-review-01.json",
+    "bytes": 65354,
+    "sha256": "362fc179f1a62f1b43e219a8b30b4e8c4a295c3fe5aea7b4459d786aea4db891",
+    "status": "SOURCE_SCOPE_CLEAR",
+    "findings": [],
+    "root_intake": "read only this fixed review once; no second source/inverse layer"
+  },
+  "qualified_source_premises": {
+    "controller12": "683713f45b62f9eb8fedec24fabf3094e2fdd7245cf9e6e5f75dde8b4fdab011",
+    "held12": "c3d99e7267449e94066e7b2be4578aab07329b9deec8becda80dba08aa1ce602",
+    "preflight03": "460ee0b1602208dee56bc88b38fa853f6ebb36f4a778bf3c54800963dddeb4e6",
+    "preflightheld03": "309f14ae0598837fd4cd4057e21bd8c34fa18daadd695e32eda09f3ca21a6f18",
+    "plan": "32347766293060def4177f55e1194cc7c0771e6735802c2d18ff730f4a45118d"
+  },
+  "command_argv": [
+    "/bin/sh",
+    ".tmp/st-final-browser-remainder-launch-preflight-held-03.sh"
+  ],
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+  "preconditions": [
+    "verify the existing owned local zsh/current ST cwd/empty prompt immediately before one submission",
+    "STOP overrides every pending action; no replay on unknown delivery or failed controller"
+  ],
+  "scope": {
+    "fixed_local_bodies": 46,
+    "six_fixed_bytes": 1318383,
+    "declared_successful_local_body_bytes": 2808905,
+    "ordinary_metadata": "selected source/version/static module/build/retained89887/start/argv/cwd/listener/mount/parents and five fresh attempt03 paths",
+    "external_input_consumer_csv_prior_member_db_body_or_stat": false,
+    "http": false,
+    "browser_or_controller_import": false,
+    "chrome_launch": false,
+    "output_profile_mkdir": false
+  },
+  "completion": "current ST_BROWSER_REMAINDER_PREFLIGHT_NATIVE_EXIT plus returned owned prompt and retained exact native exit/log/result; not delivery, PID absence, historical marker or theme",
+  "cached_review": "one bounded independent review of the current fixed local preflight result/log/exit/submission caches only; inspect actual keys before assertions, retain any controller failure, never replay native preflight for review failure",
+  "browser_dispatch_authorized": false,
+  "postcapture_authorized": false,
+  "next_scope": "none; a checked preflight result must return to root before any separate browser assignment",
+  "historical": "all old failures/aborts stay failed and unwaived; new source and the paired diagnostic provide no family acceptance",
+  "protected": "same source3763/fee5/app852/build18ef/node89887/fb604/final21de15d, source03/G/primary and all artifacts remain unchanged"
+}

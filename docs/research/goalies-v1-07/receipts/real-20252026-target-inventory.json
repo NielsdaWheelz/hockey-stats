@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "kind": "real-annual-goalie-target-inventory",
+  "purpose": "real",
+  "status": "saved_target_inventory_passed",
+  "season": "20252026",
+  "annual_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/manifest.json",
+    "sha256": "903092073a25b0afb0b6e153ede5f2685a0a4bf7b4dce1381c1a05f266a56502",
+    "identity_source": "explicit accepted root pin matched current manifest bytes; no predecessor or original input reopened"
+  },
+  "coverage": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/coverage.json",
+    "sha256": "07e84e8718d20541cf1da27e587414afac37cb72d82f16aab5d447adde55f715",
+    "bytes": 75413304
+  },
+  "baseline_heads": {
+    "h": {
+      "status": "complete",
+      "reasons": [],
+      "likelihood_keys": 64833,
+      "target_mass": 9479.0,
+      "design_size": 3544,
+      "member": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/heads/h.json",
+        "sha256": "fc2ce68b1839cf5e540d0a9ecfcfe1d7ea96ef61ebbe694955d07777cdbd4370"
+      }
+    },
+    "d": {
+      "status": "complete",
+      "reasons": [],
+      "likelihood_keys": 9454,
+      "target_mass": 865.6337367063065,
+      "design_size": 3544,
+      "member": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/heads/d.json",
+        "sha256": "5d67cc65a214679a34b5ea615d0e78312f36cad406e61485795012557023ca46"
+      }
+    }
+  },
+  "source_target_rows": 153754,
+  "games": 1312,
+  "outcome_counts": {
+    "None": 1329,
+    "block": 40866,
+    "goal": 7554,
+    "miss": 39029,
+    "save": 64976
+  },
+  "counts": {
+    "h_included": 64833,
+    "h_positive": 9479,
+    "h_negative": 55354,
+    "d_included": 9454,
+    "zero_d_target": 0,
+    "ordinary_saved_source_rows": 64953,
+    "ordinary_save_unknown_h": 0,
+    "otherwise_eligible_unknown_h": 0,
+    "source_positive_focal_excluded": 78,
+    "eligible_h_positive_d_unavailable": 25,
+    "eligible_h_positive_known_goalie_change": 0,
+    "eligible_h_positive_successor_goalie_unresolved": 25,
+    "predictor_excluded_h_positive_known_goalie_change": 0,
+    "predictor_excluded_unknown_h": 0
+  },
+  "heads": {
+    "h": {
+      "included": 64833,
+      "excluded": 88921,
+      "target_mass": 9479.0,
+      "exclusion_reason_counts": {
+        "goalie_population_unavailable_or_outside": 2314,
+        "immediate_reattempt_label_unavailable": 88801,
+        "location_or_frame_unavailable": 799,
+        "membership_unavailable_or_outside_population": 1001,
+        "opposing_goalie_membership_unavailable": 2314,
+        "outcome_unavailable": 1329,
+        "physical_attempt_not_supported_ordinary": 1362,
+        "requires_saved_attempt": 88778,
+        "shooter_unavailable": 677,
+        "shot_type_unavailable": 998
+      }
+    },
+    "d": {
+      "included": 9454,
+      "excluded": 144300,
+      "target_mass": 865.6337367063064,
+      "exclusion_reason_counts": {
+        "focal_occurrence_population_unavailable": 88921,
+        "requires_positive_recorded_reattempt": 55354,
+        "successor_execution_score_unavailable": 25
+      }
+    }
+  },
+  "reconciliation": {
+    "saved_groups": 1654,
+    "all_head_state_goalie_groups_match": true,
+    "each_head_included_plus_excluded_equals_source_rows": true,
+    "h_positive_equals_valued_d_plus_d_excluded": true,
+    "maximum_group_target_mass_roundoff": 8.881784197001252e-15,
+    "target_score_sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+    "head_likelihood_keys_match_targets": true,
+    "head_target_masses_match": true
+  },
+  "ordinary_save_unknown_h_reasons": {},
+  "otherwise_eligible_unknown_h_reasons": {},
+  "predictor_excluded_unknown_h_reasons": {},
+  "eligible_positive_d_exclusion_reasons": {
+    "successor_execution_score_unavailable": 25
+  },
+  "d_missing_successor_outcomes": {
+    "save": 21,
+    "miss": 1,
+    "block": 3
+  },
+  "candidates": [],
+  "missing_case_status": {
+    "intervening_invalid_event": {
+      "actual_count": null,
+      "original_proof_status": "not inspected",
+      "otherwise_eligible_unknown_candidates": 0,
+      "next_action": "bounded original immediate-next check after root release; generic reasons do not prove an invalid intervening event"
+    },
+    "unknown_terminal": {
+      "actual_count": null,
+      "original_proof_status": "not inspected",
+      "next_action": "bounded original terminal/order evidence check after root release"
+    },
+    "known_goalie_change": {
+      "saved_eligible_positive_count": 0,
+      "saved_predictor_excluded_positive_count": 0,
+      "original_proof_status": "not inspected"
+    }
+  },
+  "concept": "h is a source occurrence label independent of a valued successor; predictor eligibility is distinct from original source-label proof. otherwise-eligible unknown-h witnesses have only the unavailable immediate label exclusion; type/location-only excluded unknowns and positives remain separate candidates with no fit inclusion claim",
+  "limits": [
+    "one current annual coverage read plus its accepted manifest and two head JSON members; no prior coverage opened",
+    "not original-event proof or source reconstruction; categories remain candidates until bounded original inspection",
+    "at most three earliest distinct games per exact eligible unknown-h reason, one earliest eligible known-goalie-change positive and one separately named earliest type/location-only predictor-excluded positive",
+    "predictor-excluded unknown h retains at most three earliest distinct games per exact reason; only missing immediate label plus type/location exclusions, resolved focal goalie, no fit inclusion or original-proof claim",
+    "ordinary-save unknown, otherwise-eligible unknown and predictor-excluded unknown counts remain distinct; all named counters persist zeros",
+    "no source/prepared/array/base-state or goalie full reader; no probability/fit/probe computation",
+    "README bundle names supply locators only; no original capture is reopened or newly preserved by this inventory"
+  ],
+  "cost": {
+    "wall_seconds": 0.7578981250990182,
+    "peak_memory_bytes": 406175744,
+    "coverage_reads": 1,
+    "current_manifest_reads": 1,
+    "current_head_json_reads": 2,
+    "prior_annual_coverage_reads": 0,
+    "raw_capture_opens": 0,
+    "prepared_game_opens": 0,
+    "array_opens": 0,
+    "source_parser_or_replay_calls": 0
+  }
+}

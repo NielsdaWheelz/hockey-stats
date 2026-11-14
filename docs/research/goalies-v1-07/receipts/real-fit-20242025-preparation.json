@@ -1,0 +1,17 @@
+{
+  "status": "temporary_helper_source_reviewed_not_run",
+  "helper": {
+    "path": "/tmp/hockey-goalie-v1-07-checks/prepare_fit_20242025.py",
+    "sha256": "9a0860b61458610ec6d341f6fe78679a7a5fdf4c28c1ce924281c6d5495b0978"
+  },
+  "reviewers": [
+    "root",
+    "api_verification"
+  ],
+  "reviewer_contract_sha256": "33d0846b61bcfb5d24fb70571805c1624b8fb143b2dd26f8dfdabfff9a40da12",
+  "interface": "--expected-head FULL40 --expected-analysis-tree FULL40 --out FRESH_ABSOLUTE_RECEIPT; own venv/PYTHONPATH and six-unset environment",
+  "scope": "seven metadata bodies hashed once at later authorized invocation; previous original h/d metadata refs taken from accepted local f53 review; no arrays, coverage, source, evaluator or full reader",
+  "future_checks": "actual clean producer/tree/runtime/lock, input identities and output/log/preflight freshness; native session null before one dispatch",
+  "preparation_execution": "AST and static source review only; no module import or external read",
+  "next_launch": "separately assigned G20242025 fit window, not granted by this helper"
+}

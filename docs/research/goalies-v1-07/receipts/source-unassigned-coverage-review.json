@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "kind": "synthetic-unassigned-goalie-coverage-review",
+  "purpose": "fixture",
+  "status": "passed",
+  "construction": "synthetic controls over saved source-row shapes; no new real source claim",
+  "problem": "an unavailable same-team source game with no dated goalie participants disappeared from a known annual goalie source coverage",
+  "policy": "possible annual affiliation only; no dated tenure, dressing, appearance, start, count or time is imputed",
+  "red": {
+    "known_included_source_attempts": 0,
+    "season_unquantified_gap": false,
+    "reported_seconds": 0,
+    "listed_games": 1,
+    "supported_games": 1,
+    "missing_games": 0,
+    "public_game_rows": 1
+  },
+  "green": {
+    "known_included_source_attempts": 0,
+    "season_unquantified_gap": true,
+    "raw_source_unquantified_gap": true,
+    "reported_seconds": 0,
+    "listed_games": 1,
+    "supported_games": 1,
+    "missing_games": 0,
+    "public_game_rows": 1,
+    "standard_reasons": [
+      "source_unavailable",
+      "unassigned_player_games"
+    ],
+    "private_game_reason": "possible_annual_affiliation_without_dated_goalie_identity"
+  },
+  "controls": {
+    "complete_known_zero_has_no_new_gap": true,
+    "unrelated_team_unknown_game_has_no_effect": true,
+    "focal_absence_with_other_same_side_goalie_listed_has_no_new_gap": true,
+    "annual_person_teams_used_without_assigned_actor_games": true,
+    "no_assigned_game_keeps_raw_counts_and_usage_unknown": true,
+    "traded_team_a_not_flagged_from_team_b_unknown_game": true,
+    "all_11_qualification_strengths_retain_known_included_and_excluded_seconds": true,
+    "known_reported_counts_and_listed_denominators_unchanged": true,
+    "known_public_game_records_unchanged": true,
+    "python_public_summary_schema_passes": true,
+    "detached_actual_evidence_checker_rejects_erased_gap": true,
+    "exact_private_potential_game_locators_saved": true,
+    "explicit_unknown_dated_team_does_not_become_annual_team_assignment": true,
+    "unknown_dated_team_keeps_known_listed_report_without_new_game_or_team_usage_row": true
+  },
+  "execution": {
+    "heavy_commands": 0,
+    "new_source_or_prepared_game_replays": 0,
+    "numeric_fits_or_scores": 0,
+    "public_schema_changes": 0,
+    "raw_capture_or_serving_writes": 0
+  },
+  "tradeoff": "a possible affiliation gap may concern a game outside actual tenure; only positive annual-team evidence and missing same-side dated goalie identity are used, and no playing assignment is made"
+}

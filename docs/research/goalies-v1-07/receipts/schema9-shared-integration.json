@@ -1,0 +1,77 @@
+{
+  "status": "shared_source_integrated_bounded_checks_passed_real_integration_pending",
+  "commits": [
+    {
+      "owner": "601c5742db8b4d5444e2d36ebf3277f6fcd61365",
+      "picked": "c7c643098f93241c39ffda728e154cd394c1acf1"
+    },
+    {
+      "owner": "374cddc11c3c96079266044d4a0303e7dfe89d5e",
+      "picked": "97cbebef165572fa916f016081dd0772815c6250"
+    },
+    {
+      "owner": "a762f9519c6a795a77416248d00b625f27842323",
+      "picked": "4864c9f63dc6412c941a6411d90bd63a1ca7c8fb"
+    },
+    {
+      "owner": "b9319196f45a81fd4bb5bd9dcef98290bc0bd640",
+      "picked": "cc2853ac2de3cc2b457b24dd5c35e2e75e13c665"
+    },
+    {
+      "owner": "96ed280625e3853c5a949c4c8ad4b3e647e86193",
+      "picked": "fe8363cf0bdc964e083477302c11f65c33d58690"
+    },
+    {
+      "owner": "af6c62bff843734422b2fde2b08f299a67e3b2dd",
+      "picked": "7eee75ee91235cdfe71c2ff6c3097a3bd7247a4c"
+    }
+  ],
+  "method": "six named shared commits only; branch ancestors containing unreviewed website/package work were not merged",
+  "shared_head": "7eee75ee91235cdfe71c2ff6c3097a3bd7247a4c",
+  "shared_analysis_tree": "b113c2ad4a146314503ab1c414d7f438a4e6635f",
+  "app_tree": "68d7ef27ec27df9611eec2bb769915fbfb6dfde8",
+  "new_public_contract": {
+    "exchange": 3,
+    "sqlite": 9
+  },
+  "unchanged_numerical_module_bytes": [
+    "goalie.py",
+    "goalie_state.py",
+    "goalie_scores.py",
+    "execution.py",
+    "execution_design.py",
+    "execution_fit.py",
+    "execution_scores.py",
+    "execution_state.py"
+  ],
+  "unchanged_goalie_validator_ast": [
+    "_source_counts",
+    "_paired",
+    "_goalie_summary",
+    "_goalie_stages",
+    "_goalie_distribution",
+    "_goalie_actual_states"
+  ],
+  "checks": {
+    "pinned_node": "24.21.0",
+    "app_typecheck": "passed",
+    "isolated_app_build": "passed",
+    "retained_schema3_fixture_strict_read": "passed",
+    "python_goalie_arithmetic_partial_missing_zero_controls": "passed",
+    "effect_goalie_arithmetic_selected_conditioning_controls": "passed",
+    "changed_source_whitespace": "passed"
+  },
+  "temporary_controller_preparation": {
+    "path": "/tmp/hockey-v1-07-api/schema9-temp-controller-preparation.json",
+    "sha256": "e0ba38970d0e35ef7561085c18f2f03a6a90b5b799af6fe8b2a2ba43d4f95170",
+    "status": "syntax/static only; actual schema9 api/browser/export acceptance pending"
+  },
+  "input_parent": {
+    "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "independent_conversion_adjudication_sha256": "1cb1d49b4fb8c1f2bbd8f6a91cda93adc08e87506c3db7b5397add03ca8b53ea",
+    "publication_and_startup": "pending under sibling ownership"
+  },
+  "normal_real_score_reader_calls": 0,
+  "serving_changes": false,
+  "numerical_reruns": false
+}

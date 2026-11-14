@@ -1,0 +1,56 @@
+{
+  "kind": "independent-final-goalie-target-inventory-local-adjudication",
+  "status": "passed_scoped_saved_inventory_consistency",
+  "recorded_at_utc": "2026-11-12T07:03:01+00:00",
+  "reviewer": "final_fit_review",
+  "inputs": [
+    {"path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-20252026-target-inventory.json", "bytes": 6496, "sha256": "6a3329357cc0207e89fe0d81f44f53164c39c6a5cd445ddcec4cc226a010f3bd"},
+    {"path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20252026-review.json", "bytes": 18802, "sha256": "4aa6c6d92f15b6274f2eb5739b3c008afa89ce7a2e31526d6fa9323f4647d503"},
+    {"path": "/tmp/hockey-goalie-v1-07-checks/real-20252026-target-inventory-01.log", "bytes": 1778, "sha256": "8bfd9dae4050f9cdb82d769663cb04e09006cf73ab0f07eb16d0934346cedfe3"}
+  ],
+  "findings": [],
+  "native": {"session_id": 77721, "exit_code": 0, "exit_evidence": "root-reported actual native completion; not inferred from file or process absence", "executions_reported": 1, "failure_or_rerun_reported": false, "helper_sha256": "73cd3066a2e9fc27db3044b874296378a697530c041cac843f65bf2ec6da2a18", "wall_seconds": 1.29, "user_seconds": 1.25, "system_seconds": 0.03, "peak_rss_bytes": 406192128, "peak_footprint_bytes": 396395264},
+  "bindings": {
+    "annual_state_sha256": "903092073a25b0afb0b6e153ede5f2685a0a4bf7b4dce1381c1a05f266a56502",
+    "coverage_sha256": "07e84e8718d20541cf1da27e587414afac37cb72d82f16aab5d447adde55f715",
+    "coverage_bytes": 75413304,
+    "h_head_sha256": "fc2ce68b1839cf5e540d0a9ecfcfe1d7ea96ef61ebbe694955d07777cdbd4370",
+    "d_head_sha256": "5d67cc65a214679a34b5ea615d0e78312f36cad406e61485795012557023ca46",
+    "target_base_score_sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+    "state_and_original_head_references_match_fit_review": true
+  },
+  "reconciled": {
+    "source_target_rows": 153754,
+    "games": 1312,
+    "saved_groups": 1654,
+    "h": {"included": 64833, "excluded": 88921, "positive": 9479, "negative": 55354, "target_mass": 9479.0},
+    "d": {"included": 9454, "excluded": 144300, "inventory_target_mass": 865.6337367063064, "fit_review_target_mass": 865.6337367063065},
+    "all_head_included_plus_excluded_equal_source_rows": true,
+    "h_positive_equals_d_included_plus_unavailable": true,
+    "unavailable_positive_d": 25,
+    "unavailable_positive_d_reasons": {"successor_execution_score_unavailable": 25},
+    "unavailable_d_successor_outcomes": {"save": 21, "miss": 1, "block": 3},
+    "eligible_positive_h_successor_goalie_unresolved": 25,
+    "ordinary_saved_source_rows": 64953,
+    "source_positive_focal_excluded": 78,
+    "ordinary_save_unknown_h": 0,
+    "otherwise_eligible_unknown_h": 0,
+    "eligible_positive_known_goalie_change": 0,
+    "predictor_excluded_positive_known_goalie_change": 0,
+    "predictor_excluded_unknown_h": 0,
+    "candidates": []
+  },
+  "roundoff": {"d_total_mass_absolute_difference": 1.1368683772161603e-13, "maximum_saved_group_mass_difference": 8.881784197001252e-15, "meaning": "aggregate summation roundoff within the retained tolerance; target masses agree numerically, not byte-exactly"},
+  "inventory_cost": {"internal_wall_seconds": 0.7578981250990182, "internal_peak_rss_bytes": 406175744, "external_current_manifest_reads": 1, "external_current_head_json_reads": 2, "external_current_coverage_reads": 1, "prior_coverage_reads": 0, "raw_capture_or_prepared_game_opens": 0, "array_opens": 0, "source_parser_or_replay_calls": 0, "scope": "attributed inventory counters; internal timing is distinct from the whole native command"},
+  "original_source_criteria": {"remaining": 3, "intervening_invalid_event": "unfulfilled", "unknown_terminal": "unfulfilled", "known_goalie_change": "unfulfilled", "decision": "open; no waiver or additional source search is authorized by this receipt"},
+  "scope": "three local cached files only; exact hashes, saved head/state bindings, count/mass reconciliation, raw stdout and native cost text",
+  "operations": {"external_reads_or_stats": 0, "production_imports": 0, "tests_or_inventory_reruns": 0, "source_or_git_mutations": 0},
+  "limits": [
+    "original coverage, head members and source events are not reopened here; saved inventory findings remain attributable to the one reviewed controller execution",
+    "the unresolved-successor-goalie count and unavailable-d count are reported separately; no original goalie-identity or event-adjacency proof follows",
+    "zero retained candidates does not prove the three original-source cases absent or fulfill their criteria",
+    "no all-goalie score sensitivity, optimizer-accuracy, scientific, publication, browser or download acceptance follows",
+    "no fit-window release, next owner, score dispatch, extra source search, activation or chain reservation is assigned"
+  ],
+  "activation": false
+}

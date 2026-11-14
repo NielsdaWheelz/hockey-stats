@@ -1,0 +1,75 @@
+{
+  "disposition": "source_only_review_clear_for_separately_assigned_single_observation",
+  "review_scope": "named local source, oracle and prior receipt reads only; source inspection and hashes, no diagnostic execution, browser, http, database, external drive, process, mount, version command, build or test",
+  "reviewed_diagnostic": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-canonical-diagnostic-02.mjs",
+    "sha256": "eb5877dcc4c46964add01167e652415dda55b751c81dd044942f3ef4f48d5301",
+    "bytes": 20171,
+    "predecessor_unexecuted_sha256": "2bb6766653809e0da891d0c6dcdfcf523f4d0ce948e3cb04e78baa6cda5117aa"
+  },
+  "references": {
+    "original_browser": {
+      "path": "/tmp/hockey-goalie-v1-07-access-20261113-01/browser-real-03.mjs",
+      "sha256": "466034f44676c864096ff94c03099b4e798719eeb5957062e4e55f4324d084ee",
+      "bytes": 34734
+    },
+    "client": {
+      "path": "/tmp/hockey-goalie-v1-07-access-20261113-01/client.ts",
+      "sha256": "b9d00dc5c57931aae6d6421a4bcb18112f4b6e4712333a964579927cc0e2ca3d",
+      "bytes": 43174
+    },
+    "player": {
+      "path": "/tmp/hockey-goalie-v1-07-access-20261113-01/player.tsx",
+      "sha256": "673ca0e3776aad827301e574be450f5eb097b1b774d7fac148ef838ced7f7412",
+      "bytes": 29481
+    },
+    "explorer": {
+      "path": "/tmp/hockey-goalie-v1-07-access-20261113-01/explorer.ts",
+      "sha256": "da819693509377658c1500e9ef9e42cfc783633947dbdbf7039d4ae8d32bf346",
+      "bytes": 14710
+    },
+    "root": {
+      "path": "/tmp/hockey-goalie-v1-07-access-20261113-01/root.tsx",
+      "sha256": "f59a76b2a2ee439e2777a14cc966bfabd0872241160b6144cc599d71bbe9ea8f",
+      "bytes": 6008
+    },
+    "old_receipt": {
+      "path": "/tmp/hockey-goalie-v1-07-access-20261113-01/browser-receipt.json.raw",
+      "sha256": "078c65ad8eebe94b58eb62043fe7f779a7004dd74450a5377a17c52fc534d54f",
+      "bytes": 164116
+    },
+    "old_failure_review": {
+      "path": "/tmp/staging/shared-browser-attempt-03-failure-review.json",
+      "sha256": "388fa3ed9ff7986ff3439115827badf592cd37dc5f3e43f2ddef9776cc3f46fb",
+      "bytes": 3685
+    },
+    "history_render": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/app/src/web/analysis-history.tsx",
+      "sha256": "b86c4565872127990f158023fca42aaa408729745bea963d2e041712f03f595c"
+    },
+    "accepted_local_oracle": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-consumer-attempt-04-oracle.csv",
+      "sha256": "bc293b783cbd71a19d7f7fc7f506d08590dba23c6936caea4d1cef817b387653",
+      "bytes": 792692
+    }
+  },
+  "source_mechanism": "goalie analytical view is normalized away by the player/explorer owners. that query change can revalidate the same-path/same-season profile while root retains the old outlet. browser03 settle accepts an already present metric and three history rows; a following document goto can supersede the canonical profile/cohort generation. this is a source-supported hypothesis, not attribution of old03.",
+  "checks": [
+    "original arm preserves browser03 settle and negative-smoke assertions, then synchronous pending-id marker immediately before base goto; no added awaited snapshot delays that transition",
+    "one owned page/context; stable request ids, observed document commits, monotonic event sequence/times, immutable lifecycle association and per-detail generations prevent action-label-only attribution",
+    "controlled arm requires exactly two source-shaped detail/three-cohort generations, all three exact annual cohorts with status200 and requestfinished, canonical no-view URL, and completion before its next goto",
+    "post-completion player/metric/selected-season/history checks include exact native EV stopping values independently checked against the accepted local oracle: 20232024=-0.3484072358634314; 20242025=0.6470942299216433; 20252026=0.6491125816985565",
+    "only pending original second-generation detail/cohort net::ERR_ABORTED events after the next-goto marker are classified observations; unrelated request failures, unexpected api/http, page errors and console errors fail",
+    "favicon exception is exact same-origin favicon.ico console404 with zero declared icon links; no response-event requirement; all observed events remain recorded",
+    "final association ambiguity and unclassified closure-time failures set failed; source-only predecessor findings are resolved",
+    "fresh exclusive output/profile; two bounded transitions; no retry, sleep, networkidle, response body, private hook, HAR, export or production mutation"
+  ],
+  "remaining_material_findings": [],
+  "limits": [
+    "root must separately authorize any actual invocation and bind the fixed serving source/build plus reviewed diagnostic pin; this review does not query live state",
+    "original starts on a fresh page, whereas browser03 reached the smoke from earlier cases; no exact-pattern reproduction is inconclusive and authorizes no automatic repeat",
+    "new observations cannot restore old03 missing timing/request identities; its failed browser verdict remains failed",
+    "a matching pattern is a bounded new observation; it does not establish family, numerical, scientific, layout/pixel, export, activation or special-teams acceptance",
+    "this review executes no syntax check or test; syntax and browser behavior remain unobserved"
+  ]
+}

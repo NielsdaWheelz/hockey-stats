@@ -1,0 +1,44 @@
+{
+  "disposition": "source_review_clear_for_separately_assigned_four_case_live_red",
+  "scope": "named local source reads and hashes only; no live call, browser, http, database, external drive, process, build, version command, test execution or production edit",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-history-label-bounds.mjs",
+    "sha256": "3d0e335e9c72f4ac34fb46d589be2ba236db514bf61c248e074964da3295c07a",
+    "bytes": 9994,
+    "proposed_argv": [
+      "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-history-label-bounds.mjs",
+      "--out",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-history-label-red-01"
+    ]
+  },
+  "owner_sources": {
+    "app/src/web/analysis-history.tsx": {
+      "sha256": "b86c4565872127990f158023fca42aaa408729745bea963d2e041712f03f595c"
+    },
+    "app/src/web/analysis-values.ts": {
+      "sha256": "6807b73a56918b2a328980092ec6fa8e547a5952acac055dee2e1e242cf229c1"
+    },
+    "app/src/web/styles.css": {
+      "sha256": "b681c8a5703fc0f1418ce41af6b3d6ee1bcbdbb8d0845f7562f5b69a38e7bd65"
+    }
+  },
+  "checked_contract": [
+    "exact two selected metrics across native normal1280 viewport:null and explicit narrow320x913 CSS viewport; four cases are collected before the aggregate bounds assertion",
+    "raw metric aria, loaded fonts, selected season, exact three history seasons and required season/selected text prevent accepting an empty or mismatched plot",
+    "every actual SVG text getBoundingClientRect is compared to its owning SVG getBoundingClientRect in the same client coordinate system, retaining full label text, rectangles and escaped sides",
+    "all label rectangles must be finite and nonempty, SVG viewport must be nonempty, and document scroll width cannot exceed the actual inner width",
+    "fresh local output/profiles and exact pinned runtime; no source data, provider, fit, publication, export, replacement response, transport patch or automatic retry",
+    "all case metadata and bounds failures are retained even when the aggregate label assertion fails; owned contexts close and closure failures force failed status",
+    "page/console/requestfailed events remain observations; this checker makes only a geometry/identity readiness judgment and explicitly does not claim full browser network acceptance"
+  ],
+  "source_rationale": "HistoryPlot places season and selected labels with middle anchors at percentage edge coordinates; its unavailable label already selects start/end/middle. the checker measures the full rendered text rectangles and can expose those edge overruns without changing renderer geometry or scientific values.",
+  "remaining_material_findings": [],
+  "limits": [
+    "source is unexecuted; root must separately assign the single actual red invocation against the retained old server/build",
+    "red is not established by source inspection or the existing screenshot report; adjudicate the actual four-case receipt and native exit separately",
+    "this review assigns no production edit or build; the proposed per-point shared anchor fix remains unapplied",
+    "rectangle checks do not replace later actual pixel verification at all required layouts or full browser04 acceptance; browser04 remains held",
+    "no numerical, family, scientific, activation or special-teams acceptance follows"
+  ]
+}

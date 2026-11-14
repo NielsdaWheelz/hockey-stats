@@ -1,0 +1,69 @@
+{
+  "kind": "goalie-complete-api-actual-launch",
+  "status": "running_not_api_accepted_at_observation",
+  "recorded_at_utc": "2026-11-13T12:29:44.471768+00:00",
+  "observed_at_utc": "2026-11-13T12:28:20.764250+00:00",
+  "submitted_once_at_utc": "2026-11-13T12:25:09Z",
+  "actual_process_start_utc": "2026-11-13T12:25:24Z",
+  "operator": "t-26981f8e970cc625 on macbook; captured original pane ref",
+  "submitted_command": "/bin/zsh /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/api-held.sh",
+  "admission": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-api-admission.json",
+    "bytes": 3612,
+    "sha256": "f158c90a95da86793cc25db79898ee1ea49736b7a8a88af2e9994da3ec532a6a"
+  },
+  "startup_release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-boundary-release.json",
+    "bytes": 2391,
+    "sha256": "097a78c2e8d3971bef8da4d8f3d805cd9113f3220045af233a40e7abb7cb83e3"
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "source_manifest_sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/check_api.py",
+    "bytes": 43769,
+    "sha256": "3a89e054eaaaa7c06eada98eb485b226fc3bdb96a0c529e3c41460b2fb957cb5"
+  },
+  "shell": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/api-held.sh",
+    "bytes": 1255,
+    "sha256": "e02d9de0b48363367746ce426d9019af43a6c26d4743d468c8ea30f7039bacbf"
+  },
+  "time_parent": {
+    "pid": 6990,
+    "ppid": 6953,
+    "elapsed": "02:56",
+    "state": "S+",
+    "lstart_local": "Fri Nov 13 04:25:24 2026",
+    "command": "/usr/bin/time -l /Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python -B /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/check_api.py --results /Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results --manifest-sha256 21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3 --publication-id fb60493e-badf-4b11-9585-b5a541387e66 --publisher-commit 4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4 --base-url http://127.0.0.1:3407 --out /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/api.json",
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+    "cwd_lsof_exit": 0,
+    "cwd_lsof_stderr": ""
+  },
+  "python_child": {
+    "pid": 6991,
+    "ppid": 6990,
+    "elapsed": "02:56",
+    "state": "S+",
+    "lstart_local": "Fri Nov 13 04:25:24 2026",
+    "command": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -B /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/check_api.py --results /Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results --manifest-sha256 21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3 --publication-id fb60493e-badf-4b11-9585-b5a541387e66 --publisher-commit 4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4 --base-url http://127.0.0.1:3407 --out /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/api.json",
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+    "cwd_lsof_exit": 0,
+    "cwd_lsof_stderr": ""
+  },
+  "server": {
+    "node_pid": 98454,
+    "time_parent_pid": 98453,
+    "port": 3407,
+    "same_checked_candidate_build": true
+  },
+  "actual_requests": null,
+  "actual_cost": null,
+  "actual_outcome": null,
+  "limits": [
+    "dispatch and process-start times are separate observations; no phase cause or cost inferred",
+    "no source table/result/log/body read outside the assigned checker while it is active",
+    "no consumer/browser/other-family window, numerical rerun or activation granted"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "scope": "local current-source build only; no server import/startup, publication, external data read or runtime/browser acceptance",
+  "source_commit": "946ffa35b59c15eb78c99751fb734115c024b088",
+  "app_tree": "51f4f39c582f8ab7554a0a1c43b8f63442d29726",
+  "node": {
+    "path": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "version": "24.21.0"
+  },
+  "command": "env PATH=\"/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin:$PATH\" /usr/bin/time -l /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node --run build",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07/app",
+  "exit_code": 0,
+  "wall_seconds": 1.32,
+  "user_seconds": 2.31,
+  "system_seconds": 0.6,
+  "peak_rss_bytes": 600211456,
+  "log": {
+    "path": "/tmp/goalie-v1-07-checks/current-app-build-333f6a7-01.log",
+    "bytes": 2719,
+    "sha256": "14fd916c25b8efdc066e07428c86553c5cc3d326a20e25b4d35b67117149648d"
+  },
+  "compiled_rebound_clause_present": true,
+  "selected_build_files": [
+    {
+      "path": "app/dist/node/server/main.js",
+      "bytes": 8073,
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis.js",
+      "bytes": 113222,
+      "sha256": "2877086226cf5a705d1e47870c37273457b822774f76b15c1204f9518d4562d9"
+    },
+    {
+      "path": "app/dist/client/assets/explorer-lHrtF-QX.js",
+      "bytes": 280904,
+      "sha256": "607bc1cee201bf62ce02a8d57a6b86995d9ab962b5080e51fde6898bc3d4afe9"
+    }
+  ],
+  "acceptance": "build passed; final normal strict startup, api, browser and actual exports remain pending"
+}

@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "kind": "history-label-anchor-build",
+  "status": "built_not_runtime_accepted",
+  "errors": [],
+  "runtime_source_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+  "tracked_production_source_changes_after_build": [],
+  "reviewed_source_file": {
+    "path": "app/src/web/analysis-history.tsx",
+    "sha256": "d88386fc9705ef1b9fbd7485c17f5842608310ad5a5f378cabf7fb1bbec4ff5e"
+  },
+  "node": {
+    "path": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "version_pin": "24.21.0"
+  },
+  "command": "/usr/bin/time -l /usr/bin/env PATH=\"/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin:$PATH\" /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/.local/share/mise/installs/node/24.21.0/lib/node_modules/npm/bin/npm-cli.js run build",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07/app",
+  "package_script": "react-router build && tsc -p tsconfig.json --noEmit false --outDir dist/node",
+  "native_build": {
+    "exit": 0,
+    "wall_seconds": 1.38,
+    "user_seconds": 2.22,
+    "system_seconds": 0.64,
+    "peak_rss_bytes": 594100224,
+    "log": {
+      "path": ".tmp/goalie-live-acceptance/history-label-build-01.log",
+      "bytes": 2808,
+      "sha256": "131f2eccc5bba0b855753a67b0332d60737846280e0ced68050a256ab0f876c9"
+    },
+    "exit_file": {
+      "path": ".tmp/goalie-live-acceptance/history-label-build-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "compiled_node_comparison": {
+    "before_catalog": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/history-label-backend-before.json",
+      "bytes": 4336,
+      "sha256": "7300d5e647459ca8f188e70e70b70a5adcc850b158c83e54fccb0f045ce2b51e"
+    },
+    "before_source_runtime_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+    "before_build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+    "before_file_count": 21,
+    "after_file_count": 21,
+    "after_total_bytes": 351641,
+    "added_paths": [],
+    "removed_paths": [],
+    "changed_paths": [],
+    "all_javascript_paths_bytes_hashes_identical": true,
+    "after_files": [
+      {
+        "path": "app/dist/node/operator/capture-report.js",
+        "bytes": 2610,
+        "sha256": "dfcb57ef79e1208fb4e2edcdd9967882a37fa045547e410829e25e74ffe2eb95"
+      },
+      {
+        "path": "app/dist/node/operator/capture-season-cli.js",
+        "bytes": 1981,
+        "sha256": "2f4f4446819741dd2fe71d3ba763f896036b2b24bf12d3aaa114c020ac575c72"
+      },
+      {
+        "path": "app/dist/node/operator/capture-season.js",
+        "bytes": 1333,
+        "sha256": "63c86edf02296351410f5e1d21cd5016ecadf3428d38a9a3411b2b8a25318392"
+      },
+      {
+        "path": "app/dist/node/operator/capture.js",
+        "bytes": 6014,
+        "sha256": "552447959a0da4d19bea4d40cbd9faa7e7425c24b186537742fb8e69a5e52159"
+      },
+      {
+        "path": "app/dist/node/operator/cli.js",
+        "bytes": 2047,
+        "sha256": "937cdd5e2fbb7ac830c8e5cc0f96e3e1f1dd0442f58428547f226ffd63b06146"
+      },
+      {
+        "path": "app/dist/node/operator/publication-cli.js",
+        "bytes": 5132,
+        "sha256": "1a9d3d4adbc6b396136ee5b9801ca271d13020850e3e6ebaa1c20aaaf8424e30"
+      },
+      {
+        "path": "app/dist/node/operator/skating-capture.js",
+        "bytes": 1933,
+        "sha256": "6298efd247cc3823f6d5b544198a82a3f0fa4ff13cf9b5c55f7b6ea64cc6a15d"
+      },
+      {
+        "path": "app/dist/node/operator/skating-cli.js",
+        "bytes": 3202,
+        "sha256": "99c4b7725ef8168b684262f25dc41659fb34353b51b95e4fdd9a3d97f906e8b4"
+      },
+      {
+        "path": "app/dist/node/server/analysis-publication.js",
+        "bytes": 67929,
+        "sha256": "4454950587c03b0fe5040c49737ad82c2b360f4689159d94eba51362cc15e71f"
+      },
+      {
+        "path": "app/dist/node/server/deployment-publication.js",
+        "bytes": 3584,
+        "sha256": "d3f58438196d105b25c56fc124338f807426c09ad1c4f01e40fea590b29416b0"
+      },
+      {
+        "path": "app/dist/node/server/main.js",
+        "bytes": 8073,
+        "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+      },
+      {
+        "path": "app/dist/node/server/observed-publication.js",
+        "bytes": 19960,
+        "sha256": "d9bba2571dac5840edc52602db83dbb6e1c0fccc2c9700a1b6f747fcee65b424"
+      },
+      {
+        "path": "app/dist/node/server/physical-schema.js",
+        "bytes": 32225,
+        "sha256": "afd390e13b87f1f1ede17c4c71832aad4064eec241bcb87d12979bbcf1326028"
+      },
+      {
+        "path": "app/dist/node/server/publication.js",
+        "bytes": 15535,
+        "sha256": "2b8ae5d1c3cedc208a79a4870d47f36767bea1b4949c45489a51a4b5d63f0b03"
+      },
+      {
+        "path": "app/dist/node/server/selected-publication.js",
+        "bytes": 18723,
+        "sha256": "be464f323ff86a6b639e309c5cc4c36cf0825c00b71069fca6a16c4cd59125f7"
+      },
+      {
+        "path": "app/dist/node/server/spatial-publication.js",
+        "bytes": 19687,
+        "sha256": "b68753a324582a6d3a7f6368ea47ebf3fb67f67a6187b01e842c8d183eb72e08"
+      },
+      {
+        "path": "app/dist/node/server/sql-rows.js",
+        "bytes": 1531,
+        "sha256": "f81eb158c93737b2e1ace2aa476cfddcc3e3c1d3906c9da6cd2fcedba898aa0e"
+      },
+      {
+        "path": "app/dist/node/shared/observed.js",
+        "bytes": 14656,
+        "sha256": "240326632f648f4763858b59c4890076acc558fdec5ac2e4f6ddb95982a2bd71"
+      },
+      {
+        "path": "app/dist/node/shared/player-analysis-selections.js",
+        "bytes": 9249,
+        "sha256": "a952e725de9144b914e786e2f54772749a585d83fb70f93f0601c9923aef4cd7"
+      },
+      {
+        "path": "app/dist/node/shared/player-analysis.js",
+        "bytes": 113222,
+        "sha256": "2877086226cf5a705d1e47870c37273457b822774f76b15c1204f9518d4562d9"
+      },
+      {
+        "path": "app/dist/node/shared/publication.js",
+        "bytes": 3015,
+        "sha256": "2867782dd9081dcd247daf5a8c082c07764df2e57d0593c526bd3ea326504a4a"
+      }
+    ]
+  },
+  "frontend_outputs": [
+    {
+      "path": "app/dist/client/assets/client-B-qDqdGk.js",
+      "bytes": 34919,
+      "sha256": "b41d55da2cb32acff0e847a7f14bab7c78a1c9a9d2704d2953439e988b223829"
+    },
+    {
+      "path": "app/dist/client/assets/compare-client-loader-zQRWdVut.js",
+      "bytes": 128,
+      "sha256": "d3adb00dcd6c14e970481fcc1a58034dedc7cc54f5e1724fa3344fa1b7787f92"
+    },
+    {
+      "path": "app/dist/client/assets/compare-main-CSTIMQXW.js",
+      "bytes": 17073,
+      "sha256": "84f9801e83cb0a325623f2f6dff5b4dea7222001cb2eb08da3a2462d73f389e8"
+    },
+    {
+      "path": "app/dist/client/assets/entry.client-CimxyNE3.js",
+      "bytes": 214675,
+      "sha256": "f123592f11d56cc3c499149ae7c2b8ef315cfbadf89ad6c66dd6a55ea1f22785"
+    },
+    {
+      "path": "app/dist/client/assets/execution-evidence-BmV2qyuS.js",
+      "bytes": 149192,
+      "sha256": "eefa15544e3bae6faa6bf37816481730ec4d34ffdfce41f244928ad39c48603b"
+    },
+    {
+      "path": "app/dist/client/assets/explorer-lHrtF-QX.js",
+      "bytes": 280904,
+      "sha256": "607bc1cee201bf62ce02a8d57a6b86995d9ab962b5080e51fde6898bc3d4afe9"
+    },
+    {
+      "path": "app/dist/client/assets/jsx-runtime-Bcb-PiJy.js",
+      "bytes": 121191,
+      "sha256": "124bc89765020c2632a94bba506ddbc28f0ad97a82a099ee96c4459d56a89f2e"
+    },
+    {
+      "path": "app/dist/client/assets/league-client-loader-D9VQ8tZR.js",
+      "bytes": 128,
+      "sha256": "dc43b7583582533f70bcbace861b68629ffc407f3e41fb932fd01fb55cbc8bd3"
+    },
+    {
+      "path": "app/dist/client/assets/league-main-DAZPKw2U.js",
+      "bytes": 21418,
+      "sha256": "41bf7baeef664c56beffac54dbfde0ae4f1d6871e6fa39cff645a101cc69fb70"
+    },
+    {
+      "path": "app/dist/client/assets/manifest-a5c76cb8.js",
+      "bytes": 2232,
+      "sha256": "592b039bd5d6df452e18f88814b1e2f9a07d90dec90bc347fcf8d447e4195527"
+    },
+    {
+      "path": "app/dist/client/assets/peer-distributions-vyeZIdfW.js",
+      "bytes": 47373,
+      "sha256": "a89ce279dc5ad2091a9fab27625c34561e42a0c8770641313bd197f65bb8b993"
+    },
+    {
+      "path": "app/dist/client/assets/player-client-loader-BiToDSUq.js",
+      "bytes": 148,
+      "sha256": "bdbb76b2bd6247a729dcd1a16c2bb05901b5c535c4494ee208cbd0fae7aef449"
+    },
+    {
+      "path": "app/dist/client/assets/player-main-BHjwBbHg.js",
+      "bytes": 18629,
+      "sha256": "dda7b2f4af082baaafb530f879df3c8192b4e9bb9533211e37b79375698840be"
+    },
+    {
+      "path": "app/dist/client/assets/root-CdDmkN42.js",
+      "bytes": 3622,
+      "sha256": "4cb2d7f3edfcad158d21ad1759f45843e9615b96e9b9fb775793a4a0cc558f04"
+    },
+    {
+      "path": "app/dist/client/assets/styles-6UOfPuy0.css",
+      "bytes": 30298,
+      "sha256": "eb9e3b86fa3c6220c9788531bd3c56d5efef1992225b7383a0fccc0037bb143c"
+    },
+    {
+      "path": "app/dist/client/index.html",
+      "bytes": 2114,
+      "sha256": "0fc8ed5c283ce84c60eac905c7a2cfa713f6beb097939e2f356d00af7d5a4fb1"
+    }
+  ],
+  "ssr_outputs": [
+    {
+      "path": "app/dist/server/index.js",
+      "bytes": 174762,
+      "sha256": "28909dd6e95a31a073e7097e124195cb42b3605d87cb1402cc6347232a5b14ea"
+    }
+  ],
+  "scope": "one ordinary local build and local file identity accounting only; no server import or execution, http, sqlite, external volume or numerical artifact read",
+  "limits": "build and backend byte preservation do not establish strict startup, api, browser, pixel or saved-export acceptance; source remains frozen and root owns subsequent dispatch"
+}

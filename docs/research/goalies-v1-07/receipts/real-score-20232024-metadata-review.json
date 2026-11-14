@@ -1,0 +1,171 @@
+{
+  "kind": "independent-remaining-real-goalie-score-small-metadata-review",
+  "status": "passed",
+  "season": "20232024",
+  "score": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20232024/manifest.json",
+    "sha256": "5c75b215c50d3271ab2f4df4bc9d2dca39c26b846977dde251b0d0c39b6a25aa"
+  },
+  "producer": {
+    "git_commit": "64ceca831bcf14088313eebd853836de69a25f20",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "analysis_tree_from_launch_evidence": "0aba863d0efaf5ace3f0e96ab87920540b669e11",
+  "opened_metadata": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20232024-preflight.json",
+      "bytes": 9495,
+      "sha256": "cdefe4cf1aa1d4fc2f5140a0148fc556d47a62590c5453309a6a19a51d3ee8b5"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20232024-review.json",
+      "bytes": 12836,
+      "sha256": "f53c2c6977423edf191532daf76113816d3acdeac4d72dc8993dc51577aba45b"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-20232024-target-inventory.json",
+      "bytes": 6154,
+      "sha256": "ad80535186042ce13d5246afac4f43a18e46714a571149b49c5a22f8772bf25b"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20232024/manifest.json",
+      "bytes": 346608,
+      "sha256": "5c75b215c50d3271ab2f4df4bc9d2dca39c26b846977dde251b0d0c39b6a25aa"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20232024/coverage.json",
+      "bytes": 2054249,
+      "sha256": "e777e19a522159bf67928431e338ee0066445afeb281bbb25dfd516753756334"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20232024/catalogs.json",
+      "bytes": 13165,
+      "sha256": "c56771ad0f8daac5c03e4a0db7f69852257a5eb9e4a5480599a150706e82c79b"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20232024/sensitivity.json",
+      "bytes": 129,
+      "sha256": "fb153e2d868367da13a65aa037223e5868e306758c6d215aea5569d476507401"
+    }
+  ],
+  "people_implied_by_matrix_counts": 117,
+  "row_counts": {
+    "analysis_map": 1287,
+    "execution_breakdown": 11583,
+    "goalie_danger": 2808,
+    "goalie_evidence_map": 16848,
+    "goalie_observed": 1404,
+    "goalie_result": 1287
+  },
+  "source_target_summary": {
+    "h": {
+      "included": 71202,
+      "excluded": 88921,
+      "target_mass": 9897.0,
+      "exclusion_reason_counts": {
+        "requires_saved_attempt": 88724,
+        "immediate_reattempt_label_unavailable": 88752,
+        "physical_attempt_not_supported_ordinary": 1111,
+        "membership_unavailable_or_outside_population": 865,
+        "goalie_population_unavailable_or_outside": 1771,
+        "opposing_goalie_membership_unavailable": 1771,
+        "outcome_unavailable": 1065,
+        "shooter_unavailable": 558,
+        "shot_type_unavailable": 833,
+        "location_or_frame_unavailable": 706
+      }
+    },
+    "d": {
+      "included": 9877,
+      "excluded": 150246,
+      "target_mass": 940.1089484417292,
+      "exclusion_reason_counts": {
+        "requires_positive_recorded_reattempt": 61305,
+        "focal_occurrence_population_unavailable": 88921,
+        "successor_execution_score_unavailable": 20
+      }
+    }
+  },
+  "stage_totals": {
+    "miss": {
+      "source_events": 160123,
+      "known_labels": 113853,
+      "matched": 113778,
+      "prediction_unavailable": 75,
+      "label_unavailable": 46270
+    },
+    "recorded_stop": {
+      "source_events": 160123,
+      "known_labels": 78983,
+      "matched": 78809,
+      "prediction_unavailable": 174,
+      "label_unavailable": 81140
+    },
+    "conversion": {
+      "source_events": 160123,
+      "known_labels": 63994,
+      "matched": 63841,
+      "prediction_unavailable": 153,
+      "label_unavailable": 96129
+    },
+    "reattempt": {
+      "source_events": 160123,
+      "known_labels": 71371,
+      "matched": 71202,
+      "prediction_unavailable": 169,
+      "label_unavailable": 88752
+    },
+    "next_attempt_danger": {
+      "source_events": 160123,
+      "known_labels": 9877,
+      "matched": 9877,
+      "prediction_unavailable": 0,
+      "label_unavailable": 150246
+    }
+  },
+  "source_included": 158295,
+  "paired_unblocked": 113778,
+  "source_only": 99,
+  "numerical_only": 0,
+  "located_possible_affiliation_gaps": 0,
+  "numerical_sensitivity": {
+    "status": "not_assessed_for_annual_state",
+    "summary_threshold": 0.0001,
+    "pointwise_threshold": 1e-05,
+    "variants": []
+  },
+  "optimizer_accuracy": "unknown",
+  "producer_resources": {
+    "wall_seconds": 7108.507382291136,
+    "input_read_wall_seconds": 5757.2497063330375,
+    "projection_wall_seconds": 993.5359480001498,
+    "sensitivity_wall_seconds": 7.3347167919855565,
+    "validation_wall_seconds": 329.1517231669277,
+    "peak_memory_bytes": 21528248320,
+    "output_bytes": 3812937026
+  },
+  "native_command_cost": {
+    "exit_code": 0,
+    "wall_seconds": 7113.09,
+    "max_resident_bytes": 21528248320,
+    "peak_footprint_bytes": 22440886664,
+    "log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/score-20232024-01.log",
+    "native_session_id": 74808,
+    "source": "explicit root-observed completion bound to pinned launch preflight"
+  },
+  "review_resources": {
+    "wall_seconds": 13.994745332980528,
+    "peak_memory_bytes": 33406976,
+    "peak_memory_unit": "darwin ru_maxrss bytes"
+  },
+  "limits": [
+    "only four current score documents plus three explicitly pinned review/preflight receipts; no source/fit/prior coverage/table/array reader or model call",
+    "matrix and final goalie-strength key sets are metadata consistency, not independent public-table/person identity validation",
+    "final variant coverage, reported maxima/flags, mass consequences and frozen references are metadata checks; normal producer owns per-value/per-point/mass arithmetic, raw/public validation and base-field invariance",
+    "assessed or small sensitivity does not establish optimizer accuracy, calibrated uncertainty, scientific admission or activation"
+  ]
+}

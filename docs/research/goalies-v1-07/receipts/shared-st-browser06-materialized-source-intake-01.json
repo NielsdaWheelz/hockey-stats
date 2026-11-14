@@ -1,0 +1,33 @@
+{
+  "kind": "shared-st-browser06-materialized-source-intake",
+  "created_at": "2026-11-14T07:06:49.697676+00:00",
+  "status": "actual_source_successor_bytes_and_inverse_verified_complete_packet_clearance_pending",
+  "amendment_sha256": "fb54e66d47f95e65a31ff2f30d3984f3d6b4beb5a897cdbaa06c1bf3985e5097",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-06.mjs",
+      "bytes": 54030,
+      "sha256": "c74dcf9806d4533308bb00d08bd28e18620653948bddc48b06b1626dd7567fbe"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-held-06.sh",
+      "bytes": 1156,
+      "sha256": "854810efe26624ea6a96b9478be2007d8d46608a695a65d89c61f3fd84bdc7e9"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-csv-bytes-static-proof-01.json",
+      "bytes": 1362,
+      "sha256": "8567bfd1f7f51548d023a494b72810fdf5ac440e258a960b28c34c5de4ab3fcb"
+    }
+  ],
+  "checks": [
+    "actual source06/held06 match exact expected amendment bytes/hashes",
+    "removing only bytes: oracleBytes.length restores full original source05 hash/54003B",
+    "reversing only held entry basename restores full original held05 hash/1156B",
+    "all unused05 output/profile/log/exit names, including closed d5db exit mapping, remain unchanged by exact inverse"
+  ],
+  "pending": "independent successor/full-inverse review and complete revised admission/helper/held/source-plan packet; no actual preflight or dispatch clearance",
+  "baseline_identity": "embedded35c3/f682/09ff references in unchanged d5db remain explicitly historical baseline, current06 identity is bound through amendment/admission/actual frame",
+  "operations": "three exact LOCAL source/proof body reads, hashes and in-memory inverse only; no source-file mutation, syntax/test/import/runtime/OS/HTTP/DB/HDD/consumer/CSV check",
+  "authority": "all actual checks remain held; one browser window only, no automatic command/retry/capture/pixel/laterstage grant"
+}

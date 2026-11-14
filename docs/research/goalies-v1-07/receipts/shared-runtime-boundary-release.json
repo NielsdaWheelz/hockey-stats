@@ -1,0 +1,46 @@
+{
+  "kind": "shared-normal-strict-startup-checked-release",
+  "status": "accepted_startup_and_detached_data_only",
+  "recorded_at_utc": "2026-11-13T12:19:57.329614+00:00",
+  "startup_invocations": 1,
+  "source_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "database_sha256_publisher_reported": "17241928149f70bbd353815a4ec8feab39210d570205b494ad6c2af8cfb9a612",
+  "database_bytes": 31261470720,
+  "startup_meter": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-startup.json",
+    "bytes": 1195,
+    "sha256": "8a511ca846e44f63437113333846d8bd36861db0fb8562f8b83faf1ed7464f47"
+  },
+  "independent_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-independent-adjudication.json",
+    "bytes": 2510,
+    "sha256": "ff39ce55dbf65901026aa2ae114841f41a5901bcf8ae343fef1da2f5f2d4c2f0"
+  },
+  "listener_observation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-listener-observation.json",
+    "bytes": 1109,
+    "sha256": "eb6a8f965ac3b9f174922cc7cf3f7d947d5400b528909cbc7c257379d20e8735"
+  },
+  "startup_cost": {
+    "wall_seconds": 1968.8546625,
+    "peak_rss_bytes": 2101248000,
+    "latency_scope": "meter entry through actual listening; node boot and static meter imports excluded",
+    "memory_scope": "kernel process-lifetime maxRSS through listening, including boot/static imports; KiB converted to bytes"
+  },
+  "live_service": {
+    "node_pid": 98454,
+    "time_parent_pid": 98453,
+    "port": 3407,
+    "service_exit": "not_assessed; service retained for both later family matrices",
+    "outside_time": "eventual service lifetime, not startup cost"
+  },
+  "limits": [
+    "normal strict startup is accepted; API/browser/download/pixel/scientific/activation acceptance remains separate",
+    "original source DATA is denied by sandbox; metadata remains allowed",
+    "no extra startup, DB hash/query or full reader was invoked"
+  ],
+  "next_window": "root separately assigns only the complete G API pass, including fresh availability/output checks; no ST or browser window"
+}

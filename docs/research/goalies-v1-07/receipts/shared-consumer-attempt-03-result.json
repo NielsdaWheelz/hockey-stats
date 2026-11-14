@@ -1,0 +1,92 @@
+{
+  "status": "passed",
+  "scope": "two live typed anchor loaders (ev/pk stopping); 26 metric compositions, annual cohorts/history and shared csv construction; no representative/view-route or browser/download/pixel claim",
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "purpose": "real",
+  "exchange_schema_version": 3,
+  "publication_schema_version": 9,
+  "base_url": "http://127.0.0.1:3407",
+  "node": "v24.21.0",
+  "browser_origin_fixture": {
+    "origin": "http://127.0.0.1:3407",
+    "pathname": "/players/8478872"
+  },
+  "checked": {
+    "loader_journeys": 2,
+    "metric_compositions": 26,
+    "annual_points": 78,
+    "ranked": 78,
+    "outside": 0,
+    "unavailable": 0,
+    "changed_cutoffs": 78
+  },
+  "requests": 8,
+  "declared_response_body_bytes": 40415998,
+  "responses_without_body_length": 0,
+  "wall_seconds": 55.605936332999995,
+  "csv": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-03.csv",
+    "rows": 78
+  },
+  "route_checks_owner": "full actual browser matrix: all26 metric selections, all present representative cases, both goalie skater-only views, forward and defense profiles",
+  "cases_scope": "locators inherited from passed api receipt; no node representative journeys",
+  "cases": {
+    "complete": {
+      "player_id": "8478872",
+      "season": "20252026",
+      "strength": "ev",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 183847,
+      "prior_only": false,
+      "value": 0.6491125816985565
+    },
+    "traded": {
+      "player_id": "8477465",
+      "season": "20252026",
+      "strength": "ev",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 88164,
+      "prior_only": false,
+      "value": -0.9244695612693337
+    },
+    "relief": {
+      "player_id": "8471734",
+      "season": "20252026",
+      "strength": "ev",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 71613,
+      "prior_only": false,
+      "value": -0.8805896110922142
+    },
+    "sparse": {
+      "player_id": "8476316",
+      "season": "20252026",
+      "strength": "ev",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 3016,
+      "prior_only": false,
+      "value": -0.6411288293923063
+    },
+    "no_current_minutes": {
+      "player_id": "8480022",
+      "season": "20252026",
+      "strength": "pk",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 0,
+      "prior_only": false,
+      "value": -0.9145760409119412
+    },
+    "unavailable": {
+      "player_id": "8477361",
+      "season": "20252026",
+      "strength": "ev",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 0,
+      "prior_only": false,
+      "value": null
+    }
+  },
+  "absent_case_categories": [
+    "prior_only"
+  ]
+}

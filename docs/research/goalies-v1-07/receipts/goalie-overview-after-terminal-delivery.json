@@ -1,0 +1,11 @@
+{
+  "kind": "local-terminal-reference-copy-error",
+  "status": "resolved_before_native_dispatch",
+  "action": "goalie overview after comparison",
+  "first_delivery": "SessionIdentityMismatch (not_sent)",
+  "cause": "manual encoded-reference copy changed its identity token; fresh info confirmed the original owned terminal itself was unchanged",
+  "retained_terminal": "t-26981f8e970cc625 / goalie-v1-07-live / macbook / pane69",
+  "correction": "refreshed info, verified owned local zsh/cwd, used returned ref programmatically; actual native command submitted once at2026-11-13T14:49:58Z",
+  "scope": "local terminal metadata only; rejected send executed no preflight, HTTP or database work; this is not a comparison/runtime failure",
+  "future": "use captured reference from structured tool data rather than manual copying"
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "shared-browser-01-actual-launch",
+  "status": "running_not_browser_accepted",
+  "submitted_once_at": "2026-11-13T15:31:02Z",
+  "observed_at": "2026-11-13T15:32:27.018974+00:00",
+  "processes": [
+    "57749 57748       01:25 S+   /usr/bin/time -l /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-consumer-03.mjs http://127.0.0.1:3407 /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/api-02.json /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04.json /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01 /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-profile-01 /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-playwright-runtime/node_modules/playwright/index.mjs",
+    "57750 57749       01:25 S+   /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-consumer-03.mjs http://127.0.0.1:3407 /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/api-02.json /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04.json /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01 /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-profile-01 /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-playwright-runtime/node_modules/playwright/index.mjs"
+  ],
+  "runtime_source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "runtime_build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+  "server_pid": 33587,
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "controller_sha256": "e86cf8d730fbbebdf6a52cc47b76c50e915d5b74148f2da1ce0b875d97ee60a9",
+  "held_command_sha256": "90e4cf2981b8470e5f7e4a5e60b84f4abd1abf1171959ec24b495b91c34ee531",
+  "scope": "one full actual-browser matrix; local progress log is observation only; exports/captures remain external; machine pass still requires human pixel inspection",
+  "held": "all ST/final preservation/cleanup and any new source/build remain held; no automatic retry"
+}

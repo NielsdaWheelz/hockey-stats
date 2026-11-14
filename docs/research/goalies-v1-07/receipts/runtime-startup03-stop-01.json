@@ -1,0 +1,14 @@
+{
+  "kind": "owned-acceptance-runtime-stop",
+  "status": "one_sigint_sent_completion_pending",
+  "pid": 89887,
+  "signal": "SIGINT",
+  "primary_pid_protected": 9645,
+  "started_at_utc": "2026-11-14T20:36:20.818441+00:00",
+  "observations": {
+    "ps": "89887 89886 Fri Nov 13 20:08:29 2026     /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-03.json --publication /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite --port 3407\n",
+    "cwd": "p89887\nfcwd\nn/Users/nnandal/Documents/code/hockey-stats-v1-07\n",
+    "listener": "COMMAND   PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    89887 nnandal   16u  IPv4 0xd5e9e2286b61745d      0t0  TCP 127.0.0.1:3407 (LISTEN)\n"
+  },
+  "sent_at_utc": "2026-11-14T20:36:20.835016+00:00"
+}

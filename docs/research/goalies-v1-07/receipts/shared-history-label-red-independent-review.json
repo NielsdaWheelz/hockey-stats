@@ -1,0 +1,104 @@
+{
+  "disposition": "actual_targeted_label_red_confirmed",
+  "scope": "independent saved local result adjudication only; no live call, browser, http, database, external drive, process, build, version command, test execution or production edit",
+  "sources": {
+    "result": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-history-label-red-01/result.json",
+      "sha256": "87e5f5e9b680cc3dc4cdc1abbb08e267d5514a9e00dabb83419a86a7181ef260",
+      "bytes": 17242
+    },
+    "checker": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-history-label-bounds.mjs",
+      "sha256": "3d0e335e9c72f4ac34fb46d589be2ba236db514bf61c248e074964da3295c07a"
+    },
+    "source_review": {
+      "path": "/tmp/staging/shared-history-label-bounds-source-review-01.json",
+      "sha256": "e3b8695173a6e1e1e7806d2c11995abda19725496d09892f3f9a3a7420599717"
+    }
+  },
+  "actual": {
+    "case_count": 4,
+    "all_navigation200": true,
+    "all_fonts_loaded": true,
+    "all_selected_identity": true,
+    "all_document_widths_within_viewport": true,
+    "normal_bounds_failures": 0,
+    "narrow_bounds_failures": 6,
+    "computed_geometry": [
+      {
+        "mode": "narrow",
+        "metric": "goalie.ev.stopping_goals_per100_on_net",
+        "text": "2023–24",
+        "side": "left",
+        "outside_css_px": 8.120830535888672
+      },
+      {
+        "mode": "narrow",
+        "metric": "goalie.ev.stopping_goals_per100_on_net",
+        "text": "2025–26",
+        "side": "right",
+        "outside_css_px": 8.113037109375
+      },
+      {
+        "mode": "narrow",
+        "metric": "goalie.ev.stopping_goals_per100_on_net",
+        "text": "selected",
+        "side": "right",
+        "outside_css_px": 6.488037109375
+      },
+      {
+        "mode": "narrow",
+        "metric": "goalie.pk.followup_danger_difference",
+        "text": "2023–24",
+        "side": "left",
+        "outside_css_px": 8.120830535888672
+      },
+      {
+        "mode": "narrow",
+        "metric": "goalie.pk.followup_danger_difference",
+        "text": "2025–26",
+        "side": "right",
+        "outside_css_px": 8.113037109375
+      },
+      {
+        "mode": "narrow",
+        "metric": "goalie.pk.followup_danger_difference",
+        "text": "selected",
+        "side": "right",
+        "outside_css_px": 6.488037109375
+      }
+    ],
+    "only_aggregate_assertion_error": true,
+    "both_contexts_closed": true
+  },
+  "geometry_verdict": "the targeted red is real: both metrics show only first-year left, last-year right and selected right label overruns at narrow320. both normal1280 controls pass all label bounds. SVG viewport is left56/right264 at narrow, and document width remains320. the sole error is the expected aggregate 6-versus0 label assertion after all four cases; no setup/readiness failure is recorded.",
+  "retained_observations": {
+    "favicon_console404": 2,
+    "pageerror": 0,
+    "requestfailed": [
+      {
+        "mode": "narrow",
+        "phase": "narrow:goalie.pk.followup_danger_difference",
+        "url": "http://127.0.0.1:3407/api/players/8478872?season=20252026",
+        "errorText": "net::ERR_ABORTED",
+        "attribution": "unknown; this geometry checker retains no per-request lifecycle/action timing. no closure or controller-only cause is inferred"
+      }
+    ]
+  },
+  "patch_implication": "the actual red supports the previously proposed minimal renderer alignment repair: share the existing per-point start/end/middle choice across unavailable, season and selected text. root separately controls that production assignment and source review; no geometry, numerical, query or export-SVG change is justified by this result.",
+  "cost": {
+    "internal_wall_seconds": 35.416560167,
+    "internal_node_peak_rss_bytes": 145915904,
+    "root_reported_native_exit": 1,
+    "root_reported_native_wall_seconds": 35.45,
+    "root_reported_native_max_rss_bytes": 403619840,
+    "native_log_independently_read": false
+  },
+  "limits": [
+    "this is label/viewport geometry acceptance of an expected red, not network or full browser acceptance; the retained request abort remains visible",
+    "new request abort does not attribute or erase old03 failures; no additional focused reproduction search follows",
+    "existing screenshot088/093 pixel confirmation is root/peer evidence, not independently reread here",
+    "a new reviewed build/startup, actual green bounds and required independent pixels remain owed; browser04 remains held",
+    "no fitting, publication, scientific admission, activation or special-teams acceptance follows"
+  ]
+}

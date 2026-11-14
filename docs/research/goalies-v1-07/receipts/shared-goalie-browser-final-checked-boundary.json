@@ -1,0 +1,78 @@
+{
+  "kind": "shared-goalie-browser-final-checked-boundary",
+  "created_at": "2026-11-14T05:22:46.328911+00:00",
+  "status": "accepted_current_goalie_api_consumer_browser_download_pixels_pending_final_preservation_cleanup",
+  "source": {
+    "commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+    "build_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4"
+  },
+  "runtime_release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-03-checked-boundary.json",
+    "sha256": "b1006db8e6f590470a02da06595bbd041c13aa794b475a95c2bce821a5e5de85",
+    "pid": 89887,
+    "time_parent": 89886,
+    "wrapper": 89885,
+    "base_url": "http://127.0.0.1:3407"
+  },
+  "target": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+    "sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+    "closed_keys": 9
+  },
+  "browser": {
+    "receipt_sha256": "2777f188f2e686f6430024f7cdbaf3c04c32271217e170623f4c19682a489335",
+    "independent_adjudication_sha256": "57896153032bc6223f9dfe779a5e81067bfa4021166ca2cd71122eeecb891b8c",
+    "pixel_coverage_sha256": "bca8f3f58883e0c8741ca8c987fff6ca5b0dcbcfbe5e560e832aaddf6ca4345d",
+    "native_exit": 0,
+    "native_wall_seconds": 328.84,
+    "native_peak_rss_bytes": 828882944,
+    "driver_wall_seconds": 328.725641334,
+    "driver_peak_rss_bytes": 227950592,
+    "requests": 202,
+    "responses": 202,
+    "request_failures": 0,
+    "page_errors": 0,
+    "console_errors": "only three exact undeclared same-origin favicon404s, one per mode",
+    "metrics": 26,
+    "download_pairs": 30,
+    "cases": 6,
+    "cutoffs": 2,
+    "smokes": 4,
+    "layouts": 3,
+    "raster_identities": 49,
+    "lifecycle_trace_events": 824,
+    "complete_successful_request_lifecycles": 202,
+    "history_label_checks": 6,
+    "pending_through_context_closure": 0
+  },
+  "upstream_acceptance": {
+    "api02_sha256": "355de762cb1f72cf496c8c690658d7a751e66d7caff6b3dc7994eb9e40d50472",
+    "consumer04_sha256": "c7e329ae247857e425c5db25a88afe8ee5c07130818c7ecd45032c1a4a044d66",
+    "current_full_three_overview_sha256": "7a04ebe124ef47409fd8a3f1fc867dd7a45beacb4a43cc575a4795c3d5a7b4e3",
+    "inheritance_adjudication_sha256": "455cc43adec7a6b373ee150bb718c4f274b0238713b2473f5139a90a720fb5de",
+    "green_geometry_adjudication_sha256": "a55f909eb4292fa5a021a28b88686ef74206c013f66ea4c65d0e96873524dcdb"
+  },
+  "owned_heavy_closure": "browser99286/99287/99288/99289 absent plus explicit native0 marker/prompt; fixed capture0; later fixed old-log archive0+prompt. retained89887 serves only. no G heavy driver remains",
+  "old_log_preservation": {
+    "full_fixed_log_archive_receipt_sha256": "3320855531e564c82e509a4ad53c5d014bc8afad3b8effc1a1c11839499cc0f3",
+    "bytes": 5376266,
+    "source_body_sha256": "b5bb00e218d5b6f6bfc150baebec4433cf712d9d35e2f59e06382ce693c8092e",
+    "native_wall_seconds": 14.63,
+    "native_peak_rss_bytes": 19103744,
+    "earlier_cap": "4MiB capture incomplete retained as historical failure; no data deleted",
+    "local_reporting_failure": "one metadata read before archive completion returned FileNotFoundError/exit1; copy was not replayed; only after actual0 marker/prompt were completed local receipts read"
+  },
+  "next_owner_assignment": {
+    "owner": "v1-09",
+    "only_stage": "one final real ST API stage on packet05 09ff/review8b9 and collector02 d5db/source-review6a10/intake670c",
+    "preconditions": "separate explicit handoff message; fresh target/source/build/module/interpreter/mount/parents/results/log/exit admission, one launch and independently checked actual argv/cwd/frame. no retry",
+    "api_command": "/bin/sh .tmp/st-final-api-held-07.sh /Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json 1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+    "postcapture": "conditional ONE d5db collector stageapi only after independently checked actual frame, actual owned closure/exitmarker/prompt and no STOP. use actual launch digest/same target digest, fresh fixed local output; source/argv and native outcome remain distinct. cached independent adjudication before explicit return",
+    "exclusions": "no consumer/browser/pixels/publication/startup/fit/rescore/other source streams or later chain reserved"
+  },
+  "remaining": "both independently owned ST live acceptance and final fixed preservation/temporary cleanup still required; no full v1-07 delivery, full v1-19, scientific admission, activation, PR or merge claimed",
+  "nonblocking_tradeoff": "selected exports retain verbose repeated method notes, legible and complete; tracked editorial follow-up remains open",
+  "historical_limits": "old aborts remain unattributed, no cause or uniform performance improvement inferred; pure prior-only case unobserved within inspected scope; earlier sensitivities and optimizer accuracy retain existing unknowns"
+}

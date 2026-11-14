@@ -1,0 +1,45 @@
+{
+  "kind": "shared-st-api-return-and-consumer-assignment",
+  "created_at": "2026-11-14T06:12:49.445332+00:00",
+  "status": "scoped_api_return_accepted_one_typed_consumer_assigned_not_launched",
+  "accepted_api_return": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-checked-return-01.json",
+    "sha256": "6766226a2c7e59cc883bc4d530ccad43e900533996e1e479df7eade3578c6cbe",
+    "independent_return_review_sha256": "4c375d83f7795e1e3b954bf8a4ba3f31f30df3e7300476281d0e67e2cd6f109b",
+    "independent_api_adjudication_sha256": "5d3b1a87469dd5306c3f8daa0298eb044ae9b666946b52e5548d674f50d9a519",
+    "accepted_scope": "full scalar API transport plus declared bounded map/evidence/profile mechanisms only;602requests/27cohorts/2784years/25056strengthrows/111360selectorvalues;16complete savedmembers, no second source reader",
+    "case_limit": "baseline-state extrapolation unobserved in inspected three-year evidence; no waiver, impossibility claim, synthetic substitution or new search"
+  },
+  "target": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+    "sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+    "node_pid": 89887,
+    "serving_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+    "build_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4"
+  },
+  "next_scope": {
+    "owner": "v1-09",
+    "only_stage": "one actual typed consumer02 through existing public profile/comparison/history/CSV contracts;40metriccompositions/120annualpoints, one paired analytical journey, <=85HTTP; no browser or actual downloads/pixels",
+    "source_sha256": "eb9c5d8000d384ac58d8d8c53e07824006d9d33ce960e3268bf7027397a908da",
+    "held_shell_sha256": "c302fad77d8f7eec92985b337901e5236721ec602b76c128c3c4d831e762071a",
+    "accepted_api_input": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json",
+      "bytes": 1232910,
+      "sha256": "7b6b645c5a2b69dc657beec63d9f663427619b829bd9e7651ce208f25a7221a0"
+    },
+    "command_argv_from_st_cwd": [
+      "/bin/sh",
+      ".tmp/st-final-consumer-held-02.sh",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+      "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+      "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json"
+    ],
+    "preconditions": "fresh target/source/build/Node24.21/tsx/public-module ownership/current process-listener/accepted API digest/ordinary mount-parent-output qualification; exact json/csv/log/exit/postcapture freshness. ordinary selected output-parent creation allowed; no overwrite. one separately submitted command only after passed preflight and independent cached review; actual argv/cwd/process frame then independent review",
+    "postcapture": "after independently checked actual frame and actual owned closure+numeric marker/prompt/noSTOP:ONE reviewed d5db collector --stage consumer with source d5db7fb66fa6a6b853f0a7b7422034e5f3b8f801a7e2b1b1c7b581397365f90c, actual accepted launch digest, same target digest and exclusive LOCAL st-final-consumer-postexit-capture-01.json. only fixed3result/log/exit bodies/caps. collection success is not artifact acceptance; independent cached semantic/cost review then explicit checked return",
+    "failure_policy": "preserve and attribute source/admission/controller/runtime/artifact failures, no automatic replay or scope widening. STOP overrides pending reads"
+  },
+  "held": "all new G live/drive work through this consumer boundary; browser/pixels/offline/rollback/protected-primary/final preservation/cleanup/source-build mutation/publication/startup/fit/rescore/activation or later chain remain unassigned",
+  "limits": "this assigns a next single scope, not actual launch or runtime/family acceptance. API result is not a new complete publication predecessor; final21de/root15d remain unchanged. only fixed LOCAL return/review/adjudication and two consumer sources read by root; no new OS/HTTP/DB/HDD/source-table/state/model/fullreader or original API result read"
+}

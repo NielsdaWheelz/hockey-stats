@@ -1,0 +1,39 @@
+{
+  "kind": "temporary-cleanup-source-delta",
+  "status": "source_only_no_deletion_granted",
+  "reviewer": "/root/trace_review",
+  "additional_owned_campaign_scripts": [
+    ".tmp/goalie-acceptance/run_fixture_score.py",
+    ".tmp/goalie-acceptance/compare_targets.py"
+  ],
+  "classification": "fixed one-off fixture scorer launcher and target-difference diagnostic; no retained production/scientific consumer identified",
+  "rollback_temporary_items": [
+    ".tmp/goalie-isolated-rollback-source-locators-01.json",
+    ".tmp/goalie-isolated-rollback-source-preparation-01.json",
+    ".tmp/goalie-isolated-rollback-01.py",
+    ".tmp/goalie-isolated-rollback-01"
+  ],
+  "archived_locator_facts": {
+    "path": "isolated-rollback-source-locator-check-01.json",
+    "bytes": 3513,
+    "sha256": "1842f88647fd4f015bf01db503ca08e344a99d30c728cc6735de6caa0189e792",
+    "scope": "eight fixed derived LOCAL headers missing; zero body bytes returned; no referenced path followed"
+  },
+  "conditions": "retain all controller/partial/output evidence through actual green and durable fact archival. no actual deletion or whole-parent cleanup follows this inventory",
+  "protected": "frozen producers, expensive/real/download evidence, normal dist/dependencies, current shared runtime needed by st and ambiguous ownership",
+  "limit": "does not reconcile generated artifacts or authorize deleting .tmp/goalie-acceptance wholesale",
+  "readiness_repair_temporary_items": [
+    ".tmp/st-remainder-canonical-url-wait-01.patch",
+    ".tmp/st-remainder-canonical-url-wait-01-source-note.json"
+  ],
+  "rollback_attempt02_temporary_items": [
+    ".tmp/goalie-isolated-rollback-02.py",
+    ".tmp/goalie-isolated-rollback-02-source.patch",
+    ".tmp/goalie-isolated-rollback-source-preparation-02.json",
+    ".tmp/goalie-isolated-rollback-02",
+    ".tmp/goalie-isolated-rollback-01-native.log",
+    ".tmp/goalie-isolated-rollback-01-native.exit",
+    ".tmp/goalie-isolated-rollback-02-native.log",
+    ".tmp/goalie-isolated-rollback-02-native.exit"
+  ]
+}

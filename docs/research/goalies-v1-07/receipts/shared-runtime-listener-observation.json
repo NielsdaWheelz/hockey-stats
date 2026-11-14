@@ -1,0 +1,32 @@
+{
+  "kind": "shared-runtime-listener-observation",
+  "status": "matching_live_listener_observed",
+  "observed_clock_after_command_utc": "2026-11-13T12:13:58Z",
+  "argv": [
+    "/usr/sbin/lsof",
+    "-nP",
+    "-a",
+    "-p",
+    "98454",
+    "-iTCP:3407",
+    "-sTCP:LISTEN",
+    "-Fpcn"
+  ],
+  "exit": 0,
+  "stdout": "p98454\ncnode\nf16\nn127.0.0.1:3407\n",
+  "stderr": "",
+  "startup_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-startup.json",
+    "bytes": 1195,
+    "sha256": "8a511ca846e44f63437113333846d8bd36861db0fb8562f8b83faf1ed7464f47"
+  },
+  "startup_log_snapshot": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-listening-log.txt",
+    "bytes": 1141,
+    "sha256": "c614efa308099bed700b0b87b252c1e77c05f9bf74e9813bb8e36052213321bc"
+  },
+  "limits": [
+    "OS listener evidence only; no HTTP, DB hash/query or model read",
+    "service remains running for later separately assigned family matrices; no application/scientific/activation pass"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "status": "cached_launch_consistent_running_unaccepted",
+  "scope": "three named LOCAL metadata receipts only; no46-source reread, qualification repeat, OS/runtime/HTTP/database/external access/stat, test or active output/log read",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-launch-preflight-01.json",
+      "bytes": 19296,
+      "sha256": "b8d5202f2eaca9cc01b46d023f1f1d79426c2fd2f44751ef4e374820158d0c66"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-launch-preflight-review-01.json",
+      "bytes": 3627,
+      "sha256": "4de380dd51d6baef4c5bfa7e530de5f91f2bb0c8aeab68b8ce1c2bdb991702a4"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-actual-launch-01.json",
+      "bytes": 6770,
+      "sha256": "aaa954627fcadd1a9ccda00a874f1d3129bf0d25d0e2b0ac288b91dd61c37d65"
+    }
+  ],
+  "findings": [],
+  "preflight": {
+    "result": "passed_once",
+    "independent_review": "passed_cached_admission_review",
+    "native_exit": 0,
+    "native_seconds": 0.16,
+    "native_peak_rss_bytes": 27115520,
+    "pins": 46,
+    "local_pin_bytes": 1623597,
+    "external_input_bodies": 0,
+    "external_input_member_stats": 0,
+    "database_reads_or_stats": 0,
+    "http_requests": 0
+  },
+  "launch": {
+    "started_utc": "2026-11-14T05:42:27Z",
+    "observed_utc": "2026-11-14T05:43:50.343528+00:00",
+    "shell_pid": 8112,
+    "time_pid": 8113,
+    "python_pid": 8115,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+    "dispatches": 1,
+    "argv": "admitted held07/API07/target1a301; relative paths resolve identically under observed cwd",
+    "interpreter": "qualified primary3.14.8 -B parent and matching macos framework Python.app child",
+    "serving": "same89887/3407/3763/fee5/app852/build18ef/fb604",
+    "source": "STce058/923d/app3242; checkerfc030ac7/held49792690",
+    "target_sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a"
+  },
+  "reconciliation": "all input hashes/sizes,46 unique pin metadata/1623597B, preflight-review/actual-frame bindings, PID chain, cwd, serving/source/target and resolved command agree; no material intake finding",
+  "pending": {
+    "owner_actual_frame_peer_review": "pending_not_claimed",
+    "api_phase": "unknown",
+    "outcome": "unknown",
+    "complete_cost": "unknown",
+    "ETA": "none"
+  },
+  "identity": "first planned cohort GET checks public publication/schema/publisher within<=860; no extra preflight HTTP or invented endpoint",
+  "authority": "ONLY API plus existing conditional d5db three-body postcapture after actual native frame/closure under9316. user hold overrides postreads; no replay/automatic chain. all ST consumer/browser/pixel next stages, final preservation/cleanup and new G live/drive work held through checked ST return.",
+  "acceptance": "launch intake only; no API result, scientific, activation or delivery verdict"
+}

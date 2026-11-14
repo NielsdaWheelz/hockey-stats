@@ -1,0 +1,375 @@
+{
+  "status": "passed",
+  "stats": {
+    "actor_priors": 2768,
+    "entry": 2175,
+    "carry": 593,
+    "age_carry": 503,
+    "prior_only": 1436,
+    "retained_absent_anchors": 1774,
+    "centers": 50
+  },
+  "annuals": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20212022/manifest.json",
+      "sha256": "2c4bed99e41c71bce99d836f822ceb6ebaf14c7e62f3d5a081bbc5e7ddb2d8b7",
+      "resources": {
+        "wall_seconds": 0.3722867500036955,
+        "peak_memory_bytes": 955334656,
+        "design_wall_seconds": 24.40740870893933,
+        "input_read_wall_seconds": 0.0,
+        "dimensions": {
+          "h": 2610,
+          "d": 2610
+        },
+        "solve_counts": {
+          "h": 1,
+          "d": 1
+        },
+        "probe_solve_counts": {
+          "h": 0,
+          "d": 0
+        },
+        "output_bytes": 1408276
+      },
+      "heads": {
+        "h": {
+          "status": "complete",
+          "likelihood_keys": 400,
+          "target_mass": 41.0,
+          "selected_start": "zero",
+          "objective": 116.75083979438382,
+          "gradient_max": 8.96799195834741e-07
+        },
+        "d": {
+          "status": "complete",
+          "likelihood_keys": 41,
+          "target_mass": 4.528535770104274,
+          "selected_start": "zero",
+          "objective": 14.161106984351182,
+          "gradient_max": 9.322833322972235e-07
+        }
+      },
+      "probes": {
+        "h": {
+          "status": "not_assessed_for_annual_state",
+          "reason": "only final selected annual is probed"
+        },
+        "d": {
+          "status": "not_assessed_for_annual_state",
+          "reason": "only final selected annual is probed"
+        }
+      }
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20222023/manifest.json",
+      "sha256": "dfd6d0a0fffc653987816a7598fc4a66c4026ae8db091130b78aedf61d204abf",
+      "resources": {
+        "wall_seconds": 0.7314986659912392,
+        "peak_memory_bytes": 1028669440,
+        "design_wall_seconds": 18.382158749969676,
+        "input_read_wall_seconds": 0.0,
+        "dimensions": {
+          "h": 2557,
+          "d": 2557
+        },
+        "solve_counts": {
+          "h": 2,
+          "d": 2
+        },
+        "probe_solve_counts": {
+          "h": 0,
+          "d": 0
+        },
+        "output_bytes": 1277897
+      },
+      "heads": {
+        "h": {
+          "status": "complete",
+          "likelihood_keys": 298,
+          "target_mass": 42.0,
+          "selected_start": "zero",
+          "objective": 108.2727401785195,
+          "gradient_max": 7.498073413936268e-06
+        },
+        "d": {
+          "status": "complete",
+          "likelihood_keys": 42,
+          "target_mass": 2.355678000399059,
+          "selected_start": "zero",
+          "objective": 8.981224276700488,
+          "gradient_max": 8.093910891654454e-07
+        }
+      },
+      "probes": {
+        "h": {
+          "status": "not_assessed_for_annual_state",
+          "reason": "only final selected annual is probed"
+        },
+        "d": {
+          "status": "not_assessed_for_annual_state",
+          "reason": "only final selected annual is probed"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20232024/manifest.json",
+      "sha256": "eee715e277025c6453c3b9c902c0d892d7145b6f80e2eb5a067e1b9faf95bde3",
+      "resources": {
+        "wall_seconds": 0.7044652920449153,
+        "peak_memory_bytes": 1270022144,
+        "design_wall_seconds": 21.452416333020665,
+        "input_read_wall_seconds": 0.0,
+        "dimensions": {
+          "h": 2585,
+          "d": 2585
+        },
+        "solve_counts": {
+          "h": 2,
+          "d": 2
+        },
+        "probe_solve_counts": {
+          "h": 0,
+          "d": 0
+        },
+        "output_bytes": 1431732
+      },
+      "heads": {
+        "h": {
+          "status": "complete",
+          "likelihood_keys": 284,
+          "target_mass": 49.0,
+          "selected_start": "prior_mean",
+          "objective": 111.56737578384013,
+          "gradient_max": 4.095299374118344e-06
+        },
+        "d": {
+          "status": "complete",
+          "likelihood_keys": 49,
+          "target_mass": 6.60306671381307,
+          "selected_start": "prior_mean",
+          "objective": 18.923608359161914,
+          "gradient_max": 8.127856428279123e-07
+        }
+      },
+      "probes": {
+        "h": {
+          "status": "not_assessed_for_annual_state",
+          "reason": "only final selected annual is probed"
+        },
+        "d": {
+          "status": "not_assessed_for_annual_state",
+          "reason": "only final selected annual is probed"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20242025/manifest.json",
+      "sha256": "899dcf49635f5c3d4df27e6b3ba62fa9d311046b628e43c1bf91a8f8ae75d89f",
+      "resources": {
+        "wall_seconds": 0.813180833007209,
+        "peak_memory_bytes": 1270022144,
+        "design_wall_seconds": 29.882289542001672,
+        "input_read_wall_seconds": 0.0,
+        "dimensions": {
+          "h": 2637,
+          "d": 2637
+        },
+        "solve_counts": {
+          "h": 2,
+          "d": 2
+        },
+        "probe_solve_counts": {
+          "h": 0,
+          "d": 0
+        },
+        "output_bytes": 1734707
+      },
+      "heads": {
+        "h": {
+          "status": "complete",
+          "likelihood_keys": 444,
+          "target_mass": 52.0,
+          "selected_start": "prior_mean",
+          "objective": 138.07600282587944,
+          "gradient_max": 7.94782640745062e-06
+        },
+        "d": {
+          "status": "complete",
+          "likelihood_keys": 52,
+          "target_mass": 3.4897401794319705,
+          "selected_start": "zero",
+          "objective": 12.636778496863597,
+          "gradient_max": 6.961303299357624e-07
+        }
+      },
+      "probes": {
+        "h": {
+          "status": "not_assessed_for_annual_state",
+          "reason": "only final selected annual is probed"
+        },
+        "d": {
+          "status": "not_assessed_for_annual_state",
+          "reason": "only final selected annual is probed"
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20252026/manifest.json",
+      "sha256": "60decc540eb5354f86e56e1015efa9f5bd47a928e196b2355cbe7929805e8189",
+      "resources": {
+        "wall_seconds": 3.651701124967076,
+        "peak_memory_bytes": 1511702528,
+        "design_wall_seconds": 30.5992905839812,
+        "input_read_wall_seconds": 0.0,
+        "dimensions": {
+          "h": 2675,
+          "d": 2675
+        },
+        "solve_counts": {
+          "h": 2,
+          "d": 2
+        },
+        "probe_solve_counts": {
+          "h": 1,
+          "d": 1
+        },
+        "output_bytes": 3119973
+      },
+      "heads": {
+        "h": {
+          "status": "complete",
+          "likelihood_keys": 463,
+          "target_mass": 55.0,
+          "selected_start": "prior_mean",
+          "objective": 146.42844737927325,
+          "gradient_max": 2.2877869072651658e-06
+        },
+        "d": {
+          "status": "complete",
+          "likelihood_keys": 55,
+          "target_mass": 4.138309724528871,
+          "selected_start": "prior_mean",
+          "objective": 14.527631970103748,
+          "gradient_max": 8.350881325917478e-07
+        }
+      },
+      "probes": {
+        "h": {
+          "status": "assessed",
+          "reason": null,
+          "baseline": {
+            "path": "baseline.json",
+            "sha256": "ef72888bd3c8e11df84d748cbd63631c78be4febabbb0f47e31f020b355188ac"
+          },
+          "head_path": "heads/h-tight.json",
+          "array_path": "heads/h-tight.npz",
+          "comparison": {
+            "base_objective": 146.42844737927325,
+            "base_gradient_max": 2.2877869072651658e-06,
+            "optimizer_maxiter": 10000,
+            "optimizer_ftol": 1e-16,
+            "optimizer_gtol": 1e-07,
+            "coefficient_max_change": 4.556673305344816e-08,
+            "coefficient_l2_change": 2.3853527454767184e-07,
+            "tightened_objective": 146.4284473792727,
+            "objective_change": -5.400124791776761e-13,
+            "tightened_gradient_max": 5.202867849440906e-06,
+            "gradient_max_change": 3.3432731168236973e-06,
+            "optimizer_maxfun": 15000,
+            "status": "assessed",
+            "contexts": 256,
+            "origin_rows": 167936,
+            "maximum_probability_change": 2.9543591073544206e-08,
+            "maximum_joint_change": 2.194281936707121e-09,
+            "pointwise_threshold": 1e-05,
+            "compared_probability_rows": 335872,
+            "compared_joint_rows": 335872
+          }
+        },
+        "d": {
+          "status": "assessed",
+          "reason": null,
+          "baseline": {
+            "path": "baseline.json",
+            "sha256": "ef72888bd3c8e11df84d748cbd63631c78be4febabbb0f47e31f020b355188ac"
+          },
+          "head_path": "heads/d-tight.json",
+          "array_path": "heads/d-tight.npz",
+          "comparison": {
+            "base_objective": 14.527631970103748,
+            "base_gradient_max": 8.350881325917478e-07,
+            "optimizer_maxiter": 10000,
+            "optimizer_ftol": 1e-16,
+            "optimizer_gtol": 1e-07,
+            "coefficient_max_change": 3.5618692884042957e-07,
+            "coefficient_l2_change": 1.7260367887864348e-06,
+            "tightened_objective": 14.527631970102716,
+            "objective_change": -1.0320633236915455e-12,
+            "tightened_gradient_max": 1.132291101241245e-06,
+            "gradient_max_change": 1.6145541148482323e-06,
+            "optimizer_maxfun": 15000,
+            "status": "assessed",
+            "contexts": 256,
+            "origin_rows": 167936,
+            "maximum_probability_change": 4.64764428748099e-08,
+            "maximum_joint_change": 6.916236059556491e-09,
+            "pointwise_threshold": 1e-05,
+            "compared_probability_rows": 335872,
+            "compared_joint_rows": 335872
+          }
+        }
+      }
+    }
+  ],
+  "kind": "goalie-complete-fixture-state-chain",
+  "purpose": "fixture",
+  "scope": "five chronological annual states, ten baselines and two final-head diagnostic continuations; independent saved head-history/probe binding audit",
+  "script": {
+    "path": "/tmp/goalie-v1-07-checks/saved_history_audit.py",
+    "sha256": "203e333825190d3e368e2378831176899bea56720585ae7da604e9045d490e12"
+  },
+  "command": {
+    "path": "/tmp/goalie-v1-07-checks/fixture_remaining_02.py",
+    "sha256": "64aebee96f596d556dca834a1f3fd132c0d8a5f261397257a6aeba918feff5a7"
+  },
+  "additional_bounded_checks": [
+    {
+      "path": "/tmp/goalie-v1-07-checks/model_check.py",
+      "sha256": "b3a84c46142d08c42746262ea780b4d312867687798a91ea5cae78d73bd72bab",
+      "status": "passed"
+    },
+    {
+      "path": "/tmp/goalie-v1-07-checks/target_and_state_checks.py",
+      "sha256": "6b966aa99585086b0dc2dd525a3131a5f8d5037447a8984edad479745f72e75c",
+      "status": "passed"
+    },
+    {
+      "path": "/tmp/goalie-v1-07-checks/source_and_parity.py",
+      "sha256": "2089035c7c3657db6af9ea1cf4e4245274d4c17f1be8dd532b919b8cdc30f68f",
+      "status": "passed"
+    },
+    {
+      "path": "/tmp/goalie-v1-07-checks/neutral_applicability.py",
+      "sha256": "8a19e99ac92243a179d7b15448502780d7acf073f52fdfc866b8cec31eb2aedb",
+      "status": "passed"
+    },
+    {
+      "path": "/tmp/goalie-v1-07-checks/score_math_independent.py",
+      "sha256": "8b5b166b93596aa5b1ddf90fc28b5d7fccd01b6338d3b7d3a790d5bbd279951d",
+      "status": "passed"
+    }
+  ],
+  "outcome": "all ten fixture baseline heads completed; each final head has exactly one completed diagnostic continuation; earlier years remain unassessed; baseline arrays retained",
+  "limits": [
+    "fixture rows do not establish real-season capability or scientific quality",
+    "summary sensitivity for every goalie/strength belongs to final annual score artifact",
+    "publication/api/browser acceptance remains separate",
+    "temporary checks/controllers remain until full assigned acceptance, then deletion"
+  ]
+}

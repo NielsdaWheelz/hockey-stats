@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "kind": "shared-browser-01-launch-independent-review",
+  "status": "cached_launch_matches_admission_not_browser_accepted",
+  "sha256": {
+    "shared-browser-01-admission.json": "295196b9c832e42dc22f9b64e03e29a21266eb874fcbffc4f0e9d72edb078cde",
+    "shared-browser-01-actual-launch.json": "d337afbe30c5d3d7973d60b2c0d8adbace972208edcdb3eb2ce0124993a79b95",
+    "browser_controller": "e86cf8d730fbbebdf6a52cc47b76c50e915d5b74148f2da1ce0b875d97ee60a9",
+    "held_caller": "90e4cf2981b8470e5f7e4a5e60b84f4abd1abf1171959ec24b495b91c34ee531"
+  },
+  "findings": [
+    "cached time 57749/node 57750 argv matches the held caller: pinned node 24, exact browser controller, base 3407, api-02.json, consumer-04.json, external browser-01 output, local browser-profile-01 and pinned Playwright entry. submission 15:31:02Z and observed 01:25 elapsed are consistent; no new OS or cwd observation is claimed.",
+    "admission/frame bind runtime c90/analysis fee5/app 8ca793/build e885, server 33587 and candidate fb604 with stored publisher 4aa. accepted API 355de/review 289c and consumer c7e/review 4be99/oracle bc293 match admitted upstream identities.",
+    "admission records mount/parent present, one external and three local browser paths absent, zero input bodies and no freshness failure. this is availability evidence only. the running frame establishes no total metric/export/layout counts, native exit, cost or pixel acceptance."
+  ],
+  "capture_preparation": {
+    "source": ".tmp/goalie-live-acceptance/browser-boundary-01.py",
+    "bytes": 6565,
+    "sha256": "1c9645999a539bc8191f2b9d203ce04cd2a9b45ceb2b5912569eccb4c5be050e",
+    "status": "prepared_not_executed_pending_root_and_other_source_review",
+    "scope": "one fixed external receipt and two fixed local native bodies; separate location byte totals; original cap/prefix/error/status mechanics retained. native nonzero permits complete capture only. no artifacts, images, SVG, downloads or source inputs followed."
+  },
+  "blocking_launch_mismatches": [],
+  "limits": "cached admission/frame only; no active receipt/log/progress/image/HTTP/OS read or controller execution. capture requires actual Node/time closure, exact terminal marker/prompt, no user STOP/hold and separate root assignment. machine completion still requires independent output and human pixel review; no family, v1-19, scientific or activation pass."
+}

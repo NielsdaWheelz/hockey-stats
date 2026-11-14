@@ -1,0 +1,53 @@
+{
+  "kind": "goalie-live-acceptance-recovered-source",
+  "status": "independently_source_reviewed_actual_work_held",
+  "source": {
+    "api_checker": {
+      "path": ".tmp/goalie-live-acceptance/check_api.py",
+      "bytes": 43769,
+      "sha256": "3a89e054eaaaa7c06eada98eb485b226fc3bdb96a0c529e3c41460b2fb957cb5"
+    },
+    "startup_meter": {
+      "path": ".tmp/goalie-live-acceptance/runtime.mjs",
+      "bytes": 2254,
+      "sha256": "bb37d4a06cbde3a7bf4e350f331e67a14ac34f655a7d877582ea0a6562066ec4"
+    },
+    "detached_profile": {
+      "path": ".tmp/goalie-live-acceptance/detached.sb",
+      "bytes": 1256,
+      "sha256": "dda6d8f506d99c4fd595f226ade0e47023c858961ddad266aaf4ce1f6b0dfa6a"
+    },
+    "browser": {
+      "path": ".tmp/goalie-live-acceptance/browser-real.mjs",
+      "bytes": 32850,
+      "sha256": "28a8f982dff68f2f6b6fc463934e0ed372b9f9cf408ef1c9e2c2b1c92c730e91"
+    },
+    "publication_preflight": {
+      "path": ".tmp/goalie-live-acceptance/publication-preflight.py",
+      "bytes": 12207,
+      "sha256": "c24542dc6a9d3dc722499854493bcf7c775e3d880fffa2459698aa0398913042"
+    },
+    "publication_shell": {
+      "path": ".tmp/goalie-live-acceptance/publication-held.sh",
+      "bytes": 1225,
+      "sha256": "14b7e23c90998e4a6cd697df8dfacebe69ac8dde27ae655465b756f994a9c23c"
+    }
+  },
+  "old_tmp_sources_restored_byte_for_byte": false,
+  "new_source_not_numerical_rerun": true,
+  "source_only_reviews": "independent source and downstream wire/case reviews close findings at these hashes; no real API/browser/candidate invocation",
+  "local_controls": "four API controller controls; ten browser parser/favicon controls; two nullable qualification cases; syntax checks; all passing, no product/live claim",
+  "narrow_mechanism": "one synthetic measurement: native window minimum500 despite requested320; narrow explicitCSS320, native200 remains viewport:null/per-hostPreferences",
+  "startup_bootstrap": "earlier profile8f68 local Node bootstrap/source-denial passed; currentdda6 additionally denies threeSTanalysis paths, source-reviewed only; no actual server/candidate read",
+  "api_scope_estimate": "361Gyears:33scalarleagues+2002pairedmodelmaps+8664alltypeevidence+21840pairedtypemaps+3971breakdowns plusprofiles/viewcontrols/negatives; construction only, actualbytes/wall/RSS unknown",
+  "actual_final_exchange_sha256": null,
+  "actual_final_root_receipt_sha256": null,
+  "actual_candidate_publication_id": null,
+  "actual_work_granted": false,
+  "cleanup": "delete temporary sources/controllers/dependencies/profiles after full assigned acceptance; retain checked facts and useful exports",
+  "production_source_unchanged": {
+    "commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6"
+  }
+}

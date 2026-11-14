@@ -1,0 +1,46 @@
+{
+  "kind": "shared-runtime-02-service-archive-independent-review",
+  "status": "accepted_complete_archive_preservation_only",
+  "scope": "fixed local completed archive metadata, native copy log/exit and actually submitted command source only; no raw service-log body reread, external access/stat, process query, runtime, parser or controller execution",
+  "evidence": {
+    "archive": {"path": "shared-runtime-02-full-service-log-archive.json", "bytes": 933, "sha256": "3320855531e564c82e509a4ad53c5d014bc8afad3b8effc1a1c11839499cc0f3"},
+    "native_log": {"path": "shared-runtime-02-service-archive-native.log", "bytes": 1688, "sha256": "8898564a565ad8a80bf5be9b307ec56ee92b9d9384bbb2b2ce47ffa1416141ca"},
+    "native_exit": {"path": "shared-runtime-02-service-archive-native.exit", "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa", "canonical_value": 0},
+    "executed_command": {"path": ".tmp/goalie-live-acceptance/archive-runtime-02.command", "sha256": "20ebf87790ffb0aba4afb5ace763f054bff5d4c727f03c5a08f66f61bc387ea2"},
+    "terminal_closure": "root reports this exact command was submitted once and G_RUNTIME_02_ARCHIVE_EXIT=0 plus prompt were observed"
+  },
+  "preserved_log": {
+    "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-02.log",
+    "target": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/runtime-02-service-native.log",
+    "bytes": 5376266,
+    "stream_sha256": "b5bb00e218d5b6f6bfc150baebec4433cf712d9d35e2f59e06382ce693c8092e",
+    "independent_external_readback": false
+  },
+  "findings": [
+    "all four fixed local evidence hashes match; the native log repeats the same complete-copy path, byte count, stream digest and internal costs as the exclusive metadata receipt",
+    "the actually submitted source opens only the fixed external target with xb and the fixed local source with rb, streams chunks, rejects short writes or a final count differing from the root-measured 5376266 bytes, closes both files, then exclusively writes completion metadata",
+    "the native copy exit is exactly 0 newline, and the root-observed completion marker/prompt establishes actual closure; no copy replay is inferred or required",
+    "the complete source stream and successful per-chunk writes establish ordinary full-file archival; no external target body was independently read, hashed or statted, and physical i/o bytes remain unknown",
+    "the earlier 4 mib cap record remains historically incomplete. the full copy resolves only its preservation blocker; it neither revises that attempt nor measures the old service's startup or lifetime cost"
+  ],
+  "cost": {
+    "native_copy_wall_seconds": 14.63,
+    "native_copy_peak_rss_bytes": 19103744,
+    "internal_copy_wall_seconds": 14.582390666939318,
+    "internal_copy_peak_rss_bytes": 19087360,
+    "interpretation": "copy-command costs only; native whole-command and internal streaming/metadata preparation scopes remain separate"
+  },
+  "distinct_outcomes": {
+    "archive_copy_native_exit": 0,
+    "previously_archived_intentional_service_native_exit": 130,
+    "startup02_listening_measurement": "the previously accepted 2020.983562 seconds and 1967079424 bytes remain unchanged; no service-lifetime footer is parsed or claimed as startup cost"
+  },
+  "historical_read_race": "root reports one premature local metadata read returned FileNotFoundError/exec1 before archival completion. the completed metadata was read after the actual copy exit 0 marker/prompt; this was not a failed copy or replay",
+  "cleanup_disposition": "the local full log is now preservation-qualified for later named deletion after all assigned acceptance and an explicit cleanup grant; no deletion is authorized or performed now",
+  "material_findings": [],
+  "limits": [
+    "the review introduces no new raw-log read, external operation, command execution, runtime or live-work grant",
+    "current node 89887 remains outside this review; all held goalie/live work and the separately owned st window remain unchanged",
+    "no application, scientific, activation or cleanup acceptance follows from archival completion"
+  ]
+}

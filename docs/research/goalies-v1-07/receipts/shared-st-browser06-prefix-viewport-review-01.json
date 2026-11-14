@@ -1,0 +1,35 @@
+{
+  "kind": "shared-st-browser06-prefix-viewport-pixel-review",
+  "reviewer": "root",
+  "input_manifest_sha256": "729a843ce11acaa01b9abc96b6d2ce0aeac7d849fccf3e4e1b2f13fc8f1af22c",
+  "index": 41,
+  "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/001-normal-profile.png",
+  "bytes": 171254,
+  "sha256": "273b3093011858ac5aa62d396e81316922d9b0f4d289dbd27c309e81030a636d",
+  "identity_verified": true,
+  "actual_png_dimensions": [
+    1280,
+    913
+  ],
+  "actual_original_pixels_viewed": true,
+  "status": "accepted_scoped_viewport_pixels",
+  "findings": [],
+  "observations": [
+    "comparative profile header and player identity are readable; controls and content fit the viewport width without overlap or horizontal clipping",
+    "general and specialty input labels and their distinct apply general peer minimum/apply specialty peer minimum buttons are fully legible",
+    "experimental seasonal label, hypothetical common-workload meaning and pending ledger unavailability are explicit",
+    "the lower page continues below the viewport; this is ordinary viewport cropping, not proof of history/export content below the fold"
+  ],
+  "limits": [
+    "earlier first normal profile screenshot, not the missing dom at the later timeout",
+    "history endpoints/selected labels and all forty downloaded PNGs require their separate actual pixel reviews",
+    "failed browser06 remains failed; no cutoff action, remaining matrix, whole-browser or scientific acceptance follows"
+  ],
+  "known_hash_read_bytes": 171254,
+  "hash_read_wall_seconds": 0.021640332881361246,
+  "hash_process_peak_rss_bytes": 18939904,
+  "image_tool_views": 1,
+  "image_tool_read_bytes_and_cost": "UNMEASURED",
+  "physical_io_bytes": "UNKNOWN",
+  "scope": "one exact original PNG read/hash/view only; no csv/svg/member/db/http/browser/service or artifact modification"
+}

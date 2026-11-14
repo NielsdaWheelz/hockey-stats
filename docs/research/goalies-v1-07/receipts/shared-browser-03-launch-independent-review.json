@@ -1,0 +1,17 @@
+{
+  "disposition": "consistent_actual_launch_only",
+  "review_scope": "retained local admission, launch frame, freshness result/log/exit and upstream receipt hashes; no live query or execution",
+  "evidence_sha256": {
+    "admission": "37ac9c7c463282a695cc8abd7c53da4f2af567218578651752be263ff222bb1b",
+    "actual_launch": "ffe0097ac26eaed161abb1e5c7e95662711389ce37e50b32390b24792572237d",
+    "preflight": "367e24d82919dbe3e516a0fe8d5c139bf0731f23e21e20417b446ecd029138d9",
+    "preflight_native_log": "e7803a997c46e14185cf10ca84fea5bac6dc8ed7679e379b3f1b850332ca6376",
+    "preflight_native_exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "findings": [
+    "cached process rows show node 68365 under time 68364, wrapper 68363 and parent 68362, starting at 2026-11-13T16:21:26Z; the frame records the repository cwd. pinned node 24.21.0, controller 466034f44676c864096ff94c03099b4e798719eeb5957062e4e55f4324d084ee and caller 0d6ea4d56db4afb38f3422b162efc7eb5cbc1ddce43120b0ca8655e649ed4f41 match the reviewed command.",
+    "actual argv retains api-02.json, consumer-04.json, port 3407 and the pinned playwright module; output browser-03 and profile browser-profile-03 are distinct fresh paths. availability recorded the mount and existing output parent plus all four required absent paths, with native exit 0. this is availability evidence, not browser success.",
+    "admission and frame agree on runtime c90cb73f03c6e0b5f0efe527b0ebe6243160df55, build e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2, server 33587 and publication fb60493e-badf-4b11-9585-b5a541387e66. local build, api02 and consumer04 receipt hashes match admission. stored publisher 4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4 remains distinct from runtime source; no mismatch found."
+  ],
+  "limits": "launch observed running at 2026-11-13T16:21:32Z; no completed matrix, request count, cost or outcome inferred. all 30 fresh export pairs, representative/cutoff/smoke and viewport checks remain browser-owned; machine success still requires independent pixel inspection. no scientific, activation, ST or cleanup admission. historical partial failures supply no completed-matrix credit."
+}

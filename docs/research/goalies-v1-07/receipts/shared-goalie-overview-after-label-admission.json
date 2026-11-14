@@ -1,0 +1,19 @@
+{
+  "kind": "shared-goalie-overview-after-label-admission",
+  "assigned_at": "2026-11-14T04:52:14.090007+00:00",
+  "status": "assigned_once_not_run",
+  "scope": "only three fixed sequential public goalie overview GETs; whole parsed envelopes and ordered identities compared to accepted local before metadata; fresh raw response outputs; no retry",
+  "serving_source": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+  "build_receipt_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+  "retained_node_pid": 89887,
+  "startup_sha256": "faf3081803a82112c49bc74058f83eaf3d97f3fa9f89b260bcf3851fb0d7724a",
+  "listener_observation_sha256": "4bea2d0857060d65e522599b238699262eebf338c16cfb87b6ce8e60b476ab01",
+  "independent_startup_verdict": "trace_review accepted normal strict listening only from cached facts; durable receipt follows",
+  "source_sha256": "d9ebb5109e725f53e2d06b5175f414b2cb0d3e09871937a1fa14bd68be3903da",
+  "caller_sha256": "3ecd327fbb84e070eb935c84b2c43cd63d93e66719ee249d19c8257dbd161299",
+  "baseline_metadata_sha256": "44f04bde7b4c924d86fe28e0deba2eb4683983d3bc237e7531d76813088a269e",
+  "baseline_checked": "byte-exact to durable accepted before metadata; source and caller match reviewed bytes",
+  "limits": "raw response hashes recorded separately; helper gates whole strict parsed response, not raw bytes. no exhaustive API replay, browser/ST/pixel/scientific/activation pass. ordinary caller availability/freshness precedes one invocation. user STOP overrides pending reads"
+}

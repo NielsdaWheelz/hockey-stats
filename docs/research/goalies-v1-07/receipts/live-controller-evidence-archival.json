@@ -1,0 +1,93 @@
+{
+  "kind": "goalie-live-controller-evidence-archival",
+  "status": "byte_exact_local_copies",
+  "files": [
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/g-header-recovery.log",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/live-header-recovery-native.log",
+      "bytes": 831,
+      "sha256": "76d856c6766bcaae50c9a169c9cd76530c10abc0d847542755301567e5a82d82"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/g-header-recovery.exit",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/live-header-recovery-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/check-api-controls-01.log",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/live-api-controller-controls-01.log",
+      "bytes": 936,
+      "sha256": "23ec334f6117a538bd8691afc3ca41c30abbd08c2480db5d3c924d744488a8ed"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/check-api-controls-02.log",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/live-api-controller-controls-02.log",
+      "bytes": 956,
+      "sha256": "bda2a6af1951f5ba2184c32f39e1913b7482fc1ca2f41ca1d35591992ac982a2"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-controller-controls.json",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/live-browser-controller-controls.json",
+      "bytes": 264,
+      "sha256": "dfb83fcddb6cc812eecd53215da55083ecefd1c5e55d0348a7c07d4a240b6fa0"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-qualification-controls.json",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/live-browser-qualification-controls.json",
+      "bytes": 254,
+      "sha256": "d013c47cc1255cbffdc2eb269cdb30cf9b2f8ea58d49e98dfa07f881721fc199"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-boundary-controls-01.json",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-publication-boundary-controls.json",
+      "bytes": 2816,
+      "sha256": "32c18618246ffa52a309f03f9b0b343abfc680c1b7229b900eb43c3f551df979"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-boundary-controls-01.log",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-publication-boundary-controls.log",
+      "bytes": 1561,
+      "sha256": "eb8d19620a2d97c95b56f511729270824dd5355d33d8489a55fa34024d8122f4"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-boundary-controls-01.exit",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-publication-boundary-controls.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/detached-bootstrap-20261113.json",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/live-detached-bootstrap.json",
+      "bytes": 171,
+      "sha256": "dc96ccd93a574fa0cf9df54f1fcd4ffe9280abf7830bc117d734a5f0febe6a3f"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/detached-bootstrap-20261113.stderr",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/live-detached-bootstrap.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/narrow-mechanism-20261113.json",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/live-narrow-mechanism.json",
+      "bytes": 870,
+      "sha256": "7f82c4c04f1198edc4044d3f4ab503458c396ef2602f9cc827c0dd52a66034b7"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/narrow-mechanism-20261113.log",
+      "retained": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/live-narrow-mechanism.log",
+      "bytes": 725,
+      "sha256": "558b531ae4c53f5ad471116aadcdfb7455c7b7fb80a165dda446a6281d9342da"
+    }
+  ],
+  "total_bytes": 9388,
+  "scope": [
+    "local evidence archival only; no controller execution or external access",
+    "raw API-control printed failures are intentional negative fixtures, not actual live failures",
+    "bootstrap records profile8f68 only, not currentdda6; older0aa4 evidence remains historical",
+    "narrow mechanism is synthetic, not real browser acceptance",
+    "original source identities, control scopes and limitations remain authoritative; no retrospective reattribution"
+  ],
+  "cleanup": "held until acceptance, final preservation and owned-process closure; this archival performs no deletion"
+}

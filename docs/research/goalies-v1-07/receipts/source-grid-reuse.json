@@ -1,0 +1,125 @@
+{
+  "kind": "exact-retained-source-grid-reuse",
+  "status": "passed",
+  "previous_commit": "fa8ec0973c1a933414668317989b7696331139d7",
+  "previous_analysis_tree": "1dc4e1b33b2b570854d5c84621129ebbaf796d32",
+  "red": {
+    "kind": "bounded-retained-source-grid-reuse",
+    "phase": "red",
+    "status": "red_repeated_grid_observed",
+    "prepared": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+    "coaches": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "season": "20212022",
+    "game": "2021020001",
+    "selected_fixture_games": 7,
+    "reduced_source_rows": 113,
+    "predictors": 771,
+    "source_rows": 824,
+    "counts": {
+      "reduce_goalie_game": {
+        "grid": 87,
+        "default_centers": 87,
+        "cell_id": 87
+      },
+      "prepare_execution_sources": {
+        "grid": 776,
+        "default_centers": 819,
+        "cell_id": 819
+      }
+    },
+    "scientific_output_sha256": "4821455edf1844302da6f8efc7aa263e973f0cfd213c51dc7e944d2ba0cdd8aa",
+    "scientific_output_bytes": 26922801,
+    "exact_old_new_outputs": false,
+    "coordinate_cases": 16,
+    "coordinate_default_explicit_outcomes_equal": true,
+    "volatile_exclusion": "measured source resources only; recorded separately",
+    "owner_wall_seconds": {
+      "reduce_goalie_game": 0.12254625000059605,
+      "prepare_execution_sources": 33.5854093329981
+    },
+    "wall_seconds": 35.916427665855736,
+    "peak_memory_bytes": 1052262400,
+    "limits": [
+      "bounded retained original-game and selected fixture source replay only; no full real corpus, source acquisition, matrices, fit, score or probe",
+      "red asserts a desired computational reuse property; no pre-existing numerical/source error is claimed",
+      "no whole-runtime speedup extrapolation"
+    ],
+    "native_resources": {
+      "wall_seconds": 36.75,
+      "user_seconds": 21.8,
+      "system_seconds": 0.31,
+      "peak_resident_bytes": 1052278784
+    },
+    "exit_code": 1,
+    "receipt_sha256": "f130916b160bf965a04f71cd94f495076b5bcd7e84c272a3d7184fa08f2b338f",
+    "log_sha256": "8b928fb6f8c7401ca572d1d029f28d4415684fda30f040f73d762d18f41a9b74"
+  },
+  "green": {
+    "kind": "bounded-retained-source-grid-reuse",
+    "phase": "green",
+    "status": "passed",
+    "prepared": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+    "coaches": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "season": "20212022",
+    "game": "2021020001",
+    "selected_fixture_games": 7,
+    "reduced_source_rows": 113,
+    "predictors": 771,
+    "source_rows": 824,
+    "counts": {
+      "reduce_goalie_game": {
+        "grid": 1,
+        "default_centers": 0,
+        "cell_id": 87
+      },
+      "prepare_execution_sources": {
+        "grid": 1,
+        "default_centers": 0,
+        "cell_id": 819
+      }
+    },
+    "scientific_output_sha256": "4821455edf1844302da6f8efc7aa263e973f0cfd213c51dc7e944d2ba0cdd8aa",
+    "scientific_output_bytes": 26922801,
+    "exact_old_new_outputs": true,
+    "coordinate_cases": 16,
+    "coordinate_default_explicit_outcomes_equal": true,
+    "volatile_exclusion": "measured source resources only; recorded separately",
+    "owner_wall_seconds": {
+      "reduce_goalie_game": 0.010638833045959473,
+      "prepare_execution_sources": 18.6435131249018
+    },
+    "wall_seconds": 20.90445683314465,
+    "peak_memory_bytes": 1062191104,
+    "limits": [
+      "bounded retained original-game and selected fixture source replay only; no full real corpus, source acquisition, matrices, fit, score or probe",
+      "red asserts a desired computational reuse property; no pre-existing numerical/source error is claimed",
+      "no whole-runtime speedup extrapolation"
+    ],
+    "native_resources": {
+      "wall_seconds": 21.26,
+      "user_seconds": 20.91,
+      "system_seconds": 0.29,
+      "peak_resident_bytes": 1062191104
+    },
+    "exit_code": 0,
+    "receipt_sha256": "b63dbad86a5e82ceca83bd672657734e3c0a54e8fa56b6627c01b40ba6c4325c",
+    "log_sha256": "5f81470767f3652540b67ddb18839e6117a5804ece53c2549cce748eaa71f7f3"
+  },
+  "changed_sources": {
+    "analysis/src/hockey_stats/descriptive.py": "128e8e9340168ff2f28f69ecbdde5e4d9eb39e77e4c822cfa0f655ff7269ad2b",
+    "analysis/src/hockey_stats/execution_design.py": "61dce2806fabc82e5bd383ff7ef56ddaee0c2f6593b0d52092505b5482bd7615"
+  },
+  "temporary_controller": {
+    "path": "/tmp/goalie-v1-07-checks/source-grid-reuse.py",
+    "sha256": "ea5159d97de426ee64e87c339f6ca631dd86faa6b0c087367af289a511f4ec7a",
+    "retention": "delete with the other owned temporary checks after full assigned acceptance"
+  },
+  "red_meaning": "old-source repetition is established before intentional exit1; no pre-existing scientific/source error is claimed",
+  "tradeoff": "one eager grid per owner invocation, including empty inputs, avoids lazy state without changing scientific output",
+  "review": "root and independent numerical owner clear the actual patch and red/green proof: all lookup paths covered, deterministic order and exceptions unchanged, centers read only, no scientific/solver change; red is an intentional repetition demonstration, not a numerical failure",
+  "limits": [
+    "same bounded input pair; page-cache state differs, so timings do not establish attributable or full-runtime speedup",
+    "no global cache, grid return alias/writeability change, source acquisition, full real replay, matrices, fit, score or probe",
+    "accepted fits and first score are retained; required composition will later validate the old first score through the current reader"
+  ]
+}

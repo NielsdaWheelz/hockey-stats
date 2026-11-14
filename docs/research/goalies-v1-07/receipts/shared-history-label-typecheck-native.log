@@ -1,0 +1,22 @@
+
+> typecheck
+> react-router typegen && tsc -p tsconfig.json && tsc -p tsconfig.web.json
+
+        0.94 real         2.02 user         0.35 sys
+           410107904  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               67038  page reclaims
+                1922  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                1316  signals received
+                3933  voluntary context switches
+               12046  involuntary context switches
+           821321224  instructions retired
+           306830299  cycles elapsed
+            26610832  peak memory footprint

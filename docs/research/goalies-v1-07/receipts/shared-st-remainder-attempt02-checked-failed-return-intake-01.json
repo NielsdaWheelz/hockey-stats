@@ -1,0 +1,35 @@
+{
+  "kind": "shared-st-remainder-attempt02-failed-return-intake",
+  "status": "checked_failed_window_returned",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-checked-return-02.json",
+      "bytes": 10610,
+      "sha256": "3f5646cdf7bf35a06367d66193267120626f68b98fa5653fca0389911269d22d"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-independent-adjudication-02.json",
+      "bytes": 864853,
+      "sha256": "7365d19c59b75eebfb71aa20ed9d67ffa11ce5d2d48131b71a0b5a396c23d0bf"
+    }
+  ],
+  "root_cached_read_scope": {
+    "unique_bodies": 2,
+    "body_reads": 4,
+    "logical_bytes": 2605169,
+    "reason": "identity/status check; two deliberate adjudication rereads for raw structure and bounded failure-url grouping",
+    "external_or_reference_follow": false
+  },
+  "native_exit": 1,
+  "capture_exit": 0,
+  "requests": 701,
+  "responses": 653,
+  "response_statuses": {
+    "200": 653
+  },
+  "normal_aborts": 48,
+  "cause": "unknown",
+  "new_credit": 0,
+  "next_actual_command_assigned": false,
+  "physical_io": "unknown"
+}

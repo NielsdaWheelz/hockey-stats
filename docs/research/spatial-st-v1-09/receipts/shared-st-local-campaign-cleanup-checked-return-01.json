@@ -1,0 +1,62 @@
+{
+  "kind": "root-scoped-st-cleanup-return",
+  "status": "accepted_scoped_cleanup_with_command_audit_limitation",
+  "checks": {
+    "fixed_input_identities": true,
+    "authority": true,
+    "root_cwd": true,
+    "literal_partition": true,
+    "exact_selected_list": true,
+    "exact_removed_list": true,
+    "removed_types": true,
+    "exact_selected_absence": true,
+    "completed_without_error": true,
+    "canonical_native_exit": true,
+    "python_flags_and_payload": true,
+    "native_footer": true
+  },
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-local-campaign-cleanup-completion-01.json",
+      "bytes": 62766,
+      "sha256": "d078edcb98b1f603d59bbe36a1f31cfa668f16502ddc5be9a5edb97028d1a1f9"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-local-campaign-cleanup-01-native.log",
+      "bytes": 880,
+      "sha256": "fe75c071a1dc17f495f56be304895d65509400fb255154bd5d2bae854f95ac51"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-local-campaign-cleanup-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-local-campaign-cleanup-inventory-01.json",
+      "bytes": 22570,
+      "sha256": "fecc8a51ac5c9483db37c86b7911766935f63f2ceac4d6384f7bbdb975ae509e"
+    }
+  ],
+  "scope": "148 authenticated literal files and six isolated profile trees removed; all154 selected paths recorded absent. this is not a census or preservation recheck.",
+  "command_audit": {
+    "full_literal_submission_correspondence": "not_established; original reviewer failure retained",
+    "actual_python_executable": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python",
+    "code_bytes": 7494,
+    "code_sha256": "04419fbe6bcd1ae43f4669ca9197eb852393ef20bfa1ba6d979391751a1e0c3b",
+    "native_command_field": "self-reconstructed WRAPPER plus shlex.join(sys.orig_argv), not an observed submitted shell string",
+    "decision": "the grant prescribed qualified python -B, stdlib handling and exact154 targets, not one literal shell encoding. reviewed payload authenticates the inventory, reserves evidence before mutation, applies only its148/6 selections, stops on error and checks selected absence. a reconstructed wrapper inequality is outside that effect contract; no byte-exact submission claim or deletion replay is warranted.",
+    "unresolved": "the original two comparison operands and exact discrepancy were not retained by the reporting reviewer; no cause is asserted.",
+    "interpreter_basis": "retained primary3.14.8 qualification and reported Mac framework launcher; no fresh version or OS replay"
+  },
+  "costs": {
+    "native_wall_seconds": 0.31,
+    "native_peak_rss_bytes": 23658496,
+    "native_peak_footprint_bytes": 13713888,
+    "internal_wall_seconds": 0.22345020808279514,
+    "internal_peak_rss_bytes": 23625728,
+    "removed_bytes": null,
+    "physical_io_bytes": null
+  },
+  "limits": "all other holdings were outside the mutation code; independent protected-path recheck and primary preservation remain separate. no product/scientific acceptance or further ST command assigned.",
+  "review": "root checked fixed local metadata and the retained executed stdlib payload; no deletion, target stat, runtime or external read was repeated."
+}

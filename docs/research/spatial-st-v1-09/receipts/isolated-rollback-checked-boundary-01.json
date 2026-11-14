@@ -1,0 +1,49 @@
+{
+  "kind": "isolated-current-schema-fixture-rollback-checked-boundary",
+  "status": "accepted_isolated_schema9_rotation_only",
+  "independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/isolated-rollback-attempt02-independent-review-02.json",
+    "bytes": 13896,
+    "sha256": "139f87eb50ba6f5a26681b5986defa1a5e2fdb3aff5b1e3cd14088af5da35e18"
+  },
+  "root_check": "final review identity/status/findings verified; original six metadata identities previously matched; no second database/corpus/native/fullreader pass",
+  "native_completion": "exact ISOLATED_ROLLBACK_NATIVE_EXIT=0 plus actual tool exit0; all eight synchronous child exits0",
+  "source_sha256": "c5e0af98278b20e3da6aa89e04bdeeb90a5b1c94c07563c53dd9c00173b5fe19",
+  "publications": [
+    {
+      "label": "a",
+      "id": "5185f3d9-0d4e-4bdd-a185-7459ae7d46a2",
+      "bytes": 20668416,
+      "sha256": "a84d5372dc66227112848ebbe812aae6373a9862d23770fef6e9ec583395283e"
+    },
+    {
+      "label": "b",
+      "id": "854c99b1-df83-456b-a52a-71a383b2fdec",
+      "bytes": 20668416,
+      "sha256": "6163a4a7cd7b8797d1ceed168800279829a82d504f5b609327ad7e38a8af2d4d"
+    }
+  ],
+  "acceptance": "both normal publication integrity/FK/readback/conservation checks pass; seven actual readonlyschema9header/fullfilehash observations and three incomingabsence observations prove A\u2192B\u2192A, ending activeA/previousB in the explicit disposable directory",
+  "fixture_derivation": "new purposefixture headers alongside untouched ordinarycorpus headers from same6captures/3references; all47copiedanalyticalmembers/prepared/catalog identities preserved, actualobservedbindings and producer attributed. normalvalidators unchanged",
+  "native_cost": {
+    "wall_seconds": 15.66,
+    "peak_rss_bytes": 346324992,
+    "raw_footprint_bytes": 159941256
+  },
+  "internal_cost": {
+    "wall_seconds": 15.550527416868135,
+    "controller_peak_rss_bytes": 179863552,
+    "largest_waited_child_peak_rss_bytes": 346324992
+  },
+  "archive": {
+    "result": "isolated-rollback-attempt02-result.json.gz",
+    "bytes": 108490,
+    "sha256": "615fb6a78f8a2ce45d747ab8d4259f2fdc8b0ec23cf536a73ed865b67b2f143f",
+    "decoded_bytes": 3661722,
+    "decoded_sha256": "2b15c75c9eb4cb7c54c83d3d1ef0aa8fc54836028eaa655b8260a9d0bf61602b",
+    "smallmetadata": "five byteexact native/publication/derivation copies retained; identities in independent review"
+  },
+  "historical_failures": "attempt01 omitted fixturepurpose and failed before anyoperator, retained. initial reviewer required numeric conservation totals to equal passed; corrected to actual typedstatusfields, allread_back/conservation statusespassed. c117 initialreview staysfailed; no validation waiver or native replay",
+  "limits": "same-schema synthetic operational test, not realfamily/scientific/crossschemarestore/liveactivation or newprotected-primary proof. no realcandidate/primary/server/HTTP/HDD/model/fit/rescore/build touched; finalpreservation stillowed. physicalIO and simultaneousaggregateprocesspeaks unknown",
+  "return": "one rootfixture window completed; no owned child remains by synchronous nativecompletion. temporaryoutputs retained under no-cleanuphold. no nextowner/chain by this boundary"
+}

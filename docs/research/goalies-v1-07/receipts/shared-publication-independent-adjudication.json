@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "kind": "shared-publication-independent-adjudication",
+  "reviewer": "publication_adjudication",
+  "status": "accepted_inactive_publication_metadata_boundary_only",
+  "disposition": "the retained native completion, fixed metadata captures and immutable normal-writer contract support acceptance of this inactive publication. no blocking source, argv, identity, family or cost-scope mismatch was found. normal strict startup, api/browser/download acceptance, scientific admission and activation are not assessed or authorized here.",
+  "subject": {
+    "source_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+    "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite",
+    "purpose": "real",
+    "exchange_schema": 3,
+    "database_schema": "9, bound by normal writer completion; not independently queried"
+  },
+  "local_evidence_sha256": {
+    ".tmp/goalie-live-acceptance/publication-boundary-01/result.json": "7ef8fc5e24132029a7a850ec49663de28e93f3ec617e00bc977488f88bdccf93",
+    ".tmp/goalie-live-acceptance/publication-boundary-01/log.raw": "c3d6aa3ccea4cf58febe45551fe8dace737a6b585b66302758ca8c063f33da5c",
+    ".tmp/goalie-live-acceptance/publication-boundary-01/exit.raw": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    ".tmp/goalie-live-acceptance/publication-boundary-01/verification.raw": "4d4770af7a02cfab9d9c6b5c3fda868046c3d60574a2a25e93a77ad5a7eea38a",
+    ".tmp/goalie-live-acceptance/publication-boundary-01/copied_manifest.raw": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+    ".tmp/goalie-live-acceptance/publication-boundary-01/selection.raw": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+    ".tmp/goalie-live-acceptance/publication-boundary-01.log": "6de390dfd51ab5f8d583b382aeaf55e3f80cc522a4717e8327c84ec12d8b336e",
+    ".tmp/goalie-live-acceptance/publication-boundary-01.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    ".tmp/goalie-live-acceptance/publication-boundary-01.command": "b38c18bae0bb43e295d2aa08aa652ded19315d15431a4ab00149ee0fc7ad4cc7",
+    ".tmp/goalie-live-acceptance/publication-boundary.py": "fa88cc5775f523e218a9b17a7808216a5f04681d8d1ea4da565101f2d4fefac6",
+    ".tmp/goalie-live-acceptance/publication-boundary-preparation.md": "bedc17fd1d6bb3e5f21aa935b96b417632fa69a306b0f298301dd1b92e6d5821",
+    "analysis/src/hockey_stats/publication.py": "594748d8d8c0419b78254165cea587492fa6fd22a76f1e4203f9dacbe5efc295"
+  },
+  "accepted_authority_sha256": {
+    "docs/research/goalies-v1-07/receipts/shared-final-results-manifest.json": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+    "docs/research/goalies-v1-07/receipts/shared-final-st-producer.json": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654",
+    "docs/research/goalies-v1-07/receipts/shared-publication-actual-launch.json": "e39fffa132d925fe86d8354191b7c7ca852008f39be28089a092b3525b527b5c",
+    "docs/research/goalies-v1-07/receipts/shared-publication-preflight.json": "7144eb762d322aa0dd4b1ed0afdf44426d3a1c7369d46d3c82b88e755b26cff7",
+    "docs/research/goalies-v1-07/receipts/public-validator-union-integration.json": "0072909d5e75fa2c0cc05822859e9b2ff466edab0850f6ded6a08c07ab66cf7b",
+    "docs/research/goalies-v1-07/receipts/shared-publication-post-exit-preparation.json": "9b9c800ab1070d839da9086fcec8224e6dbb0ad0e8c9dca5b81f614ad879ab71"
+  },
+  "findings": [
+    {
+      "boundary": "native completion and false-pass attribution",
+      "evidence": "exit.raw is exactly two bytes, 0 followed by newline. log.raw contains one real publication completion with the same uuid and exact output as verification.raw. the collector's separate exit is also 0; neither closure nor collector success supplies the native exit inference. the collector starts failed, rejects absent/nonzero/malformed native exit and only returns 0 after passed_metadata_boundary_only. no false pass was found in the retained successful case."
+    },
+    {
+      "boundary": "source, argv and retained build",
+      "evidence": "launch e39f, preflight 7144 and raw top receipt agree on clean publisher 4aa, python 3.14.8 and sqlite 3.54.1. launch/preflight analysis fee5 and app 3242 equal the retained build authority; all seven build descriptors match exactly. the cached time-parent and python-child argv select the original observed selection, accepted ST successor results and exact inactive output. the Homebrew child executable is consistent with the preflight virtualenv interpreter; that resolution was not newly inspected. the exchange producer 1431 is intentionally distinct from publisher 4aa. no actual source or argv mismatch was found."
+    },
+    {
+      "boundary": "accepted input and family correspondence",
+      "evidence": "the copied manifest is exactly 23310 bytes with the accepted 21de raw digest; the original copied selection is exactly 711 bytes with digest 5b6. its embedded top-receipt document agrees. real exchange 3 preparation 63bd, three ordered corpus bindings and all 30 full family/table descriptors agree with accepted root 15d. all 30 top-receipt dispositions agree exactly: descriptive, evidence, execution, goalie, microstats and spatial are provided in each season; ledger, penalties, shootiness and territory remain not_computed with their accepted explanations."
+    },
+    {
+      "boundary": "ordinary writer and finalization",
+      "evidence": "publication.py lines 541-692 validates and copies the exchange, independently reads back annual observed rows, applies conservation and complete database checks, checks schema 9, hashes the incomplete database, writes the top receipt, renames the final database and returns. raw top receipt reports integrity, foreign_keys, read_back and per_season_conservation passed. retained collector stat evidence reports final file present at 31261470720 bytes and incomplete absent, matching native cost.database_bytes. these are producer/collector-bound facts, not a new independent database read."
+    },
+    {
+      "boundary": "annual receipt authority",
+      "evidence": "all three ordered seasons, corpus bindings, fixed relative receipt paths and read_back/conservation declarations match. publication.py lines 637-653 constructs every annual document using the actual publication uuid, hashes its exact bytes and binds its path/hash/corpus/coverage/checks into the top receipt. annual raw identities and uuids are therefore producer-bound; no annual body was independently reread or rehashed, and none is required for this approved boundary."
+    },
+    {
+      "boundary": "collector scope",
+      "evidence": "the current collector digest matches the retained reviewed preparation. its source and command have no retry or arbitrary declared-path follow: at most five fixed body opens and two fixed database-path lstats. the retained record contains those five bodies, totaling 40297 returned bytes, with every local size/digest matching the raw captures and each cap respected. no database body/hash/sql, result member, annual body, model or corpus traversal is present. this is source-and-record correspondence, not syscall tracing or an independent proof of invocation count."
+    }
+  ],
+  "season_receipts_producer_bound": [
+    {
+      "season": "20232024",
+      "path": "seasons/20232024/verification.json",
+      "sha256": "810c240b18559aedd86f804724cf68b07d39ad4535752e6426edd05d85bcff03",
+      "corpus_sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414"
+    },
+    {
+      "season": "20242025",
+      "path": "seasons/20242025/verification.json",
+      "sha256": "1bc4b13e21cb22b2c25b049a2eb90eb4b07946e6d94f53cf4f37e3409845e6be",
+      "corpus_sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639"
+    },
+    {
+      "season": "20252026",
+      "path": "seasons/20252026/verification.json",
+      "sha256": "87df80f7424bd1f4ec7fdde47018089731b71fd06129bed14c1edf3b0cc4045f",
+      "corpus_sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43"
+    }
+  ],
+  "cost_and_database": {
+    "native_exit": 0,
+    "collector_exit": 0,
+    "database_sha256": "17241928149f70bbd353815a4ec8feab39210d570205b494ad6c2af8cfb9a612",
+    "database_digest_authority": "ordinary publisher reported; not independently rehashed",
+    "database_bytes": 31261470720,
+    "native_whole_wall_seconds": 16360.66,
+    "native_peak_rss_bytes": 3330129920,
+    "native_peak_footprint_bytes": 3316485024,
+    "publisher_internal_wall_seconds": 16359.542457333067,
+    "publisher_internal_scope": "through independent read-back, excluding top receipt writing and final rename; process high-water rss",
+    "publisher_reported_consumed_bytes": 41135144918,
+    "consumed_bytes_limit": "producer file-size accounting, not an independent read total or physical device i/o measurement; zero block-operation counters establish no byte total",
+    "collector_internal_wall_seconds": 14.727861042134464,
+    "collector_internal_peak_rss_bytes": 24674304,
+    "collector_internal_scope": "through collection/checks, excluding final result serialization/write",
+    "collector_whole_wall_seconds": 14.79,
+    "collector_whole_peak_rss_bytes": 24690688,
+    "collector_returned_body_bytes": 40297,
+    "launch_times_limit": "cached parent 06:51:56Z and child 06:52:10Z remain separate observations; no phase allocation is inferred"
+  },
+  "review_limits": [
+    "review used only retained local files and local hashes; no external path access, database reader/hash/query, runtime/model/controller execution, tests, process query or build was performed",
+    "native closure, source freeze and one authorized collector invocation are supplied root observations, not newly measured here",
+    "accepted numerical/scientific verdicts were not reopened; scientific_admission remains not_performed",
+    "the retained build authority explicitly leaves crossrecord i/o to normal strict startup; this review does not close it or either application acceptance matrix",
+    "only this adjudication file was written; production and serving state were not changed"
+  ]
+}

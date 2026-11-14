@@ -1,0 +1,21 @@
+{
+  "kind": "actual-final-goalie-score-native-admission",
+  "status": "native_exit_zero_metadata_review_pending",
+  "recorded_at_utc": "2026-11-12T12:12:10.689354+00:00",
+  "native_operator": "t-f9f0b50f2271131d",
+  "exit_code": 0,
+  "exit_bytes_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/score-20252026-01.log",
+    "bytes": 905,
+    "sha256": "f9af41acd4eaffc22a52adc17eff30b2525e89c40983e86d5d27934cafff28e9"
+  },
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20252026/manifest.json",
+    "bytes": 346601,
+    "sha256": "de378b2ee8cce1075b86d3e883bd29b64fb74fa90356a86753b9e123acfe2e5a"
+  },
+  "external_admission_body_reads": 2,
+  "external_admission_logical_bytes": 347506,
+  "limits": "native completion and cached manifest/header admission only; four-current-json review and independent adjudication still required"
+}

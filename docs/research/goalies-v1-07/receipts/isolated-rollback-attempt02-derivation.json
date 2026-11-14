@@ -1,0 +1,354 @@
+{
+  "kind": "new_synthetic_operation_fixture",
+  "original_manifest_sha256": "b2d22b814521029dcf95dcd70dae17be7a1f446463308f9e171f730564a70990",
+  "original_producer": {
+    "git_commit": "c80aa0a5fca340bcbffe72c92be4f325ec22c1ff",
+    "git_dirty": true,
+    "python_version": "3.14.8"
+  },
+  "actual_derivation_producer": {
+    "git_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "old_observed_bindings": [
+    {
+      "season": "20232024",
+      "corpus_sha256": "5ef7a0cb757f0283386377308687b854d84b2ff144e7085d80ca0242cf0cbbb0"
+    },
+    {
+      "season": "20242025",
+      "corpus_sha256": "12276e3802058e11eb1493bdbc8de4c9f2eeb8a50649c57a2f1c9e252aca0813"
+    },
+    {
+      "season": "20252026",
+      "corpus_sha256": "5d9e84d335097513b523b37ca972d116685741f323bc15e0ed9d9fd878431e07"
+    }
+  ],
+  "new_observed_bindings": [
+    {
+      "season": "20232024",
+      "corpus_sha256": "83b852600d0c0b1b5e8e0d1419287fee07fa55225645fe695ee0406f824e64e6"
+    },
+    {
+      "season": "20242025",
+      "corpus_sha256": "48ba3896a5c3663b2714eb4a0e32d570853ee43bd759c4e8350f50178d64e428"
+    },
+    {
+      "season": "20252026",
+      "corpus_sha256": "d05a8fac4f1a041aa1c660460b02f3a70b49348232a96a52ab0041a9577a0228"
+    }
+  ],
+  "corpus_fixture_labels": [
+    {
+      "season": "20232024",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02/corpus-20232024/corpus.json",
+      "bytes": 6847962,
+      "sha256": "f66e175e8d5e620ab0e073a10eb996bb1b977db317523c98edbad8043923bd30",
+      "present_games": [
+        {
+          "game_id": "2023020001",
+          "status": "reconstructed"
+        },
+        {
+          "game_id": "2023020012",
+          "status": "reconstructed"
+        }
+      ],
+      "fixture_header": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02/corpus-20232024/corpus.fixture.json",
+        "bytes": 6847986,
+        "sha256": "83b852600d0c0b1b5e8e0d1419287fee07fa55225645fe695ee0406f824e64e6"
+      },
+      "label_derivation": "only top-level purpose:fixture added; original corpus.json and all native member bytes unchanged; same parent preserves relative member locators"
+    },
+    {
+      "season": "20242025",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02/corpus-20242025/corpus.json",
+      "bytes": 6817913,
+      "sha256": "bf2506e9e70e637da7c14f580f78bcbd441f012603b9203735d0796e1b447c39",
+      "present_games": [
+        {
+          "game_id": "2024020001",
+          "status": "reconstructed"
+        },
+        {
+          "game_id": "2024020022",
+          "status": "reconstructed"
+        }
+      ],
+      "fixture_header": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02/corpus-20242025/corpus.fixture.json",
+        "bytes": 6817937,
+        "sha256": "48ba3896a5c3663b2714eb4a0e32d570853ee43bd759c4e8350f50178d64e428"
+      },
+      "label_derivation": "only top-level purpose:fixture added; original corpus.json and all native member bytes unchanged; same parent preserves relative member locators"
+    },
+    {
+      "season": "20252026",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02/corpus-20252026/corpus.json",
+      "bytes": 6870674,
+      "sha256": "78c859a651b17547a5dd728a38680bd78572cee3888d6d50c1f2f40e437139d8",
+      "present_games": [
+        {
+          "game_id": "2025020001",
+          "status": "reconstructed"
+        },
+        {
+          "game_id": "2025020006",
+          "status": "reconstructed"
+        }
+      ],
+      "fixture_header": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02/corpus-20252026/corpus.fixture.json",
+        "bytes": 6870698,
+        "sha256": "d05a8fac4f1a041aa1c660460b02f3a70b49348232a96a52ab0041a9577a0228"
+      },
+      "label_derivation": "only top-level purpose:fixture added; original corpus.json and all native member bytes unchanged; same parent preserves relative member locators"
+    }
+  ],
+  "derived_manifest": {
+    "bytes": 15933,
+    "sha256": "5993dfaedcc70936fd7a04923ff1ac32fb1a07719bd66783e7571d492e600c8b"
+  },
+  "copied_members": [
+    {
+      "path": "people.jsonl",
+      "bytes": 217712,
+      "sha256": "2d8921451ecaf14135606f7cce9c3242a82adcc915c9f139281ab6ab967fefab"
+    },
+    {
+      "path": "sources.jsonl",
+      "bytes": 12357,
+      "sha256": "3e681c9109a8bee4f2837f4c153899aa23b8728a7bd146695249a2131c97ae0d"
+    },
+    {
+      "path": "methods.jsonl",
+      "bytes": 15679,
+      "sha256": "76771d0fa0819bb8e495fa90ffcf01b1ae24d3424ab60c3010e5044b30bd1bae"
+    },
+    {
+      "path": "supports.jsonl",
+      "bytes": 5448,
+      "sha256": "a5f667daedc340a006758e9aef46bccf109f6554d3db923d8be903cf16444862"
+    },
+    {
+      "path": "20232024-descriptive-skater_descriptive.jsonl",
+      "bytes": 33623,
+      "sha256": "98eda8440dfa41e6e50ed9b6e0b6c22c2f308b0dc842649bb597a920d68670f5"
+    },
+    {
+      "path": "20232024-descriptive-skater_context.jsonl",
+      "bytes": 14472,
+      "sha256": "8b3353552ef1bb462bf03249fee0c660eadc61faf96226215532fd62f12e99a1"
+    },
+    {
+      "path": "20232024-evidence-attempt_fact.jsonl",
+      "bytes": 15277,
+      "sha256": "43486984bbfb40db6602790b0f03166ee435e6d8eeb555424115a9a8f6964145"
+    },
+    {
+      "path": "20232024-evidence-dressed_game.jsonl",
+      "bytes": 1843,
+      "sha256": "ce8e36c301ca87aee9831876fe5c9fcf7f671e9106a990d803fa34be426c513b"
+    },
+    {
+      "path": "20232024-evidence-interval_fact.jsonl",
+      "bytes": 7848,
+      "sha256": "52ff8b1fe9ff7c3f87086e6c10dd291d75846daa8592b8833c5435043d4e4e86"
+    },
+    {
+      "path": "20232024-evidence-interval_player.jsonl",
+      "bytes": 4320,
+      "sha256": "ad6a1c019ae05e070573c0877e6958249c207f85748d6f2fd1d5d4739ada0c97"
+    },
+    {
+      "path": "20232024-evidence-interval_location.jsonl",
+      "bytes": 1032,
+      "sha256": "b73bb126c93bfc3dd82a8503c51b6d4fd891ea9a7927760e413f125ad93b9beb"
+    },
+    {
+      "path": "20232024-evidence-context_coverage.jsonl",
+      "bytes": 107544,
+      "sha256": "3de54a5f509129db07b9fe4cb199db59dbd702c76d0b3361507f31b4588aa317"
+    },
+    {
+      "path": "20232024-execution-skater_execution.jsonl",
+      "bytes": 95114,
+      "sha256": "4094cf8bf68c46a1cbfde4892560f92a8731277a2cb1bfb1fd5cadfb785bcf60"
+    },
+    {
+      "path": "20232024-execution-analysis_map.jsonl",
+      "bytes": 290449,
+      "sha256": "6c45b1226b43097df9798dfabe93e9524dc25f7f5837f89f62a4daee74b47f49"
+    },
+    {
+      "path": "20232024-execution-execution_breakdown.jsonl",
+      "bytes": 968637,
+      "sha256": "5bc4f8f08f862c270e37982f33a92f470a41afec24e84c8f0c41b713cd13e10c"
+    },
+    {
+      "path": "20232024-execution-attempt_value.jsonl",
+      "bytes": 38220,
+      "sha256": "511c250b316d644ae9168cf73b14cfaaf110f3b50049029d248718b9187d7024"
+    },
+    {
+      "path": "20232024-execution-attempt_setter.jsonl",
+      "bytes": 857,
+      "sha256": "23c3fbe5ffacb595e17da1d40a9899760ecc1c93b795c5999b38298ac8587d7d"
+    },
+    {
+      "path": "20232024-execution-attempt_execution_share.jsonl",
+      "bytes": 1285,
+      "sha256": "dedfd3fa54a139c4da7a77e6cc9c281040d4f5491b38cb78c79a0e8786db10d2"
+    },
+    {
+      "path": "20232024-goalie-goalie_result.jsonl",
+      "bytes": 9147,
+      "sha256": "7b3378f3cebb6cf437cf4cba80ebe18bac8b642a5498f48965b2303404727673"
+    },
+    {
+      "path": "20232024-goalie-goalie_observed.jsonl",
+      "bytes": 52147,
+      "sha256": "1e5e7f6a3df9a69808caacc4247aba002824ed3c65419e216cd58a988c4479a8"
+    },
+    {
+      "path": "20232024-goalie-goalie_evidence_map.jsonl",
+      "bytes": 403753,
+      "sha256": "ed4947801490ba0fc3d727a269803c2f04dbf627a9fb3a9aa59430c763111d48"
+    },
+    {
+      "path": "20232024-goalie-goalie_danger.jsonl",
+      "bytes": 15098,
+      "sha256": "81f6d9a7ae7db1737bd74b135df36fba3539cec6e6003a421430ad0ec59c88df"
+    },
+    {
+      "path": "20232024-goalie-analysis_map.jsonl",
+      "bytes": 82710,
+      "sha256": "ca0d7d17f7143524e925ed4b3a9630c1555cdad89e2fb750b819289c08160cc5"
+    },
+    {
+      "path": "20232024-goalie-execution_breakdown.jsonl",
+      "bytes": 44920,
+      "sha256": "914d41ff7bfc53d4726928418c24f41399cf719490c4a47134ee1f56fbde38d8"
+    },
+    {
+      "path": "20232024-ledger-value_ledger.jsonl",
+      "bytes": 13684,
+      "sha256": "a58fb4c330c737e0ee9d4f22e7eff101a37094fcbca1c3cd6c6675ccc8f333ab"
+    },
+    {
+      "path": "20232024-microstats-skater_microstats.jsonl",
+      "bytes": 30624,
+      "sha256": "83101113bbe0b7a4f7612746da728ce1588fb8bca78267074a9d19d533675891"
+    },
+    {
+      "path": "20232024-penalties-skater_penalties.jsonl",
+      "bytes": 12614,
+      "sha256": "3e6993c997a55af2f0cdac2dcdd8774155868cab6ba1d1f443dc90180c427d60"
+    },
+    {
+      "path": "20232024-shootiness-skater_shootiness.jsonl",
+      "bytes": 84678,
+      "sha256": "bd9a99aeab500fed7e0c53c9bf3a294a4596b84f7680ec0f9837399181a624fd"
+    },
+    {
+      "path": "20232024-spatial-skater_spatial.jsonl",
+      "bytes": 113469,
+      "sha256": "13e2a435ca1937db206b127f71149cc223e6c5236d79b3950f9869bdd3b1330a"
+    },
+    {
+      "path": "20232024-spatial-analysis_map.jsonl",
+      "bytes": 705229,
+      "sha256": "f2319e64a75f7194628ec1df878e2721c436edfdb2e6a74815241d48b7318925"
+    },
+    {
+      "path": "20232024-spatial-adjustment_decomposition.jsonl",
+      "bytes": 294190,
+      "sha256": "028d81a26b29160b5e581f03014670f0db87e5f93d7cc0eb914e41865742b769"
+    },
+    {
+      "path": "20232024-spatial-spatial_evidence.jsonl",
+      "bytes": 112984,
+      "sha256": "437c0fd2a4fa44a811075041d6040c4e6ba048bd85459475aec4425ea8938cdc"
+    },
+    {
+      "path": "20232024-territory-skater_territory.jsonl",
+      "bytes": 13145,
+      "sha256": "47cb02f9d14b282a4b130bca49554dd01bb11b8db52e9dd49147d0e2fb1471ca"
+    },
+    {
+      "path": "20232024-territory-analysis_map.jsonl",
+      "bytes": 107909,
+      "sha256": "a6ddea39042f9310381cd791643419b41ef51e50c002fa1bb11d00fdb19a06e2"
+    },
+    {
+      "path": "20242025-evidence-attempt_fact.jsonl",
+      "bytes": 15254,
+      "sha256": "df2197bab9e9f29c72dbd697ae41700cdc14f5d134e83f8ea7822b8828e79b83"
+    },
+    {
+      "path": "20242025-evidence-dressed_game.jsonl",
+      "bytes": 1821,
+      "sha256": "79af5e0a0ab10a2d2efdb3a2f4415924622dc84625c0d7b6f2c843a7fff4e5d7"
+    },
+    {
+      "path": "20242025-evidence-interval_fact.jsonl",
+      "bytes": 7824,
+      "sha256": "0a0462b09681de60d89fcdf629afcc211d7996ea54138a28cd923c24d40abc46"
+    },
+    {
+      "path": "20242025-evidence-interval_player.jsonl",
+      "bytes": 4280,
+      "sha256": "4374f9dc22e4e2efb6070d5de1eff493a6ce313b476b05ce1449989d9f03a125"
+    },
+    {
+      "path": "20242025-evidence-interval_location.jsonl",
+      "bytes": 1026,
+      "sha256": "38679c7a975bbd56f83785e4991215f5edf6bc6fdc7df6ce03d948fc46dfa726"
+    },
+    {
+      "path": "20242025-evidence-context_coverage.jsonl",
+      "bytes": 107544,
+      "sha256": "972a7a1725bc94e0e83df5be5efd285af52b1e0264e66ed35f1f5614d2313dfa"
+    },
+    {
+      "path": "20242025-ledger-value_ledger.jsonl",
+      "bytes": 13693,
+      "sha256": "2f5c10631456021327b7351f7213cbdf771972ccc56bc58937034689e4ce8917"
+    },
+    {
+      "path": "20252026-evidence-attempt_fact.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "20252026-evidence-dressed_game.jsonl",
+      "bytes": 1572,
+      "sha256": "2c6b8f634ad4509cfb1b99879f7d6051ff73dfbc725610eb04fa60e92f520364"
+    },
+    {
+      "path": "20252026-evidence-interval_fact.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "20252026-evidence-interval_player.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "20252026-evidence-interval_location.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "20252026-evidence-context_coverage.jsonl",
+      "bytes": 134064,
+      "sha256": "8075ed1af8eb19bda1f41ed598cbc097dc0d71eac8b08fe01608b39f0b02e9db"
+    }
+  ],
+  "prepared_sha256_preserved": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+  "normal_result_reader": "passed",
+  "meaning": "inherited synthetic analytical rows and captured identities; new ordinary observations from the same six captures; no inherited corpus acceptance or new scientific claim"
+}

@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "purpose": "fixture",
+  "status": "small_metadata_review_passed",
+  "artifact": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/manifest.json",
+    "sha256": "219a109775d3ddb255ad40fca0082c57acfc09e371bc586de7c85b2a9afd5bb5"
+  },
+  "producer": {
+    "git_commit": "d73093d2c284ab4806c61df7072d90ac654a8b71",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20252026/manifest.json",
+    "sha256": "60decc540eb5354f86e56e1015efa9f5bd47a928e196b2355cbe7929805e8189",
+    "season": "20252026",
+    "purpose": "fixture",
+    "recipe_sha256": "cd57b284183962a5795f0c1b2c15065881be3531a4de46b70a20e163907a97c6",
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20242025/manifest.json",
+      "sha256": "899dcf49635f5c3d4df27e6b3ba62fa9d311046b628e43c1bf91a8f8ae75d89f"
+    }
+  },
+  "base_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20252026/manifest.json",
+    "sha256": "5223976602e9a45e66e3e6160ba502cf01b0c39969e2360fa2c0c4384623e047",
+    "season": "20252026",
+    "purpose": "fixture",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual",
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20242025/manifest.json",
+      "sha256": "d94dba43f942de71db4aa1380a7590678fe417809a0ac539ada35e0b8917715c"
+    }
+  },
+  "base_scores": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20252026/manifest.json",
+    "sha256": "80f61f0dc1941042c5bf1e3488fdaaed9cc0fb303670f6780558ff11a603072a"
+  },
+  "goalies": 32,
+  "model_strengths": 11,
+  "row_counts": {
+    "analysis_map": 352,
+    "execution_breakdown": 3168,
+    "goalie_danger": 768,
+    "goalie_evidence_map": 4608,
+    "goalie_observed": 384,
+    "goalie_result": 352
+  },
+  "resources": {
+    "wall_seconds": 152.27945058292244,
+    "input_read_wall_seconds": 46.55915687500965,
+    "projection_wall_seconds": 40.614188334089704,
+    "sensitivity_wall_seconds": 4.258605957962573,
+    "validation_wall_seconds": 60.497777458047494,
+    "peak_memory_bytes": 1278722048,
+    "output_bytes": 653461396
+  },
+  "external_command_wall_seconds": 152.7,
+  "variants": [
+    {
+      "variant": "h-tight",
+      "goalie_strength_pairs": 352,
+      "actual_summaries": 822,
+      "maximum_summary_probability_change": 2.42715786080705e-08,
+      "summary_flagged": false,
+      "pointwise": {
+        "status": "assessed",
+        "reason": null,
+        "contexts": 256,
+        "origin_rows": 167936,
+        "compared_rows": {
+          "h": 335872,
+          "d": 335872,
+          "joint": 335872
+        },
+        "maximum_absolute_change": {
+          "h": 2.9543591073544206e-08,
+          "d": 0.0,
+          "joint": 2.194281936707121e-09
+        },
+        "flagged": {
+          "h": false,
+          "d": false,
+          "joint": false
+        }
+      },
+      "nonoverlapping_covered_all_expected_mass": {
+        "reattempt": {
+          "count": 463,
+          "baseline_expected": 54.61996781086912,
+          "variant_expected": 54.61996905111607,
+          "change": 1.2402469522498905e-06
+        },
+        "next_attempt_danger": {
+          "count": 55,
+          "baseline_expected": 4.137299514532279,
+          "variant_expected": 4.137299514532279,
+          "change": 0.0
+        }
+      }
+    },
+    {
+      "variant": "d-tight",
+      "goalie_strength_pairs": 352,
+      "actual_summaries": 822,
+      "maximum_summary_probability_change": 2.2112058684076175e-08,
+      "summary_flagged": false,
+      "pointwise": {
+        "status": "assessed",
+        "reason": null,
+        "contexts": 256,
+        "origin_rows": 167936,
+        "compared_rows": {
+          "h": 335872,
+          "d": 335872,
+          "joint": 335872
+        },
+        "maximum_absolute_change": {
+          "h": 0.0,
+          "d": 4.64764428748099e-08,
+          "joint": 6.916236059556491e-09
+        },
+        "flagged": {
+          "h": false,
+          "d": false,
+          "joint": false
+        }
+      },
+      "nonoverlapping_covered_all_expected_mass": {
+        "reattempt": {
+          "count": 463,
+          "baseline_expected": 54.61996781086912,
+          "variant_expected": 54.61996781086912,
+          "change": 0.0
+        },
+        "next_attempt_danger": {
+          "count": 55,
+          "baseline_expected": 4.137299514532279,
+          "variant_expected": 4.137299543188814,
+          "change": 2.8656535810966943e-08
+        }
+      }
+    },
+    {
+      "variant": "h+d-tight",
+      "goalie_strength_pairs": 352,
+      "actual_summaries": 822,
+      "maximum_summary_probability_change": 2.42715786080705e-08,
+      "summary_flagged": false,
+      "pointwise": {
+        "status": "assessed",
+        "reason": null,
+        "contexts": 256,
+        "origin_rows": 167936,
+        "compared_rows": {
+          "h": 335872,
+          "d": 335872,
+          "joint": 335872
+        },
+        "maximum_absolute_change": {
+          "h": 2.9543591073544206e-08,
+          "d": 4.64764428748099e-08,
+          "joint": 7.618101535017407e-09
+        },
+        "flagged": {
+          "h": false,
+          "d": false,
+          "joint": false
+        }
+      },
+      "nonoverlapping_covered_all_expected_mass": {
+        "reattempt": {
+          "count": 463,
+          "baseline_expected": 54.61996781086912,
+          "variant_expected": 54.61996905111607,
+          "change": 1.2402469522498905e-06
+        },
+        "next_attempt_danger": {
+          "count": 55,
+          "baseline_expected": 4.137299514532279,
+          "variant_expected": 4.137299543188814,
+          "change": 2.8656535810966943e-08
+        }
+      }
+    }
+  ],
+  "assessed_continuation_slots": 5760,
+  "unavailable_continuation_slots": 3744,
+  "unchanged_numerical_member_hashes_from_failed_first_attempt": {
+    "projections.jsonl": "bca063c1a7f897dcc0266ce1123e492496bd2a850bf32309da5f296144cc3a06",
+    "sensitivity.json": "b44da0e85dde52b6bc2454b53032712bc34bd422c63e9d1104018ddc34414754"
+  },
+  "completion_enforced_invariance": {
+    "base_scalar_comparisons": 7392,
+    "native_map_availability_or_exact_array_comparisons": 1056,
+    "scope": "counts derive from the complete variant matrix and frozen producer checks; no map-cell arrays or full reader were reopened by this review"
+  },
+  "source_history_binding": {
+    "fit_seasons": [
+      "20212022",
+      "20222023",
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "prepared_and_coaches": [
+      "20212022",
+      "20222023",
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "current_state_and_panel": [
+      "20252026"
+    ],
+    "immediate_predecessor": [
+      "20242025"
+    ]
+  },
+  "narrative_checked": true,
+  "unknowns": [
+    "remaining optimizer accuracy is unknown despite small assessed changes",
+    "no calibrated intervals or scientific admission",
+    "individual unavailable common-panel continuation slots remain unavailable; they are not zero measurements"
+  ],
+  "separate_detached_consumer": {
+    "status": "passed",
+    "reported_wall_seconds": 58.0885,
+    "score_members_opened": 15,
+    "original_inputs_opened": 0,
+    "scope": "separate canonical current reader with score-tree file-open guard; not rerun by this review"
+  },
+  "scope": "only manifest, coverage, sensitivity, people and catalogs read; original source/fits/base-score members and large public tables were not opened; no numerical evaluation or source replay"
+}

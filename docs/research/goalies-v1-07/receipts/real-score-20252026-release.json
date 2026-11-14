@@ -1,0 +1,300 @@
+{
+  "kind": "real-goalie-final-score-checked-boundary",
+  "status": "numerical_boundary_passed_next_composition_preparing",
+  "recorded_at_utc": "2026-11-12T12:22:24.230587+00:00",
+  "season": "20252026",
+  "score": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20252026/manifest.json",
+    "bytes": 346601,
+    "sha256": "de378b2ee8cce1075b86d3e883bd29b64fb74fa90356a86753b9e123acfe2e5a"
+  },
+  "producer": {
+    "git_commit": "841ce6500ce22eaab095ab011b951542ecf8354b",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "native": {
+    "exit_code": 0,
+    "wall_seconds": 9017.77,
+    "max_resident_bytes": 20601995264,
+    "peak_footprint_bytes": 21802909968,
+    "log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/score-20252026-01.log",
+    "native_operator": "t-f9f0b50f2271131d",
+    "source": "explicit root-observed completion bound to pinned launch preflight"
+  },
+  "producer_resources": {
+    "wall_seconds": 9013.660002249992,
+    "input_read_wall_seconds": 5648.667849916033,
+    "projection_wall_seconds": 2823.690640375018,
+    "sensitivity_wall_seconds": 232.18798245792277,
+    "validation_wall_seconds": 288.6340477501508,
+    "peak_memory_bytes": 20601995264,
+    "output_bytes": 4012314620
+  },
+  "preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-preflight.json",
+    "bytes": 14242,
+    "sha256": "8e5d8c81e313e7bd46106c0e0f97cb03c0ea3d65ed66003c7f0f0774233d4e84"
+  },
+  "metadata_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-metadata-review.json",
+    "bytes": 10365,
+    "sha256": "2580800efd1808ba0687de8a17d1d59f5463b857e2911f0699c5167775d0d20d"
+  },
+  "independent_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-independent-adjudication.json",
+    "bytes": 10175,
+    "sha256": "e09b7a01b1c9628187fe410ec48e14465a1f665e2752b664a574e32cc3c3c5f9"
+  },
+  "native_log": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-native.log",
+    "bytes": 905,
+    "sha256": "f9af41acd4eaffc22a52adc17eff30b2525e89c40983e86d5d27934cafff28e9"
+  },
+  "native_terminal_completion": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-native-terminal-completion.txt",
+    "bytes": 827,
+    "sha256": "5747dd7e67082d702b56f6ed5f7e431109b195a8bd21391c95a97ce6c4201d4d"
+  },
+  "metadata_native_log": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-metadata-review-native.log",
+    "bytes": 1240,
+    "sha256": "e8bcb04d7182caa21d98e9e67a2399c56d6546a29ddae0f0cd5219d07aa6a605"
+  },
+  "people": 123,
+  "row_counts": {
+    "analysis_map": 1353,
+    "execution_breakdown": 12177,
+    "goalie_danger": 2952,
+    "goalie_evidence_map": 17712,
+    "goalie_observed": 1476,
+    "goalie_result": 1353
+  },
+  "sensitivity": {
+    "status": "assessed",
+    "summary_threshold": 0.0001,
+    "pointwise_threshold": 1e-05,
+    "variants": [
+      {
+        "variant": "h-tight",
+        "status": "assessed",
+        "goalie_strength_pairs": 1353,
+        "actual_summaries": 62973,
+        "maximum_summary_probability_change": 1.3001512613464161e-06,
+        "summary_flagged": false,
+        "pointwise": {
+          "status": "assessed",
+          "reason": null,
+          "contexts": 256,
+          "origin_rows": 167936,
+          "compared_rows": {
+            "h": 335872,
+            "d": 335872,
+            "joint": 335872
+          },
+          "maximum_absolute_change": {
+            "h": 1.494934723789143e-06,
+            "d": 0.0,
+            "joint": 1.872242919864764e-07
+          },
+          "flagged": {
+            "h": false,
+            "d": false,
+            "joint": false
+          }
+        },
+        "reported_nonoverlapping_covered_all_expected_mass": {
+          "next_attempt_danger": {
+            "count": 9454,
+            "baseline_expected": 865.3880289079397,
+            "variant_expected": 865.3880289079397,
+            "change": 0.0
+          },
+          "reattempt": {
+            "count": 64833,
+            "baseline_expected": 9454.105465517585,
+            "variant_expected": 9454.105614129807,
+            "change": 0.0001486122222134345
+          }
+        }
+      },
+      {
+        "variant": "d-tight",
+        "status": "assessed",
+        "goalie_strength_pairs": 1353,
+        "actual_summaries": 62973,
+        "maximum_summary_probability_change": 1.657690516798649e-07,
+        "summary_flagged": false,
+        "pointwise": {
+          "status": "assessed",
+          "reason": null,
+          "contexts": 256,
+          "origin_rows": 167936,
+          "compared_rows": {
+            "h": 335872,
+            "d": 335872,
+            "joint": 335872
+          },
+          "maximum_absolute_change": {
+            "h": 0.0,
+            "d": 4.2970558755683896e-07,
+            "joint": 4.576164968489449e-08
+          },
+          "flagged": {
+            "h": false,
+            "d": false,
+            "joint": false
+          }
+        },
+        "reported_nonoverlapping_covered_all_expected_mass": {
+          "next_attempt_danger": {
+            "count": 9454,
+            "baseline_expected": 865.3880289079397,
+            "variant_expected": 865.3880262058392,
+            "change": -2.702100862256307e-06
+          },
+          "reattempt": {
+            "count": 64833,
+            "baseline_expected": 9454.105465517585,
+            "variant_expected": 9454.105465517585,
+            "change": 0.0
+          }
+        }
+      },
+      {
+        "variant": "h+d-tight",
+        "status": "assessed",
+        "goalie_strength_pairs": 1353,
+        "actual_summaries": 62973,
+        "maximum_summary_probability_change": 1.3001512613464161e-06,
+        "summary_flagged": false,
+        "pointwise": {
+          "status": "assessed",
+          "reason": null,
+          "contexts": 256,
+          "origin_rows": 167936,
+          "compared_rows": {
+            "h": 335872,
+            "d": 335872,
+            "joint": 335872
+          },
+          "maximum_absolute_change": {
+            "h": 1.494934723789143e-06,
+            "d": 4.2970558755683896e-07,
+            "joint": 1.527731518166653e-07
+          },
+          "flagged": {
+            "h": false,
+            "d": false,
+            "joint": false
+          }
+        },
+        "reported_nonoverlapping_covered_all_expected_mass": {
+          "next_attempt_danger": {
+            "count": 9454,
+            "baseline_expected": 865.3880289079397,
+            "variant_expected": 865.3880262058392,
+            "change": -2.702100862256307e-06
+          },
+          "reattempt": {
+            "count": 64833,
+            "baseline_expected": 9454.105465517585,
+            "variant_expected": 9454.105614129807,
+            "change": 0.0001486122222134345
+          }
+        }
+      }
+    ]
+  },
+  "head_target_summary": {
+    "h": {
+      "included": 64833,
+      "excluded": 88921,
+      "target_mass": 9479.0,
+      "exclusion_reason_counts": {
+        "requires_saved_attempt": 88778,
+        "immediate_reattempt_label_unavailable": 88801,
+        "physical_attempt_not_supported_ordinary": 1362,
+        "outcome_unavailable": 1329,
+        "goalie_population_unavailable_or_outside": 2314,
+        "shooter_unavailable": 677,
+        "opposing_goalie_membership_unavailable": 2314,
+        "shot_type_unavailable": 998,
+        "membership_unavailable_or_outside_population": 1001,
+        "location_or_frame_unavailable": 799
+      }
+    },
+    "d": {
+      "included": 9454,
+      "excluded": 144300,
+      "target_mass": 865.6337367063064,
+      "exclusion_reason_counts": {
+        "focal_occurrence_population_unavailable": 88921,
+        "requires_positive_recorded_reattempt": 55354,
+        "successor_execution_score_unavailable": 25
+      }
+    }
+  },
+  "raw_stage_counts": {
+    "source_included": 151383,
+    "paired_unblocked": 110897,
+    "source_only": 2,
+    "numerical_only": 0,
+    "affiliation_gaps": 0
+  },
+  "counter_limit": "raw source-only and stage counters retain their meanings; no new reason/count-addition assumptions or source search",
+  "numerical_chain": {
+    "completed_baseline_heads": 10,
+    "accepted_annual_scores": 5,
+    "prescribed_final_probes": 2,
+    "accuracy": "unknown",
+    "earlier_annual_sensitivity": "unassessed",
+    "scientific_admission": false
+  },
+  "metadata_scope": {
+    "current_external_json_documents": 4,
+    "current_external_json_bytes": 121412732,
+    "local_receipt_documents": 3,
+    "local_receipt_bytes": 39540,
+    "native_wall_seconds": 1.43,
+    "native_peak_resident_bytes": 502759424,
+    "native_peak_footprint_bytes": 492995376,
+    "admission_completed_external_bytes": 347506,
+    "manifest_overlap_bytes": 346601,
+    "full_reader_or_array_or_model_replay": false
+  },
+  "controller_failures": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-admission-open-failure-01.json",
+      "bytes": 2115,
+      "sha256": "d41f764e6606c1b54c12ad4de70b0e11c1cc0a4042f8e206fa5614de4b4ad7a7"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-admission-open-failure-02.json",
+      "bytes": 1335,
+      "sha256": "bc29ae56a9bcf9d529252493f0cc1c3906333384d1e40387c404d341cec6e014"
+    }
+  ],
+  "failure_limit": "blocked direct-tool opens returned no complete body; physical IO/cause unknown; native terminal read succeeded; no interpreter causal claim and no numerical retry",
+  "score_scope_closed": true,
+  "owned_heavy_processes_remaining": false,
+  "next_scope": {
+    "owner": "v1-07",
+    "scope": "ONLY one G-first complete exchange composition on exact8b32, five accepted G scores, canonical complete validation and independent nonowned preservation; final manifest and goalie-composition.json required",
+    "status": "source_preparation_not_dispatched",
+    "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "complete_parent_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "required": "fresh actual source/runtime/selection/output/log frame before one dispatch; source and HEAD frozen through composer exit",
+    "tradeoff": "delays final ST fit by an unmeasured composition window; supplies actual complete G predecessor and producer receipt for deliberate serial ST admission; no intermediate sqlite/startup",
+    "ST_final": "READYb273 held/unreserved/not_run",
+    "further_chain_reserved": false,
+    "fit_or_rescore_or_converter_or_publication_or_activation": false
+  },
+  "complete_publication_parent_changed": false,
+  "activation": false
+}

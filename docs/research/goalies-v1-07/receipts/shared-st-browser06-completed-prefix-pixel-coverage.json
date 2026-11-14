@@ -1,0 +1,87 @@
+{
+  "kind": "shared-st-browser06-completed-prefix-pixel-coverage",
+  "status": "ACCEPTED_SCOPED_PREFIX_PIXELS",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-browser06-prefix-pixel-inputs-01.json",
+      "bytes": 22541,
+      "sha256": "729a843ce11acaa01b9abc96b6d2ce0aeac7d849fccf3e4e1b2f13fc8f1af22c"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-browser06-prefix-pixel-review-01.json",
+      "bytes": 59794,
+      "sha256": "ee8eabac515c11087fc9268b526d249372bef377da299a1fc83b68cac2ff66c9"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-browser06-prefix-pixel-review-02.json",
+      "bytes": 48813,
+      "sha256": "85456a42e52ba447cbb6dcf161d7396707c402084a7942a0d0503fd8a607e416"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-browser06-prefix-viewport-review-01.json",
+      "bytes": 1893,
+      "sha256": "a00fa5ec5c73203a722132a2fbe1e62a7011936cbfbf001b56c3cada98b4e3ea"
+    }
+  ],
+  "coverage": {
+    "downloaded_normal_history_pngs": 40,
+    "normal_whole_viewports": 1,
+    "unique_original_pngs": 41,
+    "all_originals_individually_viewed": true,
+    "identity_and_dimensions_match": true,
+    "duplicate_inheritance": 0,
+    "blocking_pixel_findings": []
+  },
+  "native_reviewer_attribution": [
+    {
+      "indices": [
+        1,
+        20
+      ],
+      "actual_agent": "/root/st_prefix_pixels_01",
+      "receipt_assignment_role_label": "history_labels"
+    },
+    {
+      "indices": [
+        21,
+        40
+      ],
+      "actual_agent": "/root/st_prefix_pixels_02",
+      "receipt_assignment_role_label": "trace_review"
+    },
+    {
+      "indices": [
+        41,
+        41
+      ],
+      "actual_agent": "/root"
+    }
+  ],
+  "observed_presentation": "all40 full exports retain legible titles/units/raw sign, three season endpoints/selected year, references, support and experimental/optimizer caveats; the viewport accepts profile/control layout only, not below-fold history",
+  "preserved_limits": [
+    "5v5 historical failed precision and unknown accuracy remain visible",
+    "st selected-year sensitivity exceeded and earlier-year unassessed findings remain visible; no numerical or scientific acceptance inferred",
+    "dense wrapped method/reason prose remains a readability burden, without observed clipping; no product change in this review",
+    "the first viewport visibly contains distinct general/specialty buttons; it is not the later missing failure dom"
+  ],
+  "known_unique_png_bytes": 79785004,
+  "cost_scope": {
+    "first_hash_process_total_reads_wall_rss": "UNMEASURED; first output collection failed and ordinary identity reads repeated; review01 retains the limitation",
+    "second_hash_process_png_read_bytes": 40620537,
+    "second_hash_process_wall_seconds": 0.4048494170419872,
+    "second_hash_process_peak_rss_bytes": 25247744,
+    "root_hash_png_read_bytes": 171254,
+    "root_hash_wall_seconds": 0.021640332881361246,
+    "root_hash_peak_rss_bytes": 18939904,
+    "image_views_rechecks_and_physical_io": "UNMEASURED; per-image displays and transcription rechecks retained in subreviews; unique PNG bytes are not total logical or physical read bytes"
+  },
+  "browser06_status": "FAILED_SCOPED_BROWSER; unchanged",
+  "raw_event_gate": "old favicon exception remains UNQUALIFIED; no zero-error or whole-browser pass follows these pixels",
+  "remaining_planned_media": {
+    "downloads": 21,
+    "rasters": 44,
+    "svgs": 8
+  },
+  "other_remaining_scope": "missing cutoff/map/evidence/case/comparison/keyboard/layout/negative/snapshot journeys, separate raw-error qualification, isolated restore, protected-primary/final preservation and cleanup",
+  "window": "finite41-PNG review complete; no browser/HTTP/CSV/SVG/member/DB/service/source/build mutation or later-stage authority"
+}

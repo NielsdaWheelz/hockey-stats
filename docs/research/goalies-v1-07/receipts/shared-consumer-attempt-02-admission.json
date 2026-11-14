@@ -1,0 +1,72 @@
+{
+  "kind": "goalie-consumer-attempt-02-admission",
+  "status": "cleared_not_dispatched",
+  "recorded_at_utc": "2026-11-13T13:13:41.662375+00:00",
+  "assignment": "one fresh live typed client/cohort/history/csv construction attempt; no browser/ST window",
+  "first_failure": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-consumer-attempt-01-classification.json",
+    "bytes": 1465,
+    "sha256": "e9116569ea43f329880fd8d427f676c2b5b5a5916ef8dbc1b054c927142b973e"
+  },
+  "origin_repair_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-consumer-origin-repair-review.json",
+    "bytes": 2143,
+    "sha256": "9e3ba0a1a2f5a307674e8316e76db18066bab061b6862c53834a81e8f00e07c2"
+  },
+  "controller": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/app/goalie-live-consumers-temporary.ts",
+    "bytes": 10275,
+    "sha256": "5c7c79a8faf6454ad4b0ab1d0b74fc5a74b3291055f834be2fd7a8b9ca41d3f0"
+  },
+  "held_shell": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/consumer-held-02.sh",
+    "bytes": 1087,
+    "sha256": "2ce05a89be48cba6cf4b04f754309c7ff1840b519f13985a4e54158caf083039"
+  },
+  "freshness": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-consumer-attempt-02-preflight.json",
+    "bytes": 279,
+    "sha256": "4feac97b6f7ae5cb266794379eed21249c56b811683a508645056bc8e278ca05"
+  },
+  "freshness_native_cost": {
+    "wall_seconds": 14.55,
+    "peak_rss_bytes": 16154624,
+    "input_body_reads": 0
+  },
+  "passed_api": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-api-result.json",
+    "bytes": 14862,
+    "sha256": "68601a52b74c4585f5fc3df1b3e87230168cf96e4c8c0c4871b2dd63024dea34"
+  },
+  "api_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-api-independent-adjudication.json",
+    "bytes": 3382,
+    "sha256": "094076e87a11d547bf6e543fbb8409b282970af30ab5d59e343fe707be9a45d7"
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "production_app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "build_authority_sha256": "0072909d5e75fa2c0cc05822859e9b2ff466edab0850f6ded6a08c07ab66cf7b",
+  "server": {
+    "pid": 98454,
+    "port": 3407,
+    "fresh_lsof_exit": 0,
+    "fresh_lsof_stdout": "p98454\ncnode\nf16\nn127.0.0.1:3407\n"
+  },
+  "scope": "unchanged all26 metric, annual cohort/value/cutoff/history and CSV assertions; public browser-origin fixture with already-resolved request observation only",
+  "tradeoff": "Node composition check uses an explicit browser-origin fixture; actual browser semantics remain required",
+  "output_names": [
+    "consumer-02.json",
+    "consumer-02.csv",
+    "consumer-02-native.log",
+    "consumer-02-native.exit"
+  ],
+  "actual_outcome": null,
+  "actual_cost": null,
+  "limits": [
+    "first failed log/exit and source1b8 preserved; no overwrite",
+    "no production, schema, numerical, candidate or build change",
+    "no model/source-table read, numerical rerun or repeated publication/startup/API matrix",
+    "no browser/download/pixel/scientific/activation pass"
+  ]
+}

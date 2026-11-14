@@ -1,0 +1,102 @@
+{
+  "kind": "one-capped-saved-base-event-disposition",
+  "status": "found",
+  "target_key": "2022020554:252",
+  "accepted_base": {
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/manifest.json",
+      "sha256": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20",
+      "bytes": 383418
+    },
+    "season": "20222023",
+    "purpose": "real",
+    "scoring_version": "execution-v1-06-1",
+    "event_member": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/events.jsonl",
+      "sha256": "57b0b3476e6b3b76111cf08404f3e97b66fb7d479af8801bd934a78ac1141395",
+      "bytes": 236910262
+    },
+    "selection_contract": "compact jsonl via _write_jsonl/_line; unique top-level event key; exact byte token excludes key prefixes"
+  },
+  "byte_cap": 134217728,
+  "body_bytes_read": 100007936,
+  "json_rows_decoded": 1,
+  "match": {
+    "line_number": 64712,
+    "byte_offset": 99967738,
+    "line_bytes": 790,
+    "line_sha256": "51935c7aa976f9ed7175ed17677ffe42c5b3ee3a38fef13ba4dd4345b98b57f9",
+    "event": {
+      "season": "20222023",
+      "game_id": "2022020554",
+      "source_index": 252,
+      "key": "2022020554:252",
+      "outcome": "block",
+      "shot_type": null,
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "shooter_id": "8473446",
+      "goalie_id": "8478971",
+      "status": "excluded",
+      "reasons": [
+        {
+          "code": "shot_type_unavailable",
+          "game_id": "2022020554",
+          "source_index": 252,
+          "pointer": "/attempts/98"
+        }
+      ],
+      "heads": {
+        "u": {
+          "included": false,
+          "target": null,
+          "reasons": [
+            "shot_type_unavailable"
+          ]
+        },
+        "q": {
+          "included": false,
+          "target": null,
+          "reasons": [
+            "shot_type_unavailable"
+          ]
+        },
+        "r": {
+          "included": false,
+          "target": null,
+          "reasons": [
+            "shot_type_unavailable"
+          ]
+        },
+        "g": {
+          "included": false,
+          "target": null,
+          "reasons": [
+            "shot_type_unavailable"
+          ]
+        }
+      }
+    }
+  },
+  "cost": {
+    "wall_seconds": 0.9532105410471559,
+    "peak_memory_bytes": 19415040
+  },
+  "verification_scope": "accepted manifest hash checked separately; current member declared hash retained, not fully rehashed in capped byte lookup",
+  "limits": [
+    "one saved base event only; no annual reader, numerical replay, prepared/raw/source-game/array reads or source conclusion"
+  ],
+  "source_receipt_sha256": "04642025e5a6d2962ec61fa548c1bbeaa4db082d19d3d10b6ff493469cc7253c",
+  "native_cost": {
+    "wall_seconds": 0.97,
+    "user_seconds": 0.07,
+    "system_seconds": 0.01,
+    "peak_resident_bytes": 19447808
+  },
+  "adjudication": "expected source/model population boundary: a block remains countable while its null modeled shot type withholds all four base heads; no newly established source or computational failure",
+  "original_scope": "original cause of missing modeled type is not inspected; existing retained canonical-type conflict/missing-type boundaries are documented in fixtures/README.md; no new distinct broken-source case inferred"
+}

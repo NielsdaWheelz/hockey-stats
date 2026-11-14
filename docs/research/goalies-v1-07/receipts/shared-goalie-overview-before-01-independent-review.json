@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "kind": "goalie-overview-source-and-before-independent-review",
+  "status": "accepted_repair_source_and_old_server_baseline_only",
+  "sha256": {
+    "shared-goalie-overview-before-01.json": "44f04bde7b4c924d86fe28e0deba2eb4683983d3bc237e7531d76813088a269e",
+    "shared-goalie-overview-before-01-native.log": "1e22a7f72dc378c17c794f34161b58121e5af139e6d39a3102a02cb09eed6471",
+    "shared-goalie-overview-before-01-native.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "comparison_controller": "550b4011b9424a426f58c7a272af9b6c3a82d01400b213431d1ac31403da1519",
+    "old_publication_source": "5598c8416e8db90b5f1e6aba544758c85dca68196a9f9de36c24ce8933813004",
+    "final_publication_source": "0c0045d505912603c73e8c416d146ee6c61fd7404ce4edf4ec66f3cd90510238",
+    "controls_source": "79720beba0c089bcc120c6fabe8b1f58b2a5d3e34a9c9e910157208118aa912c",
+    "final_green03": "ad8c7c994ea8819d2b55c69a315eac1972adff3c9fe9d660fd2726c261bdf9b0"
+  },
+  "source_review": [
+    "final diff selects only EV/PK model and observed rows for goalie overview, omits unused skater facts, preserves pending components and derives reported_usage solely from EV observed. explicit dispatch is clear.",
+    "shared observed projection fully decodes before removing games, exactly preserving the old full-player transformation. remaining player/evidence/skater/ST/validator bodies and math are unchanged in this diff.",
+    "eight final controls pass with real owner, selected-row decoder and response schemas. independent literal oracles distinguish season/role/order, EV/PK values/usage, pending, full-player 46 reads and skater behavior; missing/duplicate rows and invalid games remain rejected. SQL/bootstrap/catalog/observed fixtures are explicit; no real startup claim. final typecheck exit 0 is retained."
+  ],
+  "before_review": {
+    "native_exit": 0,
+    "status": "passed_baseline_capture_only",
+    "binding": "same fb604 real/schema 9 publication, stored publisher 4aa and old compiled build 007290 on 3407; loaded-server identity is root-observed",
+    "seasons": ["20232024", "20242025", "20252026"],
+    "unique_person_counts": [117, 121, 123],
+    "returned_bytes": [6237373, 6327224, 6406760],
+    "request_read_wall_seconds": [8.917207624996081, 8.857016833033413, 9.05157620809041],
+    "facts": "three fixed 200 responses; all complete/retained/checked, no overflow/errors. declared lengths and total 18971357 bytes agree. metadata retains raw and entire strict parsed-response canonical hashes plus ordered IDs; external bodies were not reread.",
+    "internal_wall_seconds": 27.168003333033994,
+    "native_wall_seconds": 27.25,
+    "peak_rss_bytes": 107200512,
+    "cost_scope": "internal timing includes setup, HTTP, raw writes and checks after local reservation; receipt serialization/write excluded. process-lifetime high-water RSS; physical i/o unknown. one fixed serial observation is not a repeatability benchmark."
+  },
+  "blocking_mismatches": [],
+  "limits": "local source/saved review only; no execution, test, OS/HTTP/external/body query. new build/startup and after comparison remain pending; no reset-cause, browser/family, scientific or activation acceptance."
+}

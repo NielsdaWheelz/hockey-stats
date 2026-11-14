@@ -1,0 +1,33 @@
+{
+  "disposition": "accepted_evidence_readiness_diagnostic_only",
+  "review_scope": "independent review of retained local result, events, native log and exit; no live observation, external read or execution",
+  "sha256": {
+    "source": "33e694495eeaf738b33250420ca0cfa41e580639beb017e7731c71b96312937a",
+    "result": "f19fd53e8f5af1bfdce8d0e7f31bb1530e70dda5559825b83580ebdac5f56c4d",
+    "events": "a8a82ae9e655770733ae74b7036474f623a7c5c130095dd5ebd3a9661a584ad2",
+    "native_log": "80e13fe94ed27d179dd07b915c209d2612e65555b79ede1a3f40a082a43ab506",
+    "native_exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "target": "8478872 / 20252026 / goalie.ev.stopping_goals_per100_on_net",
+  "observations": {
+    "status": "evidence_observation_complete_only",
+    "native_exit": 0,
+    "before_click": {"open": false, "direct_paragraphs": 0, "summary_only": true},
+    "immediately_after_click": {"open": true, "direct_paragraphs": 0, "summary_only": true},
+    "after_neutral_readiness": {"open": true, "direct_paragraphs": 5, "qualification_seconds": 183847, "prior_only": false},
+    "api_responses": "four actual responses, all 200",
+    "request_failures": 0,
+    "page_errors": 0,
+    "console_errors": "one exact same-origin favicon.ico 404",
+    "owned_context_closed": true
+  },
+  "finding": "the click promise can resolve before DatumEvidence mounts its lazy paragraphs. reading support immediately can therefore observe only the summary. the scoped direct-paragraph readiness predicate permits the unchanged qualification and prior-only assertions to evaluate rendered evidence; it does not wait for their expected values. this diagnostic demonstrates the concrete observation race and correct settled evidence. browser02 retained no failing DOM, so its particular failure cannot be reconstructed conclusively.",
+  "cost": {
+    "native_wall_seconds": 6.40,
+    "native_max_rss_bytes": 342458368,
+    "internal_wall_seconds": 6.366411125000001,
+    "internal_node_peak_rss_bytes": 136314880,
+    "scope": "internal timing runs from local reservation through owned context closure, excluding final serialization; native accounting covers the invocation and differs from the node-only meter"
+  },
+  "limits": "one profile and one evidence panel; no product defect demonstrated, no product change, no full browser/export/pixel, scientific or activation acceptance; historical failed attempts remain failed"
+}

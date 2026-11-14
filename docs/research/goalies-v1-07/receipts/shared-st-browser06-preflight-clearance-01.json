@@ -1,0 +1,38 @@
+{
+  "kind": "shared-st-browser06-one-preflight-clearance",
+  "created_at": "2026-11-14T07:23:49.724197+00:00",
+  "status": "complete_revised_source_packet_clear_one_preflight_authorized_browser_dispatch_held",
+  "parent_assignment_sha256": "5ed026ebc3765f9e767114efd7518948a6e2eaf6b5f04c49c1fc978da8280940",
+  "amendment_sha256": "fb54e66d47f95e65a31ff2f30d3984f3d6b4beb5a897cdbaa06c1bf3985e5097",
+  "materialized_source_intake_sha256": "b8358467137ae5d48a18c31468806172a2a15ff63893192866f0c4449f523f0e",
+  "current_sources": {
+    "browser06": "c74dcf9806d4533308bb00d08bd28e18620653948bddc48b06b1626dd7567fbe",
+    "held06": "854810efe26624ea6a96b9478be2007d8d46608a695a65d89c61f3fd84bdc7e9",
+    "static_inverse_proof": "8567bfd1f7f51548d023a494b72810fdf5ac440e258a960b28c34c5de4ab3fcb",
+    "independent_successor_review": "6dde9c3024c6bfe0f462b27ff6a33865b028823b6411f1b255ba9333aea2c3a1",
+    "preflight_helper": "d3731817fdd63f8d00eccde0b7f6986324f95d89485a8d71b890971ed65def8b",
+    "preflight_held": "72f7b82f3c120236bd2a622352075008eeb882f130eef8566176256b69b8cb7c",
+    "preflight_plan": "83e459dd9b12498aa71030bf21879c5d2b3a9d056e241b1ee9db872312b157c3"
+  },
+  "independent_preflight_source_reviews": [
+    "679466bf965ec7c3fef346fb9825e937bad76d69452e945277d264f12af5e2d4",
+    "6b377063fb71893389a04940ad55603c6d2ad9f0212c531be1083e628d35e174"
+  ],
+  "root_review": "all eight named current source/proof/review identities matched; full helper/held/plan inspected without execution. no concrete contract finding",
+  "authorized_once_argv": [
+    "/bin/sh",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-launch-preflight-held-01.sh"
+  ],
+  "working_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+  "scope": "52 fixed LOCAL body reads:12pins+38compiled+PWpackage/Chromeplist; Node--version only, selected process/listener/git/mount/parents/fivefreshpath metadata. ONEfixedexternaltyped-consumer.json normal bufferedreadcap2MiB exact1097187B/b76. retain known bytes/hash beforeclose; literalCSVpath+int120 check only. no CSV access, PW/controller import, Chrome launch, mkdir or automatic chain",
+  "expected_local_outputs": [
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-launch-preflight-01.json",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-launch-preflight-01-native.log",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-launch-preflight-01-native.exit"
+  ],
+  "required_next_boundary": "actual numeric ST_BROWSER_PREFLIGHT_NATIVE_EXIT=0 marker/prompt and retained receipt/log/exit, independent cached admission review, then root check before any separate browser command. no browser dispatch clearance from this source review or preflight assignment",
+  "failure": "preserve any failure; no rerun, broader read, directory scan, version alternative or cleanup; STOP overrides pendingreads",
+  "unchanged": "target1a301/API7b6/consumerb76/3763fee5app852build18ef/retained89887/fb604/final21de15d; original05sources and unused05destinations/d5dbmapping immutablehistorical; current06 bound explicitly, no dualfallback",
+  "held": "actual browser journeys/CSVread/download/screenshot/pixels/offline/rollback/protectedprimary/finalpreservation/cleanup/source-buildchanges/startup/publication/fit/rescore/activation and laterchain",
+  "root_operations": "only named LOCAL source/proof/review reads/hash/in-memoryreview; no actual preflight/import/syntax/test/version/OS/HTTP/DB/HDD/consumer/CSV operation or STsource edit byroot"
+}

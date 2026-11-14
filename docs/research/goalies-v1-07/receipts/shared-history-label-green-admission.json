@@ -1,0 +1,19 @@
+{
+  "kind": "shared-history-label-green-01-admission",
+  "assigned_at": "2026-11-14T04:53:32.558313+00:00",
+  "status": "assigned_once_not_run",
+  "scope": "same3d0e checker as red; four actual native/320CSS EV/PK cases; no checker change or exports; context closure retained",
+  "checker_sha256": "3d0e335e9c72f4ac34fb46d589be2ba236db514bf61c248e074964da3295c07a",
+  "caller_sha256": "2ed5363bf2dd6bfbc5ff2df0b71bd1e0462b8b7cd5192d7e19f007fd17cc81da",
+  "fresh_local_outputs": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-history-label-green-01",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-history-label-green-01-native.log",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-history-label-green-01-native.exit"
+  ],
+  "runtime_source": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+  "build_receipt_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+  "node_pid": 89887,
+  "strict_startup_adjudication_sha256": "0d13786262af694f37039bdc73fffd54655807bca8c832d164dfeaed689f2fdb",
+  "current_live_overview_result_sha256": "7a04ebe124ef47409fd8a3f1fc867dd7a45beacb4a43cc575a4795c3d5a7b4e3",
+  "limits": "geometry only; no full network/export/pixel/ST/scientific or activation pass. root separately adjudicates raw errors in full browser04. STOP overrides pending work"
+}

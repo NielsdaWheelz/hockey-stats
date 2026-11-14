@@ -1,0 +1,111 @@
+{
+  "kind": "shared-normal-strict-startup-admission",
+  "status": "cleared_not_dispatched",
+  "recorded_at_utc": "2026-11-13T11:37:56.458516+00:00",
+  "assignment": "root owns ONLY one normal detached strict startup on3407 against this accepted inactive candidate; all later family matrices remain unassigned",
+  "accepted_publication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-publication-boundary-release.json",
+    "bytes": 2186,
+    "sha256": "196468af0f77798428d53ef140ab00adfde6092e795193fd0023e7c592501e6a"
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "candidate": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite",
+    "sha256": "17241928149f70bbd353815a4ec8feab39210d570205b494ad6c2af8cfb9a612",
+    "bytes": 31261470720,
+    "digest_status": "reported by ordinary publisher; not independently rehashed"
+  },
+  "source": {
+    "commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "status": [
+      "?? app/goalie-consumers-temporary.ts",
+      "?? app/goalie-contracts-temporary.ts",
+      "?? app/goalie-live-consumers-temporary.ts",
+      "?? app/goalie-selector-review-temporary.ts"
+    ]
+  },
+  "retained_build_authority": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/public-validator-union-integration.json",
+    "bytes": 8539,
+    "sha256": "0072909d5e75fa2c0cc05822859e9b2ff466edab0850f6ded6a08c07ab66cf7b"
+  },
+  "checked_build_files": [
+    {
+      "path": "app/dist/node/server/main.js",
+      "bytes": 8073,
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+    },
+    {
+      "path": "app/dist/node/server/analysis-publication.js",
+      "bytes": 67929,
+      "sha256": "4454950587c03b0fe5040c49737ad82c2b360f4689159d94eba51362cc15e71f"
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis.js",
+      "bytes": 113222,
+      "sha256": "2877086226cf5a705d1e47870c37273457b822774f76b15c1204f9518d4562d9"
+    },
+    {
+      "path": "app/dist/server/index.js",
+      "bytes": 174762,
+      "sha256": "48d7161b17a6fcb125b72fcefca3019f55595c01c9881223a17fe1e0d160739d"
+    },
+    {
+      "path": "app/dist/client/index.html",
+      "bytes": 2114,
+      "sha256": "cbfb874a84f2edeed42f9aa03a44620463f2c643f15bee22d8749fb45aff420d"
+    },
+    {
+      "path": "app/dist/client/assets/entry.client-CimxyNE3.js",
+      "bytes": 214675,
+      "sha256": "f123592f11d56cc3c499149ae7c2b8ef315cfbadf89ad6c66dd6a55ea1f22785"
+    },
+    {
+      "path": "app/dist/client/assets/explorer-lHrtF-QX.js",
+      "bytes": 280904,
+      "sha256": "607bc1cee201bf62ce02a8d57a6b86995d9ab962b5080e51fde6898bc3d4afe9"
+    }
+  ],
+  "startup_sources": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/startup-held.sh",
+      "bytes": 1151,
+      "sha256": "1fa4f336c0a8a88fc2b4eaa1461369f7c90cb2659d754af5898c909c377eb896"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs",
+      "bytes": 2254,
+      "sha256": "bb37d4a06cbde3a7bf4e350f331e67a14ac34f655a7d877582ea0a6562066ec4"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/detached.sb",
+      "bytes": 1256,
+      "sha256": "dda6d8f506d99c4fd595f226ade0e47023c858961ddad266aaf4ce1f6b0dfa6a"
+    }
+  ],
+  "fresh_local_paths": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-01.json",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-01.log",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-01.exit"
+  ],
+  "port_check": {
+    "argv": [
+      "/usr/sbin/lsof",
+      "-nP",
+      "-iTCP:3407",
+      "-sTCP:LISTEN"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "node": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node; meter requires v24.21.0 before main import",
+  "startup_cost_scope": "meter entry to actual listening, excludes node boot/static imports; process maxRSS through listening includes them; external time is eventual service lifetime",
+  "limits": [
+    "no DB body/hash/SQL/full-reader was invoked by these local admission checks",
+    "older8f68 bootstrap probe does not execute currentdda6; three additional ST-source denials are source-reviewed",
+    "no API/browser/scientific/activation pass or automatic later chain"
+  ]
+}

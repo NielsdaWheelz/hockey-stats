@@ -1,0 +1,49 @@
+{
+  "kind": "single-chrome-profile-transport-diagnostic",
+  "status": "navigation_completed_only",
+  "errors": [],
+  "scope": "one actual chrome navigation and existing selected-metric/history wait; no consumer oracle, exports or family acceptance",
+  "precondition": "root checks fixed server/build, fresh output/profile paths and source before separately assigning one invocation",
+  "target": {
+    "base": "http://127.0.0.1:3407",
+    "player": "8478872",
+    "season": "20252026",
+    "metric": "goalie.ev.stopping_goals_per100_on_net",
+    "url": "http://127.0.0.1:3407/players/8478872?season=20252026&metric=goalie.ev.stopping_goals_per100_on_net"
+  },
+  "profile": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-transport-diagnostic-01/profile",
+  "event_log": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-transport-diagnostic-01/events.jsonl",
+  "ui": {
+    "completed": true,
+    "selected_metric": "goalie.ev.stopping_goals_per100_on_net",
+    "history_count": 3,
+    "history_seasons": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ]
+  },
+  "owned_context_closed": true,
+  "browser": {
+    "node": "v24.21.0",
+    "playwright": "1.65.0",
+    "chrome": "156.0.8078.80"
+  },
+  "navigation_status": 200,
+  "wall_seconds": 47.3844165,
+  "peak_rss_bytes": 133414912,
+  "event_counts": {
+    "request": 16,
+    "response": 16,
+    "requestfinished": 16,
+    "requestfailed": 0,
+    "pageerror": 0,
+    "consoleerror": 1
+  },
+  "cost_scope": "after local output/receipt reservation through owned context closure; final log/receipt serialization excluded",
+  "limits": [
+    "one navigation cannot explain the fourth-metric node reset or establish repeatability",
+    "actual network/page errors remain observations; completed navigation is not consumer or family acceptance",
+    "profiles and local evidence retained; no export, response substitution, transport patch, fallback or retry"
+  ]
+}

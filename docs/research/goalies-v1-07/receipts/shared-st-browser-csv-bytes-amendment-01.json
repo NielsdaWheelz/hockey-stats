@@ -1,0 +1,41 @@
+{
+  "kind": "shared-st-browser-csv-input-byte-count-amendment",
+  "created_at": "2026-11-14T07:02:09.058313+00:00",
+  "status": "narrow_source_successor_preparation_approved_actual_preflight_and_dispatch_held",
+  "parent_assignment": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-consumer-return-browser-assignment-01.json",
+    "sha256": "5ed026ebc3765f9e767114efd7518948a6e2eaf6b5f04c49c1fc978da8280940"
+  },
+  "finding": "root assignment requires actual CSV input bytes and hash; source05 reads the original Buffer once and records its hash but omits its byte length. this is a temporary controller receipt gap, not a product/numerical defect",
+  "approved_exact_source_delta": {
+    "from": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-05.mjs",
+      "bytes": 54003,
+      "sha256": "35c3b7eea2f3fe971e79c7553cc3c53e69d24eefc1911bacded6037deb2886f4"
+    },
+    "to": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-06.mjs",
+      "bytes": 54030,
+      "sha256": "c74dcf9806d4533308bb00d08bd28e18620653948bddc48b06b1626dd7567fbe"
+    },
+    "change": "add only bytes: oracleBytes.length to source_inputs.consumer_csv beside the existing path/sha256; exact inverse restores all54003 original bytes"
+  },
+  "approved_exact_held_delta": {
+    "from": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-held-05.sh",
+      "bytes": 1156,
+      "sha256": "f682b8df4e38ffb6ff1059bde6032d05f00a48c0d3eedd650d7d2aaba2e6dcbe"
+    },
+    "to": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-held-06.sh",
+      "bytes": 1156,
+      "sha256": "854810efe26624ea6a96b9478be2007d8d46608a695a65d89c61f3fd84bdc7e9"
+    },
+    "change": "only selected entry filename browser-05.mjs to browser-06.mjs; exact inverse restores original held05. retain ALL unused output/profile/log/exit paths including05 suffixes so closed d5db capture mapping remains unchanged"
+  },
+  "source_history": "original source05/held05/plan03/packet05 remain immutable; actor may materialize only the exact successors and corresponding admission/source-plan pin metadata; no root edit in ST worktree",
+  "preconditions": "report actual successor/held/admission pins plus independent LOCAL source/inverse review before root clears the revised actual preflight and separately submitted browser command. existing browser window scope remains one; no automatic dispatch or retry",
+  "unchanged": "all semantics/guards/strictzeroerrors-throughclosure/matrix101planneddownloads85rasters/CSVonebufferread/actualtarget1a301/API7b6/consumerb76/build18ef/server89887/profiles/output/log/exit paths/d5dbpostcapture/caps/pixelstage separation; no new read/stat/import/test/control/productchange/build/startup/source-DATA query",
+  "failure_limits": "no byte identity inferred from parse/reserialization or per-download sizes; input/early failures remain failed or unknown without automatic followup. no lifecycle machinery or extra CSV read is authorized",
+  "operations": "read only two fixed LOCAL controller sources, derive exact successor buffers/hashes in RAM, write this compact LOCAL amendment; no successor file mutation, runtime/syntax test, CSV/drive/HTTP/DB/OS/probe or other source read"
+}

@@ -1,0 +1,59 @@
+{
+  "kind": "owned-strict-startup-listener-observation",
+  "observed_utc": "2026-11-13T14:44:14Z",
+  "status": "listening_observed_not_application_accepted",
+  "owner": "root",
+  "service": {"pid": 33587, "time_parent_pid": 33586, "wrapper_pid": 33585},
+  "process_observation": {
+    "elapsed": "34:33",
+    "state": "S+",
+    "cpu_time": "17:27.29",
+    "current_rss_kib": 1434416,
+    "memory_scope": "instantaneous ps rss; not peak"
+  },
+  "listener": {
+    "argv": ["/usr/sbin/lsof", "-nP", "-a", "-p", "33587", "-iTCP:3407", "-sTCP:LISTEN"],
+    "exit": 0,
+    "pid": 33587,
+    "address": "127.0.0.1",
+    "port": 3407,
+    "protocol": "TCP",
+    "state": "LISTEN",
+    "raw": "COMMAND   PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    33587 nnandal   16u  IPv4 0xa2a34c668c84e076      0t0  TCP 127.0.0.1:3407 (LISTEN)\n"
+  },
+  "local_captures": [
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-02.json",
+      "local": "docs/research/goalies-v1-07/receipts/shared-runtime-02-startup.json",
+      "cap_bytes": 65536,
+      "source_size_observed_bytes": 1194,
+      "returned_bytes": 1194,
+      "sha256": "505a7d68e4251faf430ca81138771064b80499dc5254671a30eaf4cf9839b748",
+      "complete_within_cap": true
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-02.log",
+      "local": "docs/research/goalies-v1-07/receipts/shared-runtime-02-listening-log.txt",
+      "cap_bytes": 1048576,
+      "source_size_observed_bytes": 1140,
+      "returned_bytes": 1140,
+      "sha256": "3af812cd367737f0d54ad8ce63cf3f6fb8eb098194b4ef69b543a56f9af8df90",
+      "complete_within_cap": true
+    }
+  ],
+  "meter": {
+    "raw_status": "listening_not_application_accepted",
+    "wall_seconds": 2020.983562,
+    "peak_rss_bytes": 1967079424,
+    "latency_scope": "meter entry through actual listening; node boot and static meter imports excluded",
+    "memory_scope": "kernel process-lifetime maxRSS through listening, including boot/static imports; KiB converted to bytes"
+  },
+  "capture_scope": "one capped original body read per local startup receipt/log, exclusive retained copies; local source-size metadata and copy hashes/counts only",
+  "total_local_returned_bytes": 2334,
+  "limits": [
+    "os listening and the raw meter status do not establish application or family acceptance",
+    "no hdd body, http, sql, import, test, build, restart or signal was performed by this watch",
+    "native service-lifetime exit and eventual outside-time cost remain pending; the service/time parent are alive",
+    "no listening utc timestamp is inferred from launch time plus metered latency"
+  ]
+}

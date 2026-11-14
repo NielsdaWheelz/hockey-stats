@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "kind": "independent-final-fixture-detached-goalie-score-review",
+  "purpose": "fixture",
+  "status": "passed",
+  "score": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/manifest.json",
+    "sha256": "219a109775d3ddb255ad40fca0082c57acfc09e371bc586de7c85b2a9afd5bb5"
+  },
+  "reader_git_commit": "d73093d2c284ab4806c61df7072d90ac654a8b71",
+  "people": 32,
+  "row_counts": {
+    "analysis_map": 352,
+    "execution_breakdown": 3168,
+    "goalie_danger": 768,
+    "goalie_evidence_map": 4608,
+    "goalie_observed": 384,
+    "goalie_result": 352
+  },
+  "numerical_sensitivity": "assessed",
+  "all_path_open_calls_confined_to_score_tree": true,
+  "opened_members": [
+    "analysis_map.jsonl",
+    "catalogs.json",
+    "coverage.json",
+    "event_values.jsonl",
+    "execution_breakdown.jsonl",
+    "goalie_danger.jsonl",
+    "goalie_evidence_map.jsonl",
+    "goalie_observed.jsonl",
+    "goalie_result.jsonl",
+    "manifest.json",
+    "people.jsonl",
+    "projections.jsonl",
+    "sensitivity.json",
+    "source_games.jsonl",
+    "targets.jsonl"
+  ],
+  "original_input_opens": 0,
+  "wall_seconds": 58.088521583005786,
+  "peak_memory_bytes": 153010176,
+  "peak_memory_unit": "darwin ru_maxrss bytes",
+  "scope": "one normal detached score-reader invocation; no preparation, coaches, state, base score or original source traversal",
+  "limits": [
+    "fixture software/artifact acceptance only; no real computation or browser acceptance",
+    "historical first-year score04 review remains unchanged"
+  ]
+}

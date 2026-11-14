@@ -1,0 +1,39 @@
+{
+  "kind": "shared-runtime-03-checked-boundary",
+  "status": "accepted_normal_strict_startup_detached_data_and_current_publication_binding_only",
+  "runtime_source_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+  "build_receipt_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+  "startup_sha256": "faf3081803a82112c49bc74058f83eaf3d97f3fa9f89b260bcf3851fb0d7724a",
+  "startup_independent_adjudication_sha256": "0d13786262af694f37039bdc73fffd54655807bca8c832d164dfeaed689f2fdb",
+  "listener_observation_sha256": "4bea2d0857060d65e522599b238699262eebf338c16cfb87b6ce8e60b476ab01",
+  "service": {
+    "pid": 89887,
+    "time_parent": 89886,
+    "wrapper": 89885,
+    "base_url": "http://127.0.0.1:3407"
+  },
+  "candidate": {
+    "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+    "bytes": 31261470720,
+    "stored_publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "publisher_reported_sha256": "17241928149f70bbd353815a4ec8feab39210d570205b494ad6c2af8cfb9a612",
+    "final_manifest_sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+    "final_composer_sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654"
+  },
+  "current_binding": {
+    "three_overview_result_sha256": "7a04ebe124ef47409fd8a3f1fc867dd7a45beacb4a43cc575a4795c3d5a7b4e3",
+    "independent_review_sha256": "455cc43adec7a6b373ee150bb718c4f274b0238713b2473f5139a90a720fb5de",
+    "all361_goalie_season_envelopes": "raw and canonical bytes, ordered identities exact prior accepted baseline",
+    "inherited_api02": "supported by unchanged21backendJS, preserved candidate, one actual normal strict startup03 and complete current overview binding; no exhaustive replay claimed"
+  },
+  "startup_cost": {
+    "meter_wall_seconds": 2336.116399583,
+    "process_lifetime_peak_rss_through_listen_bytes": 1893744640,
+    "latency_scope": "meter entry through listening; node boot/static meter imports excluded",
+    "native_outside_time_scope": "open service lifetime, not a startup measurement"
+  },
+  "authority": "runtime qualification evidence only; no ST command/window/chain, browser/pixel, preservation, scientific or activation grant",
+  "held": "all actual ST stages and final preservation/cleanup remain separately assigned after G checked boundary"
+}

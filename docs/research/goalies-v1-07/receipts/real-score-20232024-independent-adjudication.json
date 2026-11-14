@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "reviewers": [
+    "root",
+    "api_verification"
+  ],
+  "metadata_review": {
+    "path": "real-score-20232024-metadata-review.json",
+    "sha256": "4415be75d5d627b763cc4ee97b18643385f3e5f5d79aa3814431a87dbb7e9964"
+  },
+  "finalized_preflight_sha256": "cdefe4cf1aa1d4fc2f5140a0148fc556d47a62590c5453309a6a19a51d3ee8b5",
+  "score_sha256": "5c75b215c50d3271ab2f4df4bc9d2dca39c26b846977dde251b0d0c39b6a25aa",
+  "scope": "local receipt/helper/source-contract adjudication only; root previously checked original manifest/log after reconnect; no repeated source, event, array or normal-reader invocation",
+  "checked": [
+    "original native74808 tool exit0 independently precedes stop attempt",
+    "clean64ce/0aba, exact runtime/lock/six-unset launch and seven input bindings remain preserved",
+    "four current score JSON hashes and three local receipt pins match; all six117-goalie matrix counts, target/stage/history/method bindings pass",
+    "earlier annual has zero probes, no sensitivity variants, unknown remaining optimizer accuracy",
+    "native, producer and reviewer resource scopes remain distinct"
+  ],
+  "source_only": {
+    "count": 99,
+    "meaning": "included source-event keys whose base_status is not complete; not all unpaired events",
+    "native_contract": "validator reconstructs coverage and checks source/base pairing and all public records; raw counts remain preserved and unvalued events leave both paired sides",
+    "underlying_causes": "not independently inspected or inferred from stage totals",
+    "conclusion": "count difference alone establishes no defect and adds no further acceptance gate"
+  },
+  "limits": [
+    "no independent public-person/table or pointwise body oracle added",
+    "no scientific admission, full v1-07 completion, application runtime/browser acceptance or activation"
+  ],
+  "next_window_release_sha256": "a9a3f23dd9097151105178027157b3e848a67346d6e382ace2ade0415ac1256f"
+}

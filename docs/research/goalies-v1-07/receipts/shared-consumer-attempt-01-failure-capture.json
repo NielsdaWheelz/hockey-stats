@@ -1,0 +1,22 @@
+{
+  "kind": "consumer-failure-capture",
+  "files": [
+    {
+      "source": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-native.log",
+      "local": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/consumer-failure-capture-01/consumer-native.log.raw",
+      "bytes": 2690,
+      "sha256": "c822cccfe78ace7ab8ca9291ca760d04637a4ac7174f84617a7f9dd03b29f0e7",
+      "cap": 1048576,
+      "overflow": false
+    },
+    {
+      "source": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-native.exit",
+      "local": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/consumer-failure-capture-01/consumer-native.exit.raw",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "cap": 64,
+      "overflow": false
+    }
+  ],
+  "scope": "two fixed raw bodies only; no consumer rerun or other artifact read"
+}

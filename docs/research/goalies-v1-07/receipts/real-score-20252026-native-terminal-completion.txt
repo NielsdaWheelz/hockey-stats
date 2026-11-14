@@ -1,0 +1,21 @@
+                                                                                
+~/Doc/c/hockey-stats-v1-07 implement/v1..continuation ?6 > /Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python - <<'PY'
+from pathlib import Path
+p=Path('/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/.score-native-write-probe-01')
+with p.open('xb') as f:f.write(b'goalie-owned-write-probe\n')
+assert p.read_bytes()==b'goalie-owned-write-probe\n'
+p.unlink()
+print('OWNED_NATIVE_WRITE_PROBE_PASS')
+PY
+
+OWNED_NATIVE_WRITE_PROBE_PASS
+~/Doc/c/hockey-stats-v1-07 implement/v1..continuation ?6 > /bin/sh /tmp/hockey-goalie-v1-07-checks/final-score-native-operator-01.sh
+
+G_SCORE_NATIVE_FRAME_PASS
+G_SCORE_NATIVE_EXIT=0
+~/Doc/c/hockey-stats-v1-07 implement/v1..continuation !3 ?9 >        2h 30m 18s
+
+
+
+
+

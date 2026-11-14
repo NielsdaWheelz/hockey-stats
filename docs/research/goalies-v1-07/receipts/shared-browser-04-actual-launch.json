@@ -1,0 +1,50 @@
+{
+  "kind": "shared-browser-04-actual-launch",
+  "status": "running_not_browser_accepted",
+  "started_at": "2026-11-14T04:56:07Z",
+  "observed_at": "2026-11-14T04:56:33.114429+00:00",
+  "driver_pid": 99289,
+  "time_pid": 99288,
+  "wrapper_pids": [
+    99286,
+    99287
+  ],
+  "runtime_node_pid": 89887,
+  "base_url": "http://127.0.0.1:3407",
+  "serving_source_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+  "build_receipt_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+  "source_sha256": "892a1a620f18043cfe2a687ea5b7ed55d4d6d6604852e75a5c41e4dfcf8488a7",
+  "admission_sha256": "ba3bbedca7b35e62a513fe035803ea956906c7f627d2f1dfab8ec372b5f2ddc8",
+  "preflight_sha256": "ef0456fdebd2724c8b8b6537f93f2606a0a3dc818a36db3ce4cd6093a6e7defd",
+  "observations": [
+    {
+      "argv": [
+        "/bin/ps",
+        "-p",
+        "99286,99287,99288,99289",
+        "-o",
+        "pid=,ppid=,lstart=,etime=,command="
+      ],
+      "exit": 0,
+      "stdout": "99286 13714 Fri Nov 13 20:56:07 2026     00:26 /bin/zsh /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-held-07.sh\n99287 99286 Fri Nov 13 20:56:07 2026     00:26 /bin/zsh /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-held-07.sh\n99288 99287 Fri Nov 13 20:56:07 2026     00:26 /usr/bin/time -l /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-04.mjs http://127.0.0.1:3407 /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/api-02.json /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04.json /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04 /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-profile-04 /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-playwright-runtime/node_modules/playwright/index.mjs\n99289 99288 Fri Nov 13 20:56:07 2026     00:26 /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-04.mjs http://127.0.0.1:3407 /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/api-02.json /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04.json /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04 /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-profile-04 /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-playwright-runtime/node_modules/playwright/index.mjs\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/sbin/lsof",
+        "-a",
+        "-p",
+        "99289",
+        "-d",
+        "cwd",
+        "-Fn"
+      ],
+      "exit": 0,
+      "stdout": "p99289\nfcwd\nn/Users/nnandal/Documents/code/hockey-stats-v1-07\n",
+      "stderr": ""
+    }
+  ],
+  "limits": "one actual command, no repeat. output/native exit/cost/pixels unknown; all ST work/preservation/cleanup remain held. STOP overrides pending capture"
+}

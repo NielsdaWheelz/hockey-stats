@@ -1,0 +1,30 @@
+{
+  "kind": "shared-st-peer-control-anchor-attempt02-source-intake",
+  "status": "SOURCE_CLEAR_NOT_RUN",
+  "packet": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-boundary-source-packet-02.json",
+    "bytes": 16577,
+    "sha256": "061242324ab89cda5a68fe77ea24c12d8afbc684c5250bd333c88e3c13d681db"
+  },
+  "assembled_independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-assembled-source-review-02.json",
+    "bytes": 21858,
+    "sha256": "74b0801b390d40b51c6805a189492d4b34d6ad3d2e7c53c19f5abe05aa557d98"
+  },
+  "fixed_metadata_identities_verified": true,
+  "root_native_reviewers": {
+    "/root/canonical_trace": "actual anchor04/sourceproof match; initial commit binding and bracket, permanent different-commit seal, same-document diagnostics, explicit-submit seal and strict after-close gates clear",
+    "/root/trace_review": "actual admission/capture source/held/plan/proof pins match; only literal current pin/size/basename/attempt02 path edits; old reader/failure/status tails unchanged"
+  },
+  "current_anchor": {
+    "bytes": 25371,
+    "sha256": "5a2a4f92287f2a3750068c74d8ccf5fccde72542e868d3d9b0038434f8f740bb",
+    "held_sha256": "f7dc677adc14ebc928d411886846890777f4307ae4e36669ddadd797d5ba5497",
+    "plan_sha256": "e8d76b451be7233d65cc1d49fbdbcb3d61583b9b901c90a0b9d18aa32e797db2"
+  },
+  "document_boundary": "one public CDP session and initial committed main-frame/frame-loader pair; frame-tree bracket binds loaded URL/origin/icons; a different committed pair seals, same-document navigation remains diagnostic; no rebind, retrotag or URL-only exception",
+  "scope": "named LOCAL source/metadata review only, no tests/import/syntax/runtime/OS/HTTP/drive/DB/CSV/image query",
+  "historical_limits": "anchor01/native1/ppcredit0 and browser06 stay failed; their event kinds/favicon qualification not rewritten;41prefixpixels stay scoped32a2",
+  "remainder": "source10 optional/unassigned, no admission/capture/live grant",
+  "live_authority_by_intake": "none"
+}

@@ -1,0 +1,24 @@
+{
+  "scope": "transcription of already returned native tool results; original external log not reopened; original file-byte identity remains deferred",
+  "native_completion_tool_result": {
+    "chunk_id": "95fa70",
+    "wall_time_seconds": 5.417e-06,
+    "exit_code": 0,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "stop_attempt_tool_result": {
+    "chunk_id": "ffe95b",
+    "exit_code": 1,
+    "output": "  PID  PPID STAT COMMAND\nzsh:kill:2: kill 5679 failed: no such process\n"
+  },
+  "cached_log_and_pid_check_output": "  PID  PPID STAT COMM\ngoalie scores 20232024: real; /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20232024/manifest.json\n     7113.09 real      6506.45 user        43.88 sys\n         21528248320  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n             5767880  page reclaims\n                 865  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                4582  voluntary context switches\n             2453534  involuntary context switches\n     152211070084370  instructions retired\n      28537923146541  cycles elapsed\n         22440886664  peak memory footprint\n",
+  "eject_user_report": {
+    "physical_disk": "disk4",
+    "message": "Disk disk4 ejected",
+    "exit_code": 0,
+    "force": false,
+    "data_deleted": false
+  },
+  "external_work": "held until reconnect; no numerical acceptance or public parent change inferred"
+}

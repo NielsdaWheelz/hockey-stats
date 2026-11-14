@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "scope": "synthetic routed local fixture only; no server, candidate or source reads",
+  "method": "user-supplied per-host Preferences before launch, viewport:null, native zoom, unclipped CDP capture",
+  "playwright": "1.65.0",
+  "records": [
+    {
+      "zoom": 1,
+      "profile": "/tmp/hockey-v1-07-browser/profile-preferences-probe-1",
+      "browser": "156.0.8078.80",
+      "metrics": {
+        "innerWidth": 1280,
+        "outerWidth": 1280,
+        "devicePixelRatio": 1,
+        "documentWidth": 1280,
+        "visualScale": 1,
+        "box": 100
+      }
+    },
+    {
+      "zoom": 2,
+      "profile": "/tmp/hockey-v1-07-browser/profile-preferences-probe-2",
+      "browser": "156.0.8078.80",
+      "metrics": {
+        "innerWidth": 640,
+        "outerWidth": 1280,
+        "devicePixelRatio": 2,
+        "documentWidth": 640,
+        "visualScale": 1,
+        "box": 100
+      }
+    }
+  ],
+  "helper": {
+    "path": "/tmp/hockey-v1-07-browser/native-zoom.mjs",
+    "sha256": "9931fcbecb33ecdc048affb9cbe37340519294c7c84d253c455707f52273c637"
+  },
+  "controller": {
+    "path": "/tmp/hockey-v1-07-browser/goalie-browser.mjs",
+    "sha256": "0dd4f5f2f93dcf287ea9f32c9cc00ecd065d031e8806929c2c107c0867a57f07",
+    "status": "prepared_not_run"
+  },
+  "captures": [
+    {
+      "zoom": 1,
+      "path": "/tmp/hockey-v1-07-browser/preference-probe-1.png",
+      "sha256": "2d5a7eab3ca3890645cb23472438fe10c4575fb0e6ba64713a1f449c7e9cc1fe"
+    },
+    {
+      "zoom": 2,
+      "path": "/tmp/hockey-v1-07-browser/preference-probe-2.png",
+      "sha256": "b6a2ea61ef565dfc2fd7cbe84054d4c634d057620a74567e6b2b6136dd7dc22b"
+    }
+  ]
+}

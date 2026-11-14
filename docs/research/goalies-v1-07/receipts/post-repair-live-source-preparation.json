@@ -1,0 +1,54 @@
+{
+  "kind": "post-repair-live-source-preparation",
+  "status": "held_not_dispatched",
+  "runtime_source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "runtime_build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+  "candidate_publication": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "stored_publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "sources": [
+    {
+      "path": ".tmp/goalie-live-acceptance/api-held-02.sh",
+      "bytes": 1158,
+      "sha256": "98637d480371e2f906fcd90c2feec09d44508ace596d20a5626424a320c9eb2e"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-held-04.sh",
+      "bytes": 1199,
+      "sha256": "e67f73cb4562c819344bfc8e2d086d6ffefa386ab4a8c4fb35e817c1563d3a85"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-held-04.sh",
+      "bytes": 1400,
+      "sha256": "90e4cf2981b8470e5f7e4a5e60b84f4abd1abf1171959ec24b495b91c34ee531"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-boundary-02.py",
+      "bytes": 6013,
+      "sha256": "1594b3ee88be36ec82ffc1b1c9f937a28a03929bc173df7c92de143534bbb94c"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-boundary-04.py",
+      "bytes": 6355,
+      "sha256": "c315dd53403d049858166473cb9bb5705bbce3efb12802eb703c4465e2de80c4"
+    }
+  ],
+  "drivers": {
+    "api": "3a89e054eaaaa7c06eada98eb485b226fc3bdb96a0c529e3c41460b2fb957cb5",
+    "consumer": "ed64fdb5b45b31ac9eea50bb124d408a2b1440761730faa583cf1a10607aeb4d",
+    "browser": "e86cf8d730fbbebdf6a52cc47b76c50e915d5b74148f2da1ce0b875d97ee60a9"
+  },
+  "review": "held caller diffs independently clear; captures inverse exactly to reviewed/passed originals; no fallback or changed test oracle",
+  "prerequisites": [
+    "actual normal strict startup02 accepted",
+    "three-season overview after canonical comparison passes",
+    "separate fresh-path preflight and root assignment for each command"
+  ],
+  "local_assembly_failure": {
+    "status": "resolved_local_metadata_copy_error_only",
+    "bad_manual_api_hash": "3a89e054eaaaa7c06eada98eb485b226fc3b3db96a0c529e3c41460b2fb957cb5",
+    "error": "RuntimeError: api driver pin differs",
+    "result": "guard failed before output write or live execution; corrected by reading the accepted API admission authority, then exact actual hash verification",
+    "runtime_or_artifact_failure": false
+  },
+  "limits": "source preparation only; no future API/consumer/browser/capture/path/HTTP/DB/input read executed; this is not a live result"
+}

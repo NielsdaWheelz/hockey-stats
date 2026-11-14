@@ -1,0 +1,372 @@
+{
+  "kind": "goalie-real-api-reconciliation",
+  "status": "passed",
+  "failure": null,
+  "source": "new temporary recovery checker; not a restoration of lost f02dd source",
+  "scope": "all three seasons/all goalies/full required saved matrices through typed existing endpoints; no model, array archive, source traversal or full reader",
+  "base_url": "http://127.0.0.1:3407",
+  "saved_members": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/people.jsonl",
+      "expected_rows": 3145,
+      "expected_sha256": "d3448bdde7e927357ac5296274d47e60af43031ce91eeb6b73c4e45ebba01d41",
+      "rows": 3145,
+      "returned_bytes": 10254671,
+      "complete": true,
+      "sha256": "d3448bdde7e927357ac5296274d47e60af43031ce91eeb6b73c4e45ebba01d41"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/goalie-sources.jsonl",
+      "expected_rows": 24,
+      "expected_sha256": "f6ce1a2ec0a549ed87511418d5ba11a6e7cb30152f2b4f0af30b3e4763541df1",
+      "rows": 24,
+      "returned_bytes": 27006,
+      "complete": true,
+      "sha256": "f6ce1a2ec0a549ed87511418d5ba11a6e7cb30152f2b4f0af30b3e4763541df1"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/methods.jsonl",
+      "expected_rows": 18,
+      "expected_sha256": "90724df098bf5574a93d620ea21c7a41609e2c666ac2c0783edefff064c600d3",
+      "rows": 18,
+      "returned_bytes": 104234,
+      "complete": true,
+      "sha256": "90724df098bf5574a93d620ea21c7a41609e2c666ac2c0783edefff064c600d3"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/supports.jsonl",
+      "expected_rows": 18,
+      "expected_sha256": "fbcd7ac8bde28d6a3a6c17a6c1892cec0d419e2e92c072ee1c3f8072bf7bcc79",
+      "rows": 18,
+      "returned_bytes": 6747,
+      "complete": true,
+      "sha256": "fbcd7ac8bde28d6a3a6c17a6c1892cec0d419e2e92c072ee1c3f8072bf7bcc79"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-goalie-goalie_result.jsonl",
+      "expected_rows": 1287,
+      "expected_sha256": "a896ab4ffdf000af63f7bc1957b51c7177de5d262149ea4b83a9303b3d657e44",
+      "rows": 1287,
+      "returned_bytes": 9117432,
+      "complete": true,
+      "sha256": "a896ab4ffdf000af63f7bc1957b51c7177de5d262149ea4b83a9303b3d657e44"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-goalie-goalie_observed.jsonl",
+      "expected_rows": 1404,
+      "expected_sha256": "e2af8c8b5b247fdc92dd7775e72ecd84914125dcc69dd11e6155d23f0366f2ed",
+      "rows": 1404,
+      "returned_bytes": 503859616,
+      "complete": true,
+      "sha256": "e2af8c8b5b247fdc92dd7775e72ecd84914125dcc69dd11e6155d23f0366f2ed"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-goalie-goalie_evidence_map.jsonl",
+      "expected_rows": 16848,
+      "expected_sha256": "e8477ca40096b47d0307e4916f069b263c73bdb91eedcc21cf7f9b75b5fa5695",
+      "rows": 16848,
+      "returned_bytes": 2508836665,
+      "complete": true,
+      "sha256": "e8477ca40096b47d0307e4916f069b263c73bdb91eedcc21cf7f9b75b5fa5695"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-goalie-goalie_danger.jsonl",
+      "expected_rows": 2808,
+      "expected_sha256": "9c03cf39bc791a754887f647e37c7b31d330f1c6638afdd1b32ea1a0cad71002",
+      "rows": 2808,
+      "returned_bytes": 7446232,
+      "complete": true,
+      "sha256": "9c03cf39bc791a754887f647e37c7b31d330f1c6638afdd1b32ea1a0cad71002"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-goalie-analysis_map.jsonl",
+      "expected_rows": 1287,
+      "expected_sha256": "7576ae096565855513b8acb85db50b9265bfba825fd80f1b44235ee3de13312b",
+      "rows": 1287,
+      "returned_bytes": 97121709,
+      "complete": true,
+      "sha256": "7576ae096565855513b8acb85db50b9265bfba825fd80f1b44235ee3de13312b"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-goalie-execution_breakdown.jsonl",
+      "expected_rows": 11583,
+      "expected_sha256": "a27a3972c2755d5b93ed8dde8bda11b6a32f147c4f14d416cbf41e97e2ea1d55",
+      "rows": 11583,
+      "returned_bytes": 10008760,
+      "complete": true,
+      "sha256": "a27a3972c2755d5b93ed8dde8bda11b6a32f147c4f14d416cbf41e97e2ea1d55"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-goalie-goalie_result.jsonl",
+      "expected_rows": 1331,
+      "expected_sha256": "348c26ae23b828abe12c589feea93850d165a299f6ab3a4c1bbdef315cf785bf",
+      "rows": 1331,
+      "returned_bytes": 9319826,
+      "complete": true,
+      "sha256": "348c26ae23b828abe12c589feea93850d165a299f6ab3a4c1bbdef315cf785bf"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-goalie-goalie_observed.jsonl",
+      "expected_rows": 1452,
+      "expected_sha256": "8650c6e891e9fea3a9dc6511b515e43c297fa2c41907d98bdf025062b589da75",
+      "rows": 1452,
+      "returned_bytes": 500862553,
+      "complete": true,
+      "sha256": "8650c6e891e9fea3a9dc6511b515e43c297fa2c41907d98bdf025062b589da75"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-goalie-goalie_evidence_map.jsonl",
+      "expected_rows": 17424,
+      "expected_sha256": "915cf11cfedaf33ad1c201089dff7865fe53bb75169c30fee22587acd6ed5b17",
+      "rows": 17424,
+      "returned_bytes": 2573756877,
+      "complete": true,
+      "sha256": "915cf11cfedaf33ad1c201089dff7865fe53bb75169c30fee22587acd6ed5b17"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-goalie-goalie_danger.jsonl",
+      "expected_rows": 2904,
+      "expected_sha256": "adb814ace7441197b6e84ab0ccb5da31f00d406171e0aea6f475bb8658118d48",
+      "rows": 2904,
+      "returned_bytes": 7534662,
+      "complete": true,
+      "sha256": "adb814ace7441197b6e84ab0ccb5da31f00d406171e0aea6f475bb8658118d48"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-goalie-analysis_map.jsonl",
+      "expected_rows": 1331,
+      "expected_sha256": "ce4053e76b9bb548dd9969dbbc8197653497f81bb6267b8a379683bdbc80657e",
+      "rows": 1331,
+      "returned_bytes": 103371567,
+      "complete": true,
+      "sha256": "ce4053e76b9bb548dd9969dbbc8197653497f81bb6267b8a379683bdbc80657e"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-goalie-execution_breakdown.jsonl",
+      "expected_rows": 11979,
+      "expected_sha256": "2c7ada2f4c9f94db93c0d3ab93c6de364f3acc851c52ca4f96727b8456fc32d5",
+      "rows": 11979,
+      "returned_bytes": 10398495,
+      "complete": true,
+      "sha256": "2c7ada2f4c9f94db93c0d3ab93c6de364f3acc851c52ca4f96727b8456fc32d5"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-goalie-goalie_result.jsonl",
+      "expected_rows": 1353,
+      "expected_sha256": "c635a68cbec4d916ac25b061d583c7780bde16e5ff6059db7c302ae5762f6144",
+      "rows": 1353,
+      "returned_bytes": 9581700,
+      "complete": true,
+      "sha256": "c635a68cbec4d916ac25b061d583c7780bde16e5ff6059db7c302ae5762f6144"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-goalie-goalie_observed.jsonl",
+      "expected_rows": 1476,
+      "expected_sha256": "ca71bc7c0d340260f090d37a7e45a276a8bfe02f892cc4730e2c50a8fd3d6243",
+      "rows": 1476,
+      "returned_bytes": 503368076,
+      "complete": true,
+      "sha256": "ca71bc7c0d340260f090d37a7e45a276a8bfe02f892cc4730e2c50a8fd3d6243"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-goalie-goalie_evidence_map.jsonl",
+      "expected_rows": 17712,
+      "expected_sha256": "ed9d789a3117ed393e909d25dda351dc469598c778b0222fc63d0b8387ee77a8",
+      "rows": 17712,
+      "returned_bytes": 2611960344,
+      "complete": true,
+      "sha256": "ed9d789a3117ed393e909d25dda351dc469598c778b0222fc63d0b8387ee77a8"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-goalie-goalie_danger.jsonl",
+      "expected_rows": 2952,
+      "expected_sha256": "55d8cef57653859c1249e9f5c3d583a14fa0e80c99b08738a58005a848fc6015",
+      "rows": 2952,
+      "returned_bytes": 7648948,
+      "complete": true,
+      "sha256": "55d8cef57653859c1249e9f5c3d583a14fa0e80c99b08738a58005a848fc6015"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-goalie-analysis_map.jsonl",
+      "expected_rows": 1353,
+      "expected_sha256": "40a8a0487e0da460f58de6c3609a388256c8488f96a99fe9f3dda94f952693ab",
+      "rows": 1353,
+      "returned_bytes": 97163057,
+      "complete": true,
+      "sha256": "40a8a0487e0da460f58de6c3609a388256c8488f96a99fe9f3dda94f952693ab"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-goalie-execution_breakdown.jsonl",
+      "expected_rows": 12177,
+      "expected_sha256": "ca78dc9a0d82ac3bc8d7a42282fa1062c13c7b7e24c349081b384fdea3abf28c",
+      "rows": 12177,
+      "returned_bytes": 10568908,
+      "complete": true,
+      "sha256": "ca78dc9a0d82ac3bc8d7a42282fa1062c13c7b7e24c349081b384fdea3abf28c"
+    }
+  ],
+  "seasons": [
+    {
+      "season": "20232024",
+      "goalies": 117,
+      "required_keys_per_goalie": {
+        "goalie_result": 11,
+        "goalie_observed": 12,
+        "goalie_evidence_map": 144,
+        "goalie_danger": 24,
+        "analysis_map": 11,
+        "execution_breakdown": 99
+      }
+    },
+    {
+      "season": "20242025",
+      "goalies": 121,
+      "required_keys_per_goalie": {
+        "goalie_result": 11,
+        "goalie_observed": 12,
+        "goalie_evidence_map": 144,
+        "goalie_danger": 24,
+        "analysis_map": 11,
+        "execution_breakdown": 99
+      }
+    },
+    {
+      "season": "20252026",
+      "goalies": 123,
+      "required_keys_per_goalie": {
+        "goalie_result": 11,
+        "goalie_observed": 12,
+        "goalie_evidence_map": 144,
+        "goalie_danger": 24,
+        "analysis_map": 11,
+        "execution_breakdown": 99
+      }
+    }
+  ],
+  "cases": {
+    "complete": {
+      "player_id": "8478872",
+      "season": "20252026",
+      "strength": "ev",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 183847,
+      "prior_only": false,
+      "value": 0.6491125816985565
+    },
+    "traded": {
+      "player_id": "8477465",
+      "season": "20252026",
+      "strength": "ev",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 88164,
+      "prior_only": false,
+      "value": -0.9244695612693337
+    },
+    "relief": {
+      "player_id": "8471734",
+      "season": "20252026",
+      "strength": "ev",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 71613,
+      "prior_only": false,
+      "value": -0.8805896110922142
+    },
+    "sparse": {
+      "player_id": "8476316",
+      "season": "20252026",
+      "strength": "ev",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 3016,
+      "prior_only": false,
+      "value": -0.6411288293923063
+    },
+    "no_current_minutes": {
+      "player_id": "8480022",
+      "season": "20252026",
+      "strength": "pk",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 0,
+      "prior_only": false,
+      "value": -0.9145760409119412
+    },
+    "unavailable": {
+      "player_id": "8477361",
+      "season": "20252026",
+      "strength": "ev",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 0,
+      "prior_only": false,
+      "value": null
+    }
+  },
+  "absent_case_categories": [
+    "prior_only"
+  ],
+  "absent_case_reasons": {
+    "prior_only": "none found among all saved goalie EV/PK rows and all13 browser fields in the three published seasons; not a claim of impossibility"
+  },
+  "integration_smoke": {
+    "goalie_microstats_view": {
+      "player_id": "8478872",
+      "season": "20252026",
+      "strength": "ev",
+      "field": "stopping_goals_per100_on_net",
+      "qualification_seconds": 183847,
+      "prior_only": false,
+      "value": 0.6491125816985565,
+      "metric": "goalie.ev.stopping_goals_per100_on_net"
+    },
+    "forward": {
+      "player_id": "8486056",
+      "season": "20252026",
+      "metric": "spatial.5v5.offense_xg_per60"
+    },
+    "defense": {
+      "player_id": "8486169",
+      "season": "20252026",
+      "metric": "spatial.5v5.offense_xg_per60"
+    }
+  },
+  "http_requests": 36695,
+  "http_responses": 36695,
+  "http_returned_bytes": 18275860581,
+  "checked": {
+    "league_strengths": 33,
+    "goalie_seasons": 361,
+    "goalie_scalar_rows": 3971,
+    "scalar_fields": 51623,
+    "model_maps": 3971,
+    "breakdown_rows": 35739,
+    "observed_rows": 4332,
+    "observed_endpoint_rows": 8664,
+    "danger_rows": 8664,
+    "evidence_maps": 51984,
+    "history_goalie_seasons": 361,
+    "profile_ids": 165,
+    "paired_evidence_view_controls": 6,
+    "negative_requests": 8
+  },
+  "limits": [
+    "full source-target/model arithmetic and physical transport acceptance remain inherited from accepted numerical/publication boundaries",
+    "all stored evidence-map payload keys are checked once; both display views/paired scaling are additionally checked on six explicit EV/PK selections",
+    "response/source returned logical bytes are measured, not physical device/network I/O; failure during a read can leave unknown partial bytes",
+    "actual browser/CSV/PNG/pixel acceptance and scientific quality remain separate"
+  ],
+  "manifest_returned_bytes": 23310,
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "purpose": "real",
+  "exchange_schema_version": 3,
+  "publication_schema_version": 9,
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+    "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+  },
+  "current_request": {
+    "url": "http://127.0.0.1:3407/api/players/8478872?season=20262027",
+    "expected_status": 404
+  },
+  "wall_seconds": 947.9013298330829,
+  "peak_rss_bytes": 637829120,
+  "logical_saved_returned_bytes": 9592341395,
+  "cost_scope": "through checks, before receipt serialization/write; native whole-command measurement is separate"
+}

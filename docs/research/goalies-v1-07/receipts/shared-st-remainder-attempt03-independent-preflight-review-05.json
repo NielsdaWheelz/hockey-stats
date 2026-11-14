@@ -1,0 +1,694 @@
+{
+  "schema_version": 1,
+  "review": "shared-st-remainder-attempt03-independent-preflight-review-05",
+  "status": "passed_cached_preflight_review",
+  "failed_checks": [],
+  "checks": [
+    {
+      "check": "four fixed cache identities",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-03.json",
+          "bytes": 21606,
+          "sha256": "4e2193125a57e460e8d50c70e209a70a5e8fa329d0472a308624fe372a943bdf"
+        },
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-03-native.log",
+          "bytes": 892,
+          "sha256": "d741144821a04cb84c1d795d9022f49602847f05a3a19fdc3b831eba5c112d17"
+        },
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-03-native.exit",
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        },
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-preflight-actual-submission-03.json",
+          "bytes": 11661,
+          "sha256": "21696b736c6c607f8865d73b3e99573b91897951859c4cb3aca127bb0a14f490"
+        }
+      ]
+    },
+    {
+      "check": "assigned command and cwd",
+      "passed": true,
+      "evidence": {
+        "argv": [
+          "/bin/sh",
+          ".tmp/st-final-browser-remainder-launch-preflight-held-03.sh"
+        ],
+        "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+        "attempts": 1,
+        "method": "one explicit native-terminal paste to freshlychecked ownedidleplainzsh; no guardrejection/fallback"
+      }
+    },
+    {
+      "check": "owned idle plain zsh before submission",
+      "passed": true,
+      "evidence": {
+        "pane": "%25",
+        "zsh_pid": 85089,
+        "zsh_parent": 15439,
+        "zsh_flags": "Ss+",
+        "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+        "terminal_activity": {
+          "activity": "unknown",
+          "interaction": "unknown",
+          "notice": "none",
+          "source": "terminal",
+          "reason": "provider_unrecognized"
+        },
+        "prompt_suffix": "~/Doc/c/hockey-stats-v1-09 implement/v1-09-special-teams !2 ?13 > ",
+        "qualification": "plain localzsh,current emptySTprompt,selectedowned85089 cwd; providerautomationUNKNOWN alone didnotproveidle",
+        "basis": "selected pane/shell/cwd and current empty prompt; provider unknown alone is insufficient"
+      }
+    },
+    {
+      "check": "current held03 command marker and returned prompt",
+      "passed": true,
+      "evidence": {
+        "exact_command": "/bin/sh .tmp/st-final-browser-remainder-launch-preflight-held-03.sh",
+        "current_marker": "ST_BROWSER_REMAINDER_PREFLIGHT_NATIVE_EXIT=0",
+        "numeric_exit": 0,
+        "prompt_returned": true,
+        "actual_terminal_suffix_matches": true,
+        "current_marker_count": 1,
+        "current_command_count": 1,
+        "child_kernel_frame": "NOT_SAMPLED; notrequired, not fabricated; actual numericmarker/prompt own completion",
+        "older_history_present": true,
+        "basis": "current exact command plus current numeric marker and returned prompt, not delivery/theme/pid absence or older markers"
+      }
+    },
+    {
+      "check": "canonical native exit",
+      "passed": true,
+      "evidence": {
+        "bytes": 2,
+        "content": "0\n"
+      }
+    },
+    {
+      "check": "entire cached native footer and owner cost claims",
+      "passed": true,
+      "evidence": {
+        "wall_seconds": 0.09,
+        "user_seconds": 0.04,
+        "sys_seconds": 0.03,
+        "footer": {
+          "maximum resident set size": 23658496,
+          "average shared memory size": 0,
+          "average unshared data size": 0,
+          "average unshared stack size": 0,
+          "page reclaims": 11229,
+          "page faults": 102,
+          "swaps": 0,
+          "block input operations": 0,
+          "block output operations": 0,
+          "messages sent": 0,
+          "messages received": 0,
+          "signals received": 0,
+          "voluntary context switches": 383,
+          "involuntary context switches": 204,
+          "instructions retired": 433155210,
+          "cycles elapsed": 171899377,
+          "peak memory footprint": 13779424
+        },
+        "footer_order_complete": true,
+        "line_count": 19,
+        "native_cost_scope": "held03 /usr/bin/time nativefooter, distinct from internalhelper/parent/cachedreader wall/rss",
+        "internal_helper_wall_seconds": 0.053826000075787306,
+        "internal_helper_rss_bytes": 23592960,
+        "cost_distinction": "internal helper meter is separate from the native whole-command footer"
+      }
+    },
+    {
+      "check": "native summary and normative dispatch",
+      "passed": true,
+      "evidence": {
+        "native_summary": {
+          "status": "fresh_launch_preconditions_passed",
+          "dispatch": "not_dispatched",
+          "explicit_local_pin_bytes": 2808905
+        },
+        "normative_dispatch": "not_dispatched",
+        "producer_reported_browser_dispatch": "NOT_DISPATCHED; selfstatus not independent admission",
+        "producer_prose_is_not_an_enum": true,
+        "producer_native_exit": null,
+        "completion_basis": "actual current marker, canonical exit and full footer"
+      }
+    },
+    {
+      "check": "root preflight-only authority",
+      "passed": true,
+      "evidence": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-remainder-attempt03-preflight-clearance-01.json",
+        "bytes": 2863,
+        "sha256": "2e1c4fe0452878bf1282b423d9caee1aec964bc0c8d5218e420a5bff64f1342a"
+      }
+    },
+    {
+      "check": "retained pre-submission clearance helper held identities",
+      "passed": true,
+      "evidence": {
+        "bodies": 3,
+        "returned_logical_bytes": 19617,
+        "per_file": [
+          {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-remainder-attempt03-preflight-clearance-01.json",
+            "bytes": 2863,
+            "sha256": "2e1c4fe0452878bf1282b423d9caee1aec964bc0c8d5218e420a5bff64f1342a"
+          },
+          {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-remainder-launch-preflight-03.py",
+            "bytes": 15937,
+            "sha256": "460ee0b1602208dee56bc88b38fa853f6ebb36f4a778bf3c54800963dddeb4e6"
+          },
+          {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-remainder-launch-preflight-held-03.sh",
+            "bytes": 817,
+            "sha256": "309f14ae0598837fd4cd4057e21bd8c34fa18daadd695e32eda09f3ca21a6f18"
+          }
+        ],
+        "scope": "actual parent pre-submission LOCALclearance/helper/held identity observations, distinct from native46pins and NOT runtime selfhash claims",
+        "not_native_selfhash_echoes": true
+      }
+    },
+    {
+      "check": "native artifacts agree with submission receipt",
+      "passed": true,
+      "evidence": {
+        "artifact_count": 3,
+        "bytes": 22500,
+        "actual_identity_match": true
+      }
+    },
+    {
+      "check": "six fixed local pins",
+      "passed": true,
+      "evidence": {
+        "count": 6,
+        "bytes": 1318383,
+        "source12_sha256": "683713f45b62f9eb8fedec24fabf3094e2fdd7245cf9e6e5f75dde8b4fdab011",
+        "held12_sha256": "c3d99e7267449e94066e7b2be4578aab07329b9deec8becda80dba08aa1ce602",
+        "plan_sha256": "32347766293060def4177f55e1194cc7c0771e6735802c2d18ff730f4a45118d",
+        "target_sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+        "api_sha256": "7b6b645c5a2b69dc657beec63d9f663427619b829bd9e7651ce208f25a7221a0",
+        "build_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4"
+      }
+    },
+    {
+      "check": "46 unique local pins and bounded categories",
+      "passed": true,
+      "evidence": {
+        "unique_count": 46,
+        "total_bytes": 2808905,
+        "fixed": {
+          "count": 6,
+          "bytes": 1318383
+        },
+        "compiled": {
+          "count": 38,
+          "bytes": 1470447,
+          "root": "/Users/nnandal/Documents/code/hockey-stats-v1-07/app/dist/"
+        },
+        "playwright_metadata_bytes": 1219,
+        "chrome_info_bytes": 18856,
+        "no_pin_bodies_followed": true
+      }
+    },
+    {
+      "check": "selected source production identities",
+      "passed": true,
+      "evidence": {
+        "sources": [
+          {
+            "worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+            "commit": "ce058dcc5a8571c8fc74d0b3be9917d74e6b6c59",
+            "analysis_tree": "923d95b5e6d98ea056f4d6111979c03a0de81e91",
+            "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+            "tracked_production_clean": true
+          },
+          {
+            "worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+            "commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+            "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+            "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+            "tracked_production_clean": true
+          }
+        ],
+        "head_policy": "checkout heads observed; only exact production trees and tracked analysis/app cleanliness gate admission; ongoing docs are ignored",
+        "docs_ignored_by_production_status_scope": true
+      }
+    },
+    {
+      "check": "retained node ownership and version",
+      "passed": true,
+      "evidence": {
+        "requested": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "version": "v24.21.0",
+        "resolved_executable": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node"
+      }
+    },
+    {
+      "check": "retained playwright directory metadata and index ownership",
+      "passed": true,
+      "evidence": {
+        "observed": {
+          "declared_package": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-playwright-runtime/node_modules/playwright",
+          "resolved_package": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-playwright-runtime/node_modules/playwright",
+          "resolved_entry": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-playwright-runtime/node_modules/playwright/index.mjs",
+          "name": "playwright",
+          "version": "1.65.0"
+        },
+        "metadata_pin": {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-playwright-runtime/node_modules/playwright/package.json",
+          "bytes": 1219,
+          "sha256": "537c7368af70d94ad5ef771a8009d5546739d52913aed127b61186919748cc0a"
+        },
+        "directory_file_distinction": "declared/resolved package is a directory; metadata is directory/package.json; index is directory/index.mjs",
+        "runtime_import": false
+      }
+    },
+    {
+      "check": "retained chrome metadata ownership",
+      "passed": true,
+      "evidence": {
+        "observed": {
+          "bundle": "/Applications/Google Chrome.app",
+          "info": "/Applications/Google Chrome.app/Contents/Info.plist",
+          "binary": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+          "bundle_id": "com.google.Chrome",
+          "executable": "Google Chrome",
+          "version": "156.0.8078.80",
+          "bundle_version": "8078.80",
+          "binary_bytes": 367696,
+          "binary_mode": 33277
+        },
+        "info_pin": {
+          "path": "/Applications/Google Chrome.app/Contents/Info.plist",
+          "bytes": 18856,
+          "sha256": "783428776205762dc39a2e2d9cc03ea02ba3a4357f1dc25cc7dd33e0107825b9"
+        },
+        "chrome_launched": false
+      }
+    },
+    {
+      "check": "retained qualified python interpreter",
+      "passed": true,
+      "evidence": {
+        "requested": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "executable": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "prefix": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv",
+        "base_prefix": "/opt/homebrew/opt/python@3.14/Frameworks/Python.framework/Versions/3.14",
+        "base_executable": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+        "version": "3.14.8",
+        "dont_write_bytecode": true,
+        "stdlib_origins": {
+          "hashlib": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/hashlib.py",
+          "json": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py",
+          "os": "frozen",
+          "plistlib": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/plistlib.py",
+          "resource": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/resource.cpython-314-darwin.so",
+          "stat": "frozen",
+          "subprocess": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py"
+        },
+        "root_path_hash_qualification": "inherited frozen source phase; no additional hash echoes required"
+      }
+    },
+    {
+      "check": "same serving process cwd and listener",
+      "passed": true,
+      "evidence": {
+        "pid": 89887,
+        "ppid": 89886,
+        "start_utc": "2026-11-14T04:08:29Z",
+        "start_pst": "2026-11-13T20:08:29-08:00",
+        "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+        "listener": "127.0.0.1:3407",
+        "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-03.json --publication /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite --port 3407",
+        "basis": "retained ps/lsof observations; no current process probe"
+      }
+    },
+    {
+      "check": "exact eight successful metadata version commands",
+      "passed": true,
+      "evidence": [
+        {
+          "argv": [
+            "git",
+            "rev-parse",
+            "HEAD",
+            "HEAD:analysis",
+            "HEAD:app"
+          ],
+          "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "git",
+            "status",
+            "--porcelain",
+            "--untracked-files=no",
+            "--",
+            "analysis",
+            "app"
+          ],
+          "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "git",
+            "rev-parse",
+            "HEAD",
+            "HEAD:analysis",
+            "HEAD:app"
+          ],
+          "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "git",
+            "status",
+            "--porcelain",
+            "--untracked-files=no",
+            "--",
+            "analysis",
+            "app"
+          ],
+          "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+            "--version"
+          ],
+          "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07/app",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/bin/ps",
+            "-ww",
+            "-p",
+            "89887",
+            "-o",
+            "pid=,ppid=,lstart=,command="
+          ],
+          "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/sbin/lsof",
+            "-a",
+            "-p",
+            "89887",
+            "-d",
+            "cwd",
+            "-Fn"
+          ],
+          "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/sbin/lsof",
+            "-nP",
+            "-a",
+            "-p",
+            "89887",
+            "-iTCP:3407",
+            "-sTCP:LISTEN",
+            "-Fpn"
+          ],
+          "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+          "returncode": 0,
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "check": "target api and current remainder source retained anchors",
+      "passed": true,
+      "evidence": {
+        "target": {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+          "sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a"
+        },
+        "api": {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json",
+          "bytes": 1232910,
+          "sha256": "7b6b645c5a2b69dc657beec63d9f663427619b829bd9e7651ce208f25a7221a0"
+        },
+        "remainder": {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-12.mjs",
+          "sha256": "683713f45b62f9eb8fedec24fabf3094e2fdd7245cf9e6e5f75dde8b4fdab011",
+          "held_path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-held-12.sh",
+          "held_sha256": "c3d99e7267449e94066e7b2be4578aab07329b9deec8becda80dba08aa1ce602",
+          "plan_path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-remainder-attempt03-plan-01.md",
+          "plan_sha256": "32347766293060def4177f55e1194cc7c0771e6735802c2d18ff730f4a45118d"
+        },
+        "live_identity_basis": "exact accepted target and accepted API input plus fresh same-process/source/38-build identity; no HTTP preflight"
+      }
+    },
+    {
+      "check": "prescribed five fresh attempt03 paths and selected parents",
+      "passed": true,
+      "evidence": {
+        "fresh_absent_paths": [
+          "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-remainder-profiles-03",
+          "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03.log",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-remainder-03-native.exit",
+          "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-postexit-capture-03.json"
+        ],
+        "directory_metadata": [
+          "/Volumes/Expansion",
+          "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification",
+          "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp"
+        ],
+        "basis": "frozen helper semantics and retained facts; no new mount/stat calls"
+      }
+    },
+    {
+      "check": "retained restricted read and creation budget",
+      "passed": true,
+      "evidence": {
+        "counters": {
+          "external_input_body_reads": 0,
+          "external_input_member_stats": 0,
+          "database_reads_or_stats": 0,
+          "http_requests": 0,
+          "csv_reads_or_stats": 0,
+          "consumer_reads_or_stats": 0
+        },
+        "activation": false,
+        "created_remainder_or_profile_paths": false,
+        "scope": "remainder journeys/downloads/layouts only; no pixel inspection, aggregate browser, scientific or activation acceptance",
+        "cost_scope": "explicit local pin bytes only; git/import/OS metadata bytes unmeasured; self RSS before receipt serialization, native whole-command meter separate",
+        "browser_controller_import_or_chrome_or_mkdir": "not performed by this review; frozen preflight source qualification supplies the selected native contract"
+      }
+    },
+    {
+      "check": "browser clearance remains unresolved and unauthorized",
+      "passed": true,
+      "evidence": {
+        "clearance": {
+          "path": null,
+          "sha256": null,
+          "status": "UNKNOWN_PENDING_ROOT_GRANT"
+        },
+        "template_argument_count": 7,
+        "unresolved_argument_positions": [
+          5,
+          6
+        ],
+        "actual_seven_argument_command": "unresolved until root grant",
+        "browser_authorized": false
+      }
+    }
+  ],
+  "actual_schema_inspected_before_validation": {
+    "result_keys": [
+      "status",
+      "dispatch",
+      "local_pins",
+      "commands",
+      "external_input_body_reads",
+      "external_input_member_stats",
+      "database_reads_or_stats",
+      "http_requests",
+      "activation",
+      "csv_reads_or_stats",
+      "consumer_reads_or_stats",
+      "interpreter",
+      "module_ownership",
+      "source_checks",
+      "target",
+      "compiled_artifacts",
+      "actual_process",
+      "directory_metadata",
+      "fresh_absent_paths",
+      "selected_live_identity_basis",
+      "accepted_api_input",
+      "current_remainder_source",
+      "source_head_policy",
+      "proposed_remainder_submission_template",
+      "root_dispatch_clearance",
+      "created_remainder_or_profile_paths",
+      "scope",
+      "checked_at_utc",
+      "wall_seconds",
+      "peak_rss_bytes",
+      "explicit_local_pin_bytes",
+      "cost_scope"
+    ],
+    "submission_keys": [
+      "kind",
+      "status",
+      "authority",
+      "command_argv",
+      "cwd",
+      "operator_ref",
+      "owned_idle_prompt_before",
+      "submission",
+      "native_completion",
+      "before_local_source_checks",
+      "protected",
+      "next",
+      "local_preflight_artifacts",
+      "postexit_fixed_local_bytes",
+      "exit_buffer_matches_current_marker",
+      "native_cost",
+      "producer_reported",
+      "reader_scope"
+    ],
+    "interpreter_keys": [
+      "requested",
+      "executable",
+      "prefix",
+      "base_prefix",
+      "base_executable",
+      "sys_version",
+      "version",
+      "dont_write_bytecode",
+      "stdlib_origins"
+    ],
+    "module_keys": {
+      "node": [
+        "requested",
+        "version",
+        "resolved_executable"
+      ],
+      "playwright": [
+        "declared_package",
+        "resolved_package",
+        "resolved_entry",
+        "name",
+        "version"
+      ],
+      "chrome": [
+        "bundle",
+        "info",
+        "binary",
+        "bundle_id",
+        "executable",
+        "version",
+        "bundle_version",
+        "binary_bytes",
+        "binary_mode"
+      ]
+    },
+    "process_keys": [
+      "pid",
+      "ppid",
+      "start_utc",
+      "command",
+      "cwd",
+      "listener",
+      "ps",
+      "lsof_cwd",
+      "lsof_listener"
+    ],
+    "completion_keys": [
+      "marker",
+      "numeric_exit",
+      "prompt_returned",
+      "current_held03_command_and_suffix",
+      "terminal_tool_raw",
+      "child_kernel_frame"
+    ],
+    "producer_keys": [
+      "keys",
+      "status",
+      "native_exit",
+      "browser_dispatch"
+    ]
+  },
+  "read_accounting": {
+    "recovery_fixed_input_bodies": 4,
+    "recovery_logical_input_bytes": 34161,
+    "explicitly_authorized_overlap_bytes": 34161,
+    "earlier_failed_process_input_bodies": 4,
+    "cumulative_fixed_cache_body_reads": 8,
+    "cumulative_expected_logical_bytes": 68322,
+    "further_input_rereads": 0,
+    "other_input_files": 0,
+    "referenced_path_following": false,
+    "qualified_python": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python -B",
+    "scratch_transport": "same four in-memory objects retained; tty canonical/echo flags changed after one pre-validation input-wait interrupt; no new cache read or native retry",
+    "stdlib_imports": "json, hashlib, re, termios, sys; no project/browser/controller import",
+    "unexecuted_draft_checker": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-independent-review-04-recovery.py"
+  },
+  "preserved_checker_failure": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-remainder-attempt03-independent-preflight-review-04.json",
+    "bytes": 6871,
+    "sha256": "6bcac097f78c19ff54786cfce1650b17b6c8f536be256b6a6d1d945c17283f13",
+    "cause": "initial plain-pipe process stdin eof; no native/source/product inference",
+    "preservation": "exact bytes restored at original path after a temporary exclusive link/move; no content alteration"
+  },
+  "frozen_premises": {
+    "source_phase": "root review 362fc17 qualified all 14 sources and six whole inverses; no source follow/revalidation here",
+    "clearance_sha256": "2e1c4fe0452878bf1282b423d9caee1aec964bc0c8d5218e420a5bff64f1342a",
+    "publication_identity_prefix": "fb604",
+    "final_build_identity_prefix": "21de15d",
+    "publication_and_final_basis": "inherited frozen root target/api/source qualification; no separate current echoes or body reads invented",
+    "root_hash_path_helper_qualification": "inherited from frozen phase where not individually echoed"
+  },
+  "message_only_attribution": {
+    "origin": "parent assignment; prior review03 was not read",
+    "prior_failed_review03": "immutable; owner attributes three reviewer metadata errors, not native/source/product failures",
+    "historical_failures": "all historical failures and aborts remain failed and unwaived"
+  },
+  "retained_history_limits": {
+    "old_native1": "unchanged; no cutoff/media/pixel/component credit",
+    "aborts48": "UNKNOWN/UNWAIVED",
+    "source03_G_primary": "not changed",
+    "retained_runtime": "same accepted reference, actual selected verification belongs only to preflight result"
+  },
+  "limits": [
+    "cached admission only; no live/application/acceptance credit",
+    "no source, runtime version, os/service, hdd, database, http or provider probe by this review",
+    "actual current command plus marker/prompt and canonical exit/full footer establish the retained preflight completion",
+    "pin facts are retained observations under frozen source qualification; their named files were not followed",
+    "no second inverse, generic alias parser, fallback, guard relaxation or additional approval layer",
+    "browser/capture/pixels remain unresolved and unauthorized; root must grant actual seven arguments",
+    "scientific quality, historical failures and rejected claims are unchanged"
+  ],
+  "browser_dispatched": false,
+  "browser_or_capture_authorized": false,
+  "live_or_application_or_acceptance_credit": false
+}

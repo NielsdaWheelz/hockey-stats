@@ -1,0 +1,19 @@
+{"status": "passed", "season": "20252026", "score_sha256": "de378b2ee8cce1075b86d3e883bd29b64fb74fa90356a86753b9e123acfe2e5a", "goalies": 123, "row_counts": {"analysis_map": 1353, "execution_breakdown": 12177, "goalie_danger": 2952, "goalie_evidence_map": 17712, "goalie_observed": 1476, "goalie_result": 1353}, "sensitivity": "assessed", "cost": {"wall_seconds": 1.3703424998093396, "peak_memory_bytes": 502759424, "peak_memory_unit": "darwin ru_maxrss bytes"}}
+        1.43 real         0.71 user         0.04 sys
+           502759424  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               31616  page reclaims
+                  47  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  27  voluntary context switches
+                 204  involuntary context switches
+         13262039312  instructions retired
+          3470274615  cycles elapsed
+           492995376  peak memory footprint

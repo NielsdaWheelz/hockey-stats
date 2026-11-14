@@ -1,0 +1,57 @@
+{
+  "kind": "shared-st-consumer-capture-intake",
+  "created_at": "2026-11-14T06:41:14.771549+00:00",
+  "status": "capture_integrity_checked_consumer_adjudication_pending",
+  "capture": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-consumer-postexit-capture-01.json",
+    "bytes": 1466600,
+    "sha256": "f3b3285ec1d998c9bdc53565e6d26d14b4b2d37a96dac58eade4a1e700063a53",
+    "native_exit": 0,
+    "collection_status": "passed",
+    "artifact_acceptance": "NOT_ASSESSED",
+    "bodies": [
+      {
+        "role": "result",
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/typed-consumer.json",
+        "cap_bytes": 16777216,
+        "returned_bytes": 1097187,
+        "complete": true,
+        "sha256": "b76decc83f84a88a5013aa323293cf325bb7bdeb1a2e658d81dd2b5805de347b"
+      },
+      {
+        "role": "log",
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/typed-consumer.log",
+        "cap_bytes": 4194304,
+        "returned_bytes": 777,
+        "complete": true,
+        "sha256": "ea0b80dc0164dde76ed68863af75ff94461afe0b1eb7e5dd82c5c2bed115c0cb"
+      },
+      {
+        "role": "exit",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-consumer-02-native.exit",
+        "cap_bytes": 16,
+        "returned_bytes": 2,
+        "complete": true,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      }
+    ]
+  },
+  "checks": "all three retained base64 bodies match complete below-cap length/hash; canonical exit0LF; collector/actual-launch/target pins match assigned consumer boundary",
+  "reported_result": "pass/10loaders/1pairedjourney/40compositions/120annualpoints/85responses;72ranked/48outside/120raised/0unavailable/0zero-cutoff. these remain reported counts pending independent semantic review",
+  "reported_cost": {
+    "consumer_native_wall_seconds": 145.99,
+    "consumer_native_peak_rss_bytes": 1156022272,
+    "consumer_internal_wall_seconds": 145.425304375,
+    "consumer_node_rss_bytes": 1151598592,
+    "http_declared_content_length_sum_bytes": 1171145856,
+    "http_scope": "declared Content-Length sum only; actual decoded/transfer bytes and physical IO unmeasured",
+    "collector_native_wall_seconds": 0.15,
+    "collector_native_peak_rss_bytes": 31719424,
+    "collector_internal_wall_seconds": 0.08127195900306106,
+    "collector_internal_peak_rss_bytes": 28737536,
+    "limits": "reported native/internal/capture scopes remain distinct; this integrity intake does not independently admit cost or semantic result"
+  },
+  "owner": "v1-09 retains only consumer window through independent cached semantic/cost/source-input review and explicit checked return; no release observed",
+  "held": "all new G live/drive work; browser/download/pixel/offline/rollback/protected-primary/preservation/cleanup and laterchain unassigned",
+  "operations": "one fixed LOCAL capture read/hash/JSON/base64 integrity check then exclusive compact local receipt; no original result/log/CSV/source/body/table, stat, HTTP/DB/OS/runtime/controller or numerical replay"
+}

@@ -1,0 +1,23 @@
+{
+  "kind": "final-goalie-score-post-exit-admission-controller-failure",
+  "status": "failed_controller_open_cancelled_not_artifact_judgment",
+  "recorded_at_utc": "2026-11-12T12:10:32.034501+00:00",
+  "native_score_exit_code": 0,
+  "native_operator": "t-f9f0b50f2271131d",
+  "controller_session_id": 59171,
+  "controller_pid": 83996,
+  "controller_interpreter": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python",
+  "controller_tool_exit_code": 130,
+  "controller_tool_output_chunk": "053d43",
+  "stop": "one explicit SIGINT to owned admissionPID83996; completed native score untouched",
+  "traceback_location": "stdin line6 -> pathlib.read_bytes777 -> open771 -> io.open -> KeyboardInterrupt",
+  "completed_external_body_reads": 0,
+  "physical_IO": "unmeasured",
+  "cache_files_present": {
+    "score-20252026-native-completed.log": false,
+    "score-20252026-admission-manifest.json": false,
+    "score-20252026-native-admission-01.json": false
+  },
+  "cause": "same blocked first open under pinned3.14; interpreter-version causal hypothesis not supported. execution-host access cause remains unproven",
+  "next": "review exact two-body admission on the existing authorized native terminal, same pinned runtime; no numerical retry or extra validation"
+}

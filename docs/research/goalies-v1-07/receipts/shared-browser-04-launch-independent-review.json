@@ -1,0 +1,77 @@
+{
+  "kind": "shared-browser-04-launch-independent-review",
+  "status": "accepted_actual_launch_binding_only",
+  "review_scope": "fixed cached local launch/admission/preflight/upstream receipts and named driver/caller/capture source only; no current process query, browser, http, external access/stat, full reader, runtime or module execution",
+  "evidence": {
+    "actual_launch": {"path": "shared-browser-04-actual-launch.json", "bytes": 3420, "sha256": "1abf99aeb6483ba41ce59ec87082bffbeb291215cde94cd3e5615e406f0f3c7a"},
+    "admission": {"path": "shared-browser-04-admission.json", "sha256": "ba3bbedca7b35e62a513fe035803ea956906c7f627d2f1dfab8ec372b5f2ddc8"},
+    "preflight": {"path": "shared-browser-04-preflight.json", "sha256": "ef0456fdebd2724c8b8b6537f93f2606a0a3dc818a36db3ce4cd6093a6e7defd"},
+    "source_review": {"path": "shared-browser-04-refined-source-review.json", "sha256": "af5d64be1ef4f3274eaa00b9bafba067b9687f7f4f57e2f5e5cd73de4fea3762"},
+    "driver": {"path": ".tmp/goalie-live-acceptance/browser-real-04.mjs", "sha256": "892a1a620f18043cfe2a687ea5b7ed55d4d6d6604852e75a5c41e4dfcf8488a7"},
+    "caller": {"path": ".tmp/goalie-live-acceptance/browser-held-07.sh", "sha256": "92e73ac99fc612a80bc4e20052f7df0b393f80ba0294c5f5a5c4b4eab408371f"},
+    "normal_startup_review": {"path": "shared-runtime-03-independent-adjudication.json", "sha256": "0d13786262af694f37039bdc73fffd54655807bca8c832d164dfeaed689f2fdb"},
+    "current_overview_binding": {"path": "shared-goalie-overview-after-label-01.json", "sha256": "7a04ebe124ef47409fd8a3f1fc867dd7a45beacb4a43cc575a4795c3d5a7b4e3"},
+    "current_overview_review": {"path": "shared-goalie-overview-after-label-independent-review.json", "sha256": "455cc43adec7a6b373ee150bb718c4f274b0238713b2473f5139a90a720fb5de"},
+    "label_green": {"path": "shared-history-label-green-result.json", "sha256": "78eb669c221219f7e8be72079f36ec2fa8e5a65694818636f1325e82c4918ea3"},
+    "accepted_api02": {"path": "shared-api-02-result.json", "sha256": "355de762cb1f72cf496c8c690658d7a751e66d7caff6b3dc7994eb9e40d50472"},
+    "accepted_consumer04": {"path": "shared-consumer-attempt-04-result.json", "sha256": "c7e329ae247857e425c5db25a88afe8ee5c07130818c7ecd45032c1a4a044d66"}
+  },
+  "actual_frame": {
+    "started_at_utc": "2026-11-14T04:56:07Z",
+    "observed_at_utc": "2026-11-14T04:56:33.114429+00:00",
+    "wrapper_pids": [99286, 99287],
+    "time_pid": 99288,
+    "driver_pid": 99289,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+    "argv": [
+      "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-04.mjs",
+      "http://127.0.0.1:3407",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/api-02.json",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04.json",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-profile-04",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-playwright-runtime/node_modules/playwright/index.mjs"
+    ],
+    "time_prefix": "/usr/bin/time -l"
+  },
+  "serving_binding": {
+    "node_pid": 89887,
+    "base_url": "http://127.0.0.1:3407",
+    "source_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+    "build_receipt_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+    "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+    "publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4"
+  },
+  "checked_bindings": [
+    "all supplied local launch/admission/preflight/source-review/driver/caller hashes match; the current driver and caller are exactly the independently reviewed 892a/92e sources",
+    "cached argv records wrapper 99286 to subshell 99287 to time 99288 to pinned-node driver 99289; the caller's explicit cwd and observed driver cwd agree",
+    "cached local start 20:56:07 on 2026-11-13 agrees with 04:56:07Z on 2026-11-14 under the configured pacific timezone",
+    "all six positional driver arguments match the caller and reviewed meanings: isolated loopback 3407, accepted api02/consumer04 inputs, fresh external browser-04 output, owned local profile-04 and pinned playwright entry",
+    "the preflight reports those exact external-output/profile/local-log/local-exit destinations absent, with zero input-body reads; this remains availability evidence rather than new input-content validation",
+    "caller noclobber redirection owns browser-native-04.log and browser-native-04.exit; it propagates the single command's native status and exact G_ST_BROWSER_04_EXIT marker without retry",
+    "admission's serving source/build/server bindings agree with the accepted normal startup03 and current complete three-overview comparison; api02 evidence is inherited under the separately accepted unchanged-backend/publication proof, not freshly exhaustive",
+    "cached api02 and consumer04 hashes agree with admission; both bind real exchange3/schema9 publication fb604 at 3407, and consumer04 names the exact consumer-04.csv oracle whose admitted digest is bc293b783cbd71a19d7f7fc7f506d08590dba23c6936caea4d1cef817b387653",
+    "the actual green result is exactly the admission's 78eb receipt; independent green adjudication remains separately owned and is not supplied by this launch review",
+    "driver source retains every prior content/export assertion, all-mode lifecycle tracing, six history-label bounds checks, final zero request failures and post-owned-closure rejection; no error or abort waiver is introduced",
+    "reviewed post-exit capture source names exactly browser-04/browser-receipt.json plus local browser-native-04.log/.exit, and remains conditional on actual driver/time closure, native marker/prompt and a separate root assignment"
+  ],
+  "material_findings": [],
+  "historical_status_note": "admission's assigned_once_not_run status records its earlier assignment checkpoint; the later cached actual launch frame supersedes launch status only",
+  "outcome": {
+    "native_exit": null,
+    "wall_seconds": null,
+    "peak_rss_bytes": null,
+    "browser_status": "unknown_running_at_the_cached_frame",
+    "browser_accepted": false,
+    "pixel_inspection": "not_performed_by_this_review"
+  },
+  "limits": [
+    "the cached frame proves command/source/path/cwd correspondence at observation, not successful completion, current liveness, rendered output, output-input digests or absence of later errors",
+    "no live or output path was opened or statted; no browser log/result/download/capture was read while the command was running",
+    "actual native closure and bounded capture, independent result adjudication and current normal/narrow/native200 viewport/download pixel review remain owed",
+    "historical failed attempts and unattributed aborts remain unchanged; no retry, st dispatch, preservation, cleanup, scientific admission or activation is authorized"
+  ]
+}

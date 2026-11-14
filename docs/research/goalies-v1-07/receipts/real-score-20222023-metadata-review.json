@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "kind": "independent-real-20222023-score-small-metadata-review",
+  "status": "passed",
+  "score": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20222023/manifest.json",
+    "sha256": "15d959531ea2561660eb65151a19a007506fffff102b12f96aadc82000091253"
+  },
+  "producer": {
+    "git_commit": "34eba0a92b4ac38b3776cf11efb30075e95d5213",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "analysis_tree_from_launch_evidence": "a810cdee21224a47b1f979a75641c493b552f1f1",
+  "bindings": {
+    "state": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20222023/manifest.json",
+      "sha256": "a1327e656ddc21658acd02d1f0095ceda9cd875cbc24a651003204ab55ee8f3e"
+    },
+    "base_scores": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/manifest.json",
+      "sha256": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20"
+    },
+    "base_state": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/manifest.json",
+      "sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c"
+    },
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+    },
+    "coaches": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+    }
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20212022/manifest.json",
+    "sha256": "1898e7128a1e166cceec408784979a9e6fb62c045a0ed79840b0cfee471a5669"
+  },
+  "member_bytes": {
+    "manifest.json": 346607,
+    "coverage.json": 2124608,
+    "catalogs.json": 13097,
+    "sensitivity.json": 129
+  },
+  "people_implied_by_matrix_counts": 126,
+  "row_counts": {
+    "analysis_map": 1386,
+    "execution_breakdown": 12474,
+    "goalie_danger": 3024,
+    "goalie_evidence_map": 18144,
+    "goalie_observed": 1512,
+    "goalie_result": 1386
+  },
+  "source_target_summary": {
+    "h": {
+      "included": 73622,
+      "excluded": 79726,
+      "target_mass": 9247.0,
+      "known_source_positives": 9303,
+      "valued_positives": 9230,
+      "exclusion_reasons": {
+        "requires_saved_attempt": 79606,
+        "immediate_reattempt_label_unavailable": 79633,
+        "physical_attempt_not_supported_ordinary": 1150,
+        "outcome_unavailable": 1100,
+        "goalie_population_unavailable_or_outside": 1740,
+        "shooter_unavailable": 587,
+        "opposing_goalie_membership_unavailable": 1740,
+        "shot_type_unavailable": 816,
+        "membership_unavailable_or_outside_population": 845,
+        "location_or_frame_unavailable": 645
+      }
+    },
+    "d": {
+      "included": 9230,
+      "excluded": 144118,
+      "target_mass": 954.6123244847972,
+      "known_source_positives": 9303,
+      "valued_positives": 9230,
+      "exclusion_reasons": {
+        "requires_positive_recorded_reattempt": 64375,
+        "focal_occurrence_population_unavailable": 79726,
+        "successor_execution_score_unavailable": 17
+      }
+    }
+  },
+  "stage_totals": {
+    "miss": {
+      "source_events": 153348,
+      "known_labels": 113179,
+      "matched": 113179,
+      "prediction_unavailable": 0,
+      "label_unavailable": 40169
+    },
+    "recorded_stop": {
+      "source_events": 153348,
+      "known_labels": 81493,
+      "matched": 81400,
+      "prediction_unavailable": 93,
+      "label_unavailable": 71855
+    },
+    "conversion": {
+      "source_events": 153348,
+      "known_labels": 62152,
+      "matched": 62077,
+      "prediction_unavailable": 75,
+      "label_unavailable": 91196
+    },
+    "reattempt": {
+      "source_events": 153348,
+      "known_labels": 73715,
+      "matched": 73622,
+      "prediction_unavailable": 93,
+      "label_unavailable": 79633
+    },
+    "next_attempt_danger": {
+      "source_events": 153348,
+      "known_labels": 9230,
+      "matched": 9230,
+      "prediction_unavailable": 0,
+      "label_unavailable": 144118
+    }
+  },
+  "source_included": 151541,
+  "paired_unblocked": 113179,
+  "source_only": 1,
+  "numerical_only": 0,
+  "located_possible_affiliation_gaps": 0,
+  "numerical_sensitivity": {
+    "status": "not_assessed_for_annual_state",
+    "summary_threshold": 0.0001,
+    "pointwise_threshold": 1e-05,
+    "variants": []
+  },
+  "producer_resources": {
+    "wall_seconds": 6793.625200832961,
+    "input_read_wall_seconds": 5501.241810125066,
+    "projection_wall_seconds": 980.5142257090192,
+    "sensitivity_wall_seconds": 5.6302805410232395,
+    "validation_wall_seconds": 300.6566703750286,
+    "peak_memory_bytes": 20426866688,
+    "output_bytes": 3989468915
+  },
+  "cost": {
+    "wall_seconds": 0.228599667083472,
+    "peak_memory_bytes": 32931840,
+    "peak_memory_unit": "darwin ru_maxrss bytes"
+  },
+  "limits": [
+    "four small completed-score documents only; no artifact member hash campaign or normal reader",
+    "matrix cardinalities are metadata consistency, not a second independent person/key stream validation; the completed producer owns full strict validation",
+    "state/base/preparation/coaches pins compare saved references only; no original input or fit reopened",
+    "earlier-annual probes are absent and remaining optimizer accuracy is unknown; this does not grant scientific admission or activation"
+  ],
+  "reviewer": {
+    "path": "/tmp/hockey-goalie-v1-07-checks/real_20222023_score_metadata.py",
+    "sha256": "0c501fb0591879e47dabfd945428c67ea60981f0e08c4ad10bc4e2909d5278ef"
+  },
+  "native_command_cost": {
+    "exit_code": 0,
+    "wall_seconds": 6797.56,
+    "max_resident_bytes": 20426866688,
+    "peak_footprint_bytes": 21350842040,
+    "log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/score-20222023-02.log",
+    "source": "root-observed native72245 completion"
+  }
+}

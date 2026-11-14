@@ -1,0 +1,12 @@
+{
+  "kind": "shared-runtime-02-full-service-log-archive",
+  "status": "copied_complete",
+  "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-02.log",
+  "target": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/runtime-02-service-native.log",
+  "bytes": 5376266,
+  "sha256": "b5bb00e218d5b6f6bfc150baebec4433cf712d9d35e2f59e06382ce693c8092e",
+  "wall_seconds": 14.582390666939318,
+  "process_peak_rss_bytes": 19087360,
+  "scope": "one complete fixed local body read streamed to one exclusive external file; no external body read/hash/stat or assessment; source retained until cleanup",
+  "limits": "old service-lifetime native footer is historical lifetime evidence, not startup02 listening cost. earlier4MiB capture was incomplete and remains so; this full archive supersedes only its preservation blocker; physical IO unmeasured"
+}

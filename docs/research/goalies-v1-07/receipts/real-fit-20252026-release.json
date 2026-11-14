@@ -1,0 +1,162 @@
+{
+  "kind": "goalie-final-fit-review-inventory-explicit-handoff",
+  "recorded_at_utc": "2026-11-12T07:05:36.856514+00:00",
+  "status": "native_metadata_and_one_inventory_passed",
+  "owner_releasing": "v1-07",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/manifest.json",
+    "bytes": 346105,
+    "sha256": "903092073a25b0afb0b6e153ede5f2685a0a4bf7b4dce1381c1a05f266a56502"
+  },
+  "producer": {
+    "git_commit": "76af911844cc53ccf6548f48bfd04970eb36d292",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20252026-preflight.json",
+    "bytes": 10197,
+    "sha256": "74ddf0a59d3a3a29bdd805a12f4ec9bb7d61d5e12a423451092bdb121910bfd5"
+  },
+  "native": {
+    "session_id": 32082,
+    "exit_code": 0,
+    "wall_seconds": 7212.36,
+    "user_seconds": 6246.05,
+    "system_seconds": 290.4,
+    "peak_resident_bytes": 20134002688,
+    "peak_footprint_bytes": 20516699256,
+    "swaps": 0,
+    "owned_commands_closed": true
+  },
+  "producer_resources": {
+    "wall_seconds": 59.82409887504764,
+    "peak_memory_bytes": 20134002688,
+    "design_wall_seconds": 7136.025139667094,
+    "input_read_wall_seconds": 5.890019749989733,
+    "dimensions": {
+      "h": 3544,
+      "d": 3544
+    },
+    "solve_counts": {
+      "h": 2,
+      "d": 2
+    },
+    "probe_solve_counts": {
+      "h": 1,
+      "d": 1
+    },
+    "output_bytes": 85184308
+  },
+  "state_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20252026-review.json",
+    "bytes": 18802,
+    "sha256": "4aa6c6d92f15b6274f2eb5739b3c008afa89ce7a2e31526d6fa9323f4647d503",
+    "json_members": 9,
+    "json_bytes": 14772224,
+    "native_wall_seconds": 0.22,
+    "native_peak_rss_bytes": 79118336,
+    "native_peak_footprint_bytes": 69108264
+  },
+  "state_independent_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-fit-20252026-independent-adjudication.json",
+    "bytes": 7173,
+    "sha256": "c0f7d150d85b25c19e031e96488be0b59fe19149f39780dd2155699d8b09c9c0"
+  },
+  "target_inventory": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-20252026-target-inventory.json",
+    "bytes": 6496,
+    "sha256": "6a3329357cc0207e89fe0d81f44f53164c39c6a5cd445ddcec4cc226a010f3bd",
+    "coverage": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20252026/coverage.json",
+      "sha256": "07e84e8718d20541cf1da27e587414afac37cb72d82f16aab5d447adde55f715",
+      "bytes": 75413304
+    },
+    "total_external_documents": 4,
+    "external_bytes": 80581771,
+    "native_wall_seconds": 1.29,
+    "native_peak_rss_bytes": 406192128,
+    "native_peak_footprint_bytes": 396395264,
+    "rows": 153754,
+    "games": 1312,
+    "groups": 1654,
+    "counts": {
+      "h_included": 64833,
+      "h_positive": 9479,
+      "h_negative": 55354,
+      "d_included": 9454,
+      "zero_d_target": 0,
+      "ordinary_saved_source_rows": 64953,
+      "ordinary_save_unknown_h": 0,
+      "otherwise_eligible_unknown_h": 0,
+      "source_positive_focal_excluded": 78,
+      "eligible_h_positive_d_unavailable": 25,
+      "eligible_h_positive_known_goalie_change": 0,
+      "eligible_h_positive_successor_goalie_unresolved": 25,
+      "predictor_excluded_h_positive_known_goalie_change": 0,
+      "predictor_excluded_unknown_h": 0
+    },
+    "d_target_mass_head": 865.6337367063065,
+    "d_target_mass_inventory": 865.6337367063064,
+    "missing_d_reasons": {
+      "successor_execution_score_unavailable": 25
+    },
+    "missing_d_successor_outcomes": {
+      "save": 21,
+      "miss": 1,
+      "block": 3
+    },
+    "original_source_candidates": []
+  },
+  "inventory_independent_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-20252026-target-inventory-independent-adjudication.json",
+    "bytes": 4914,
+    "sha256": "2254149b956f0348e0bdf6822074e4992c77c92a1e059c63700a112ee0d3de23"
+  },
+  "numerical_status": {
+    "cumulative_complete_baseline_heads": 10,
+    "final_dimensions": 3544,
+    "final_baseline_starts_per_head": 2,
+    "final_probes_per_head": 1,
+    "final_frozen_contexts": 256,
+    "native_origins_per_context": 656,
+    "sampled_pointwise_threshold": 1e-05,
+    "probe_maximum_sample_probability_change": {
+      "h": 1.494934723789143e-06,
+      "d": 4.2970558755683896e-07
+    },
+    "remaining_optimizer_accuracy": "unknown; baselines/probes stop on ftol above gtol",
+    "all_goalie_three_variant_summary_sensitivity": "pending final score; original baselines retained",
+    "earlier_annual_sensitivity": "unassessed"
+  },
+  "original_source_proofs": "three remain open after five inventories; explicit user criterion/scope question pending, no waiver or further source search authorized",
+  "no_owned_heavy_command_remaining": true,
+  "handoff": {
+    "owner": "v1-09",
+    "scope": "ONLY one20242025 retry, three sequential baselines,zero probes,no basis; full predecessor/history/projections/accounting/native readback",
+    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "packet": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-retry-preparation-01.json",
+    "packet_sha256": "633516d911773036b4b88e9f649dcb5394b8212407a79eeabcf5663a9c1b9326",
+    "script": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-retry-held-01.sh",
+    "script_sha256": "524605372c37d9d9b7a12e9fa71cd9c22c1336696696e6217ed0da74f7672860",
+    "independent_peer_review_sha256": "ce350da8af24fc8670b74a319e76179917ba02489597b3ee2faf06dbc164a619",
+    "previous_ST_manifest_sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7",
+    "original_base_score_sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+    "fresh_run": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01",
+    "launch_preconditions": "fresh source/script/runtime/mount/run/output/log/exit checks immediately before one dispatch; source-only packet is not a completed launch preflight",
+    "return_boundary": "actual native exit/cost, prescribed bounded independent review and explicit release; no further annual or chain",
+    "historical_run05_and_ready10856": "preserved unchanged; neither reused nor treated as retry authority",
+    "child_threads": "only OPENBLAS/OMP/VECLIB=1; G six-unset unchanged"
+  },
+  "tradeoff": "G20252026 scoring waits for this one unknown-duration ST retry; interrupted2109.52s is not a full annual forecast; no chain reservation",
+  "accepted_complete_predecessor": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+  "activation": false,
+  "scientific_admission": false,
+  "notifications": "exact receipt notification follows; retired v1-18 handle not found, no delivery claimed"
+}

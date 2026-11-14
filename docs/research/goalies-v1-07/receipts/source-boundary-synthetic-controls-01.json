@@ -1,0 +1,707 @@
+{
+  "schema_version": 1,
+  "kind": "bounded-synthetic-goalie-source-contract-checked-facts",
+  "status": "behavior_and_finder_independently_reviewed; compact_prose_and_provenance_review_pending",
+  "user_boundary": "synthetically verified and unobserved within inspected scope; no global absence claim and no original-witness promotion",
+  "runtime": {
+    "executable": "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python",
+    "version": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]"
+  },
+  "canonical_path": "local copied capture receipts/bodies \u2192 canonical interpretation/reconstruction \u2192 fixture prepare_analysis \u2192 normal dated-coach binder with explicit not-requested optional source \u2192 prepare_execution_sources \u2192 canonical _target_rows",
+  "no_mocks": [
+    "raw parser",
+    "reconstruction",
+    "context",
+    "source/goalie identity",
+    "predictors",
+    "labels",
+    "target join",
+    "finder"
+  ],
+  "original_evidence_preserved": {
+    "original_proofs": 8,
+    "annual_inventories": 5,
+    "receipt_hashes": {
+      "docs/research/goalies-v1-07/receipts/fixture-original-event-review.json": "7c44689c532099586cf9ca791ee5e097beca97e6cbe65672589562779375a818",
+      "docs/research/goalies-v1-07/receipts/real-first-original-continuation-review.json": "7ea1baa9c8808a8675cea672e8efe27aede4efd74afb2623fd022131fc44af50",
+      "docs/research/goalies-v1-07/receipts/real-first-target-inventory.json": "73f57f0134e82240dfc118d9e322df659628062847f093d0ae0d080dc9b87949",
+      "docs/research/goalies-v1-07/receipts/real-20222023-target-inventory.json": "ee58ebb48bf4231ba59fc9ce56d9f35468ebdbde99dab44096ee67fa7824ddea",
+      "docs/research/goalies-v1-07/receipts/real-20232024-target-inventory.json": "ad80535186042ce13d5246afac4f43a18e46714a571149b49c5a22f8772bf25b",
+      "docs/research/goalies-v1-07/receipts/real-20242025-target-inventory.json": "3316c992ee857259dfa73e176ecf66c372fccd0b06b36c392ac13be76d9ef6ad",
+      "docs/research/goalies-v1-07/receipts/real-20252026-target-inventory.json": "6a3329357cc0207e89fe0d81f44f53164c39c6a5cd445ddcec4cc226a010f3bd",
+      "fixtures/source-admission-v1-07.json": "ba9edf0e86d42ae06f9d400db6b44019b3a35ea89faeb7138a6c9ce97104ada2"
+    },
+    "donor_capture_files": [
+      {
+        "path": "fixtures/captures/2025020006/play-by-play/body.bin",
+        "sha256": "e5c79066faafe9daac9bc1daa12dda899d8cd7382d7f2484085ade1a9c1e57ad"
+      },
+      {
+        "path": "fixtures/captures/2025020006/play-by-play/capture.json",
+        "sha256": "1b6867cc24ff48ce85ede93123afe87b760720ae8c7dea31164237bb69276c8b"
+      },
+      {
+        "path": "fixtures/captures/2025020006/boxscore/body.bin",
+        "sha256": "a30184bd0e64ca7a463f86f9311a5c17e6de8a591d8fd7853f453873bb214837"
+      },
+      {
+        "path": "fixtures/captures/2025020006/boxscore/capture.json",
+        "sha256": "5ea1dc3c3e43d5ba1c2a218595e944a25afd050946d3373635ef5b9914062e16"
+      },
+      {
+        "path": "fixtures/captures/2025020006/shifts/body.bin",
+        "sha256": "aac4bc38d85f89a4e893d08135d1e33a516a7b7618a50fbf7736ad63e4bf3425"
+      },
+      {
+        "path": "fixtures/captures/2025020006/shifts/capture.json",
+        "sha256": "b4c25d6a5d7aec6764fb7bc47d700038c87317e33b179bcdae868a4471d7ece9"
+      },
+      {
+        "path": "fixtures/captures/2025020006/game-summary/body.bin",
+        "sha256": "ddd2bb9fecf12b83947ac99b66c9319e2d03aba06caf058425ce60493d619627"
+      },
+      {
+        "path": "fixtures/captures/2025020006/game-summary/capture.json",
+        "sha256": "582096636274f589c2b7d25763d2b6e202fa3ac052611d15d00ba5bc7e6178a8"
+      },
+      {
+        "path": "fixtures/captures/2025020006/play-report/body.bin",
+        "sha256": "37e8a9c8d8f32428890a9be0ee32abeaa847a5579615e212c61e90084e56a310"
+      },
+      {
+        "path": "fixtures/captures/2025020006/play-report/capture.json",
+        "sha256": "161f0281c707598ebcb9154b27cbcfb8de2a833b90f9bfc97601a4a3c1f0ecd8"
+      },
+      {
+        "path": "fixtures/captures/2025020006/landing/body.bin",
+        "sha256": "48127d8bf3fb6dc268a4a7258f19940884a13a62ca23d420294c91335a764cd0"
+      },
+      {
+        "path": "fixtures/captures/2025020006/landing/capture.json",
+        "sha256": "75e8f4ad7f73994b27feca4595f3e736faf6f7ad8408f9c2e7f58b92222584b4"
+      }
+    ],
+    "scope": "all named receipt and original donor hashes checked before and after; no preserved original overwritten"
+  },
+  "baseline": {
+    "result": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/results/baseline.json",
+      "sha256": "0157b125335aa2c8adfd50f0ecbdbd956c7fd6313025f774dc7574cf653008c3"
+    },
+    "native_exit": 0,
+    "native_wall_seconds": 8.28,
+    "peak_resident_bytes": 435830784,
+    "prepared_bytes": 58045224,
+    "targets": 139,
+    "predictors": 123
+  },
+  "cases": [
+    {
+      "case": "invalid_intervening",
+      "evidence_class": "synthetically_verified",
+      "original_witness": "unobserved_within_inspected_scope",
+      "focal_target": {
+        "key": "2025020006:214",
+        "game_id": "2025020006",
+        "source_index": 214,
+        "outcome": "save",
+        "physical_status": "ordinary",
+        "goalie_id": 8479973,
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "h_label": null,
+        "h_reason": "immediate successor order, timing or physical action unavailable",
+        "successor_key": null,
+        "target_score_sha256": "82001095556d65895febe5ea85bacb889ffda684cf1079c496f0c467f4ee98d5",
+        "d_target": null,
+        "d_reason": "focal_occurrence_population_unavailable",
+        "h_included": false,
+        "d_included": false,
+        "h_exclusions": [
+          "immediate_reattempt_label_unavailable"
+        ]
+      },
+      "checks": [
+        "independent exact focal identity/state and complete h/d masks/exclusions",
+        "original save identity/attribution and source predictor eligibility unchanged",
+        "complete focal predictor values/problems/support/pointers match; only enumerated actual provenance references and invalid-action score-accounting availability change permitted",
+        "actual immediate invalid row retained; later original goal survives and is never skipped to",
+        "deliberate wrong focal attribution or unknown-as-negative control rejected",
+        "deliberate skip-ahead to preserved later goal rejected"
+      ],
+      "predictor_equality": {
+        "scope": "complete record; only enumerated actual provenance substitutions",
+        "expected_exception": "only the four named score buckets become unavailable and the shared unavailability flag becomes1",
+        "provenance_substitutions": [
+          {
+            "pointer": "predictor.actor_facts.8482074.evidence[0].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/game.json",
+              "sha256": "580b30cd65f15b07d5adccb69a977a5503bca4087e85edb83579a03e7f7a6983"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/invalid_intervening/game.json",
+              "sha256": "28299a0216fbaeb59ea75f16819d87dedb529e9a625bda8f56c4b89fc938fa2b"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8482074.evidence[1].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/game.json",
+              "sha256": "580b30cd65f15b07d5adccb69a977a5503bca4087e85edb83579a03e7f7a6983"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/invalid_intervening/game.json",
+              "sha256": "28299a0216fbaeb59ea75f16819d87dedb529e9a625bda8f56c4b89fc938fa2b"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8482074.evidence[2].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/corpus.json",
+              "sha256": "45ce03ff1f4de836ea54d9cd57a88dca9a09a1189ff7575c9d788808a708608f"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/invalid_intervening/corpus.json",
+              "sha256": "45ce03ff1f4de836ea54d9cd57a88dca9a09a1189ff7575c9d788808a708608f"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8479973.evidence[0].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/game.json",
+              "sha256": "580b30cd65f15b07d5adccb69a977a5503bca4087e85edb83579a03e7f7a6983"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/invalid_intervening/game.json",
+              "sha256": "28299a0216fbaeb59ea75f16819d87dedb529e9a625bda8f56c4b89fc938fa2b"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8479973.evidence[1].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/game.json",
+              "sha256": "580b30cd65f15b07d5adccb69a977a5503bca4087e85edb83579a03e7f7a6983"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/invalid_intervening/game.json",
+              "sha256": "28299a0216fbaeb59ea75f16819d87dedb529e9a625bda8f56c4b89fc938fa2b"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8479973.evidence[2].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/corpus.json",
+              "sha256": "45ce03ff1f4de836ea54d9cd57a88dca9a09a1189ff7575c9d788808a708608f"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/invalid_intervening/corpus.json",
+              "sha256": "45ce03ff1f4de836ea54d9cd57a88dca9a09a1189ff7575c9d788808a708608f"
+            }
+          }
+        ]
+      },
+      "source_result": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/results/invalid_intervening.json",
+        "sha256": "76b71f51787e65062ade53b4b323fb47c7bda3feb093c561e6f94b881efc6301"
+      },
+      "source_check": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/invalid_intervening-04.json",
+        "sha256": "5f2da74f2bfac77baf97f22098099fd3bdded02690df12d723869b1ae5c710bf"
+      },
+      "finder_check": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/invalid_intervening/check.json",
+        "sha256": "84dfebf703d7557afc0d3164fb7308a661784f9a67ed5518b393f11788c78b6b"
+      },
+      "finder": {
+        "source": {
+          "path": "/tmp/hockey-goalie-v1-07-checks/inventory_final_goalie_targets.py",
+          "sha256": "73cd3066a2e9fc27db3044b874296378a697530c041cac843f65bf2ec6da2a18"
+        },
+        "retained_category": "otherwise_eligible_unknown_h",
+        "retained_key": "2025020006:214",
+        "native_exit": 0,
+        "target_rows": 139,
+        "four_input_metadata_documents": [
+          {
+            "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/invalid_intervening/20252026/manifest.json",
+            "sha256": "377fed25c0c83e7c90c27463c143f642165fb00bfa8fca7a95a3f0b2166ee37a"
+          },
+          {
+            "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/invalid_intervening/20252026/coverage.json",
+            "sha256": "a474f61ddc73c265c7e80db53aa6195817f1a5a773f7b232e5b9ac8287825f57"
+          },
+          {
+            "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/invalid_intervening/20252026/heads/h.json",
+            "sha256": "a7f7a6f81dd42c937351d3a7a1f5e3543966f816d700d3bfaf7971d9ec637f99"
+          },
+          {
+            "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/invalid_intervening/20252026/heads/d.json",
+            "sha256": "179a98eba894ce3718d0b0ccdc1982a1df43ff309fcc9216860edea83a400fc3"
+          }
+        ]
+      },
+      "native": {
+        "exit_code": 0,
+        "wall_seconds": 8.34,
+        "peak_resident_bytes": 455655424,
+        "prepared_bytes": 62200285,
+        "log": {
+          "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-invalid-intervening-native-01.log",
+          "sha256": "00eaa1731d33a8ab8e4b3fbb9bb4ad26edd98216456c7cb1d6b50c59e1f9bca4"
+        }
+      },
+      "controller": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source_boundary_synthetic.py",
+        "sha256": "2abc3bd919f8df52c93a61fdbed8334f2e5c041ccb4cd93437440f26745e785c"
+      },
+      "synthetic_successor_score": {
+        "value": 0.25,
+        "reference": {
+          "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/invalid_intervening/synthetic-successor-score-lookup.json",
+          "sha256": "82001095556d65895febe5ea85bacb889ffda684cf1079c496f0c467f4ee98d5"
+        },
+        "meaning": "fixed fully neutral all-attempt uqrg test scalar; no observed, imputed, fitted or evaluated probability"
+      }
+    },
+    {
+      "case": "goalie_change",
+      "evidence_class": "synthetically_verified",
+      "original_witness": "unobserved_within_inspected_scope",
+      "focal_target": {
+        "key": "2025020006:103",
+        "game_id": "2025020006",
+        "source_index": 103,
+        "outcome": "save",
+        "physical_status": "ordinary",
+        "goalie_id": 8481692,
+        "physical_state": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "h_label": true,
+        "h_reason": null,
+        "successor_key": "2025020006:104",
+        "target_score_sha256": "82001095556d65895febe5ea85bacb889ffda684cf1079c496f0c467f4ee98d5",
+        "d_target": 0.25,
+        "d_reason": null,
+        "h_included": true,
+        "d_included": true,
+        "h_exclusions": []
+      },
+      "checks": [
+        "independent exact focal identity/state and complete h/d masks/exclusions",
+        "original save identity/attribution and source predictor eligibility unchanged",
+        "complete focal predictor values/problems/support/pointers match; only enumerated actual provenance references and invalid-action score-accounting availability change permitted",
+        "known changed successor goalie retained; focal target, tip/setup inputs, base-stage labels and attribution unchanged without evaluation",
+        "deliberate wrong focal attribution or unknown-as-negative control rejected"
+      ],
+      "predictor_equality": {
+        "scope": "complete record; only enumerated actual provenance substitutions",
+        "expected_exception": null,
+        "provenance_substitutions": [
+          {
+            "pointer": "predictor.actor_facts.8480803.evidence[0].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/game.json",
+              "sha256": "580b30cd65f15b07d5adccb69a977a5503bca4087e85edb83579a03e7f7a6983"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/goalie_change/game.json",
+              "sha256": "a93b6656efe7ff636f61b14fa47ebaaf423f270eb1649d8a065505bd92e1ad79"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8480803.evidence[1].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/game.json",
+              "sha256": "580b30cd65f15b07d5adccb69a977a5503bca4087e85edb83579a03e7f7a6983"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/goalie_change/game.json",
+              "sha256": "a93b6656efe7ff636f61b14fa47ebaaf423f270eb1649d8a065505bd92e1ad79"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8480803.evidence[2].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/corpus.json",
+              "sha256": "45ce03ff1f4de836ea54d9cd57a88dca9a09a1189ff7575c9d788808a708608f"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/goalie_change/corpus.json",
+              "sha256": "45ce03ff1f4de836ea54d9cd57a88dca9a09a1189ff7575c9d788808a708608f"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8481692.evidence[0].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/game.json",
+              "sha256": "580b30cd65f15b07d5adccb69a977a5503bca4087e85edb83579a03e7f7a6983"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/goalie_change/game.json",
+              "sha256": "a93b6656efe7ff636f61b14fa47ebaaf423f270eb1649d8a065505bd92e1ad79"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8481692.evidence[1].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/game.json",
+              "sha256": "580b30cd65f15b07d5adccb69a977a5503bca4087e85edb83579a03e7f7a6983"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/goalie_change/game.json",
+              "sha256": "a93b6656efe7ff636f61b14fa47ebaaf423f270eb1649d8a065505bd92e1ad79"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8481692.evidence[2].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/corpus.json",
+              "sha256": "45ce03ff1f4de836ea54d9cd57a88dca9a09a1189ff7575c9d788808a708608f"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/goalie_change/corpus.json",
+              "sha256": "45ce03ff1f4de836ea54d9cd57a88dca9a09a1189ff7575c9d788808a708608f"
+            }
+          }
+        ]
+      },
+      "source_result": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/results/goalie_change.json",
+        "sha256": "40128581ebd39aec22e39a7edb2fec423777232811fdb980a41133f8daaa6e4d"
+      },
+      "source_check": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/goalie_change-01.json",
+        "sha256": "45734ae9d8d79f8243eee7471686ea037e4aa91aacbad595cfcf9086b3b95bd1"
+      },
+      "finder_check": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/goalie_change/check.json",
+        "sha256": "2fb5355c5b1c63a423a0fb2ec41a390bc896d9260e3c11f005d2937db3c71510"
+      },
+      "finder": {
+        "source": {
+          "path": "/tmp/hockey-goalie-v1-07-checks/inventory_final_goalie_targets.py",
+          "sha256": "73cd3066a2e9fc27db3044b874296378a697530c041cac843f65bf2ec6da2a18"
+        },
+        "retained_category": "eligible_h_positive_known_goalie_change",
+        "retained_key": "2025020006:103",
+        "native_exit": 0,
+        "target_rows": 139,
+        "four_input_metadata_documents": [
+          {
+            "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/goalie_change/20252026/manifest.json",
+            "sha256": "965d1cf32509fdb43151e92224b6feebfbda517fdf8186afaca2a417fc69e522"
+          },
+          {
+            "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/goalie_change/20252026/coverage.json",
+            "sha256": "952ec78c24c61ae0712e5b2fa333dad13cf2c3833371f2164ea9407d24b30bd8"
+          },
+          {
+            "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/goalie_change/20252026/heads/h.json",
+            "sha256": "5438c7fe21b14df5a23825ca76b1b2f6ee0cd7ea2434725353cd9c50539b08fa"
+          },
+          {
+            "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/goalie_change/20252026/heads/d.json",
+            "sha256": "179a98eba894ce3718d0b0ccdc1982a1df43ff309fcc9216860edea83a400fc3"
+          }
+        ]
+      },
+      "native": {
+        "exit_code": 0,
+        "wall_seconds": 7.44,
+        "peak_resident_bytes": 437927936,
+        "prepared_bytes": 58725927,
+        "log": {
+          "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-goalie-change-native-01.log",
+          "sha256": "df14e8a45d552f58f7325f96fe4af548dd576a6d7e9ca24c4f50b98f9567dc18"
+        }
+      },
+      "controller": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source_boundary_synthetic.py",
+        "sha256": "2abc3bd919f8df52c93a61fdbed8334f2e5c041ccb4cd93437440f26745e785c"
+      },
+      "synthetic_successor_score": {
+        "value": 0.25,
+        "reference": {
+          "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/goalie_change/synthetic-successor-score-lookup.json",
+          "sha256": "82001095556d65895febe5ea85bacb889ffda684cf1079c496f0c467f4ee98d5"
+        },
+        "meaning": "fixed fully neutral all-attempt uqrg test scalar; no observed, imputed, fitted or evaluated probability"
+      }
+    },
+    {
+      "case": "unknown_chain",
+      "evidence_class": "synthetically_verified",
+      "original_witness": "unobserved_within_inspected_scope",
+      "focal_target": {
+        "key": "2025020006:351",
+        "game_id": "2025020006",
+        "source_index": 351,
+        "outcome": "save",
+        "physical_status": "ordinary",
+        "goalie_id": 8481692,
+        "physical_state": [
+          4,
+          3,
+          1,
+          1
+        ],
+        "h_label": null,
+        "h_reason": "immediate successor order, timing or physical action unavailable",
+        "successor_key": null,
+        "target_score_sha256": "82001095556d65895febe5ea85bacb889ffda684cf1079c496f0c467f4ee98d5",
+        "d_target": null,
+        "d_reason": "focal_occurrence_population_unavailable",
+        "h_included": false,
+        "d_included": false,
+        "h_exclusions": [
+          "immediate_reattempt_label_unavailable"
+        ]
+      },
+      "checks": [
+        "independent exact focal identity/state and complete h/d masks/exclusions",
+        "original save identity/attribution and source predictor eligibility unchanged",
+        "complete focal predictor values/problems/support/pointers match; only enumerated actual provenance references and invalid-action score-accounting availability change permitted",
+        "absent successor chain remains unknown despite unchanged completed-game identity/report context",
+        "deliberate wrong focal attribution or unknown-as-negative control rejected"
+      ],
+      "predictor_equality": {
+        "scope": "complete record; only enumerated actual provenance substitutions",
+        "expected_exception": null,
+        "provenance_substitutions": [
+          {
+            "pointer": "predictor.actor_facts.8480803.evidence[0].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/game.json",
+              "sha256": "580b30cd65f15b07d5adccb69a977a5503bca4087e85edb83579a03e7f7a6983"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/unknown_chain/game.json",
+              "sha256": "157a980aa95996f2f7f236842c4c2a6550910422e8f8b95577bbb78b9b951363"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8480803.evidence[1].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/game.json",
+              "sha256": "580b30cd65f15b07d5adccb69a977a5503bca4087e85edb83579a03e7f7a6983"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/unknown_chain/game.json",
+              "sha256": "157a980aa95996f2f7f236842c4c2a6550910422e8f8b95577bbb78b9b951363"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8480803.evidence[2].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/corpus.json",
+              "sha256": "45ce03ff1f4de836ea54d9cd57a88dca9a09a1189ff7575c9d788808a708608f"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/unknown_chain/corpus.json",
+              "sha256": "45ce03ff1f4de836ea54d9cd57a88dca9a09a1189ff7575c9d788808a708608f"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8481692.evidence[0].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/game.json",
+              "sha256": "580b30cd65f15b07d5adccb69a977a5503bca4087e85edb83579a03e7f7a6983"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/unknown_chain/game.json",
+              "sha256": "157a980aa95996f2f7f236842c4c2a6550910422e8f8b95577bbb78b9b951363"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8481692.evidence[1].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/game.json",
+              "sha256": "580b30cd65f15b07d5adccb69a977a5503bca4087e85edb83579a03e7f7a6983"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/unknown_chain/game.json",
+              "sha256": "157a980aa95996f2f7f236842c4c2a6550910422e8f8b95577bbb78b9b951363"
+            }
+          },
+          {
+            "pointer": "predictor.actor_facts.8481692.evidence[2].input_ref",
+            "baseline": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/baseline/corpus.json",
+              "sha256": "45ce03ff1f4de836ea54d9cd57a88dca9a09a1189ff7575c9d788808a708608f"
+            },
+            "variant": {
+              "path": "/private/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/unknown_chain/corpus.json",
+              "sha256": "45ce03ff1f4de836ea54d9cd57a88dca9a09a1189ff7575c9d788808a708608f"
+            }
+          }
+        ]
+      },
+      "source_result": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/results/unknown_chain.json",
+        "sha256": "1bd57b7179e4fcf979df8628a19d14e04a42481290b67fad5626eda43bc2989f"
+      },
+      "source_check": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/unknown_chain-01.json",
+        "sha256": "fc9d766962988ba6275c11d8606f5c86838de832e688dba93f8afec9f18bbd84"
+      },
+      "finder_check": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/unknown_chain/check.json",
+        "sha256": "72e982c3c22e50638cc119a67c242c7f9b2f34beb526ba3f30d9613a03747b68"
+      },
+      "finder": {
+        "source": {
+          "path": "/tmp/hockey-goalie-v1-07-checks/inventory_final_goalie_targets.py",
+          "sha256": "73cd3066a2e9fc27db3044b874296378a697530c041cac843f65bf2ec6da2a18"
+        },
+        "retained_category": "otherwise_eligible_unknown_h",
+        "retained_key": "2025020006:351",
+        "native_exit": 0,
+        "target_rows": 122,
+        "four_input_metadata_documents": [
+          {
+            "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/unknown_chain/20252026/manifest.json",
+            "sha256": "d382d60f136039efa7378987bd0301cc7efb476fc2a2a3dc640cfb9cb2c7b3b0"
+          },
+          {
+            "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/unknown_chain/20252026/coverage.json",
+            "sha256": "3f01a2c13db078e202a7ea4a1edf0934bedd26f5f9fdb479498b07948857ea27"
+          },
+          {
+            "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/unknown_chain/20252026/heads/h.json",
+            "sha256": "d9028592612ed65c8d124697eb6a258b62e548a003a299d7ba0d83cc57545204"
+          },
+          {
+            "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/finder/unknown_chain/20252026/heads/d.json",
+            "sha256": "179a98eba894ce3718d0b0ccdc1982a1df43ff309fcc9216860edea83a400fc3"
+          }
+        ]
+      },
+      "native": {
+        "exit_code": 0,
+        "wall_seconds": 7.34,
+        "peak_resident_bytes": 432111616,
+        "prepared_bytes": 57802358,
+        "log": {
+          "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-unknown-chain-native-01.log",
+          "sha256": "0ad0c016749a87b01b01d5719f902a3da7c9fea3aff28e7d2c09fcd3492b0e5e"
+        }
+      },
+      "controller": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source_boundary_synthetic.py",
+        "sha256": "cc897bdb49d5294779fd73bb74fd9fa2db0ff495b465154395d0bbf23d6b68d9"
+      },
+      "synthetic_successor_score": {
+        "value": 0.25,
+        "reference": {
+          "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/inputs/unknown_chain/synthetic-successor-score-lookup.json",
+          "sha256": "82001095556d65895febe5ea85bacb889ffda684cf1079c496f0c467f4ee98d5"
+        },
+        "meaning": "fixed fully neutral all-attempt uqrg test scalar; no observed, imputed, fitted or evaluated probability"
+      }
+    }
+  ],
+  "synthetic_fixtures": {
+    "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/synthetic-fixture-recipes.json",
+    "sha256": "0900958eae66230e1abd338fa386667ea580a991610e87ff56484901d1a7c9f5"
+  },
+  "rejected_before_execution": [
+    {
+      "proposal": "truncate after103",
+      "reason": "removes later timed goals/on-net shots and corrupts whole-game corroboration premises"
+    },
+    {
+      "proposal": "truncate after351 but leave future report tail",
+      "reason": "retained validated terminal evidence would not test an unresolved terminal chain"
+    }
+  ],
+  "checker_history": [
+    {
+      "attempt": "01",
+      "status": "failed",
+      "reason": "whitelist used tmp instead of canonical private/tmp",
+      "receipt": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/invalid_intervening.json",
+        "sha256": "0a3a6dc994aece2e06f1b36674987f40ff9def25ca24449e53ff6daacc24c3c7"
+      }
+    },
+    {
+      "attempt": "02",
+      "status": "failed_test_design_overreach",
+      "reason": "invalid-action full-invariance oracle over-scoped; written global corroboration permits exactly specified score availability changes",
+      "receipt": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/invalid_intervening-02.json",
+        "sha256": "3cd1b7df8e1e42e098d38df47ddcae257edb94ac098bfe80083dee3be6d40d7d"
+      }
+    },
+    {
+      "attempt": "03",
+      "status": "invalidated_false_pass",
+      "reason": "blank assertion string was falsey; unsupported next_event_source_index oracle also removed in favor of actual raw/canonical event retention",
+      "receipt": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/invalid_intervening-03.json",
+        "sha256": "fe1d8b87dcd7a4c4fc70e0620c44f6c3322e0c44d6bc6d28a3af7ab61fecb208"
+      },
+      "invalidation": {
+        "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/invalid_intervening-03-invalidation.json",
+        "sha256": "f2141783beb657e934bf2493725323785ac8e43c1bee8b6d2a6b98586b14c7c8"
+      }
+    },
+    {
+      "attempt": "04",
+      "status": "passed_then_accepted_after_negative_proof",
+      "reason": "actual earlier chronology preserved; no repeated source preparation or unchanged passing check"
+    }
+  ],
+  "truthful_error_negative": {
+    "expected_native_exit": 1,
+    "actual_native_exit": 1,
+    "actual_receipt_status": "failed",
+    "error": "AssertionError()",
+    "reconstructed_original": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/check_source_boundary_synthetic-attempt03-5a2411f3.py",
+      "sha256": "5a2411f35f38c8e0490cd5167070f896705b1ca5f9411aa9f0fe60dd40a7edd2"
+    },
+    "repaired_status_only_copy": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/check_source_boundary_synthetic-blank-negative.py",
+      "sha256": "6715bf94623ed8eeb9e3f4c047f2994991c4341934b9967d8f405b04720b3363"
+    },
+    "exact_three_line_patch": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-blank-negative.patch",
+      "sha256": "7522fcfcfda7c3ee1476aa14edae1a65e12942a2260655a8de37c47619cf2dc6"
+    },
+    "receipt": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-synthetic-01/checks/invalid_intervening-blank-negative.json",
+      "sha256": "221f11ebf68695a6dfd1c0c9f54d66d8b985a86e693e55430a6895bfd415cc47"
+    },
+    "log": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/source-boundary-blank-negative-native-01.log",
+      "sha256": "c21488aa2a18a82b35d800be6aa166a4bafb984027f7a41421fe26f981c51460"
+    },
+    "meaning": "same saved invalid result and deliberately wrong blank assertion; only error capture/status/exit changed; proves truthful failure before green acceptance, not an invented red-before-green chronology"
+  },
+  "clarification": "the historical351 check phrase unchanged report context means only focal PL355/header/prefix; future PL356..378 was actually removed and is recorded in the transformation",
+  "verification_cost": {
+    "canonical_preparations": 4,
+    "source_mutants": 3,
+    "no_preparation_repeats": true,
+    "total_native_wall_seconds": 31.4,
+    "maximum_peak_resident_bytes": 455655424,
+    "total_prepared_bytes": 236773794
+  },
+  "limits": [
+    "temporary local source/target/finder controls, not real preparation, source search, corpus acquisition, fit, model or numerical campaign",
+    "no hdd/network or saved coefficient/design array read; optional absent coaches remain unknown; no production source or git mutation",
+    "equality of fixed predictor inputs establishes evaluation invariance without invoking an evaluator; no optimizer or scientific accuracy is claimed",
+    "generic unknown reason text does not distinguish invalid-action and absent-chain; attributed raw mutation recipes do",
+    "no public artifact or specification amendment has been made by this writer; root owns final retention/amendment"
+  ]
+}

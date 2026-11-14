@@ -1,0 +1,60 @@
+{
+  "kind": "goalie-composition-adjudication-preparation",
+  "status": "source_and_local_synthetic_checks_passed_real_adjudication_not_run",
+  "references": {
+    "helper": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/adjudicate_goalie_composition.py",
+      "bytes": 13521,
+      "sha256": "0da5feeb72143509ed77bf48fb793eb5481e940359e1aa936f8c1db90091adf2"
+    },
+    "notes": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/adjudicate-goalie-composition-held.md",
+      "bytes": 4614,
+      "sha256": "e47f004f48752be268be857f7eb27ab4b275022582916f22951f6951ea341e6c"
+    },
+    "synthetic_check": {
+      "path": "/tmp/hockey-goalie-v1-07-checks/composition-adjudication-synthetic-02/local-check.json",
+      "bytes": 5252,
+      "sha256": "574ca3f5ff951e8c54e9e9e62ac6879f5ba3492938971e8860f69a390d0fea8a"
+    }
+  },
+  "source_parent_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+  "future_inputs": "actual finalized output manifest, completed goalie-composition receipt, five-score selection digests, actual clean producer HEAD and native exit0 required; no fifth-score or output identity guessed",
+  "scope": {
+    "small_json_bodies": 4,
+    "catalog_streams": 6,
+    "noncatalog_body_opens": 0,
+    "annual_score_state_or_array_opens": 0,
+    "original_prepared_or_model_provider_opens": 0,
+    "full_reader_calls": 0
+  },
+  "checks": [
+    "all nonowned manifest/observed/preparation bindings exact",
+    "all non-goalie family/member and people descriptors exact",
+    "completed producer receipt source/output/selection/family/member inventories exact",
+    "all inherited source/method/support catalog rows retain their exact raw bytes by sorted id",
+    "all six catalog streams digest/count against declared members; caller provides actual native completion evidence"
+  ],
+  "synthetic_evidence": {
+    "runtime": "pinned python3.14.8",
+    "red": "semantically equal inherited method row with changed raw bytes is rejected",
+    "green": "inherited rows/additions and unchanged supports pass while noncatalog bodies are absent",
+    "helper_test_copy": "only the fixed source-parent digest literal changes for synthetic fixture; held helper real pin retained",
+    "logical_input_bytes": 28531,
+    "wall_seconds": 0.0146,
+    "peak_rss_bytes": 24707072
+  },
+  "independent_review": {
+    "agent": "final_fit_review",
+    "verdict": "no genuine findings",
+    "scope": "exact source/diff/retained local red-green evidence; no rerun or external access"
+  },
+  "limits": [
+    "canonical completed producer owns full artifact/annual validation",
+    "independent nonowned preservation only; no real composition/publication acceptance",
+    "no extra full corpus reader, metadata-only converter or numerical job",
+    "no queue/reservation/activation change"
+  ],
+  "frozen_fit_producer": "76af911844cc53ccf6548f48bfd04970eb36d292",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648"
+}

@@ -1,0 +1,1059 @@
+{
+  "kind": "local-closeout-fact-archive",
+  "status": "byte_exact_archive_verified",
+  "archive": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/closeout-local-facts-01.tar.gz",
+    "bytes": 636568,
+    "sha256": "8bec4ae68b65ce8c43a57b6cf961f4b872ad99b0a862d7f02bd96c9d77845874"
+  },
+  "input_manifest": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-fact-archive-inputs-01.json",
+    "bytes": 28092,
+    "sha256": "5be0089fcc421e76507936db80379b642b36d6bfc7f6155b252dc0d1fda94203"
+  },
+  "entries": [
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/api-boundary-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/api-boundary-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/api-boundary-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/api-boundary-01.log",
+      "bytes": 950,
+      "sha256": "52fc0e2697308ec2d6aa2e075e8d8addbaf21e810234c7ef35c6420299316f32"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/api-boundary-02-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/api-boundary-02-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/api-boundary-02-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/api-boundary-02-native.log",
+      "bytes": 950,
+      "sha256": "70e64e48e378553640e0b732d070e2f7ef0c6ee772c0235d657ad78c917a99fa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/api-preflight-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/api-preflight-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/api-preflight-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/api-preflight-01.json",
+      "bytes": 315,
+      "sha256": "22fa754505d93413a91db275b0b03d4af5bbcf98e121ce4140b0e75ae7680744"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/api-preflight-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/api-preflight-01.log",
+      "bytes": 1072,
+      "sha256": "639c7b447c6d8c16acf65286f8c32fe71dbe37c65998f3573100c386ae3314b8"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/api-preflight-02.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/api-preflight-02.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/api-preflight-02.json",
+      "archive_name": ".tmp/goalie-live-acceptance/api-preflight-02.json",
+      "bytes": 237,
+      "sha256": "301ddd9b433b180cd72539a400fd8d1cc10b166f8493590a238ac5cc1dc89b5e"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/api-preflight-02.log",
+      "archive_name": ".tmp/goalie-live-acceptance/api-preflight-02.log",
+      "bytes": 777,
+      "sha256": "2e34d9739efd6f38fc9e003d4a390a62cbaa84a5554bbcdfcea5736f6fec100e"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-boundary-01-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-boundary-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-boundary-01-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-boundary-01-native.log",
+      "bytes": 954,
+      "sha256": "147fe6ba19d134e757c2411e06d3de98beda6d6de2cf8f929db21de5ec483403"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-boundary-02-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-boundary-02-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-boundary-02-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-boundary-02-native.log",
+      "bytes": 954,
+      "sha256": "fa1f8bb7b4f7706d005bcbde64dbc04e708356d65d866e91f799fee1c14587c6"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-boundary-03-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-boundary-03-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-boundary-03-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-boundary-03-native.log",
+      "bytes": 954,
+      "sha256": "570174e4ae3357e3c50e1207335d7bebe86d49fa39dc968c127fc3f7ba703d5e"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-boundary-04-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-boundary-04-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-boundary-04-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-boundary-04-native.log",
+      "bytes": 954,
+      "sha256": "12e92520457674bb0dc47de857da3a1f59a6df35324136fad6feaf137434750b"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-canonical-diagnostic-01-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-canonical-diagnostic-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-canonical-diagnostic-01-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-canonical-diagnostic-01-native.log",
+      "bytes": 1206,
+      "sha256": "d4beb6dbeb9d42c7d36025c2902f37305d11d636c929450a0cd1130f1408241d"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-controller-controls.json",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-controller-controls.json",
+      "bytes": 264,
+      "sha256": "dfb83fcddb6cc812eecd53215da55083ecefd1c5e55d0348a7c07d4a240b6fa0"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-cutoff-diagnostic-01-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-cutoff-diagnostic-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-cutoff-diagnostic-01-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-cutoff-diagnostic-01-native.log",
+      "bytes": 1214,
+      "sha256": "ac98f0f5625842d8e8d9621a99ab67c83c96ef04802bc57c830abd66499666c2"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-evidence-diagnostic-01-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-evidence-diagnostic-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-evidence-diagnostic-01-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-evidence-diagnostic-01-native.log",
+      "bytes": 1218,
+      "sha256": "80e13fe94ed27d179dd07b915c209d2612e65555b79ede1a3f40a082a43ab506"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-history-label-green-01-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-history-label-green-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-history-label-green-01-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-history-label-green-01-native.log",
+      "bytes": 954,
+      "sha256": "1ca850bda9b555c9aa6d25777ccb791d11d524d7171bdee48acc08a4962c3dc6"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-history-label-red-01-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-history-label-red-01-native.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-history-label-red-01-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-history-label-red-01-native.log",
+      "bytes": 2881,
+      "sha256": "ca1063efba5481cc5d982c717534436e0fc48885c8369ba97fdf930f9fff17bf"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-native-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-native-01.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-native-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-native-01.log",
+      "bytes": 3410,
+      "sha256": "9cb2e57588d85d41a38c32b0506fd2b35ed9ed84a70a4f9512468bf0f19cf122"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-native-02.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-native-02.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-native-02.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-native-02.log",
+      "bytes": 3454,
+      "sha256": "e44c552080266b4b89be9754131e1a7108a7dfa92dbffaf6f365da14494fba81"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-native-03.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-native-03.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-native-03.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-native-03.log",
+      "bytes": 3582,
+      "sha256": "455f7cbf7120fbb2dec5d3d6047b6104859d9f2b36e392efa8c1c5be1254121c"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-native-04.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-native-04.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-native-04.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-native-04.log",
+      "bytes": 3613,
+      "sha256": "0c5758d985134ece99ee884e73bde21dca88871e16a901727a81833840b4a7c1"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-preflight-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-preflight-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-preflight-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-preflight-01.json",
+      "bytes": 614,
+      "sha256": "4c1d221cbb3d35b563ee0858eae4cde9d66c202d79db371f1d9cbe9394cd555b"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-preflight-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-preflight-01.log",
+      "bytes": 777,
+      "sha256": "54099064e4057ee0a674fc28c7711ce33ad95911c7e8a688db97df0102121bfb"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-preflight-02.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-preflight-02.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-preflight-02.json",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-preflight-02.json",
+      "bytes": 614,
+      "sha256": "f8c78329b1485219757095ff4f1484880cee6aa0ec71bbda8fb3998ba9f5a19b"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-preflight-02.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-preflight-02.log",
+      "bytes": 777,
+      "sha256": "1d72d4e0ddbfb121bef04ad481fac64b021ba2ad1e090c25e424a346f17d48ce"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-preflight-03.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-preflight-03.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-preflight-03.json",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-preflight-03.json",
+      "bytes": 614,
+      "sha256": "367e24d82919dbe3e516a0fe8d5c139bf0731f23e21e20417b446ecd029138d9"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-preflight-03.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-preflight-03.log",
+      "bytes": 777,
+      "sha256": "e7803a997c46e14185cf10ca84fea5bac6dc8ed7679e379b3f1b850332ca6376"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-preflight-04.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-preflight-04.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-preflight-04.json",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-preflight-04.json",
+      "bytes": 614,
+      "sha256": "ef0456fdebd2724c8b8b6537f93f2606a0a3dc818a36db3ce4cd6093a6e7defd"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-preflight-04.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-preflight-04.log",
+      "bytes": 777,
+      "sha256": "e11037496084c00db51ada60caeebcb879312e671881fd65ba86ea41b55539be"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-qualification-controls.json",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-qualification-controls.json",
+      "bytes": 254,
+      "sha256": "d013c47cc1255cbffdc2eb269cdb30cf9b2f8ea58d49e98dfa07f881721fc199"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-transport-diagnostic-01-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-transport-diagnostic-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/browser-transport-diagnostic-01-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/browser-transport-diagnostic-01-native.log",
+      "bytes": 1210,
+      "sha256": "55b40ba2e79c353e2682fca8068f73862395294848f5469f7c4044b9aee877b7"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/check-api-controls-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/check-api-controls-01.log",
+      "bytes": 936,
+      "sha256": "23ec334f6117a538bd8691afc3ca41c30abbd08c2480db5d3c924d744488a8ed"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/check-api-controls-02.log",
+      "archive_name": ".tmp/goalie-live-acceptance/check-api-controls-02.log",
+      "bytes": 956,
+      "sha256": "bda2a6af1951f5ba2184c32f39e1913b7482fc1ca2f41ca1d35591992ac982a2"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/cleanup-inventory-source-only-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/cleanup-inventory-source-only-01.json",
+      "bytes": 7290,
+      "sha256": "d08b5bcc3f3359a35abf71064db13ef5d573fd02b163ccac63cb4ad014a08b48"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-boundary-03-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-boundary-03-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-boundary-03-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-boundary-03-native.log",
+      "bytes": 955,
+      "sha256": "e74d2b6680ab8cd5eacde62643bd38c399bedcfc961da3d10946572ab2d851bc"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-boundary-04-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-boundary-04-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-boundary-04-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-boundary-04-native.log",
+      "bytes": 955,
+      "sha256": "ab7c46ae1d6abb24fb02a158001afc9070d1952cd0376f300d52a8a6f803a861"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-failure-capture-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-failure-capture-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-failure-capture-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-failure-capture-01.log",
+      "bytes": 1693,
+      "sha256": "0e159042420ccf8aad0d44e57087ef23f33cbc7761a12c0eaf93e0244b4b794a"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-failure-capture-02.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-failure-capture-02.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-failure-capture-02.log",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-failure-capture-02.log",
+      "bytes": 1705,
+      "sha256": "fe6caa5a843e912cda803397caa11da570b4b54d4b47b33b073b6e84a5e976bf"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-preflight-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-preflight-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-preflight-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-preflight-01.json",
+      "bytes": 267,
+      "sha256": "cc131de549bf9595ec4f9d22f17501d7c352dfbca85614131e7d2314307491c8"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-preflight-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-preflight-01.log",
+      "bytes": 777,
+      "sha256": "ad4c7f55167b762285eebaf970e9015d8b10e1f75762479151f7d75204a1e1d7"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-preflight-02.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-preflight-02.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-preflight-02.json",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-preflight-02.json",
+      "bytes": 279,
+      "sha256": "4feac97b6f7ae5cb266794379eed21249c56b811683a508645056bc8e278ca05"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-preflight-02.log",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-preflight-02.log",
+      "bytes": 777,
+      "sha256": "207bdf96b63203bcc6def5da7957323edc9d544d1511a55f63ae9c598c9eee0d"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-preflight-03.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-preflight-03.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-preflight-03.json",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-preflight-03.json",
+      "bytes": 279,
+      "sha256": "8ac833837bb9290a8e13355f66e4bdcdbcdc5df5a8e7b3806c546fbf8791cf80"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-preflight-03.log",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-preflight-03.log",
+      "bytes": 777,
+      "sha256": "2ff0a8bb765503f795bf30df500b8ae2c525923c791bcfd1696c24f2967e61d7"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-preflight-04.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-preflight-04.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-preflight-04.json",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-preflight-04.json",
+      "bytes": 279,
+      "sha256": "29f2efd37e64978fc3564f4a580d31b4fad53faf79196463e50b068b16efe794"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/consumer-preflight-04.log",
+      "archive_name": ".tmp/goalie-live-acceptance/consumer-preflight-04.log",
+      "bytes": 777,
+      "sha256": "d4ae9a76ff883a8644b56f1e3ea343719f6449cecb27bc5cad2720887782b696"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/detached-bootstrap-20261113.json",
+      "archive_name": ".tmp/goalie-live-acceptance/detached-bootstrap-20261113.json",
+      "bytes": 171,
+      "sha256": "dc96ccd93a574fa0cf9df54f1fcd4ffe9280abf7830bc117d734a5f0febe6a3f"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/detached.sb",
+      "archive_name": ".tmp/goalie-live-acceptance/detached.sb",
+      "bytes": 1256,
+      "sha256": "dda6d8f506d99c4fd595f226ade0e47023c858961ddad266aaf4ce1f6b0dfa6a"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/g-header-recovery.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/g-header-recovery.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/g-header-recovery.json",
+      "archive_name": ".tmp/goalie-live-acceptance/g-header-recovery.json",
+      "bytes": 1315,
+      "sha256": "8c8046c9db988afcbc04fc7ae5c9647a6bf96153a547241f947cb77455614e1a"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/g-header-recovery.log",
+      "archive_name": ".tmp/goalie-live-acceptance/g-header-recovery.log",
+      "bytes": 831,
+      "sha256": "76d856c6766bcaae50c9a169c9cd76530c10abc0d847542755301567e5a82d82"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/g-parent-manifest.json",
+      "archive_name": ".tmp/goalie-live-acceptance/g-parent-manifest.json",
+      "bytes": 23317,
+      "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/g-parent-producer-receipt.json",
+      "archive_name": ".tmp/goalie-live-acceptance/g-parent-producer-receipt.json",
+      "bytes": 54924,
+      "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-after-01-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-after-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-after-01-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-after-01-native.log",
+      "bytes": 966,
+      "sha256": "7fff5f4feb3ce2658a805755a122585a085f82d2628b4dede091b82447fda0d4"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-after-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-after-01.json",
+      "bytes": 11488,
+      "sha256": "74af52aa8edeaefcccd7c597dee22b317115f076c64a87f9ecfddb38326ab3b1"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-after-label-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-after-label-01.json",
+      "bytes": 11511,
+      "sha256": "7a04ebe124ef47409fd8a3f1fc867dd7a45beacb4a43cc575a4795c3d5a7b4e3"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-after-label-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-after-label-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-after-label-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-after-label-native.log",
+      "bytes": 972,
+      "sha256": "e38d998959efe810d6c364387d155179250bacd28558d88e2f878d376d70ebe4"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-before-01-native.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-before-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-before-01-native.log",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-before-01-native.log",
+      "bytes": 959,
+      "sha256": "1e22a7f72dc378c17c794f34161b58121e5af139e6d39a3102a02cb09eed6471"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-before-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-before-01.json",
+      "bytes": 11108,
+      "sha256": "44f04bde7b4c924d86fe28e0deba2eb4683983d3bc237e7531d76813088a269e"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-build-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-build-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-build-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-build-01.log",
+      "bytes": 2808,
+      "sha256": "9f0b94d53ebd14502cefb7662ed6ea2b765091d95ad32347cf0fc203f5c551aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-green-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-green-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-green-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-green-01.json",
+      "bytes": 1550,
+      "sha256": "19c5940522e859812dcc986c223766536ccd2adda611d59aa03e30ff0f9a4520"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-green-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-green-01.log",
+      "bytes": 1716,
+      "sha256": "925279b4b2c6df3f7b8340f838068b88bb9153112880397430f718d9df782a68"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-green-02.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-green-02.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-green-02.json",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-green-02.json",
+      "bytes": 1542,
+      "sha256": "656f5909a40353fa55543e3007dd22b14808a48fe18d16eab90681454de21b7c"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-green-02.log",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-green-02.log",
+      "bytes": 1716,
+      "sha256": "af812f3939cd98a5c665417cf8b6ea23a285aae649ca3fdb5e2b69fdc35dd288"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-green-03.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-green-03.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-green-03.json",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-green-03.json",
+      "bytes": 1550,
+      "sha256": "ad8c7c994ea8819d2b55c69a315eac1972adff3c9fe9d660fd2726c261bdf9b0"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-green-03.log",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-green-03.log",
+      "bytes": 1716,
+      "sha256": "3d71ae25505c454e9f1020828dff1cdee8a9c1320ab6359775130e16c9dacafc"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-red-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-red-01.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-red-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-red-01.json",
+      "bytes": 1691,
+      "sha256": "41195888e1df08fb3df983f1c50fac926cb7f5ec0cd4b4d9e70a6cb2e89ee900"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-red-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-red-01.log",
+      "bytes": 1714,
+      "sha256": "1fb01317c04389215cf71d2fc7cc3c31006294057560add92081a294b7f7f6c8"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-01.log",
+      "bytes": 777,
+      "sha256": "a655ce6fa89f6dbf1b940a590b8821f795431e16ba83a45eb82bde98cc73031a"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-02.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-02.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-02.log",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-02.log",
+      "bytes": 777,
+      "sha256": "a624e43e13c47b027bbcbb58fd2f8b51dac6b61b82c9cb7abce17cd84eda4cfb"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-03.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-03.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-03.log",
+      "archive_name": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-03.log",
+      "bytes": 777,
+      "sha256": "15c924cd5efc4a951762a1f96397f50f96b06ac46cfd054e5b210905ae5cac2f"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/history-label-anchor-applied.json",
+      "archive_name": ".tmp/goalie-live-acceptance/history-label-anchor-applied.json",
+      "bytes": 353,
+      "sha256": "1c4b8b63dda4d44b943a367fd1c1322aa0dfb1ee3efdf906eb51ceea1c6fc386"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/history-label-anchor-proposal.json",
+      "archive_name": ".tmp/goalie-live-acceptance/history-label-anchor-proposal.json",
+      "bytes": 1412,
+      "sha256": "5cd6d96ea48b70524f3cd5fb61567e196e13e7c5e73be492100c34136bfad95c"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/history-label-backend-before.json",
+      "archive_name": ".tmp/goalie-live-acceptance/history-label-backend-before.json",
+      "bytes": 4336,
+      "sha256": "7300d5e647459ca8f188e70e70b70a5adcc850b158c83e54fccb0f045ce2b51e"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/history-label-build-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/history-label-build-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/history-label-build-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/history-label-build-01.json",
+      "bytes": 9732,
+      "sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/history-label-build-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/history-label-build-01.log",
+      "bytes": 2808,
+      "sha256": "131f2eccc5bba0b855753a67b0332d60737846280e0ced68050a256ab0f876c9"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/history-label-build-preparation.json",
+      "archive_name": ".tmp/goalie-live-acceptance/history-label-build-preparation.json",
+      "bytes": 2623,
+      "sha256": "ad30ae79976ba2b1de897d7205c6c0220a5551246d1bbe47392ff111a9e4540b"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/history-label-typecheck-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/history-label-typecheck-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/history-label-typecheck-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/history-label-typecheck-01.log",
+      "bytes": 866,
+      "sha256": "b62b9998171f72a4b13de2c93fd2d2df51c4b51a14fd3359551cfa7915889446"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/narrow-mechanism-20261113.json",
+      "archive_name": ".tmp/goalie-live-acceptance/narrow-mechanism-20261113.json",
+      "bytes": 870,
+      "sha256": "7f82c4c04f1198edc4044d3f4ab503458c396ef2602f9cc827c0dd52a66034b7"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/narrow-mechanism-20261113.log",
+      "archive_name": ".tmp/goalie-live-acceptance/narrow-mechanism-20261113.log",
+      "bytes": 725,
+      "sha256": "558b531ae4c53f5ad471116aadcdfb7455c7b7fb80a165dda446a6281d9342da"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/owned-live-terminal.json",
+      "archive_name": ".tmp/goalie-live-acceptance/owned-live-terminal.json",
+      "bytes": 223,
+      "sha256": "e691d68d32315de90a13cb55ab73cb8923e90428525e588de406bb219f3c8e78"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/publication-boundary-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/publication-boundary-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/publication-boundary-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/publication-boundary-01.log",
+      "bytes": 965,
+      "sha256": "6de390dfd51ab5f8d583b382aeaf55e3f80cc522a4717e8327c84ec12d8b336e"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/publication-boundary-controls-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/publication-boundary-controls-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/publication-boundary-controls-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/publication-boundary-controls-01.json",
+      "bytes": 2816,
+      "sha256": "32c18618246ffa52a309f03f9b0b343abfc680c1b7229b900eb43c3f551df979"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/publication-boundary-controls-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/publication-boundary-controls-01.log",
+      "bytes": 1561,
+      "sha256": "eb8d19620a2d97c95b56f511729270824dd5355d33d8489a55fa34024d8122f4"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/publication-preflight-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/publication-preflight-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/publication-preflight-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/publication-preflight-01.json",
+      "bytes": 6986,
+      "sha256": "7144eb762d322aa0dd4b1ed0afdf44426d3a1c7369d46d3c82b88e755b26cff7"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/publication-preflight-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/publication-preflight-01.log",
+      "bytes": 855,
+      "sha256": "c1f50ab4b50486167c0d5c24f177c640c570eeed16dc4c6ce9ce4a800a573fd8"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/runtime-startup-01.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/runtime-startup-01.exit",
+      "bytes": 4,
+      "sha256": "f5bde7eb9f6c71611dc5726e8aca3eb4eba3e386da49e0a4ed5c295a90a73a0d"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/runtime-startup-01.json",
+      "archive_name": ".tmp/goalie-live-acceptance/runtime-startup-01.json",
+      "bytes": 1195,
+      "sha256": "8a511ca846e44f63437113333846d8bd36861db0fb8562f8b83faf1ed7464f47"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/runtime-startup-01.log",
+      "archive_name": ".tmp/goalie-live-acceptance/runtime-startup-01.log",
+      "bytes": 5283970,
+      "sha256": "50b9a637e08929e5835cbf9ed90c5a1353b2918da7342450203c0eff11c21637"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/runtime-startup-02.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/runtime-startup-02.exit",
+      "bytes": 4,
+      "sha256": "f5bde7eb9f6c71611dc5726e8aca3eb4eba3e386da49e0a4ed5c295a90a73a0d"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/runtime-startup-02.json",
+      "archive_name": ".tmp/goalie-live-acceptance/runtime-startup-02.json",
+      "bytes": 1194,
+      "sha256": "505a7d68e4251faf430ca81138771064b80499dc5254671a30eaf4cf9839b748"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/runtime-startup-02.log",
+      "archive_name": ".tmp/goalie-live-acceptance/runtime-startup-02.log",
+      "bytes": 5376266,
+      "sha256": "b5bb00e218d5b6f6bfc150baebec4433cf712d9d35e2f59e06382ce693c8092e"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/runtime-startup-03.exit",
+      "archive_name": ".tmp/goalie-live-acceptance/runtime-startup-03.exit",
+      "bytes": 4,
+      "sha256": "f5bde7eb9f6c71611dc5726e8aca3eb4eba3e386da49e0a4ed5c295a90a73a0d"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/runtime-startup-03.json",
+      "archive_name": ".tmp/goalie-live-acceptance/runtime-startup-03.json",
+      "bytes": 1197,
+      "sha256": "faf3081803a82112c49bc74058f83eaf3d97f3fa9f89b260bcf3851fb0d7724a"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/runtime-startup-03.log",
+      "archive_name": ".tmp/goalie-live-acceptance/runtime-startup-03.log",
+      "bytes": 553684,
+      "sha256": "22160f5afc10c6b9187ee64871fd705af32e6ceb4f57fd323db5574ecfb3b067"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/st-api-browser-preparation.txt",
+      "archive_name": ".tmp/goalie-live-acceptance/st-api-browser-preparation.txt",
+      "bytes": 1236,
+      "sha256": "f1a9a9b3584cddc015b5fa2e77ece7013bd1df5a361844789f06a2b1e8c92f9d"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/st-consumer-status-02.txt",
+      "archive_name": ".tmp/goalie-live-acceptance/st-consumer-status-02.txt",
+      "bytes": 941,
+      "sha256": "ddfea7806d60b994bea7381cd69b0656047e17faa2b51b0b69de457ef0fa51ae"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/st-new-runtime-02-status.txt",
+      "archive_name": ".tmp/goalie-live-acceptance/st-new-runtime-02-status.txt",
+      "bytes": 2408,
+      "sha256": "6b237b6eac93601b093de27d6105d432ef208eaab8e0fcb5c6fb87d303c4a455"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/st-overview-repair-status.txt",
+      "archive_name": ".tmp/goalie-live-acceptance/st-overview-repair-status.txt",
+      "bytes": 1626,
+      "sha256": "c74e59045c620669ac244878b857e2049f954a4f9dfa34243aca25dfe15dc551"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/st-runtime02-and-api02-status.txt",
+      "archive_name": ".tmp/goalie-live-acceptance/st-runtime02-and-api02-status.txt",
+      "bytes": 1893,
+      "sha256": "478d0b9d914a150fb48e1bc9f4ba5ce6bd56a6079018a2bfdec6547727a387bc"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/to-st-api-actual-launch.txt",
+      "archive_name": ".tmp/goalie-live-acceptance/to-st-api-actual-launch.txt",
+      "bytes": 1147,
+      "sha256": "938d8d9f01b97b4b27e089ce6a2e3479b4f2e55b32b43d53488dc853be208c77"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/to-st-publication-accepted-startup-assigned.txt",
+      "archive_name": ".tmp/goalie-live-acceptance/to-st-publication-accepted-startup-assigned.txt",
+      "bytes": 1398,
+      "sha256": "8aa5bdd17755dcfbd5e24af9ad80bc951e5980506897cc58522e2421f4bcd1fa"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/to-st-publication-status-20261113T0805.txt",
+      "archive_name": ".tmp/goalie-live-acceptance/to-st-publication-status-20261113T0805.txt",
+      "bytes": 693,
+      "sha256": "fc568a5a95516203e4194e1ed43259274d408c2618cf52f18b7907402becfd6b"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/to-st-publication-status-20261113T0917.txt",
+      "archive_name": ".tmp/goalie-live-acceptance/to-st-publication-status-20261113T0917.txt",
+      "bytes": 861,
+      "sha256": "91d41a3a9feaf549a49cad0538afefc7444d32e6f22f2b3219d5897ce4564e14"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/to-st-publication-status-20261113T1054.txt",
+      "archive_name": ".tmp/goalie-live-acceptance/to-st-publication-status-20261113T1054.txt",
+      "bytes": 868,
+      "sha256": "51f05e2054c812ea807c4b2977e0c45754ba52fd779688f0eae3b399389661d9"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/to-st-startup-accepted-api-window.txt",
+      "archive_name": ".tmp/goalie-live-acceptance/to-st-startup-accepted-api-window.txt",
+      "bytes": 1523,
+      "sha256": "762ddf36451cbda14820d1d4de1af78de2f55a4413c05156f975a6665e79dbec"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-live-acceptance/to-st-startup-actual-launch.txt",
+      "archive_name": ".tmp/goalie-live-acceptance/to-st-startup-actual-launch.txt",
+      "bytes": 1044,
+      "sha256": "701e6c482c341713ec7e93a6ae49639811a94c86fe32139ffc55b195e0d3b1eb"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-acceptance/final-fixture-score-command.txt",
+      "archive_name": ".tmp/goalie-acceptance/final-fixture-score-command.txt",
+      "bytes": 1236,
+      "sha256": "a55c25435c4b30ba064bed5372852714e394cbe81aadaad4111ee403389bf01a"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-isolated-rollback-source-locators-01.json",
+      "archive_name": ".tmp/goalie-isolated-rollback-source-locators-01.json",
+      "bytes": 3513,
+      "sha256": "1842f88647fd4f015bf01db503ca08e344a99d30c728cc6735de6caa0189e792"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-isolated-rollback-source-preparation-01.json",
+      "archive_name": ".tmp/goalie-isolated-rollback-source-preparation-01.json",
+      "bytes": 2426,
+      "sha256": "f5ae43ac5fb0e3fb2cd43bd58aac2e437dae6b973071683d1fe8d8ad722f3121"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-isolated-rollback-source-preparation-02.json",
+      "archive_name": ".tmp/goalie-isolated-rollback-source-preparation-02.json",
+      "bytes": 3318,
+      "sha256": "b90e871d88c57c9dbf6c42caabaa66ccacddb2a2f7ef9f845ad1dc5449fb996d"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-isolated-rollback-01-native.log",
+      "archive_name": ".tmp/goalie-isolated-rollback-01-native.log",
+      "bytes": 905,
+      "sha256": "d5ee52ed49af52944d1381224594956fad841d2c46a1edd1e9ef376fe6c2043a"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-isolated-rollback-01-native.exit",
+      "archive_name": ".tmp/goalie-isolated-rollback-01-native.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-isolated-rollback-02-native.log",
+      "archive_name": ".tmp/goalie-isolated-rollback-02-native.log",
+      "bytes": 936,
+      "sha256": "27052d0b53d3f29fb9d9843d1141744b4d46dbb33558312457515618d863b8a5"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-isolated-rollback-02-native.exit",
+      "archive_name": ".tmp/goalie-isolated-rollback-02-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/st-remainder-canonical-url-wait-01-source-note.json",
+      "archive_name": ".tmp/st-remainder-canonical-url-wait-01-source-note.json",
+      "bytes": 4074,
+      "sha256": "f3be39828908ca507c0865688889af96ae6556b310b8ae9e9d8e00ff8d36c7a4"
+    },
+    {
+      "source_relative_path": ".tmp/st-map-lifecycle-diagnostic-01-native.log",
+      "archive_name": ".tmp/st-map-lifecycle-diagnostic-01-native.log",
+      "bytes": 986,
+      "sha256": "6ced4d2b0b232ea5350cff0cdc6ee3250756aa4e715fdb3120964b543578bff8"
+    },
+    {
+      "source_relative_path": ".tmp/st-map-lifecycle-diagnostic-01-native.exit",
+      "archive_name": ".tmp/st-map-lifecycle-diagnostic-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "source_relative_path": ".tmp/resume-drive-access-20261113.json",
+      "archive_name": ".tmp/resume-drive-access-20261113.json",
+      "bytes": 294,
+      "sha256": "829b2cc10e404412eb6b2a0bdeaba7b5d496715a53ecdf1140b997374adfb304"
+    },
+    {
+      "source_relative_path": ".tmp/resume-access-result-20261113.txt",
+      "archive_name": ".tmp/resume-access-result-20261113.txt",
+      "bytes": 466,
+      "sha256": "2a7fc057059fd72c9fd9272cbf03159cd935d0433c925040b92b72d9c2b490d5"
+    },
+    {
+      "source_relative_path": ".tmp/resume-root-receipt-clearance-20261113.txt",
+      "archive_name": ".tmp/resume-root-receipt-clearance-20261113.txt",
+      "bytes": 1197,
+      "sha256": "31ddff12cb339269869c3edac235d435f1d589d58bdbb5081e6a4ea9ce7544a7"
+    },
+    {
+      "source_relative_path": ".tmp/goalie-playwright-install-20261113.log",
+      "archive_name": ".tmp/goalie-playwright-install-20261113.log",
+      "bytes": 24,
+      "sha256": "4aaef3acc3c4b16766abf61c4f4aa2d3bd413e2fe822d3edd6cfa9d7e7334efa"
+    },
+    {
+      "source_relative_path": ".tmp/drive-disconnection-hold-20261111.json",
+      "archive_name": ".tmp/drive-disconnection-hold-20261111.json",
+      "bytes": 1551,
+      "sha256": "3f089b45fd1b55ae6df65d5b47e65ebc77f4af1d100288a50c15b53880e888a4"
+    },
+    {
+      "source_relative_path": ".tmp/st-browser06-return-coordination-01.txt",
+      "archive_name": ".tmp/st-browser06-return-coordination-01.txt",
+      "bytes": 615,
+      "sha256": "cebfc3fa1a00b450e21a8a3cf9681d8fc9a31c5abb82d7617de3a862af0f7552"
+    },
+    {
+      "source_relative_path": ".tmp/st-browser06-source-recovery-preparation-assignment-01.txt",
+      "archive_name": ".tmp/st-browser06-source-recovery-preparation-assignment-01.txt",
+      "bytes": 2794,
+      "sha256": "9cf9ae333cd7650af715ebf81599fd2522c1335bb072290dd100d02709bfa182"
+    },
+    {
+      "source_relative_path": ".tmp/st-browser12-pixel-inputs-01.json",
+      "archive_name": ".tmp/st-browser12-pixel-inputs-01.json",
+      "bytes": 56555,
+      "sha256": "b176a914759f4fca30396aab64a52c2cf6313524667f4a1bbf7f0617dbbe0510"
+    }
+  ],
+  "source_read_bytes": 11544072,
+  "verification": "every archived entry was decompressed and its length/hash checked against the fixed source buffer identity; no extraction or executable harness archive",
+  "runtime_stop": {
+    "owned_pid": 89887,
+    "signal": "one SIGINT",
+    "completion": "current G_ST_RUNTIME_03_EXIT=130 followed by owned prompt observed in retained operator; canonical local130LF and full native log archived",
+    "exit": 130,
+    "whole_service_lifetime_wall_seconds": 59271.18,
+    "whole_service_peak_rss_bytes": 2039676928,
+    "whole_service_peak_footprint_bytes": 2456622672,
+    "startup_through_listening_seconds": 2336.116399583,
+    "cost_scope": "whole service lifetime includes subsequent acceptance work; it is not startup time"
+  },
+  "wall_seconds_through_verification": 0.1345292089972645,
+  "peak_rss_bytes": 36503552,
+  "physical_io_bytes": null,
+  "limits": "local metadata/note/config archive only; original result roots already have attributed complete permanent evidence. profiles, dependencies, executable campaign controllers and compiled builds are not archived. no external data read or mutation."
+}

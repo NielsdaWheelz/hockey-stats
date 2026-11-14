@@ -1,0 +1,98 @@
+{
+  "disposition": "saved_preflight_and_launch_frames_clear_running_only",
+  "scope": "named local preflight/native/exit, admission and actual-launch receipt reads plus saved descriptor/frame reconciliation only; no qualification repeat, runtime file rehash, OS/process query, live call, external read, database or execution",
+  "sources": {
+    "shared-startup-03-preflight.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-startup-03-preflight.json",
+      "bytes": 8688,
+      "sha256": "8b2d26d1131f75d5246d31927c49398eba618c82541c93eb4d89994c39d7756b"
+    },
+    "shared-startup-03-preflight-native.log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-startup-03-preflight-native.log",
+      "bytes": 777,
+      "sha256": "a2307898ef1f02680020d554a794e8d2dc00bf17138fe8914f2efba58083e0ec"
+    },
+    "shared-startup-03-preflight.exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-startup-03-preflight.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "admission": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-startup-03-admission.json",
+      "bytes": 1434,
+      "sha256": "2e33da434657769e67a731f501bda3751dfa99b615b7c52962b574294b61924f"
+    },
+    "actual_launch": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-startup-03-actual-launch.json",
+      "bytes": 2177,
+      "sha256": "708019c191a104de3028b2ecdf2748df841bcedf144ec16b8086fe9d7156c5ef"
+    }
+  },
+  "source_review": {
+    "path": "/tmp/staging/shared-startup-03-source-review-01.json",
+    "sha256": "af52879258ba21f049839c511660efd73648a3828ac5e76b930e8388b74f1fbc"
+  },
+  "preflight": {
+    "status": "passed_availability_and_source_only",
+    "native_exit": 0,
+    "wall_seconds": 0.19,
+    "peak_rss_bytes": 20742144,
+    "external_body_reads": 0,
+    "explicit_candidate_stats": 1,
+    "fresh_runtime03_outputs": [
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-03.json",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-03.log",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-03.exit"
+    ]
+  },
+  "independent_saved_reconciliation": {
+    "preflight_descriptors_exact": true,
+    "preflight_count": 38,
+    "preflight_unique_paths": 38,
+    "preflight_total_local_bytes": 1470447,
+    "mechanisms_match": true,
+    "frame_bindings_match": true,
+    "candidate_mtime_ns_exact_decimal": "1794568235448270115",
+    "admission_candidate_preservation_table_all_true": true,
+    "launch_cwd_matches": true,
+    "launch_command_targets_runtime03": true,
+    "cached_pid_chain_matches": true
+  },
+  "candidate_metadata": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite",
+    "bytes": 31261470720,
+    "inode": 502213,
+    "device": 16777240,
+    "mtime_ns_exact_decimal": "1794568235448270115",
+    "preservation": "root admission records exact path/bytes/inode/mtime preservation from accepted startup02; no database hash or new body read is claimed",
+    "expected_publication_id": "fb60493e-badf-4b11-9585-b5a541387e66"
+  },
+  "launch": {
+    "status": "running_not_runtime_accepted",
+    "started_at": "2026-11-14T04:08:29Z",
+    "cached_elapsed": "01:35",
+    "node_pid": 89887,
+    "time_pid": 89886,
+    "wrapper_pid": 89885,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+    "meaning": "saved launch frame binds the reviewed wrapper, node/meter, candidate and port3407 under source3763/build18ef. it supplies running-process evidence only, not listening or strict-reader completion."
+  },
+  "remaining_material_findings": [],
+  "selected_live_binding_proposal": {
+    "conceptual_disposition": "appropriate_bounded_identity_binding_once_source_pinned_and_strict_listening_checked",
+    "scope": "reuse the existing after-mode comparison mechanism with only fresh after-label01 output basenames, preserving accepted before01 baseline; exactly three fixed goalie-overview GETs, full canonical and raw-body hash comparison over about19MB",
+    "conditions": [
+      "independently review exact unchanged mechanism and basename-only successor pins before any invocation",
+      "wait for checked actual normal strict listening; no automatic polling/retry or pre-readiness dispatch",
+      "bind all three accepted baseline identities and compare both canonical and raw hashes, preserving new failures and original baseline",
+      "retain unchanged21-node API proof and exact candidate/publication preservation as inherited evidence; successful selected comparison completes current identity binding, not a fresh36k exhaustive replay"
+    ]
+  },
+  "limits": [
+    "cached frames do not establish current live state; no live/process observation was made by this review",
+    "preflight UUID/publisher are expected pins; actual strict listening and selected live equality remain owed before api02 inheritance is complete",
+    "new helper source is not yet pinned or reviewed; this conceptual assessment grants no code or execution",
+    "all label-green/fullbrowser04 and independent G/ST matrices/final preservation/cleanup remain held at their separately assigned boundaries; no activation",
+    "old request failures remain retained and unattributed; no numerical/publication rerun or scientific admission follows"
+  ]
+}

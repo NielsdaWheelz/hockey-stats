@@ -1,0 +1,20 @@
+{
+  "kind": "shared-startup-03-actual-launch",
+  "status": "running_not_runtime_accepted",
+  "started_at": "2026-11-14T04:08:29Z",
+  "observed_elapsed": "01:35",
+  "node_pid": 89887,
+  "time_pid": 89886,
+  "wrapper_pid": 89885,
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+  "cached_processes": "89886 89885 Fri Nov 13 20:08:29 2026           01:35 S+   /usr/bin/time -l /usr/bin/sandbox-exec -f /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/detached.sb /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-03.json --publication /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite --port 3407\n89887 89886 Fri Nov 13 20:08:29 2026           01:35 U+   /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-03.json --publication /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite --port 3407\n",
+  "runtime_source_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+  "build_receipt_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+  "preflight_sha256": "8b2d26d1131f75d5246d31927c49398eba618c82541c93eb4d89994c39d7756b",
+  "command_sha256": "045f60234c078f69db552367a0e16adb10ce509fd1fef886af5172c0eb4749e6",
+  "expected_publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "scope": "one normal strict startup under unchanged detached policy; no publication/numerical job; local startup receipt only at listening",
+  "held": "all green/fullbrowser/ST matrices and any new live/drive command remain held until checked startup; no activation or automatic retry"
+}

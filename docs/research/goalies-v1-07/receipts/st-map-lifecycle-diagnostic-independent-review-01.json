@@ -1,0 +1,454 @@
+{
+  "scope": "independent evidence judgment of one completed finite paired lifecycle diagnostic; no rerun, product acceptance, test waiver or historical reclassification",
+  "inputs_read_once": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/st-map-lifecycle-diagnostic-01/browser-receipt.json",
+      "bytes": 722060,
+      "sha256": "af9f721f29f8498af2406ce99ae07e6d546d9968bee3f854f4959211740650c7"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/st-map-lifecycle-diagnostic-01-native.log",
+      "bytes": 986,
+      "sha256": "6ced4d2b0b232ea5350cff0cdc6ee3250756aa4e715fdb3120964b543578bff8"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/st-map-lifecycle-diagnostic-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ],
+  "admitted_premises": {
+    "pinned_inputs": {
+      "target": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+        "sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a"
+      },
+      "api": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json",
+        "sha256": "7b6b645c5a2b69dc657beec63d9f663427619b829bd9e7651ce208f25a7221a0"
+      }
+    },
+    "source_authored_code": "sha256 prefix b8ab supplied as a premise; source not read",
+    "root_kernel_observation": {
+      "node_pid": 25453,
+      "time_pid": 25452,
+      "local_start": "09:29:41",
+      "actual_completion": "MAP_LIFECYCLE_NATIVE_EXIT=0"
+    },
+    "process_report": {
+      "pid": 25453,
+      "ppid": 25452,
+      "argv": [
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/st-map-lifecycle-diagnostic-01.mjs",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+        "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+        "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+      "node": "v24.21.0",
+      "scope": "process-reported values; not kernel observation"
+    },
+    "identity_scope": "process-reported pid/ppid/cwd correspond to the supplied kernel observation; argv is recorded here for comparison, without a new kernel or source inspection"
+  },
+  "case": {
+    "season": "20252026",
+    "strength": "pp",
+    "quantity": "attempts",
+    "view": "effect",
+    "role": "offense",
+    "player_id": "8471214",
+    "metric": "spatial.pp.offense_attempts_per60"
+  },
+  "findings": [
+    {
+      "finding": "the explicit-default arm aborted six pending annual league-cohort fetches during the first rectangles action; the omitted-default arm recorded no failed request",
+      "supporting_facts": [
+        "arms",
+        "failed_request_lifecycles",
+        "action_and_commit_chronology"
+      ],
+      "inference": "supports omitting the ordinary effect-map default in the controller url; does not isolate a sole cause or establish universal non-reproduction"
+    },
+    {
+      "finding": "every observed network start has one finished or failed terminal event through context closure; no pending api request remained before or after close",
+      "supporting_facts": [
+        "accounting",
+        "close",
+        "evidence_discrepancies"
+      ]
+    },
+    {
+      "finding": "all observed api response headers were http 200; the only non-api http error was the favicon 404",
+      "supporting_facts": [
+        "arms",
+        "non_api"
+      ]
+    }
+  ],
+  "arms": {
+    "A": {
+      "supplied_default": "map=difference",
+      "api_starts": 31,
+      "response_headers": 25,
+      "http_status_counts": {
+        "200": 25
+      },
+      "finished": 25,
+      "response_and_finished_ids": [
+        "25468.20",
+        "25468.21",
+        "25468.22",
+        "25468.23",
+        "25468.24",
+        "25468.25",
+        "25468.26",
+        "25468.27",
+        "25468.28",
+        "25468.29",
+        "25468.30",
+        "25468.31",
+        "25468.32",
+        "25468.39",
+        "25468.40",
+        "25468.41",
+        "25468.42",
+        "25468.43",
+        "25468.44",
+        "25468.45",
+        "25468.46",
+        "25468.47",
+        "25468.48",
+        "25468.49",
+        "25468.50"
+      ],
+      "failed_ids": [
+        "25468.33",
+        "25468.34",
+        "25468.35",
+        "25468.36",
+        "25468.37",
+        "25468.38"
+      ],
+      "declared_content_length_bytes": 218274991,
+      "original_actions_completed": true
+    },
+    "B": {
+      "supplied_default": "omitted",
+      "api_starts": 12,
+      "response_headers": 12,
+      "http_status_counts": {
+        "200": 12
+      },
+      "finished": 12,
+      "response_and_finished_ids": [
+        "25468.69",
+        "25468.70",
+        "25468.71",
+        "25468.72",
+        "25468.73",
+        "25468.74",
+        "25468.75",
+        "25468.76",
+        "25468.77",
+        "25468.78",
+        "25468.79",
+        "25468.80"
+      ],
+      "failed_ids": [],
+      "declared_content_length_bytes": 108687592,
+      "original_actions_completed": true
+    }
+  },
+  "failed_request_lifecycles": {
+    "shared": {
+      "arm": "A",
+      "endpoint": "/api/league",
+      "kind": "skater",
+      "spatial_strength": "pp",
+      "start_stage": "after_document_load",
+      "failure_stage": "before_rectangles",
+      "error": "net::ERR_ABORTED",
+      "canceled": true,
+      "response_headers": 0,
+      "finished_events": 0,
+      "committed_main_frame_during_start_and_failure": {
+        "frame_id": "999349C245A8534992BF29813E4E650F",
+        "loader_id": "B10FEF2FC2C1FC8FDA380BD454FDA368",
+        "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_attempts_per60&view=analytical&map=difference"
+      },
+      "next_document_commit_sequence": 161
+    },
+    "requests": [
+      {
+        "id": "25468.33",
+        "season": "20252026",
+        "family": "overview",
+        "start_sequence": 86,
+        "start_driver_ms": 11576.527375000001,
+        "playwright_failure_sequence": 98,
+        "cdp_failure_sequence": 99,
+        "failure_driver_ms": 11671.631291000002
+      },
+      {
+        "id": "25468.34",
+        "season": "20252026",
+        "family": "spatial",
+        "start_sequence": 87,
+        "start_driver_ms": 11576.572833,
+        "playwright_failure_sequence": 100,
+        "cdp_failure_sequence": 101,
+        "failure_driver_ms": 11671.653125
+      },
+      {
+        "id": "25468.35",
+        "season": "20242025",
+        "family": "overview",
+        "start_sequence": 88,
+        "start_driver_ms": 11576.575583000002,
+        "playwright_failure_sequence": 102,
+        "cdp_failure_sequence": 103,
+        "failure_driver_ms": 11671.665333
+      },
+      {
+        "id": "25468.36",
+        "season": "20242025",
+        "family": "spatial",
+        "start_sequence": 89,
+        "start_driver_ms": 11576.579291,
+        "playwright_failure_sequence": 104,
+        "cdp_failure_sequence": 105,
+        "failure_driver_ms": 11671.675625
+      },
+      {
+        "id": "25468.37",
+        "season": "20232024",
+        "family": "overview",
+        "start_sequence": 90,
+        "start_driver_ms": 11576.581541000001,
+        "playwright_failure_sequence": 106,
+        "cdp_failure_sequence": 107,
+        "failure_driver_ms": 11671.688166
+      },
+      {
+        "id": "25468.38",
+        "season": "20232024",
+        "family": "spatial",
+        "start_sequence": 91,
+        "start_driver_ms": 11576.583375,
+        "playwright_failure_sequence": 108,
+        "cdp_failure_sequence": 109,
+        "failure_driver_ms": 11671.700458000001
+      }
+    ]
+  },
+  "action_and_commit_chronology": {
+    "readiness": [
+      {
+        "arm": "A",
+        "sequence": 92,
+        "driver_ms": 11652.433083,
+        "innerText_characters": 1237
+      },
+      {
+        "arm": "B",
+        "sequence": 234,
+        "driver_ms": 33093.367,
+        "innerText_characters": 1237
+      }
+    ],
+    "pending_snapshots": [
+      {
+        "sequence": 94,
+        "arm": "A",
+        "action": "after_source11_settle_and_figure",
+        "pending_count": 6,
+        "driver_ms": 11653.300625
+      },
+      {
+        "sequence": 96,
+        "arm": "A",
+        "action": "before_rectangles",
+        "pending_count": 6,
+        "driver_ms": 11653.907166
+      },
+      {
+        "sequence": 147,
+        "arm": "A",
+        "action": "after_rectangles",
+        "pending_count": 0,
+        "driver_ms": 22161.683250000002
+      },
+      {
+        "sequence": 152,
+        "arm": "A",
+        "action": "after_contours",
+        "pending_count": 0,
+        "driver_ms": 22193.60525
+      },
+      {
+        "sequence": 236,
+        "arm": "B",
+        "action": "after_source11_settle_and_figure",
+        "pending_count": 0,
+        "driver_ms": 33095.207458
+      },
+      {
+        "sequence": 238,
+        "arm": "B",
+        "action": "before_rectangles",
+        "pending_count": 0,
+        "driver_ms": 33096.048082999994
+      },
+      {
+        "sequence": 241,
+        "arm": "B",
+        "action": "after_rectangles",
+        "pending_count": 0,
+        "driver_ms": 33133.790958
+      },
+      {
+        "sequence": 246,
+        "arm": "B",
+        "action": "after_contours",
+        "pending_count": 0,
+        "driver_ms": 33164.043125
+      }
+    ],
+    "relation": "a's six ids above started at sequences 86-91, were still pending after figure/innerText readiness and immediately before rectangles (94/96), and failed at 99-109 after the rectangles marker 95. their committed frame/loader still held map=difference. the rectangles same-document commit 145 omitted map and added render=rectangles; contours commit 150 removed render. b had no pending api ids at 236/238, no api starts during either render action, and no failures.",
+    "canonical_url_events": [
+      {
+        "sequence": 5,
+        "arm": "A",
+        "type": "Page.frameNavigated",
+        "driver_ms": 605.485375,
+        "query": "season=20252026&metric=spatial.pp.offense_attempts_per60&view=analytical&map=difference"
+      },
+      {
+        "sequence": 26,
+        "arm": "A",
+        "type": "Page.navigatedWithinDocument",
+        "driver_ms": 642.321333,
+        "query": "season=20252026&metric=spatial.pp.offense_attempts_per60&view=analytical&map=difference"
+      },
+      {
+        "sequence": 145,
+        "arm": "A",
+        "type": "Page.navigatedWithinDocument",
+        "driver_ms": 22138.547625,
+        "query": "season=20252026&metric=spatial.pp.offense_attempts_per60&view=analytical&render=rectangles"
+      },
+      {
+        "sequence": 150,
+        "arm": "A",
+        "type": "Page.navigatedWithinDocument",
+        "driver_ms": 22181.10625,
+        "query": "season=20252026&metric=spatial.pp.offense_attempts_per60&view=analytical"
+      },
+      {
+        "sequence": 161,
+        "arm": "B",
+        "type": "Page.frameNavigated",
+        "driver_ms": 22204.956916,
+        "query": "season=20252026&metric=spatial.pp.offense_attempts_per60&view=analytical"
+      },
+      {
+        "sequence": 239,
+        "arm": "B",
+        "type": "Page.navigatedWithinDocument",
+        "driver_ms": 33116.796333,
+        "query": "season=20252026&metric=spatial.pp.offense_attempts_per60&view=analytical&render=rectangles"
+      },
+      {
+        "sequence": 244,
+        "arm": "B",
+        "type": "Page.navigatedWithinDocument",
+        "driver_ms": 33149.5825,
+        "query": "season=20252026&metric=spatial.pp.offense_attempts_per60&view=analytical"
+      }
+    ],
+    "url_scope": "both initial document urls select the same player, season, analytical view and pp attempts effect metric. a alone supplies map=difference. same-document events expose committed urls, not internal router state.",
+    "readiness_limit": "the original settle and figure wait completed in both arms; 1237 innerText characters establish that observation, not visual or analytical correctness"
+  },
+  "accounting": {
+    "events": 253,
+    "all_network": {
+      "started": 68,
+      "response_headers": 62,
+      "finished": 62,
+      "failed": 6
+    },
+    "api": {
+      "started": 43,
+      "response_headers": 37,
+      "finished": 37,
+      "failed": 6
+    },
+    "terminal_partition": "68 = 62 finished + 6 failed; api 43 = 37 finished + 6 failed; response and finish id sets coincide",
+    "pending_snapshot_mismatches": [],
+    "unaccounted_start_ids": []
+  },
+  "non_api": {
+    "started": 25,
+    "response_headers": 25,
+    "finished": 25,
+    "failed": 0,
+    "http_status_counts": {
+      "200": 24,
+      "404": 1
+    },
+    "favicon": {
+      "id": "25468.15",
+      "url": "http://127.0.0.1:3407/favicon.ico",
+      "response_sequence": 32,
+      "finished_sequence": 33,
+      "console_error_sequence": 31
+    },
+    "console_errors": 1,
+    "other_console_errors": 0
+  },
+  "close": {
+    "pre_close_sequence": 251,
+    "page_closed_sequence": 252,
+    "post_close_sequence": 253,
+    "api_pending_before": 0,
+    "api_pending_after": 0,
+    "owned_context_closed": true,
+    "scope": "observed page-session requests through owned context.close; not future-work or global quiescence"
+  },
+  "costs": {
+    "native": {
+      "wall_seconds": 33.34,
+      "maximum_resident_set_size_bytes": 1244037120,
+      "raw_peak_memory_footprint_bytes": 109505840,
+      "exit": "0\\n"
+    },
+    "internal": {
+      "wall_seconds": 33.303889458,
+      "node_driver_peak_rss_bytes": 145014784,
+      "scope": "Node driver only; Chrome and retained-server memory are not measured"
+    },
+    "declared_api_content_length_bytes": 326962583,
+    "reconciliation": "native wall is 0.036110542 seconds longer than the internal timer. native maximum rss and raw footprint are retained as distinct footer fields; neither is equated to the internal node-driver rss or attributed to a browser/server component. content-length is declared response size only, not measured body, wire traffic or encodedDataLength.",
+    "native_footer": {
+      "status": "completed_declared_pair",
+      "receipt": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/st-map-lifecycle-diagnostic-01/browser-receipt.json",
+      "events": 253,
+      "failure_name": null,
+      "write_failed": false
+    }
+  },
+  "limits": [
+    "two arms, one case, one context, fixed a-then-b order; browser/server/cache warm-up and order effects are not controlled",
+    "cdp collection and action-state evaluations perturb timing; events are only those delivered to this page session and playwright",
+    "committed frame/loader identity and action proximity do not expose abort-controller ownership, router loading state or a complete internal causal chain",
+    "no earlier 48-abort traceback was read; those failures remain failed and unclassified",
+    "no source, pinned input target, response body, provider, live endpoint or archive was followed; the admitted source and target premises were not independently re-established"
+  ],
+  "smallest_supported_controller_correction": {
+    "change": "omit map=difference from ordinary effect-map urls so the default is canonical at the initial load",
+    "unchanged": "complete-map absolute urls and intentional invalid-url negative cases",
+    "scope": "controller url construction only; no product change, abort waiver, acceptance verdict or promise that every future request completes"
+  },
+  "evidence_discrepancies": []
+}

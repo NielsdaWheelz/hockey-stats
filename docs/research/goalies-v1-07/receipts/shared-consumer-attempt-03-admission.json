@@ -1,0 +1,33 @@
+{
+  "kind": "shared-consumer-attempt-03-admission",
+  "status": "assigned_once_after_freshness_and_independent_source_review",
+  "source": "ed64fdb5b45b31ac9eea50bb124d408a2b1440761730faa583cf1a10607aeb4d",
+  "command": "f5e50c3c12b5fa64b594c18172ade7654aebf4ab19b299b45e86fddbb5dc798d",
+  "production": {
+    "commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "analysis": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app": "3242c0186fbf637d8072a4b86cf659de31caadd6"
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "same_server_pid": 98454,
+  "base_url": "http://127.0.0.1:3407",
+  "freshness": {
+    "kind": "goalie-consumer-freshness",
+    "mount_present": true,
+    "parent_is_directory": true,
+    "absent": {
+      "consumer-03.json": true,
+      "consumer-03.csv": true,
+      "consumer-03-native.log": true,
+      "consumer-03-native.exit": true
+    },
+    "input_body_reads": 0,
+    "status": "passed_availability_only"
+  },
+  "independent_source_review": "clear: all annual, cohort, cutoff and csv oracles unchanged; browser copy changes only receipt counters; no execution by reviewer",
+  "chrome_diagnostic_review": "28795513ef102e5e5edd5b6ba0183f187161529a9764118e49e9d6c86efdcda1",
+  "scope": "two actual typed anchor loaders (ev and pk stopping), 26 metric compositions and 78 annual CSV rows",
+  "tradeoff": "reuse identical declared overview/null-strength annual populations; all 26 actual selections, six representative cases and four smoke journeys remain required in the full browser matrix",
+  "failure_preservation": "consumer01 missing browser origin and consumer02 ECONNRESET remain retained; the reset is unexplained and no transport change/retry wrapper is introduced",
+  "next": "outcome unknown until actual native closure; no browser or ST grant"
+}

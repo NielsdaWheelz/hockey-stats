@@ -1,0 +1,102 @@
+{
+  "disposition": "single_observation_inconclusive_for_historical_aborts_readiness_gap_observed",
+  "scope": "independent saved local result/events adjudication only; no replay, browser, http, database, external-drive, process, mount, build, version command or test execution",
+  "sources": {
+    "diagnostic_source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-canonical-diagnostic-02.mjs",
+      "sha256": "eb5877dcc4c46964add01167e652415dda55b751c81dd044942f3ef4f48d5301"
+    },
+    "source_review": {
+      "path": "/tmp/staging/shared-browser-canonical-trace-source-review-01.json",
+      "sha256": "d2add149f1310ffae73a065ce43f0100edb7315f3b3b9214faa38ca602db36cf"
+    },
+    "result": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-canonical-diagnostic-01/result.json",
+      "sha256": "c8ae1e41eea35028fe32bfafebbd0e2b513bff34db63d1f5bdf0c7742391eccf",
+      "bytes": 45903
+    },
+    "events": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-canonical-diagnostic-01/events.jsonl",
+      "sha256": "73db266a6a8f75c6357ca20b4e4df34539e8bac5f9749229de93bc29efe006d3",
+      "bytes": 70865,
+      "event_count": 227
+    }
+  },
+  "actual": {
+    "status": "diagnostic_observations_only",
+    "observation": "inconclusive: the original transition did not reproduce the exact three-cohort cancellation pattern",
+    "errors": 0,
+    "association_errors": 0,
+    "pageerrors": 0,
+    "failed_requests": 0,
+    "requests": 69,
+    "responses200": 69,
+    "finished_requests": 69,
+    "owned_context_closed": true,
+    "saved_event_consistency": {
+      "contiguous_sequence": true,
+      "nondecreasing_time": true,
+      "unique_request_ids": true,
+      "request_lifecycles_match": true,
+      "all_request_finished_count": 69
+    },
+    "optional_console": "one exact undeclared same-origin favicon.ico 404 console message; zero declared icons; no matching response event required"
+  },
+  "original_boundary": {
+    "next_goto_seq": 55,
+    "pending_request_ids": [
+      "r17"
+    ],
+    "pending_request": {
+      "id": "r17",
+      "role": "profile_detail",
+      "generation": "g2",
+      "document": "r1",
+      "start_seq": 54,
+      "next_document_start_seq": 56,
+      "response200_seq": 57,
+      "finished_seq": 58,
+      "failed": false
+    },
+    "canonical_generation_cohort_ids": [],
+    "meaning": "the original settle/negative checks returned while canonical profile revalidation remained pending. the detail completed successfully after the next document request began; the outgoing generation never started its annual cohorts. this demonstrates incomplete controller readiness, not request-abort reproduction."
+  },
+  "controlled_boundary": {
+    "generation": "g5",
+    "detail": "r50",
+    "cohorts": [
+      "r51",
+      "r52",
+      "r53"
+    ],
+    "annual_seasons": [
+      "20252026",
+      "20242025",
+      "20232024"
+    ],
+    "all_response200_and_finished": true,
+    "last_finish_seq": 173,
+    "canonical_url_commit_seq": 174,
+    "canonical_completion_seq": 175,
+    "next_goto_seq": 176,
+    "pending_at_completion": [],
+    "pending_at_next_goto": [],
+    "meaning": "the exact canonical generation completed and the canonical url committed before the next goto. both completion and next-goto markers contain no pending requests."
+  },
+  "content": "all three post-completion snapshots retain the requested player, metric and selected season plus the three exact native EV stopping values from accepted local oracle bc293b78; no full-card, pixel, export or family acceptance follows",
+  "cost": {
+    "internal_wall_seconds": 35.858401582999996,
+    "internal_node_peak_rss_bytes": 150683648,
+    "root_reported_native_exit": 0,
+    "root_reported_native_wall_seconds": 35.89,
+    "root_reported_native_max_rss_bytes": 460636160,
+    "native_log_independently_read": false
+  },
+  "next_source_scope": "a bounded full-browser controller successor is justified: preserve every strict browser03 content/export assertion and global zero-failure requirement; add normal-page stable request ids, lifecycle and action/pending markers; require the goalie analytical-negative journey to reach its actual canonical url and complete the associated required api work before moving away. this authorizes neither an abort exclusion nor a product/build/api/consumer change, replay or new focused reproduction search. root separately assigns source preparation and any run.",
+  "limits": [
+    "old03 remains failed and its three aborts remain unattributed; this new observation cannot reconstruct its missing timings and request identities",
+    "the fresh-page original arm differs from old03 prior microstats/forward/defense sequence; no exact-pattern reproduction occurred",
+    "no blanket claim of absence of races, controller-only responsibility for old03, product acceptance, science, activation or special-teams acceptance",
+    "the future full-browser successor still requires independent source review before any separately assigned invocation"
+  ]
+}

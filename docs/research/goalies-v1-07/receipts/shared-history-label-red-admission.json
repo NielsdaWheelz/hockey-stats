@@ -1,0 +1,20 @@
+{
+  "kind": "shared-history-label-red-admission",
+  "status": "assigned_once",
+  "at": "2026-11-13T17:06:59.692725+00:00",
+  "source_sha256": "3d0e335e9c72f4ac34fb46d589be2ba236db514bf61c248e074964da3295c07a",
+  "review_sha256": "e3b8695173a6e1e1e7806d2c11995abda19725496d09892f3f9a3a7420599717",
+  "renderer_before_sha256": "b86c4565872127990f158023fca42aaa408729745bea963d2e041712f03f595c",
+  "local_absence_checked": [
+    ".tmp/goalie-live-acceptance/browser-history-label-red-01",
+    ".tmp/goalie-live-acceptance/browser-history-label-red-01-native.log",
+    ".tmp/goalie-live-acceptance/browser-history-label-red-01-native.exit"
+  ],
+  "server_pid": 33587,
+  "source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "scope": "one four-case actual live history-label check, normal1280/null and narrow320CSS, two metrics; metadata only; no exports/provider/input body read",
+  "expectation": "normal labels fit; narrow endpoint year and selected labels extend beyond SVG; numerical native exit alone is not source-defect acceptance",
+  "held": "production edit, fullbrowser04, build/startup and all ST/finalpreservation/cleanup remain separately assigned boundaries"
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "shared-browser-02-admission",
+  "status": "assigned_once_after_checked_api_consumer_and_freshness",
+  "runtime_source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "8ca79395276ab733c6ee32e21465adb8b8229372",
+  "build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+  "server_pid": 33587,
+  "base_url": "http://127.0.0.1:3407",
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "stored_publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "api_result_sha256": "355de762cb1f72cf496c8c690658d7a751e66d7caff6b3dc7994eb9e40d50472",
+  "api_review_sha256": "289cd0ef3f4720947e5914a134392ca27d91d82be42bbc93e076f8a590eb1fb6",
+  "consumer_result_sha256": "c7e329ae247857e425c5db25a88afe8ee5c07130818c7ecd45032c1a4a044d66",
+  "consumer_csv_sha256": "bc293b783cbd71a19d7f7fc7f506d08590dba23c6936caea4d1cef817b387653",
+  "consumer_review_sha256": "4be99dce30cf17bbe395fad7892316236cd883c6a35ae9df4152d01c3e333cbe",
+  "controller_sha256": "a9c06edf5f9e167019e702eab8bb2d48db21a2d321c95f3ba29b620c0c1751fc",
+  "command_sha256": "4971c17fd3b58068f3d9b4ba29df154c9f19383a43bad5d6f046099fda5e1200",
+  "freshness": {
+    "kind": "goalie-browser-freshness",
+    "status": "passed_availability_only",
+    "failure": null,
+    "absent": {
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-02": true,
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-profile-02": true,
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-native-02.log": true,
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-native-02.exit": true
+    },
+    "input_body_reads": 0,
+    "mount_present": true,
+    "parent_is_directory": true
+  },
+  "scope": "all26 actual metric selections/78 annual associations; all6 present representative cases,2cutoffs,4G/F/D smoke journeys;30 actual CSV/PNG pairs; normal1280,narrow320CSS,native200withmeasuredbaselineDPR; wholeviewportunclippedCDP captures",
+  "tradeoff": "narrow320 uses explicit CSS viewport because nativeChrome minimum500 was measured; native200 remains genuine Preferences/viewport:null. tinyprogress/native logs are local metadata; all downloads/screenshots/SVG inputs/final browser receipt stay external",
+  "limits": "machine success remains pending human pixel inspection; no chart/header/SVG-only acceptance. no v1-19 visual/discovery or scientific/activation pass. no retry/fallback; stop/hold overrides later work. owned contexts close finally; artifacts/profiles retained until full acceptance",
+  "held": "ST matrices, final preservation and cleanup remain separately assigned boundaries",
+  "reason": "browser01 failed after26 actual export pairs because URL readiness allowed stale rendered cutoff; one independently adjudicated actual cutoff diagnostic reproduced and resolved that observation. browser02 adds only three visible readiness waits; all semantic assertions and oracles remain exact. no product source/build/API/consumer change or rerun.",
+  "independent_source_review": {
+    "reviewer": "/root/publication_adjudication",
+    "status": "clear",
+    "findings": "actual a9c06edf controller and4971c17f caller reviewed; only three rendered-state waits, none waits for a favorable result; fresh02 paths and same accepted api02/consumer04 inputs; no execution or freshness queries performed by reviewer"
+  },
+  "historical_failure_receipt_sha256": "51b5567453ef277c3f92dc40f764427f75e4145c904fedb0d6e8787c9ad2c488",
+  "diagnostic_review_sha256": "039f9a33b5469419e917d6d9625a87fda8e8a4f780cc8d1048cf4f29cf4a1d51"
+}

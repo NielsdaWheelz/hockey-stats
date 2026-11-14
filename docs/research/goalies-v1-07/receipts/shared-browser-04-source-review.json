@@ -1,0 +1,57 @@
+{
+  "disposition": "source_review_clear_execution_held",
+  "scope": "named local controller, wrapper, preflight and capturer source reads plus browser03 diff/hash review only; no execution, browser, http, database, external drive, process, mount, version command, build or test",
+  "sources": {
+    "browser-real-03.mjs": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-03.mjs",
+      "sha256": "466034f44676c864096ff94c03099b4e798719eeb5957062e4e55f4324d084ee",
+      "bytes": 34734
+    },
+    "browser-real-04.mjs": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-04.mjs",
+      "sha256": "87464d3f0de88cf3d04c070cd5783554ac665ea22e718c25fa5fa24b3245cb87",
+      "bytes": 39772
+    },
+    "browser-held-07.sh": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-held-07.sh",
+      "sha256": "92e73ac99fc612a80bc4e20052f7df0b393f80ba0294c5f5a5c4b4eab408371f",
+      "bytes": 1394
+    },
+    "browser-preflight-04.command": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-preflight-04.command",
+      "sha256": "449ddddba10f4c60849059e00d8766fef7b900f94b28e2f9b68cae2f3a8581e7",
+      "bytes": 1804
+    },
+    "browser-boundary-04.py": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-boundary-04.py",
+      "sha256": "f2d4f8b8f94d09796aa9b23f7d89e7a2e92b7939af5bdaf9df748328c9d02389",
+      "bytes": 6565
+    }
+  },
+  "checked_contract": [
+    "browser03 input/oracle, UI/metric/history/cohort, cutoff, case, skater smoke, layout, native zoom, real csv/png fidelity and original final error/http/zero-request-failure assertions are preserved",
+    "normal API request objects receive stable ids and start/response/finished/failed lifecycle events, monotonic times and event sequences; owned actions/navigation/closure retain pending request ids",
+    "goalie analytical-negative smoke first reaches its public canonical profile URL, then requires response200 and response.finished()===null for every observed API Request object in its smoke slice before moving away",
+    "expected API scope retains exact origin/path/keys/values/duplicates while normalizing query-key order; it imposes no exact duplicate profile/cohort generation counts",
+    "all request failures remain in the global failures array; no ERR_ABORTED exemption, retry, timeout extension, body capture, private hook, transport setting change or production mutation is introduced",
+    "the original final failures.length===0 assertion remains; a final post-owned-closure nonempty failures array also forces failed outcome/exit1 without replacing earlier failure details",
+    "wrappers select one fixed node/script invocation, fresh external browser04 artifacts and owned local profile/native outputs; freshness checks cover four exact paths only, and the separately assigned post-exit capturer reads one fixed external receipt plus two fixed local native files with caps"
+  ],
+  "resolved_source_findings": [
+    "required-api scope no longer binds incidental query-key ordering",
+    "closure-time requestfailed events can no longer coexist with a passed receipt status"
+  ],
+  "remaining_material_source_findings": [],
+  "execution_hold": {
+    "active": true,
+    "reason": "root reports concrete 320px shared history-chart label clipping in browser03 images 088/093; independent pixel confirmation, actual red verification, minimal renderer repair and a new normal build/startup remain separately owned and incomplete",
+    "authority": "root explicitly holds fullbrowser04 execution; this review does not lift that hold"
+  },
+  "limits": [
+    "controller source is unexecuted; no syntax/runtime or source-to-screen acceptance is claimed",
+    "a future invocation requires root assignment, fresh-path/native readiness and binding to the then-reviewed application/build; API/consumer and production source are not changed by this packet",
+    "old03 remains failed with its three request aborts unattributed; the one completed diagnostic is inconclusive for reproducing those aborts",
+    "all actual screenshot/download pixels still require independent review; source/content assertions do not close the observed clipping defect or full browser acceptance",
+    "no family, numerical, scientific, activation or special-teams acceptance follows"
+  ]
+}

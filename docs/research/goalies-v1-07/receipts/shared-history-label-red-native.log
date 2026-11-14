@@ -1,0 +1,20 @@
+{"cases":4,"failures":[{"mode":"narrow","metric":"goalie.ev.stopping_goals_per100_on_net","reason":"label outside SVG viewport","text":"2023–24","bounds":{"x":47.87916946411133,"y":3272.796875,"left":47.87916946411133,"top":3272.796875,"right":102.25416564941406,"bottom":3287.796875,"width":54.374996185302734,"height":15},"outside":["left"]},{"mode":"narrow","metric":"goalie.ev.stopping_goals_per100_on_net","reason":"label outside SVG viewport","text":"2025–26","bounds":{"x":217.75364685058594,"y":3272.796875,"left":217.75364685058594,"top":3272.796875,"right":272.113037109375,"bottom":3287.796875,"width":54.35939025878906,"height":15},"outside":["right"]},{"mode":"narrow","metric":"goalie.ev.stopping_goals_per100_on_net","reason":"label outside SVG viewport","text":"selected","bounds":{"x":219.37864685058594,"y":3298.796875,"left":219.37864685058594,"top":3298.796875,"right":270.488037109375,"bottom":3313.796875,"width":51.10939025878906,"height":15},"outside":["right"]},{"mode":"narrow","metric":"goalie.pk.followup_danger_difference","reason":"label outside SVG viewport","text":"2023–24","bounds":{"x":47.87916946411133,"y":3320.796875,"left":47.87916946411133,"top":3320.796875,"right":102.25416564941406,"bottom":3335.796875,"width":54.374996185302734,"height":15},"outside":["left"]},{"mode":"narrow","metric":"goalie.pk.followup_danger_difference","reason":"label outside SVG viewport","text":"2025–26","bounds":{"x":217.75364685058594,"y":3320.796875,"left":217.75364685058594,"top":3320.796875,"right":272.113037109375,"bottom":3335.796875,"width":54.35939025878906,"height":15},"outside":["right"]},{"mode":"narrow","metric":"goalie.pk.followup_danger_difference","reason":"label outside SVG viewport","text":"selected","bounds":{"x":219.37864685058594,"y":3346.796875,"left":219.37864685058594,"top":3346.796875,"right":270.488037109375,"bottom":3361.796875,"width":51.10939025878906,"height":15},"outside":["right"]}]}
+{"status":"failed","result":"/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-history-label-red-01/result.json"}
+       35.45 real         4.10 user         1.70 sys
+           403619840  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              270470  page reclaims
+                8695  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                2464  messages sent
+                2853  messages received
+                  18  signals received
+                1240  voluntary context switches
+               84073  involuntary context switches
+          2835429709  instructions retired
+          1277777619  cycles elapsed
+           110718784  peak memory footprint

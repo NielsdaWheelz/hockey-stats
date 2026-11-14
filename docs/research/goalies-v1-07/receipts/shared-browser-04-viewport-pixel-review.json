@@ -1,0 +1,243 @@
+{
+  "kind": "shared-browser-04-current-viewport-pixel-review",
+  "status": "accepted_viewport_pixels_only",
+  "reviewed_at": "2026-11-14T05:06:43.299153+00:00",
+  "browser_result_sha256": "2777f188f2e686f6430024f7cdbaf3c04c32271217e170623f4c19682a489335",
+  "coverage": {
+    "captures": 19,
+    "unique_actual_images_viewed": 18,
+    "exact_current_duplicate": 1,
+    "normal": 7,
+    "narrow": 6,
+    "native200": 6
+  },
+  "images": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/001-normal-profile.png",
+      "bytes": 157970,
+      "sha256": "e0220826fe20110aa5f1947c8c4bcd66b70efafb576aa8c4c57c3bda7edd9955",
+      "mode": "normal",
+      "position": "profile",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/080-normal-profile.png",
+      "bytes": 157970,
+      "sha256": "e0220826fe20110aa5f1947c8c4bcd66b70efafb576aa8c4c57c3bda7edd9955",
+      "mode": "normal",
+      "position": "profile",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_by_exact_current_pixel_identity",
+      "same_pixels_as": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/001-normal-profile.png"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/081-normal-detail.png",
+      "bytes": 158983,
+      "sha256": "b8ae7d897fc82fa132640cb3edb2bb9aade106e5c3de2e73ec6df8fe6d8e4b41",
+      "mode": "normal",
+      "position": "detail",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/082-normal-history.png",
+      "bytes": 132496,
+      "sha256": "25934c1adbf90ef5a88981f29aaeb4e777af4e5be13203e4af93b01c0d2cc77e",
+      "mode": "normal",
+      "position": "history",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/083-normal-history-table.png",
+      "bytes": 135709,
+      "sha256": "77045e5b657e58cfba51ef9c465c98a403464e433118601bd1ec28d260e33747",
+      "mode": "normal",
+      "position": "history-table",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/084-normal-history.png",
+      "bytes": 139264,
+      "sha256": "1e5e55a3b5202232210e5ba7c3e2cf04fd4bc51ff8ee5a8c18a7ff8724e534ea",
+      "mode": "normal",
+      "position": "history",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/085-normal-history-table.png",
+      "bytes": 141257,
+      "sha256": "be0995de5d4097ceeec656e33dc50250e3a7631147bb9be4bb98959bd4a90208",
+      "mode": "normal",
+      "position": "history-table",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/086-narrow-profile.png",
+      "bytes": 71188,
+      "sha256": "aaf78ff6dcce0686070fe0fa4060645cc312a4fee31a22d034c24e6687050ac1",
+      "mode": "narrow",
+      "position": "profile",
+      "width": 320,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/087-narrow-detail.png",
+      "bytes": 71321,
+      "sha256": "c9fa1489b6dfcbfba16eaa5a8268190d7ec950d68821614bacd791ff41318e24",
+      "mode": "narrow",
+      "position": "detail",
+      "width": 320,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/088-narrow-history.png",
+      "bytes": 56409,
+      "sha256": "3d6e65e5efe227c953b1a7af1e54662fbfcf0b4bb9d634b2c16114a3dccdd785",
+      "mode": "narrow",
+      "position": "history",
+      "width": 320,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/089-narrow-history-table.png",
+      "bytes": 52006,
+      "sha256": "d522fcd823556ef14bd3112d6ca90b279ab8b36f7c40f9250eef41032619a704",
+      "mode": "narrow",
+      "position": "history-table",
+      "width": 320,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image",
+      "scope_note": "actual group deliberately scrolled horizontally to support/reference columns; clipped left columns are within the table scroll region, not document overflow"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/093-narrow-history.png",
+      "bytes": 55135,
+      "sha256": "69233f17c56da992dedc48c87e99d6991f08e0bb4e59734e305b26542f91cd6b",
+      "mode": "narrow",
+      "position": "history",
+      "width": 320,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image",
+      "independent_corroboration": "history_labels directly inspected original; complete explanatory paragraph, intact glyphs and endpoint labels; no raster defect reproduced"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/094-narrow-history-table.png",
+      "bytes": 51048,
+      "sha256": "5ecb81b36efd75cc264647a6be39954054c85efb22cbfef7acde0563b9c436b8",
+      "mode": "narrow",
+      "position": "history-table",
+      "width": 320,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image",
+      "scope_note": "actual group deliberately scrolled horizontally to support/reference columns; clipped left columns are within the table scroll region, not document overflow"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/098-native200-profile.png",
+      "bytes": 112342,
+      "sha256": "3f357f42e6a2fbe3d5a1b6092fee965898669c623da3f9c6ed593f522bea997e",
+      "mode": "native200",
+      "position": "profile",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image",
+      "scope_note": " ordinary vertical viewport boundary may leave lower content below the fold; no requirement that a whole long section fit one viewport"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/099-native200-detail.png",
+      "bytes": 112627,
+      "sha256": "c59d617bb7e0de0f0a65901f0187e12b0583399319181c5c783398913d9e7766",
+      "mode": "native200",
+      "position": "detail",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image",
+      "scope_note": " ordinary vertical viewport boundary may leave lower content below the fold; no requirement that a whole long section fit one viewport"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/100-native200-history.png",
+      "bytes": 74104,
+      "sha256": "332472fe26a536481bcbc9414a08fb1a02d976ddde35b138f4aadbfb36e487a0",
+      "mode": "native200",
+      "position": "history",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image",
+      "scope_note": " ordinary vertical viewport boundary may leave lower content below the fold; no requirement that a whole long section fit one viewport"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/101-native200-history-table.png",
+      "bytes": 141847,
+      "sha256": "6f7e0af6d22b1d4d45e300c0079dd55d3487a5c8e0a3abfcc69a61522c469ccd",
+      "mode": "native200",
+      "position": "history-table",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image",
+      "scope_note": "actual group deliberately scrolled horizontally to support/reference columns; clipped left columns are within the table scroll region, not document overflow ordinary vertical viewport boundary may leave lower content below the fold; no requirement that a whole long section fit one viewport"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/105-native200-history.png",
+      "bytes": 72608,
+      "sha256": "10e7e11f6834fe825fe2d668a83b0097999d2f67959fdb51ff543f32367f81ac",
+      "mode": "native200",
+      "position": "history",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image",
+      "independent_corroboration": "history_labels directly inspected original; complete explanatory paragraph, intact glyphs and endpoint labels; no raster defect reproduced",
+      "scope_note": " ordinary vertical viewport boundary may leave lower content below the fold; no requirement that a whole long section fit one viewport"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/106-native200-history-table.png",
+      "bytes": 147527,
+      "sha256": "0ae66529a06c8b39458fa760052f7cea40df06bc54d00c71754bcbb77ea98246",
+      "mode": "native200",
+      "position": "history-table",
+      "width": 1280,
+      "height": 913,
+      "judgment": "accepted_actual_viewport_pixels",
+      "reviewer": "root direct view_image",
+      "scope_note": "actual group deliberately scrolled horizontally to support/reference columns; clipped left columns are within the table scroll region, not document overflow ordinary vertical viewport boundary may leave lower content below the fold; no requirement that a whole long section fit one viewport"
+    }
+  ],
+  "findings": [
+    "normal/narrow/native200 profile controls and detail text wrap legibly within document width",
+    "both narrow history plots now display complete endpoint years and selected label; no SVG clipping",
+    "native200 uses actual native zoom: baseline1280CSS/DPR1 becomes640CSS/DPR2 at unchanged1280outerwidth, visualScale1; vertical scrolling and table horizontal regions remain usable",
+    "normal three-season values and references are legible; cutoff, raw units and experimental proxy/sensitivity caveats remain separate",
+    "root initially read two paragraphs as incomplete; independent original-image inspection did not reproduce this and confirmed complete paragraphs. no DOM/CDP/product defect is inferred"
+  ],
+  "limits": "only19 actual viewport captures, not downloadPNG or complete family/scientific acceptance. image identities come from completed actual browser download/capture receipt; no fresh rehash/stat/copier/controller or browser invocation. direct view_image read only the18 named unique originals"
+}

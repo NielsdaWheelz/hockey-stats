@@ -1,0 +1,64 @@
+{
+  "kind": "shared-st-peer-control-anchor-checked-preflight-intake",
+  "status": "ACCEPTED_PREFLIGHT_BOUNDARY_ONLY",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-launch-preflight-01.json",
+      "bytes": 21421,
+      "sha256": "a541732f1b6091cc89f046bd7e64497a544b9fc9d5e360556ed808701e6c8733"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-launch-preflight-01-native.log",
+      "bytes": 892,
+      "sha256": "d8897c050a456062f42c51b6debf0489fa873572c19646c4ab73e76d0ebdcf90"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-launch-preflight-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-preflight-actual-submission-01.json",
+      "bytes": 9326,
+      "sha256": "aee5d5e0dd5fed71dc6a569d2ff31d50daf523276bb4d8f0d90157de91a1aa54"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-launch-preflight-review-01.json",
+      "bytes": 5392,
+      "sha256": "71202e71d7e83973e021922476e9903a773a5a468d827e5853b23e8ab731b49e"
+    }
+  ],
+  "input_identities_verified": true,
+  "native_exit": 0,
+  "native_marker_and_prompt": "ST_PEER_CONTROL_ANCHOR_PREFLIGHT_NATIVE_EXIT=0 and returned owned prompt; exit0LF matches",
+  "readiness": "owned plain zsh/STcwd/rendered empty prompt; provider classifier unknown, not asserted positive",
+  "native_cost": {
+    "wall_seconds": 0.34,
+    "peak_rss_bytes": 23592960,
+    "raw_peak_footprint_bytes": 13730296
+  },
+  "internal_cost": {
+    "wall_seconds": 0.21004479192197323,
+    "peak_rss_bytes": 23527424,
+    "before_receipt_serialization": true
+  },
+  "local_pin_reads": {
+    "unique_bodies": 46,
+    "logical_bytes": 2766660
+  },
+  "external_input_consumer_csv_member_database_body_or_stat": 0,
+  "http_requests": 0,
+  "created_anchor_or_profile_paths": false,
+  "source_and_runtime": "same anchor895692/held4f081/planb7bc; G3763/fee5/app852/build18ef/node89887/fb604/target1a301/API7b6; STce058/923d/app3242; native preflight observed, root did not requery",
+  "plan_correction": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-peer-control-anchor-postexit-plan-03.md",
+    "bytes": 9546,
+    "sha256": "1b27030449e383ef5b8c26ed3b9af362bb79fee08deb3f83af9a649c256a768e",
+    "independent_review_sha256": "3fef1cc707f4c5b70c7c017208f52774b4e728a7dcac3c00339355b0041cdd2b",
+    "root_inverse": "only byte5955 changes1to2; reconstructing old byte matches all9546 plan02 bytes/hash76a0",
+    "collector_held_code": "13ad/a6a5 unchanged; no capture invoked"
+  },
+  "root_review_scope": "fixed LOCAL cached evidence and source-plan/proof/held bytes only; no referenced raw/build/source/process/HTTP/DB/drive replay",
+  "physical_io_bytes": "UNKNOWN",
+  "anchor_or_browser_acceptance": false
+}

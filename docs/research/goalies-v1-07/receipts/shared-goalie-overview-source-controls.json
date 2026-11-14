@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "kind": "goalie-overview-source-controls-retention",
+  "status": "source_controls_passed_new_runtime_not_assessed",
+  "source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "8ca79395276ab733c6ee32e21465adb8b8229372",
+  "source_file": {
+    "path": "app/src/server/publication.ts",
+    "sha256": "0c0045d505912603c73e8c416d146ee6c61fd7404ce4edf4ec66f3cd90510238"
+  },
+  "source_patch": {
+    "path": "shared-goalie-overview-source.patch",
+    "bytes": 5756,
+    "sha256": "ac08c7a8cc1565c00436d9a1ed780768bb228667f385edaa844e4f651836aa31",
+    "scope": "local preserved old publication.ts to final c90 source; no source file edited by retention"
+  },
+  "temporary_driver": {
+    "path": ".tmp/goalie-live-acceptance/goalie-overview-controls.mjs",
+    "sha256": "79720beba0c089bcc120c6fabe8b1f58b2a5d3e34a9c9e910157208118aa912c",
+    "retained_implementation": false,
+    "unchanged_across_all_four_runs": true
+  },
+  "scope": "public publication league/player composition, selected-row decoding and response schemas with literal sql/catalog/observed inputs; no canonical startup or real database in these controls",
+  "runs": [
+    {
+      "name": "red-01",
+      "source_sha256": "5598c8416e8db90b5f1e6aba544758c85dca68196a9f9de36c24ce8933813004",
+      "status": "failed",
+      "native_exit": 1,
+      "checks": { "passed": 7, "failed": 1 },
+      "failure": "query-scope control detects the unrelated observed skater summary read",
+      "result": "shared-goalie-overview-red-01.json",
+      "result_sha256": "41195888e1df08fb3df983f1c50fac926cb7f5ec0cd4b4d9e70a6cb2e89ee900",
+      "log": "shared-goalie-overview-red-01.log",
+      "log_sha256": "1fb01317c04389215cf71d2fc7cc3c31006294057560add92081a294b7f7f6c8",
+      "exit": "shared-goalie-overview-red-01.exit",
+      "internal_wall_seconds": 0.082186916,
+      "native_wall_seconds": 0.12,
+      "native_peak_rss_bytes": 94797824
+    },
+    {
+      "name": "green-01",
+      "source_sha256": "bbd78efa227a17fe3bf94acce438922fa29246e6dab4c6c0bf82c0d9ee67bab0",
+      "status": "passed",
+      "native_exit": 0,
+      "checks": { "passed": 8, "failed": 0 },
+      "result": "shared-goalie-overview-green-01.json",
+      "result_sha256": "19c5940522e859812dcc986c223766536ccd2adda611d59aa03e30ff0f9a4520",
+      "log": "shared-goalie-overview-green-01.log",
+      "log_sha256": "925279b4b2c6df3f7b8340f838068b88bb9153112880397430f718d9df782a68",
+      "exit": "shared-goalie-overview-green-01.exit",
+      "internal_wall_seconds": 0.08217920799999999,
+      "native_wall_seconds": 0.12,
+      "native_peak_rss_bytes": 89063424
+    },
+    {
+      "name": "green-02",
+      "source_sha256": "5cf247686fd5842d54aa99e7f2e8b53463b4056644b980acf2e048e820c469d0",
+      "status": "passed",
+      "native_exit": 0,
+      "checks": { "passed": 8, "failed": 0 },
+      "reason": "concrete production refactor after green01; unchanged driver and oracle, no result rescue",
+      "result": "shared-goalie-overview-green-02.json",
+      "result_sha256": "656f5909a40353fa55543e3007dd22b14808a48fe18d16eab90681454de21b7c",
+      "log": "shared-goalie-overview-green-02.log",
+      "log_sha256": "af812f3939cd98a5c665417cf8b6ea23a285aae649ca3fdb5e2b69fdc35dd288",
+      "exit": "shared-goalie-overview-green-02.exit",
+      "internal_wall_seconds": 0.095606958,
+      "native_wall_seconds": 0.14,
+      "native_peak_rss_bytes": 89767936
+    },
+    {
+      "name": "green-03",
+      "source_sha256": "0c0045d505912603c73e8c416d146ee6c61fd7404ce4edf4ec66f3cd90510238",
+      "status": "passed",
+      "native_exit": 0,
+      "checks": { "passed": 8, "failed": 0 },
+      "result": "shared-goalie-overview-green-03.json",
+      "result_sha256": "ad8c7c994ea8819d2b55c69a315eac1972adff3c9fe9d660fd2726c261bdf9b0",
+      "log": "shared-goalie-overview-green-03.log",
+      "log_sha256": "3d71ae25505c454e9f1020828dff1cdee8a9c1320ab6359775130e16c9dacafc",
+      "exit": "shared-goalie-overview-green-03.exit",
+      "internal_wall_seconds": 0.10185754200000001,
+      "native_wall_seconds": 0.13,
+      "native_peak_rss_bytes": 89341952
+    }
+  ],
+  "typechecks": [
+    {
+      "name": "01",
+      "native_exit": 0,
+      "log": "shared-goalie-overview-typecheck-01.log",
+      "log_sha256": "a655ce6fa89f6dbf1b940a590b8821f795431e16ba83a45eb82bde98cc73031a",
+      "exit": "shared-goalie-overview-typecheck-01.exit",
+      "native_wall_seconds": 0.25,
+      "native_peak_rss_bytes": 336281600
+    },
+    {
+      "name": "02",
+      "native_exit": 0,
+      "log": "shared-goalie-overview-typecheck-02.log",
+      "log_sha256": "a624e43e13c47b027bbcbb58fd2f8b51dac6b61b82c9cb7abce17cd84eda4cfb",
+      "exit": "shared-goalie-overview-typecheck-02.exit",
+      "native_wall_seconds": 0.19,
+      "native_peak_rss_bytes": 334905344
+    },
+    {
+      "name": "03",
+      "native_exit": 0,
+      "log": "shared-goalie-overview-typecheck-03.log",
+      "log_sha256": "15c924cd5efc4a951762a1f96397f50f96b06ac46cfd054e5b210905ae5cac2f",
+      "exit": "shared-goalie-overview-typecheck-03.exit",
+      "native_wall_seconds": 0.19,
+      "native_peak_rss_bytes": 334610432
+    }
+  ],
+  "exit_bytes": {
+    "red01": { "bytes": 2, "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865", "meaning": "1 followed by newline" },
+    "all_green_and_typechecks": { "bytes_each": 2, "sha256_each": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa", "meaning": "0 followed by newline" }
+  },
+  "retention": {
+    "raw_fact_files": 18,
+    "raw_fact_bytes": 15540,
+    "source_patch_bytes": 5756,
+    "all_copies_byte_equal_to_local_originals": true,
+    "temporary_driver_and_bundles_copied": false
+  },
+  "build_reference": "shared-goalie-overview-build.json; root owns final pin and runtime assignment",
+  "limits": [
+    "retention read/copy/hash only; no control, typecheck, build, runtime or external operation was executed",
+    "source controls do not close real after-response equality, new ordinary strict startup or live browser acceptance",
+    "old 4aa/app3242/build007290 passes retain their original attribution; node02 reset remains unexplained",
+    "overview issue remains open; no latency forecast, new publication, numerical change or activation"
+  ]
+}

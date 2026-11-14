@@ -1,0 +1,20 @@
+{
+  "kind": "goalie-consumer-attempt-01-classification",
+  "native_exit": 1,
+  "native_cost": {
+    "wall_seconds": 0.52,
+    "peak_rss_bytes": 160858112,
+    "peak_footprint_bytes": 18926208
+  },
+  "raw_log_sha256": "c822cccfe78ace7ab8ca9291ca760d04637a4ac7174f84617a7f9dd03b29f0e7",
+  "failure": "Effect URL construction rejects relative /api/players/8478872 before fetch because the Node controller lacks browser location",
+  "classification": "temporary controller environment mismatch; this attempt demonstrates no product/API/data regression",
+  "source_contract": "installed effect Url.make reads globalThis.location.origin and pathname before FetchHttpClient; production player route uses clientLoader",
+  "repair_review_sha256": "9e3ba0a1a2f5a307674e8316e76db18066bab061b6862c53834a81e8f00e07c2",
+  "corrected_controller_sha256": "5c7c79a8faf6454ad4b0ab1d0b74fc5a74b3291055f834be2fd7a8b9ca41d3f0",
+  "scope": "public browser-origin fixture before the client call, unchanged resolved-request forwarding with origin/path checks; analytical assertions byte-exact",
+  "tradeoff": "Node composition checks use an explicit browser-origin fixture; actual browser behavior remains separately required",
+  "unchanged": "production source/build/candidate, accepted numerical/composition/publication/startup/full G API boundaries",
+  "next_attempt": "not dispatched; fresh02 csv/json/log/exit and a separate reviewed grant required",
+  "raw_failure_retained": true
+}

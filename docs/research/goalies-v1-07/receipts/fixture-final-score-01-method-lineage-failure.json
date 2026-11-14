@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "kind": "goalie-method-prior-lineage-repair",
+  "purpose": "fixture",
+  "failed_producer": "76e2d96c19d696a455258260324708212c8d5397",
+  "failed_output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-01/20252026",
+  "completion_manifest_present": false,
+  "failure": {
+    "exit_code": 1,
+    "log": "/tmp/goalie-final-fixture-score-01.log",
+    "message": "support prior seasons are not bound to method inputs and fit seasons",
+    "wall_seconds": 80.22,
+    "peak_resident_bytes": 1188298752
+  },
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20252026/manifest.json",
+    "sha256": "60decc540eb5354f86e56e1015efa9f5bd47a928e196b2355cbe7929805e8189"
+  },
+  "failed_catalog_sha256": "188fcdef4ebff8f389a7e098950903758f038d9f7128841b875512121a4e7586",
+  "old_fit_seasons": [
+    "20212022",
+    "20222023",
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "old_input_seasons": [
+    {
+      "role": "prepared",
+      "seasons": [
+        "20252026"
+      ]
+    },
+    {
+      "role": "coaches",
+      "seasons": [
+        "20252026"
+      ]
+    },
+    {
+      "role": "annual_state",
+      "seasons": [
+        "20252026"
+      ]
+    },
+    {
+      "role": "opportunity_panel",
+      "seasons": [
+        "20252026"
+      ]
+    },
+    {
+      "role": "predecessor",
+      "seasons": [
+        "20242025"
+      ]
+    }
+  ],
+  "corrected_rule": {
+    "prepared": [
+      "20212022",
+      "20222023",
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "coaches": [
+      "20212022",
+      "20222023",
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "annual_state": [
+      "20252026"
+    ],
+    "opportunity_panel": [
+      "20252026"
+    ],
+    "predecessor": [
+      "20242025"
+    ]
+  },
+  "checked_public_row": {
+    "player_id": "8475683",
+    "strength": "5v5",
+    "field": "stopping_goals_per100_on_net",
+    "prior_seasons": [
+      "20212022"
+    ]
+  },
+  "red_green": {
+    "old_catalog_well_formed": true,
+    "old_public_row_prior_binding": "rejected",
+    "corrected_catalog_and_same_public_row": "passed",
+    "changed_method_fields_only": [
+      "input_sha256",
+      "inputs"
+    ],
+    "unsupported_prior_20202021": "rejected",
+    "future_prior_20262027": "rejected",
+    "first_year_all_source_state_panel_axes": [
+      "20212022"
+    ],
+    "first_year_predecessor": null
+  },
+  "review": "root and independent numerical owner cleared cumulative source axes; existing execution composition uses the same contract",
+  "temporary_check": ".tmp/goalie-acceptance/check_method_lineage.py",
+  "preservation": "failed members and all states/probes/source/serving files were read-only; no whole failed-output hash pass or new fit/probe/source pass",
+  "actual_resolution": "pending fresh final-02 score and detached contracts; issue remains open"
+}

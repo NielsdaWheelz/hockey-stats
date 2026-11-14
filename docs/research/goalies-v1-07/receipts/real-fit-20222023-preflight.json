@@ -1,0 +1,53 @@
+{
+  "kind": "real-goalie-annual-fit-preflight",
+  "status": "completed_and_independently_checked",
+  "recorded_at_utc": "2026-11-09T12:57:32.407658+00:00",
+  "season": "20222023",
+  "launch_commit": "d155b965f9f33e7b4b189371772418902d4b3e93",
+  "analysis_tree": "1dc4e1b33b2b570854d5c84621129ebbaf796d32",
+  "analysis_clean": true,
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20212022/manifest.json",
+    "sha256": "1898e7128a1e166cceec408784979a9e6fb62c045a0ed79840b0cfee471a5669"
+  },
+  "base_scores": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/manifest.json",
+    "sha256": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20"
+  },
+  "base_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/manifest.json",
+    "sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c"
+  },
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "VECLIB_MAXIMUM_THREADS": null,
+    "NUMEXPR_NUM_THREADS": null,
+    "BLIS_NUM_THREADS": null
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20222023",
+  "log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/fit-20222023-01.log",
+  "preflight_native_session": 68695,
+  "preflight_exit_code": 0,
+  "prerequisites": [
+    "first real state accepted",
+    "first real score producer and independent reviews pass",
+    "main merge preserves producer ancestry and original numerical tree",
+    "two scoring-only reductions pass exact bounded parity",
+    "previous and current annual small manifests match pinned digests and chronology",
+    "output and log paths absent; parents exist"
+  ],
+  "probe_solve_counts_expected": {
+    "h": 0,
+    "d": 0
+  },
+  "other_owned_heavy_commands": [],
+  "activation": false,
+  "native_session_id": 90741,
+  "native_process_id": 61295,
+  "native_exit_code": 0,
+  "manifest_sha256": "a1327e656ddc21658acd02d1f0095ceda9cd875cbc24a651003204ab55ee8f3e",
+  "native_wall_seconds": 5214.41,
+  "native_peak_memory_bytes": 21922119680
+}

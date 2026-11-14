@@ -1,0 +1,34 @@
+{
+  "kind": "shared-st-browser06-actual-launch-intake",
+  "created_at": "2026-11-14T07:36:27.347092+00:00",
+  "status": "cached_actual_launch_binding_clear_running_unaccepted",
+  "input": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-actual-launch-01.json",
+    "bytes": 12190,
+    "sha256": "33a923ce75b9d47c055c4f06066a74d8592d5a05eddfe17f16df39b9858ed3ae"
+  },
+  "observed_launch": {
+    "submission_count": 1,
+    "start_utc": "2026-11-14T07:31:59Z",
+    "observed_at_utc": "2026-11-14 07:32:25 UTC",
+    "pids": {
+      "shell": 26786,
+      "time": 26787,
+      "node": 26791
+    },
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+    "argv": [
+      "/bin/sh",
+      ".tmp/st-final-browser-held-06.sh",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+      "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+      "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json"
+    ]
+  },
+  "checks": "exact c74/854 current source,2e843dispatch/fb54amendment/5edparent/93a+ea0preflight,target1a301/API7b6/consumerb76 and26786->26787->26791 chain match. same admitted3763/fee5/app852/build18ef/retained89887/fb604/final21de15d; no new service qualification",
+  "unknown": "owner independent actual-frame review pending; phase/nativeoutcome/cost/firstCSVidentity/actualdownloads/rasters unknown.26seconds and S+ are not outcome or phase evidence",
+  "owner": "v1-09 retains ONLY browser window through reviewed conditional d5db fixed3bodycapture after actual-frame clearance/closure+numericmarker/prompt/noSTOP, full raw-through-contextclosure cached adjudication and explicitcheckedreturn",
+  "held": "all new G live/drive work; independentpixels/offline/rollback/protectedprimary/finalpreservation/cleanup/activation/laterchain unassigned",
+  "historical_collector_pins": "35c3/f682/09ff are historical base only; current06 identity from amendment/admission/actualframe",
+  "operations": "one fixed LOCAL actual-frame body read/hash/JSON consistency, then compact LOCAL receipt; no source/runtime/pin/OS/HTTP/HDD/currentoutput/log/CSV/image/member/DB query or controller invocation"
+}

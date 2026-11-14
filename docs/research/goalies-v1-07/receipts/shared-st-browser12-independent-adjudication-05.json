@@ -1,0 +1,2780 @@
+{
+  "kind": "st-browser12-current-independent-cached-adjudication",
+  "status": "ACCEPTED_SCOPED_CACHED_BROWSER_BOUNDARY",
+  "scope": "one closed current browser12 remainder03 run; typed cached semantic/raw/input/media-identity/cost adjudication only",
+  "findings": {
+    "failed_checks": [],
+    "checker_errors": [],
+    "current_scoped_evidence_clear": true,
+    "aggregate_browser_acceptance": false,
+    "product_acceptance": false,
+    "scientific_acceptance": false,
+    "new_window_authorized": false,
+    "new_raster_pixel_acceptance": "UNASSIGNED",
+    "historical_events_requalified": false,
+    "source_originals_or_referenced_paths_followed": false
+  },
+  "input_identities_and_read_counts": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-postexit-capture-03.json",
+      "bytes": 632260,
+      "sha256": "d692edfaa3da619372f1d30b5bd5526dda2dfecc8400ef4deadf4c084563c8c2",
+      "file_reads": 3,
+      "logical_read_bytes": 1896780
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-capture-completion-03.json",
+      "bytes": 7681,
+      "sha256": "d7501f8970d6db5c1b6c0c292866534bd2cf2a18aaade0d0fab8bad32196dc11",
+      "file_reads": 3,
+      "logical_read_bytes": 23043
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-actual-launch-03.json",
+      "bytes": 26251,
+      "sha256": "be43eba551810653899743ba2fac26ee8a41d0d2062a250536925932ddf84dbf",
+      "file_reads": 3,
+      "logical_read_bytes": 78753
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-actual-launch-review-03.json",
+      "bytes": 26513,
+      "sha256": "6fa9aa3574adb36f4ddebb2484ddf0a0c7a319a3fba6589cec786ca02f018840",
+      "file_reads": 3,
+      "logical_read_bytes": 79539
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-owned-closure-03.json",
+      "bytes": 8274,
+      "sha256": "e9afc8671f423b3d9db9e95f81b92c681e5edd0aca9d0fc0ab02e44417079e14",
+      "file_reads": 3,
+      "logical_read_bytes": 24822
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json",
+      "bytes": 1232910,
+      "sha256": "7b6b645c5a2b69dc657beec63d9f663427619b829bd9e7651ce208f25a7221a0",
+      "file_reads": 3,
+      "logical_read_bytes": 3698730
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-consumer-result-01.json",
+      "bytes": 1097187,
+      "sha256": "b76decc83f84a88a5013aa323293cf325bb7bdeb1a2e658d81dd2b5805de347b",
+      "file_reads": 3,
+      "logical_read_bytes": 3291561
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+      "bytes": 1645,
+      "sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+      "file_reads": 3,
+      "logical_read_bytes": 4935
+    }
+  ],
+  "reader_cost": {
+    "fixed_eight_cache_passes": 3,
+    "unique_original_cache_bytes": 3032721,
+    "logical_original_cache_bytes_read": 9098163,
+    "repeated_overlap_bytes": 6065442,
+    "pass_overlap": "all three passes read the same exact eight paths once; no discovery, alias, referenced-path follow or fourth read",
+    "decoded_buffer_bytes": {
+      "pass1": 0,
+      "pass2": 472188,
+      "pass3": 472190
+    },
+    "third_process_elapsed_seconds_through_report_preparation": 602.9059035419486,
+    "third_process_ru_maxrss_platform_native_units": 43892736,
+    "third_process_rss_bytes": "UNMETERED; native ru_maxrss unit not inferred",
+    "first_two_process_wall_and_rss": "UNMETERED",
+    "physical_io_bytes": "UNKNOWN",
+    "scope": "third-process elapsed time includes in-memory schema inspection and interactive waiting; output serialization/write excluded. interpreter and tool costs are distinct from the closed browser/capture costs"
+  },
+  "schema_inspection": {
+    "performed_before_required_field_assertions": true,
+    "inspection_passes": 2,
+    "continued_in_final_pass_memory": true,
+    "initial_schema_stdout_limit": "the broad second-pass sketch exceeded tool stdout limits; bounded final-pass memory-only sketches completed the inspection without another cache read",
+    "top_level_result_keys": [
+      "status",
+      "failure",
+      "final_raw_gate_failure",
+      "target",
+      "publication_id",
+      "base_url",
+      "purpose",
+      "exchange_schema_version",
+      "publication_schema_version",
+      "source_inputs",
+      "dispatch_clearance",
+      "reused_prefix",
+      "reused_anchor",
+      "composition",
+      "wall_seconds",
+      "peak_node_driver_rss_bytes",
+      "rss_scope",
+      "requests",
+      "responses",
+      "declared_content_length_sum_bytes",
+      "responses_without_content_length",
+      "response_bytes_scope",
+      "request_records",
+      "response_records",
+      "page_console_errors",
+      "transport_failures",
+      "owned_context_closure",
+      "evidence",
+      "evidence_exports",
+      "keyboard",
+      "metrics",
+      "cases",
+      "cutoffs",
+      "discoveries",
+      "maps",
+      "captures",
+      "downloads",
+      "exports",
+      "zoom",
+      "browser_versions",
+      "negatives",
+      "snapshots",
+      "comparisons",
+      "first_documents",
+      "main_frame_commits",
+      "same_document_navigation_diagnostics",
+      "document_boundaries",
+      "normal_baseline_geometry",
+      "pixel_inspection",
+      "detached_data_boundary",
+      "unresolved_acceptance",
+      "cleanup"
+    ],
+    "case_variants": [
+      {
+        "category": "complete_forward",
+        "status": "observed",
+        "keys": [
+          "category",
+          "season",
+          "player_id",
+          "second_player_id",
+          "strength",
+          "role",
+          "metric",
+          "expected",
+          "annual",
+          "status",
+          "predicate_witness",
+          "displayed_history"
+        ]
+      },
+      {
+        "category": "complete_defense",
+        "status": "observed",
+        "keys": [
+          "category",
+          "season",
+          "player_id",
+          "second_player_id",
+          "strength",
+          "role",
+          "metric",
+          "expected",
+          "annual",
+          "status",
+          "predicate_witness",
+          "displayed_history"
+        ]
+      },
+      {
+        "category": "sparse",
+        "status": "observed",
+        "keys": [
+          "category",
+          "season",
+          "player_id",
+          "second_player_id",
+          "strength",
+          "role",
+          "metric",
+          "expected",
+          "annual",
+          "status",
+          "predicate_witness",
+          "zero_cutoff_percentile",
+          "zero_cutoff_cohort_size",
+          "displayed_history"
+        ]
+      },
+      {
+        "category": "prior_only",
+        "status": "observed",
+        "keys": [
+          "category",
+          "season",
+          "player_id",
+          "second_player_id",
+          "strength",
+          "role",
+          "metric",
+          "expected",
+          "annual",
+          "status",
+          "predicate_witness",
+          "displayed_history"
+        ]
+      },
+      {
+        "category": "no_role_time",
+        "status": "observed",
+        "keys": [
+          "category",
+          "season",
+          "player_id",
+          "second_player_id",
+          "strength",
+          "role",
+          "metric",
+          "expected",
+          "annual",
+          "status",
+          "predicate_witness",
+          "displayed_history"
+        ]
+      },
+      {
+        "category": "zero_time_with_pooled_current_information",
+        "status": "observed",
+        "keys": [
+          "category",
+          "season",
+          "player_id",
+          "second_player_id",
+          "strength",
+          "role",
+          "metric",
+          "expected",
+          "annual",
+          "status",
+          "predicate_witness",
+          "displayed_history"
+        ]
+      },
+      {
+        "category": "rare_state",
+        "status": "observed",
+        "keys": [
+          "category",
+          "season",
+          "player_id",
+          "second_player_id",
+          "strength",
+          "role",
+          "metric",
+          "expected",
+          "annual",
+          "status",
+          "predicate_witness",
+          "displayed_history"
+        ]
+      },
+      {
+        "category": "traded",
+        "status": "observed",
+        "keys": [
+          "category",
+          "season",
+          "player_id",
+          "second_player_id",
+          "strength",
+          "role",
+          "metric",
+          "expected",
+          "annual",
+          "status",
+          "predicate_witness",
+          "displayed_history"
+        ]
+      },
+      {
+        "category": "absent_year",
+        "status": "observed",
+        "keys": [
+          "category",
+          "season",
+          "player_id",
+          "second_player_id",
+          "strength",
+          "role",
+          "metric",
+          "expected",
+          "annual",
+          "status",
+          "predicate_witness",
+          "displayed_history"
+        ]
+      },
+      {
+        "category": "baseline_state_extrapolated",
+        "status": "unobserved_within_inspected_scope",
+        "keys": [
+          "category",
+          "status",
+          "reason"
+        ]
+      }
+    ],
+    "collection_shapes": {
+      "request_records": {
+        "count": 543,
+        "item_key_variants": [
+          "mode,url"
+        ]
+      },
+      "response_records": {
+        "count": 543,
+        "item_key_variants": [
+          "declared_body_bytes,mode,status,url"
+        ]
+      },
+      "page_console_errors": {
+        "count": 3,
+        "item_key_variants": [
+          "committed_frame_id,committed_loader_id,document_origin_at_event,document_url_at_event,first_document_id,first_document_interval_at_event,location,message,mode,type"
+        ]
+      },
+      "transport_failures": {
+        "count": 0,
+        "item_key_variants": []
+      },
+      "owned_context_closure": {
+        "count": 3,
+        "item_key_variants": []
+      },
+      "evidence": {
+        "count": 4,
+        "item_key_variants": [
+          "adjustment_rows,baseline_states,coefficient_head_rows,player_id,season,strength"
+        ]
+      },
+      "evidence_exports": {
+        "count": 4,
+        "item_key_variants": [
+          "bytes,extension,failure,label,path,saved,sha256,suggested_filename"
+        ]
+      },
+      "keyboard": {
+        "count": 1,
+        "item_key_variants": [
+          "cutoff,history_scroll_focus,horizontal_arrow,mode,submit"
+        ]
+      },
+      "metrics": {
+        "count": 0,
+        "item_key_variants": []
+      },
+      "cases": {
+        "count": 10,
+        "item_key_variants": [
+          "annual,category,displayed_history,expected,metric,player_id,predicate_witness,role,season,second_player_id,status,strength",
+          "annual,category,displayed_history,expected,metric,player_id,predicate_witness,role,season,second_player_id,status,strength,zero_cutoff_cohort_size,zero_cutoff_percentile",
+          "category,reason,status"
+        ]
+      },
+      "cutoffs": {
+        "count": 3,
+        "item_key_variants": [
+          "annual_reload,raised_minutes,raw_unchanged,strength"
+        ]
+      },
+      "discoveries": {
+        "count": 0,
+        "item_key_variants": []
+      },
+      "maps": {
+        "count": 16,
+        "item_key_variants": [
+          "integral,player_id,quantity,strength,view"
+        ]
+      },
+      "captures": {
+        "count": 35,
+        "item_key_variants": [
+          "actual_viewport,bytes,clip,geometry,mode,path,position,sha256,url"
+        ]
+      },
+      "downloads": {
+        "count": 20,
+        "item_key_variants": [
+          "bytes,extension,failure,label,path,saved,sha256,suggested_filename"
+        ]
+      },
+      "exports": {
+        "count": 8,
+        "item_key_variants": [
+          "csv,metric,mode,pixel_acceptance,png,svg"
+        ]
+      },
+      "zoom": {
+        "count": 2,
+        "item_key_variants": [
+          "documentWidth,dpr,innerHeight,innerWidth,mode,outerHeight,outerWidth,visualScale"
+        ]
+      },
+      "negatives": {
+        "count": 4,
+        "item_key_variants": [
+          "resolved,supplied,url"
+        ]
+      },
+      "snapshots": {
+        "count": 1,
+        "item_key_variants": [
+          "actual_download,bytes,metric_at_click,path,pixel_acceptance,selected_after_click,sha256"
+        ]
+      },
+      "comparisons": {
+        "count": 1,
+        "item_key_variants": [
+          "a,b,maps,metric,season,selected_values"
+        ]
+      },
+      "first_documents": {
+        "count": 3,
+        "item_key_variants": [
+          "committed_identity_bound,committed_main_frame,icon_count,icons,id,initial_response_status,mode,origin,time_origin_ms,url"
+        ]
+      },
+      "main_frame_commits": {
+        "count": 49,
+        "item_key_variants": [
+          "frame_id,loader_id,mode,navigation_type,url,url_chars"
+        ]
+      },
+      "document_boundaries": {
+        "count": 3,
+        "item_key_variants": [
+          "current_main_commit,document_identity_failure,first_window_seal,initial_identity_bracket,initial_main_commit,mode"
+        ]
+      }
+    },
+    "unobserved_contract": "baseline_state_extrapolated owns category/status/reason only; season/player/history assertions apply only to observed variants",
+    "explanatory_prose_not_treated_as_status_enum": true
+  },
+  "checks": [
+    {
+      "name": "fixed_eight_cache_identities",
+      "passed": true,
+      "evidence": {
+        "inputs": 8,
+        "unique_logical_bytes": 3032721
+      }
+    },
+    {
+      "name": "capture_integrity_and_canonical_exit",
+      "passed": true,
+      "evidence": {
+        "buffers": [
+          {
+            "role": "result",
+            "bytes": 471411,
+            "sha256": "7f8100d5a522282a518fbc28fa3660396ec28a313f952e2b74a020f9f7c2afe0",
+            "complete": true,
+            "cap_bytes": 16777216,
+            "canonical_base64": true,
+            "passed": true
+          },
+          {
+            "role": "log",
+            "bytes": 777,
+            "sha256": "45e1b5cdda15bebec3a44c55c64058d5dcb871b47c6b19ba1940830909df5b67",
+            "complete": true,
+            "cap_bytes": 4194304,
+            "canonical_base64": true,
+            "passed": true
+          },
+          {
+            "role": "exit",
+            "bytes": 2,
+            "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+            "complete": true,
+            "cap_bytes": 16,
+            "canonical_base64": true,
+            "passed": true
+          }
+        ],
+        "exit_exact": "0\\n",
+        "returned_logical_bytes": 472190,
+        "artifact_acceptance_independent_of_native_exit": true
+      }
+    },
+    {
+      "name": "owned_launch_and_review",
+      "passed": true,
+      "evidence": {
+        "argv": [
+          "/bin/sh",
+          ".tmp/st-final-browser-held-12.sh",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+          "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+          "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-remainder-attempt03-dispatch-clearance-01.json",
+          "b6ef2ecc16c85dcf097513407ec2f6715fd940941edd8a27f88d5a66e71afb94"
+        ],
+        "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+        "normative_launch_review_status": "ACTUAL_COMMAND_FRAME_CORRESPONDENCE_CLEAR",
+        "launch_findings_object_is_not_error_list": true,
+        "source_status": "qualified message premises; no source or authority path followed"
+      }
+    },
+    {
+      "name": "cached_process_frame_and_unknown_initial_sample",
+      "passed": true,
+      "evidence": {
+        "later_kernel_chain": [
+          85089,
+          34931,
+          34932,
+          34939
+        ],
+        "later_three_cwds": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+        "start_local": "Sat Nov 14 10:28:28 2026",
+        "initial_pid34924": {
+          "command": "UNKNOWN",
+          "start": "UNKNOWN",
+          "cwd": "UNKNOWN"
+        },
+        "exit_not_inferred_from_pid_absence": true
+      },
+      "root_typed_contract_recheck": {
+        "expected_process_facts": {
+          "later_kernel_chain": [
+            85089,
+            34931,
+            34932,
+            34939
+          ],
+          "later_three_cwds": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+          "start_local": "Sat Nov 14 10:28:28 2026",
+          "initial_pid34924": {
+            "command": "UNKNOWN",
+            "start": "UNKNOWN",
+            "cwd": "UNKNOWN"
+          },
+          "exit_not_inferred_from_pid_absence": true
+        },
+        "comparison": "exact recorded numeric kernel chain/cwd/start/unknown facts; no string/int alias or coercion",
+        "basis": "independent frame correspondence and retained review evidence; pid serialization type is not process identity"
+      }
+    },
+    {
+      "name": "current_owned_browser_and_capture_completion",
+      "passed": true,
+      "evidence": {
+        "browser_numeric_exit": 0,
+        "browser_marker": "ST_BROWSER_REMAINDER_NATIVE_EXIT=0",
+        "browser_prompt_returned": true,
+        "capture_numeric_exit": 0,
+        "capture_marker": "ST_BROWSER_REMAINDER_POSTCAPTURE_NATIVE_EXIT=0",
+        "capture_prompt_returned": true,
+        "basis": "current exact command, numeric marker and returned owned prompt; theme and pid absence excluded"
+      }
+    },
+    {
+      "name": "immutable_target_input_and_publication_binding",
+      "passed": true,
+      "evidence": {
+        "target": {
+          "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+          "publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+          "base_url": "http://127.0.0.1:3407",
+          "database": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite",
+            "publisher_sha256": "17241928149f70bbd353815a4ec8feab39210d570205b494ad6c2af8cfb9a612",
+            "bytes": 31261470720
+          },
+          "results": {
+            "manifest": {
+              "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+              "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+            },
+            "producer_receipt": {
+              "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/special-teams-composition.json",
+              "sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654"
+            }
+          },
+          "serving_source": {
+            "commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+            "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+            "app_tree": "85201961284eb628e70afbcf976190d209ef6229"
+          },
+          "build_receipt": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-history-label-build.json",
+            "sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4"
+          },
+          "retained_node_pid": 89887,
+          "startup_release": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-03-checked-boundary.json",
+            "sha256": "b1006db8e6f590470a02da06595bbd041c13aa794b475a95c2bce821a5e5de85"
+          }
+        },
+        "consumer_csv_retained_identity": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/typed-consumer.csv",
+          "bytes": 932444,
+          "sha256": "94c350774d646ac99753f953d31c9aaff555bd98588d11e452b3c1bb3dea8ac4"
+        },
+        "csv_original_followed": false,
+        "api_and_consumer_status": [
+          "passed",
+          "passed"
+        ],
+        "source_body_qualification": "message/accepted source premises, not independently reread"
+      }
+    },
+    {
+      "name": "full_raw_api_bags_and_owned_context_closures",
+      "passed": true,
+      "evidence": {
+        "requests": 543,
+        "responses": 543,
+        "request_counts_by_mode": {
+          "normal": 466,
+          "narrow": 42,
+          "native200": 35
+        },
+        "response_status_counts": {
+          "200": 543
+        },
+        "duplicate_preserving_full_url_bags_equal": true,
+        "owned_closures": [
+          "closed_owned_context",
+          "closed_owned_context",
+          "closed_owned_context"
+        ],
+        "transport_failures": 0,
+        "primary_failure": null,
+        "final_raw_failure": null,
+        "declared_content_length_sum_bytes": 6083590469,
+        "body_byte_scope": "declared content-length sum only; transfer, decoded and physical bytes unknown"
+      }
+    },
+    {
+      "name": "each_current_favicon_event_identity_and_stable_bracket",
+      "passed": true,
+      "evidence": {
+        "present_console_errors": 3,
+        "qualified_implicit_favicon404": [
+          {
+            "mode": "normal",
+            "first_document_id": "normal:first",
+            "qualified": true,
+            "event_frame": "F69114CFC0BE615029E7C6702F3CD33F",
+            "event_loader": "8AD43517E9D5C03962D142DFD5986BE1"
+          },
+          {
+            "mode": "narrow",
+            "first_document_id": "narrow:first",
+            "qualified": true,
+            "event_frame": "8C7637D0F3381EE1DECEE3CC1FBD27CE",
+            "event_loader": "D4767A890D9EC19467F29834EEF7E30E"
+          },
+          {
+            "mode": "native200",
+            "first_document_id": "native200:first",
+            "qualified": true,
+            "event_frame": "8BA83402B75D98B167E0D77C77318BD3",
+            "event_loader": "892A51B9148B942776CA44712F352017"
+          }
+        ],
+        "other_page_or_console_errors": 0,
+        "exception_required_to_occur": false,
+        "aborted_request_waivers": 0,
+        "historical_events_requalified": false
+      }
+    },
+    {
+      "name": "heterogeneous_representative_cases_and_displayed_history",
+      "passed": true,
+      "evidence": {
+        "cases": [
+          {
+            "category": "complete_forward",
+            "status": "observed",
+            "accepted_api_projection_equal": true,
+            "season": "20252026",
+            "player_id": "8470621",
+            "raw_value": 0.2624246587719447,
+            "qualification_seconds": 9139.0,
+            "history_scalar_and_own_year_match": true,
+            "peer_rank_scope": "recorded display and qualified source assertions; full-cohort rank not independently recomputed",
+            "passed": true
+          },
+          {
+            "category": "complete_defense",
+            "status": "observed",
+            "accepted_api_projection_equal": true,
+            "season": "20252026",
+            "player_id": "8470613",
+            "raw_value": 0.1900114246204207,
+            "qualification_seconds": 3176.0,
+            "history_scalar_and_own_year_match": true,
+            "peer_rank_scope": "recorded display and qualified source assertions; full-cohort rank not independently recomputed",
+            "passed": true
+          },
+          {
+            "category": "sparse",
+            "status": "observed",
+            "accepted_api_projection_equal": true,
+            "season": "20252026",
+            "player_id": "8470613",
+            "raw_value": -0.10095480025735346,
+            "qualification_seconds": 178.0,
+            "history_scalar_and_own_year_match": true,
+            "peer_rank_scope": "recorded display and qualified source assertions; full-cohort rank not independently recomputed",
+            "passed": true
+          },
+          {
+            "category": "prior_only",
+            "status": "observed",
+            "accepted_api_projection_equal": true,
+            "season": "20252026",
+            "player_id": "8470621",
+            "raw_value": 0.18146896150864783,
+            "qualification_seconds": 0.0,
+            "history_scalar_and_own_year_match": true,
+            "peer_rank_scope": "recorded display and qualified source assertions; full-cohort rank not independently recomputed",
+            "passed": true
+          },
+          {
+            "category": "no_role_time",
+            "status": "observed",
+            "accepted_api_projection_equal": true,
+            "season": "20252026",
+            "player_id": "8470613",
+            "raw_value": 0.582753985322583,
+            "qualification_seconds": 0.0,
+            "history_scalar_and_own_year_match": true,
+            "peer_rank_scope": "recorded display and qualified source assertions; full-cohort rank not independently recomputed",
+            "passed": true
+          },
+          {
+            "category": "zero_time_with_pooled_current_information",
+            "status": "observed",
+            "accepted_api_projection_equal": true,
+            "season": "20252026",
+            "player_id": "8470613",
+            "raw_value": 0.582753985322583,
+            "qualification_seconds": 0.0,
+            "history_scalar_and_own_year_match": true,
+            "peer_rank_scope": "recorded display and qualified source assertions; full-cohort rank not independently recomputed",
+            "passed": true
+          },
+          {
+            "category": "rare_state",
+            "status": "observed",
+            "accepted_api_projection_equal": true,
+            "season": "20252026",
+            "player_id": "8470613",
+            "raw_value": -0.10095480025735346,
+            "qualification_seconds": 178.0,
+            "history_scalar_and_own_year_match": true,
+            "peer_rank_scope": "recorded display and qualified source assertions; full-cohort rank not independently recomputed",
+            "passed": true
+          },
+          {
+            "category": "traded",
+            "status": "observed",
+            "accepted_api_projection_equal": true,
+            "season": "20252026",
+            "player_id": "8470621",
+            "raw_value": 0.2624246587719447,
+            "qualification_seconds": 9139.0,
+            "history_scalar_and_own_year_match": true,
+            "peer_rank_scope": "recorded display and qualified source assertions; full-cohort rank not independently recomputed",
+            "passed": true
+          },
+          {
+            "category": "absent_year",
+            "status": "observed",
+            "accepted_api_projection_equal": true,
+            "season": "20232024",
+            "player_id": "8473604",
+            "raw_value": null,
+            "qualification_seconds": null,
+            "history_scalar_and_own_year_match": true,
+            "peer_rank_scope": "recorded display and qualified source assertions; full-cohort rank not independently recomputed",
+            "passed": true
+          },
+          {
+            "category": "baseline_state_extrapolated",
+            "status": "unobserved_within_inspected_scope",
+            "accepted_api_projection_equal": true,
+            "limit": "unobserved within the inspected scope only; no impossibility, waiver or synthetic pass",
+            "passed": true
+          }
+        ],
+        "observed_cases": 9,
+        "unobserved_cases": 1,
+        "old_checker_failure": "message-only KeyError('season'); uniform season access is incompatible with the current unobserved variant; old artifact not read"
+      }
+    },
+    {
+      "name": "accepted_consumer_api_oracle_consistency",
+      "passed": true,
+      "evidence": {
+        "accepted_metric_oracles": 40,
+        "accepted_annual_oracles": 120,
+        "retained_scalar_arithmetic_points": 160,
+        "arithmetic_or_binding_issues": [],
+        "scope": "retained oracle equality and arithmetic, not a new source fit, cohort recomputation or scientific admission"
+      }
+    },
+    {
+      "name": "remaining_strength_cutoffs_and_shared_mechanism_composition",
+      "passed": true,
+      "evidence": {
+        "remaining_strength_cutoffs": [
+          {
+            "strength": "pk",
+            "metric": "spatial.pk.defense_xg_per60",
+            "player_id": "8476902",
+            "season": "20252026",
+            "qualification_seconds": 18342.0,
+            "raised_minutes": 306,
+            "derived_next_whole_minute": 306,
+            "annual_own_year_seconds": {
+              "20232024": 16620.0,
+              "20242025": 16451.0,
+              "20252026": 18342.0
+            },
+            "raw_unchanged_runtime_assertion": true,
+            "annual_reload_runtime_assertion": true,
+            "passed": true
+          },
+          {
+            "strength": "5v3",
+            "metric": "spatial.5v3.offense_xg_per60",
+            "player_id": "8480018",
+            "season": "20252026",
+            "qualification_seconds": 731.0,
+            "raised_minutes": 13,
+            "derived_next_whole_minute": 13,
+            "annual_own_year_seconds": {
+              "20232024": 344.0,
+              "20242025": 510.0,
+              "20252026": 731.0
+            },
+            "raw_unchanged_runtime_assertion": true,
+            "annual_reload_runtime_assertion": true,
+            "passed": true
+          },
+          {
+            "strength": "3v5",
+            "metric": "spatial.3v5.defense_xg_per60",
+            "player_id": "8477507",
+            "season": "20252026",
+            "qualification_seconds": 631.0,
+            "raised_minutes": 11,
+            "derived_next_whole_minute": 11,
+            "annual_own_year_seconds": {
+              "20232024": 88.0,
+              "20242025": 71.0,
+              "20252026": 631.0
+            },
+            "raw_unchanged_runtime_assertion": true,
+            "annual_reload_runtime_assertion": true,
+            "passed": true
+          }
+        ],
+        "composition": "accepted PP35077 mechanism and unchanged shared factory/single specialtyMin form are message-only premises; these three strength records plus accepted forty-metric/120-annual oracles compose with that mechanism",
+        "independent_limit": "raw scalar, annual identities and raised cutoff arithmetic checked from retained records; raw/reference/plot peer-setting invariance and percentile-change assertions inherit the qualified runtime source; no full post-navigation DOM archive or full-cohort rank recomputation"
+      }
+    },
+    {
+      "name": "sixteen_maps_against_accepted_api_and_scalar_oracles",
+      "passed": true,
+      "evidence": {
+        "maps": [
+          {
+            "strength": "pp",
+            "quantity": "attempts",
+            "view": "effect",
+            "player_id": "8471214",
+            "season": "20252026",
+            "integral": 4.876356446897986,
+            "accepted_api_integral": 4.876356446897986,
+            "accepted_summary_scalar": 4.876356446897986,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "pp",
+            "quantity": "attempts",
+            "view": "complete",
+            "player_id": "8471214",
+            "season": "20252026",
+            "integral": 69.07636573586072,
+            "accepted_api_integral": 69.07636573586072,
+            "accepted_summary_scalar": 69.07636573586072,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "pp",
+            "quantity": "xg",
+            "view": "effect",
+            "player_id": "8471214",
+            "season": "20252026",
+            "integral": 0.202168740254481,
+            "accepted_api_integral": 0.202168740254481,
+            "accepted_summary_scalar": 0.202168740254481,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "pp",
+            "quantity": "xg",
+            "view": "complete",
+            "player_id": "8471214",
+            "season": "20252026",
+            "integral": 3.9579303457235047,
+            "accepted_api_integral": 3.9579303457235047,
+            "accepted_summary_scalar": 3.9579303457235047,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "pk",
+            "quantity": "attempts",
+            "view": "effect",
+            "player_id": "8476902",
+            "season": "20252026",
+            "integral": -3.9125152727105026,
+            "accepted_api_integral": -3.9125152727105026,
+            "accepted_summary_scalar": -3.9125152727105026,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "pk",
+            "quantity": "attempts",
+            "view": "complete",
+            "player_id": "8476902",
+            "season": "20252026",
+            "integral": 60.28749401625224,
+            "accepted_api_integral": 60.28749401625224,
+            "accepted_summary_scalar": 60.28749401625224,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "pk",
+            "quantity": "xg",
+            "view": "effect",
+            "player_id": "8476902",
+            "season": "20252026",
+            "integral": -0.16645509600358416,
+            "accepted_api_integral": -0.16645509600358416,
+            "accepted_summary_scalar": -0.16645509600358416,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "pk",
+            "quantity": "xg",
+            "view": "complete",
+            "player_id": "8476902",
+            "season": "20252026",
+            "integral": 3.5893065094654393,
+            "accepted_api_integral": 3.5893065094654393,
+            "accepted_summary_scalar": 3.5893065094654393,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "5v3",
+            "quantity": "attempts",
+            "view": "effect",
+            "player_id": "8480018",
+            "season": "20252026",
+            "integral": 0.15854274596674883,
+            "accepted_api_integral": 0.15854274596674883,
+            "accepted_summary_scalar": 0.15854274596674883,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "5v3",
+            "quantity": "attempts",
+            "view": "complete",
+            "player_id": "8480018",
+            "season": "20252026",
+            "integral": 85.65360376826604,
+            "accepted_api_integral": 85.65360376826604,
+            "accepted_summary_scalar": 85.65360376826604,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "5v3",
+            "quantity": "xg",
+            "view": "effect",
+            "player_id": "8480018",
+            "season": "20252026",
+            "integral": 0.20343734716605372,
+            "accepted_api_integral": 0.20343734716605372,
+            "accepted_summary_scalar": 0.20343734716605372,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "5v3",
+            "quantity": "xg",
+            "view": "complete",
+            "player_id": "8480018",
+            "season": "20252026",
+            "integral": 8.580092221006204,
+            "accepted_api_integral": 8.580092221006204,
+            "accepted_summary_scalar": 8.580092221006204,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "3v5",
+            "quantity": "attempts",
+            "view": "effect",
+            "player_id": "8477507",
+            "season": "20252026",
+            "integral": -1.8002940020561053,
+            "accepted_api_integral": -1.8002940020561053,
+            "accepted_summary_scalar": -1.8002940020561053,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "3v5",
+            "quantity": "attempts",
+            "view": "complete",
+            "player_id": "8477507",
+            "season": "20252026",
+            "integral": 83.69476702024318,
+            "accepted_api_integral": 83.69476702024318,
+            "accepted_summary_scalar": 83.69476702024318,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "3v5",
+            "quantity": "xg",
+            "view": "effect",
+            "player_id": "8477507",
+            "season": "20252026",
+            "integral": -0.08313976167357731,
+            "accepted_api_integral": -0.08313976167357731,
+            "accepted_summary_scalar": -0.08313976167357731,
+            "normal_capture_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "3v5",
+            "quantity": "xg",
+            "view": "complete",
+            "player_id": "8477507",
+            "season": "20252026",
+            "integral": 8.293515112166572,
+            "accepted_api_integral": 8.293515112166572,
+            "accepted_summary_scalar": 8.293515112166572,
+            "normal_capture_matches": 1,
+            "passed": true
+          }
+        ],
+        "normal_map_capture_count": 16,
+        "scope": "retained scalar/map oracle binding and url selectors; no original raster or map body/pixel follow"
+      }
+    },
+    {
+      "name": "four_full_evidence_panels_and_csv_bindings",
+      "passed": true,
+      "evidence": {
+        "panels_and_csvs": [
+          {
+            "strength": "pp",
+            "season": "20252026",
+            "player_id": "8471214",
+            "recorded_baseline_states": 3,
+            "accepted_baseline_states": 3,
+            "recorded_coefficient_heads": 3,
+            "accepted_coefficient_heads": 3,
+            "recorded_adjustment_rows": 14,
+            "accepted_adjustment_rows": 14,
+            "csv_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "pk",
+            "season": "20252026",
+            "player_id": "8476902",
+            "recorded_baseline_states": 3,
+            "accepted_baseline_states": 3,
+            "recorded_coefficient_heads": 3,
+            "accepted_coefficient_heads": 3,
+            "recorded_adjustment_rows": 14,
+            "accepted_adjustment_rows": 14,
+            "csv_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "5v3",
+            "season": "20252026",
+            "player_id": "8480018",
+            "recorded_baseline_states": 1,
+            "accepted_baseline_states": 1,
+            "recorded_coefficient_heads": 3,
+            "accepted_coefficient_heads": 3,
+            "recorded_adjustment_rows": 14,
+            "accepted_adjustment_rows": 14,
+            "csv_matches": 1,
+            "passed": true
+          },
+          {
+            "strength": "3v5",
+            "season": "20252026",
+            "player_id": "8477507",
+            "recorded_baseline_states": 1,
+            "accepted_baseline_states": 1,
+            "recorded_coefficient_heads": 3,
+            "accepted_coefficient_heads": 3,
+            "recorded_adjustment_rows": 14,
+            "accepted_adjustment_rows": 14,
+            "csv_matches": 1,
+            "passed": true
+          }
+        ],
+        "independent_limit": "panel counts and accepted source bindings checked; per-cell content, csv rows and quoted/escaped construction are qualified producer assertions because no complete panel DOM or csv bodies were retained"
+      }
+    },
+    {
+      "name": "negative_urls_keyboard_comparison_and_async_snapshot",
+      "passed": true,
+      "evidence": {
+        "url_negatives": {
+          "metric=spatial.pk.offense_xg_per60": {
+            "resolved": "spatial.5v5.offense_attempts_per60",
+            "url": "http://127.0.0.1:3407/players/8476460?season=20252026&view=analytical"
+          },
+          "metric=spatial.pp.defense_xg_per60": {
+            "resolved": "spatial.5v5.offense_attempts_per60",
+            "url": "http://127.0.0.1:3407/players/8476460?season=20252026&view=analytical"
+          },
+          "metric=x&metric=y": {
+            "resolved": "spatial.5v5.offense_attempts_per60",
+            "url": "http://127.0.0.1:3407/players/8476460?season=20252026&view=analytical"
+          },
+          "metric=spatial.5v5.offense_xg_per60&map=invalid&render=invalid": {
+            "resolved": "spatial.5v5.offense_xg_per60",
+            "url": "http://127.0.0.1:3407/players/8476460?season=20252026&view=analytical&metric=spatial.5v5.offense_xg_per60"
+          }
+        },
+        "keyboard": [
+          {
+            "mode": "narrow",
+            "cutoff": 0,
+            "submit": "Tab then Enter",
+            "history_scroll_focus": true,
+            "horizontal_arrow": true
+          }
+        ],
+        "snapshot_selection": {
+          "metric_at_click": "spatial.5v5.offense_attempts_per60",
+          "selected_after_click": "spatial.5v5.offense_xg_per60",
+          "actual_download": true
+        },
+        "comparison": [
+          {
+            "metric": "spatial.pk.defense_xg_per60",
+            "season": "20252026",
+            "a": "8476902",
+            "b": "8478831",
+            "selected_values": 2,
+            "maps": 2
+          }
+        ],
+        "scope": "retained action outcomes and source-qualified runtime assertions; snapshot click binding does not independently inspect its raster"
+      }
+    },
+    {
+      "name": "new_download_raster_and_svg_identity_union",
+      "passed": true,
+      "evidence": {
+        "new_actual_download_union": 21,
+        "recorded_downloads": 20,
+        "history_csvs": 8,
+        "history_pngs": 8,
+        "evidence_csvs": 4,
+        "evidence_export_duplicate_download_records": 4,
+        "snapshot_adds_downloads": 1,
+        "new_rasters": 44,
+        "new_svgs": 8,
+        "unique_recorded_artifact_paths": 64,
+        "unique_recorded_artifact_bytes": 22651389,
+        "raster_recorded_bytes": 21180649,
+        "svg_recorded_bytes": 196466,
+        "hash_uniqueness_required": false,
+        "independent_scope": "immutable retained descriptors, path union, metadata syntax and duplicated-descriptor coherence; recorded media hashes/bytes were not checked against original media files",
+        "svg_text_limit": "no svg text retained in these eight caches; text/content/file hashing not performed",
+        "image_ihdr_dimensions": "UNKNOWN",
+        "actual_pixel_review": "UNASSIGNED"
+      }
+    },
+    {
+      "name": "eight_layout_history_export_bindings",
+      "passed": true,
+      "evidence": {
+        "layout_history_exports": [
+          {
+            "mode": "narrow",
+            "metric": "spatial.pp.offense_xg_per60",
+            "player_id": "8471214",
+            "annual_span": [
+              "20232024",
+              "20252026"
+            ],
+            "filename_and_selection_bindings": true
+          },
+          {
+            "mode": "narrow",
+            "metric": "spatial.pk.defense_xg_per60",
+            "player_id": "8476902",
+            "annual_span": [
+              "20232024",
+              "20252026"
+            ],
+            "filename_and_selection_bindings": true
+          },
+          {
+            "mode": "narrow",
+            "metric": "spatial.5v3.offense_xg_relative_percent",
+            "player_id": "8480018",
+            "annual_span": [
+              "20232024",
+              "20252026"
+            ],
+            "filename_and_selection_bindings": true
+          },
+          {
+            "mode": "narrow",
+            "metric": "spatial.3v5.defense_xg_relative_percent",
+            "player_id": "8477507",
+            "annual_span": [
+              "20232024",
+              "20252026"
+            ],
+            "filename_and_selection_bindings": true
+          },
+          {
+            "mode": "native200",
+            "metric": "spatial.pp.offense_xg_per60",
+            "player_id": "8471214",
+            "annual_span": [
+              "20232024",
+              "20252026"
+            ],
+            "filename_and_selection_bindings": true
+          },
+          {
+            "mode": "native200",
+            "metric": "spatial.pk.defense_xg_per60",
+            "player_id": "8476902",
+            "annual_span": [
+              "20232024",
+              "20252026"
+            ],
+            "filename_and_selection_bindings": true
+          },
+          {
+            "mode": "native200",
+            "metric": "spatial.5v3.offense_xg_relative_percent",
+            "player_id": "8480018",
+            "annual_span": [
+              "20232024",
+              "20252026"
+            ],
+            "filename_and_selection_bindings": true
+          },
+          {
+            "mode": "native200",
+            "metric": "spatial.3v5.defense_xg_relative_percent",
+            "player_id": "8477507",
+            "annual_span": [
+              "20232024",
+              "20252026"
+            ],
+            "filename_and_selection_bindings": true
+          }
+        ],
+        "scope": "selection, filenames, annual span and retained metadata checked; csv scalar construction and svg/png rendering remain qualified runtime assertions, with original bodies and pixels uninspected"
+      }
+    },
+    {
+      "name": "three_browser_modes_narrow_and_native200_geometry",
+      "passed": true,
+      "evidence": {
+        "normal_baseline_geometry": {
+          "url": "http://127.0.0.1:3407/players/8476460?season=20252026&metric=spatial.5v5.offense_attempts_per60&view=comparative",
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1,
+          "fresh_measurement": true,
+          "new_png": false
+        },
+        "layout_geometry": {
+          "narrow": {
+            "mode": "narrow",
+            "innerWidth": 320,
+            "innerHeight": 913,
+            "outerWidth": 500,
+            "outerHeight": 913,
+            "dpr": 1,
+            "documentWidth": 320,
+            "visualScale": 1
+          },
+          "native200": {
+            "mode": "native200",
+            "innerWidth": 640,
+            "innerHeight": 456,
+            "outerWidth": 1280,
+            "outerHeight": 1000,
+            "dpr": 2,
+            "documentWidth": 640,
+            "visualScale": 1
+          }
+        },
+        "capture_counts": {
+          "normal/map": 16,
+          "normal/detail": 1,
+          "narrow/profile": 1,
+          "narrow/detail": 4,
+          "narrow/history": 4,
+          "native200/profile": 1,
+          "native200/detail": 4,
+          "native200/history": 4
+        },
+        "browser_versions_recorded": [
+          {
+            "mode": "normal",
+            "chrome": "156.0.8078.80",
+            "profile": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-remainder-profiles-03/normal",
+            "viewport_mechanism": "viewport:null nativewindow + Preferences zoom"
+          },
+          {
+            "mode": "narrow",
+            "chrome": "156.0.8078.80",
+            "profile": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-remainder-profiles-03/narrow",
+            "viewport_mechanism": "explicit320x913CSS; nativeChrome minimumwindow500 is not a320window claim"
+          },
+          {
+            "mode": "native200",
+            "chrome": "156.0.8078.80",
+            "profile": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-remainder-profiles-03/native200",
+            "viewport_mechanism": "viewport:null nativewindow + Preferences zoom"
+          }
+        ],
+        "scope": "retained geometry and mode ratios only; no encoded image dimensions, clipping, legibility or pixels inferred from geometry"
+      }
+    },
+    {
+      "name": "complete_native_footers_and_cost_scopes",
+      "passed": true,
+      "evidence": {
+        "native_browser_command": {
+          "wall_seconds": 656.62,
+          "user_seconds": 85.43,
+          "system_seconds": 12.05,
+          "peak_rss_bytes": 1186381824,
+          "raw_peak_memory_footprint_bytes": 234455296
+        },
+        "native_capture_caller": {
+          "wall_seconds": 0.05,
+          "user_seconds": 0.03,
+          "system_seconds": 0.01,
+          "peak_rss_bytes": 26492928,
+          "raw_peak_memory_footprint_bytes": 16515576
+        },
+        "internal_driver": {
+          "wall_seconds": 656.4714202080002,
+          "peak_node_driver_rss_bytes": 259588096
+        },
+        "internal_capture": {
+          "wall_seconds": 0.001043834025040269,
+          "peak_rss_bytes": 25853952
+        },
+        "declared_content_length_sum_bytes": 6083590469,
+        "scope": "native command footer derived from captured log; capture-caller footer derived from its current owned suffix. internal timers are separate. declared content-length is not transfer/decoded/physical bytes",
+        "chrome_aggregate_peak_rss": "UNKNOWN",
+        "retained_server_peak_rss": "UNKNOWN",
+        "physical_io_bytes": "UNKNOWN"
+      }
+    }
+  ],
+  "qualified_message_premises": {
+    "controller12_sha256": "683713f45b62f9eb8fedec24fabf3094e2fdd7245cf9e6e5f75dde8b4fdab011",
+    "held12_sha256": "c3d99e7267449e94066e7b2be4578aab07329b9deec8becda80dba08aa1ce602",
+    "source_critic_sha256": "362fc179f1a62f1b43e219a8b30b4e8c4a295c3fe5aea7b4459d786aea4db891",
+    "root_final_clearance_sha256": "b6ef2ecc16c85dcf097513407ec2f6715fd940941edd8a27f88d5a66e71afb94",
+    "collector_sha256": "cb93f9b490af7b6fa45a41d7879d2979b966e1ebae1195c004304bbab2a0077f",
+    "collector_held_sha256": "fdb194f9a8cf5ca761d1ed52772784817ba85328c01c671ed57ab5c210c09aef",
+    "scope": "these source/clearance identities are accepted message premises, not selfhash qualification or newly followed sources",
+    "prefix918": {
+      "normal_metric_oracles": 40,
+      "annual_oracles": 120,
+      "discoveries": 9,
+      "downloads": 80,
+      "rasters": 41,
+      "svgs": 40,
+      "historical_status_unchanged": true
+    },
+    "PP35077": "accepted full same-form specialtyMin/shared-factory/own-year cohort-history mechanism premise; not replayed or replaced by three invented duplicate anchors"
+  },
+  "independent_observation_boundary": {
+    "independently_derived_from_retained_records": [
+      "eight immutable cache identities",
+      "three complete base64 buffer identities and exact exit bytes",
+      "actual command/clearance/target correspondence and current owned completion records",
+      "duplicate-preserving full-url request/response bags, statuses and content-length sum",
+      "qualification of each present current implicit favicon404 event using its own first-document identity and stable bracket",
+      "every heterogeneous representative-case projection against accepted api and consumer",
+      "displayed raw scalar/year/support-label bindings",
+      "remaining cutoff values from accepted physical exposure",
+      "map integrals against uniquely selected accepted map/player oracles and accepted summary scalars",
+      "panel and export selection/count/filename/year bindings",
+      "metadata path union, descriptor coherence and media accounting",
+      "recorded geometry ratios",
+      "full native owner and capture-caller footer values"
+    ],
+    "producer_qualified_runtime_assertions": [
+      "complete raw/reference/plot invariance under peer-setting changes and annual reload semantics",
+      "evidence cell/csv construction and quoting",
+      "history csv values and svg/png render construction",
+      "keyboard focus/action behavior",
+      "comparison selected_values/maps assertions",
+      "async snapshot click selection semantics"
+    ],
+    "not_independently_recomputed": [
+      "full-cohort percentiles from unretained cohort source",
+      "full post-navigation dom state",
+      "original csv contents",
+      "original media hashes or bytes",
+      "svg text or original svg files",
+      "png ihdr dimensions",
+      "all 44 actual rasters, clipping, legibility or pixel correctness"
+    ]
+  },
+  "media": {
+    "raster_descriptors": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/001-normal-map.png",
+        "recorded_bytes": 61556,
+        "recorded_sha256": "033c225c1197f8f62a254fd18a5dabb48c98cc07dacab341c5cfa496d225916b",
+        "kind": "viewport_capture",
+        "source_record": "captures[0]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_attempts_per60&view=analytical",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pp.offense_attempts_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/002-normal-map.png",
+        "recorded_bytes": 66166,
+        "recorded_sha256": "4a8ed8e0a6c60555f0404c9f9de701aa1699ae5fde62d4f21881a3bc961a10d7",
+        "kind": "viewport_capture",
+        "source_record": "captures[1]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_attempts_per60&view=analytical&map=absolute",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pp.offense_attempts_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/004-normal-map.png",
+        "recorded_bytes": 58601,
+        "recorded_sha256": "787242c33d047babe816cadb9bebf74b8a381f33c26f58d61b6a2dd3afd7e942",
+        "kind": "viewport_capture",
+        "source_record": "captures[2]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_xg_per60&view=analytical",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pp.offense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/005-normal-map.png",
+        "recorded_bytes": 64368,
+        "recorded_sha256": "6cdb0b13ebdaf97768574681751452b6ed6fa7a8dc6e3777bfbd7f4d0523d663",
+        "kind": "viewport_capture",
+        "source_record": "captures[3]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_xg_per60&view=analytical&map=absolute",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pp.offense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/006-normal-map.png",
+        "recorded_bytes": 64920,
+        "recorded_sha256": "aad5538e99010cbfccc298710d6314309ac7bec27acfb33873cacd4adda7cd8b",
+        "kind": "viewport_capture",
+        "source_record": "captures[4]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_attempts_per60&view=analytical",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pk.defense_attempts_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/007-normal-map.png",
+        "recorded_bytes": 68617,
+        "recorded_sha256": "1a8c92768844e47753379ded9e02c5e6fe5575581f7d2c1a1ca67f6a3873f887",
+        "kind": "viewport_capture",
+        "source_record": "captures[5]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_attempts_per60&view=analytical&map=absolute",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pk.defense_attempts_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/009-normal-map.png",
+        "recorded_bytes": 59217,
+        "recorded_sha256": "65527c62e60c92527f87d69856b828ae5f4a07bf7c709acec8e6802d715bac46",
+        "kind": "viewport_capture",
+        "source_record": "captures[6]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_xg_per60&view=analytical",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pk.defense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/010-normal-map.png",
+        "recorded_bytes": 66605,
+        "recorded_sha256": "be75584e81ff738a0b8e609fff9f66ed3ea99db3e69979470031ac5b6c0db2a6",
+        "kind": "viewport_capture",
+        "source_record": "captures[7]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_xg_per60&view=analytical&map=absolute",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pk.defense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/011-normal-map.png",
+        "recorded_bytes": 63475,
+        "recorded_sha256": "2ec402f72d89da6aafb0adfaa7873ba3e242fc1e3635abd3f57489de33266a6c",
+        "kind": "viewport_capture",
+        "source_record": "captures[8]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_attempts_per60&view=analytical",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.5v3.offense_attempts_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/012-normal-map.png",
+        "recorded_bytes": 68459,
+        "recorded_sha256": "34b76ed2591392ea675b515900d3393ccb04a90644a7341c48cbcac0e6e6a8fb",
+        "kind": "viewport_capture",
+        "source_record": "captures[9]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_attempts_per60&view=analytical&map=absolute",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.5v3.offense_attempts_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/014-normal-map.png",
+        "recorded_bytes": 59010,
+        "recorded_sha256": "4529ec4d33f5cd57c1dfa36cfb5c58aea0a0044a78319fd69a9da214524bcc17",
+        "kind": "viewport_capture",
+        "source_record": "captures[10]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_xg_per60&view=analytical",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.5v3.offense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/015-normal-map.png",
+        "recorded_bytes": 66240,
+        "recorded_sha256": "ba3eba59fcfb98ecca128122df4076f6f57e2eb4fb7ddc29225820e08004c79e",
+        "kind": "viewport_capture",
+        "source_record": "captures[11]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_xg_per60&view=analytical&map=absolute",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.5v3.offense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/016-normal-map.png",
+        "recorded_bytes": 61145,
+        "recorded_sha256": "cb3474dcd9080b90d41ea0e52b76c9333f68ab64f238de98316ef5a16e964ff8",
+        "kind": "viewport_capture",
+        "source_record": "captures[12]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8477507?season=20252026&metric=spatial.3v5.defense_attempts_per60&view=analytical",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.3v5.defense_attempts_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/017-normal-map.png",
+        "recorded_bytes": 69850,
+        "recorded_sha256": "f1a3834b8325bdaa09f38bf991472abd646edfed8fe0f2a8cfe4decf1da299e0",
+        "kind": "viewport_capture",
+        "source_record": "captures[13]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8477507?season=20252026&metric=spatial.3v5.defense_attempts_per60&view=analytical&map=absolute",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.3v5.defense_attempts_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/019-normal-map.png",
+        "recorded_bytes": 59796,
+        "recorded_sha256": "99f6e161dd94cd7af997be8ae70f92b5e6be6d049fd19cbacf9b64b165c3727d",
+        "kind": "viewport_capture",
+        "source_record": "captures[14]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8477507?season=20252026&metric=spatial.3v5.defense_xg_per60&view=analytical",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.3v5.defense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/020-normal-map.png",
+        "recorded_bytes": 68701,
+        "recorded_sha256": "8ced5822de1f4badb5c16daeb126f254609ea6e9cd11fb0ba3e7448042e3803f",
+        "kind": "viewport_capture",
+        "source_record": "captures[15]",
+        "mode": "normal",
+        "position": "map",
+        "url": "http://127.0.0.1:3407/players/8477507?season=20252026&metric=spatial.3v5.defense_xg_per60&view=analytical&map=absolute",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.3v5.defense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/021-normal-detail.png",
+        "recorded_bytes": 151186,
+        "recorded_sha256": "7492617a8ef035c0519cce12a0e49186d42c731098d046f39218f62ecec0c231",
+        "kind": "viewport_capture",
+        "source_record": "captures[16]",
+        "mode": "normal",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/compare?season=20252026&metric=spatial.pk.defense_xg_per60&a=8476902&b=8478831&view=analytical",
+        "geometry": {
+          "innerWidth": 1280,
+          "innerHeight": 913,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 1,
+          "documentWidth": 1280,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pk.defense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/023-narrow-profile.png",
+        "recorded_bytes": 67978,
+        "recorded_sha256": "c527813806359c949824ce6c63478106bdab821ac6a7f5ee798dce5b760ecd4d",
+        "kind": "viewport_capture",
+        "source_record": "captures[17]",
+        "mode": "narrow",
+        "position": "profile",
+        "url": "http://127.0.0.1:3407/players/8476460?season=20252026&metric=spatial.5v5.offense_attempts_per60&view=comparative",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.5v5.offense_attempts_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/024-narrow-detail.png",
+        "recorded_bytes": 89421,
+        "recorded_sha256": "ad7421841075c8311a275ad08e1b11aade0c87578731062be22754dc829fdd16",
+        "kind": "viewport_capture",
+        "source_record": "captures[18]",
+        "mode": "narrow",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_xg_per60&view=comparative",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pp.offense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/025-narrow-history.png",
+        "recorded_bytes": 51048,
+        "recorded_sha256": "4994ff6f90042c2bdd3057ebad3ae59896151c82447cac213f1398cb9557e1f4",
+        "kind": "viewport_capture",
+        "source_record": "captures[19]",
+        "mode": "narrow",
+        "position": "history",
+        "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_xg_per60&view=comparative",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pp.offense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/029-narrow-detail.png",
+        "recorded_bytes": 88971,
+        "recorded_sha256": "b522d8fd1454fa533f9bc188a8c768c11de54bb443316dce60fc0534bc935a7a",
+        "kind": "viewport_capture",
+        "source_record": "captures[20]",
+        "mode": "narrow",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_xg_per60&view=comparative",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pk.defense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/030-narrow-history.png",
+        "recorded_bytes": 51787,
+        "recorded_sha256": "a615ffa0bdcccb2f9b80bdebc98699c2054ab70319ada4d3d4187e81b6942c51",
+        "kind": "viewport_capture",
+        "source_record": "captures[21]",
+        "mode": "narrow",
+        "position": "history",
+        "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_xg_per60&view=comparative",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pk.defense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/034-narrow-detail.png",
+        "recorded_bytes": 87256,
+        "recorded_sha256": "e2d991c3cc6a6e8bf8b51d5c12f6a57bb50c40df4f540b1f4f4671a2d2d3cfeb",
+        "kind": "viewport_capture",
+        "source_record": "captures[22]",
+        "mode": "narrow",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_xg_relative_percent&view=comparative",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.5v3.offense_xg_relative_percent"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/035-narrow-history.png",
+        "recorded_bytes": 50582,
+        "recorded_sha256": "07e85edf145b09b507cd7bdf16e43bf4884292ac184f605b8a04719947a6dc7b",
+        "kind": "viewport_capture",
+        "source_record": "captures[23]",
+        "mode": "narrow",
+        "position": "history",
+        "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_xg_relative_percent&view=comparative",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.5v3.offense_xg_relative_percent"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/039-narrow-detail.png",
+        "recorded_bytes": 87411,
+        "recorded_sha256": "134dd36d5ac344a4a949c99afac8d6c5ba36f588207f69418fcddc48b16ffef4",
+        "kind": "viewport_capture",
+        "source_record": "captures[24]",
+        "mode": "narrow",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/players/8477507?season=20252026&metric=spatial.3v5.defense_xg_relative_percent&view=comparative",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.3v5.defense_xg_relative_percent"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/040-narrow-history.png",
+        "recorded_bytes": 49306,
+        "recorded_sha256": "766c597eb71f9df6552b1d297b0cff70506c0ce2fd39f9473cdc0fade91403b5",
+        "kind": "viewport_capture",
+        "source_record": "captures[25]",
+        "mode": "narrow",
+        "position": "history",
+        "url": "http://127.0.0.1:3407/players/8477507?season=20252026&metric=spatial.3v5.defense_xg_relative_percent&view=comparative",
+        "geometry": {
+          "innerWidth": 320,
+          "innerHeight": 913,
+          "outerWidth": 500,
+          "outerHeight": 913,
+          "dpr": 1,
+          "documentWidth": 320,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.3v5.defense_xg_relative_percent"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/044-native200-profile.png",
+        "recorded_bytes": 107654,
+        "recorded_sha256": "0d58e6e2513fec10f2bff3817c4d4a9aab2ffb3d974bdffb2c3637190d850538",
+        "kind": "viewport_capture",
+        "source_record": "captures[26]",
+        "mode": "native200",
+        "position": "profile",
+        "url": "http://127.0.0.1:3407/players/8476460?season=20252026&metric=spatial.5v5.offense_attempts_per60&view=comparative",
+        "geometry": {
+          "innerWidth": 640,
+          "innerHeight": 456,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 2,
+          "documentWidth": 640,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.5v5.offense_attempts_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/045-native200-detail.png",
+        "recorded_bytes": 168522,
+        "recorded_sha256": "9c5cf33bdd45b60f7dc1ea359dda89169b9c59d830eb825d7ba16b2c2a7d4b06",
+        "kind": "viewport_capture",
+        "source_record": "captures[27]",
+        "mode": "native200",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_xg_per60&view=comparative",
+        "geometry": {
+          "innerWidth": 640,
+          "innerHeight": 456,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 2,
+          "documentWidth": 640,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pp.offense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/046-native200-history.png",
+        "recorded_bytes": 72201,
+        "recorded_sha256": "e0cd845137d596f9ed9eea6aef48b993a158cd9a017149f00b7dbedcf3ffc8c5",
+        "kind": "viewport_capture",
+        "source_record": "captures[28]",
+        "mode": "native200",
+        "position": "history",
+        "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_xg_per60&view=comparative",
+        "geometry": {
+          "innerWidth": 640,
+          "innerHeight": 456,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 2,
+          "documentWidth": 640,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pp.offense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/050-native200-detail.png",
+        "recorded_bytes": 167601,
+        "recorded_sha256": "7c2ef1a8f5cc42222f48180b28226f77ad560f298663bf3a7a4648a2cee521a0",
+        "kind": "viewport_capture",
+        "source_record": "captures[29]",
+        "mode": "native200",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_xg_per60&view=comparative",
+        "geometry": {
+          "innerWidth": 640,
+          "innerHeight": 456,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 2,
+          "documentWidth": 640,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pk.defense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/051-native200-history.png",
+        "recorded_bytes": 74026,
+        "recorded_sha256": "b757a84fbe79644b676ce9eef7ef1dcc4043e3a73d3cdf56a91bd6b867e91b2b",
+        "kind": "viewport_capture",
+        "source_record": "captures[30]",
+        "mode": "native200",
+        "position": "history",
+        "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_xg_per60&view=comparative",
+        "geometry": {
+          "innerWidth": 640,
+          "innerHeight": 456,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 2,
+          "documentWidth": 640,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.pk.defense_xg_per60"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/055-native200-detail.png",
+        "recorded_bytes": 164471,
+        "recorded_sha256": "fca8ccfb2411c54a5c68d08f53f0874fe322a2a75bd48ce6454ab23a8a91d41a",
+        "kind": "viewport_capture",
+        "source_record": "captures[31]",
+        "mode": "native200",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_xg_relative_percent&view=comparative",
+        "geometry": {
+          "innerWidth": 640,
+          "innerHeight": 456,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 2,
+          "documentWidth": 640,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.5v3.offense_xg_relative_percent"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/056-native200-history.png",
+        "recorded_bytes": 76479,
+        "recorded_sha256": "8ca8792368bf51b8a118274d9cf3f271a3edb3e54e2e4dd03b04050cacf19366",
+        "kind": "viewport_capture",
+        "source_record": "captures[32]",
+        "mode": "native200",
+        "position": "history",
+        "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_xg_relative_percent&view=comparative",
+        "geometry": {
+          "innerWidth": 640,
+          "innerHeight": 456,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 2,
+          "documentWidth": 640,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.5v3.offense_xg_relative_percent"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/060-native200-detail.png",
+        "recorded_bytes": 165703,
+        "recorded_sha256": "2884252fbae7cdb83b2de2e950bbac3c293353d453bbb4a906978ba23f750335",
+        "kind": "viewport_capture",
+        "source_record": "captures[33]",
+        "mode": "native200",
+        "position": "detail",
+        "url": "http://127.0.0.1:3407/players/8477507?season=20252026&metric=spatial.3v5.defense_xg_relative_percent&view=comparative",
+        "geometry": {
+          "innerWidth": 640,
+          "innerHeight": 456,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 2,
+          "documentWidth": 640,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.3v5.defense_xg_relative_percent"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/061-native200-history.png",
+        "recorded_bytes": 71973,
+        "recorded_sha256": "e39e7a40679c0139fa1281249c1095950f23d5e9eb9abd1976c89bd87bcd94d3",
+        "kind": "viewport_capture",
+        "source_record": "captures[34]",
+        "mode": "native200",
+        "position": "history",
+        "url": "http://127.0.0.1:3407/players/8477507?season=20252026&metric=spatial.3v5.defense_xg_relative_percent&view=comparative",
+        "geometry": {
+          "innerWidth": 640,
+          "innerHeight": 456,
+          "outerWidth": 1280,
+          "outerHeight": 1000,
+          "dpr": 2,
+          "documentWidth": 640,
+          "visualScale": 1
+        },
+        "actual_viewport_recorded": true,
+        "clip_recorded": null,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED",
+        "metric": "spatial.3v5.defense_xg_relative_percent"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/027-narrow-spatial.pp.offense_xg_per60.png",
+        "recorded_bytes": 2118896,
+        "recorded_sha256": "7c15f8b6413bd729d59020750047384499ff323387cbcb412692b6e9b537bd1a",
+        "kind": "history_png_download",
+        "source_record": "exports[0].png",
+        "mode": "narrow",
+        "metric": "spatial.pp.offense_xg_per60",
+        "label": "narrow-spatial.pp.offense_xg_per60",
+        "suggested_filename": "hockey-stats-8471214-spatial.pp.offense_xg_per60-20232024-20252026-history-raw.png",
+        "producer_recorded_width": 1200,
+        "producer_recorded_height": 5671,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/032-narrow-spatial.pk.defense_xg_per60.png",
+        "recorded_bytes": 2124421,
+        "recorded_sha256": "0da9feadf22b6107d13bf30833b9df2c96a662ce3fe311923fbaec3488a9f171",
+        "kind": "history_png_download",
+        "source_record": "exports[1].png",
+        "mode": "narrow",
+        "metric": "spatial.pk.defense_xg_per60",
+        "label": "narrow-spatial.pk.defense_xg_per60",
+        "suggested_filename": "hockey-stats-8476902-spatial.pk.defense_xg_per60-20232024-20252026-history-raw.png",
+        "producer_recorded_width": 1200,
+        "producer_recorded_height": 5727,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/037-narrow-spatial.5v3.offense_xg_relative_percent.png",
+        "recorded_bytes": 2017361,
+        "recorded_sha256": "98e5decd2a0c31d3b18be2d165052e6006acff0071ef8fe155b54481abf2afda",
+        "kind": "history_png_download",
+        "source_record": "exports[2].png",
+        "mode": "narrow",
+        "metric": "spatial.5v3.offense_xg_relative_percent",
+        "label": "narrow-spatial.5v3.offense_xg_relative_percent",
+        "suggested_filename": "hockey-stats-8480018-spatial.5v3.offense_xg_relative_percent-20232024-20252026-history-raw.png",
+        "producer_recorded_width": 1200,
+        "producer_recorded_height": 5503,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/042-narrow-spatial.3v5.defense_xg_relative_percent.png",
+        "recorded_bytes": 2023283,
+        "recorded_sha256": "6153d3d13afc3480a165e743e6902edb3d6bd74dc074e2e1c6b0e04afb7b3f39",
+        "kind": "history_png_download",
+        "source_record": "exports[3].png",
+        "mode": "narrow",
+        "metric": "spatial.3v5.defense_xg_relative_percent",
+        "label": "narrow-spatial.3v5.defense_xg_relative_percent",
+        "suggested_filename": "hockey-stats-8477507-spatial.3v5.defense_xg_relative_percent-20232024-20252026-history-raw.png",
+        "producer_recorded_width": 1200,
+        "producer_recorded_height": 5503,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/048-native200-spatial.pp.offense_xg_per60.png",
+        "recorded_bytes": 2118896,
+        "recorded_sha256": "7c15f8b6413bd729d59020750047384499ff323387cbcb412692b6e9b537bd1a",
+        "kind": "history_png_download",
+        "source_record": "exports[4].png",
+        "mode": "native200",
+        "metric": "spatial.pp.offense_xg_per60",
+        "label": "native200-spatial.pp.offense_xg_per60",
+        "suggested_filename": "hockey-stats-8471214-spatial.pp.offense_xg_per60-20232024-20252026-history-raw.png",
+        "producer_recorded_width": 1200,
+        "producer_recorded_height": 5671,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/053-native200-spatial.pk.defense_xg_per60.png",
+        "recorded_bytes": 2124421,
+        "recorded_sha256": "0da9feadf22b6107d13bf30833b9df2c96a662ce3fe311923fbaec3488a9f171",
+        "kind": "history_png_download",
+        "source_record": "exports[5].png",
+        "mode": "native200",
+        "metric": "spatial.pk.defense_xg_per60",
+        "label": "native200-spatial.pk.defense_xg_per60",
+        "suggested_filename": "hockey-stats-8476902-spatial.pk.defense_xg_per60-20232024-20252026-history-raw.png",
+        "producer_recorded_width": 1200,
+        "producer_recorded_height": 5727,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/058-native200-spatial.5v3.offense_xg_relative_percent.png",
+        "recorded_bytes": 2017361,
+        "recorded_sha256": "98e5decd2a0c31d3b18be2d165052e6006acff0071ef8fe155b54481abf2afda",
+        "kind": "history_png_download",
+        "source_record": "exports[6].png",
+        "mode": "native200",
+        "metric": "spatial.5v3.offense_xg_relative_percent",
+        "label": "native200-spatial.5v3.offense_xg_relative_percent",
+        "suggested_filename": "hockey-stats-8480018-spatial.5v3.offense_xg_relative_percent-20232024-20252026-history-raw.png",
+        "producer_recorded_width": 1200,
+        "producer_recorded_height": 5503,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/063-native200-spatial.3v5.defense_xg_relative_percent.png",
+        "recorded_bytes": 2023283,
+        "recorded_sha256": "6153d3d13afc3480a165e743e6902edb3d6bd74dc074e2e1c6b0e04afb7b3f39",
+        "kind": "history_png_download",
+        "source_record": "exports[7].png",
+        "mode": "native200",
+        "metric": "spatial.3v5.defense_xg_relative_percent",
+        "label": "native200-spatial.3v5.defense_xg_relative_percent",
+        "suggested_filename": "hockey-stats-8477507-spatial.3v5.defense_xg_relative_percent-20232024-20252026-history-raw.png",
+        "producer_recorded_width": 1200,
+        "producer_recorded_height": 5503,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/022-async-selected-snapshot.png",
+        "recorded_bytes": 1742425,
+        "recorded_sha256": "09f6871e2fe505f15fed179dc1c1eb3aac5f969c83ee17dd7b3a68e155ab9807",
+        "kind": "async_snapshot_download",
+        "source_record": "snapshots[0]",
+        "metric_at_click": "spatial.5v5.offense_attempts_per60",
+        "selected_after_click": "spatial.5v5.offense_xg_per60",
+        "actual_download_recorded": true,
+        "encoded_dimensions": "UNKNOWN",
+        "actual_pixels": "UNASSIGNED"
+      }
+    ],
+    "svg_descriptors": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/028-narrow-spatial.pp.offense_xg_per60.svg",
+        "recorded_bytes": 25025,
+        "recorded_sha256": "61bfdbb91d602e2eac4fb46b0b136098821ff71fc36e506343ba6fc5ac363eeb",
+        "kind": "history_svg",
+        "source_record": "exports[0].svg",
+        "mode": "narrow",
+        "metric": "spatial.pp.offense_xg_per60",
+        "retained_text_available": false,
+        "original_svg_read": false
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/033-narrow-spatial.pk.defense_xg_per60.svg",
+        "recorded_bytes": 25196,
+        "recorded_sha256": "cfa8cf56a6ab00f847238d93d870fe384add41097d515c80651f214cb6ba277f",
+        "kind": "history_svg",
+        "source_record": "exports[1].svg",
+        "mode": "narrow",
+        "metric": "spatial.pk.defense_xg_per60",
+        "retained_text_available": false,
+        "original_svg_read": false
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/038-narrow-spatial.5v3.offense_xg_relative_percent.svg",
+        "recorded_bytes": 23997,
+        "recorded_sha256": "7cd4cbcea762bbae6427ad45073ff2228d30e3fe3d712202ed3fb3b0d5b56cd5",
+        "kind": "history_svg",
+        "source_record": "exports[2].svg",
+        "mode": "narrow",
+        "metric": "spatial.5v3.offense_xg_relative_percent",
+        "retained_text_available": false,
+        "original_svg_read": false
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/043-narrow-spatial.3v5.defense_xg_relative_percent.svg",
+        "recorded_bytes": 24015,
+        "recorded_sha256": "181f8993c986fc71c0864639044d041c786e96a795a31b854e9d7ee68579c393",
+        "kind": "history_svg",
+        "source_record": "exports[3].svg",
+        "mode": "narrow",
+        "metric": "spatial.3v5.defense_xg_relative_percent",
+        "retained_text_available": false,
+        "original_svg_read": false
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/049-native200-spatial.pp.offense_xg_per60.svg",
+        "recorded_bytes": 25025,
+        "recorded_sha256": "61bfdbb91d602e2eac4fb46b0b136098821ff71fc36e506343ba6fc5ac363eeb",
+        "kind": "history_svg",
+        "source_record": "exports[4].svg",
+        "mode": "native200",
+        "metric": "spatial.pp.offense_xg_per60",
+        "retained_text_available": false,
+        "original_svg_read": false
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/054-native200-spatial.pk.defense_xg_per60.svg",
+        "recorded_bytes": 25196,
+        "recorded_sha256": "cfa8cf56a6ab00f847238d93d870fe384add41097d515c80651f214cb6ba277f",
+        "kind": "history_svg",
+        "source_record": "exports[5].svg",
+        "mode": "native200",
+        "metric": "spatial.pk.defense_xg_per60",
+        "retained_text_available": false,
+        "original_svg_read": false
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/059-native200-spatial.5v3.offense_xg_relative_percent.svg",
+        "recorded_bytes": 23997,
+        "recorded_sha256": "7cd4cbcea762bbae6427ad45073ff2228d30e3fe3d712202ed3fb3b0d5b56cd5",
+        "kind": "history_svg",
+        "source_record": "exports[6].svg",
+        "mode": "native200",
+        "metric": "spatial.5v3.offense_xg_relative_percent",
+        "retained_text_available": false,
+        "original_svg_read": false
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/064-native200-spatial.3v5.defense_xg_relative_percent.svg",
+        "recorded_bytes": 24015,
+        "recorded_sha256": "181f8993c986fc71c0864639044d041c786e96a795a31b854e9d7ee68579c393",
+        "kind": "history_svg",
+        "source_record": "exports[7].svg",
+        "mode": "native200",
+        "metric": "spatial.3v5.defense_xg_relative_percent",
+        "retained_text_available": false,
+        "original_svg_read": false
+      }
+    ],
+    "actual_download_descriptors": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/003-evidence-pp.csv",
+        "recorded_bytes": 290823,
+        "recorded_sha256": "dd95bd2f5955b217178eeebcc8e33469ace535e165a4f0219463289441b80160",
+        "extension": ".csv",
+        "label": "evidence-pp",
+        "suggested_filename": "hockey-stats-20252026-8471214-pp-spatial-evidence.csv"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/008-evidence-pk.csv",
+        "recorded_bytes": 290879,
+        "recorded_sha256": "029d4f95af91c132b246710bb91ceb161e674a9223dbe156dd62fe7b9613612f",
+        "extension": ".csv",
+        "label": "evidence-pk",
+        "suggested_filename": "hockey-stats-20252026-8476902-pk-spatial-evidence.csv"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/013-evidence-5v3.csv",
+        "recorded_bytes": 249660,
+        "recorded_sha256": "0cb131854d058c3e1954c06292cbf8254f1181e1b5b2fb7382062505c99423d4",
+        "extension": ".csv",
+        "label": "evidence-5v3",
+        "suggested_filename": "hockey-stats-20252026-8480018-5v3-spatial-evidence.csv"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/018-evidence-3v5.csv",
+        "recorded_bytes": 249718,
+        "recorded_sha256": "f7b7493adb2541050bceccaae09cb0708296fda383363a83312cd678900d897f",
+        "extension": ".csv",
+        "label": "evidence-3v5",
+        "suggested_filename": "hockey-stats-20252026-8477507-3v5-spatial-evidence.csv"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/026-narrow-spatial.pp.offense_xg_per60.csv",
+        "recorded_bytes": 24405,
+        "recorded_sha256": "c3bbbd2bd69d8e4be295eab2bf8c3afd0038cc6458abc514e2c2f9d57b20b771",
+        "extension": ".csv",
+        "label": "narrow-spatial.pp.offense_xg_per60",
+        "suggested_filename": "hockey-stats-8471214-spatial.pp.offense_xg_per60-20232024-20252026-history.csv"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/027-narrow-spatial.pp.offense_xg_per60.png",
+        "recorded_bytes": 2118896,
+        "recorded_sha256": "7c15f8b6413bd729d59020750047384499ff323387cbcb412692b6e9b537bd1a",
+        "extension": ".png",
+        "label": "narrow-spatial.pp.offense_xg_per60",
+        "suggested_filename": "hockey-stats-8471214-spatial.pp.offense_xg_per60-20232024-20252026-history-raw.png"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/031-narrow-spatial.pk.defense_xg_per60.csv",
+        "recorded_bytes": 24467,
+        "recorded_sha256": "08ecc8235d4b2522e984850a2423cf32c90a8af6cb5126b0d4bbb0e0369a5a2b",
+        "extension": ".csv",
+        "label": "narrow-spatial.pk.defense_xg_per60",
+        "suggested_filename": "hockey-stats-8476902-spatial.pk.defense_xg_per60-20232024-20252026-history.csv"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/032-narrow-spatial.pk.defense_xg_per60.png",
+        "recorded_bytes": 2124421,
+        "recorded_sha256": "0da9feadf22b6107d13bf30833b9df2c96a662ce3fe311923fbaec3488a9f171",
+        "extension": ".png",
+        "label": "narrow-spatial.pk.defense_xg_per60",
+        "suggested_filename": "hockey-stats-8476902-spatial.pk.defense_xg_per60-20232024-20252026-history-raw.png"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/036-narrow-spatial.5v3.offense_xg_relative_percent.csv",
+        "recorded_bytes": 23836,
+        "recorded_sha256": "0f21c8461c5002d2612b0e47c6bae4b3dddfeb77209f5a887f3f2414cdd3f8f8",
+        "extension": ".csv",
+        "label": "narrow-spatial.5v3.offense_xg_relative_percent",
+        "suggested_filename": "hockey-stats-8480018-spatial.5v3.offense_xg_relative_percent-20232024-20252026-history.csv"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/037-narrow-spatial.5v3.offense_xg_relative_percent.png",
+        "recorded_bytes": 2017361,
+        "recorded_sha256": "98e5decd2a0c31d3b18be2d165052e6006acff0071ef8fe155b54481abf2afda",
+        "extension": ".png",
+        "label": "narrow-spatial.5v3.offense_xg_relative_percent",
+        "suggested_filename": "hockey-stats-8480018-spatial.5v3.offense_xg_relative_percent-20232024-20252026-history-raw.png"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/041-narrow-spatial.3v5.defense_xg_relative_percent.csv",
+        "recorded_bytes": 23889,
+        "recorded_sha256": "7cc18257db0fda3211d4158f4036cf597a24d2222e4f956dfbee936d1d1ae217",
+        "extension": ".csv",
+        "label": "narrow-spatial.3v5.defense_xg_relative_percent",
+        "suggested_filename": "hockey-stats-8477507-spatial.3v5.defense_xg_relative_percent-20232024-20252026-history.csv"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/042-narrow-spatial.3v5.defense_xg_relative_percent.png",
+        "recorded_bytes": 2023283,
+        "recorded_sha256": "6153d3d13afc3480a165e743e6902edb3d6bd74dc074e2e1c6b0e04afb7b3f39",
+        "extension": ".png",
+        "label": "narrow-spatial.3v5.defense_xg_relative_percent",
+        "suggested_filename": "hockey-stats-8477507-spatial.3v5.defense_xg_relative_percent-20232024-20252026-history-raw.png"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/047-native200-spatial.pp.offense_xg_per60.csv",
+        "recorded_bytes": 24405,
+        "recorded_sha256": "c3bbbd2bd69d8e4be295eab2bf8c3afd0038cc6458abc514e2c2f9d57b20b771",
+        "extension": ".csv",
+        "label": "native200-spatial.pp.offense_xg_per60",
+        "suggested_filename": "hockey-stats-8471214-spatial.pp.offense_xg_per60-20232024-20252026-history.csv"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/048-native200-spatial.pp.offense_xg_per60.png",
+        "recorded_bytes": 2118896,
+        "recorded_sha256": "7c15f8b6413bd729d59020750047384499ff323387cbcb412692b6e9b537bd1a",
+        "extension": ".png",
+        "label": "native200-spatial.pp.offense_xg_per60",
+        "suggested_filename": "hockey-stats-8471214-spatial.pp.offense_xg_per60-20232024-20252026-history-raw.png"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/052-native200-spatial.pk.defense_xg_per60.csv",
+        "recorded_bytes": 24467,
+        "recorded_sha256": "08ecc8235d4b2522e984850a2423cf32c90a8af6cb5126b0d4bbb0e0369a5a2b",
+        "extension": ".csv",
+        "label": "native200-spatial.pk.defense_xg_per60",
+        "suggested_filename": "hockey-stats-8476902-spatial.pk.defense_xg_per60-20232024-20252026-history.csv"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/053-native200-spatial.pk.defense_xg_per60.png",
+        "recorded_bytes": 2124421,
+        "recorded_sha256": "0da9feadf22b6107d13bf30833b9df2c96a662ce3fe311923fbaec3488a9f171",
+        "extension": ".png",
+        "label": "native200-spatial.pk.defense_xg_per60",
+        "suggested_filename": "hockey-stats-8476902-spatial.pk.defense_xg_per60-20232024-20252026-history-raw.png"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/057-native200-spatial.5v3.offense_xg_relative_percent.csv",
+        "recorded_bytes": 23836,
+        "recorded_sha256": "0f21c8461c5002d2612b0e47c6bae4b3dddfeb77209f5a887f3f2414cdd3f8f8",
+        "extension": ".csv",
+        "label": "native200-spatial.5v3.offense_xg_relative_percent",
+        "suggested_filename": "hockey-stats-8480018-spatial.5v3.offense_xg_relative_percent-20232024-20252026-history.csv"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/058-native200-spatial.5v3.offense_xg_relative_percent.png",
+        "recorded_bytes": 2017361,
+        "recorded_sha256": "98e5decd2a0c31d3b18be2d165052e6006acff0071ef8fe155b54481abf2afda",
+        "extension": ".png",
+        "label": "native200-spatial.5v3.offense_xg_relative_percent",
+        "suggested_filename": "hockey-stats-8480018-spatial.5v3.offense_xg_relative_percent-20232024-20252026-history-raw.png"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/062-native200-spatial.3v5.defense_xg_relative_percent.csv",
+        "recorded_bytes": 23889,
+        "recorded_sha256": "7cc18257db0fda3211d4158f4036cf597a24d2222e4f956dfbee936d1d1ae217",
+        "extension": ".csv",
+        "label": "native200-spatial.3v5.defense_xg_relative_percent",
+        "suggested_filename": "hockey-stats-8477507-spatial.3v5.defense_xg_relative_percent-20232024-20252026-history.csv"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/063-native200-spatial.3v5.defense_xg_relative_percent.png",
+        "recorded_bytes": 2023283,
+        "recorded_sha256": "6153d3d13afc3480a165e743e6902edb3d6bd74dc074e2e1c6b0e04afb7b3f39",
+        "extension": ".png",
+        "label": "native200-spatial.3v5.defense_xg_relative_percent",
+        "suggested_filename": "hockey-stats-8477507-spatial.3v5.defense_xg_relative_percent-20232024-20252026-history-raw.png"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/022-async-selected-snapshot.png",
+        "recorded_bytes": 1742425,
+        "recorded_sha256": "09f6871e2fe505f15fed179dc1c1eb3aac5f969c83ee17dd7b3a68e155ab9807",
+        "extension": ".png",
+        "kind": "async_snapshot_download"
+      }
+    ],
+    "original_media_file_reads": 0,
+    "hash_uniqueness_required": false,
+    "pixel_owner": "UNASSIGNED",
+    "recorded_dimensions_are_not_encoded_image_verification": true
+  },
+  "native_cost": {
+    "browser_whole_command": {
+      "wall_seconds": 656.62,
+      "user_seconds": 85.43,
+      "system_seconds": 12.05,
+      "peak_rss_bytes": 1186381824,
+      "raw_peak_memory_footprint_bytes": 234455296
+    },
+    "capture_caller": {
+      "wall_seconds": 0.05,
+      "user_seconds": 0.03,
+      "system_seconds": 0.01,
+      "peak_rss_bytes": 26492928,
+      "raw_peak_memory_footprint_bytes": 16515576
+    },
+    "internal_driver_wall_seconds": 656.4714202080002,
+    "internal_driver_peak_node_rss_bytes": 259588096,
+    "internal_capture_wall_seconds": 0.001043834025040269,
+    "internal_capture_peak_rss_bytes": 25853952,
+    "declared_content_length_sum_bytes": 6083590469,
+    "declared_content_length_scope": "not transfer bytes, decoded bytes or physical io",
+    "chrome_aggregate_peak_rss": "UNKNOWN",
+    "retained_server_peak_rss": "UNKNOWN",
+    "physical_io_bytes": "UNKNOWN"
+  },
+  "limits": [
+    "native0, capture0 and artifact acceptance remain distinct",
+    "this report grants no aggregate browser, product, scientific or actual-pixel acceptance and no new window",
+    "accepted prefix and PP scopes are message premises only; old06/01 events and aborts remain unqualified and unwaived",
+    "unobserved remains within inspected scope; no impossibility or synthetic-real pass is inferred",
+    "metadata coherence does not independently verify original media bytes, rendering or actual pixels",
+    "source-qualified runtime assertions are distinguished from retained observations; no missing full dom archive or cohort source is invented",
+    "isolated rollback, protected-primary verification and campaign cleanup remain separately assigned"
+  ],
+  "producer_unresolved_acceptance_recorded": [
+    "externally checked accepted prefix artifacts/pixels and old-favicon qualification",
+    "accepted isolated pp control proof",
+    "independent actual pixel inspection for new remainder",
+    "separately assigned isolated rollback",
+    "protected-primary verification",
+    "campaign cleanup"
+  ],
+  "output_policy": {
+    "exclusive_path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-browser12-independent-adjudication-04.json",
+    "exclusive_create": true,
+    "old_artifacts_changed": false,
+    "additional_report_files": 0,
+    "native_or_capture_replay": false,
+    "product_or_controller_changes": false
+  },
+  "root_reviewer_correction": {
+    "owner": "root",
+    "preserved_failed_report": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-browser12-independent-adjudication-04.json",
+      "bytes": 111717,
+      "sha256": "533a59e91c0979ce8aa6a6ca57a004dafe4de82290db273201949707a90b243d"
+    },
+    "error": "the independent checker compared current selected-pid strings with integer expectations; all retained process identity facts match the required chain",
+    "change": "only the one current process-correspondence guard was reevaluated against its exact retained kernel/cwd/start/unknown facts; all other17 independent check results and all facts remain unchanged",
+    "actual_selected_pid_strings": "critic-observed message fact: 34931,34932,34939; no new original-cache read",
+    "root_failed_report_reads": 3,
+    "root_failed_report_logical_bytes": 335151,
+    "original_cache_or_media_or_source_or_runtime_reads": 0,
+    "pixel_product_scientific_or_new_window_grant": false
+  }
+}

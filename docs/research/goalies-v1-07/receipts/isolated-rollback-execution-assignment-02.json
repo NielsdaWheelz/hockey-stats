@@ -1,0 +1,55 @@
+{
+  "kind": "isolated-rollback-second-single-execution-assignment",
+  "status": "assign_one_fresh_test_no_automatic_retry",
+  "failed_attempt01_archives": [
+    {
+      "path": "isolated-rollback-attempt01-result.json",
+      "bytes": 10665,
+      "sha256": "2f5e35d5d7e8cbb3360f96341783795b9bb6a0d1358b5905ecb91b6c080e472a"
+    },
+    {
+      "path": "isolated-rollback-attempt01-native.log",
+      "bytes": 905,
+      "sha256": "d5ee52ed49af52944d1381224594956fad841d2c46a1edd1e9ef376fe6c2043a"
+    },
+    {
+      "path": "isolated-rollback-attempt01-native.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "isolated-rollback-attempt01-publish-a.stderr",
+      "bytes": 182,
+      "sha256": "75e0d0a6e17836c7a94661350600552ef22940291b6c0604daffc85493c0ebfc"
+    }
+  ],
+  "failed_review_sha256": "185b2c36879ad4b9ee84fd82be634a204f6170267d40fa813c02b8893718aa7a",
+  "first_actual": "native1/5.34s/RSS140427264;3corpus0 thenPUBa1 missing fixturepurpose; no operator/rollbackpass. original outputs/source immutable",
+  "source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02.py",
+    "bytes": 13120,
+    "sha256": "c5e0af98278b20e3da6aa89e04bdeeb90a5b1c94c07563c53dd9c00173b5fe19"
+  },
+  "patch_sha256": "1115118b1251fa1b9b0486deeb9d41d1d02f96110ad166185dbff257701da7a6",
+  "source_review": "native /root/trace_review confirms current corpus reader permits explicit supplied same-parent header filename, keeps native relative-member paths; only new purposefixture field/derivation provenance +fresh02paths. original ordinaryheader/facts/member/prepared/catalog/validators/UUID/transitionoracles unchanged",
+  "repair": "new ordinary corpus.json remains unchanged; exclusive corpus.fixture.json adds only purpose=fixture and inverse parsed-object equality is required. record both header identities, bind actual labeled digest; no productionvalidator change or fact repair",
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "/usr/bin/env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+    "-B",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02.py"
+  ],
+  "outputs": {
+    "root": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02",
+    "log": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02-native.log",
+    "exit": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02-native.exit"
+  },
+  "scope": "same six preserved LOCALcaptures/3refs,ordinary3corpora and NEW syntheticfixture with exactcopiedanalyticalmembers,2ordinaryschema9publications,existingexplicit-directoryactivateA/activateB/restore. actualhash/header at eachstate; incomingabsent. no server/realcandidate/primary/HDD/HTTP/model/fit/rescore/build/activation access",
+  "tradeoff": "rerun the three cheap ordinary reconstructions in fresh02paths rather than add saved-member reuse machinery. first observed5.34s is not a forecast; all partial failures remain",
+  "owner": "root for ONLY this one test through native/cachedboundary; all STactualwork held; no chain/automatic retry/pixels/preservation/cleanup",
+  "runtime": "same qualifiedprimary3.14.8/Gsource/Node24/installedtsx; required entries checked before01, no environment change selected",
+  "stop": "stop/hold supersedes pending commands/reads"
+}

@@ -1,0 +1,60 @@
+
+> build
+> react-router build && tsc -p tsconfig.json --noEmit false --outDir dist/node
+
+Using Vite Environment API
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 329 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/client/.vite/manifest.json                         3.96 kB │ gzip:  0.67 kB
+dist/client/assets/styles-6UOfPuy0.css                 30.29 kB │ gzip:  6.44 kB
+dist/client/assets/compare-client-loader-zQRWdVut.js    0.12 kB │ gzip:  0.13 kB
+dist/client/assets/league-client-loader-D9VQ8tZR.js     0.12 kB │ gzip:  0.13 kB
+dist/client/assets/player-client-loader-BiToDSUq.js     0.14 kB │ gzip:  0.14 kB
+dist/client/assets/root-CdDmkN42.js                     3.62 kB │ gzip:  1.64 kB
+dist/client/assets/compare-main-CSTIMQXW.js            17.07 kB │ gzip:  5.38 kB
+dist/client/assets/player-main-BHjwBbHg.js             18.62 kB │ gzip:  4.72 kB
+dist/client/assets/league-main-DAZPKw2U.js             21.41 kB │ gzip:  6.85 kB
+dist/client/assets/client-B-qDqdGk.js                  34.91 kB │ gzip: 11.66 kB
+dist/client/assets/peer-distributions-vyeZIdfW.js      47.37 kB │ gzip: 14.08 kB
+dist/client/assets/jsx-runtime-Bcb-PiJy.js            121.19 kB │ gzip: 39.78 kB
+dist/client/assets/execution-evidence-BmV2qyuS.js     149.19 kB │ gzip: 42.25 kB
+dist/client/assets/entry.client-CimxyNE3.js           214.67 kB │ gzip: 67.16 kB
+dist/client/assets/explorer-lHrtF-QX.js               280.90 kB │ gzip: 83.82 kB
+
+✓ built in 378ms
+vite v8.3.4 building ssr environment for production...
+transforming...
+✓ 16 modules transformed.
+rendering chunks...
+
+✓ 1 asset cleaned from React Router server build.
+dist/client/assets/styles-6UOfPuy0.css
+
+computing gzip size...
+dist/server/.vite/manifest.json           0.43 kB │ gzip:  0.22 kB
+dist/server/assets/styles-6UOfPuy0.css   30.29 kB │ gzip:  6.44 kB
+dist/server/index.js                    174.76 kB │ gzip: 35.26 kB
+
+✓ built in 65ms
+SPA Mode: Generated dist/client/index.html
+        1.38 real         2.22 user         0.64 sys
+           594100224  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               67904  page reclaims
+                2158  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   3  messages sent
+                   2  messages received
+                 721  signals received
+                3597  voluntary context switches
+               40459  involuntary context switches
+           825034924  instructions retired
+           317496040  cycles elapsed
+            26561632  peak memory footprint

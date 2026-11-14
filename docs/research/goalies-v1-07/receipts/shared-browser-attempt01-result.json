@@ -1,0 +1,1728 @@
+{
+  "status": "failed",
+  "failure": {
+    "name": "AssertionError",
+    "message": "The expression evaluated to a falsy value:\n\n  assert(!/\\d(?:\\.\\d+)? percentile/.test(after.find(row => row.season === anchor.season).cells[3]))\n",
+    "stack": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(!/\\d(?:\\.\\d+)? percentile/.test(after.find(row => row.season === anchor.season).cells[3]))\n\n    at file:///Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-consumer-03.mjs:307:5\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:541:9)"
+  },
+  "scope": "actual direct goalie profile/history/cohort/export and skater smoke; no scientific or full v1-19 acceptance",
+  "base_url": "http://127.0.0.1:3407",
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "purpose": "real",
+  "source_inputs": {
+    "api": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/api-02.json",
+      "sha256": "355de762cb1f72cf496c8c690658d7a751e66d7caff6b3dc7994eb9e40d50472"
+    },
+    "consumer": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04.json",
+      "sha256": "c7e329ae247857e425c5db25a88afe8ee5c07130818c7ecd45032c1a4a044d66"
+    },
+    "consumer_csv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04.csv",
+      "sha256": "bc293b783cbd71a19d7f7fc7f506d08590dba23c6936caea4d1cef817b387653"
+    },
+    "controller": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-consumer-03.mjs",
+      "sha256": "e86cf8d730fbbebdf6a52cc47b76c50e915d5b74148f2da1ce0b875d97ee60a9"
+    }
+  },
+  "node": "v24.21.0",
+  "playwright": "1.65.0",
+  "chrome_executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "profiles": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-profile-01",
+  "owned_context_closure": [
+    "closed_owned_context"
+  ],
+  "profiles_and_artifacts_retained": true,
+  "wall_seconds": 167.013399667,
+  "peak_rss_bytes": 215138304,
+  "download_counts": {
+    "csv_events": 26,
+    "png_events": 26,
+    "saved_csv": 26,
+    "saved_png": 26,
+    "completed_pairs": 26
+  },
+  "api_requests": 108,
+  "api_responses": 108,
+  "declared_api_body_bytes": 545615973,
+  "api_responses_without_body_length": 0,
+  "page_errors": [],
+  "console_errors": [
+    {
+      "mode": "normal",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "source": "console",
+      "location": {
+        "url": "http://127.0.0.1:3407/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  ],
+  "request_failures": [],
+  "absent_case_categories": [
+    "prior_only"
+  ],
+  "absent_case_reasons": {
+    "prior_only": "none found among all saved goalie EV/PK rows and all13 browser fields in the three published seasons; not a claim of impossibility"
+  },
+  "downloads": [
+    {
+      "label": "normal-goalie.ev.stopping_goals_per100_on_net",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/002-normal-goalie.ev.stopping_goals_per100_on_net.csv",
+      "bytes": 31529,
+      "sha256": "1a04e847bd1d7f21995960902e2c1341c071aa0e59050f722db973ccf0ec5b1a"
+    },
+    {
+      "label": "normal-goalie.ev.stopping_goals_per100_on_net",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/003-normal-goalie.ev.stopping_goals_per100_on_net.png",
+      "bytes": 2846294,
+      "sha256": "a239932e0532439b3a966cfe0b923ff6f2ca1e4d05b6288e4dcfeccac75d763c"
+    },
+    {
+      "label": "normal-goalie.ev.miss_probability",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.miss_probability-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/005-normal-goalie.ev.miss_probability.csv",
+      "bytes": 30850,
+      "sha256": "18ae33fda1d9629fa7e7cd540b9a9c1d803b1667bad9284b7a51af3c15a36a4b"
+    },
+    {
+      "label": "normal-goalie.ev.miss_probability",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.miss_probability-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/006-normal-goalie.ev.miss_probability.png",
+      "bytes": 2798290,
+      "sha256": "754aa65b50566cfe32f0f4c2fcdeaf4a4c65b847ceb505de7f58bd4738849637"
+    },
+    {
+      "label": "normal-goalie.ev.recorded_stop_probability",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_stop_probability-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/008-normal-goalie.ev.recorded_stop_probability.csv",
+      "bytes": 31384,
+      "sha256": "8eeb684da139827654044537449456d2c81ddcb6a48a4bdaa9cd85696c00d8ae"
+    },
+    {
+      "label": "normal-goalie.ev.recorded_stop_probability",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_stop_probability-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/009-normal-goalie.ev.recorded_stop_probability.png",
+      "bytes": 2834148,
+      "sha256": "56da23edd2cdb88439b9220682b5a75c266d29c1016a3aa0b2fddf3bb2b03d08"
+    },
+    {
+      "label": "normal-goalie.ev.conversion_probability",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.conversion_probability-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/011-normal-goalie.ev.conversion_probability.csv",
+      "bytes": 31262,
+      "sha256": "9393f095fbe46b11334bc128a52b2d6ce6137d01b5aa0b1eb7323f83bdcb54de"
+    },
+    {
+      "label": "normal-goalie.ev.conversion_probability",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.conversion_probability-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/012-normal-goalie.ev.conversion_probability.png",
+      "bytes": 2824554,
+      "sha256": "2f813290e37ee33ddc3b3bf4b8fbef7e420db1738ff569cc8bc229da6cacfd0d"
+    },
+    {
+      "label": "normal-goalie.ev.recorded_reattempt_probability",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_reattempt_probability-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/014-normal-goalie.ev.recorded_reattempt_probability.csv",
+      "bytes": 31637,
+      "sha256": "5ea1654ef6e9337971830961e943c80074db39d40b2c3626f1286a83039e7b3b"
+    },
+    {
+      "label": "normal-goalie.ev.recorded_reattempt_probability",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_reattempt_probability-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/015-normal-goalie.ev.recorded_reattempt_probability.png",
+      "bytes": 2853880,
+      "sha256": "f3a23459923211f259154970ba9cc2a3db6a5616da93a083eaaae5bd5b793578"
+    },
+    {
+      "label": "normal-goalie.ev.reattempt_neutral_goal_probability",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.reattempt_neutral_goal_probability-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/017-normal-goalie.ev.reattempt_neutral_goal_probability.csv",
+      "bytes": 31613,
+      "sha256": "9a49a1df32efa56bacf56791b4c93022589bcef1c34bb864c90b93981ebb0564"
+    },
+    {
+      "label": "normal-goalie.ev.reattempt_neutral_goal_probability",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.reattempt_neutral_goal_probability-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/018-normal-goalie.ev.reattempt_neutral_goal_probability.png",
+      "bytes": 2848073,
+      "sha256": "b0c0d4fa5807bbfbd2a98a199602a5a6c94302ebaa3f1b1ab3e32e2aa5d8c356"
+    },
+    {
+      "label": "normal-goalie.ev.followup_danger",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.followup_danger-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/020-normal-goalie.ev.followup_danger.csv",
+      "bytes": 31572,
+      "sha256": "c01f26e5128585260686c1c2024e2bb39d4594972af68321dc286351da77dee3"
+    },
+    {
+      "label": "normal-goalie.ev.followup_danger",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.followup_danger-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/021-normal-goalie.ev.followup_danger.png",
+      "bytes": 2839903,
+      "sha256": "273338c8bf1a6fe2321ed9f6eee2a9b987c0dc36bfa462cef561d42d9fac8b7d"
+    },
+    {
+      "label": "normal-goalie.ev.miss_probability_difference",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.miss_probability_difference-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/023-normal-goalie.ev.miss_probability_difference.csv",
+      "bytes": 31297,
+      "sha256": "edc96ceab95b1a806a41fff0a251bad14cf22a95f1938e966dd20b35c3638a01"
+    },
+    {
+      "label": "normal-goalie.ev.miss_probability_difference",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.miss_probability_difference-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/024-normal-goalie.ev.miss_probability_difference.png",
+      "bytes": 2834608,
+      "sha256": "3f74d690585a5cd9942cc297338fed676aa3e520cb1ffbdae18d184957876e74"
+    },
+    {
+      "label": "normal-goalie.ev.recorded_stop_probability_difference",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_stop_probability_difference-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/026-normal-goalie.ev.recorded_stop_probability_difference.csv",
+      "bytes": 31585,
+      "sha256": "df456a8b226a3f24745435a032f3c2e4892e9cba03302754a5639a881e7e731a"
+    },
+    {
+      "label": "normal-goalie.ev.recorded_stop_probability_difference",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_stop_probability_difference-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/027-normal-goalie.ev.recorded_stop_probability_difference.png",
+      "bytes": 2853522,
+      "sha256": "a392af566424f27bbda625e8be44c4ca5be26d701c609248984d7fa9ec22afbe"
+    },
+    {
+      "label": "normal-goalie.ev.conversion_probability_difference",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.conversion_probability_difference-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/029-normal-goalie.ev.conversion_probability_difference.csv",
+      "bytes": 31495,
+      "sha256": "3880b13f462e9ec6590667df2b5603ad4ea288ca3f263a3cbb86e6cd6d5cd363"
+    },
+    {
+      "label": "normal-goalie.ev.conversion_probability_difference",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.conversion_probability_difference-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/030-normal-goalie.ev.conversion_probability_difference.png",
+      "bytes": 2844155,
+      "sha256": "1863996e2905b26033018385f24b9bf1f121a06bf17ba3ff45b6cd26473c7857"
+    },
+    {
+      "label": "normal-goalie.ev.recorded_reattempt_probability_difference",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_reattempt_probability_difference-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/032-normal-goalie.ev.recorded_reattempt_probability_difference.csv",
+      "bytes": 31950,
+      "sha256": "ff52bd25c89698e1467cc911350abd96c533e73f15bcbe3759cc21849381c630"
+    },
+    {
+      "label": "normal-goalie.ev.recorded_reattempt_probability_difference",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_reattempt_probability_difference-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/033-normal-goalie.ev.recorded_reattempt_probability_difference.png",
+      "bytes": 2888029,
+      "sha256": "5a6ff6f8aa9084c08f066927706b0ce39f78d48013aad0f6cd62b651a0571268"
+    },
+    {
+      "label": "normal-goalie.ev.reattempt_neutral_goal_probability_difference",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.reattempt_neutral_goal_probability_difference-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/035-normal-goalie.ev.reattempt_neutral_goal_probability_difference.csv",
+      "bytes": 31832,
+      "sha256": "6bd00db434d0403b1e050f8a81ed56c846da5ec819152e9455c9eaa06e7565bc"
+    },
+    {
+      "label": "normal-goalie.ev.reattempt_neutral_goal_probability_difference",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.reattempt_neutral_goal_probability_difference-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/036-normal-goalie.ev.reattempt_neutral_goal_probability_difference.png",
+      "bytes": 2876964,
+      "sha256": "b0ed3f30e85fa0995a73b2b18aa66d7d7cb996b90c27ad74cb6474f4e39063ab"
+    },
+    {
+      "label": "normal-goalie.ev.followup_danger_difference",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.followup_danger_difference-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/038-normal-goalie.ev.followup_danger_difference.csv",
+      "bytes": 31878,
+      "sha256": "4538084a3e333bbceeb1e0feee4c584b911891cf7d530ebdac733fb0d7b24650"
+    },
+    {
+      "label": "normal-goalie.ev.followup_danger_difference",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.ev.followup_danger_difference-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/039-normal-goalie.ev.followup_danger_difference.png",
+      "bytes": 2869117,
+      "sha256": "be945111a4e15adb4e5e464e82b8b45489f1913a60781e0d14ed6f5959622002"
+    },
+    {
+      "label": "normal-goalie.pk.stopping_goals_per100_on_net",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.stopping_goals_per100_on_net-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/041-normal-goalie.pk.stopping_goals_per100_on_net.csv",
+      "bytes": 31587,
+      "sha256": "27abcd7863e4d55f7c12c03f08ed96c4586160e6467e04996e5d3e970bc649fb"
+    },
+    {
+      "label": "normal-goalie.pk.stopping_goals_per100_on_net",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.stopping_goals_per100_on_net-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/042-normal-goalie.pk.stopping_goals_per100_on_net.png",
+      "bytes": 2859245,
+      "sha256": "1ca9dae10795f9080dc6dfa3a6f5a2286968c02ba44bf8091a206cff8d6fae09"
+    },
+    {
+      "label": "normal-goalie.pk.miss_probability",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.miss_probability-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/044-normal-goalie.pk.miss_probability.csv",
+      "bytes": 30902,
+      "sha256": "f4c726d6738d34959abefc8a2c8555d8f76df26c67251eb47010186839fabec2"
+    },
+    {
+      "label": "normal-goalie.pk.miss_probability",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.miss_probability-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/045-normal-goalie.pk.miss_probability.png",
+      "bytes": 2798736,
+      "sha256": "fad6ec5f710738cef52ac60d5a1ea0de523a9ff8f377a8369c4e88e8774af73e"
+    },
+    {
+      "label": "normal-goalie.pk.recorded_stop_probability",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_stop_probability-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/047-normal-goalie.pk.recorded_stop_probability.csv",
+      "bytes": 31441,
+      "sha256": "c0c53652bf75911baf86367cb2ba3294d59f5d1829f83d7a43173706d8b7be02"
+    },
+    {
+      "label": "normal-goalie.pk.recorded_stop_probability",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_stop_probability-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/048-normal-goalie.pk.recorded_stop_probability.png",
+      "bytes": 2841353,
+      "sha256": "38e83bdf2d2bba5e8c149389b12aadccf86b4049dc30df9d0c0137edbdec08ac"
+    },
+    {
+      "label": "normal-goalie.pk.conversion_probability",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.conversion_probability-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/050-normal-goalie.pk.conversion_probability.csv",
+      "bytes": 31315,
+      "sha256": "dd82693ba6b067aaea04d0f7e2c01956018d20cdb267600353136de4eb5c7a14"
+    },
+    {
+      "label": "normal-goalie.pk.conversion_probability",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.conversion_probability-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/051-normal-goalie.pk.conversion_probability.png",
+      "bytes": 2822483,
+      "sha256": "b8a8fc0e37f60248da9081f6e73e96e1024ab4438e6ad40441840aca8d1330df"
+    },
+    {
+      "label": "normal-goalie.pk.recorded_reattempt_probability",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_reattempt_probability-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/053-normal-goalie.pk.recorded_reattempt_probability.csv",
+      "bytes": 31696,
+      "sha256": "de44aa03ffef9af554fa5307fefa4013b2d70c4fe9885fb8594b066618ae4647"
+    },
+    {
+      "label": "normal-goalie.pk.recorded_reattempt_probability",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_reattempt_probability-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/054-normal-goalie.pk.recorded_reattempt_probability.png",
+      "bytes": 2858383,
+      "sha256": "72c08bfe9d7f8b92728db5ee3ca5d02a407e178d3e8bcd5cab9931c47e1f71c5"
+    },
+    {
+      "label": "normal-goalie.pk.reattempt_neutral_goal_probability",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.reattempt_neutral_goal_probability-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/056-normal-goalie.pk.reattempt_neutral_goal_probability.csv",
+      "bytes": 31670,
+      "sha256": "e0c430b8a90db35f869f5ed066e9657fa973da5d8ad9bc0aa97201e482f48f33"
+    },
+    {
+      "label": "normal-goalie.pk.reattempt_neutral_goal_probability",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.reattempt_neutral_goal_probability-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/057-normal-goalie.pk.reattempt_neutral_goal_probability.png",
+      "bytes": 2847635,
+      "sha256": "babd9f90986be163576d220bc0ce283ac6f133cb19a088c32168c29c75de8d8c"
+    },
+    {
+      "label": "normal-goalie.pk.followup_danger",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.followup_danger-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/059-normal-goalie.pk.followup_danger.csv",
+      "bytes": 31629,
+      "sha256": "e2e9d9551b22fc17cce87a06bb9095170a5a53199de3c071e748661b624eb55f"
+    },
+    {
+      "label": "normal-goalie.pk.followup_danger",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.followup_danger-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/060-normal-goalie.pk.followup_danger.png",
+      "bytes": 2840675,
+      "sha256": "e9230480d5d7840e3b9e01df31e042532dcaadee9c323937d20be3060d8ebaa5"
+    },
+    {
+      "label": "normal-goalie.pk.miss_probability_difference",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.miss_probability_difference-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/062-normal-goalie.pk.miss_probability_difference.csv",
+      "bytes": 31352,
+      "sha256": "20067e63585c67ea2ea0521884f57171d549e9a6e54fa44c9534f78cf0c31ea2"
+    },
+    {
+      "label": "normal-goalie.pk.miss_probability_difference",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.miss_probability_difference-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/063-normal-goalie.pk.miss_probability_difference.png",
+      "bytes": 2835914,
+      "sha256": "904ba016d9b05e3c23fff235476b014ffd7f1ba7895550ca876c69f96a0fcbb7"
+    },
+    {
+      "label": "normal-goalie.pk.recorded_stop_probability_difference",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_stop_probability_difference-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/065-normal-goalie.pk.recorded_stop_probability_difference.csv",
+      "bytes": 31638,
+      "sha256": "efb7bcec7fec390aea99f7f10426787ad38a1bc8279c75c9a2603475f34165ce"
+    },
+    {
+      "label": "normal-goalie.pk.recorded_stop_probability_difference",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_stop_probability_difference-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/066-normal-goalie.pk.recorded_stop_probability_difference.png",
+      "bytes": 2858668,
+      "sha256": "265968214f83ff04f930776fbbea78101742c224182a043a868e4bde3c806640"
+    },
+    {
+      "label": "normal-goalie.pk.conversion_probability_difference",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.conversion_probability_difference-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/068-normal-goalie.pk.conversion_probability_difference.csv",
+      "bytes": 31548,
+      "sha256": "281ff05b7e998788a21368401799677ca2bcc3b2f3e2d4ba96f7c58364b3e975"
+    },
+    {
+      "label": "normal-goalie.pk.conversion_probability_difference",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.conversion_probability_difference-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/069-normal-goalie.pk.conversion_probability_difference.png",
+      "bytes": 2859890,
+      "sha256": "7e08f133e3ac9e8d3df7114f65d7a065c1104718b2abccff0db0f343017ef516"
+    },
+    {
+      "label": "normal-goalie.pk.recorded_reattempt_probability_difference",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_reattempt_probability_difference-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/071-normal-goalie.pk.recorded_reattempt_probability_difference.csv",
+      "bytes": 32008,
+      "sha256": "0c4bb4e000c60cf4538b3318949380361a6f1b7c5839d50a2915c60a59780da9"
+    },
+    {
+      "label": "normal-goalie.pk.recorded_reattempt_probability_difference",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_reattempt_probability_difference-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/072-normal-goalie.pk.recorded_reattempt_probability_difference.png",
+      "bytes": 2888417,
+      "sha256": "90bd4628999727b2a4dc469a9419131e58375c500c742841e6c0d99c53f90e14"
+    },
+    {
+      "label": "normal-goalie.pk.reattempt_neutral_goal_probability_difference",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.reattempt_neutral_goal_probability_difference-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/074-normal-goalie.pk.reattempt_neutral_goal_probability_difference.csv",
+      "bytes": 31886,
+      "sha256": "6581a5badd26816bb1cdc6c9913cbe560f9e7dd8b4f1cf61e8645842525c79c3"
+    },
+    {
+      "label": "normal-goalie.pk.reattempt_neutral_goal_probability_difference",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.reattempt_neutral_goal_probability_difference-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/075-normal-goalie.pk.reattempt_neutral_goal_probability_difference.png",
+      "bytes": 2876403,
+      "sha256": "9d46c251fac9179d5b968f268be5d59449784690945109c4e05edc69a6df3822"
+    },
+    {
+      "label": "normal-goalie.pk.followup_danger_difference",
+      "extension": ".csv",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.followup_danger_difference-20232024-20252026-history.csv",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/077-normal-goalie.pk.followup_danger_difference.csv",
+      "bytes": 31936,
+      "sha256": "2b8785e62617f3c1d761ffbeb747f33a262e14617693134adce3fc453d219ae2"
+    },
+    {
+      "label": "normal-goalie.pk.followup_danger_difference",
+      "extension": ".png",
+      "suggested_filename": "hockey-stats-8478872-goalie.pk.followup_danger_difference-20232024-20252026-history-raw.png",
+      "saved": true,
+      "failure": null,
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/078-normal-goalie.pk.followup_danger_difference.png",
+      "bytes": 2873240,
+      "sha256": "ed80152e06c0e72321a1dbd10001d339233fd5f4d9e032379f7477d65a3195dc"
+    }
+  ],
+  "exports": [
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.stopping_goals_per100_on_net",
+      "csv": {
+        "label": "normal-goalie.ev.stopping_goals_per100_on_net",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/002-normal-goalie.ev.stopping_goals_per100_on_net.csv",
+        "bytes": 31529,
+        "sha256": "1a04e847bd1d7f21995960902e2c1341c071aa0e59050f722db973ccf0ec5b1a"
+      },
+      "png": {
+        "label": "normal-goalie.ev.stopping_goals_per100_on_net",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/003-normal-goalie.ev.stopping_goals_per100_on_net.png",
+        "bytes": 2846294,
+        "sha256": "a239932e0532439b3a966cfe0b923ff6f2ca1e4d05b6288e4dcfeccac75d763c",
+        "width": 1200,
+        "height": 6385
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/004-normal-goalie.ev.stopping_goals_per100_on_net.svg",
+        "bytes": 32892,
+        "sha256": "a672e98a7c9048c4bfaf89b56d7e64c7518a98c7b80918908e346e29a99e9765"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.miss_probability",
+      "csv": {
+        "label": "normal-goalie.ev.miss_probability",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.miss_probability-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/005-normal-goalie.ev.miss_probability.csv",
+        "bytes": 30850,
+        "sha256": "18ae33fda1d9629fa7e7cd540b9a9c1d803b1667bad9284b7a51af3c15a36a4b"
+      },
+      "png": {
+        "label": "normal-goalie.ev.miss_probability",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.miss_probability-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/006-normal-goalie.ev.miss_probability.png",
+        "bytes": 2798290,
+        "sha256": "754aa65b50566cfe32f0f4c2fcdeaf4a4c65b847ceb505de7f58bd4738849637",
+        "width": 1200,
+        "height": 6353
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/007-normal-goalie.ev.miss_probability.svg",
+        "bytes": 32995,
+        "sha256": "a5815f876f922fb5478c0f739a5a37dfe7e23b80769369183df83ad11d2bac17"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.recorded_stop_probability",
+      "csv": {
+        "label": "normal-goalie.ev.recorded_stop_probability",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_stop_probability-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/008-normal-goalie.ev.recorded_stop_probability.csv",
+        "bytes": 31384,
+        "sha256": "8eeb684da139827654044537449456d2c81ddcb6a48a4bdaa9cd85696c00d8ae"
+      },
+      "png": {
+        "label": "normal-goalie.ev.recorded_stop_probability",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_stop_probability-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/009-normal-goalie.ev.recorded_stop_probability.png",
+        "bytes": 2834148,
+        "sha256": "56da23edd2cdb88439b9220682b5a75c266d29c1016a3aa0b2fddf3bb2b03d08",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/010-normal-goalie.ev.recorded_stop_probability.svg",
+        "bytes": 33442,
+        "sha256": "a05234e44bd9473a3ca56b6bddeee93533458393701869ca58bc27f8ef169d71"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.conversion_probability",
+      "csv": {
+        "label": "normal-goalie.ev.conversion_probability",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.conversion_probability-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/011-normal-goalie.ev.conversion_probability.csv",
+        "bytes": 31262,
+        "sha256": "9393f095fbe46b11334bc128a52b2d6ce6137d01b5aa0b1eb7323f83bdcb54de"
+      },
+      "png": {
+        "label": "normal-goalie.ev.conversion_probability",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.conversion_probability-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/012-normal-goalie.ev.conversion_probability.png",
+        "bytes": 2824554,
+        "sha256": "2f813290e37ee33ddc3b3bf4b8fbef7e420db1738ff569cc8bc229da6cacfd0d",
+        "width": 1200,
+        "height": 6353
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/013-normal-goalie.ev.conversion_probability.svg",
+        "bytes": 33226,
+        "sha256": "6c5dcd431c911dbc1fe7fde3d265b61aebddbd47920613c25b8503cdf339ba68"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.recorded_reattempt_probability",
+      "csv": {
+        "label": "normal-goalie.ev.recorded_reattempt_probability",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_reattempt_probability-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/014-normal-goalie.ev.recorded_reattempt_probability.csv",
+        "bytes": 31637,
+        "sha256": "5ea1654ef6e9337971830961e943c80074db39d40b2c3626f1286a83039e7b3b"
+      },
+      "png": {
+        "label": "normal-goalie.ev.recorded_reattempt_probability",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_reattempt_probability-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/015-normal-goalie.ev.recorded_reattempt_probability.png",
+        "bytes": 2853880,
+        "sha256": "f3a23459923211f259154970ba9cc2a3db6a5616da93a083eaaae5bd5b793578",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/016-normal-goalie.ev.recorded_reattempt_probability.svg",
+        "bytes": 33573,
+        "sha256": "291e2affde1e11d60df7e51cae9d8965955b37d986721daa527dcba46009c58e"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.reattempt_neutral_goal_probability",
+      "csv": {
+        "label": "normal-goalie.ev.reattempt_neutral_goal_probability",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.reattempt_neutral_goal_probability-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/017-normal-goalie.ev.reattempt_neutral_goal_probability.csv",
+        "bytes": 31613,
+        "sha256": "9a49a1df32efa56bacf56791b4c93022589bcef1c34bb864c90b93981ebb0564"
+      },
+      "png": {
+        "label": "normal-goalie.ev.reattempt_neutral_goal_probability",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.reattempt_neutral_goal_probability-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/018-normal-goalie.ev.reattempt_neutral_goal_probability.png",
+        "bytes": 2848073,
+        "sha256": "b0c0d4fa5807bbfbd2a98a199602a5a6c94302ebaa3f1b1ab3e32e2aa5d8c356",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/019-normal-goalie.ev.reattempt_neutral_goal_probability.svg",
+        "bytes": 33553,
+        "sha256": "272f6fdb43e7a5cce3b6153bf1c309f9fe8e0d2433a6f9a257b9c4df2dc1ae93"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.followup_danger",
+      "csv": {
+        "label": "normal-goalie.ev.followup_danger",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.followup_danger-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/020-normal-goalie.ev.followup_danger.csv",
+        "bytes": 31572,
+        "sha256": "c01f26e5128585260686c1c2024e2bb39d4594972af68321dc286351da77dee3"
+      },
+      "png": {
+        "label": "normal-goalie.ev.followup_danger",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.followup_danger-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/021-normal-goalie.ev.followup_danger.png",
+        "bytes": 2839903,
+        "sha256": "273338c8bf1a6fe2321ed9f6eee2a9b987c0dc36bfa462cef561d42d9fac8b7d",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/022-normal-goalie.ev.followup_danger.svg",
+        "bytes": 33528,
+        "sha256": "421bbb7fe24804075e3ed7378747c9ee4665e17350406a26c2a65671f7171203"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.miss_probability_difference",
+      "csv": {
+        "label": "normal-goalie.ev.miss_probability_difference",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.miss_probability_difference-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/023-normal-goalie.ev.miss_probability_difference.csv",
+        "bytes": 31297,
+        "sha256": "edc96ceab95b1a806a41fff0a251bad14cf22a95f1938e966dd20b35c3638a01"
+      },
+      "png": {
+        "label": "normal-goalie.ev.miss_probability_difference",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.miss_probability_difference-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/024-normal-goalie.ev.miss_probability_difference.png",
+        "bytes": 2834608,
+        "sha256": "3f74d690585a5cd9942cc297338fed676aa3e520cb1ffbdae18d184957876e74",
+        "width": 1200,
+        "height": 6353
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/025-normal-goalie.ev.miss_probability_difference.svg",
+        "bytes": 33230,
+        "sha256": "9ef21b64e7c85ccc1607506cb263c7790a694ccc3952108c7d9082234e2ce104"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.recorded_stop_probability_difference",
+      "csv": {
+        "label": "normal-goalie.ev.recorded_stop_probability_difference",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_stop_probability_difference-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/026-normal-goalie.ev.recorded_stop_probability_difference.csv",
+        "bytes": 31585,
+        "sha256": "df456a8b226a3f24745435a032f3c2e4892e9cba03302754a5639a881e7e731a"
+      },
+      "png": {
+        "label": "normal-goalie.ev.recorded_stop_probability_difference",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_stop_probability_difference-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/027-normal-goalie.ev.recorded_stop_probability_difference.png",
+        "bytes": 2853522,
+        "sha256": "a392af566424f27bbda625e8be44c4ca5be26d701c609248984d7fa9ec22afbe",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/028-normal-goalie.ev.recorded_stop_probability_difference.svg",
+        "bytes": 33589,
+        "sha256": "dfd3ab03d10f4456ccd4fcb4b857e6d2664d050d8a4a75023bdefa090ac5ea05"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.conversion_probability_difference",
+      "csv": {
+        "label": "normal-goalie.ev.conversion_probability_difference",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.conversion_probability_difference-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/029-normal-goalie.ev.conversion_probability_difference.csv",
+        "bytes": 31495,
+        "sha256": "3880b13f462e9ec6590667df2b5603ad4ea288ca3f263a3cbb86e6cd6d5cd363"
+      },
+      "png": {
+        "label": "normal-goalie.ev.conversion_probability_difference",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.conversion_probability_difference-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/030-normal-goalie.ev.conversion_probability_difference.png",
+        "bytes": 2844155,
+        "sha256": "1863996e2905b26033018385f24b9bf1f121a06bf17ba3ff45b6cd26473c7857",
+        "width": 1200,
+        "height": 6353
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/031-normal-goalie.ev.conversion_probability_difference.svg",
+        "bytes": 33413,
+        "sha256": "6f6543213f7e476c2394114b07b01db4deaee118b84f377977c84966d87a1226"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.recorded_reattempt_probability_difference",
+      "csv": {
+        "label": "normal-goalie.ev.recorded_reattempt_probability_difference",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_reattempt_probability_difference-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/032-normal-goalie.ev.recorded_reattempt_probability_difference.csv",
+        "bytes": 31950,
+        "sha256": "ff52bd25c89698e1467cc911350abd96c533e73f15bcbe3759cc21849381c630"
+      },
+      "png": {
+        "label": "normal-goalie.ev.recorded_reattempt_probability_difference",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.recorded_reattempt_probability_difference-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/033-normal-goalie.ev.recorded_reattempt_probability_difference.png",
+        "bytes": 2888029,
+        "sha256": "5a6ff6f8aa9084c08f066927706b0ce39f78d48013aad0f6cd62b651a0571268",
+        "width": 1200,
+        "height": 6533
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/034-normal-goalie.ev.recorded_reattempt_probability_difference.svg",
+        "bytes": 33341,
+        "sha256": "b93b21b76ec2bbd251ccec042050a5800c50e5aa43327ddce24b1d07eb552ced"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.reattempt_neutral_goal_probability_difference",
+      "csv": {
+        "label": "normal-goalie.ev.reattempt_neutral_goal_probability_difference",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.reattempt_neutral_goal_probability_difference-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/035-normal-goalie.ev.reattempt_neutral_goal_probability_difference.csv",
+        "bytes": 31832,
+        "sha256": "6bd00db434d0403b1e050f8a81ed56c846da5ec819152e9455c9eaa06e7565bc"
+      },
+      "png": {
+        "label": "normal-goalie.ev.reattempt_neutral_goal_probability_difference",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.reattempt_neutral_goal_probability_difference-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/036-normal-goalie.ev.reattempt_neutral_goal_probability_difference.png",
+        "bytes": 2876964,
+        "sha256": "b0ed3f30e85fa0995a73b2b18aa66d7d7cb996b90c27ad74cb6474f4e39063ab",
+        "width": 1200,
+        "height": 6533
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/037-normal-goalie.ev.reattempt_neutral_goal_probability_difference.svg",
+        "bytes": 33206,
+        "sha256": "e3c9ec924fd358b79a156093462565eb527a1d72c29c761be673b0cb6f85012b"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.ev.followup_danger_difference",
+      "csv": {
+        "label": "normal-goalie.ev.followup_danger_difference",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.followup_danger_difference-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/038-normal-goalie.ev.followup_danger_difference.csv",
+        "bytes": 31878,
+        "sha256": "4538084a3e333bbceeb1e0feee4c584b911891cf7d530ebdac733fb0d7b24650"
+      },
+      "png": {
+        "label": "normal-goalie.ev.followup_danger_difference",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.ev.followup_danger_difference-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/039-normal-goalie.ev.followup_danger_difference.png",
+        "bytes": 2869117,
+        "sha256": "be945111a4e15adb4e5e464e82b8b45489f1913a60781e0d14ed6f5959622002",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/040-normal-goalie.ev.followup_danger_difference.svg",
+        "bytes": 33728,
+        "sha256": "ecbffbf1cee90a3a0af0ecf6fd34f61ef403426171f1d9b0296dc5eddd5f14e0"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.stopping_goals_per100_on_net",
+      "csv": {
+        "label": "normal-goalie.pk.stopping_goals_per100_on_net",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.stopping_goals_per100_on_net-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/041-normal-goalie.pk.stopping_goals_per100_on_net.csv",
+        "bytes": 31587,
+        "sha256": "27abcd7863e4d55f7c12c03f08ed96c4586160e6467e04996e5d3e970bc649fb"
+      },
+      "png": {
+        "label": "normal-goalie.pk.stopping_goals_per100_on_net",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.stopping_goals_per100_on_net-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/042-normal-goalie.pk.stopping_goals_per100_on_net.png",
+        "bytes": 2859245,
+        "sha256": "1ca9dae10795f9080dc6dfa3a6f5a2286968c02ba44bf8091a206cff8d6fae09",
+        "width": 1200,
+        "height": 6469
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/043-normal-goalie.pk.stopping_goals_per100_on_net.svg",
+        "bytes": 33059,
+        "sha256": "a98c81adf469914bb6d4ef362312e6552cb9aa319f8af1f56a6dcb40b87e038b"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.miss_probability",
+      "csv": {
+        "label": "normal-goalie.pk.miss_probability",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.miss_probability-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/044-normal-goalie.pk.miss_probability.csv",
+        "bytes": 30902,
+        "sha256": "f4c726d6738d34959abefc8a2c8555d8f76df26c67251eb47010186839fabec2"
+      },
+      "png": {
+        "label": "normal-goalie.pk.miss_probability",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.miss_probability-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/045-normal-goalie.pk.miss_probability.png",
+        "bytes": 2798736,
+        "sha256": "fad6ec5f710738cef52ac60d5a1ea0de523a9ff8f377a8369c4e88e8774af73e",
+        "width": 1200,
+        "height": 6353
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/046-normal-goalie.pk.miss_probability.svg",
+        "bytes": 32988,
+        "sha256": "0ad87962a0f26a4f611e2970259efe3d045662c37e8a85077629783c58fa9114"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.recorded_stop_probability",
+      "csv": {
+        "label": "normal-goalie.pk.recorded_stop_probability",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_stop_probability-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/047-normal-goalie.pk.recorded_stop_probability.csv",
+        "bytes": 31441,
+        "sha256": "c0c53652bf75911baf86367cb2ba3294d59f5d1829f83d7a43173706d8b7be02"
+      },
+      "png": {
+        "label": "normal-goalie.pk.recorded_stop_probability",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_stop_probability-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/048-normal-goalie.pk.recorded_stop_probability.png",
+        "bytes": 2841353,
+        "sha256": "38e83bdf2d2bba5e8c149389b12aadccf86b4049dc30df9d0c0137edbdec08ac",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/049-normal-goalie.pk.recorded_stop_probability.svg",
+        "bytes": 33457,
+        "sha256": "86e6a7c0fd7393841d6d38f1c5a4e725b020ca6e7d63c7917dd87ac9fa777603"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.conversion_probability",
+      "csv": {
+        "label": "normal-goalie.pk.conversion_probability",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.conversion_probability-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/050-normal-goalie.pk.conversion_probability.csv",
+        "bytes": 31315,
+        "sha256": "dd82693ba6b067aaea04d0f7e2c01956018d20cdb267600353136de4eb5c7a14"
+      },
+      "png": {
+        "label": "normal-goalie.pk.conversion_probability",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.conversion_probability-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/051-normal-goalie.pk.conversion_probability.png",
+        "bytes": 2822483,
+        "sha256": "b8a8fc0e37f60248da9081f6e73e96e1024ab4438e6ad40441840aca8d1330df",
+        "width": 1200,
+        "height": 6353
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/052-normal-goalie.pk.conversion_probability.svg",
+        "bytes": 33259,
+        "sha256": "ed4a45131b00c10269be2bf48847122d84e13907409b51d32dcbdb905f437d80"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.recorded_reattempt_probability",
+      "csv": {
+        "label": "normal-goalie.pk.recorded_reattempt_probability",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_reattempt_probability-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/053-normal-goalie.pk.recorded_reattempt_probability.csv",
+        "bytes": 31696,
+        "sha256": "de44aa03ffef9af554fa5307fefa4013b2d70c4fe9885fb8594b066618ae4647"
+      },
+      "png": {
+        "label": "normal-goalie.pk.recorded_reattempt_probability",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_reattempt_probability-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/054-normal-goalie.pk.recorded_reattempt_probability.png",
+        "bytes": 2858383,
+        "sha256": "72c08bfe9d7f8b92728db5ee3ca5d02a407e178d3e8bcd5cab9931c47e1f71c5",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/055-normal-goalie.pk.recorded_reattempt_probability.svg",
+        "bytes": 33602,
+        "sha256": "1e9048fd6b77b1575f1c882d616d2e0d1f1e4c2437ad3cfbb4e9fd92c8da40c7"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.reattempt_neutral_goal_probability",
+      "csv": {
+        "label": "normal-goalie.pk.reattempt_neutral_goal_probability",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.reattempt_neutral_goal_probability-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/056-normal-goalie.pk.reattempt_neutral_goal_probability.csv",
+        "bytes": 31670,
+        "sha256": "e0c430b8a90db35f869f5ed066e9657fa973da5d8ad9bc0aa97201e482f48f33"
+      },
+      "png": {
+        "label": "normal-goalie.pk.reattempt_neutral_goal_probability",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.reattempt_neutral_goal_probability-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/057-normal-goalie.pk.reattempt_neutral_goal_probability.png",
+        "bytes": 2847635,
+        "sha256": "babd9f90986be163576d220bc0ce283ac6f133cb19a088c32168c29c75de8d8c",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/058-normal-goalie.pk.reattempt_neutral_goal_probability.svg",
+        "bytes": 33576,
+        "sha256": "018365371a2883ec795a9d6d31743ad1f12014c4a2e161b0f62dc792efb99c81"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.followup_danger",
+      "csv": {
+        "label": "normal-goalie.pk.followup_danger",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.followup_danger-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/059-normal-goalie.pk.followup_danger.csv",
+        "bytes": 31629,
+        "sha256": "e2e9d9551b22fc17cce87a06bb9095170a5a53199de3c071e748661b624eb55f"
+      },
+      "png": {
+        "label": "normal-goalie.pk.followup_danger",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.followup_danger-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/060-normal-goalie.pk.followup_danger.png",
+        "bytes": 2840675,
+        "sha256": "e9230480d5d7840e3b9e01df31e042532dcaadee9c323937d20be3060d8ebaa5",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/061-normal-goalie.pk.followup_danger.svg",
+        "bytes": 33566,
+        "sha256": "878112d2d835f1fff67e0c4f04cfbb5216d9fa62904be7c62e1fac0da6cf5b01"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.miss_probability_difference",
+      "csv": {
+        "label": "normal-goalie.pk.miss_probability_difference",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.miss_probability_difference-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/062-normal-goalie.pk.miss_probability_difference.csv",
+        "bytes": 31352,
+        "sha256": "20067e63585c67ea2ea0521884f57171d549e9a6e54fa44c9534f78cf0c31ea2"
+      },
+      "png": {
+        "label": "normal-goalie.pk.miss_probability_difference",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.miss_probability_difference-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/063-normal-goalie.pk.miss_probability_difference.png",
+        "bytes": 2835914,
+        "sha256": "904ba016d9b05e3c23fff235476b014ffd7f1ba7895550ca876c69f96a0fcbb7",
+        "width": 1200,
+        "height": 6353
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/064-normal-goalie.pk.miss_probability_difference.svg",
+        "bytes": 33275,
+        "sha256": "fb60a308b9b63e37307075eed84e5e995a329ebe1331739b6d8034df9f92011b"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.recorded_stop_probability_difference",
+      "csv": {
+        "label": "normal-goalie.pk.recorded_stop_probability_difference",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_stop_probability_difference-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/065-normal-goalie.pk.recorded_stop_probability_difference.csv",
+        "bytes": 31638,
+        "sha256": "efb7bcec7fec390aea99f7f10426787ad38a1bc8279c75c9a2603475f34165ce"
+      },
+      "png": {
+        "label": "normal-goalie.pk.recorded_stop_probability_difference",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_stop_probability_difference-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/066-normal-goalie.pk.recorded_stop_probability_difference.png",
+        "bytes": 2858668,
+        "sha256": "265968214f83ff04f930776fbbea78101742c224182a043a868e4bde3c806640",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/067-normal-goalie.pk.recorded_stop_probability_difference.svg",
+        "bytes": 33602,
+        "sha256": "e3c259c01c4f1f362c30946e407c70193d432f286203e477ee3856d7791d936e"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.conversion_probability_difference",
+      "csv": {
+        "label": "normal-goalie.pk.conversion_probability_difference",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.conversion_probability_difference-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/068-normal-goalie.pk.conversion_probability_difference.csv",
+        "bytes": 31548,
+        "sha256": "281ff05b7e998788a21368401799677ca2bcc3b2f3e2d4ba96f7c58364b3e975"
+      },
+      "png": {
+        "label": "normal-goalie.pk.conversion_probability_difference",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.conversion_probability_difference-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/069-normal-goalie.pk.conversion_probability_difference.png",
+        "bytes": 2859890,
+        "sha256": "7e08f133e3ac9e8d3df7114f65d7a065c1104718b2abccff0db0f343017ef516",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/070-normal-goalie.pk.conversion_probability_difference.svg",
+        "bytes": 33576,
+        "sha256": "0fdd27e3da25646dcf96438257bf0d81128970f3ab03cc145a5711bc33631e07"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.recorded_reattempt_probability_difference",
+      "csv": {
+        "label": "normal-goalie.pk.recorded_reattempt_probability_difference",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_reattempt_probability_difference-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/071-normal-goalie.pk.recorded_reattempt_probability_difference.csv",
+        "bytes": 32008,
+        "sha256": "0c4bb4e000c60cf4538b3318949380361a6f1b7c5839d50a2915c60a59780da9"
+      },
+      "png": {
+        "label": "normal-goalie.pk.recorded_reattempt_probability_difference",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.recorded_reattempt_probability_difference-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/072-normal-goalie.pk.recorded_reattempt_probability_difference.png",
+        "bytes": 2888417,
+        "sha256": "90bd4628999727b2a4dc469a9419131e58375c500c742841e6c0d99c53f90e14",
+        "width": 1200,
+        "height": 6533
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/073-normal-goalie.pk.recorded_reattempt_probability_difference.svg",
+        "bytes": 33352,
+        "sha256": "0ecb32511d35c4ab37aa0c84652df472e7dd36ad29cef99a8c10f35184b57802"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.reattempt_neutral_goal_probability_difference",
+      "csv": {
+        "label": "normal-goalie.pk.reattempt_neutral_goal_probability_difference",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.reattempt_neutral_goal_probability_difference-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/074-normal-goalie.pk.reattempt_neutral_goal_probability_difference.csv",
+        "bytes": 31886,
+        "sha256": "6581a5badd26816bb1cdc6c9913cbe560f9e7dd8b4f1cf61e8645842525c79c3"
+      },
+      "png": {
+        "label": "normal-goalie.pk.reattempt_neutral_goal_probability_difference",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.reattempt_neutral_goal_probability_difference-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/075-normal-goalie.pk.reattempt_neutral_goal_probability_difference.png",
+        "bytes": 2876403,
+        "sha256": "9d46c251fac9179d5b968f268be5d59449784690945109c4e05edc69a6df3822",
+        "width": 1200,
+        "height": 6533
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/076-normal-goalie.pk.reattempt_neutral_goal_probability_difference.svg",
+        "bytes": 33249,
+        "sha256": "ac37a564aac8f3e868ac533cbe73fbe326f557e8faead704f11463781238f6c1"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    },
+    {
+      "mode": "normal",
+      "metric": "goalie.pk.followup_danger_difference",
+      "csv": {
+        "label": "normal-goalie.pk.followup_danger_difference",
+        "extension": ".csv",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.followup_danger_difference-20232024-20252026-history.csv",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/077-normal-goalie.pk.followup_danger_difference.csv",
+        "bytes": 31936,
+        "sha256": "2b8785e62617f3c1d761ffbeb747f33a262e14617693134adce3fc453d219ae2"
+      },
+      "png": {
+        "label": "normal-goalie.pk.followup_danger_difference",
+        "extension": ".png",
+        "suggested_filename": "hockey-stats-8478872-goalie.pk.followup_danger_difference-20232024-20252026-history-raw.png",
+        "saved": true,
+        "failure": null,
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/078-normal-goalie.pk.followup_danger_difference.png",
+        "bytes": 2873240,
+        "sha256": "ed80152e06c0e72321a1dbd10001d339233fd5f4d9e032379f7477d65a3195dc",
+        "width": 1200,
+        "height": 6437
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/079-normal-goalie.pk.followup_danger_difference.svg",
+        "bytes": 33768,
+        "sha256": "f53057cd8d92681567c3a0e037ba22ca492f4c63b5ae1a4255e29997c3b99654"
+      },
+      "unchanged_rasterizer_input_observed": true,
+      "pixel_acceptance": "pending_human_inspection"
+    }
+  ],
+  "captures": [
+    {
+      "mode": "normal",
+      "position": "profile",
+      "geometry": {
+        "innerWidth": 1280,
+        "innerHeight": 913,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 1,
+        "documentWidth": 1280,
+        "visualScale": 1,
+        "horizontalScrollRegions": 0
+      },
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-01/001-normal-profile.png",
+      "bytes": 157970,
+      "sha256": "3394e2f8e36973c58afa7717cfb1e6b9c57134118609365ad08fdac2f8eb77f2",
+      "width": 1280,
+      "height": 913,
+      "actual_viewport": true,
+      "clip": null
+    }
+  ],
+  "metrics": [
+    {
+      "metric": "goalie.ev.stopping_goals_per100_on_net",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.ev.miss_probability",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.ev.recorded_stop_probability",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.ev.conversion_probability",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.ev.recorded_reattempt_probability",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.ev.reattempt_neutral_goal_probability",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.ev.followup_danger",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.ev.miss_probability_difference",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.ev.recorded_stop_probability_difference",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.ev.conversion_probability_difference",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.ev.recorded_reattempt_probability_difference",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.ev.reattempt_neutral_goal_probability_difference",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.ev.followup_danger_difference",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 300
+    },
+    {
+      "metric": "goalie.pk.stopping_goals_per100_on_net",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    },
+    {
+      "metric": "goalie.pk.miss_probability",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    },
+    {
+      "metric": "goalie.pk.recorded_stop_probability",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    },
+    {
+      "metric": "goalie.pk.conversion_probability",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    },
+    {
+      "metric": "goalie.pk.recorded_reattempt_probability",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    },
+    {
+      "metric": "goalie.pk.reattempt_neutral_goal_probability",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    },
+    {
+      "metric": "goalie.pk.followup_danger",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    },
+    {
+      "metric": "goalie.pk.miss_probability_difference",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    },
+    {
+      "metric": "goalie.pk.recorded_stop_probability_difference",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    },
+    {
+      "metric": "goalie.pk.conversion_probability_difference",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    },
+    {
+      "metric": "goalie.pk.recorded_reattempt_probability_difference",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    },
+    {
+      "metric": "goalie.pk.reattempt_neutral_goal_probability_difference",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    },
+    {
+      "metric": "goalie.pk.followup_danger_difference",
+      "history_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "default_cutoff_minutes": 50
+    }
+  ],
+  "cases": [],
+  "cutoffs": [],
+  "integration_smoke": [],
+  "zoom": [],
+  "browser_versions": [
+    {
+      "mode": "normal",
+      "actual_chrome": "156.0.8078.80",
+      "profile": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-profile-01/normal",
+      "viewport_mechanism": "viewport:null native window and Preferences"
+    }
+  ],
+  "pixel_inspection": "required from root for actual downloaded images and viewport captures; SVG text/header/dimensions do not prove pixels or layout",
+  "cleanup": "only owned contexts closed; keep fresh profiles/artifacts until final acceptance; no automatic retry or cleanup"
+}

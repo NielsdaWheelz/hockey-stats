@@ -1,0 +1,27 @@
+{
+  "kind": "shared-browser-04-admission",
+  "assigned_at": "2026-11-14T04:56:07.674784+00:00",
+  "status": "assigned_once_not_run",
+  "runtime_source_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+  "build_receipt_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+  "node_pid": 89887,
+  "base_url": "http://127.0.0.1:3407",
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "source_sha256": "892a1a620f18043cfe2a687ea5b7ed55d4d6d6604852e75a5c41e4dfcf8488a7",
+  "source_review_sha256": "af5d64be1ef4f3274eaa00b9bafba067b9687f7f4f57e2f5e5cd73de4fea3762",
+  "caller_sha256": "92e73ac99fc612a80bc4e20052f7df0b393f80ba0294c5f5a5c4b4eab408371f",
+  "preflight_sha256": "ef0456fdebd2724c8b8b6537f93f2606a0a3dc818a36db3ce4cd6093a6e7defd",
+  "startup_adjudication_sha256": "0d13786262af694f37039bdc73fffd54655807bca8c832d164dfeaed689f2fdb",
+  "current_three_overview_binding_sha256": "7a04ebe124ef47409fd8a3f1fc867dd7a45beacb4a43cc575a4795c3d5a7b4e3",
+  "actual_label_green_sha256": "78eb669c221219f7e8be72079f36ec2fa8e5a65694818636f1325e82c4918ea3",
+  "accepted_inputs": {
+    "api02_sha256": "355de762cb1f72cf496c8c690658d7a751e66d7caff6b3dc7994eb9e40d50472",
+    "consumer04_sha256": "c7e329ae247857e425c5db25a88afe8ee5c07130818c7ecd45032c1a4a044d66",
+    "oracle_csv_sha256": "bc293b783cbd71a19d7f7fc7f506d08590dba23c6936caea4d1cef817b387653"
+  },
+  "scope": "one complete current-browser campaign:26metrics/2cutoffs/6cases/4smokes/3layouts/30actualCSV+PNGpairs, request/action lifecycle traces and6labelbounds; no abort/error waiver, retry, input mutation or source change",
+  "post_exit": "after actual native closure/explicit marker+prompt only, one reviewed browser-boundary-04.py captures fixed external result and local log/exit; independent cached adjudication and actual pixel proof remain required",
+  "held": "ST live commands, preservation, cleanup and activation remain unassigned; STOP overrides pending capture"
+}

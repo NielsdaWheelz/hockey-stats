@@ -1,0 +1,63 @@
+{
+  "kind": "goalie-complete-api-checked-release",
+  "status": "accepted_G_api_only",
+  "recorded_at_utc": "2026-11-13T12:55:40.483989+00:00",
+  "closed_pids": [
+    6991,
+    6990,
+    6953,
+    6951
+  ],
+  "closure_observed_at_utc": "2026-11-13T12:42:35Z",
+  "native_exit": 0,
+  "result": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-api-result.json",
+    "bytes": 14862,
+    "sha256": "68601a52b74c4585f5fc3df1b3e87230168cf96e4c8c0c4871b2dd63024dea34"
+  },
+  "independent_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-api-independent-adjudication.json",
+    "bytes": 3382,
+    "sha256": "094076e87a11d547bf6e543fbb8409b282970af30ab5d59e343fe707be9a45d7"
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "source_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "server_pid": 98454,
+  "server_port": 3407,
+  "checked": {
+    "league_strengths": 33,
+    "goalie_seasons": 361,
+    "goalie_scalar_rows": 3971,
+    "scalar_fields": 51623,
+    "model_maps": 3971,
+    "breakdown_rows": 35739,
+    "observed_rows": 4332,
+    "observed_endpoint_rows": 8664,
+    "danger_rows": 8664,
+    "evidence_maps": 51984,
+    "history_goalie_seasons": 361,
+    "profile_ids": 165,
+    "paired_evidence_view_controls": 6,
+    "negative_requests": 8
+  },
+  "native_cost": {
+    "wall_seconds": 924.4,
+    "peak_rss_bytes": 641384448,
+    "peak_footprint_bytes": 631145384
+  },
+  "returned_http_body_bytes": 18275860581,
+  "logical_saved_returned_bytes": 9592341395,
+  "requests": 36695,
+  "prior_only": "unobserved within all saved EV/PK rows/all13fields/threepublishedseasons; not impossible; fixture/math controls retain their separate scope",
+  "capture": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-api-boundary.json",
+    "bytes": 2525,
+    "sha256": "3350cd31ea7bdec861f54be8f1b653e81a7350e69275a92b3ff5c2d1386788c2"
+  },
+  "limits": [
+    "three fixed metadata captures only; no second reconciliation or DB/model read",
+    "G API only; typed consumer, browser/download/pixel, ST matrices, science and activation remain separate"
+  ],
+  "next_window": "root separately assigns ONE live typed consumer/annual cohort/history/csv-construction pass after fresh paths; no browser or ST window"
+}

@@ -1,0 +1,65 @@
+{
+  "status": "bounded_controls_passed_not_full_composition",
+  "production_module": "analysis/src/hockey_stats/goalie_composition.py",
+  "source_sha256": "87dad8fa794971da667c4fb6628c6177eea595c7bc3e23e44a594bbd12156ad6",
+  "diff": {
+    "path": "/tmp/goalie-v1-07-checks/goalie-parent-cutover.patch",
+    "sha256": "cab91bf8d438b33c7773bbc14471f5ea985297f351d8a30d31c90c6632c9f66d"
+  },
+  "changed_lines": {
+    "insertions": 12,
+    "deletions": 43
+  },
+  "selected_input": {
+    "manifest": "/Volumes/Expansion/hockey-stats/runs/application-v1-18-20261109-01/results/manifest.json",
+    "sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "authority": "root explicitly selected checked converted input; no child real-body read",
+    "root_checked_adjudication_sha256": "1cb1d49b4fb8c1f2bbd8f6a91cda93adc08e87506c3db7b5397add03ca8b53ea"
+  },
+  "removed": "goalie-only old a40 ancestry/family/catalog comparisons and three-reference-xg exception admission helper",
+  "retained": {
+    "immutable_execution_selection_sha256": "588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e8c000f9450",
+    "annuals_exact_source_sha256": "10cc44a7ea471b31e05d0a29e126be3fdb6704c442d81ac53116e59167a02eb2",
+    "public_rows_exact_source_sha256": "1f156c32c7a93bf74b2a5803d91490267a2f690f053825fb9b660dc2aa77d88d",
+    "copy_publication_tail_exact_source_sha256": "dcc6986575d23ff42b68e31c41a16297278fdb55f6effe466d91a7635bac4c33"
+  },
+  "red": {
+    "exit_code": 1,
+    "wall_seconds": 0.19,
+    "max_resident_bytes": 64765952,
+    "receipt": {
+      "path": "/tmp/goalie-v1-07-checks/goalie-parent-cutover-red.json",
+      "sha256": "1231af50d1ef428206c06cc41e9ef0ba1493a4597bc8268a6fce86a7761a7d09"
+    },
+    "log": {
+      "path": "/tmp/goalie-v1-07-checks/goalie-parent-cutover-red.log",
+      "sha256": "4aeff502c43cdce1770782c5d1ec58549cbf5defadac4cb07d8d52f0a6b25a24"
+    },
+    "adjudication": "actual target failure: wrong real parent reached full reader before exact selected-parent guard; no numerical-error claim"
+  },
+  "green": {
+    "exit_code": 0,
+    "wall_seconds": 0.2,
+    "max_resident_bytes": 66355200,
+    "receipt": {
+      "path": "/tmp/goalie-v1-07-checks/goalie-parent-cutover-green.json",
+      "sha256": "20181cc43885f3c94df1b692b8f37e308f0737f55ea218167ade8fbe32e21e83"
+    },
+    "log": {
+      "path": "/tmp/goalie-v1-07-checks/goalie-parent-cutover-green.log",
+      "sha256": "cf3e8682e495f1bd9a5b0daf0e30d324d5cb0e5517b0b720bdee9ba05b7258e6"
+    },
+    "controls": 7
+  },
+  "syntax": "parsed",
+  "whitespace": "git diff --check passed",
+  "scientific_or_shared_schema_change": false,
+  "read_scope": "one local retained fixture manifest and synthetic/mocked header/identity boundaries; actual shared invalid-purpose/version header checks only",
+  "real_body_reads": 0,
+  "source_or_array_reads": 0,
+  "fit_or_probe_calls": 0,
+  "publication_or_serving_changes": 0,
+  "git_writes": 0,
+  "remaining": "full five-score composition, strict old annual score1 relation read, candidate/publication/startup/API/browser acceptance remain required later",
+  "independent_review": "root and independent score owner approve actual diff/controls; exact early parent pin, fixture strict3 delegation, immutable execution pin, annual/person/method/copy tail unchanged; mocked/header controls are not full composition acceptance"
+}

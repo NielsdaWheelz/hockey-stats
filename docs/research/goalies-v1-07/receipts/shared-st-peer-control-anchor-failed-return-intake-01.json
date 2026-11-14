@@ -1,0 +1,66 @@
+{
+  "kind": "shared-st-peer-control-anchor-failed-return-and-source-contract-intake",
+  "status": "FAILED_SCOPED_PP_ANCHOR_RETURN_VERIFIED",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-checked-return-01.json",
+      "bytes": 13411,
+      "sha256": "2ed104ff56cef639b71dbb76f58a28171da4d8eb7e440b549e24955f6a9f3942"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-independent-adjudication-01.json",
+      "bytes": 11865,
+      "sha256": "32bb1783adc18ac0ae0901efe5269729e642213a1bd28d6eb0c6ec8868090707"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-return-review-01.json",
+      "bytes": 3014,
+      "sha256": "33860c0097c5fcf8e20043dcbe8dd2e63dc52a0dc8661efcd5972a5df69a0207"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-postexit-capture-01.json",
+      "bytes": 62495,
+      "sha256": "bf798ddc047a71cc1a078ec40ef0181efc11c249ae22461225bf2da134cdf40d"
+    }
+  ],
+  "input_identities_and_capture_buffers_verified": true,
+  "native_exit": 1,
+  "capture_exit": 0,
+  "pp_cutoff_credit": 0,
+  "functional_observations": "four history/control observations plus same-form binding independently match pinned API for pp.offense_xg_per60/player8471214/20252026;21812seconds=>364minutes; all3 raw/unit/reference/plot invariants, original-year standing, annual navigation/reload and general300 hold; no media",
+  "strict_failure": "one exact initial-profile favicon404 failed first-document eligibility after a same-URL public framenavigated event sealed it; event subtype and whether that historical event replaced a document remain UNKNOWN",
+  "raw_events": "21 full-URL request/response multisets equal; all200; no pageerrors/transports/downloads; context closed",
+  "native_cost": {
+    "wall_seconds": 61.18,
+    "peak_rss_bytes": 957464576,
+    "raw_footprint_bytes": 112667808
+  },
+  "internal_driver_cost": {
+    "wall_seconds": 61.063726916,
+    "peak_node_rss_bytes": 156532736
+  },
+  "capture_cost": {
+    "native_wall_seconds": 0.04,
+    "native_peak_rss_bytes": 23625728,
+    "returned_logical_bytes": 45011
+  },
+  "declared_content_length_bytes": 321806366,
+  "actual_transfer_physical_io_and_aggregate_chrome_server_peak": "UNKNOWN",
+  "source_finding": {
+    "responsible_owner": "temporary test controller, not product or numerical code",
+    "root_review_miss": "approved an overly broad public framenavigated=>document-replaced implication",
+    "pinned_source": "playwright-core/lib/coreBundle.js client62316-62324 emits public navigation regardless event.newDocument; chromium39521-39539 separates Page.frameNavigated and Page.navigatedWithinDocument",
+    "native_reviewers": [
+      "/root/canonical_trace",
+      "/root/trace_review"
+    ],
+    "public_contract_source": "https://raw.githubusercontent.com/ChromeDevTools/devtools-protocol/master/pdl/domains/Page.pdl",
+    "future_correction": "one initial main-frame/frame-loader identity; seal on a different committed main-frame document, record same-document navigation without sealing; keep explicit pre-submit seal and all strict after-close raw gates",
+    "old_event_classification": "not inferred from source; old failed verdict unchanged"
+  },
+  "next_scope": "one cohesive LOCAL SOURCE-ONLY corrected-anchor/controller/admission/capture packet on fresh attempt02 paths, with independent review; no separate diagnostic load, no actual command grant",
+  "tradeoff": "small explicit Chrome/CDP-specific document identity check; Chrome already pinned and CDP already required by layouts. integrate observations into future anchor to avoid an extra live load",
+  "root_review_scope": "four fixed LOCAL metadata/capture bodies, source/docs/primary-reference inspection only; no original external log/result/CSV/image/member/DB/HTTP/service replay",
+  "preservation": "same89887/source3763/fee5/app852/build18ef/fb604/21de+15d, G/source03/primary unchanged; every profile/artifact/failure retained",
+  "holds": "root owns next-scope adjudication; all actual preflight/browser/capture/remainder/pixel/rollback/preservation/cleanup/build/startup/publication/activation held; STOP overrides"
+}

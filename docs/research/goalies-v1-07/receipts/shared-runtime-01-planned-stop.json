@@ -1,0 +1,10 @@
+{
+  "kind": "planned-owned-runtime-stop",
+  "pid": 98454,
+  "observed_command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime.mjs /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-01.json --publication /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite --port 3407",
+  "signal": "SIGINT",
+  "reason": "accepted source-only goalie-overview read repair; stop old owned server before rebuilding static assets; same inactive database retained",
+  "requested_at": "2026-11-13T14:01:10.474855+00:00",
+  "startup_disposition": "prior strict startup remains accepted; eventual native footer measures complete service lifetime, not startup",
+  "primary": "port3000/pid9645 not signaled"
+}

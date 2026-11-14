@@ -1,0 +1,59 @@
+publication response could not be used {
+  reason: {
+    request: {
+      _id: 'HttpClientRequest',
+      method: 'GET',
+      url: '/api/players/8478872',
+      urlParams: [Object],
+      hash: [Object],
+      headers: {},
+      body: [Object]
+    },
+    cause: { cause: [TypeError], _tag: 'UrlError' },
+    _tag: 'InvalidUrlError'
+  },
+  cause: {
+    cause: TypeError: Invalid URL
+        at new URL (node:internal/url:895:25)
+        at Object.try (/Users/nnandal/Documents/code/hockey-stats-v1-07/app/node_modules/effect/src/http/Url.ts:49:27)
+        at Module.try_ (/Users/nnandal/Documents/code/hockey-stats-v1-07/app/node_modules/effect/src/Result.ts:608:34)
+        at Module.make (/Users/nnandal/Documents/code/hockey-stats-v1-07/app/node_modules/effect/src/http/Url.ts:47:13)
+        at PrimitiveImpl.~effect/Effect/args (/Users/nnandal/Documents/code/hockey-stats-v1-07/app/node_modules/effect/src/http/HttpClient.ts:871:31)
+        at PrimitiveImpl.~effect/Effect/evaluate (/Users/nnandal/Documents/code/hockey-stats-v1-07/app/node_modules/effect/src/internal/core.ts:644:22)
+        at FiberImpl.runLoop (/Users/nnandal/Documents/code/hockey-stats-v1-07/app/node_modules/effect/src/internal/effect.ts:654:41)
+        at FiberImpl.evaluate (/Users/nnandal/Documents/code/hockey-stats-v1-07/app/node_modules/effect/src/internal/effect.ts:595:23)
+        at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-07/app/node_modules/effect/src/internal/effect.ts:5689:9)
+        at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-07/app/node_modules/effect/src/internal/effect.ts:5767:19) {
+      code: 'ERR_INVALID_URL',
+      input: '/api/players/8478872'
+    },
+    _tag: 'UrlError'
+  },
+  _tag: 'HttpClientError',
+  '~effect/http/HttpClientError': '~effect/http/HttpClientError'
+}
+
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+Response {}
+
+Node.js v24.21.0
+        0.52 real         0.41 user         0.07 sys
+           160858112  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               15204  page reclaims
+                 305  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                 300  messages sent
+                  45  messages received
+                  98  signals received
+                1124  voluntary context switches
+                2143  involuntary context switches
+           461314258  instructions retired
+           184164884  cycles elapsed
+            18926208  peak memory footprint

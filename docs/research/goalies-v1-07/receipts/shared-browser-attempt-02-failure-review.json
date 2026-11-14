@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "kind": "browser-attempt-02-independent-failure-review",
+  "status": "support_assertion_failed_lazy_render_race_likely_not_proved",
+  "sha256": {
+    "shared-browser-attempt-02-result.json": "3f027f2ce90712999c51f6b3cc11b95a2f1c4fb3eb8876ddcf7fb7b87a3ecf01",
+    "native_log_raw": "e44c552080266b4b89be9754131e1a7108a7dfa92dbffaf6f365da14494fba81",
+    "native_exit_raw": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "boundary_capture": "6255d0a7aaf445a518bd1136f7e56ef589e9262ae3a09a2d35c22cf2ce6c2347",
+    "browser_controller": "a9c06edf5f9e167019e702eab8bb2d48db21a2d321c95f3ba29b620c0c1751fc"
+  },
+  "finding": "native exit is exactly 1 plus newline; failure is the first representative-case support assertion at line 338. expected complete-case qualification is 183847 seconds and prior_only false, matching passed API02. the failing support string/DOM was not retained, so incomplete lazy content versus wrong rendered data remains unresolved.",
+  "source_contract": [
+    "DatumEvidence initially has hasOpened=false. native details toggle schedules setHasOpened(true); direct paragraphs exist only after that state commits. the first direct paragraph contains the exact qualification wording asserted by the controller; quantity support contains prior only. no wording/unit mismatch is evident.",
+    "the controller clicks summary then immediately reads row.innerText. the visible row can exist before its lazy evidence paragraphs. this is a concrete readiness gap and plausible mechanism, not proof of the historical failing DOM."
+  ],
+  "readiness_judgment": "approve a neutral first-direct-paragraph-visible condition scoped to the exact clicked history-row details.analysis-evidence, then keep both qualification and prior-only assertions unchanged. a global .analysis-evidence > p may match another opened panel. waiting for the expected number/flag would conflate readiness with correctness and should be rejected.",
+  "minimal_observation": "one separately assigned complete EV profile: record atomic panel-open state, direct-paragraph count and support text before click, immediately after click, and after the scoped paragraph becomes visible. then assert qualification 183847 seconds and prior only false. empty immediate content followed by correct mounted content supports lazy-render attribution; visible wrong content demonstrates a different contract failure. no full retry or product change is assigned here.",
+  "partial_evidence": "26 normal metric/export pairs and both EV/PK cutoff/annual-reload checks are recorded. zero representative cases completed; smoke/layout arrays are empty. no request-failure/page-error events and owned context closed. original attempt 01 and the passed cutoff diagnostic remain separate; this attempt is not a browser pass.",
+  "cost": {
+    "internal_wall_seconds": 199.84120429200001,
+    "node_peak_rss_bytes": 229130240,
+    "native_wall_seconds": 213.96,
+    "native_peak_rss_bytes": 723894272,
+    "capture_external_bytes": 83719,
+    "capture_local_bytes": 3456,
+    "capture_internal_wall_seconds": 0.00043137487955391407,
+    "capture_peak_rss_bytes": 19644416,
+    "scope": "raw declared timing scopes; logical captured bytes are not physical traffic and native command high-water is not aggregate browser memory"
+  },
+  "limits": "local retained metadata/raw log and source contract review only; no live DOM, HTTP/OS/HDD query, execution, test, export/image read or source edit. browser/ST/pixels, science and activation remain unassessed."
+}

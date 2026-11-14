@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "kind": "shared-consumer-attempt-03-independent-review",
+  "status": "accepted_two_loaders_26_compositions_and_csv_only",
+  "sha256": {
+    "shared-consumer-attempt-03-result.json": "317d3d3f08a553f777d34b65ac41e360fbaf93bd2bf3034faa271115c2b021d9",
+    "shared-consumer-attempt-03-oracle.csv": "bc293b783cbd71a19d7f7fc7f506d08590dba23c6936caea4d1cef817b387653",
+    "shared-consumer-attempt-03-native.log": "d9e44308c52da231f48a5ad8223b4e68513f2205b0c5069debc9d87fbc610ac5",
+    "shared-consumer-attempt-03-native.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "shared-consumer-attempt-03-capture.json": "a18f3b23fbfa476042e20ac9e739a94ad104d3e37b1395fa517f639517bf1a26",
+    "consumer_source": "ed64fdb5b45b31ac9eea50bb124d408a2b1440761730faa583cf1a10607aeb4d",
+    "held_shell": "f5e50c3c12b5fa64b594c18172ade7654aebf4ab19b299b45e86fddbb5dc798d",
+    "capture_source": "e29291868d35997cf7e5ac07f5e091b6fab857f1225a149c174bc5be16ebace8",
+    "passed_api_result": "68601a52b74c4585f5fc3df1b3e87230168cf96e4c8c0c4871b2dd63024dea34"
+  },
+  "findings": [
+    "native exit is exactly 0 plus newline; passed receipt and native counts agree. capture has four complete bounded bodies, no errors/unknowns/overflow; copied raw hashes agree. capture success alone is not the consumer verdict.",
+    "receipt binds passed API fb604/real/exchange 3/schema 9, anchor 8478872 and origin 3407; inherited cases/absence declarations agree. two actual stopping loaders supply all 26 compositions under the source-reviewed common-overview contract.",
+    "independent standard-library CSV parsing found 66 unique headers and 78 exact-width rows: exactly 26 metric ids times three ordered seasons, without duplicate keys. every publication/player/corpus identity, strength, unit, qualification path, default cutoff, percentile range and raw/display scaling agrees. all 78 anchor rows qualify; native assertions establish cohort/rank arithmetic and all 78 raised-cutoff checks, preserving values and excluding standing.",
+    "all rows retain experimental construction, next-attempt proxy and no-calibrated-interval caveats, not_estimated uncertainty, numerical sensitivity/unknown optimizer accuracy and omitted target-selection uncertainty. annual method ids and hash-bearing evidence are retained consistently; no evidence URI was followed."
+  ],
+  "cost": {
+    "loader_journeys": 2,
+    "metric_compositions": 26,
+    "annual_ranked_points_and_changed_cutoffs": 78,
+    "requests": 8,
+    "declared_response_body_bytes": 40415998,
+    "csv_bytes": 792692,
+    "internal_wall_seconds": 55.605936332999995,
+    "native_wall_seconds": 56.09,
+    "native_peak_rss_bytes": 448102400,
+    "capture_returned_bytes": 796464,
+    "capture_internal_wall_seconds": 0.0011050421744585037,
+    "capture_native_wall_seconds": 0.04,
+    "capture_internal_peak_rss_bytes": 20398080,
+    "capture_native_peak_rss_bytes": 20430848,
+    "scope": "consumer internal timing starts before loaders, includes CSV generation/write and stops during receipt construction; startup and receipt serialization/write are excluded. native time covers the whole command. capture internal timing excludes local reservation/final serialization. response bytes are declared content lengths, not measured physical traffic."
+  },
+  "blocking_mismatches": [],
+  "limits": "local receipts/source and independent CSV analysis only; no live request, project execution or analytical-body replay. attempt 02 ECONNRESET remains unexplained. all 26 actual browser selections, representative/view routes, exports/pixels, science and activation remain pending."
+}

@@ -1,0 +1,68 @@
+{
+  "kind": "shared-st-browser06-actual-dispatch-clearance",
+  "created_at": "2026-11-14T07:30:57.493208+00:00",
+  "status": "actual_preflight_accepted_one_separate_browser_command_authorized_not_observed_launched",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-launch-preflight-01.json",
+      "bytes": 23906,
+      "sha256": "93a609352c7d3197f2238bd1d145f0e797b2eb95fef64a82a89ac4fe31564911"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-launch-preflight-01-native.log",
+      "bytes": 892,
+      "sha256": "119e7d5c8f413e337ea8dae08af6b0d2f3d0d554965e8c987e5e9bddc0751d44"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-launch-preflight-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-launch-preflight-review-01.json",
+      "bytes": 4460,
+      "sha256": "ea0c18b49926b3565f16b0622be4d6905b5e7f366b0b50a05e184e8a0ad593a5"
+    }
+  ],
+  "source_chain": {
+    "parent_assignment": "5ed026ebc3765f9e767114efd7518948a6e2eaf6b5f04c49c1fc978da8280940",
+    "csv_byte_count_amendment": "fb54e66d47f95e65a31ff2f30d3984f3d6b4beb5a897cdbaa06c1bf3985e5097",
+    "source_and_preflight_clearance": "565384577f98bf0967142baa2444133595f452e6dfc637da635e91105c1eb85d",
+    "current_browser06": "c74dcf9806d4533308bb00d08bd28e18620653948bddc48b06b1626dd7567fbe",
+    "current_held06": "854810efe26624ea6a96b9478be2007d8d46608a695a65d89c61f3fd84bdc7e9"
+  },
+  "accepted_preflight": {
+    "native_exit": 0,
+    "owner_marker_and_prompt": "ST_BROWSER_PREFLIGHT_NATIVE_EXIT=0 and returned prompt reported",
+    "native_wall_seconds": 0.15,
+    "native_peak_rss_bytes": 26869760,
+    "internal_wall_seconds": 0.08983574993908405,
+    "internal_peak_rss_bytes": 26836992,
+    "local_bodies": 52,
+    "local_body_bytes": 2838301,
+    "external_consumer_json_bodies": 1,
+    "external_consumer_bytes": 1097187,
+    "csv_reads_or_stats": 0,
+    "member_or_db_stats_or_http": 0,
+    "fresh_browser_profile_log_exit_capture_paths": 5,
+    "limits": "preflight only; data-source identity remains transitive, not a new HTTP response; physical IO unmeasured"
+  },
+  "authorized_once": {
+    "owner": "v1-09",
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+    "argv": [
+      "/bin/sh",
+      ".tmp/st-final-browser-held-06.sh",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+      "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+      "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json"
+    ],
+    "scope": "only reviewed finite browser06 journey/download/layout matrix under5ed+fb54 on same3763fee5app852build18ef/retained89887/fb604/final21de15d. first exacttypedCSVread permitted insidecontroller, capture originalbufferbytes+sha and120-row assertions. planned101downloads/85rasters are not actual output/pass",
+    "actual_frame": "report exact observed argv/cwd/process chain and nativeversions; independent cached frame review before conditionalpostcapture. no run inference from authorization",
+    "failure": "strictzero rawpageerrors/nonwhitelistedconsole/transportfailures and successfulrequiredAPIresponses, recheckFULLrawarraysTHROUGHcontextclosure regardlessselfstatus; exactundeclaredsameoriginfavicon404exceptiononly. no retry/abortwaiver/expectationrelaxation/sleep/networkidle/source change. STOPoverridespendingreads",
+    "postcapture": "after independently checked actualbrowserframe and actual ownedclosure+numericST_BROWSER_NATIVE_EXITmarker/prompt/noSTOP:ONEreviewedd5dbcollector--stagebrowser with ownsourceSHA d5db7fb66fa6a6b853f0a7b7422034e5f3b8f801a7e2b1b1c7b581397365f90c, actual accepted browser launchdigest, same target1a301 digest and freshLOCALst-final-browser-postexit-capture-01.json. exactlyfixed3receipt/log/exitbodies/caps, noimage/SVG/CSV/member/DBfollowup. old35c3/f682/09ff declarations remainHISTORICALBASE; current06 identity fromamendment/admission/actualframe. collection0isnotartifactpass; independentcachedsemantic/cost/inputreviewthenexplicitcheckedreturn",
+    "preserve": "all originals/artifacts/profiles/failures retained; no cleanup"
+  },
+  "held": "independentpixels/offline/rollback/protectedprimary/finalpreservation/cleanup/fit/rescore/publication/startup/sourcebuildmutation/activation and all laterchains. rootGnewlive/drivework held throughcheckedbrowserreturn",
+  "root_operations": "fixed4LOCALpreflightreceipt/log/exit/review reads/hash/JSON consistency only; no pinbody/runtime/OS/listener/HTTP/HDD/consumer/CSV/DB replay; no actualbrowsercommand invokedbyroot"
+}

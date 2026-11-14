@@ -1,0 +1,528 @@
+{
+  "kind": "st-composition-nonowned-preservation",
+  "status": "passed",
+  "started_at_utc": "2026-11-13T06:28:13.744591+00:00",
+  "local_inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-native-metadata-03.json",
+      "bytes": 6806,
+      "sha256": "e1bac06465b3b8f68b9e0cc130a81c66ba4b547b77ace27a992919b469cec23b"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-actual-launch-01.json",
+      "bytes": 7299,
+      "sha256": "66dee07a0c67aac13696feedc1ae4369e6ffa2049cb6524498b26aa3bf842757"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-manifest.json",
+      "bytes": 23317,
+      "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-producer.json",
+      "bytes": 54924,
+      "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-output-manifest-01.json",
+      "bytes": 23310,
+      "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-producer-receipt-01.json",
+      "bytes": 60964,
+      "sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-resources-01.json",
+      "bytes": 464,
+      "sha256": "0e643fbceb72e4a6baf8f7a4dc44c38fa76ff321f2cee454c2081dcb1e2d8ddd"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-20232024-receipt-01.json",
+      "bytes": 15487,
+      "sha256": "fb5eb02fd776764a59e058c51808850ac41001c507c0d561a54354c5c8ba55c3"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-20242025-receipt-01.json",
+      "bytes": 15427,
+      "sha256": "d8dddcb18e385ab41d373a7833bde1ba90d7483b5df52eee8ef494f6b195eece"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/composition-real-20252026-receipt-01.json",
+      "bytes": 15727,
+      "sha256": "8f51f4379aa638b2ac613afa1dc6416f57a762917184e449e4c7f97436585899"
+    }
+  ],
+  "bodies": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-methods.jsonl",
+      "phase": "methods",
+      "bytes": 84495,
+      "rows": 15,
+      "expected_sha256": "ddb21e721ba0d8e078fb0d2c2d037debdee15bcba285dbc77e5ee582838f86ed",
+      "complete": true,
+      "verified": true,
+      "sha256": "ddb21e721ba0d8e078fb0d2c2d037debdee15bcba285dbc77e5ee582838f86ed",
+      "wall_seconds": 13.823540750192478,
+      "process_peak_rss_bytes": 25100288
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/methods.jsonl",
+      "phase": "methods",
+      "bytes": 104234,
+      "rows": 18,
+      "expected_sha256": "90724df098bf5574a93d620ea21c7a41609e2c666ac2c0783edefff064c600d3",
+      "complete": true,
+      "verified": true,
+      "sha256": "90724df098bf5574a93d620ea21c7a41609e2c666ac2c0783edefff064c600d3",
+      "wall_seconds": 0.006589040858671069,
+      "process_peak_rss_bytes": 25542656
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20232024-spatial-skater_spatial.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 3991930,
+      "rows": 8316,
+      "expected_sha256": "f06e168353f613cfd31a4c84a880de649a6486ef772e48a4b811a4665f002965",
+      "complete": true,
+      "verified": true,
+      "sha256": "f06e168353f613cfd31a4c84a880de649a6486ef772e48a4b811a4665f002965",
+      "wall_seconds": 0.3415661249309778,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 25804800
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-spatial-skater_spatial.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 36246216,
+      "rows": 8316,
+      "expected_sha256": "68a8060dc838355261d27e3a2a4f16b07cfc20ff8572664ff86f1a3c3a67e358",
+      "complete": true,
+      "verified": true,
+      "sha256": "68a8060dc838355261d27e3a2a4f16b07cfc20ff8572664ff86f1a3c3a67e358",
+      "wall_seconds": 0.3415661249309778,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 25804800
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20232024-spatial-analysis_map.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 664437878,
+      "rows": 36960,
+      "expected_sha256": "1d56fa988c66cb6ef2a68c422019432f0b2816e0604e7c7d78f7ebc1b19df50d",
+      "complete": true,
+      "verified": true,
+      "sha256": "1d56fa988c66cb6ef2a68c422019432f0b2816e0604e7c7d78f7ebc1b19df50d",
+      "wall_seconds": 30.846413666848093,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28262400
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-spatial-analysis_map.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 3290399578,
+      "rows": 36960,
+      "expected_sha256": "7bdf2f888b9d806c12656d8b478ced3d0156cf17f4416e2e3131b1bb8dca8af4",
+      "complete": true,
+      "verified": true,
+      "sha256": "7bdf2f888b9d806c12656d8b478ced3d0156cf17f4416e2e3131b1bb8dca8af4",
+      "wall_seconds": 30.846413666848093,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28262400
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20232024-spatial-adjustment_decomposition.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 7113786,
+      "rows": 18480,
+      "expected_sha256": "38bd9a8cce589263d12338618fd24fac2943fdb7c763a9e519c815796ac1024d",
+      "complete": true,
+      "verified": true,
+      "sha256": "38bd9a8cce589263d12338618fd24fac2943fdb7c763a9e519c815796ac1024d",
+      "wall_seconds": 0.30192033387720585,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28262400
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-spatial-adjustment_decomposition.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 25739179,
+      "rows": 18480,
+      "expected_sha256": "5cc1c555fa1161b741bf929eeb17849e5ca01b3259c5ae09b7f2bcbd1e65ee4f",
+      "complete": true,
+      "verified": true,
+      "sha256": "5cc1c555fa1161b741bf929eeb17849e5ca01b3259c5ae09b7f2bcbd1e65ee4f",
+      "wall_seconds": 0.30192033387720585,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28262400
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20232024-spatial-spatial_evidence.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 4519144,
+      "rows": 8316,
+      "expected_sha256": "5883af386dd15efa7a602f1300292953cccdd3972083d8f6b1c2eacf74d34ab2",
+      "complete": true,
+      "verified": true,
+      "sha256": "5883af386dd15efa7a602f1300292953cccdd3972083d8f6b1c2eacf74d34ab2",
+      "wall_seconds": 0.24219933291897178,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28278784
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-spatial-spatial_evidence.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 23073235,
+      "rows": 8316,
+      "expected_sha256": "2c4ad3565c31d4e4fac063dbebe620a7d4a994abc34c3d2a2e87dc1a1c0227b4",
+      "complete": true,
+      "verified": true,
+      "sha256": "2c4ad3565c31d4e4fac063dbebe620a7d4a994abc34c3d2a2e87dc1a1c0227b4",
+      "wall_seconds": 0.24219933291897178,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28278784
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20242025-spatial-skater_spatial.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 3973550,
+      "rows": 8280,
+      "expected_sha256": "f9b8a4b8e1c1bddff7ce89b4551349806cab1e75b06683343b241cc1df504701",
+      "complete": true,
+      "verified": true,
+      "sha256": "f9b8a4b8e1c1bddff7ce89b4551349806cab1e75b06683343b241cc1df504701",
+      "wall_seconds": 0.3136273331474513,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28278784
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-spatial-skater_spatial.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 36133847,
+      "rows": 8280,
+      "expected_sha256": "aad5abc995f4efd52f94acd7b5029ab20a54efaeb606e71dab969ce71bef22ad",
+      "complete": true,
+      "verified": true,
+      "sha256": "aad5abc995f4efd52f94acd7b5029ab20a54efaeb606e71dab969ce71bef22ad",
+      "wall_seconds": 0.3136273331474513,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28278784
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20242025-spatial-analysis_map.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 661522618,
+      "rows": 36800,
+      "expected_sha256": "62ba0386531745fa81b0679aca65dfa685742bd7dec9f53f14d8d5fedc0bff77",
+      "complete": true,
+      "verified": true,
+      "sha256": "62ba0386531745fa81b0679aca65dfa685742bd7dec9f53f14d8d5fedc0bff77",
+      "wall_seconds": 31.7100475828629,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28311552
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-spatial-analysis_map.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 3275250663,
+      "rows": 36800,
+      "expected_sha256": "f3493967cbf64f672406f11577df48aad7583e0dcd68adc6fe90ac437455aae9",
+      "complete": true,
+      "verified": true,
+      "sha256": "f3493967cbf64f672406f11577df48aad7583e0dcd68adc6fe90ac437455aae9",
+      "wall_seconds": 31.7100475828629,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28311552
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20242025-spatial-adjustment_decomposition.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 7117047,
+      "rows": 18400,
+      "expected_sha256": "e055b39faf8dacc9d2da6fe89539d7b111d44898faa95906ed1aacac5e767fbc",
+      "complete": true,
+      "verified": true,
+      "sha256": "e055b39faf8dacc9d2da6fe89539d7b111d44898faa95906ed1aacac5e767fbc",
+      "wall_seconds": 0.2908447082154453,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28311552
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-spatial-adjustment_decomposition.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 25944664,
+      "rows": 18400,
+      "expected_sha256": "ac557fc00b3157b41f9ebdc9ccc560163e6e9be48987815825cb9ddfa85b90df",
+      "complete": true,
+      "verified": true,
+      "sha256": "ac557fc00b3157b41f9ebdc9ccc560163e6e9be48987815825cb9ddfa85b90df",
+      "wall_seconds": 0.2908447082154453,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28311552
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20242025-spatial-spatial_evidence.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 4520960,
+      "rows": 8280,
+      "expected_sha256": "edf67e50f8a498ff93764d87b588d34197aa6c0ec52e0258022456afa60caa0e",
+      "complete": true,
+      "verified": true,
+      "sha256": "edf67e50f8a498ff93764d87b588d34197aa6c0ec52e0258022456afa60caa0e",
+      "wall_seconds": 0.2583397498819977,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28311552
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-spatial-spatial_evidence.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 23179499,
+      "rows": 8280,
+      "expected_sha256": "9e1c547caa27f355d7dd61cc80d250f19f61d8a4a979b974b7334dea3aae998a",
+      "complete": true,
+      "verified": true,
+      "sha256": "9e1c547caa27f355d7dd61cc80d250f19f61d8a4a979b974b7334dea3aae998a",
+      "wall_seconds": 0.2583397498819977,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28311552
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20252026-spatial-skater_spatial.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 4064239,
+      "rows": 8460,
+      "expected_sha256": "a03616f6610499cd105d884fa8c0494d6c6bc2f0209563f7cf6f20b53d018869",
+      "complete": true,
+      "verified": true,
+      "sha256": "a03616f6610499cd105d884fa8c0494d6c6bc2f0209563f7cf6f20b53d018869",
+      "wall_seconds": 0.32760720886290073,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28311552
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-spatial-skater_spatial.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 36959294,
+      "rows": 8460,
+      "expected_sha256": "155fc2b88e3d56593ba7f3254f5dd22460f5633356e8fc150331c16bcf4ca783",
+      "complete": true,
+      "verified": true,
+      "sha256": "155fc2b88e3d56593ba7f3254f5dd22460f5633356e8fc150331c16bcf4ca783",
+      "wall_seconds": 0.32760720886290073,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28311552
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20252026-spatial-analysis_map.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 676192930,
+      "rows": 37600,
+      "expected_sha256": "b2132267061380791d5bc52a7037183611d79e673aa6786fce4f40229c657e90",
+      "complete": true,
+      "verified": true,
+      "sha256": "b2132267061380791d5bc52a7037183611d79e673aa6786fce4f40229c657e90",
+      "wall_seconds": 35.12050079088658,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28327936
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-spatial-analysis_map.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 3348967734,
+      "rows": 37600,
+      "expected_sha256": "13fbb2829da98ad5536fd9d811b416b26400f6b67f84952256775b5683e4dd6d",
+      "complete": true,
+      "verified": true,
+      "sha256": "13fbb2829da98ad5536fd9d811b416b26400f6b67f84952256775b5683e4dd6d",
+      "wall_seconds": 35.12050079088658,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28327936
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20252026-spatial-adjustment_decomposition.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 7236337,
+      "rows": 18800,
+      "expected_sha256": "c4139365e5d5f496bd404e479aae8e0ce96b5afe99333199d27b47abc0aa733c",
+      "complete": true,
+      "verified": true,
+      "sha256": "c4139365e5d5f496bd404e479aae8e0ce96b5afe99333199d27b47abc0aa733c",
+      "wall_seconds": 0.40785441594198346,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28327936
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-spatial-adjustment_decomposition.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 26320365,
+      "rows": 18800,
+      "expected_sha256": "5bc36452514d85361544c90289354ab26ab04892dffec314ff0baa175874add0",
+      "complete": true,
+      "verified": true,
+      "sha256": "5bc36452514d85361544c90289354ab26ab04892dffec314ff0baa175874add0",
+      "wall_seconds": 0.40785441594198346,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28327936
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20252026-spatial-spatial_evidence.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 4672836,
+      "rows": 8460,
+      "expected_sha256": "02dc64f3fb52d1384a3fc93c052eac6bc4828f5ff170f8f9afc3fb88202cc6e1",
+      "complete": true,
+      "verified": true,
+      "sha256": "02dc64f3fb52d1384a3fc93c052eac6bc4828f5ff170f8f9afc3fb88202cc6e1",
+      "wall_seconds": 0.23171554203145206,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28327936
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-spatial-spatial_evidence.jsonl",
+      "phase": "mixed_spatial",
+      "bytes": 23785808,
+      "rows": 8460,
+      "expected_sha256": "cbbec9eac7ef862f2d2f70a54d0fecb7a42001d4a03549285ddcfe43bb0316c9",
+      "complete": true,
+      "verified": true,
+      "sha256": "cbbec9eac7ef862f2d2f70a54d0fecb7a42001d4a03549285ddcfe43bb0316c9",
+      "wall_seconds": 0.23171554203145206,
+      "wall_scope": "shared pair elapsed; not additive across its two bodies",
+      "process_peak_rss_bytes": 28327936
+    }
+  ],
+  "mixed_pairs": [
+    {
+      "table": "skater_spatial",
+      "parent": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20232024-spatial-skater_spatial.jsonl",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-spatial-skater_spatial.jsonl",
+      "ev_rows": 924,
+      "semantic_equal": true,
+      "wall_seconds": 0.3415661249309778
+    },
+    {
+      "table": "analysis_map",
+      "parent": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20232024-spatial-analysis_map.jsonl",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-spatial-analysis_map.jsonl",
+      "ev_rows": 7392,
+      "semantic_equal": true,
+      "wall_seconds": 30.846413666848093
+    },
+    {
+      "table": "adjustment_decomposition",
+      "parent": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20232024-spatial-adjustment_decomposition.jsonl",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-spatial-adjustment_decomposition.jsonl",
+      "ev_rows": 3696,
+      "semantic_equal": true,
+      "wall_seconds": 0.30192033387720585
+    },
+    {
+      "table": "spatial_evidence",
+      "parent": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20232024-spatial-spatial_evidence.jsonl",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20232024-spatial-spatial_evidence.jsonl",
+      "ev_rows": 924,
+      "semantic_equal": true,
+      "wall_seconds": 0.24219933291897178
+    },
+    {
+      "table": "skater_spatial",
+      "parent": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20242025-spatial-skater_spatial.jsonl",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-spatial-skater_spatial.jsonl",
+      "ev_rows": 920,
+      "semantic_equal": true,
+      "wall_seconds": 0.3136273331474513
+    },
+    {
+      "table": "analysis_map",
+      "parent": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20242025-spatial-analysis_map.jsonl",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-spatial-analysis_map.jsonl",
+      "ev_rows": 7360,
+      "semantic_equal": true,
+      "wall_seconds": 31.7100475828629
+    },
+    {
+      "table": "adjustment_decomposition",
+      "parent": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20242025-spatial-adjustment_decomposition.jsonl",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-spatial-adjustment_decomposition.jsonl",
+      "ev_rows": 3680,
+      "semantic_equal": true,
+      "wall_seconds": 0.2908447082154453
+    },
+    {
+      "table": "spatial_evidence",
+      "parent": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20242025-spatial-spatial_evidence.jsonl",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20242025-spatial-spatial_evidence.jsonl",
+      "ev_rows": 920,
+      "semantic_equal": true,
+      "wall_seconds": 0.2583397498819977
+    },
+    {
+      "table": "skater_spatial",
+      "parent": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20252026-spatial-skater_spatial.jsonl",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-spatial-skater_spatial.jsonl",
+      "ev_rows": 940,
+      "semantic_equal": true,
+      "wall_seconds": 0.32760720886290073
+    },
+    {
+      "table": "analysis_map",
+      "parent": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20252026-spatial-analysis_map.jsonl",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-spatial-analysis_map.jsonl",
+      "ev_rows": 7520,
+      "semantic_equal": true,
+      "wall_seconds": 35.12050079088658
+    },
+    {
+      "table": "adjustment_decomposition",
+      "parent": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20252026-spatial-adjustment_decomposition.jsonl",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-spatial-adjustment_decomposition.jsonl",
+      "ev_rows": 3760,
+      "semantic_equal": true,
+      "wall_seconds": 0.40785441594198346
+    },
+    {
+      "table": "spatial_evidence",
+      "parent": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/20252026-spatial-spatial_evidence.jsonl",
+      "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/20252026-spatial-spatial_evidence.jsonl",
+      "ev_rows": 940,
+      "semantic_equal": true,
+      "wall_seconds": 0.23171554203145206
+    }
+  ],
+  "phase": "complete",
+  "unchanged_descriptor_count": 66,
+  "descriptor_wall_seconds": 0.00011945795267820358,
+  "unchanged_byte_proof": "accepted path/sha/rows equality composed with the native canonical staged reader hash-validation contract; no blanket body rehash",
+  "inherited_method_count": 15,
+  "new_method_ids": [
+    "spatial-st-v1-09-20232024",
+    "spatial-st-v1-09-20242025",
+    "spatial-st-v1-09-20252026"
+  ],
+  "inherited_method_raw_sha256": "ddb21e721ba0d8e078fb0d2c2d037debdee15bcba285dbc77e5ee582838f86ed",
+  "methods_wall_seconds": 13.830262458184734,
+  "mixed_wall_seconds": 100.39320725016296,
+  "producer_reported_output_member_bytes": 32083871277,
+  "independent_output_scan_bytes": 10172104316,
+  "independent_output_scan_members": 13,
+  "independent_parent_scan_members": 13,
+  "declared_output_members": 79,
+  "output_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+    "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+  },
+  "producer_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/special-teams-composition.json",
+    "sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654"
+  },
+  "scope": "66 unchanged descriptor identities rely on native canonical hash validation; independent inherited method raw lines/definitions and parsed EV5v5 values/ordered keys only; no EV raw-line gate, blanket rehash, ST arithmetic, arrays, model or full reader",
+  "resources": {
+    "wall_seconds": 114.2249247499276,
+    "external_body_bytes": 12221552066,
+    "local_input_bytes": 223725,
+    "peak_rss_bytes": 28327936,
+    "per_body_rss_note": "process high-water after each body; not isolated per-file peak"
+  },
+  "finished_at_utc": "2026-11-13T06:30:07.970833+00:00"
+}

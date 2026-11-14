@@ -1,0 +1,92 @@
+{
+  "kind": "goalie-score-checked-boundary-and-explicit-next-owner",
+  "recorded_at_utc": "2026-11-11T16:04:19.218161+00:00",
+  "owner": "v1-07",
+  "season": "20242025",
+  "status": "native_and_metadata_review_accepted_explicitly_released",
+  "score": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20242025/manifest.json",
+    "sha256": "c398c0cb69549e9832cc3e4ce0b330b883a1926a9ca6a9fab6e04fe7237882a2"
+  },
+  "preflight_sha256": "f7fce43f9d0593bd6224b8e5e244baf0f6741d712cd9bc9ca740e927a7aab899",
+  "metadata_review_sha256": "1aee611da99c00d69df3aef83498daf10be2be124e75969c0d7ac3b1b4791cd1",
+  "independent_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20242025-independent-adjudication.json",
+    "sha256": "3fc6d7a71ef76ec781a65cd337d2a91da2004c54dfb15f8ba7af31ab842a3d0c"
+  },
+  "native": {
+    "exit_code": 0,
+    "session_id": 98019,
+    "python_pid": 50279,
+    "time_pid": 50270,
+    "both_pids_closed": true,
+    "wall_seconds": 6860.84,
+    "peak_rss_bytes": 22022258688,
+    "peak_footprint_bytes": 21761081760,
+    "payload_bytes": 3868630738
+  },
+  "complete_G_baseline_heads": 8,
+  "required_G_baseline_heads": 10,
+  "complete_G_annual_scores": 4,
+  "required_G_annual_scores": 5,
+  "original_source_proofs_still_unfulfilled": 3,
+  "earlier_sensitivity": "unassessed",
+  "optimizer_accuracy": "unknown",
+  "accepted_complete_publication_parent_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+  "root_rechecked_frozen_ST_source_and_script_locally": true,
+  "next_scope": {
+    "owner": "v1-09",
+    "season": "20242025",
+    "ready_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/fourth-real-fit-preparation-02.json",
+      "sha256": "10856eb64cbb449f230295eaf9551f984dd59326c2f498e47952feba5647971a"
+    },
+    "producer_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-09-producer-02",
+    "producer_commit": "74d12c2bb340a52cb43c55e39ed0e89e48f87d8f",
+    "analysis_tree": "aa346929001cfa7ad35558f60b179791834eb56a",
+    "script": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/fourth-real-fit-held-01.sh",
+      "sha256": "7fecf2aa8594b5045eb26ee9781a1fbb09ebcde1fa046c67b0f778bb2e5f0c61",
+      "derived_from": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/third-real-fit-held-01.sh",
+        "sha256": "837b8e86d232fa3692c524bac64ac1eed7274967218da7f7d222f9210666d2a0"
+      }
+    },
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/real/states/20232024/manifest.json",
+      "bytes": 366538,
+      "sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7"
+    },
+    "base_score": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20242025/manifest.json",
+      "sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+      "provenance": "original accepted execution base score"
+    },
+    "output": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/real/states/20242025",
+    "logs": {
+      "native_resource_log": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/logs/20242025-fit.log",
+      "native_exit": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-05/logs/20242025-fit.exit"
+    },
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "scope": "one 20242025 annual prepared pass, accepted base-score validation, full explicit predecessor read and raw history, three fresh baseline heads, full projections/accounting and native strict readback; no basis import or continuation probes",
+    "launch_preconditions": [
+      "separate explicit heavy-slot ownership handoff for this exact scope",
+      "fresh local frozen-source and script pin verification",
+      "fresh mount/path availability check",
+      "fresh absence checks for selected external run, annual output, log and exit paths"
+    ],
+    "baseline_heads": 3,
+    "continuation_probes": 0,
+    "additional_scope_reserved": false,
+    "post_exit": "actual native exit/cost and fifteen payload stats, then separately source-reviewed bounded current9 plus explicit prior manifest/3 head JSON adjudication; no second full reader/arrays/source/evaluator; explicit return to both"
+  },
+  "tradeoff": "one ST annual delays the final G fit by an unknown duration; prior annual cost is observation only, no forecast or blanket chain reservation",
+  "G_final_fit_held_until_explicit_checked_return": true,
+  "public_validator_source_adoption_now_safe_but_not_yet_run": true,
+  "no_owned_heavy_command_remaining": true,
+  "activation": false
+}

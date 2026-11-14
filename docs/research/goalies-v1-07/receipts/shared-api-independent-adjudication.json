@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "kind": "shared-api-independent-adjudication",
+  "status": "accepted_complete_goalie_api_only",
+  "evidence_sha256": {
+    "api_result": "68601a52b74c4585f5fc3df1b3e87230168cf96e4c8c0c4871b2dd63024dea34",
+    "api_native_log": "5dafdc21dcfe3e7729d1d629a8d48207b097f3ad2eea1d26a7f646a0259fad68",
+    "api_native_exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "capture": "3350cd31ea7bdec861f54be8f1b653e81a7350e69275a92b3ff5c2d1386788c2",
+    "capture_native_log": "52fc0e2697308ec2d6aa2e075e8d8addbaf21e810234c7ef35c6420299316f32",
+    "checker": "3a89e054eaaaa7c06eada98eb485b226fc3bdb96a0c529e3c41460b2fb957cb5",
+    "collector": "d1e2cff5ca316f183ab8754e6bd0a929006aece0155de60ec8951b9be0a953eb",
+    "launch_review": "68d1c1616349c1d2c0b37956e401f47b60fcfd8786504f0536df24f785afb4af",
+    "startup_review": "ff39ce55dbf65901026aa2ae114841f41a5901bcf8ae343fef1da2f5f2d4c2f0"
+  },
+  "findings": [
+    "native exit is exactly 0 plus newline; passed/null result agrees with native summary. capture 0 means complete capture only: all three raw hashes match durable copies, without errors, unknowns or overflow.",
+    "admission f158/launch eda7/startup 097 bind fb604, publisher 4aa, app 3242/build 007290 and server 3407. checker get() binds each successful response's uuid, commit, schema 9, corpus, families and catalogs. absent receipt publisher_commit is not a null verdict.",
+    "all 22 saved-member declarations match cached 21de/root 15d: four catalogs plus six G tables/year; hashes/counts/completeness and logical-byte sum agree. manifest is 23310 bytes. no member reread. literal selector matrices match current contracts.",
+    "complete/traded/relief/sparse/no_current_minutes/unavailable witnesses exist. prior_only is unobserved across all saved EV/PK rows, all 13 fields and three seasons, not impossible. mathematical/fixture controls remain separate."
+  ],
+  "checked": {
+    "annual_goalies": [117, 121, 123],
+    "league_strengths": 33,
+    "goalie_seasons": 361,
+    "goalie_scalar_rows": 3971,
+    "scalar_fields": 51623,
+    "model_maps": 3971,
+    "breakdown_rows": 35739,
+    "observed_rows": 4332,
+    "observed_endpoint_rows": 8664,
+    "danger_rows": 8664,
+    "evidence_maps": 51984,
+    "history_goalie_seasons": 361,
+    "profile_ids": 165,
+    "paired_evidence_view_controls": 6,
+    "negative_requests": 8
+  },
+  "cost": {
+    "http_requests_and_responses": 36695,
+    "returned_http_body_bytes": 18275860581,
+    "logical_saved_bytes": 9592341395,
+    "native_wall_seconds": 924.40,
+    "native_peak_rss_bytes": 641384448,
+    "native_peak_footprint_bytes": 631145384,
+    "internal_wall_seconds": 923.3803558750078,
+    "internal_peak_rss_bytes": 641384448,
+    "capture_returned_bytes": 16268,
+    "capture_native_wall_seconds": 0.03,
+    "capture_peak_rss_bytes": 19333120,
+    "capture_internal_wall_seconds": 0.0003720000386238098,
+    "scope": "internal checks exclude final serialization/write; capture timing also excludes local reservation. returned bytes are logical, not physical device/network i/o."
+  },
+  "blocking_mismatches": [],
+  "limits": "local retained evidence/source review only; no live query, input/member/database/model read, controller import, test or reconciliation rerun. G consumer/browser, ST api, csv/png/pixels, science and activation remain unassessed."
+}

@@ -1,0 +1,242 @@
+{
+  "kind": "goalie-scoring-reference-reduction",
+  "status": "bounded_exact_parity_passed_full_real_composition_read_pending",
+  "parent_commit": "30cad7df94678a533f189032a0141d96dfdc1881",
+  "analysis_tree_before": "d072db603bc719af9ac8de4a6027fb326c4cbd25",
+  "analysis_tree_after": "1dc4e1b33b2b570854d5c84621129ebbaf796d32",
+  "source_sha256": "8e605e41f6fc1213496e0451e77ad13a10b54a8b5d667e7a51a7b3dd274143e0",
+  "league": {
+    "kind": "synthetic-league-reference-exact-parity",
+    "status": "passed",
+    "red_status": "not applicable: preservation refactor; no failed behavior was manufactured",
+    "scope": "one full two-goalie matrix across four actual tables, plus 24 observed source-support summaries",
+    "controller_sha256": "a7df2a1f89782187cf9c80afa33fbb97fd7e3020d6736272519a5bb19dd00fa7",
+    "planned_rows": {
+      "full_matrix": 558,
+      "additional_observed_summaries": 24,
+      "total": 582
+    },
+    "changed_function_hashes": {
+      "_summary_evidence": "c5ef2cf60ceec42543d34ec06ce81382cc02fcee25ddb3e27b31119b1cc481d6",
+      "_league_references": "11a61b7fd7fc76f93bcc6f93f157b521e92cc791380410ef2535a7752d956fe9",
+      "_evidence_map": "3de863159736d2f4ac42234b61932c418f6fdb5b76c44a5d51cd0620c14b32e1",
+      "_observed_rows": "01ee432951d4b48855982220f26561f39d142060c5105124f5659a0ca08acd98",
+      "score_goalie": "1d5af659421a4a978fd83ce4a7899ff2f764e57157a9e2e10eeaf108bcecf8e4",
+      "_check_actual_evidence": "29088a2ab5f88550198508af2d86607f9049345a4e6c1a9a515cb9afad9720e2",
+      "_validate_scores": "38be01de584833b28603e570a30b95bd1397fa9af3f27422c1e99b83408e8ae6"
+    },
+    "oracle_sha256": "426f4b183e3bf7b9316cdec0b74e8bb6e55e5eff92875c73355fc89fb5176923",
+    "rows": [
+      {
+        "case": "affiliation_gap",
+        "table": "goalie_observed",
+        "count": 8
+      },
+      {
+        "case": "known",
+        "table": "execution_breakdown",
+        "count": 198
+      },
+      {
+        "case": "known",
+        "table": "goalie_danger",
+        "count": 48
+      },
+      {
+        "case": "known",
+        "table": "goalie_evidence_map",
+        "count": 288
+      },
+      {
+        "case": "known",
+        "table": "goalie_observed",
+        "count": 24
+      },
+      {
+        "case": "no_assigned",
+        "table": "goalie_observed",
+        "count": 8
+      },
+      {
+        "case": "unrelated_missing",
+        "table": "goalie_observed",
+        "count": 8
+      }
+    ],
+    "serialized_sha256": {
+      "goalie_observed": "fc8d8f651dbaa74b0263101a1a45b0827442961ab7a8420638a240ff8e5f9cd5",
+      "goalie_danger": "e579d0412e6ff10b8b67fcf8c28fc87c249caf13434350bdfcf9cff3fa7e49ae",
+      "goalie_evidence_map": "6cd08808a75ad911922031bfa67d45428cf16cd5f2855b30c63bd0a223dbd2e9",
+      "execution_breakdown": "3066d2ccb856b67a5e332092641dc80832a5ec7fd9fc39eb3ecde30779cd1ba7"
+    },
+    "controls": {
+      "full_native_display_maps": true,
+      "season_game_exact_state_type_references": true,
+      "both_populations": true,
+      "zero_probability": true,
+      "unpaired_unknown_type": true,
+      "empty_strengths": true,
+      "independent_h_d_availability": true,
+      "known_counts_preserved_with_affiliation_gap": true,
+      "unrelated_gap_excluded": true,
+      "traded_team_gap_scoped": true,
+      "no_assigned_source_remains_null": true
+    },
+    "costs": {
+      "wall_seconds": 3.9984879170078784,
+      "peak_memory_bytes": 114638848
+    },
+    "original_data_reads": 0,
+    "source_replays": 0,
+    "fit_or_probe_calls": 0,
+    "limits": [
+      "finite synthetic reducer parity only; no performance claim",
+      "normal current strict read of preserved first-real score remains the full-real validation owner"
+    ],
+    "native_command_cost": {
+      "wall_seconds": 4.05,
+      "user_seconds": 4.0,
+      "system_seconds": 0.04,
+      "peak_memory_bytes": 114655232
+    }
+  },
+  "neutral": {
+    "status": "passed",
+    "attempt": 1,
+    "exit_code": 0,
+    "verification_kind": "refactor_parity",
+    "native_cost": {
+      "wall_seconds": 1.09,
+      "user_seconds": 1.03,
+      "system_seconds": 0.04,
+      "maximum_resident_set_size_bytes": 156827648,
+      "peak_memory_footprint_bytes": 134070896
+    },
+    "result": {
+      "path": "/tmp/goalie-v1-07-checks/neutral-hoist-parity-result.json",
+      "sha256": "c8be9ad2d0a2a141f42cd9ab8bd01d94c6ac3be0e88e94b4e229268c71af5756"
+    },
+    "log": {
+      "path": "/tmp/goalie-v1-07-checks/neutral-hoist-parity-attempt01.log",
+      "sha256": "6d84f9791a31fb2925eb21ee0457e6175580081ca8be378d5a462e5d268fcde4"
+    },
+    "controller": {
+      "path": "/tmp/goalie-v1-07-checks/neutral-hoist-parity.py",
+      "sha256": "507b1984006fcc07c01dc6bb05313cab3648e715e265891da5f59e76a8697c4a"
+    },
+    "actual_production_source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/src/hockey_stats/goalie_scores.py",
+      "sha256": "8e605e41f6fc1213496e0451e77ad13a10b54a8b5d667e7a51a7b3dd274143e0"
+    },
+    "actual_reducer_called": "hockey_stats.goalie_scores._panel_projections",
+    "caller_scope": "actual _project_variants source body hash bound; end-to-end caller integration remains covered by subsequent annual scores",
+    "production_function_sha256": {
+      "_panel_projections": "658097cbac44fe778c049ae649efa68ae1f0dbd41784d8dbaab5ae24a2f97928",
+      "_project_variants": "e7dd32185ca08d1451c406c4312b9efc2b886b9170e476d52630fbb3fe121df3"
+    },
+    "unchanged_finish_functions": {
+      "_pool_projection": "0a63ed60dbd263a22b136d5b6a3f2671f701b5e88d17b5cc8ed42938e1438782",
+      "_finish_projection": "ce0b18cd09136731f15627b0e9aeecc4e7d0335dcf729e30ecd6ba653ddff8ed",
+      "_modeled_rows": "251678a91cf3e499d4429f2f7cfbd5e1922c6e8507969dbc01a9c8213203ca80"
+    },
+    "oracle": {
+      "path": "/tmp/goalie-v1-07-checks/neutral-hoist-old-oracle.py",
+      "sha256": "b934936d71ae627bd82bbda1671ada80224cdaacf12469dda8641dceb551ca0f"
+    },
+    "old_analysis_tree": "d072db603bc719af9ac8de4a6027fb326c4cbd25",
+    "old_source_sha256": "cf79f1e31cef8d7313bdbd7ed920af8c5490135db4bfff556c86cced1bb39931",
+    "patch_sha256": "f05a7032e43556398356e7d01c1bd4720a7a77fa6a68e0ee1dc7cad4c879f89b",
+    "cases": [
+      {
+        "label": "direct",
+        "origin_rows": 4,
+        "heads": "h+d"
+      },
+      {
+        "label": "empty",
+        "origin_rows": 0,
+        "heads": "h+d"
+      },
+      {
+        "label": "underflow",
+        "origin_rows": 1,
+        "heads": "h+d"
+      },
+      {
+        "label": "chunk-boundary",
+        "origin_rows": 65537,
+        "heads": "h+d"
+      },
+      {
+        "label": "three-chunks",
+        "origin_rows": 131073,
+        "heads": "h+d"
+      },
+      {
+        "label": "h-missing",
+        "origin_rows": 8,
+        "heads": "d"
+      },
+      {
+        "label": "d-missing",
+        "origin_rows": 8,
+        "heads": "h"
+      },
+      {
+        "label": "both-missing",
+        "origin_rows": 8,
+        "heads": ""
+      }
+    ],
+    "players": [
+      "zero",
+      "signed",
+      "unavailable"
+    ],
+    "raw_equality": "array bytes, dtype and shape; no tolerance",
+    "public_equality": "complete finished projections, support/availability, native/display map public rows and ev/pk pooling",
+    "independent_formula": "direct origin/setup enumeration; fixed neutral W; joint h*d; signed stopping excludes focal q; underflow preserves finite conditionals",
+    "first_red": null,
+    "first_red_explanation": "existing behavior previously passed; no target-behavior red or parity failure occurred",
+    "wording_adjudication": "the preserved result inherited the frozen preparation explanation ending has not run; the executed result status, log and this receipt establish passed attempt01. original files are unchanged",
+    "annual_artifact_reads": 0,
+    "raw_source_reads": 0,
+    "source_replays": 0,
+    "solver_calls": 0,
+    "production_writes": 0,
+    "index_writes": 0,
+    "commits": 0,
+    "limits": "synthetic arithmetic/refactor parity; no real-score performance improvement or actual new annual output bytes claimed"
+  },
+  "controller_failure": {
+    "kind": "synthetic-league-reference-parity-attempt",
+    "status": "failed_before_row_comparison",
+    "exit_code": 1,
+    "log": "/tmp/goalie-v1-07-checks/league-reference-parity-01.log",
+    "success_receipt_written": false,
+    "compared_rows": 0,
+    "cause": "temporary oracle loaded as top-level goalie_evidence_frozen_old; preserved relative .descriptive import has no known parent package",
+    "evidence": "ImportError at league-reference-old-oracle.py:96 on first next(before)",
+    "meaning": "controller import wiring failure; no numerical mismatch established",
+    "required_repair": "package-qualified oracle module name hockey_stats.goalie_evidence_frozen_old; frozen source and production functions unchanged",
+    "costs": {
+      "native_real_seconds": 0.39,
+      "native_user_seconds": 0.33,
+      "native_system_seconds": 0.03,
+      "native_peak_rss_bytes": 92471296
+    },
+    "production_scope": "only reviewed neutral-hoist and league-reference patches in goalie_scores.py; index unchanged",
+    "retry_status": "not attempted; stopped pending root release"
+  },
+  "scope": [
+    "one private annual league-reference reduction shared by producer and strict reader",
+    "one private panel reducer with neutral arithmetic outside the goalie loop",
+    "public module interfaces, saved schemas, filters, ordered arithmetic and field meanings unchanged",
+    "source replay, target construction, likelihoods, priors, fits and solvers unchanged"
+  ],
+  "full_real_relation_validation": {
+    "status": "pending",
+    "owner": "required compose_goalie strict read of preserved first real score; no extra full oracle pass"
+  },
+  "activation": false
+}

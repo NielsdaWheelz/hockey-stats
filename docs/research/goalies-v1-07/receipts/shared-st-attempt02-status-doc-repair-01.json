@@ -1,0 +1,9 @@
+{
+  "kind": "shared-st-attempt02-status-documentation-repair",
+  "initial_step": "source intake2109B/8691 and preflight clearance3817B/b57 were written successfully; subsequent mutable-status heading assertion raised ValueError because the accumulated heading differed from the assumed text",
+  "initial_document_mutation": "none before that assertion",
+  "shell_observation": "a later git diff --check returned0 and masked the Python failure as the overall shell exit; traceback was observed and not treated as success",
+  "repair": "read the actual two status blocks and affected queue rows; replace current status blocks coherently instead of fragile incremental substitutions; leave all historical sections/receipts and source code unchanged; execute dependent checks only after confirming edit-command success",
+  "actual_preflight_or_browser_execution": "NONE",
+  "remaining_scope": "same one preflight only; clearance bytes remain unchanged and reverified"
+}

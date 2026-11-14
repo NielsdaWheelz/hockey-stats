@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "kind": "shared-runtime-02-independent-adjudication",
+  "status": "accepted_normal_strict_startup_and_detachment_only",
+  "sha256": {
+    "shared-runtime-02-startup.json": "505a7d68e4251faf430ca81138771064b80499dc5254671a30eaf4cf9839b748",
+    "shared-runtime-02-listening-log.txt": "3af812cd367737f0d54ad8ce63cf3f6fb8eb098194b4ef69b543a56f9af8df90",
+    "shared-runtime-02-listener-observation.json": "051ec6173192a1bb66ab043eb88109a69c88db1a34c94f3249efaab5777887a2",
+    "shared-startup-02-launch-independent-review.json": "b906cce3b51b684b2856b4c9da42dfdce0d38641abb576b2f4c7b53c841a0405",
+    "shared-goalie-overview-build.json": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2"
+  },
+  "findings": [
+    "receipt exactly matches the log's first record; normal main logs listening. cached listener observation names the same node 33587 at 127.0.0.1:3407, with time 33586/wrapper 33585 retained. no phase errors or exit inference is needed for this listening boundary.",
+    "normal argv/cwd match the reviewed pinned-node command and exact accepted candidate-final-g-st-01/player-analysis.sqlite. preflight/launch/build bind runtime c90cb73f, analysis fee5, app 8ca793, source 0c0045 and compiled 2b8ae5. same fb604/31261470720-byte candidate intentionally retains stored publisher 4aa.",
+    "unchanged meter bb37 imports ordinary compiled main once; its strict constructor precedes serving. actual execution under reviewed dda6 supports detachment: external project source-data bodies are denied except the exact database, plus listed local G/primary/ST input directories. metadata remains allowed. no query/validation bypass is introduced."
+  ],
+  "startup_cost": {
+    "wall_seconds": 2020.983562,
+    "peak_rss_bytes": 1967079424,
+    "latency_scope": "meter entry through listening; node boot/static imports excluded",
+    "memory_scope": "kernel process-lifetime maxRSS through listening includes boot/static imports; KiB converted to bytes",
+    "limits": "outside time measures eventual service lifetime and is pending. cached instantaneous RSS is not peak. no UTC listening timestamp is inferred from launch plus latency."
+  },
+  "blocking_mismatches": [],
+  "limits": "local saved adjudication only; no new HTTP/SQL/OS/HDD/body read, import, test, build or restart. old startup acceptance remains separate. after-overview equality, G api-02, consumer-04, browser-04/ST matrices, exports/pixels, science and activation remain unassessed and held pending root assignment."
+}

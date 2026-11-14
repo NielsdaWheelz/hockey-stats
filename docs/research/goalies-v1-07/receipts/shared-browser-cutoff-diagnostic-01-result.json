@@ -1,0 +1,154 @@
+{
+  "kind": "single-chrome-profile-cutoff-diagnostic",
+  "status": "cutoff_observation_complete_only",
+  "errors": [],
+  "scope": "one actual ev profile, percentile/raw scale and one raised cutoff; immediate versus rendered-cutoff DOM observations; no exports or family acceptance",
+  "precondition": "root checks fixed server/build, fresh output/profile paths and source before separately assigning one invocation",
+  "target": {
+    "base": "http://127.0.0.1:3407",
+    "player": "8478872",
+    "season": "20252026",
+    "metric": "goalie.ev.stopping_goals_per100_on_net",
+    "url": "http://127.0.0.1:3407/players/8478872?season=20252026&metric=goalie.ev.stopping_goals_per100_on_net"
+  },
+  "profile": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-cutoff-diagnostic-01/profile",
+  "event_log": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-cutoff-diagnostic-01/events.jsonl",
+  "expected": {
+    "qualification_seconds": 183847,
+    "raised_minutes": 3065,
+    "raw_value": 0.6491125816985565,
+    "api_receipt_sha256": "355de762cb1f72cf496c8c690658d7a751e66d7caff6b3dc7994eb9e40d50472",
+    "consumer_csv_sha256": "bc293b783cbd71a19d7f7fc7f506d08590dba23c6936caea4d1cef817b387653"
+  },
+  "snapshots": [
+    {
+      "phase": "before_raised_cutoff",
+      "elapsed_seconds": 6.482558583,
+      "url": "http://127.0.0.1:3407/players/8478872?season=20252026&metric=goalie.ev.stopping_goals_per100_on_net",
+      "selected_metric": "goalie.ev.stopping_goals_per100_on_net",
+      "selected_history_season": "20252026",
+      "raw_history": [
+        {
+          "season": "20232024",
+          "value_unit_reference": "-0.3484072358634314 goals per 100 common on-net opportunities\n\n\nneutral minus focal goals allowed; positive means favorable stopping"
+        },
+        {
+          "season": "20242025",
+          "value_unit_reference": "0.6470942299216433 goals per 100 common on-net opportunities\n\n\nneutral minus focal goals allowed; positive means favorable stopping"
+        },
+        {
+          "season": "20252026",
+          "value_unit_reference": "0.6491125816985565 goals per 100 common on-net opportunities\n\n\nneutral minus focal goals allowed; positive means favorable stopping"
+        }
+      ],
+      "row": {
+        "value_unit_reference": "0.6491125816985565 goals per 100 common on-net opportunities\n\n\nneutral minus focal goals allowed; positive means favorable stopping",
+        "numeric_reference": "neutral minus focal goals allowed; positive means favorable stopping",
+        "standing_reference": "85.8 percentile\ngoalies · n=74 · cutoff 300 min\n0 incompatible peers excluded"
+      },
+      "detail": {
+        "value": "0.649113",
+        "standing_reference": "85.8 percentile · goalies · n=74 · cutoff 300 min",
+        "construction_population_reference": "experimental season-level estimate; reattempt and follow-up danger quantities use next-recorded-attempt proxies, not proven physical rebound control; head-specific point priors may supply partial or prior-only estimates; h/d optimizer sensitivity is diagnostic and remaining accuracy may be unknown; no calibrated intervals · goalie ev (5v5/4v4/3v3); constituent common-panel masses pooled before normalization; common on-net opportunities; neutral u/q weights, focal r/g only · neutral minus focal goals allowed; positive means favorable stopping",
+        "qualification": "qualification: 183847 matching seconds · goalie.ev.support.stopping_goals_per100_on_net.included_seconds"
+      }
+    },
+    {
+      "phase": "immediately_after_url_wait",
+      "elapsed_seconds": 6.534432,
+      "url": "http://127.0.0.1:3407/players/8478872?season=20252026&metric=goalie.ev.stopping_goals_per100_on_net&peerMin=3065",
+      "selected_metric": "goalie.ev.stopping_goals_per100_on_net",
+      "selected_history_season": "20252026",
+      "raw_history": [
+        {
+          "season": "20232024",
+          "value_unit_reference": "-0.3484072358634314 goals per 100 common on-net opportunities\n\n\nneutral minus focal goals allowed; positive means favorable stopping"
+        },
+        {
+          "season": "20242025",
+          "value_unit_reference": "0.6470942299216433 goals per 100 common on-net opportunities\n\n\nneutral minus focal goals allowed; positive means favorable stopping"
+        },
+        {
+          "season": "20252026",
+          "value_unit_reference": "0.6491125816985565 goals per 100 common on-net opportunities\n\n\nneutral minus focal goals allowed; positive means favorable stopping"
+        }
+      ],
+      "row": {
+        "value_unit_reference": "0.6491125816985565 goals per 100 common on-net opportunities\n\n\nneutral minus focal goals allowed; positive means favorable stopping",
+        "numeric_reference": "neutral minus focal goals allowed; positive means favorable stopping",
+        "standing_reference": "85.8 percentile\ngoalies · n=74 · cutoff 300 min\n0 incompatible peers excluded"
+      },
+      "detail": {
+        "value": "0.649113",
+        "standing_reference": "85.8 percentile · goalies · n=74 · cutoff 300 min",
+        "construction_population_reference": "experimental season-level estimate; reattempt and follow-up danger quantities use next-recorded-attempt proxies, not proven physical rebound control; head-specific point priors may supply partial or prior-only estimates; h/d optimizer sensitivity is diagnostic and remaining accuracy may be unknown; no calibrated intervals · goalie ev (5v5/4v4/3v3); constituent common-panel masses pooled before normalization; common on-net opportunities; neutral u/q weights, focal r/g only · neutral minus focal goals allowed; positive means favorable stopping",
+        "qualification": "qualification: 183847 matching seconds · goalie.ev.support.stopping_goals_per100_on_net.included_seconds"
+      }
+    },
+    {
+      "phase": "after_rendered_cutoff_wait",
+      "elapsed_seconds": 6.557015333000001,
+      "url": "http://127.0.0.1:3407/players/8478872?season=20252026&metric=goalie.ev.stopping_goals_per100_on_net&peerMin=3065",
+      "selected_metric": "goalie.ev.stopping_goals_per100_on_net",
+      "selected_history_season": "20252026",
+      "raw_history": [
+        {
+          "season": "20232024",
+          "value_unit_reference": "-0.3484072358634314 goals per 100 common on-net opportunities\n\n\nneutral minus focal goals allowed; positive means favorable stopping"
+        },
+        {
+          "season": "20242025",
+          "value_unit_reference": "0.6470942299216433 goals per 100 common on-net opportunities\n\n\nneutral minus focal goals allowed; positive means favorable stopping"
+        },
+        {
+          "season": "20252026",
+          "value_unit_reference": "0.6491125816985565 goals per 100 common on-net opportunities\n\n\nneutral minus focal goals allowed; positive means favorable stopping"
+        }
+      ],
+      "row": {
+        "value_unit_reference": "0.6491125816985565 goals per 100 common on-net opportunities\n\n\nneutral minus focal goals allowed; positive means favorable stopping",
+        "numeric_reference": "neutral minus focal goals allowed; positive means favorable stopping",
+        "standing_reference": "below cutoff\ngoalies · n=0 · cutoff 3065 min\n0 incompatible peers excluded"
+      },
+      "detail": {
+        "value": "0.649113",
+        "standing_reference": "below cutoff · goalies · n=0 · cutoff 3065 min",
+        "construction_population_reference": "experimental season-level estimate; reattempt and follow-up danger quantities use next-recorded-attempt proxies, not proven physical rebound control; head-specific point priors may supply partial or prior-only estimates; h/d optimizer sensitivity is diagnostic and remaining accuracy may be unknown; no calibrated intervals · goalie ev (5v5/4v4/3v3); constituent common-panel masses pooled before normalization; common on-net opportunities; neutral u/q weights, focal r/g only · neutral minus focal goals allowed; positive means favorable stopping",
+        "qualification": "qualification: 183847 matching seconds · goalie.ev.support.stopping_goals_per100_on_net.included_seconds"
+      }
+    }
+  ],
+  "ui": {
+    "completed": true,
+    "selected_metric": "goalie.ev.stopping_goals_per100_on_net",
+    "history_count": 3,
+    "history_seasons": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ]
+  },
+  "owned_context_closed": true,
+  "browser": {
+    "node": "v24.21.0",
+    "playwright": "1.65.0",
+    "chrome": "156.0.8078.80"
+  },
+  "navigation_status": 200,
+  "wall_seconds": 6.625571,
+  "peak_rss_bytes": 137969664,
+  "event_counts": {
+    "request": 16,
+    "response": 16,
+    "requestfinished": 16,
+    "requestfailed": 0,
+    "pageerror": 0,
+    "consoleerror": 1
+  },
+  "cost_scope": "after local output/receipt reservation through owned context closure; final log/receipt serialization excluded",
+  "limits": [
+    "one cutoff observation can witness stale DOM but cannot establish absence of a timing race when immediate DOM is already settled",
+    "actual network/page errors remain observations; completion is not full browser or family acceptance",
+    "profiles and local evidence retained; no export, response substitution, transport patch, fallback or retry"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "kind": "shared-st-peer-control-anchor-single-window-assignment",
+  "status": "ONE_ANCHOR_AND_CONDITIONAL_CAPTURE_ASSIGNED",
+  "owner": "v1-09; root holds all competing live/drive work through checked return",
+  "accepted_preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-peer-control-anchor-checked-preflight-intake-01.json",
+    "bytes": 3135,
+    "sha256": "8733fc974d154ef26d963222d2000c6d5ae7cdfaaf89668e3347c43145aef81a"
+  },
+  "current_controller": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-peer-control-anchor-03.mjs",
+    "bytes": 21271,
+    "sha256": "89569295ccd29a986ef244ae88c2856caa9359d566cf4b2a13f741684d77638f",
+    "held_sha256": "4f08184f5cacc967e07b2e53bc6e700c3f67de1d1838a8bf9dfadafe00ec6343",
+    "plan_sha256": "b7bc8af7a6d80851925678cf4c28fcc62ec2b3d5e92eceb52fdd29d2a768eea5"
+  },
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+  "command_argv": [
+    "/bin/sh",
+    ".tmp/st-peer-control-anchor-held-03.sh",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+    "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json"
+  ],
+  "submission_limit": 1,
+  "preconditions": "same unchanged source/runtime/candidate as checked preflight; existing owned native operator idle in STcwd; no STOP/hold; do not replay preflight or add another live qualification",
+  "purpose": "one exact accepted pp.offense_xg_per60 anchor, associated specialty form, raised floor(original selected-year seconds/60)+1, all3 raw/unit/reference/plot invariants, original target-year standing withheld, one other annual link and reload; no downloads/images/SVG",
+  "fixed_driver_inputs": {
+    "local_bodies": 2,
+    "logical_bytes": 1234555,
+    "external_data_bodies": 0
+  },
+  "actual_frame": {
+    "exclusive_local_path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-actual-launch-01.json",
+    "record": "one observed exact native shell/time/node argv,cwd,start and current source/target identities; independent cached peer review before conditional capture",
+    "outcome": "numeric ST_PEER_CONTROL_ANCHOR_NATIVE_EXIT marker and returned prompt; absence alone never defines exit"
+  },
+  "conditional_capture": {
+    "limit": 1,
+    "only_after": [
+      "independently checked actual launch frame and digest",
+      "actual owned native closure plus numeric anchor exit marker and returned prompt",
+      "no STOP or hold",
+      "fixed capture output still fresh"
+    ],
+    "collector_sha256": "13ad71c12cd3674dd0c4bd20240188726bd812e555fb3e0d94b62174b427c490",
+    "held_path": ".tmp/st-peer-control-anchor-postexit-held-02.sh",
+    "held_sha256": "a6a5cebda2d3a9943f102e494c0d7eab5d03441264f908538e9419c8f430c32e",
+    "current_plan_sha256": "1b27030449e383ef5b8c26ed3b9af362bb79fee08deb3f83af9a649c256a768e",
+    "actual_launch_sha256": null,
+    "capture_template": "(\n  if /bin/sh .tmp/st-peer-control-anchor-postexit-held-02.sh '<checked_64_hex_actual_launch_sha256>'; then\n    st_peer_anchor_postcapture_code=0\n  else\n    st_peer_anchor_postcapture_code=$?\n  fi\n  printf 'ST_PEER_CONTROL_ANCHOR_POSTCAPTURE_NATIVE_EXIT=%s\\n' \"$st_peer_anchor_postcapture_code\"\n  exit \"$st_peer_anchor_postcapture_code\"\n)",
+    "template_review": "/root/trace_review supplied and statically reviewed this ordinary status-marker subshell; actual digest must be externally checked64hex before submission; one held invocation only",
+    "inputs": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-control-anchor-01/anchor-receipt.json",
+        "cap_bytes": 16777216
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-control-anchor-01.log",
+        "cap_bytes": 4194304
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-peer-control-anchor-01-native.exit",
+        "cap_bytes": 16
+      }
+    ],
+    "exclusive_local_output": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-postexit-capture-01.json",
+    "semantics": "buffered read(cap) only; exactcap ambiguous; no stat/follow; collection status, native exit and artifact acceptance distinct; InterruptedError/STOP stops remaining reads and retains known facts; no automatic replay"
+  },
+  "return_requirements": "cached independent semantic/input/cost review of fixed capture and already accepted LOCAL API/target metadata; rederive full raw arrays through context closure, complete URL multisets/statuses/strict errors and document-specific favicon predicate regardless self-status; qualified primary3.14.8-B for any cached Python check; explicit checked return before any next stage",
+  "scope_limits": [
+    "one anchor can earn only1of4 cutoff journeys after actual accepted pass",
+    "old06 stays FAILED and oldfavicon UNQUALIFIED; no retrospective exception or whole-browser pass",
+    "41prefixpixels stay scoped32a2; remaining21downloads/44rasters/8SVG not run",
+    "no originalCSV/image/member/model/fullreader/DB body, fit/rescore, build/startup/publication, cleanup or activation",
+    "no remainder/remainingpixel/rollback/preservation or later chain authority"
+  ],
+  "preservation": "retain existing server89887/build/candidate and all failed artifacts/profiles/source03/G/primary unchanged",
+  "cost": "actual anchor/capture wall/RSS/HTTP/output cost UNKNOWN; Chrome aggregate/server peak and physical I/O unmeasured; no forecast",
+  "stop": "user STOP/hold overrides all pending actions and postreads"
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "purpose": "fixture",
+  "status": "software_preflight_passed",
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-model-02/20252026/manifest.json",
+    "sha256": "60decc540eb5354f86e56e1015efa9f5bd47a928e196b2355cbe7929805e8189"
+  },
+  "actual_final_score_status": "held; no actual frozen-context or score execution in this receipt",
+  "scope": [
+    "all three frozen-context variants use exact saved selector keys and all 656 origins under actor and fully neutral references",
+    "single outer context/reference loop reuses baseline evaluation; no new solves, refits, selection or source pass",
+    "copied descriptor is bound to original standalone bytes and validated without original fits at detached read",
+    "individual repeated probability/joint maxima and row counts must agree with saved probes within 32 float64 epsilon absolute probability",
+    "assessed, partial and unavailable h/d/joint evidence retain separate counts and unavailable values",
+    "final real year cannot be relabeled as an earlier annual unassessed state",
+    "variant native stopping maps must remain exactly equal as arrays to baseline, alongside existing exact base scalar invariance",
+    "strict diagnostic probabilities, differences and available heads bind to saved W/H/HD log masses; no independent normalization path",
+    "existing setter inference marker identifies inherited setup/g dependencies only; raw source, reports, usage and actual occurrence evidence stay pure",
+    "shared source-owned annual affiliation coverage flags unknown assignments without invented participation or changed known counts/sums/listed denominators; per-team usage flags only relevant missing sides"
+  ],
+  "independent_toy_oracle": {
+    "contexts": 1,
+    "origins_per_context": 656,
+    "references": 2,
+    "compared_rows_per_available_field": 1312,
+    "baseline_h": 0.2,
+    "baseline_d": 0.1,
+    "h_tight": 0.21,
+    "d_tight": 0.12,
+    "combined_joint_change": 0.005199999999999993
+  },
+  "negative_checks": [
+    "wrong unavailable head",
+    "repeated unavailable head",
+    "missing variant",
+    "false zero summary for failed probe",
+    "false zero frozen pointwise for failed probe",
+    "fake assessed comparison without completed endpoint",
+    "changed frozen selector",
+    "threshold rescue",
+    "altered native comparison budget",
+    "joint comparison omitted while both heads fully available",
+    "final real year demoted to annual not-assessed",
+    "diagnostic variant probability 1.7 contradicts saved normalization",
+    "in-range diagnostic variant probability .4 contradicts saved normalization",
+    "changed fixed neutral saved-shot W",
+    "negative/increasing/orphan continuation masses"
+  ],
+  "independent_positive_checks": [
+    "all three pointwise h/d/joint maxima match direct hand arithmetic",
+    "all three assessed sensitivity records pass strict private reader",
+    "completed d remains partially assessed when h and joint are unavailable",
+    "absent endpoint retains null movement instead of false zero"
+  ],
+  "temporary_check": ".tmp/goalie-acceptance/check_sensitivity.py",
+  "held_command": ".tmp/goalie-acceptance/final-fixture-score-command.txt",
+  "limits": [
+    "toy software and saved metadata checks only",
+    "actual final-year fixture, real outputs, complete candidate and user-facing acceptance remain outstanding"
+  ],
+  "public_cli_malformed_headers": {
+    "inputs": [
+      "empty object",
+      "list",
+      "unsupported purpose"
+    ],
+    "expected_exit": 1,
+    "traceback": false,
+    "source_replay": false,
+    "output_created": false,
+    "temporary_check": ".tmp/goalie-acceptance/check_malformed_score_cli.py"
+  },
+  "historical_fixture_scope": "first score04 bytes and its accepted pre-inference-flag reader proof remain historical; current full reader intentionally requires corrected setup/source-coverage metadata, exercised next by the fresh final-year fixture",
+  "independent_review": {
+    "numerical_owner": "cleared pointwise/descriptor/probe/unit relations, underflow, native stopping-map invariance and header rejection",
+    "source_owner": "cleared known-zero plus missing-side, unrelated-side, no-assignment, traded-team, qualified-seconds and detached-checker counterexamples; reviewed in source-helper commit f00b551"
+  }
+}

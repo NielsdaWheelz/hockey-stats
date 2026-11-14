@@ -1,0 +1,57 @@
+{
+  "kind": "real-goalie-annual-score-preflight",
+  "status": "interrupted_for_user_drive_removal",
+  "season": "20222023",
+  "recorded_at_utc": "2026-11-09T14:33:03.352224+00:00",
+  "launch_commit": "fa8ec0973c1a933414668317989b7696331139d7",
+  "analysis_tree": "1dc4e1b33b2b570854d5c84621129ebbaf796d32",
+  "analysis_clean": true,
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20222023/manifest.json",
+    "sha256": "a1327e656ddc21658acd02d1f0095ceda9cd875cbc24a651003204ab55ee8f3e"
+  },
+  "base_scores": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/manifest.json",
+    "sha256": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20"
+  },
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "VECLIB_MAXIMUM_THREADS": null,
+    "NUMEXPR_NUM_THREADS": null,
+    "BLIS_NUM_THREADS": null
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20222023",
+  "log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/score-20222023-01.log",
+  "prerequisites": [
+    "both baseline heads complete",
+    "independent six-json ledger review passes",
+    "one target inventory reconciles all 153,348 rows and 17 missing d targets",
+    "scoring reductions pass exact bounded parity"
+  ],
+  "fit_or_probe_rerun": false,
+  "other_owned_heavy_commands": [],
+  "activation": false,
+  "native_session_id": 9317,
+  "native_process_id": 75982,
+  "native_exit_code": 130,
+  "interrupted_at_utc": "2026-11-09T15:57:22.258884+00:00",
+  "interrupt_sent": "SIGINT",
+  "sigterm_sent": false,
+  "drive_ejected": true,
+  "diskutil_exit_code": 0,
+  "score_completion_accepted": false,
+  "native_cost_review": {
+    "status": "read_after_reconnection",
+    "log_sha256": "d662dfab8af67cf00542cb1f09e77c6fc073d13bf913adfde90016227d5a3add",
+    "log_bytes": 2317,
+    "wall_seconds": 4962.03,
+    "user_seconds": 4512.13,
+    "system_seconds": 28.99,
+    "peak_resident_bytes": 21018574848,
+    "peak_memory_footprint_bytes": 20937866720,
+    "interrupted_stage": "prepare_execution_sources; no score output or completion manifest"
+  },
+  "resume": "preserve existing partial output/log; check destination before a fresh score from accepted state a1327e656ddc21658acd02d1f0095ceda9cd875cbc24a651003204ab55ee8f3e; do not refit accepted annual states"
+}

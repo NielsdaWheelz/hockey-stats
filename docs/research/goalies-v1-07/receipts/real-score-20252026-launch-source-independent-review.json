@@ -1,0 +1,61 @@
+{
+  "kind": "independent-final-score-launch-and-adapter-source-review",
+  "status": "passed_source_review_not_numerical_acceptance",
+  "reviewer": "final_fit_review",
+  "inputs": [
+    {"path": "/tmp/hockey-goalie-v1-07-checks/review_remaining_score_metadata.py", "sha256": "05ae45ecf72deb22e505120602dae6f85018f16f9585d784582cc3756a7197b1"},
+    {"path": "/tmp/hockey-goalie-v1-07-checks/review_final_score_metadata.py", "sha256": "536e0fc8f792e12984aadb8c879ba14b0de6a65e9b15ddba1d7ff077b12c9f29"},
+    {"path": "/tmp/hockey-goalie-v1-07-checks/final-score-metadata-adapter.md", "sha256": "823eca483d25465c2a0ce786103db9d54f8c7591c498fda19c84b00217b21656"},
+    {"path": "/tmp/hockey-goalie-v1-07-checks/score-20252026-prelaunch-preflight.json", "sha256": "06662949c8dbdb77460e58b5443bb14e249afa3d9529b6416243490d925e7f4e"},
+    {"path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-score-20252026-preflight.json", "sha256": "595036adb86107858e1b5254db1c4058aeb1896927552a7ee57f7ce498249c6e"},
+    {"path": "/tmp/hockey-goalie-v1-07-checks/score-20252026-running-preflight.json", "sha256": "595036adb86107858e1b5254db1c4058aeb1896927552a7ee57f7ce498249c6e"},
+    {"path": "/tmp/hockey-goalie-v1-07-checks/score-20252026-native-operator-frame-01.json", "sha256": "1e35d5e6bf743f0a617a429945da3f22ad93a7c210e6e14a93f39652061f75e9"},
+    {"path": "/tmp/hockey-goalie-v1-07-checks/final-score-native-operator-01.sh", "sha256": "c67ad254359ac83a369a83ae476e59e5787ff2b1018cf885e368c4439a4275b3"}
+  ],
+  "findings": [],
+  "adapter": {
+    "exact_changed_sites": 3,
+    "changes": [
+      "launch binding compares the required native_operator argument with the pinned preflight native_operator instead of a numeric native_session_id",
+      "native_command_cost records native_operator instead of native_session_id",
+      "the required cli argument changes from native-session-id integer to native-operator string"
+    ],
+    "all_other_source_bytes_preserved": true,
+    "historical_source_unchanged": true,
+    "identity_meaning": "opaque exact string; no terminal format, numeric alias, fallback or process success inference",
+    "preserved_io_scope": "three explicitly pinned local preflight/fit-review/inventory bodies plus four current score json bodies: manifest, coverage, catalogs and sensitivity",
+    "preserved_checks": "native exit0, exact identity, source/hash/chronology bindings, six unset variables, original baseline and probe dispositions, matrix/stage/target counters, three final sensitivity variants and native/resource accounting",
+    "new_reader_or_model_calls": 0
+  },
+  "running_frame": {
+    "status": "running_not_accepted",
+    "prelaunch_inputs_argv_producer_environment_preserved": true,
+    "source_commit_from_pinned_frame": "841ce6500ce22eaab095ab011b951542ecf8354b",
+    "analysis_tree_from_pinned_frame": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree_from_root_freeze_report": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "native_operator": "t-f9f0b50f2271131d",
+    "added_fields": "operator/frame/script identities, reported pids, launch observation, preflight cost, source freeze and preserved pre-dispatch failure",
+    "unified_exec_native_session_id": null,
+    "pre_dispatch_failure_sha256": "f23b3002d6c9f66addbdeca8d0e0cce320f066801008f4f8b60807a9800746c5",
+    "pre_dispatch_failure_meaning": "shell log-open failure before native command; not a native numerical failure",
+    "reported_root_pids": {"python": 57287, "time": 57286, "shell": 57279},
+    "pid_evidence_scope": "root-reported observations retained in the cached running frame; this reviewer performed no process or cwd/environment inspection",
+    "native_completion": "not assessed; actual completion and finalized preflight digest remain required before post-exit reviewer use"
+  },
+  "review_operations": {
+    "controller_invocations_or_imports": 0,
+    "tests_or_compilation": 0,
+    "external_body_reads_or_stats": 0,
+    "current_score_output_reads": 0,
+    "process_queries": 0,
+    "source_or_git_mutations": 0
+  },
+  "scope": "local source, exact source diff, adapter notes, prelaunch/running preflight diff and cached operator frame/script identities only",
+  "limits": [
+    "source and cached-frame review only; no score, numerical, scientific, publication or application acceptance",
+    "root owns actual process observation, native exit/cost evidence, final preflight digest and any one post-exit metadata invocation",
+    "no output artifact, score table, array, source input, provider or full reader was opened",
+    "source and head remain frozen through actual native exit; this receipt assigns no command or window"
+  ],
+  "activation": false
+}

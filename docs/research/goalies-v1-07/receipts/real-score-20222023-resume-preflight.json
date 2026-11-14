@@ -1,0 +1,75 @@
+{
+  "kind": "real-goalie-annual-score-resume-preflight",
+  "status": "accepted",
+  "season": "20222023",
+  "recorded_at_utc": "2026-11-10T04:31:41.726128+00:00",
+  "producer": {
+    "git_commit": "34eba0a92b4ac38b3776cf11efb30075e95d5213",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "analysis_tree": "a810cdee21224a47b1f979a75641c493b552f1f1",
+  "bindings": {
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/states/20222023/manifest.json": "a1327e656ddc21658acd02d1f0095ceda9cd875cbc24a651003204ab55ee8f3e",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/manifest.json": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20"
+  },
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "VECLIB_MAXIMUM_THREADS": null,
+    "NUMEXPR_NUM_THREADS": null,
+    "BLIS_NUM_THREADS": null
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20222023",
+  "output_absent": true,
+  "log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/score-20222023-02.log",
+  "log_absent": true,
+  "interrupted_log_preserved": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/score-20222023-01.log",
+  "interrupted_log_sha256": "d662dfab8af67cf00542cb1f09e77c6fc073d13bf913adfde90016227d5a3add",
+  "accepted_state_reused": true,
+  "fit_or_probe_rerun": false,
+  "source_grid_review": "source-grid-reuse.json",
+  "other_owned_heavy_commands": [],
+  "activation": false,
+  "earlier_preflight_attempt": {
+    "exit_code": 1,
+    "error": "KeyError: status; temporary check mistook manifest head references for embedded records",
+    "failure_before_receipt_or_launch": true,
+    "correction": "use accepted local head review bound to the same manifest digest; normal scorer owns strict state/member validation"
+  },
+  "preflight_exit_code": 0,
+  "native_session_id": 72245,
+  "native_process_id": 74993,
+  "native_time_process_id": 74987,
+  "score_completion_accepted": true,
+  "native_exit_code": 0,
+  "accepted_at_utc": "2026-11-10T06:32:46.099147+00:00",
+  "score_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20222023/manifest.json",
+    "sha256": "15d959531ea2561660eb65151a19a007506fffff102b12f96aadc82000091253"
+  },
+  "native_cost": {
+    "wall_seconds": 6797.56,
+    "user_seconds": 6235.17,
+    "system_seconds": 58.35,
+    "peak_resident_bytes": 20426866688,
+    "peak_memory_footprint_bytes": 21350842040,
+    "swaps": 0
+  },
+  "independent_review": {
+    "path": "real-score-20222023-metadata-review.json",
+    "sha256": "95ea3ed60eaa7a6e2cc314510315eb7ca0ef41ce9b09d7ae92e10be0ebc8cb7e",
+    "status": "passed",
+    "small_documents": 4
+  },
+  "heavy_slot": {
+    "released_to": "v1-18",
+    "ready_receipt_sha256": "f2dfd59562971c07c2ee8dfd21f962432c3abfc46021637c2f2e845b82b999d9",
+    "both_sessions_notified": true,
+    "owned_heavy_pids_remaining": []
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "kind": "goalie-composition-post-exit-three-body-admission",
+  "status": "three_external_bodies_cached",
+  "native_exit": {
+    "path": "/tmp/hockey-goalie-v1-07-checks/composition-01-native.exit",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "value": 0
+  },
+  "inputs": [
+    {
+      "role": "native_log",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/composition-01.log",
+      "cache": "/tmp/hockey-goalie-v1-07-checks/composition-01-admission-composer.log",
+      "bytes": 891,
+      "sha256": "25b0b943bc9c25f1552a004790daf7ce13df9abad810eb023dd1752612e9ac6c"
+    },
+    {
+      "role": "manifest",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/manifest.json",
+      "cache": "/tmp/hockey-goalie-v1-07-checks/composition-01-admission-manifest.json",
+      "bytes": 23317,
+      "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12"
+    },
+    {
+      "role": "producer_receipt",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-composition.json",
+      "cache": "/tmp/hockey-goalie-v1-07-checks/composition-01-admission-producer-receipt.json",
+      "bytes": 54924,
+      "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+    }
+  ],
+  "external_bodies": 3,
+  "external_logical_body_bytes": 79132,
+  "later_checker_header_overlap": {
+    "roles": [
+      "manifest",
+      "producer_receipt"
+    ],
+    "bytes": 78241,
+    "meaning": "checker0da later reopens these two headers; retain this overlap in cumulative logical-byte accounting"
+  },
+  "resources": {
+    "wall_seconds": 0.0004868328105658293,
+    "peak_rss_bytes": 19038208,
+    "scope": "own local-exit read and three external reads/exclusive cache writes; initial stdlib imports and final admission serialization/write excluded"
+  },
+  "runtime": {
+    "executable": "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python",
+    "python_version": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]"
+  },
+  "limits": [
+    "byte admission only; no artifact JSON parsed or completeness/preservation verdict",
+    "exactly one external log and two final JSON bodies read once each; no external stat or linked body follows",
+    "no source-parent/selection/catalog/member/state/model/provider/array/full-reader access or calls",
+    "actual launch/exit/source attribution remains root-owned; no new fit/publication/window or retry"
+  ]
+}

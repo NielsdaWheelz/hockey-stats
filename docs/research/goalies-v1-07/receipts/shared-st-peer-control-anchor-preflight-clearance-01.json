@@ -1,0 +1,71 @@
+{
+  "kind": "shared-st-peer-control-anchor-one-preflight-clearance",
+  "status": "ONE_PREFLIGHT_ASSIGNED_ONLY",
+  "owner": "v1-09 operator; root holds competing live/drive work",
+  "native_operator_reference": "t-796454dbbecf0889 on macbook; owner verifies its existing idle prompt before one submission",
+  "source_packet": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-boundary-source-packet-01.json",
+    "bytes": 20049,
+    "sha256": "bef0e5731bea0f11e1875fd472f5d5aaf5f8787964a7c548927332b601077d73"
+  },
+  "source_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-admission-capture-source-review-01.json",
+    "bytes": 7130,
+    "sha256": "fbe98ef055c07e3faf9916f3867a009f0dab91946a7c923ba099384811e55cca"
+  },
+  "root_native_review": "/root/canonical_trace checked actual three source pins and finite admission body; no concrete finding",
+  "sources": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-peer-control-anchor-launch-preflight-03.py",
+      "bytes": 15766,
+      "sha256": "1efc127933f6816501ecd20526b9386d09ec625e934314a907e436993920a400"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-peer-control-anchor-launch-preflight-held-03.sh",
+      "bytes": 801,
+      "sha256": "f630cb74009dde23c68114ef6d7b27afdf845e4e837ee5f156723e775d5870fe"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-peer-control-anchor-launch-admission-plan-03.md",
+      "bytes": 5734,
+      "sha256": "0c6bbcfe5bfa5fd3c6a4716ca736ee67a78d2069ddd993fda97c61853e3d4be7"
+    }
+  ],
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+  "command_argv": [
+    "/bin/sh",
+    ".tmp/st-peer-control-anchor-launch-preflight-held-03.sh"
+  ],
+  "submission_limit": 1,
+  "scope": {
+    "local_fixed_bodies": 6,
+    "local_fixed_bytes": 1276138,
+    "local_compiled_bodies": 38,
+    "local_runtime_metadata_bodies": 2,
+    "total_local_bodies": 46,
+    "runtime": "primary3.14.8-B and stdlib ownership; Node24.21 version only; static PW1.65 package/entry and Chrome bundle metadata; no controller/PW import or Chrome launch",
+    "serving_identity": "same Node89887/parent89886/start2026-11-14T04:08:29Z, exact argv/cwd/listener; source3763/fee5/app852/build18ef; target1a301/API7b6/fb604/final21de+15d",
+    "production_scope": "ST923d/app3242 and Gfee5/app852 tracked production clean; ongoing docs allowed",
+    "external_metadata": "ordinary Expansion mount and existing selected acceptance parent; only fixed result directory/log absence; five runtime paths fresh",
+    "external_input_member_consumer_csv_database_body_or_stat": false,
+    "mkdir_http_journey_or_hidden_chain": false
+  },
+  "exclusive_local_evidence": {
+    "result": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-launch-preflight-01.json",
+    "native_log": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-launch-preflight-01-native.log",
+    "native_exit": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-launch-preflight-01-native.exit"
+  },
+  "required_return": "actual numeric ST_PEER_CONTROL_ANCHOR_PREFLIGHT_NATIVE_EXIT marker and prompt, exact retained result/log/exit identities and cached independent review; report failure/unknown honestly without automatic replay",
+  "capture_plan_finding": "plan02 future command names held01; correct only that template to reviewed held02 in a retained source-plan successor. collector13ad/helda6a5 otherwise statically clear. this is independent of preflight and grants no capture command",
+  "not_granted": [
+    "anchor browser submission",
+    "postexit capture",
+    "remainder",
+    "remaining pixels",
+    "rollback or preservation",
+    "cleanup",
+    "build/startup/publication/fit/rescore/activation"
+  ],
+  "stop": "user STOP/hold overrides every pending operation; no automatic retry or further input read",
+  "cost": "actual preflight wall/RSS/bytes unknown until returned; OS/git/import metadata and physical I/O unmeasured"
+}

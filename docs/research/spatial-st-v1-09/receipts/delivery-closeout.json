@@ -227,7 +227,7 @@
       "c90cb73f03c6e0b5f0efe527b0ebe6243160df55": "6dab410",
       "3763b343fcacb50b2136038e25bf32e3bd98df13": "e19b189"
     },
-    "analysis_tree": "923d95b5e6d98ea056f4d6111979c03a0de81e91",
+    "analysis_tree": "48a9853a35f3526adf84fd90d84879620c9575d0",
     "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
     "canonical_fixture": "byte-exact origin/main; no fixture reconstruction",
     "checks": {
@@ -245,9 +245,20 @@
       "changed_python_ast_modules": 11,
       "relative_links_checked": 520,
       "accepted_receipt_identities_checked": 10,
-      "independent_closeout_review": "no blocking findings"
+      "independent_closeout_review": "no blocking findings",
+      "cli_union": {
+        "public_dispatches": 4,
+        "invalid_argument_rejections": 9,
+        "providers": "stubbed; no numerical or artifact operation",
+        "independent_source_review": "no findings; both parents provider bodies preserved",
+        "st_spatial_modules": "byte-exact premerge source",
+        "app_checks": "unchanged exact app tree retains completed typecheck/build"
+      },
+      "whitespace_scope": "merged CLI and plan clean; whole incoming-main diff reports existing immutable CRLF oracle CSV lines, left exact"
     },
     "merge_identity": "owned by pull request63; this source record does not predict a merge sha",
-    "primary_runtime": "no rebuild, restart or activation; only source synchronization is assigned"
+    "primary_runtime": "no rebuild, restart or activation; only source synchronization is assigned",
+    "premerge_st_analysis_tree": "923d95b5e6d98ea056f4d6111979c03a0de81e91",
+    "additional_main_merge": "adc3b2420e477de5a6d418d5b9c1347869f8b5a1"
   }
 }

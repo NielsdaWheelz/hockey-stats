@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "kind": "shared-runtime-independent-adjudication",
+  "status": "accepted_normal_strict_startup_and_detached_data_boundary_only",
+  "evidence_sha256": {
+    "startup": "8a511ca846e44f63437113333846d8bd36861db0fb8562f8b83faf1ed7464f47",
+    "listening_log": "c614efa308099bed700b0b87b252c1e77c05f9bf74e9813bb8e36052213321bc",
+    "listener_observation": "eb6a8f965ac3b9f174922cc7cf3f7d947d5400b528909cbc7c257379d20e8735",
+    "admission": "c19b2b0921b8db60b7f2cb66cfffe72cb21972c513275472ef0749314f429dfd",
+    "actual_launch": "fdb7b1e83382f08882c33e3200ce469717aebcf5635e684d499bfdde5ae5a5a7",
+    "launch_review": "2ac9fac05bfb14cdb77b17e3fe9e37d65cf91751f1808182958e59647c57efc4",
+    "publication_release": "196468af0f77798428d53ef140ab00adfde6092e795193fd0023e7c592501e6a",
+    "publication_review": "7dc62f019629e9761d46018976168848074de66f3a7edffdcd2018f2618692ba",
+    "runtime.mjs": "bb37d4a06cbde3a7bf4e350f331e67a14ac34f655a7d877582ea0a6562066ec4",
+    "detached.sb": "dda6d8f506d99c4fd595f226ade0e47023c858961ddad266aaf4ce1f6b0dfa6a",
+    "startup-held.sh": "1fa4f336c0a8a88fc2b4eaa1461369f7c90cb2659d754af5898c909c377eb896"
+  },
+  "findings": [
+    "receipt equals the log's first record; ordinary main logs listening. cached OS observation names pid 98454 at 127.0.0.1:3407. argv/cwd match admission/launch: exact candidate fb604/172419, 31261470720 bytes, source 4aa/fee5/app3242 and build 007290.",
+    "meter imports compiled main once without bypass. main provides publicationLayer before serving; its constructor runs validatePhysical, validateAnalysis and validateObserved. emit is restored before forwarding.",
+    "actual dda6 startup is evidenced beyond older 8f68 bootstrap proof. profile denies external project source-data bodies except the exact database, plus listed local G/primary/three ST analysis directories. metadata is allowed. no negative probe or second startup is inferred."
+  ],
+  "cost": {
+    "wall_seconds": 1968.8546625,
+    "peak_rss_bytes": 2101248000,
+    "scope": "meter entry through listening excludes node boot/static imports; process-lifetime kernel maxRSS includes them. outside time measures service lifetime. no UTC event time is inferred from start plus latency."
+  },
+  "blocking_mismatches": [],
+  "limits": "local cached/source review only; no new OS/HDD/HTTP/SQL/runtime/tests. listening proves neither service exit nor application acceptance. G/ST api, browser, csv/png, pixels, science and activation remain unassessed."
+}

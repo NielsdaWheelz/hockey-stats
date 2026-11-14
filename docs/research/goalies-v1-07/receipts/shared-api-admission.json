@@ -1,0 +1,80 @@
+{
+  "kind": "goalie-complete-live-api-admission",
+  "status": "cleared_not_dispatched",
+  "recorded_at_utc": "2026-11-13T12:25:09.222243+00:00",
+  "assignment": "root owns ONLY this complete G saved-row-to-typed-API pass; other family/browser/consumer work held",
+  "checked_startup": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-boundary-release.json",
+    "bytes": 2391,
+    "sha256": "097a78c2e8d3971bef8da4d8f3d805cd9113f3220045af233a40e7abb7cb83e3"
+  },
+  "runtime_adjudication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-independent-adjudication.json",
+    "bytes": 2510,
+    "sha256": "ff39ce55dbf65901026aa2ae114841f41a5901bcf8ae343fef1da2f5f2d4c2f0"
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "build_authority_sha256": "0072909d5e75fa2c0cc05822859e9b2ff466edab0850f6ded6a08c07ab66cf7b",
+  "base_url": "http://127.0.0.1:3407",
+  "fresh_server_observation": {
+    "clock_after_utc": "2026-11-13T12:24:12Z",
+    "node_pid": 98454,
+    "lsof_exit": 0,
+    "lsof_stdout": "p98454\ncnode\nf16\nn127.0.0.1:3407\n"
+  },
+  "availability_preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-api-preflight.json",
+    "bytes": 315,
+    "sha256": "22fa754505d93413a91db275b0b03d4af5bbcf98e121ce4140b0e75ae7680744"
+  },
+  "availability_source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/api-preflight-01.py",
+    "bytes": 1460,
+    "sha256": "ff09ccbe20aae0472b1f4a72a164ca96434a7adf0b07024e667fbc67586cecca"
+  },
+  "availability_native_cost": {
+    "wall_seconds": 13.94,
+    "peak_rss_bytes": 16302080,
+    "input_body_reads": 0,
+    "separate_from_api_cost": true
+  },
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/check_api.py",
+    "bytes": 43769,
+    "sha256": "3a89e054eaaaa7c06eada98eb485b226fc3bdb96a0c529e3c41460b2fb957cb5"
+  },
+  "held_shell": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/api-held.sh",
+    "bytes": 1255,
+    "sha256": "e02d9de0b48363367746ce426d9019af43a6c26d4743d468c8ea30f7039bacbf"
+  },
+  "independent_source_reviews": "checker prior reviews retained; small held shell and availability helper separately clear from native source-only review reports",
+  "scope": {
+    "seasons": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "accepted_goalie_seasons": 361,
+    "required_per_goalie_season": {
+      "scalar_model_map_strengths": 11,
+      "observed_rows": 12,
+      "breakdown_rows": 99,
+      "evidence_maps": 144,
+      "danger_rows": 24
+    },
+    "http_requests": "roughly36500 declared scope; actual count and cost unmeasured",
+    "reads": "manifest, four catalogs and each declared G table once; no model/archive/full reader"
+  },
+  "output_directory": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01",
+  "output_creation": "not created by availability check; held shell performs one fresh mkdir",
+  "actual_cost": null,
+  "actual_outcome": null,
+  "limits": [
+    "same accepted inactive database/build/server; no new publication/startup/fit/rescore/activation",
+    "API success does not establish browser/download/pixel or scientific acceptance",
+    "no automatic retry or next window"
+  ]
+}

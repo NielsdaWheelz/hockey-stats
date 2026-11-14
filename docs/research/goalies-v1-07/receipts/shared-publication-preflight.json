@@ -1,0 +1,156 @@
+{
+  "kind": "shared-final-inactive-publication-preflight",
+  "status": "passed_not_dispatched",
+  "failure": null,
+  "acceptance_precondition": "root must independently admit the final ST composition and preservation before assigning this preflight; this helper reads no proof verdict",
+  "expected_manifest_sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+  "expected_producer_receipt_sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654",
+  "external_headers": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+      "cap_bytes": 65536,
+      "expected_sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+      "returned_bytes": 23310,
+      "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/special-teams-composition.json",
+      "cap_bytes": 131072,
+      "expected_sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654",
+      "returned_bytes": 60964,
+      "sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+      "cap_bytes": 711,
+      "expected_sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+      "returned_bytes": 711,
+      "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9"
+    }
+  ],
+  "build": [
+    {
+      "path": "app/dist/node/server/main.js",
+      "bytes": 8073,
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+    },
+    {
+      "path": "app/dist/node/server/analysis-publication.js",
+      "bytes": 67929,
+      "sha256": "4454950587c03b0fe5040c49737ad82c2b360f4689159d94eba51362cc15e71f"
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis.js",
+      "bytes": 113222,
+      "sha256": "2877086226cf5a705d1e47870c37273457b822774f76b15c1204f9518d4562d9"
+    },
+    {
+      "path": "app/dist/server/index.js",
+      "bytes": 174762,
+      "sha256": "48d7161b17a6fcb125b72fcefca3019f55595c01c9881223a17fe1e0d160739d"
+    },
+    {
+      "path": "app/dist/client/index.html",
+      "bytes": 2114,
+      "sha256": "cbfb874a84f2edeed42f9aa03a44620463f2c643f15bee22d8749fb45aff420d"
+    },
+    {
+      "path": "app/dist/client/assets/entry.client-CimxyNE3.js",
+      "bytes": 214675,
+      "sha256": "f123592f11d56cc3c499149ae7c2b8ef315cfbadf89ad6c66dd6a55ea1f22785"
+    },
+    {
+      "path": "app/dist/client/assets/explorer-lHrtF-QX.js",
+      "bytes": 280904,
+      "sha256": "607bc1cee201bf62ce02a8d57a6b86995d9ab962b5080e51fde6898bc3d4afe9"
+    }
+  ],
+  "publisher_dispatched": false,
+  "source": {
+    "commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6"
+  },
+  "authorized_untracked_app_controls": [
+    "?? app/goalie-consumers-temporary.ts",
+    "?? app/goalie-contracts-temporary.ts",
+    "?? app/goalie-live-consumers-temporary.ts",
+    "?? app/goalie-selector-review-temporary.ts"
+  ],
+  "documentation_changes": "allowed; outside publisher analysis/app source",
+  "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd",
+  "local_lockfile_bytes": 57101,
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "VECLIB_MAXIMUM_THREADS": null,
+    "NUMEXPR_NUM_THREADS": null,
+    "BLIS_NUM_THREADS": null
+  },
+  "module_ownership_without_project_imports": {
+    "analysis_cli": "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/src/hockey_stats/analysis_cli.py",
+    "publication": "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/src/hockey_stats/publication.py",
+    "analysis_publication": "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/src/hockey_stats/analysis_publication.py"
+  },
+  "project_or_scientific_modules_imported": [],
+  "runtime": {
+    "python": "3.14.8",
+    "executable": "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python",
+    "sqlite_version": "3.54.1",
+    "sqlite_module": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/sqlite3/__init__.py",
+    "sqlite_extension": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_sqlite3.cpython-314-darwin.so",
+    "node": {
+      "path": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+      "version": "v24.21.0"
+    }
+  },
+  "ordinary_parent_checks": [
+    "/Volumes/Expansion",
+    "/Volumes/Expansion/hockey-stats/runs",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs"
+  ],
+  "fresh_paths": [
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/publication-final-g-st-01.log",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/publication-final-g-st-01.exit"
+  ],
+  "selected_input_correspondence": {
+    "producer": {
+      "git_commit": "1431d80e905fe14f2af900a896fd5a3ef5c730e6",
+      "git_dirty": false,
+      "python_version": "3.14.8"
+    },
+    "output": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+      "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+    },
+    "source_results": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/manifest.json",
+      "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12"
+    },
+    "source_producer_receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/results/goalie-composition.json",
+      "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+    },
+    "observed_bindings": [
+      {
+        "season": "20232024",
+        "corpus_sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414"
+      },
+      {
+        "season": "20242025",
+        "corpus_sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639"
+      },
+      {
+        "season": "20252026",
+        "corpus_sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43"
+      }
+    ]
+  },
+  "logical_external_returned_bytes": 84985,
+  "wall_seconds": 14.634585957974195,
+  "peak_rss_bytes": 25903104,
+  "cost_scope": "through checks, before receipt serialization/write; node boot/version process excluded from parent Python high-water rss; native whole-command cost separate"
+}

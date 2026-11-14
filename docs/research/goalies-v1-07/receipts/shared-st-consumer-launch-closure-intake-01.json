@@ -1,0 +1,43 @@
+{
+  "kind": "shared-st-consumer-launch-and-reported-closure-intake",
+  "created_at": "2026-11-14T06:38:18.101355+00:00",
+  "status": "cached_launch_binding_clear_reported_native0_artifact_unassessed",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-consumer-actual-launch-01.json",
+      "bytes": 8192,
+      "sha256": "9e59a83abeac19d28d260a074c339f6600d51e9bfe2f728f27bc5c743f494b7a"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-consumer-actual-launch-review-01.json",
+      "bytes": 2510,
+      "sha256": "34680267dc811e23077199ebbd300558da83a6575180fa60f9671325eab62a7e"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-consumer-launch-preflight-01.json",
+      "bytes": 21721,
+      "sha256": "a556357bc2b8ebf4aca0b23c2e95407dd3a7c094bb575107d9a597901a974a8b"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-consumer-launch-preflight-review-01.json",
+      "bytes": 3234,
+      "sha256": "28fc1a9b19d0ad2ea848cc9085da73edba78e38dd32d2b89bcead39a0fb947a4"
+    }
+  ],
+  "checks": "exact4cachedfileidentities, passed admission/frame reviews, one15876->15877->15878->15881 chain/06:30:36Z/STcwd/heldc302/sourceeb9c, target1a301/API7b6 and retained89887/3763/fee5/app852/build18ef/fb604 agree",
+  "preflight": {
+    "native_wall_seconds": 14.19,
+    "native_peak_rss_bytes": 23412736,
+    "local_pin_count": 47,
+    "explicit_local_pin_bytes": 2840174,
+    "http_requests": 0,
+    "external_input_bodies": 0,
+    "database_or_member_stats": 0,
+    "parent_creation": "only selected fresh acceptance parent, owner-reported and reviewed"
+  },
+  "reported_closure": "owner observed ST_TYPED_CONSUMER_NATIVE_EXIT=0+prompt and then all4ownedpids absent; outcome is from the marker, not absence. root made no process query",
+  "semantic_acceptance": "not assessed; no current consumer result/log/CSV read or cost measurement. conditional d5db consumer3body capture remains owner-controlled after actual-frame clearance/closure/noSTOP",
+  "owner": "v1-09 retains only the consumer window through capture/cached independent adjudication and explicit checked return",
+  "held": "all new G live/drive work; browser/download/pixel/offline/rollback/protected-primary/final preservation/cleanup and later chain unassigned",
+  "scope": "fixed4LOCALcachedreceiptread/hash/JSON review only, then compact local receipt. no runtime/source requalification, OS/HTTP/DB/HDD/member/source-table/controller or original consumer artifact/log/CSV read; no new command grant"
+}

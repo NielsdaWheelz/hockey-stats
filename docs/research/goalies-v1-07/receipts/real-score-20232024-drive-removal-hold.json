@@ -1,0 +1,43 @@
+{
+  "kind": "goalie-score-native-completion-and-drive-removal-hold",
+  "status": "native_exit0_independent_metadata_review_deferred",
+  "recorded_at_utc": "2026-11-10T15:58:39.104292+00:00",
+  "source": "cached tool results only; no external files read or statted for this receipt",
+  "season": "20232024",
+  "native_session_id": 74808,
+  "native_exit_code": 0,
+  "native_python_pid": 5679,
+  "native_time_pid": 5671,
+  "both_pids_absent": true,
+  "stop_request": {
+    "action": "SIGINT attempted for owned python5679",
+    "result": "not delivered; process already absent",
+    "kill_command_exit_code": 1,
+    "native_completion_inferred_from_absence": false
+  },
+  "native_cost_from_cached_completion_log": {
+    "wall_seconds": 7113.09,
+    "user_seconds": 6506.45,
+    "system_seconds": 43.88,
+    "peak_resident_bytes": 21528248320,
+    "peak_memory_footprint_bytes": 22440886664,
+    "swaps": 0,
+    "signals_received": 0
+  },
+  "cached_native_completion_line": "goalie scores 20232024: real; /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20232024/manifest.json",
+  "external_log": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/logs/score-20232024-01.log",
+  "output_state": "native command reports completed manifest; no independent post-exit member/header read or stat; exact manifest digest/payload bytes and four-document adjudication deferred",
+  "producer_commit": "64ceca831bcf14088313eebd853836de69a25f20",
+  "analysis_tree": "0aba863d0efaf5ace3f0e96ab87920540b669e11",
+  "running_preflight_sha256": "0e8accab6d9b036cb31a81fb3491b0514b6bca9af1729c403e339d9b42d1ce88",
+  "hold": {
+    "all_new_heavy_commands": true,
+    "all_external_metadata_reads": true,
+    "retry": false,
+    "publication": false,
+    "activation": false,
+    "eject_owner": "user; normal diskutil eject, no force; no eject command issued here"
+  },
+  "resume_boundary": "reconnect before any external read; preserve original completed score, finalize its native preflight and run the held bounded four-document metadata review before scheduling a successor",
+  "slot": "no owned heavy command remains; drive-removal hold, no new owner assigned; ST ready/unreserved"
+}

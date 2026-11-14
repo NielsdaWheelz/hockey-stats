@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "disposition": "browser06_preflight_source_clear_no_execution_grant",
+  "scope": "adversarial local source review of the five named files only; sizes/hashes match. no execution, import, syntax/test/version/OS/http/external/consumer/csv probe or compiled-file reread",
+  "source_roots": {
+    "st": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+    "verification": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification"
+  },
+  "inputs": [
+    {
+      "file": ".tmp/st-final-browser-launch-preflight-01.py",
+      "bytes": 18557,
+      "sha256": "d3731817fdd63f8d00eccde0b7f6986324f95d89485a8d71b890971ed65def8b"
+    },
+    {
+      "file": ".tmp/st-final-browser-launch-preflight-held-01.sh",
+      "bytes": 760,
+      "sha256": "72f7b82f3c120236bd2a622352075008eeb882f130eef8566176256b69b8cb7c"
+    },
+    {
+      "file": ".tmp/st-final-browser-launch-admission-plan-01.md",
+      "bytes": 7007,
+      "sha256": "83e459dd9b12498aa71030bf21879c5d2b3a9d056e241b1ee9db872312b157c3"
+    },
+    {
+      "file": "st-final-browser-launch-preflight-source-review-01.json",
+      "bytes": 4634,
+      "sha256": "679466bf965ec7c3fef346fb9825e937bad76d69452e945277d264f12af5e2d4"
+    },
+    {
+      "file": "st-final-browser-csv-bytes-successor-review-01.json",
+      "bytes": 2491,
+      "sha256": "6dde9c3024c6bfe0f462b27ff6a33865b028823b6411f1b255ba9333aea2c3a1"
+    }
+  ],
+  "findings": [],
+  "concrete_contract_verdict": [
+    "the success path reads twelve fixed local pin bodies, thirty-eight build18ef descriptors and two runtime metadata bodies: fifty-two named local bodies. explicit actual pin-byte accounting includes all of them; known fixed/compiled totals are 1347779 and 1470447 bytes, with runtime metadata sizes observed later",
+    "source/target/API/build and retained89887 process checks match the assigned fixed contract: exact source tuples, argv/start/parent/cwd/listener, target1a301 and API7b6. no database or http qualification is hidden",
+    "the only Node invocation is pinned --version. playwright package/entry and Chrome plist/executable ownership are metadata checks; neither controller/PW import nor Chrome launch occurs",
+    "the sole external input body is fixed typed-consumer.json: one buffered 2MiB read, exact1097187-byte/b76 hash gate, and known length/hash/completeness recorded before close. no cap-plus-one, reopen, body fanout or csv access occurs",
+    "consumer parsing checks only the literal csv path and exact integer120 rows. no csv read/stat/hash is present",
+    "five fixed browser/profile/log/exit/postcapture paths must be absent; no browser/profile/output directory is created and no command chains into browser dispatch",
+    "success is assigned after the consumer context closes. command observations precede return-code checks; structured BaseException evidence is retained and re-raised. blank error text cannot grant success; the held shell preserves the actual native exit and marker",
+    "current c74d source06/8548 held06 are hardpinned separately with parent5ed and amendmentfb54. immutable source05/output mappings and d5db collector constants remain historical base references, not alternative current identities",
+    "the helper is finite fixed-purpose admission code; no retry, polling loop, general input registry, framework or new acceptance waiver is introduced"
+  ],
+  "limits": "static preflight clearance only. present freshness, current process identity, actual local/external returned bytes and all browser/csv/download/pixel results are not established by this review. the separate actual preflight result still needs adjudication; browser execution remains held",
+  "dispatch_authorized": false
+}

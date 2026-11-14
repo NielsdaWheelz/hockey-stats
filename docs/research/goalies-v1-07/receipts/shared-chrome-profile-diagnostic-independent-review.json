@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "kind": "shared-chrome-profile-diagnostic-independent-review",
+  "status": "accepted_one_chrome_navigation_only",
+  "sha256": {
+    "source": "c7272c20047b5745b15e320cdd5c069815c724aee4fcb65dde8437c8587a9018",
+    "shared-chrome-profile-diagnostic-result.json": "25b4dbc70466c79678138b1670c83a2b1ae4dc8f3b22aeceb2637a2f5a2b5273",
+    "shared-chrome-profile-diagnostic-events.jsonl": "2847b560c779cd6a87a0ddc6b87d8dcad085aa94c1b5998e67e4688d567953af",
+    "shared-chrome-profile-diagnostic-native.log": "55b40ba2e79c353e2682fca8068f73862395294848f5469f7c4044b9aee877b7",
+    "shared-chrome-profile-diagnostic-native.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "findings": [
+    "native exit is exactly 0 plus newline. one target navigation for 8478872/20252026/goalie.ev.stopping_goals_per100_on_net completed on 3407. selected metric and ordered 20232024/20242025/20252026 history rows match; owned context closed.",
+    "all 16 recorded requests have 200 responses and finished, including the player request and three annual goalie-overview requests. no requestfailed/pageerror events or recorded phase errors. no response body or value reconciliation was performed.",
+    "sole console error has the exact same-origin /favicon.ico 404 signature; no favicon response event exists. this matches the existing optional-favicon signature. this diagnostic did not measure DOM icon-declaration count and grants no complete browser error-policy acceptance."
+  ],
+  "cost": {
+    "internal_wall_seconds": 47.3844165,
+    "node_peak_rss_bytes": 133414912,
+    "native_wall_seconds": 47.42,
+    "native_peak_rss_bytes": 316473344,
+    "scope": "internal timing starts after local reservation and ends after owned context closure; serialization excluded. native whole-command high-water is not aggregate browser memory."
+  },
+  "limits": "local saved review only; raw facts copied byte-exact, profile not copied. no live query or rerun. one navigation neither explains the fourth-metric node reset nor establishes repeatability, all 26 selections, consumer/export/pixel, family, scientific or activation acceptance."
+}

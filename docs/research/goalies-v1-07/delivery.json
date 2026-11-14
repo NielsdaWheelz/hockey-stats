@@ -1,0 +1,108 @@
+{
+  "kind": "goalie-pr-merge-delivery",
+  "status": "completed",
+  "pr": {
+    "number": 62,
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/62",
+    "head": "76347d7af4a0d584e8c669d9fa4cf7b3589184ce",
+    "merge": "adc3b2420e477de5a6d418d5b9c1347869f8b5a1",
+    "merged_at": "2026-11-14T23:02:00Z",
+    "reviewed_tree": "2b502d5e79eae030ca69b5387b282e2c36c095e6",
+    "merged_tree_matches_reviewed_head": true,
+    "security": "GitGuardian Security Checks success on exact76347d7 head"
+  },
+  "ancestry": {
+    "original_frontend_handoff": "333f6a74592315f1c431296ae30382743fac4b38",
+    "preserved_in_main": true,
+    "normal_main_merge": "505fd8e",
+    "normal_handoff_merge": "89446fb",
+    "handoff_merge_changed_no_bytes": true
+  },
+  "production": {
+    "pr_analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+    "later_concurrent_main": "ff290da90bc3e826c2a305c5a64a7ce26ab4d8f3",
+    "later_analysis_tree": "48a9853a35f3526adf84fd90d84879620c9575d0",
+    "concurrent_change": "separate ST pr63. fixed source comparison confirms all goalie/shared execution/artifact code and four goalie dispatch bodies unchanged; source alias exposes the current shared program, not a frozen runnable build."
+  },
+  "cleanup": {
+    "removed_registered_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+    "removed_local_refs": [
+      "implement/v1-07-goalie-continuation",
+      "handoff/v1-07-web"
+    ],
+    "removed_remote_ref": "implement/v1-07-goalie-continuation",
+    "remote_handoff_ref": "already absent",
+    "removed_disposable": "owned task checkout, task venv, app node_modules/dist/.react-router and bytecode; twenty archived coordination notes and empty campaign directory",
+    "source_alias": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+      "target": "/Users/nnandal/Documents/code/hockey-stats"
+    },
+    "owned_terminal_sessions_closed": [
+      "t-f9f0b50f2271131d",
+      "t-26981f8e970cc625"
+    ],
+    "preserved_commands": [
+      {
+        "original_path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-held.sh",
+        "relative_path": ".tmp/goalie-live-acceptance/publication-held.sh",
+        "preserved_path": "/Users/nnandal/Documents/code/hockey-stats/.tmp/goalie-live-acceptance/publication-held.sh",
+        "bytes": 1225,
+        "sha256": "14b7e23c90998e4a6cd697df8dfacebe69ac8dde27ae655465b756f994a9c23c",
+        "mode": "0o644",
+        "exclusive_copy_verified": true
+      },
+      {
+        "original_path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-launch-01.command",
+        "relative_path": ".tmp/goalie-live-acceptance/publication-launch-01.command",
+        "preserved_path": "/Users/nnandal/Documents/code/hockey-stats/.tmp/goalie-live-acceptance/publication-launch-01.command",
+        "bytes": 106,
+        "sha256": "d237460d7c37d6e2106e9585b751654697afb611299b69471f2ca834f6ec4a7e",
+        "mode": "0o644",
+        "exclusive_copy_verified": true
+      },
+      {
+        "original_path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/hockey-stats-analysis",
+        "relative_path": "analysis/.venv/bin/hockey-stats-analysis",
+        "preserved_path": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/hockey-stats-analysis",
+        "bytes": 365,
+        "sha256": "4bbde76d3cece3dd141f3b5ad5c3cbe33b1a21a146985f12da5a5fc0521fe676",
+        "mode": "0o755",
+        "exclusive_copy_verified": true
+      }
+    ],
+    "console_note": "exact365-byte historical launcher added exclusively to primary existing venv; existing editable package resolves to primary source, python3.14.8/numpy2.5.3/scipy1.18.1 metadata match. no dependency reinstall or numerical operation.",
+    "coordination_notes_archive": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-07-delivery-20261114-01/st-coordination-notes-01.tar.gz",
+      "bytes": 9328,
+      "sha256": "323fe89e883718c47a9c89acfd097041af0eaaff1e792f1cc4407d91439f0bc0",
+      "all_entries_verified": true
+    }
+  },
+  "verification": {
+    "primary_typecheck_exit": 0,
+    "primary_typecheck_native_seconds": 1.46,
+    "primary_typecheck_peak_rss_bytes": 413958144,
+    "post_delivery_primary_preservation": {
+      "status": "passed",
+      "fixed_build_files": 38,
+      "hashed_build_bytes": 1284415,
+      "database_stats_unchanged": 2,
+      "primary_pid": 9645,
+      "listener": "127.0.0.1:3000",
+      "no_database_body_read": true
+    },
+    "limits": "original pre-delivery spec-mtime failure and cleanup literal-command audit limitation remain recorded. no old failed browser/raw-abort verdict is reclassified."
+  },
+  "protected": "primary serving distribution/server/active+previous publications; every expensive capture/fit/score/result/candidate/media artifact; frozen ST producers and unrelated refs/worktrees; all normal dependencies except the attributed missing console launcher addition. external paths were not read or mutated by this delivery.",
+  "not_performed": [
+    "activation",
+    "source acquisition",
+    "fit",
+    "score",
+    "publication rebuild",
+    "startup replay",
+    "scientific admission"
+  ],
+  "local_actual_receipt": "/Users/nnandal/Documents/code/hockey-stats-local/v1-07-delivery-20261114-01/pr-merge-cleanup-completion.json"
+}

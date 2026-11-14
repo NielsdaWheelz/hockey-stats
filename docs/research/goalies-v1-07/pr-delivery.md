@@ -13,3 +13,11 @@ the recorded first annual command also names `analysis/.venv/bin/hockey-stats-an
 retain full unique facts from the twenty remaining coordination notes before removing their disposable originals. the empty campaign directory has no remaining scientific source. retain the original raw cleanup/preservation failures and their qualified root dispositions; never rewrite a failed historical verdict.
 
 the final local receipt is `/Users/nnandal/Documents/code/hockey-stats-local/v1-07-delivery-20261114-01/pr-merge-cleanup-completion.json`. it records actual pr/head/merge/main identities, checks, preserved file hashes, cleanup outcomes and any limitations. this pre-merge contract does not claim those actions already completed.
+
+## completed delivery
+
+[pr #62](https://github.com/NielsdaWheelz/hockey-stats/pull/62) merged as `adc3b242` after exact-head security success. [actual delivery](delivery.json) records preserved ancestry, primary synchronization/typecheck, removal of the two owned refs and task worktree/environment, the retained source alias and three byte-exact command paths. the two real publication operators remain tracked at their original relative paths; they are not temporary test controllers. twenty coordination notes are losslessly archived locally.
+
+concurrent pr #63 subsequently added the separately owned special-teams source to main. goalie/shared execution/validator code, goalie dispatch bodies and app852 remain unchanged. the current shared analysis tree is48a9853a; the original goalie analysisfee5 remains in merged history. no source rollback or numerical replay followed. the task alias exposes shared primary source, not an immutable old checkout.
+
+post-delivery checks preserve all38 primary serving-build files, active/previous database stats and pid9645/listener3000. no serving build, database, activation or external artifact changed. original scientific limits and audit failures remain authoritative.

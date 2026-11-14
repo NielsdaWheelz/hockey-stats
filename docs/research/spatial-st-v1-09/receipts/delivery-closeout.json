@@ -1,6 +1,6 @@
 {
   "kind": "st-delivery-closeout",
-  "status": "accepted_implementation_and_application_delivery_preparation",
+  "status": "implementation_application_and_source_integration_verified",
   "accepted_receipts": [
     {
       "path": "shared-st-browser12-independent-adjudication-05.json",
@@ -219,5 +219,35 @@
     "app/shared-goalie-paired-temporary.ts",
     "app/shared-goalie-validators-temporary.ts"
   ],
-  "resolved_issue_drafts_archived": 5
+  "resolved_issue_drafts_archived": 5,
+  "source_delivery": {
+    "pull_request": "https://github.com/NielsdaWheelz/hockey-stats/pull/63",
+    "main_parent": "65c777fe52c29fd1ab70950cd7525aec6f65d566",
+    "shared_application_cherry_picks": {
+      "c90cb73f03c6e0b5f0efe527b0ebe6243160df55": "6dab410",
+      "3763b343fcacb50b2136038e25bf32e3bd98df13": "e19b189"
+    },
+    "analysis_tree": "923d95b5e6d98ea056f4d6111979c03a0de81e91",
+    "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+    "canonical_fixture": "byte-exact origin/main; no fixture reconstruction",
+    "checks": {
+      "node_version": "24.21.0",
+      "typecheck": {
+        "exit": 0,
+        "wall_seconds": 1.34,
+        "peak_rss_bytes": 410566656
+      },
+      "build": {
+        "exit": 0,
+        "wall_seconds": 1.58,
+        "peak_rss_bytes": 595165184
+      },
+      "changed_python_ast_modules": 11,
+      "relative_links_checked": 520,
+      "accepted_receipt_identities_checked": 10,
+      "independent_closeout_review": "no blocking findings"
+    },
+    "merge_identity": "owned by pull request63; this source record does not predict a merge sha",
+    "primary_runtime": "no rebuild, restart or activation; only source synchronization is assigned"
+  }
 }

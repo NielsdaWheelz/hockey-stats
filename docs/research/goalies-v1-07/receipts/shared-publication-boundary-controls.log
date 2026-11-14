@@ -1,0 +1,28 @@
+test_blank_failure_stays_failed_and_nonzero (__main__.Controls.test_blank_failure_stays_failed_and_nonzero) ... ok
+test_native_failure_cannot_admit_completion_metadata (__main__.Controls.test_native_failure_cannot_admit_completion_metadata) ... ok
+test_overflow_is_bounded_retained_and_rejected (__main__.Controls.test_overflow_is_bounded_retained_and_rejected) ... ok
+test_wrong_copied_manifest_cannot_admit_completion (__main__.Controls.test_wrong_copied_manifest_cannot_admit_completion) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.003s
+
+OK
+{"status": "failed", "native_exit": null, "result": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/publication-literal-control-s34a3axt/result/result.json"}
+        0.15 real         0.06 user         0.03 sys
+            31309824  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                3083  page reclaims
+                 118  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 224  voluntary context switches
+                 200  involuntary context switches
+           717408728  instructions retired
+           406058257  cycles elapsed
+            20578832  peak memory footprint

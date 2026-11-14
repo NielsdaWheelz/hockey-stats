@@ -1,0 +1,24 @@
+{
+  "kind": "task-owned-cleanup-source-delta",
+  "status": "inventory_only_cleanup_held",
+  "reason": "one finite paired diagnostic added after delta02",
+  "paths": [
+    ".tmp/st-map-lifecycle-diagnostic-01.mjs",
+    ".tmp/st-map-lifecycle-diagnostic-01.plan.md",
+    ".tmp/st-map-lifecycle-diagnostic-01",
+    ".tmp/st-map-lifecycle-diagnostic-01-native.log",
+    ".tmp/st-map-lifecycle-diagnostic-01-native.exit"
+  ],
+  "owned_directory_contents": "diagnostic trace and one owned normal Chrome profile; no shared dependency/runtime directory",
+  "preserved_evidence": [
+    "docs/research/goalies-v1-07/receipts/st-map-lifecycle-diagnostic-trace-01.json.gz",
+    "docs/research/goalies-v1-07/receipts/st-map-lifecycle-diagnostic-native-01.log",
+    "docs/research/goalies-v1-07/receipts/st-map-lifecycle-diagnostic-native-01.exit",
+    "docs/research/goalies-v1-07/receipts/st-map-lifecycle-diagnostic-evidence-01.json"
+  ],
+  "limits": [
+    "no deletion performed or assigned",
+    "all profiles and failures retained until campaign cleanup",
+    "does not widen cleanup to any other .tmp paths or runtime"
+  ]
+}

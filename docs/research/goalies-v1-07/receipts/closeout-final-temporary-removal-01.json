@@ -1,0 +1,94 @@
+{
+  "kind": "final-owned-temporary-source-removal",
+  "status": "completed",
+  "scope": "12 root closeout helpers/archived local duplicates plus one root-owned unexecuted cached-review source. exact literal files only; no parent deletion.",
+  "removed": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-cleanup-01.py",
+      "bytes": 21537,
+      "sha256": "923860b9c57ff4cf695d65cabd7a04cb6ddc6825b41e79edb79eb08c4016c53e"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-cleanup-01.plan.md",
+      "bytes": 17623,
+      "sha256": "d5c835809422d54465d8d37a9e2a52c21affb1d6772bf571b7ded30340c1586c"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-cleanup-01.result.json",
+      "bytes": 35726,
+      "sha256": "c4f397b18f69fa460be4ad632690ff6f4c87fecac6a24ee450ae061ae7397a1a"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-cleanup-01-native.log",
+      "bytes": 777,
+      "sha256": "c80f4e392af99e01466ab7eedac3c5b62a6ab476f599ac5a185951fd7e67c289"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-cleanup-01-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-fact-archive-inputs-01.json",
+      "bytes": 28092,
+      "sha256": "5be0089fcc421e76507936db80379b642b36d6bfc7f6155b252dc0d1fda94203"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-typecheck-01.log",
+      "bytes": 866,
+      "sha256": "016745b23e8dcc8194e6559ef78a8c6902a35071c5c2ad865c912c085a466497"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-typecheck-01.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-preservation-01-native.log",
+      "bytes": 953,
+      "sha256": "65051a6c4a9a9354e716bc6b64ce43326a746f75e68b64d9a5cc5eac1f1e8ff8"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-preservation-01-native.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/final-preservation.py",
+      "bytes": 9379,
+      "sha256": "ba836b45f6d8f9ef043b473e1f3e35623a8dc7eb825e8de945c56aa829258909"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/final-preservation-01.json",
+      "bytes": 36750,
+      "sha256": "7c4c2e249af6640bf568663b502b283d325878ddb21f8e111861f2f2e9c00570"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-independent-review-04-recovery.py",
+      "bytes": 7991,
+      "sha256": "85f36bb50c2c221286be59a0dba3d7a866b710dc2f3e1ac885f20332b6a5ee94",
+      "ownership": "root unexecuted temporary cached admission review draft; accepted review05 already retained; no numerical or application role"
+    }
+  ],
+  "already_absent": [],
+  "errors": [],
+  "in_progress": null,
+  "preserved": "real publication command/wrapper and every numerical/scientific/frozen operator, normal dependencies, source, refs, expensive artifacts, all other BASE evidence and primary remain outside scope",
+  "archival": "171 full local facts verified in closeout-local-facts-01.tar.gz; cleanup/preservation/typecheck raw outputs and cleanup plan copied byte-exact to existing receipts before duplicate removal",
+  "selected_absent": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-cleanup-01.py",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-cleanup-01.plan.md",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-cleanup-01.result.json",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-cleanup-01-native.log",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-cleanup-01-native.exit",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-fact-archive-inputs-01.json",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-typecheck-01.log",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-typecheck-01.exit",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-preservation-01-native.log",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-closeout-preservation-01-native.exit",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/final-preservation.py",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/final-preservation-01.json",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-independent-review-04-recovery.py"
+  ],
+  "wall_seconds": 0.0019199999514967203
+}

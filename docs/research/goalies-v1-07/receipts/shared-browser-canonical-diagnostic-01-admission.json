@@ -1,0 +1,18 @@
+{
+  "kind": "shared-browser-canonical-diagnostic-01-admission",
+  "status": "assigned_once_after_source_review_and_local_freshness",
+  "at": "2026-11-13T16:50:48.689881+00:00",
+  "source_sha256": "eb5877dcc4c46964add01167e652415dda55b751c81dd044942f3ef4f48d5301",
+  "review_sha256": "d2add149f1310ffae73a065ce43f0100edb7315f3b3b9214faa38ca602db36cf",
+  "local_absence_checked": [
+    ".tmp/goalie-live-acceptance/browser-canonical-diagnostic-01",
+    ".tmp/goalie-live-acceptance/browser-canonical-diagnostic-01-native.log",
+    ".tmp/goalie-live-acceptance/browser-canonical-diagnostic-01-native.exit"
+  ],
+  "server_pid": 33587,
+  "source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "scope": "one context; original and completed-canonical analytical-goalie to base transitions; request ids/lifecycle/action timing only; no bodies/HAR/exports/provider/member reads",
+  "limits": "diagnostic only; no reproduction is inconclusive; cannot reconstruct old03 timing; no blanket abort waiver or family acceptance; no automatic replay; all fullbrowser/ST/finalpreservation/cleanup remain held"
+}

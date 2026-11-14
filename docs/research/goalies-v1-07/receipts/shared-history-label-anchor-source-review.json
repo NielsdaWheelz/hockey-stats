@@ -1,0 +1,59 @@
+{
+  "disposition": "unapplied_minimal_anchor_proposal_source_review_clear",
+  "scope": "named local original/candidate/forward/inverse source reads, exact patch reconstruction and hashes only; no patch application, build, runtime, browser, http, database, external drive, process or test execution",
+  "sources": {
+    "production": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/app/src/web/analysis-history.tsx",
+      "bytes": 46010,
+      "sha256": "b86c4565872127990f158023fca42aaa408729745bea963d2e041712f03f595c"
+    },
+    "patch": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/history-label-anchor-proposed.patch",
+      "bytes": 3554,
+      "sha256": "cd48e18bec3cd82fa6479777490bbfe55fceef3a383b3c9c9539e25e6f39752a"
+    },
+    "inverse": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/history-label-anchor-inverse.patch",
+      "bytes": 3554,
+      "sha256": "c63e4782674f7740cb1b3633e30251626e8d128a8b11e51fe5b3a8e71eaf1728"
+    },
+    "candidate": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/history-label-anchor-proposed.tsx",
+      "bytes": 46049,
+      "sha256": "d88386fc9705ef1b9fbd7485c17f5842608310ad5a5f378cabf7fb1bbec4ff5e"
+    }
+  },
+  "exact_source_facts": {
+    "single_forward_hunk": true,
+    "forward_header": "@@ -563,55 +563,53 @@",
+    "forward_before_lines": 55,
+    "forward_after_lines": 53,
+    "forward_context_matches": true,
+    "forward_exact_candidate": true,
+    "single_inverse_hunk": true,
+    "inverse_header": "@@ -563,53 +563,55 @@",
+    "inverse_context_matches": true,
+    "inverse_exact_original": true,
+    "outside_HistoryPlot_byte_identity": true
+  },
+  "semantic_review": [
+    "per-point const anchor preserves the existing unavailable text rule exactly: first point start, otherwise last point end, otherwise middle; a single point therefore retains first-point precedence",
+    "all three live-plot text nodes use that one local anchor; unavailable behavior is preserved, season and selected labels gain the edge alignment needed by the measured red",
+    "point values, null branches, selected-season condition, keys, history order, domains, prepareHistory/continuity decisions and plotted-value arithmetic are unchanged",
+    "line and circle bodies are reindented only: x/y functions, coordinates, stroke, radius and source data attributes remain unchanged",
+    "no new function, public surface, query, lifecycle, CSS, model, producer, artifact or export-SVG change is introduced",
+    "forward and inverse each contain one hunk for the same analysis-history.tsx owner; forward reproduces the full candidate exactly and inverse recovers the full current production file byte-for-byte"
+  ],
+  "red_evidence": {
+    "review": "/tmp/staging/shared-history-label-red-actual-review-01.json",
+    "sha256": "f2fffd53b2f7adb8fa3eab19334cd089dea244123475a8005a947b28bdf77fab",
+    "meaning": "four actual cases complete; only six intended narrow label overruns and zero normal failures; the separate retained API abort is not a network pass"
+  },
+  "remaining_material_findings": [],
+  "limits": [
+    "proposal remains unapplied at this review; root separately controls the production patch assignment",
+    "source review does not establish compiled behavior or actual green; new reviewed build/startup and the same actual four-case bounds check remain owed",
+    "actual required-layout pixels must independently verify complete labels; rectangle/source checks do not establish full browser04 acceptance",
+    "no historical transport failure is attributed or excused, and no numerical, family, scientific, activation or special-teams acceptance follows"
+  ]
+}

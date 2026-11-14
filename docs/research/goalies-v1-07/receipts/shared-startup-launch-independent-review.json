@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "kind": "shared-startup-launch-independent-review",
+  "status": "source_and_cached_launch_match_not_startup_accepted",
+  "sha256": {
+    "shared-startup-actual-launch.json": "fdb7b1e83382f08882c33e3200ce469717aebcf5635e684d499bfdde5ae5a5a7",
+    "shared-startup-preflight.json": "c19b2b0921b8db60b7f2cb66cfffe72cb21972c513275472ef0749314f429dfd",
+    "shared-publication-boundary-release.json": "196468af0f77798428d53ef140ab00adfde6092e795193fd0023e7c592501e6a",
+    "startup-held.sh": "1fa4f336c0a8a88fc2b4eaa1461369f7c90cb2659d754af5898c909c377eb896",
+    "runtime.mjs": "bb37d4a06cbde3a7bf4e350f331e67a14ac34f655a7d877582ea0a6562066ec4",
+    "detached.sb": "dda6d8f506d99c4fd595f226ade0e47023c858961ddad266aaf4ce1f6b0dfa6a",
+    "public-validator-union-integration.json": "0072909d5e75fa2c0cc05822859e9b2ff466edab0850f6ded6a08c07ab66cf7b"
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "candidate_sha256_publisher_reported": "17241928149f70bbd353815a4ec8feab39210d570205b494ad6c2af8cfb9a612",
+  "candidate_bytes": 31261470720,
+  "findings": [
+    "accepted release, admission and launch agree on the exact candidate-final-g-st-01/player-analysis.sqlite path, uuid, reported digest and bytes. source 4aa, analysis fee5 and app 3242 agree; all seven cached build descriptors equal authority 007290.",
+    "held shell and cached argv/cwd agree: pinned node 24 under sandbox dda6, meter, exact candidate and port 3407. compiled main receives normal --publication/--port arguments and imports publicationLayer; no api-only or validation bypass is added.",
+    "the meter imports compiled main once, records only the matching-port listening event and restores emit before forwarding. latency excludes node boot/static imports; process maxRSS includes them. outside time measures eventual service lifetime.",
+    "within the external project root, dda6 permits only exact candidate data; three added ST-source denials are source-reviewed only. older 8f68 bootstrap evidence does not validate dda6.",
+    "cached 11:39:11Z frame records time 98453 and node 98454 starting 11:38:35Z, without listening receipt or service exit. launch establishes no startup/application pass."
+  ],
+  "blocking_mismatches": [],
+  "limits": "local source/cached evidence only; no external access, OS query, SQL, runtime/controller import, tests or startup measurement. freshness and single dispatch are root observations. api/browser/science/activation remain unassessed."
+}

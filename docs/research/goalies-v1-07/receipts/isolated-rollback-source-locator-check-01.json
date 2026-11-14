@@ -1,0 +1,83 @@
+{
+  "kind": "goalie-isolated-rollback-fixed-local-source-locator-check",
+  "status": "completed_locator_check_only",
+  "scope": "eight fixed local candidate-adjacent selection/verification headers; one buffered read per existing path, capped at one mib; no directory scan, path following, database or external access",
+  "files": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/var/v1-13/candidate-chronology/selection.json",
+      "cap_bytes": 1048576,
+      "status": "missing",
+      "returned_bytes": 0,
+      "read_complete": false
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/var/v1-13/candidate-chronology/verification.json",
+      "cap_bytes": 1048576,
+      "status": "missing",
+      "returned_bytes": 0,
+      "read_complete": false
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/var/v1-13/candidate-reviewed/selection.json",
+      "cap_bytes": 1048576,
+      "status": "missing",
+      "returned_bytes": 0,
+      "read_complete": false
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/var/v1-13/candidate-reviewed/verification.json",
+      "cap_bytes": 1048576,
+      "status": "missing",
+      "returned_bytes": 0,
+      "read_complete": false
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/var/v1-13/candidate-chronology/selection.json",
+      "cap_bytes": 1048576,
+      "status": "missing",
+      "returned_bytes": 0,
+      "read_complete": false
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/var/v1-13/candidate-chronology/verification.json",
+      "cap_bytes": 1048576,
+      "status": "missing",
+      "returned_bytes": 0,
+      "read_complete": false
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/var/v1-13/candidate-reviewed/selection.json",
+      "cap_bytes": 1048576,
+      "status": "missing",
+      "returned_bytes": 0,
+      "read_complete": false
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/var/v1-13/candidate-reviewed/verification.json",
+      "cap_bytes": 1048576,
+      "status": "missing",
+      "returned_bytes": 0,
+      "read_complete": false
+    }
+  ],
+  "missing_paths": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/var/v1-13/candidate-chronology/selection.json",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/var/v1-13/candidate-chronology/verification.json",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/var/v1-13/candidate-reviewed/selection.json",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/var/v1-13/candidate-reviewed/verification.json",
+    "/Users/nnandal/Documents/code/hockey-stats/var/v1-13/candidate-chronology/selection.json",
+    "/Users/nnandal/Documents/code/hockey-stats/var/v1-13/candidate-chronology/verification.json",
+    "/Users/nnandal/Documents/code/hockey-stats/var/v1-13/candidate-reviewed/selection.json",
+    "/Users/nnandal/Documents/code/hockey-stats/var/v1-13/candidate-reviewed/verification.json"
+  ],
+  "errors": [],
+  "incomplete_paths": [],
+  "logical_returned_bytes": 0,
+  "publication_or_rotation_authorized": false,
+  "complete_retained_files": 0,
+  "limits": [
+    "presence and header contents only; no referenced corpus, database, source or external path followed",
+    "at-cap headers remain incomplete without raw/hash retention, retry or expansion",
+    "no directory enumeration, stat, build, import, test, runtime qualification, publication, reconstruction or rotation"
+  ]
+}

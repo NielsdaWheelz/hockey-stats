@@ -1,0 +1,73 @@
+{
+  "kind": "goalie-user-stop-normal-eject",
+  "status": "normal_eject_completed_work_held",
+  "owned_server": {
+    "pid": 33587,
+    "time_pid": 33586,
+    "wrapper_pid": 33585,
+    "identity_checked_before_signal": true,
+    "signal": "one SIGINT to33587",
+    "signal_exit": 0,
+    "post_ps_exit": 1,
+    "post_ps_output": "",
+    "cached_native_marker": "G_ST_RUNTIME_02_EXIT=130",
+    "limits": "intentional service shutdown; lifetime footer is not startup cost or new numerical acceptance"
+  },
+  "filesystem_use_check": {
+    "argv": [
+      "/usr/sbin/lsof",
+      "-nP",
+      "+f",
+      "--",
+      "/Volumes/Expansion"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "fresh_mapping": {
+    "volume": "Expansion",
+    "volume_device": "disk6s1",
+    "apfs_container": "disk6",
+    "physical_store": "disk5s2",
+    "physical": {
+      "DeviceIdentifier": "disk5",
+      "DeviceNode": "/dev/disk5",
+      "WholeDisk": true,
+      "Internal": false,
+      "BusProtocol": "USB",
+      "MediaName": "Expansion HDD",
+      "RemovableMediaOrExternalDevice": true,
+      "TotalSize": 8001563221504
+    }
+  },
+  "eject": {
+    "chunk_id": "1e63e1",
+    "wall_time_seconds": 1.329087625,
+    "exit_code": 0,
+    "original_token_count": 6,
+    "output": "Disk /dev/disk5 ejected\n"
+  },
+  "mount_after": {
+    "exit": 1,
+    "output": ""
+  },
+  "preserved": {
+    "runtime_source": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+    "stopped_build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+    "publication": "fb60493e-badf-4b11-9585-b5a541387e66",
+    "final_exchange_sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+    "uncommitted_renderer_sha256": "d88386fc9705ef1b9fbd7485c17f5842608310ad5a5f378cabf7fb1bbec4ff5e",
+    "typecheck": "one ordinary pinned-node typecheck0;0.94s/410107904peakbytes",
+    "pending": "no build/newstartup/greenlabels/fullbrowser04/STmatrices/finalpreservation/cleanup; all held until userresume",
+    "controller04_sha256": "892a1a620f18043cfe2a687ea5b7ed55d4d6d6604852e75a5c41e4dfcf8488a7",
+    "controller04_status": "unexecuted, refined source review pending"
+  },
+  "limits": [
+    "no force or repeat eject",
+    "no external artifact read/stat/copy after STOP",
+    "no source, fit, result or database deletion",
+    "eject and intentional service130 are not acceptance",
+    "primary3000/9645 was not signalled"
+  ]
+}

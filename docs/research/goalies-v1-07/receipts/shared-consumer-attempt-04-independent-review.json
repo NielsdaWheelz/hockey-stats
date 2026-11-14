@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "kind": "shared-consumer-attempt-04-independent-review",
+  "status": "accepted_two_loaders_26_compositions_csv_on_repaired_build_only",
+  "sha256": {
+    "shared-consumer-attempt-04-result.json": "c7e329ae247857e425c5db25a88afe8ee5c07130818c7ecd45032c1a4a044d66",
+    "shared-consumer-attempt-04-oracle.csv": "bc293b783cbd71a19d7f7fc7f506d08590dba23c6936caea4d1cef817b387653",
+    "shared-consumer-attempt-04-native.log": "5ce0e4ba2a84de30144ce874bcb519acb0be9c27f0e532cb1b7c9ff05f3a98ad",
+    "shared-consumer-attempt-04-native.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "shared-consumer-attempt-04-capture.json": "7043e9bbe93f85325c7d5e140916a9115a346068c5557e5c621be42ebbb40a57",
+    "consumer_source": "ed64fdb5b45b31ac9eea50bb124d408a2b1440761730faa583cf1a10607aeb4d",
+    "held_shell": "e67f73cb4562c819344bfc8e2d086d6ffefa386ab4a8c4fb35e817c1563d3a85",
+    "capture_source": "c315dd53403d049858166473cb9bb5705bbce3efb12802eb703c4465e2de80c4",
+    "passed_api02": "355de762cb1f72cf496c8c690658d7a751e66d7caff6b3dc7994eb9e40d50472"
+  },
+  "findings": [
+    "native consumer and capture exits are exactly 0 plus newline. passed consumer receipt matches native counts. capture reports four complete retained bounded bodies, no errors/unknowns/overflow; durable copies match raw hashes. capture completeness is separately assessed from consumer acceptance.",
+    "receipt binds passed api-02 and same fb604 real/exchange 3/schema 9 candidate, origin 3407/anchor 8478872; cases and prior_only absence declarations are inherited exactly. c90/build e885/server 33587 context remains separately pinned by root admission.",
+    "local byte comparison and SHA confirm the 792692-byte CSV is exactly prior independently parsed oracle bc293: 66 unique headers, 26 metric ids across three ordered years/78 unique rows, exact identity/corpus/unit/scaling/qualification/cutoff fields and retained scientific caveats. prior independent CSV assurance transfers by byte identity.",
+    "actual scope remains two EV/PK stopping loader journeys and 26 compositions. all 78 anchor annual points are ranked and 78 raised-cutoff assertions pass; eight completed transport responses have declared lengths totaling 40415998 bytes. representative/view routes remain browser-owned."
+  ],
+  "cost": {
+    "internal_wall_seconds": 11.375416958,
+    "native_wall_seconds": 11.73,
+    "native_peak_rss_bytes": 389480448,
+    "native_peak_footprint_bytes": 19122840,
+    "capture_returned_bytes": 796458,
+    "capture_internal_wall_seconds": 0.0009582911152392626,
+    "capture_internal_peak_rss_bytes": 20430848,
+    "capture_native_wall_seconds": 0.02,
+    "capture_native_peak_rss_bytes": 20463616,
+    "scope": "consumer internal time includes CSV generation/write, excludes boot and final receipt serialization/write; native time covers the command. capture timing excludes local reservation/serialization. content lengths and retained bytes are logical, not physical traffic; server memory is unmeasured."
+  },
+  "blocking_mismatches": [],
+  "limits": "local retained review only; five fixed facts copied byte-exact. no HTTP/SQL/HDD or project execution. node attempt 02 reset remains unexplained; no uniform performance claim. all 26 actual browser selections, representative/view routes, exports/pixels, ST, science and activation remain unassessed."
+}

@@ -1,0 +1,79 @@
+{
+  "disposition": "saved_local_build_and_backend_preservation_adjudication_clear",
+  "scope": "named local build receipt, before catalog, native log and exit reads plus descriptor reconciliation only; no build/typecheck/runtime/file-inventory repeat, live query, external read, database, process or test execution",
+  "sources": {
+    "build": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/history-label-build-01.json",
+      "sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+      "bytes": 9732
+    },
+    "before_catalog": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/history-label-backend-before.json",
+      "sha256": "7300d5e647459ca8f188e70e70b70a5adcc850b158c83e54fccb0f045ce2b51e",
+      "bytes": 4336
+    },
+    "native_log": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/history-label-build-01.log",
+      "sha256": "131f2eccc5bba0b855753a67b0332d60737846280e0ced68050a256ab0f876c9",
+      "bytes": 2808
+    },
+    "native_exit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/history-label-build-01.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    }
+  },
+  "source_binding": {
+    "runtime_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+    "reviewed_HistoryPlot_sha256": "d88386fc9705ef1b9fbd7485c17f5842608310ad5a5f378cabf7fb1bbec4ff5e",
+    "reported_postbuild_tracked_source_changes": []
+  },
+  "actual_build": {
+    "native_exit": 0,
+    "wall_seconds": 1.38,
+    "peak_rss_bytes": 594100224,
+    "log_and_exit_match_receipt": true,
+    "status": "built_not_runtime_accepted"
+  },
+  "independent_saved_descriptor_reconciliation": {
+    "before_unique_paths": 21,
+    "before_entries": 21,
+    "after_unique_paths": 21,
+    "after_entries": 21,
+    "before_total_bytes": 351641,
+    "after_total_bytes": 351641,
+    "added": [],
+    "removed": [],
+    "changed": [],
+    "frontend_unique_paths": 16,
+    "frontend_entries": 16,
+    "ssr_entries": 1,
+    "ssr": {
+      "path": "app/dist/server/index.js",
+      "bytes": 174762,
+      "sha256": "28909dd6e95a31a073e7097e124195cb42b3605d87cb1402cc6347232a5b14ea"
+    },
+    "native_log_hash_matches": true,
+    "native_exit_hash_matches": true,
+    "native_exit_zero": true,
+    "before_catalog_hash_matches": true,
+    "before_build_binding_matches": true
+  },
+  "before_binding": {
+    "source_runtime": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+    "prior_build_receipt": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+    "selected_eight_old_members_match": true,
+    "limit": "root separately checked the old e885 eight-member binding; that fact is retained, not independently rerun here"
+  },
+  "verdict": "the saved completed ordinary build and exact backend descriptor preservation are coherent. all21 unique compiled-node javascript paths, byte counts and digests are unchanged across the UI-only build; frontend16 and SSR1 outputs have separate new identities. no saved accounting inconsistency remains.",
+  "remaining_material_findings": [],
+  "api02_reuse": "the saved build satisfies the unchanged-backend evidence condition for api02 inheritance. the proposed separately assigned fresh38-file preflight must bind these runtime descriptors before launch; exact publication preservation, new normal strict startup and selected live identity are still required. no fresh exhaustive API run is claimed.",
+  "limits": [
+    "this is saved evidence adjudication; current compiled file bodies are not independently rehashed here, and no runtime is imported or started",
+    "source production equality/typecheck and only-one-file commit scope are inherited from the prior independent proposal review and root fresh local qualification",
+    "new frontend runtime, four-case green bounds, fullbrowser04 journeys/downloads and actual required-layout pixels remain owed",
+    "no artifact/publication rebuild, numerical rerun, scientific or family admission, activation or special-teams acceptance follows"
+  ]
+}

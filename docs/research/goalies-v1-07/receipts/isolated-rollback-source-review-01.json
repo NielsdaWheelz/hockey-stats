@@ -1,0 +1,28 @@
+{
+  "kind": "isolated-rollback-controller-static-review",
+  "status": "source_clear_actual_execution_held",
+  "controller": {
+    "path": ".tmp/goalie-isolated-rollback-01.py",
+    "bytes": 12233,
+    "sha256": "fb47b2adbe5b328993548c1a609dc5e148c962c93d93e04e9c3f004a73c404bc"
+  },
+  "source_preparation_sha256": "f5ae43ac5fb0e3fb2cd43bd58aac2e437dae6b973071683d1fe8d8ad722f3121",
+  "author": "/root/history_labels",
+  "independent_critic": "/root/trace_review",
+  "findings": [],
+  "root_review": "controller source inspected; existing public CLI/API, exact six captures, synthetic preparation/member preservation and limited attributed manifest derivation; normal publisher/reader/identity checks remain mandatory",
+  "oracle": "two distinct normal UUID publications; actual file digest and readonly schema9 header after activateA, after activateB with previousA, and after restoreA with previousB; incoming absent after each operation",
+  "failure": "fresh exclusive output; initial failed status, native exits/logs/partial outputs retained; no retry, fact edit, validation bypass, server or serving-build action",
+  "future_command": [
+    "/usr/bin/time",
+    "-l",
+    "/usr/bin/env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+    "-B",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01.py"
+  ],
+  "unknowns": "actual reconstruction/publication/rotation behavior, observed identity match, size/time/RSS and green results remain unknown",
+  "meaning": "a NEW synthetic operational fixture only; inherited rows are not inherited native-corpus acceptance, real family verification or scientific admission",
+  "ownership": "all actual fixture work held through assigned ST browser checked return; separate root assignment required; cheap disposable outputs and controller deleted only after acceptance and durable fact archival"
+}

@@ -1,0 +1,1203 @@
+{
+  "kind": "shared-st-browser06-prefix-pixel-review",
+  "reviewer": "history_labels",
+  "input_manifest": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-browser06-prefix-pixel-inputs-01.json",
+    "bytes": 22541,
+    "sha256": "729a843ce11acaa01b9abc96b6d2ce0aeac7d849fccf3e4e1b2f13fc8f1af22c",
+    "verified": true
+  },
+  "assigned_indices": [
+    1,
+    20
+  ],
+  "acceptance_scope": "original pixels of assigned normal downloaded-history-png entries 1 through 20 only; positive completed prefix from browser06; no whole-browser, application-flow, computational, numerical, scientific, attribution or model acceptance",
+  "prior_browser_outcome": "FAILED_SCOPED_BROWSER; unchanged",
+  "method": {
+    "identity": "ordinary byte reads and sha256; actual dimensions from PNG IHDR; every identity and dimension matches the manifest",
+    "pixels": "each of the 20 originals independently displayed with tools.view_image through functions.exec and image(); no duplicate inheritance, contact sheet, crop, transform, regeneration or browser",
+    "rechecks": "9, 10, 11 and 12 originals displayed again to resolve an optimizer-word transcription error. the three-image recheck call discarded its final image 12; 12 was then displayed in its own call. initial views of all 20 were displayed.",
+    "transcription_correction": "the progress word 'evidenced' for pp selected-year optimizer sensitivity was wrong. actual visible wording is 'exceeded', independently rechecked for 9, 10, 11 and 12.",
+    "excluded": "no CSV, SVG, HTTP, DB, browser, service, member, state/model, full-reader, source, build or runtime query; no other external files read",
+    "measurements": {
+      "unique_png_logical_bytes": 38993213,
+      "unique_png_count": 20,
+      "hash_process_read_bytes": "unknown; first read process output was not retained when exec orchestration attempted to parse an unfinished command, and the identity read was repeated",
+      "hash_process_wall_seconds": "unknown",
+      "hash_process_peak_rss": "unknown",
+      "image_tool_wall_seconds": "unknown",
+      "image_tool_peak_rss": "unknown",
+      "aggregate_chrome_or_server_cost": "unknown",
+      "physical_io_bytes": "unknown",
+      "native_end_to_end_cost": "unknown"
+    }
+  },
+  "aggregate": {
+    "outcome": "scoped original-pixel review complete; no observed blocking pixel defect in these 20 exports",
+    "independently_viewed": 20,
+    "inherited_duplicates": 0,
+    "identity_matches": 20,
+    "dimension_matches": 20,
+    "visible_findings": [
+      "all full exports are nonblank and legible, with player, experimental title, metric identifier, native/display units and multiplier visible; title/identifier/unit combinations agree within each image",
+      "all show 2023–24, 2024–25 and 2025–26 in chronological order; selected 2025–26 appears in the header and final season section; chart points and visible season values have matching direction/order at pixel resolution",
+      "one dark line and three markers are visible; x-axis season labels and y-axis numeric bounds are legible; units appear above the chart, with no separate legend or axis unit label; no overlap or clipping observed",
+      "raw history is labeled. offense says positive means more for; defense says positive means more against. higher percentile means higher rate, with defensive limitations explicitly saying not greater benefit",
+      "annual reference and exact-state or mixture weighting wording is visible; pp/pk mixtures explicitly distinguish league-time mixture from player usage",
+      "experimental conditional construction, inferred blocked origins, historical borrowing, uncalibrated uncertainty, support limits and percentile-relative-standing footer are visible",
+      "5v5 selected-year paragraphs retain failed final-year volume precision and unknown optimizer accuracy; pp/pk/5v4 selected-year paragraphs retain new-head optimizer sensitivity exceeded and unknown remaining accuracy; earlier special-teams sensitivity remains unassessed",
+      "dense serialized reason/limitation prose wraps mid-token in places, but stays inside image margins; this is a readability burden, not observed clipping"
+    ],
+    "unknowns": [
+      "pixels do not establish source values, joins, exposures, units in computation, arithmetic, fitted model correctness, calibration, scientific admission or runtime/service identity",
+      "pk display weights use disadvantaged 4v5/3v5/3v4 states while shared construction prose describes advantaged-side 5v4/5v3/4v3 intervals. the literal wording is visible; its shared-model interpretation is outside this pixel-only assignment",
+      "review does not assess omitted browser06 records, 21–40, root baseline 41, hostile/pending cases, other modes or any whole-browser outcome"
+    ]
+  },
+  "entries": [
+    {
+      "index": 1,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.5v5.offense_attempts_per60",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/003-normal-spatial.5v5.offense_attempts_per60.png",
+      "listed": {
+        "bytes": 1742425,
+        "sha256": "09f6871e2fe505f15fed179dc1c1eb3aac5f969c83ee17dd7b3a68e155ab9807",
+        "width": 1200,
+        "height": 4971
+      },
+      "actual": {
+        "bytes": 1742425,
+        "sha256": "09f6871e2fe505f15fed179dc1c1eb3aac5f969c83ee17dd7b3a68e155ab9807",
+        "width": 1200,
+        "height": 4971,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Mark Scheifele · experimental 5v5 offense attempt difference",
+        "display_unit": "attempts per 60 min",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "8.87838",
+          "6.0365",
+          "5.42015"
+        ],
+        "visible_percentiles_in_season_order": [
+          "71.0",
+          "42.6",
+          "39.5"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-league-centred-virtual-v1; 5v5=1; exact-state reference, weight one",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; selected final-year volume precision failed and optimizer accuracy unknown; 2024–25 and 2025–26 cancelling allocation magnitudes disclosed",
+        "layout": "full nonblank image, title, three seasons, selected annotation, chart endpoints and footer legible; dense reason/limitation strings wrap mid-token but remain inside margins; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 2,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.5v5.offense_xg_per60",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/006-normal-spatial.5v5.offense_xg_per60.png",
+      "listed": {
+        "bytes": 1734898,
+        "sha256": "25ef9314ee30d34fb1161bb09fd4fe20e4eb7f4157ed60bff2da15b17375912c",
+        "width": 1200,
+        "height": 4971
+      },
+      "actual": {
+        "bytes": 1734898,
+        "sha256": "25ef9314ee30d34fb1161bb09fd4fe20e4eb7f4157ed60bff2da15b17375912c",
+        "width": 1200,
+        "height": 4971,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Mark Scheifele · experimental 5v5 offense xg difference",
+        "display_unit": "xg per 60 min",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "0.415479",
+          "0.285062",
+          "0.276875"
+        ],
+        "visible_percentiles_in_season_order": [
+          "78.5",
+          "55.2",
+          "50.2"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-league-centred-virtual-v1; 5v5=1; exact-state reference, weight one",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; selected final-year volume precision failed and optimizer accuracy unknown; large cancelling allocation caveats visible",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; dense wrapped limitations; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 3,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.5v5.offense_attempts_relative_percent",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/009-normal-spatial.5v5.offense_attempts_relative_percent.png",
+      "listed": {
+        "bytes": 1729037,
+        "sha256": "a4383ff6ab01e2203b60f251d2e8aae7c318a813bf7062fa1a3de4272f1891eb",
+        "width": 1200,
+        "height": 4971
+      },
+      "actual": {
+        "bytes": 1729037,
+        "sha256": "a4383ff6ab01e2203b60f251d2e8aae7c318a813bf7062fa1a3de4272f1891eb",
+        "width": 1200,
+        "height": 4971,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Mark Scheifele · experimental 5v5 offense attempt relative difference",
+        "display_unit": "%",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "19.1135",
+          "13.899",
+          "13.7451"
+        ],
+        "visible_percentiles_in_season_order": [
+          "71.0",
+          "42.6",
+          "39.5"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-league-centred-virtual-v1; 5v5=1; exact-state reference, weight one",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; selected final-year volume precision failed and optimizer accuracy unknown; large cancelling allocation caveats visible",
+        "layout": "full nonblank image; title, percent units, three seasons, selected annotation, chart endpoints and footer legible; dense wrapped limitations; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 4,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.5v5.offense_xg_relative_percent",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/012-normal-spatial.5v5.offense_xg_relative_percent.png",
+      "listed": {
+        "bytes": 1725336,
+        "sha256": "3d7f85752d034a30024b889aa301972c72b58aabe6cd1328529688fa6267666d",
+        "width": 1200,
+        "height": 4971
+      },
+      "actual": {
+        "bytes": 1725336,
+        "sha256": "3d7f85752d034a30024b889aa301972c72b58aabe6cd1328529688fa6267666d",
+        "width": 1200,
+        "height": 4971,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Mark Scheifele · experimental 5v5 offense xg relative difference",
+        "display_unit": "%",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "22.793",
+          "16.9745",
+          "17.0836"
+        ],
+        "visible_percentiles_in_season_order": [
+          "78.5",
+          "55.2",
+          "50.2"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-league-centred-virtual-v1; 5v5=1; exact-state reference, weight one",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; selected final-year volume precision failed and optimizer accuracy unknown; large cancelling allocation caveats visible",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; dense wrapped limitations; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 5,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.5v5.defense_attempts_per60",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/015-normal-spatial.5v5.defense_attempts_per60.png",
+      "listed": {
+        "bytes": 1737848,
+        "sha256": "175a737d0573d2552c7c95f522e80b88732d16279b0521ad09c76d8de02d21ce",
+        "width": 1200,
+        "height": 4943
+      },
+      "actual": {
+        "bytes": 1737848,
+        "sha256": "175a737d0573d2552c7c95f522e80b88732d16279b0521ad09c76d8de02d21ce",
+        "width": 1200,
+        "height": 4943,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Vladislav Gavrikov · experimental 5v5 defense attempt difference",
+        "display_unit": "attempts per 60 min",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "2.59047",
+          "-2.2833",
+          "1.30161"
+        ],
+        "visible_percentiles_in_season_order": [
+          "29.5",
+          "4.0",
+          "31.1"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more against; higher percentile means higher rate",
+        "reference": "annual spatial-league-centred-virtual-v1; 5v5=1; exact-state reference, weight one",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; selected final-year volume precision failed and optimizer accuracy unknown; large cancelling allocation caveats visible",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; dense wrapped limitations; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 6,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.5v5.defense_xg_per60",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/018-normal-spatial.5v5.defense_xg_per60.png",
+      "listed": {
+        "bytes": 1733817,
+        "sha256": "08f24b721b581e0aa6bef49ae65603b70ec427e111d1242606132aaac4a598df",
+        "width": 1200,
+        "height": 4943
+      },
+      "actual": {
+        "bytes": 1733817,
+        "sha256": "08f24b721b581e0aa6bef49ae65603b70ec427e111d1242606132aaac4a598df",
+        "width": 1200,
+        "height": 4943,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Vladislav Gavrikov · experimental 5v5 defense xg difference",
+        "display_unit": "xg per 60 min",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "0.128991",
+          "-0.0911563",
+          "-0.00391722"
+        ],
+        "visible_percentiles_in_season_order": [
+          "38.4",
+          "4.8",
+          "22.2"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more against; higher percentile means higher rate",
+        "reference": "annual spatial-league-centred-virtual-v1; 5v5=1; exact-state reference, weight one",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; selected final-year volume precision failed and optimizer accuracy unknown; large cancelling allocation caveats visible",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; dense wrapped limitations; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 7,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.5v5.defense_attempts_relative_percent",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/021-normal-spatial.5v5.defense_attempts_relative_percent.png",
+      "listed": {
+        "bytes": 1727028,
+        "sha256": "81ad17f6c62b21fefabcf140d53659822db98d60ce0969dd3f361ffa15555a70",
+        "width": 1200,
+        "height": 4943
+      },
+      "actual": {
+        "bytes": 1727028,
+        "sha256": "81ad17f6c62b21fefabcf140d53659822db98d60ce0969dd3f361ffa15555a70",
+        "width": 1200,
+        "height": 4943,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Vladislav Gavrikov · experimental 5v5 defense attempt relative difference",
+        "display_unit": "%",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "5.57678",
+          "-5.2573",
+          "3.30081"
+        ],
+        "visible_percentiles_in_season_order": [
+          "29.5",
+          "4.0",
+          "31.1"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more against; higher percentile means higher rate",
+        "reference": "annual spatial-league-centred-virtual-v1; 5v5=1; exact-state reference, weight one",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; selected final-year volume precision failed and optimizer accuracy unknown; large cancelling allocation caveats visible",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; dense wrapped limitations; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 8,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.5v5.defense_xg_relative_percent",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/024-normal-spatial.5v5.defense_xg_relative_percent.png",
+      "listed": {
+        "bytes": 1725137,
+        "sha256": "a15169efa5e63ad0f4e7f86686b7a2ee84bc20417af250512e101cb2cae2ea22",
+        "width": 1200,
+        "height": 4943
+      },
+      "actual": {
+        "bytes": 1725137,
+        "sha256": "a15169efa5e63ad0f4e7f86686b7a2ee84bc20417af250512e101cb2cae2ea22",
+        "width": 1200,
+        "height": 4943,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Vladislav Gavrikov · experimental 5v5 defense xg relative difference",
+        "display_unit": "%",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "7.07636",
+          "-5.42808",
+          "-0.241698"
+        ],
+        "visible_percentiles_in_season_order": [
+          "38.4",
+          "4.8",
+          "22.2"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more against; higher percentile means higher rate",
+        "reference": "annual spatial-league-centred-virtual-v1; 5v5=1; exact-state reference, weight one",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; selected final-year volume precision failed and optimizer accuracy unknown; large cancelling allocation caveats visible",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; dense wrapped limitations; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 9,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.pp.offense_attempts_per60",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/027-normal-spatial.pp.offense_attempts_per60.png",
+      "listed": {
+        "bytes": 2128309,
+        "sha256": "302f895f1cd3d91c2220c09b6ff28fd91015c9162a548a8977e8745415f88911",
+        "width": 1200,
+        "height": 5671
+      },
+      "actual": {
+        "bytes": 2128309,
+        "sha256": "302f895f1cd3d91c2220c09b6ff28fd91015c9162a548a8977e8745415f88911",
+        "width": 1200,
+        "height": 5671,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Alex Ovechkin · experimental pp offense attempt difference",
+        "display_unit": "attempts per 60 min",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "9.93503",
+          "6.16927",
+          "4.87636"
+        ],
+        "visible_percentiles_in_season_order": [
+          "96.5",
+          "89.7",
+          "83.8"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centred-virtual-v1; 5v4/5v3/4v3 weights; common physical league-time mixture, differences and ratios after mixing, not player usage",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; same-role pooled state support and rare-state limits; selected new-head optimizer sensitivity exceeded but remaining accuracy unknown, earlier annual sensitivity unassessed; cancelling actual-context attribution limits",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; long weighted-reference and limitation text wraps inside margins; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 2,
+        "original_view_tool_calls": 2
+      }
+    },
+    {
+      "index": 10,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.pp.offense_xg_per60",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/030-normal-spatial.pp.offense_xg_per60.png",
+      "listed": {
+        "bytes": 2118896,
+        "sha256": "7c15f8b6413bd729d59020750047384499ff323387cbcb412692b6e9b537bd1a",
+        "width": 1200,
+        "height": 5671
+      },
+      "actual": {
+        "bytes": 2118896,
+        "sha256": "7c15f8b6413bd729d59020750047384499ff323387cbcb412692b6e9b537bd1a",
+        "width": 1200,
+        "height": 5671,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Alex Ovechkin · experimental pp offense xg difference",
+        "display_unit": "xg per 60 min",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "0.527352",
+          "0.323057",
+          "0.202169"
+        ],
+        "visible_percentiles_in_season_order": [
+          "94.3",
+          "84.2",
+          "73.5"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centred-virtual-v1; 5v4/5v3/4v3 weights; common physical league-time mixture, differences and ratios after mixing, not player usage",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; same-role pooled state support and rare-state limits; selected new-head optimizer sensitivity exceeded but remaining accuracy unknown, earlier annual sensitivity unassessed; cancelling actual-context attribution limits",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; long weighted-reference and limitation text wraps inside margins; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 2,
+        "original_view_tool_calls": 2
+      }
+    },
+    {
+      "index": 11,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.pp.offense_attempts_relative_percent",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/033-normal-spatial.pp.offense_attempts_relative_percent.png",
+      "listed": {
+        "bytes": 2114279,
+        "sha256": "572bac635e1daeb992a8baf3d2a5132834c3c79bc59978022d12ab2886d13000",
+        "width": 1200,
+        "height": 5671
+      },
+      "actual": {
+        "bytes": 2114279,
+        "sha256": "572bac635e1daeb992a8baf3d2a5132834c3c79bc59978022d12ab2886d13000",
+        "width": 1200,
+        "height": 5671,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Alex Ovechkin · experimental pp offense attempt relative difference",
+        "display_unit": "%",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "14.8661",
+          "9.6007",
+          "7.59557"
+        ],
+        "visible_percentiles_in_season_order": [
+          "96.5",
+          "89.7",
+          "83.8"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centred-virtual-v1; 5v4/5v3/4v3 weights; common physical league-time mixture, differences and ratios after mixing, not player usage",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; same-role pooled state support and rare-state limits; selected new-head optimizer sensitivity exceeded but remaining accuracy unknown, earlier annual sensitivity unassessed; cancelling actual-context attribution limits",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; long weighted-reference and limitation text wraps inside margins; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 2,
+        "original_view_tool_calls": 2
+      }
+    },
+    {
+      "index": 12,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.pp.offense_xg_relative_percent",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/036-normal-spatial.pp.offense_xg_relative_percent.png",
+      "listed": {
+        "bytes": 2111060,
+        "sha256": "958e3d4cbd845b7467d0a138dad590b65db69af165d90c1f6cf2caa5ab552823",
+        "width": 1200,
+        "height": 5671
+      },
+      "actual": {
+        "bytes": 2111060,
+        "sha256": "958e3d4cbd845b7467d0a138dad590b65db69af165d90c1f6cf2caa5ab552823",
+        "width": 1200,
+        "height": 5671,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Alex Ovechkin · experimental pp offense xg relative difference",
+        "display_unit": "%",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "14.308",
+          "8.27929",
+          "5.3829"
+        ],
+        "visible_percentiles_in_season_order": [
+          "94.3",
+          "84.2",
+          "73.5"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centred-virtual-v1; 5v4/5v3/4v3 weights; common physical league-time mixture, differences and ratios after mixing, not player usage",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; same-role pooled state support and rare-state limits; selected new-head optimizer sensitivity exceeded but remaining accuracy unknown, earlier annual sensitivity unassessed; cancelling actual-context attribution limits",
+        "layout": "full nonblank image; title, percent units, three seasons, selected annotation, chart endpoints and footer legible; long weighted-reference and limitation text wraps inside margins; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 2,
+        "original_view_tool_calls": 3
+      }
+    },
+    {
+      "index": 13,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.pk.defense_attempts_per60",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/039-normal-spatial.pk.defense_attempts_per60.png",
+      "listed": {
+        "bytes": 2128339,
+        "sha256": "9740d4c6ff1f343beb8765f0d48929a579865e18e0d7459f8d49c45d5a1813a8",
+        "width": 1200,
+        "height": 5727
+      },
+      "actual": {
+        "bytes": 2128339,
+        "sha256": "9740d4c6ff1f343beb8765f0d48929a579865e18e0d7459f8d49c45d5a1813a8",
+        "width": 1200,
+        "height": 5727,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Esa Lindell · experimental pk defense attempt difference",
+        "display_unit": "attempts per 60 min",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "-8.01088",
+          "-8.26155",
+          "-3.91252"
+        ],
+        "visible_percentiles_in_season_order": [
+          "1.5",
+          "1.0",
+          "11.5"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more against; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centred-virtual-v1; 4v5/3v5/3v4 weights; common physical league-time mixture, differences and ratios after mixing, not player usage",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; same-role pooled state support and rare-state limits; selected new-head optimizer sensitivity exceeded and remaining accuracy unknown, earlier annual sensitivity unassessed; cancelling actual-context attribution limits",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; long weighted-reference and limitation text wraps inside margins; no visible overlap or clipping",
+        "visible_wording_note": "pk display weights use disadvantaged 4v5/3v5/3v4 states; shared construction paragraph describes advantaged-side 5v4/5v3/4v3 intervals. pixels establish the wording, not its model interpretation",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 14,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.pk.defense_xg_per60",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/042-normal-spatial.pk.defense_xg_per60.png",
+      "listed": {
+        "bytes": 2124421,
+        "sha256": "0da9feadf22b6107d13bf30833b9df2c96a662ce3fe311923fbaec3488a9f171",
+        "width": 1200,
+        "height": 5727
+      },
+      "actual": {
+        "bytes": 2124421,
+        "sha256": "0da9feadf22b6107d13bf30833b9df2c96a662ce3fe311923fbaec3488a9f171",
+        "width": 1200,
+        "height": 5727,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Esa Lindell · experimental pk defense xg difference",
+        "display_unit": "xg per 60 min",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "-0.360204",
+          "-0.436558",
+          "-0.166455"
+        ],
+        "visible_percentiles_in_season_order": [
+          "6.4",
+          "3.0",
+          "22.0"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more against; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centred-virtual-v1; 4v5/3v5/3v4 weights; common physical league-time mixture, differences and ratios after mixing, not player usage",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; same-role pooled state support and rare-state limits; selected new-head optimizer sensitivity exceeded and remaining accuracy unknown, earlier annual sensitivity unassessed; cancelling actual-context attribution limits",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; long weighted-reference and limitation text wraps inside margins; no visible overlap or clipping",
+        "visible_wording_note": "pk display weights use disadvantaged 4v5/3v5/3v4 states; shared construction paragraph describes advantaged-side 5v4/5v3/4v3 intervals. pixels establish the wording, not its model interpretation",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 15,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.pk.defense_attempts_relative_percent",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/045-normal-spatial.pk.defense_attempts_relative_percent.png",
+      "listed": {
+        "bytes": 2120950,
+        "sha256": "9f5731b126ea50218a8bed814863620051d553b9ab14f3bb8f0f8b099d2a7b35",
+        "width": 1200,
+        "height": 5727
+      },
+      "actual": {
+        "bytes": 2120950,
+        "sha256": "9f5731b126ea50218a8bed814863620051d553b9ab14f3bb8f0f8b099d2a7b35",
+        "width": 1200,
+        "height": 5727,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Esa Lindell · experimental pk defense attempt relative difference",
+        "display_unit": "%",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "-11.9869",
+          "-12.8567",
+          "-6.09426"
+        ],
+        "visible_percentiles_in_season_order": [
+          "1.5",
+          "1.0",
+          "11.5"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more against; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centred-virtual-v1; 4v5/3v5/3v4 weights; common physical league-time mixture, differences and ratios after mixing, not player usage",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; same-role pooled state support and rare-state limits; selected new-head optimizer sensitivity exceeded and remaining accuracy unknown, earlier annual sensitivity unassessed; cancelling actual-context attribution limits",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; long weighted-reference and limitation text wraps inside margins; no visible overlap or clipping",
+        "visible_wording_note": "pk display weights use disadvantaged 4v5/3v5/3v4 states; shared construction paragraph describes advantaged-side 5v4/5v3/4v3 intervals. pixels establish the wording, not its model interpretation",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 16,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.pk.defense_xg_relative_percent",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/048-normal-spatial.pk.defense_xg_relative_percent.png",
+      "listed": {
+        "bytes": 2113007,
+        "sha256": "a5b1beaa581df9378d1e7e2ba8d0d545dea514e36f65743f71de9d76e501cbf2",
+        "width": 1200,
+        "height": 5727
+      },
+      "actual": {
+        "bytes": 2113007,
+        "sha256": "a5b1beaa581df9378d1e7e2ba8d0d545dea514e36f65743f71de9d76e501cbf2",
+        "width": 1200,
+        "height": 5727,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Esa Lindell · experimental pk defense xg relative difference",
+        "display_unit": "%",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "-9.77296",
+          "-11.1881",
+          "-4.43199"
+        ],
+        "visible_percentiles_in_season_order": [
+          "6.4",
+          "3.0",
+          "22.0"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more against; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centred-virtual-v1; 4v5/3v5/3v4 weights; common physical league-time mixture, differences and ratios after mixing, not player usage",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; same-role pooled state support and rare-state limits; selected new-head optimizer sensitivity exceeded and remaining accuracy unknown, earlier annual sensitivity unassessed; cancelling actual-context attribution limits",
+        "layout": "full nonblank image; title, percent units, three seasons, selected annotation, chart endpoints and footer legible; long weighted-reference and limitation text wraps inside margins; no visible overlap or clipping",
+        "visible_wording_note": "pk display weights use disadvantaged 4v5/3v5/3v4 states; shared construction paragraph describes advantaged-side 5v4/5v3/4v3 intervals. pixels establish the wording, not its model interpretation",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 17,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.5v4.offense_attempts_per60",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/051-normal-spatial.5v4.offense_attempts_per60.png",
+      "listed": {
+        "bytes": 2054414,
+        "sha256": "37e6972027df1f6dfa1258fc18027128f682432be499f922b3f8f12164b33edf",
+        "width": 1200,
+        "height": 5503
+      },
+      "actual": {
+        "bytes": 2054414,
+        "sha256": "37e6972027df1f6dfa1258fc18027128f682432be499f922b3f8f12164b33edf",
+        "width": 1200,
+        "height": 5503,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Alex Ovechkin · experimental 5v4 offense attempt difference",
+        "display_unit": "attempts per 60 min",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "9.86583",
+          "6.11298",
+          "4.83925"
+        ],
+        "visible_percentiles_in_season_order": [
+          "96.5",
+          "89.7",
+          "83.8"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centred-virtual-v1; 5v4=1; exact-state reference, weight one",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; same-role pooled state support and rare-state limits; selected new-head optimizer sensitivity exceeded and remaining accuracy unknown, earlier annual sensitivity unassessed; cancelling actual-context attribution limits",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; long limitation text wraps inside margins; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 18,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.5v4.offense_xg_per60",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/054-normal-spatial.5v4.offense_xg_per60.png",
+      "listed": {
+        "bytes": 2047645,
+        "sha256": "49c98446b6c381531a3d1b3560618a2f4dd575c8d582dd43c6aafa240a7a640c",
+        "width": 1200,
+        "height": 5503
+      },
+      "actual": {
+        "bytes": 2047645,
+        "sha256": "49c98446b6c381531a3d1b3560618a2f4dd575c8d582dd43c6aafa240a7a640c",
+        "width": 1200,
+        "height": 5503,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Alex Ovechkin · experimental 5v4 offense xg difference",
+        "display_unit": "xg per 60 min",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "0.517862",
+          "0.313498",
+          "0.194936"
+        ],
+        "visible_percentiles_in_season_order": [
+          "93.9",
+          "84.2",
+          "73.5"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centred-virtual-v1; 5v4=1; exact-state reference, weight one",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; same-role pooled state support and rare-state limits; selected new-head optimizer sensitivity exceeded and remaining accuracy unknown, earlier annual sensitivity unassessed; cancelling actual-context attribution limits",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; long limitation text wraps inside margins; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 19,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.5v4.offense_attempts_relative_percent",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/057-normal-spatial.5v4.offense_attempts_relative_percent.png",
+      "listed": {
+        "bytes": 2040347,
+        "sha256": "713e7d757fefc348217869732a86d97e11d1ad36d0f2637078cb6f065f3e1c73",
+        "width": 1200,
+        "height": 5503
+      },
+      "actual": {
+        "bytes": 2040347,
+        "sha256": "713e7d757fefc348217869732a86d97e11d1ad36d0f2637078cb6f065f3e1c73",
+        "width": 1200,
+        "height": 5503,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Alex Ovechkin · experimental 5v4 offense attempt relative difference",
+        "display_unit": "%",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "14.8661",
+          "9.6007",
+          "7.59557"
+        ],
+        "visible_percentiles_in_season_order": [
+          "96.5",
+          "89.7",
+          "83.8"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centred-virtual-v1; 5v4=1; exact-state reference, weight one",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; same-role pooled state support and rare-state limits; selected new-head optimizer sensitivity exceeded and remaining accuracy unknown, earlier annual sensitivity unassessed; cancelling actual-context attribution limits",
+        "layout": "full nonblank image; title, units, three seasons, selected annotation, chart endpoints and footer legible; long limitation text wraps inside margins; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    },
+    {
+      "index": 20,
+      "kind": "downloaded-history-png",
+      "metric": "spatial.5v4.offense_xg_relative_percent",
+      "mode": "normal",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser/060-normal-spatial.5v4.offense_xg_relative_percent.png",
+      "listed": {
+        "bytes": 2036020,
+        "sha256": "32a3d1f736c25daf56e8e65d27376726d419a740d32bdaa45a1704f15d25fbba",
+        "width": 1200,
+        "height": 5503
+      },
+      "actual": {
+        "bytes": 2036020,
+        "sha256": "32a3d1f736c25daf56e8e65d27376726d419a740d32bdaa45a1704f15d25fbba",
+        "width": 1200,
+        "height": 5503,
+        "dimension_source": "PNG IHDR"
+      },
+      "identity_match": true,
+      "dimensions_match": true,
+      "pixel_review": {
+        "individually_viewed": true,
+        "inherited_duplicate": null,
+        "outcome": "no observed blocking pixel defect",
+        "title": "Alex Ovechkin · experimental 5v4 offense xg relative difference",
+        "display_unit": "%",
+        "display_multiplier": "1",
+        "history_label": "raw history",
+        "seasons": [
+          "2023–24",
+          "2024–25",
+          "2025–26"
+        ],
+        "selected": "2025–26",
+        "visible_values_in_season_order": [
+          "14.2818",
+          "8.24057",
+          "5.30848"
+        ],
+        "visible_percentiles_in_season_order": [
+          "93.9",
+          "84.2",
+          "73.5"
+        ],
+        "year_endpoints": "2023–24 to 2025–26",
+        "selected_annotation": "header and final season row",
+        "axes": "three labeled seasons; legible numeric y bounds; single dark line and three markers; no separate legend",
+        "sign": "positive means more for; higher percentile means higher rate",
+        "reference": "annual spatial-st-league-centred-virtual-v1; 5v4=1; exact-state reference, weight one",
+        "caveats": "experimental conditional seasonal estimate; inferred blocked origins and historical borrowing; no calibrated uncertainty; same-role pooled state support and rare-state limits; selected new-head optimizer sensitivity exceeded and remaining accuracy unknown, earlier annual sensitivity unassessed; cancelling actual-context attribution limits",
+        "layout": "full nonblank image; title, percent units, three seasons, selected annotation, chart endpoints and footer legible; long limitation text wraps inside margins; no visible overlap or clipping",
+        "acceptance_scope": "pixel presentation of this original only; numerical and scientific correctness unassessed",
+        "successful_original_display_count": 1,
+        "original_view_tool_calls": 1
+      }
+    }
+  ]
+}

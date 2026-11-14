@@ -1,0 +1,117 @@
+{
+  "kind": "pre-label-build-compiled-node-inventory",
+  "status": "captured_local_build_only",
+  "source_runtime_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "source_build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+  "selected_eight_build_members_match": true,
+  "files": [
+    {
+      "path": "app/dist/node/operator/capture-report.js",
+      "bytes": 2610,
+      "sha256": "dfcb57ef79e1208fb4e2edcdd9967882a37fa045547e410829e25e74ffe2eb95"
+    },
+    {
+      "path": "app/dist/node/operator/capture-season-cli.js",
+      "bytes": 1981,
+      "sha256": "2f4f4446819741dd2fe71d3ba763f896036b2b24bf12d3aaa114c020ac575c72"
+    },
+    {
+      "path": "app/dist/node/operator/capture-season.js",
+      "bytes": 1333,
+      "sha256": "63c86edf02296351410f5e1d21cd5016ecadf3428d38a9a3411b2b8a25318392"
+    },
+    {
+      "path": "app/dist/node/operator/capture.js",
+      "bytes": 6014,
+      "sha256": "552447959a0da4d19bea4d40cbd9faa7e7425c24b186537742fb8e69a5e52159"
+    },
+    {
+      "path": "app/dist/node/operator/cli.js",
+      "bytes": 2047,
+      "sha256": "937cdd5e2fbb7ac830c8e5cc0f96e3e1f1dd0442f58428547f226ffd63b06146"
+    },
+    {
+      "path": "app/dist/node/operator/publication-cli.js",
+      "bytes": 5132,
+      "sha256": "1a9d3d4adbc6b396136ee5b9801ca271d13020850e3e6ebaa1c20aaaf8424e30"
+    },
+    {
+      "path": "app/dist/node/operator/skating-capture.js",
+      "bytes": 1933,
+      "sha256": "6298efd247cc3823f6d5b544198a82a3f0fa4ff13cf9b5c55f7b6ea64cc6a15d"
+    },
+    {
+      "path": "app/dist/node/operator/skating-cli.js",
+      "bytes": 3202,
+      "sha256": "99c4b7725ef8168b684262f25dc41659fb34353b51b95e4fdd9a3d97f906e8b4"
+    },
+    {
+      "path": "app/dist/node/server/analysis-publication.js",
+      "bytes": 67929,
+      "sha256": "4454950587c03b0fe5040c49737ad82c2b360f4689159d94eba51362cc15e71f"
+    },
+    {
+      "path": "app/dist/node/server/deployment-publication.js",
+      "bytes": 3584,
+      "sha256": "d3f58438196d105b25c56fc124338f807426c09ad1c4f01e40fea590b29416b0"
+    },
+    {
+      "path": "app/dist/node/server/main.js",
+      "bytes": 8073,
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+    },
+    {
+      "path": "app/dist/node/server/observed-publication.js",
+      "bytes": 19960,
+      "sha256": "d9bba2571dac5840edc52602db83dbb6e1c0fccc2c9700a1b6f747fcee65b424"
+    },
+    {
+      "path": "app/dist/node/server/physical-schema.js",
+      "bytes": 32225,
+      "sha256": "afd390e13b87f1f1ede17c4c71832aad4064eec241bcb87d12979bbcf1326028"
+    },
+    {
+      "path": "app/dist/node/server/publication.js",
+      "bytes": 15535,
+      "sha256": "2b8ae5d1c3cedc208a79a4870d47f36767bea1b4949c45489a51a4b5d63f0b03"
+    },
+    {
+      "path": "app/dist/node/server/selected-publication.js",
+      "bytes": 18723,
+      "sha256": "be464f323ff86a6b639e309c5cc4c36cf0825c00b71069fca6a16c4cd59125f7"
+    },
+    {
+      "path": "app/dist/node/server/spatial-publication.js",
+      "bytes": 19687,
+      "sha256": "b68753a324582a6d3a7f6368ea47ebf3fb67f67a6187b01e842c8d183eb72e08"
+    },
+    {
+      "path": "app/dist/node/server/sql-rows.js",
+      "bytes": 1531,
+      "sha256": "f81eb158c93737b2e1ace2aa476cfddcc3e3c1d3906c9da6cd2fcedba898aa0e"
+    },
+    {
+      "path": "app/dist/node/shared/observed.js",
+      "bytes": 14656,
+      "sha256": "240326632f648f4763858b59c4890076acc558fdec5ac2e4f6ddb95982a2bd71"
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis-selections.js",
+      "bytes": 9249,
+      "sha256": "a952e725de9144b914e786e2f54772749a585d83fb70f93f0601c9923aef4cd7"
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis.js",
+      "bytes": 113222,
+      "sha256": "2877086226cf5a705d1e47870c37273457b822774f76b15c1204f9518d4562d9"
+    },
+    {
+      "path": "app/dist/node/shared/publication.js",
+      "bytes": 3015,
+      "sha256": "2867782dd9081dcd247daf5a8c082c07764df2e57d0593c526bd3ea326504a4a"
+    }
+  ],
+  "local_file_body_bytes": 351641,
+  "scope": "all existing app/dist/node javascript output identities before UI-only rebuild; no build copy or external/DB read",
+  "limits": "new build must independently compare exact paths/bytes/digests; API02 reuse remains conditional until comparison plus normal strictstartup and selected live identity"
+}

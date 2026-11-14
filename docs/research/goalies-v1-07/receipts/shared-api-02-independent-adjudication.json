@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "kind": "shared-api-02-independent-adjudication",
+  "status": "accepted_complete_goalie_api_on_repaired_build_only",
+  "sha256": {
+    "shared-api-02-result.json": "355de762cb1f72cf496c8c690658d7a751e66d7caff6b3dc7994eb9e40d50472",
+    "shared-api-02-native.log": "d479b4c89f513b0421697181370778169fb870171bc0f16e19efb568b4b0f542",
+    "shared-api-02-native.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "shared-api-02-boundary.json": "1c70949e032eba469b61ea9d65f57283b1e2f233c6d991a9d7d8bfad9899435d",
+    "shared-api-02-boundary-native.log": "70e64e48e378553640e0b732d070e2f7ef0c6ee772c0235d657ad78c917a99fa",
+    "checker": "3a89e054eaaaa7c06eada98eb485b226fc3bdb96a0c529e3c41460b2fb957cb5",
+    "collector": "1594b3ee88be36ec82ffc1b1c9f937a28a03929bc173df7c92de143534bbb94c",
+    "admission": "8d86e0c1568f812129523359bf01cb56326ec2d034f94f3e74f7f5fe90e892de",
+    "launch_review": "626197cbd18536799a85dccd8d9485d3ecae8ec7db224b4ccbe94c605e86a6fa"
+  },
+  "findings": [
+    "native API exit is exactly 0 plus newline. passed/failure-null receipt agrees with native summary. capture separately completed three bounded bodies, with exact retained hashes and no errors/unknowns/overflow; capture 0 alone is not an API pass.",
+    "all receipt fields except wall_seconds/peak_rss_bytes exactly match the earlier accepted pass 6860: three seasons with 117/121/123 goalies, all 22 saved-member path/hash/row/completeness declarations, manifest 21de, cases, history and selector controls. logical saved bytes sum to 9592341395. no saved body was reread.",
+    "admission/launch bind runtime c90, build e885 and server 33587; publication fb604 intentionally retains stored publisher 4aa. unchanged checker 3a89 verifies publisher/source identity in each successful response. prior_only remains explicitly unobserved within its declared scope, not impossible."
+  ],
+  "checked": {
+    "league_strengths": 33,
+    "goalie_seasons": 361,
+    "scalar_rows_and_model_maps_each": 3971,
+    "scalar_fields": 51623,
+    "breakdown_rows": 35739,
+    "observed_rows": 4332,
+    "observed_endpoint_rows_and_danger_each": 8664,
+    "evidence_maps": 51984,
+    "history_goalie_seasons": 361,
+    "profile_ids": 165,
+    "paired_view_controls": 6,
+    "negative_requests": 8
+  },
+  "cost": {
+    "requests_and_responses_each": 36695,
+    "returned_http_body_bytes": 18275860581,
+    "logical_saved_bytes": 9592341395,
+    "internal_wall_seconds": 947.9013298330829,
+    "internal_peak_rss_bytes": 637829120,
+    "native_wall_seconds": 948.72,
+    "native_peak_rss_bytes": 640466944,
+    "native_peak_footprint_bytes": 634094504,
+    "capture_returned_bytes": 16268,
+    "capture_internal_wall_seconds": 0.0004038331098854542,
+    "capture_native_wall_seconds": 0.03,
+    "capture_peak_rss_bytes": 19349504,
+    "scope": "API internal checks exclude final serialization/write; native command includes them. capture internal timing excludes local reservation/serialization. client-process RSS and logical returned bytes do not measure server RSS or physical traffic."
+  },
+  "blocking_mismatches": [],
+  "limits": "local retained receipts only; copied five fixed facts byte-exact. no source/table/external-body/SQL/HTTP read, replay or new live command. old pass remains separate. consumer-04, full browser/ST, exports/pixels, reset cause, science and activation remain unassessed."
+}

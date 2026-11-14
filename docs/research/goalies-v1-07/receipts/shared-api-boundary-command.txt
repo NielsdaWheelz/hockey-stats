@@ -1,0 +1,9 @@
+(
+set -C
+cd /Users/nnandal/Documents/code/hockey-stats-v1-07 || exit 1
+/usr/bin/time -l /Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python -B /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/api-boundary.py > /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/api-boundary-01.log 2>&1
+goalie_api_boundary_exit=$?
+printf '%s\n' "$goalie_api_boundary_exit" > /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/api-boundary-01.exit || exit 1
+printf 'G_ST_API_BOUNDARY_EXIT=%s\n' "$goalie_api_boundary_exit"
+exit "$goalie_api_boundary_exit"
+)

@@ -1,0 +1,58 @@
+{
+  "kind": "shared-st-api-native-capture-intake",
+  "observed_at": "2026-11-14T06:00:32.944556+00:00",
+  "status": "cached_capture_integrity_checked_artifact_adjudication_pending",
+  "owner_boundary": "reported explicit ST_API_NATIVE_EXIT=0+prompt then one ps absence observation; reported single conditional ST_API_POSTCAPTURE_NATIVE_EXIT=0+prompt after frame clearance. root made no new process query",
+  "frame_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-actual-launch-review-01.json",
+    "bytes": 2783,
+    "sha256": "c54a41b03aaa644dfb1776c4d84d7eec52b9b5390ec1977699c528cde682ef08",
+    "status": "passed_cached_frame_review"
+  },
+  "capture": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-postexit-capture-01.json",
+    "bytes": 1648087,
+    "sha256": "2d4d90623bdf78167eaf8e3495b75e0553a4170e98912cd79364e65ebbcaefb5",
+    "native_exit": 0,
+    "collection_status": "passed",
+    "artifact_acceptance": "NOT_ASSESSED",
+    "bodies": [
+      {
+        "role": "result",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-result-01.json",
+        "cap_bytes": 16777216,
+        "returned_bytes": 1232910,
+        "complete": true,
+        "sha256": "7b6b645c5a2b69dc657beec63d9f663427619b829bd9e7651ce208f25a7221a0"
+      },
+      {
+        "role": "log",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-01-native.log",
+        "cap_bytes": 4194304,
+        "returned_bytes": 1172,
+        "complete": true,
+        "sha256": "a000c2702c7d687b9892121adcee06647196f0fa48188ccd2585d6b7149c202e"
+      },
+      {
+        "role": "exit",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-api-01-native.exit",
+        "cap_bytes": 16,
+        "returned_bytes": 2,
+        "complete": true,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      }
+    ]
+  },
+  "integrity": "all three decoded retained bodies match declared length/hash, complete below cap; exit is canonical0LF; source/actual-launch/target pins match assignment. no original body reopened",
+  "reported_native_cost": {
+    "wall_seconds": 139.16,
+    "peak_rss_bytes": 1307754496,
+    "footprint_bytes": 1295664568,
+    "checker_internal_wall_seconds": 138.0250547,
+    "disposition": "owner-reported from retained native footer; independent cost adjudication pending"
+  },
+  "reported_api_result": "result7b6b reports passed/602requests and responses,43expectednegatives,27cohorts,2784years,25056strengthrows,111360selectorvalues,16savedmembers10182392740logicalB and338190425returnedHTTPB; this intake does not independently admit those values",
+  "current_owner": "v1-09 retains ONLYAPI window through independent cached semantic/cost adjudication and explicit checked return; no release observed",
+  "held": "all new G live/drive work and all consumer/browser/pixel/preservation/cleanup/activation remain unassigned",
+  "operations": "two fixed LOCAL receipt reads in prior intake, then one cached capture reread/JSON/base64/hash checks and exclusive compact local receipt write; no original result/log/table/source body, HTTP, database, member stat, OS/runtime/controller or numerical replay; physical IO unmeasured"
+}

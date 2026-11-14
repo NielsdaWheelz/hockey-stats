@@ -1,0 +1,114 @@
+{
+  "status": "accepted_current_overview_binding_api02_inheritance_supported",
+  "review_scope": "four fixed local cached receipts and recorded source/build/startup proof only; no external raw-body reread, HTTP, runtime, model, test or OS query",
+  "evidence": {
+    "after": {
+      "path": "shared-goalie-overview-after-label-01.json",
+      "bytes": 11511,
+      "sha256": "7a04ebe124ef47409fd8a3f1fc867dd7a45beacb4a43cc575a4795c3d5a7b4e3"
+    },
+    "native_log": {
+      "path": "shared-goalie-overview-after-label-native.log",
+      "bytes": 972,
+      "sha256": "e38d998959efe810d6c364387d155179250bacd28558d88e2f878d376d70ebe4"
+    },
+    "native_exit": {
+      "path": "shared-goalie-overview-after-label-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "value": "0 newline"
+    },
+    "accepted_before": {
+      "path": "shared-goalie-overview-before-01.json",
+      "bytes": 11108,
+      "sha256": "44f04bde7b4c924d86fe28e0deba2eb4683983d3bc237e7531d76813088a269e"
+    }
+  },
+  "comparison": {
+    "bindings_identical": true,
+    "actual_baseline_pin_matches_accepted_before": true,
+    "errors": 0,
+    "responses": [
+      {
+        "season": "20232024",
+        "person_count": 117,
+        "returned_bytes": 6237373,
+        "status200": true,
+        "complete_retained_checked": true,
+        "declared_length_matches": true,
+        "canonical_match": true,
+        "ordered_ids_match": true,
+        "raw_hash_match": true,
+        "byte_count_match": true,
+        "raw_sha256": "c069550cc4a705fb0057a4f3e556844da221e901feaecb50830f5fcd60b969d5",
+        "canonical_sha256": "9f887fc4f4f9ae82aa23dc76a74685e188c7f8a84d48c5faf6de65ad74375466"
+      },
+      {
+        "season": "20242025",
+        "person_count": 121,
+        "returned_bytes": 6327224,
+        "status200": true,
+        "complete_retained_checked": true,
+        "declared_length_matches": true,
+        "canonical_match": true,
+        "ordered_ids_match": true,
+        "raw_hash_match": true,
+        "byte_count_match": true,
+        "raw_sha256": "21ce6c58d6e8a198b676773673c6f6ef7d13ea1e141e4dd227be10d5080247e7",
+        "canonical_sha256": "d5e0af57d62b5c95b2a8ea30449088693dcd85d6e06793bf2c5bc208866197fe"
+      },
+      {
+        "season": "20252026",
+        "person_count": 123,
+        "returned_bytes": 6406760,
+        "status200": true,
+        "complete_retained_checked": true,
+        "declared_length_matches": true,
+        "canonical_match": true,
+        "ordered_ids_match": true,
+        "raw_hash_match": true,
+        "byte_count_match": true,
+        "raw_sha256": "45ff488bb645dda4b3320c372938003716dc6617f4859d60b2ad145cf3ba94bf",
+        "canonical_sha256": "0be167a812d0b85ca0865493abc8eb48dc3e4b5067a8a33a33bcca063ec27d62"
+      }
+    ],
+    "meaning": "all three complete status200 canonical envelopes and ordered117/121/123 goalie identities match. the independent cached comparison also confirms all three raw hashes and byte counts match; raw equality is separate from the helper's canonical/identity gate"
+  },
+  "cost": {
+    "native_wall_seconds": 12.53,
+    "internal_wall_seconds": 12.47003800002858,
+    "driver_peak_rss_bytes": 107184128,
+    "returned_http_body_bytes": 18971357,
+    "physical_io_bytes": null,
+    "scope": "native whole-helper time and internal setup/requests/raw writes/checks retain different boundaries; no retained-server or aggregate RSS claim",
+    "closure": "root observed the actual terminal exit marker and prompt; copied log contains helper pass and native footer, and exit is exactly0 newline"
+  },
+  "inheritance_proof": {
+    "api02_sha256": "355de762cb1f72cf496c8c690658d7a751e66d7caff6b3dc7994eb9e40d50472",
+    "unchanged_backend": "all21 compiled-node paths/351641 bytes/digests match the accepted backend; build18ef and actual preflight8b2d bind the current artifacts",
+    "candidate": "same preserved inactive candidate/publication binding, with path/bytes/inode/mtime preservation; no database rehash is claimed",
+    "normal_startup": {
+      "source_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+      "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+      "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+      "build_receipt_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4",
+      "node_pid": 89887,
+      "base_url": "http://127.0.0.1:3407",
+      "adjudication_sha256": "0d13786262af694f37039bdc73fffd54655807bca8c832d164dfeaed689f2fdb"
+    },
+    "current_identity": "three complete new overview envelopes bind current live responses to accepted publicationfb604/publisher4aa/schema9 across all display years; this is stronger than matching the UUID alone",
+    "verdict": "the unchanged backend, preserved candidate, actual ordinary strict startup and complete current-response equality satisfy the prospective API02 inheritance conditions. its original accepted scope is retained; no fresh36k-request exhaustive run is claimed"
+  },
+  "material_findings": [],
+  "api02_inheritance_supported": true,
+  "fresh_exhaustive_api_run": false,
+  "browser_accepted": false,
+  "scientific_admission": false,
+  "st_dispatch_authorized": false,
+  "activation_authorized": false,
+  "remaining": [
+    "actual four-case label green and fullbrowser04 same-server flows/downloads with independent normal/narrow/native200 pixels",
+    "separate deliberate ST target/handoff and independently assigned matrices; this goalie binding replaces none of those checks",
+    "historical aborted browser requests remain retained and unattributed; fullbrowser04 keeps its strict zero-failure contract"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "kind": "final-preservation-static-source-review",
+  "status": "source_clear_actual_check_not_run",
+  "reviewer": "/root/canonical_trace",
+  "source_sha256": "ba836b45f6d8f9ef043b473e1f3e35623a8dc7eb825e8de945c56aa829258909",
+  "baseline_sha256": "fedd866f550590e42f08ce2611eb35c350e44edd4809beacab41c23e87a4e0f4",
+  "preparation_sha256": "578902990f61b9580537cf56526159f673e9c38b05509fbc17fe7bec1364cb67",
+  "scope": {
+    "selected_files": 53,
+    "external_metadata": 14,
+    "primary_build": 38,
+    "primary_spec": 1,
+    "baseline_bytes": 63052907,
+    "comparison": "size,mtime,full selected-file hash",
+    "databases": "primary active/previous size,mtime,inode and readonly immutable SELECT * FROM publication WHERE id=1 headers only",
+    "primary_process": "exact saved pid9645 command and port3000 listener"
+  },
+  "findings": [],
+  "responsibility": "protects original primary deployment; source3763/build18ef and shared node89887 do not require repinning this checker",
+  "blocking": "partial read failures or observed differences",
+  "actuals": "not run; current protected identities, interpreter qualification and output freshness remain unknown",
+  "limits": "no whole-database integrity, isolated rollback, shared-service closure, source/stat/body/runtime/HTTP/drive pass or activation follows this source review"
+}

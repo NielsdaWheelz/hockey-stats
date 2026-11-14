@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "kind": "shared-consumer-origin-repair-review",
+  "status": "cleared_source_only_environment_fixture_not_consumer_accepted",
+  "sha256": {
+    "preserved_controller": "1b8a0f61350fac3302bd5f3c380f9f89ac71d856fae8eb65dc07c1a3a42c283b",
+    "corrected_controller": "5c7c79a8faf6454ad4b0ab1d0b74fc5a74b3291055f834be2fd7a8b9ca41d3f0",
+    "failed_native_log": "c822cccfe78ace7ab8ca9291ca760d04637a4ac7174f84617a7f9dd03b29f0e7",
+    "failed_native_exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  "findings": [
+    "full byte diff has only two hunks: browser-location fixture/transparent fetch observer, and receipt attribution of that fixture. metric, cohort, raw-value, cutoff, history and CSV assertions remain byte-exact.",
+    "this supplies the browser environment at its responsible boundary. routes/player.tsx uses clientLoader; installed effect Url.make resolves against location.origin plus pathname before transport. fixture installation precedes dynamic client import; analysis-history's client import is type-only.",
+    "the actual /players/{anchor} pathname preserves meaningful relative-path resolution. a missing leading slash would resolve below /players and fail the existing /api/ guard, rather than being rescued by a root-path base.",
+    "observer constructs an already-absolute URL without a base, asserts the admitted origin and /api/ prefix, then forwards original input/init unchanged. no URL constructor, effect private state, product export, response or assertion is patched. this is a legitimate environment fixture, not simulated product behavior."
+  ],
+  "blocking_mismatches": [],
+  "verification_pending": "root must separately check fresh CSV/JSON/log/exit paths and authorize any new attempt. actual real transport, complete consumer matrices and checked outputs remain required; native1 failure stays preserved. no retry was dispatched by this review.",
+  "limits": "source/local failure evidence only; no execution, import, tests, OS/HDD/HTTP access or production change. this grants no browser/download/pixel, scientific or activation acceptance."
+}

@@ -1,0 +1,56 @@
+{
+  "kind": "goalie-live-typed-consumer-admission",
+  "status": "cleared_not_dispatched",
+  "recorded_at_utc": "2026-11-13T12:57:53.075304+00:00",
+  "assignment": "root owns ONLY one live typed consumer/cohort/history/csv-construction pass; browser and ST windows remain held",
+  "api_release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-api-boundary-release.json",
+    "bytes": 2466,
+    "sha256": "cf1271eaec20a06b6a233d43c14fe25341911a7c1d146329168693c514105d56"
+  },
+  "passed_api_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-api-result.json",
+    "bytes": 14862,
+    "sha256": "68601a52b74c4585f5fc3df1b3e87230168cf96e4c8c0c4871b2dd63024dea34"
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "source_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "build_authority_sha256": "0072909d5e75fa2c0cc05822859e9b2ff466edab0850f6ded6a08c07ab66cf7b",
+  "server": {
+    "pid": 98454,
+    "port": 3407,
+    "fresh_lsof_exit": 0,
+    "fresh_lsof_stdout": "p98454\ncnode\nf16\nn127.0.0.1:3407\n"
+  },
+  "freshness": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-consumer-preflight.json",
+    "bytes": 267,
+    "sha256": "cc131de549bf9595ec4f9d22f17501d7c352dfbca85614131e7d2314307491c8"
+  },
+  "freshness_native_cost": {
+    "wall_seconds": 13.9,
+    "peak_rss_bytes": 16171008,
+    "input_body_reads": 0
+  },
+  "controller": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/app/goalie-live-consumers-temporary.ts",
+    "bytes": 9998,
+    "sha256": "1b8a0f61350fac3302bd5f3c380f9f89ac71d856fae8eb65dc07c1a3a42c283b"
+  },
+  "held_shell": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/consumer-held.sh",
+    "bytes": 1067,
+    "sha256": "1fe7eb9515774e0af2a754b5da50a8bbb21dfca04f23213a6e96b1f198c02033"
+  },
+  "independent_source_review": "clear native source-only report; unchanged driver and one pinned invocation",
+  "scope": "all26 real metric journeys/three annual cohorts, cutoff/raw magnitudes/prior and unavailable semantics; shared78-row CSV construction, F/D and G-view controls",
+  "internal_clock_scope": "starts after imports/API-receipt loading; native whole-command measurement is separate",
+  "actual_outcome": null,
+  "actual_cost": null,
+  "limits": [
+    "not browser interaction or actual download/pixel acceptance",
+    "same accepted API/candidate/build/server; no model/state/source-table or extra full reader",
+    "no activation, retry or automatic later window"
+  ]
+}

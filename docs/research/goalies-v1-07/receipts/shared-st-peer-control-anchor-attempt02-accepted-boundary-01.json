@@ -1,0 +1,54 @@
+{
+  "kind": "shared-st-peer-control-anchor-attempt02-accepted-boundary",
+  "status": "ACCEPTED_ONE_PP_CUTOFF_JOURNEY",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-checked-return-02.json",
+      "bytes": 10628,
+      "sha256": "fa9061df923d8218fd1613f0ccca96676f0af62ef5e84195271c9e52df3d687d"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-independent-adjudication-02.json",
+      "bytes": 25716,
+      "sha256": "0de6c67202af9209f241f50a7fde3fc5ddcabe7327b56c0bde8566c3ea767476"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-postexit-capture-02.json",
+      "bytes": 74126,
+      "sha256": "aa87745e2b76e74dc9a505a533ca8698cee53c3773d1dc92a10cbf7258221c8b"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-capture-completion-02.json",
+      "bytes": 10876,
+      "sha256": "e3612867816bc4ae93aa8cee02274a15244c0f2c8d2ca6b3d2ffc686e034ba9f"
+    }
+  ],
+  "input_identities_and_three_captured_buffers_verified": true,
+  "native_anchor_exit": 0,
+  "native_capture_exit": 0,
+  "pp_cutoff_credit": 1,
+  "aggregate_browser_pass": false,
+  "pp_case": "8471214/spatial.pp.offense_xg_per60/original20252026;21812seconds=>364specialtyminutes; four history observations/12annual rows and same-form binding",
+  "accepted_semantics": "all3 raw/native-unit/reference-hash/plot oracles match API7b6; original-year standing withheld; annual navigation/reload and canonical settings hold; general300 unchanged; no media",
+  "accepted_raw_contract": "21 complete-URL request/response bags including duplicates match/all200; one exact first-document implicitfavicon404 independently qualifies by bound frame/loader, bracket, exactURL/origin/zeroicons/location/message; all other console/page/transport/download errors0; context closed",
+  "document_evidence": "two commits and three same-document diagnostics observed; old event kinds not inferred; changed-loader-open-window case remains source-reviewed, not separately forced",
+  "provenance": "explicitbafd02b5 command-level amendment carried throughout;9a8a launch record is not a kernel process frame; actualPID/start/kernelargv/childcwd remainUNKNOWN",
+  "native_anchor_cost": {
+    "wall_seconds": 47.33,
+    "peak_rss_bytes": 1114783744,
+    "raw_footprint_bytes": 110931488
+  },
+  "internal_driver_cost": {
+    "wall_seconds": 46.799481542,
+    "peak_node_rss_bytes": 155336704
+  },
+  "native_capture_cost": {
+    "wall_seconds": 0.03,
+    "peak_rss_bytes": 23789568
+  },
+  "capture_returned_logical_bytes": 53735,
+  "http_declared_content_length_bytes": 321806366,
+  "unknown_costs": "actual HTTP transfer/decoded/physicalIO and aggregateChrome/serverpeaks; cached reviewwall/RSS unmetered",
+  "limits": "one pp journey only; exact percentile magnitudes not independently recomputed from fullcohorts in this anchor; allold01/06 failures and unqualified events retained; no wholebrowser/pixel/family/scientific/activation pass",
+  "next_owner": "root adjudicates; completed anchor window returned, no active owned native job or automatic chain"
+}

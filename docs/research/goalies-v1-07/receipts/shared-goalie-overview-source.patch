@@ -1,0 +1,116 @@
+--- app/src/server/publication.ts@4aa8029
++++ app/src/server/publication.ts@c90cb73
+@@ -201,6 +201,24 @@
+             );
+           return yield* Effect.try(() => resultFromRow(table, rows[0], person(season, id)!.kind));
+         });
++      const goalieObservedSummary = (result: ReturnType<typeof resultFromRow>) => {
++        if (result.availability !== "provided") return result;
++        const full = decode(A.GoalieObserved, result.data),
++          { games, ...summary } = full;
++        return provided(summary);
++      };
++      const goalieOverview = (season: Season, id: string) =>
++        Effect.gen(function* () {
++          const ev = yield* readSummary("goalie_result", season, id, { strength: "ev" }),
++            pk = yield* readSummary("goalie_result", season, id, { strength: "pk" }),
++            observedEv = goalieObservedSummary(yield* readSummary("goalie_observed", season, id, { strength: "ev" })),
++            observedPk = goalieObservedSummary(yield* readSummary("goalie_observed", season, id, { strength: "pk" }));
++          return provided({
++            reported_usage: observedEv.availability === "provided" ? provided(observedEv.data.reported_usage) : observedEv,
++            goalie: { ev, pk },
++            observed: { ev: observedEv, pk: observedPk },
++          });
++        });
+       const families = (
+         season: Season,
+         id: string,
+@@ -223,11 +241,8 @@
+               const rows = [];
+               for (const strength of strengths) {
+                 let result = yield* readSummary(table, season, id, { strength });
+-                if (table === "goalie_observed" && result.availability === "provided") {
+-                  const full = decode(A.GoalieObserved, result.data),
+-                    { games, ...summary } = full;
+-                  result = provided(summary) as typeof result;
+-                }
++                if (table === "goalie_observed")
++                  result = goalieObservedSummary(result) as typeof result;
+                 rows.push({ strength, result });
+               }
+               return provided(rows);
+@@ -260,30 +275,9 @@
+           };
+           return yield* Effect.try(() => decode(A.PlayerFamilies, data));
+         });
+-      const overview = (value: A.PlayerFamilies) => {
+-        if ("availability" in value)
++      const skaterOverview = (value: A.PlayerFamilies) => {
++        if ("availability" in value || value.kind !== "skater")
+           throw new Error("league overview requires selected-season identity");
+-        if (value.kind === "goalie") {
+-          const select = (collection: typeof value.goalie, strength: string) =>
+-            collection.availability === "not_computed"
+-              ? collection
+-              : collection.data.find((row) => row.strength === strength)!.result;
+-          const ev =
+-            value.goalie_observed.availability === "provided"
+-              ? value.goalie_observed.data.find((row) => row.strength === "ev")!.result
+-              : value.goalie_observed;
+-          return provided({
+-            reported_usage: ev.availability === "provided" ? provided(ev.data.reported_usage) : ev,
+-            goalie: { ev: select(value.goalie, "ev"), pk: select(value.goalie, "pk") },
+-            observed: {
+-              ev,
+-              pk:
+-                value.goalie_observed.availability === "provided"
+-                  ? value.goalie_observed.data.find((row) => row.strength === "pk")!.result
+-                  : value.goalie_observed,
+-            },
+-          });
+-        }
+         const select = (
+           collection: typeof value.spatial | typeof value.execution | typeof value.shootiness,
+           strength: string,
+@@ -315,7 +309,7 @@
+           const { season, kind, family, strength } = selection;
+           const base = yield* Effect.try(() => envelope(season));
+           const observedRows =
+-            family === "observed" || family === "overview"
++            family === "observed" || (family === "overview" && kind === "skater")
+               ? yield* observed.readPlayers(season)
+               : [];
+           const players: unknown[] = [];
+@@ -327,17 +321,21 @@
+                 !observedRows.some((row) => row.player_id === identity.player_id))
+             )
+               continue;
+-            const result =
+-              family === "overview"
+-                ? overview(yield* families(season, identity.player_id, kind, observedRows))
+-                : family === "observed"
+-                  ? provided(observedRows.find((row) => row.player_id === identity.player_id)!)
+-                  : yield* readSummary(
+-                      family === "goalie" ? "goalie_result" : (`skater_${family}` as SummaryTable),
+-                      season,
+-                      identity.player_id,
+-                      strength === null ? {} : { strength },
+-                    );
++            let result: unknown;
++            if (family === "overview") {
++              result = kind === "goalie"
++                ? yield* goalieOverview(season, identity.player_id)
++                : skaterOverview(yield* families(season, identity.player_id, kind, observedRows));
++            } else if (family === "observed") {
++              result = provided(observedRows.find((row) => row.player_id === identity.player_id)!);
++            } else {
++              result = yield* readSummary(
++                family === "goalie" ? "goalie_result" : (`skater_${family}` as SummaryTable),
++                season,
++                identity.player_id,
++                strength === null ? {} : { strength },
++              );
++            }
+             players.push({ person: identity, result });
+           }
+           return yield* Effect.try(() =>

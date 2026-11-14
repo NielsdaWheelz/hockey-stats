@@ -1,0 +1,23 @@
+{
+  "kind": "shared-st-remainder-source-intake",
+  "status": "source_clear_actual_stages_not_run",
+  "packet": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-boundary-source-packet-01.json",
+    "bytes": 16016,
+    "sha256": "bbe993b249e404becf560cfc066e738bf6aa0fac053b60ed576ce9546850b1eb"
+  },
+  "assembled_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-assembled-source-review-01.json",
+    "bytes": 20477,
+    "sha256": "9c026e064fe076e561e1123ff02d30ca6077ab4998e7a7e18e99789697f6d780"
+  },
+  "root_verification": "both named metadata identities matched; native /root/canonical_trace independently checked nine named source/metadata files,88032 unique logical bytes, no referenced paths followed; no blockers",
+  "current_controller_sha256": "2b43040a1ed83aebf5f0f013f68b8a8e3f3ebc7482f9b9e3246fe47740b7466e",
+  "preflight_sha256": "7bbbc9fc6fadc128c7c6692a9f9a3a2465456b252a46400de189c63c8b3a1edc",
+  "preflight_held_sha256": "3a76967475c95939ec6f8005250d0eed1f1f178bc5165f0cdb469a80a12b1fbf",
+  "capture_sha256": "4397f596b31a07236d78ef002ef1c5192eca2e37525b4d4fdfb8cc099e43ee38",
+  "capture_held_sha256": "5bc5c151f1c57b4d05be94689e7467b785d5f00b79a28655f72f0df76f2bf6e7",
+  "current_plan_sha256": "c9b38fbdfb8ed7e5c5f81a0b93bce0fd18dbd95187b1e5aebef7fba754b115bd",
+  "admission": "root35077 grants one pp journey; root918 admits finite positive prefix content/media. old06 remains failed and its favicon unqualified; no old zero-error pass. fresh remainder strict gates remain required in all three modes",
+  "limits": "source review only; no actual preflight, runtime, input, HTTP, DB, media, capture or artifact pass"
+}

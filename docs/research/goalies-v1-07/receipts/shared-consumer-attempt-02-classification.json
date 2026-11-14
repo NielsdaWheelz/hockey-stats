@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "kind": "consumer-attempt-02-failure-classification",
+  "status": "failed_transport_cause_unresolved",
+  "native_exit": 1,
+  "native_wall_seconds": 98.03,
+  "native_peak_rss_bytes": 434716672,
+  "failure": "GET /api/league native fetch rejected with read ECONNRESET",
+  "log": {
+    "path": "shared-consumer-attempt-02-native.log",
+    "sha256": "304f5345eeb1cec9d800e8cdb6e8a230b6c71e040f69c6618060a5ca8429a247"
+  },
+  "server_observation": {
+    "pid": 98454,
+    "listening": "127.0.0.1:3407",
+    "alive_after_failure": true,
+    "tail": {
+      "path": "shared-consumer-attempt-02-server-tail.log",
+      "offset": 5246209,
+      "source_bytes_at_read": 5278977,
+      "bytes": 32768,
+      "sha256": "36a938a2468694e8559a2cf6cd2fc39f15bf8f59eefbfc938eee60c80d7a1730"
+    }
+  },
+  "findings": [
+    "three detail plus three-concurrent-annual-cohort batches returned 200 before the fourth batch failed",
+    "server 499 denotes an unfinished response interrupted on client close; it may follow sibling cancellation and does not identify the reset cause",
+    "all 26 goalie metrics request the same overview/null-strength annual populations; repeated node transports do not test 26 distinct wire selectors",
+    "node fetch keep-alive or concurrency involvement remains a hypothesis; no product defect or transient failure is established"
+  ],
+  "next": "one actual chrome direct-profile diagnostic, followed by separately reviewed scope; no automatic retry or transport workaround",
+  "acceptance": "no complete typed-consumer, browser, download or pixel pass; earlier complete API evidence remains valid"
+}

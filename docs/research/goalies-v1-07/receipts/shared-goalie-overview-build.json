@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "kind": "goalie-overview-repair-build",
+  "status": "built_not_runtime_accepted",
+  "runtime_source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "app_tree": "8ca79395276ab733c6ee32e21465adb8b8229372",
+  "source_file": {
+    "path": "app/src/server/publication.ts",
+    "sha256": "0c0045d505912603c73e8c416d146ee6c61fd7404ce4edf4ec66f3cd90510238"
+  },
+  "unchanged_seven_build_members_match_007290": true,
+  "selected_build_files": [
+    {
+      "path": "app/dist/node/server/main.js",
+      "bytes": 8073,
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+    },
+    {
+      "path": "app/dist/node/server/analysis-publication.js",
+      "bytes": 67929,
+      "sha256": "4454950587c03b0fe5040c49737ad82c2b360f4689159d94eba51362cc15e71f"
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis.js",
+      "bytes": 113222,
+      "sha256": "2877086226cf5a705d1e47870c37273457b822774f76b15c1204f9518d4562d9"
+    },
+    {
+      "path": "app/dist/server/index.js",
+      "bytes": 174762,
+      "sha256": "48d7161b17a6fcb125b72fcefca3019f55595c01c9881223a17fe1e0d160739d"
+    },
+    {
+      "path": "app/dist/client/index.html",
+      "bytes": 2114,
+      "sha256": "cbfb874a84f2edeed42f9aa03a44620463f2c643f15bee22d8749fb45aff420d"
+    },
+    {
+      "path": "app/dist/client/assets/entry.client-CimxyNE3.js",
+      "bytes": 214675,
+      "sha256": "f123592f11d56cc3c499149ae7c2b8ef315cfbadf89ad6c66dd6a55ea1f22785"
+    },
+    {
+      "path": "app/dist/client/assets/explorer-lHrtF-QX.js",
+      "bytes": 280904,
+      "sha256": "607bc1cee201bf62ce02a8d57a6b86995d9ab962b5080e51fde6898bc3d4afe9"
+    },
+    {
+      "path": "app/dist/node/server/publication.js",
+      "bytes": 15535,
+      "sha256": "2b8ae5d1c3cedc208a79a4870d47f36767bea1b4949c45489a51a4b5d63f0b03"
+    }
+  ],
+  "old_compiled_publication": {
+    "bytes": 15445,
+    "sha256": "2f88a60425193b2f580d0eec6de28c7883ae0c38d50eb4703ff840fa99d7a50c"
+  },
+  "command": "pinned node24.21.0 npm-cli run build with same node directory first in child PATH",
+  "native_build": {
+    "exit": 0,
+    "wall_seconds": 1.38,
+    "peak_rss_bytes": 609763328
+  },
+  "database": "same fb60493e-badf-4b11-9585-b5a541387e66; producer remains4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "limits": "source-only read repair; no new publication, fit or numerical change. new ordinary strict startup and affected/live acceptance required"
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "planned-owned-service-stop-and-archive",
+  "status": "archived",
+  "native_exit": 130,
+  "interpretation": "intentional one SIGINT after accepted startup and old-build API/consumer/baseline work; native footer is total service lifetime, not startup cost",
+  "old_server_pid": 98454,
+  "old_runtime_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "old_app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+  "old_build_receipt": "0072909d5e75fa2c0cc05822859e9b2ff466edab0850f6ded6a08c07ab66cf7b",
+  "files": [
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-01.log",
+      "archive": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/runtime-01-service.log",
+      "bytes": 5283970,
+      "sha256": "50b9a637e08929e5835cbf9ed90c5a1353b2918da7342450203c0eff11c21637"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-01.exit",
+      "archive": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/runtime-01-service.exit",
+      "bytes": 4,
+      "sha256": "f5bde7eb9f6c71611dc5726e8aca3eb4eba3e386da49e0a4ed5c295a90a73a0d"
+    }
+  ],
+  "scope": "two closed local log/exit bodies copied externally; no candidate database or numerical artifact read",
+  "closure": "root checked old pids absent, old terminal marker130/prompt,3407 closed and primary9645 still listens3000"
+}

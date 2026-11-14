@@ -1,0 +1,60 @@
+{
+  "kind": "shared-st-peer-control-anchor-attempt02-checked-preflight-intake",
+  "status": "ACCEPTED_SCOPED_PREFLIGHT",
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-launch-preflight-02.json",
+      "bytes": 21422,
+      "sha256": "13c27ddc07c929f0b94734760bf3cf0185d29551eace9a118b962667d2b96022"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-launch-preflight-02-native.log",
+      "bytes": 892,
+      "sha256": "0240381849907a314805f5bb6aa5a85fa9ee2f9f00c9a581809e91013dc66875"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-launch-preflight-02-native.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-preflight-actual-submission-02.json",
+      "bytes": 14265,
+      "sha256": "0cf57c9ef7696f141d484f3bf790ab9240cb569ab8e22752be08634fb1b50654"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-peer-control-anchor-launch-preflight-review-02.json",
+      "bytes": 12971,
+      "sha256": "3c0ca5b910aa766c1ae7d6791b14ba94e687de3916883e5191bd3b149819f7f2"
+    }
+  ],
+  "input_identities_verified": true,
+  "native_exit": 0,
+  "actual_marker_and_prompt": "current held04 command followed by ST_PEER_CONTROL_ANCHOR_PREFLIGHT_NATIVE_EXIT=0 and returned owned prompt, plus exact0LF; neither transport delivery nor historical markers used",
+  "native_cost": {
+    "wall_seconds": 0.09,
+    "peak_rss_bytes": 23412736,
+    "raw_footprint_bytes": 13550072
+  },
+  "internal_cost": {
+    "wall_seconds": 0.054463000036776066,
+    "peak_rss_bytes": 23330816,
+    "before_serialization": true
+  },
+  "qualified_local_reads": {
+    "unique_files": 46,
+    "logical_bytes": 2771016,
+    "fixed_body_bytes": 1280494,
+    "compiled_body_bytes": 1470447,
+    "pw_metadata_bytes": 1219,
+    "chrome_info_bytes": 18856
+  },
+  "external_input_member_consumer_csv_db_body_or_stat": 0,
+  "http_requests": 0,
+  "checked_at_utc": "2026-11-14T13:19:34.542817+00:00",
+  "source_runtime_basis": "current anchor5a2/heldf7dc/plane8d; ST923d/app3242 and G3763/fee5/app852 production clean; retained89887/build18ef/fb604/target1a301/API7b6; all8metadata commands0",
+  "fresh_paths": "five attempt02 runtime paths absent; no anchor/profile mkdir",
+  "root_scope": "five fixed LOCAL cached evidence bodies only; no source/runtime/OS/HTTP/HDD/DB/artifact query repeated",
+  "actual_anchor_or_browser_acceptance": false,
+  "limits": "ordinary point-in-time admission, not a freshness promise; metadata/import/OS/physicalIO bytes unmeasured"
+}

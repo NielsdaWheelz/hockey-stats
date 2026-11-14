@@ -1,0 +1,33 @@
+{
+  "kind": "isolated-rollback-single-execution-assignment",
+  "status": "assign_one_ordinary_fixture_operation_test",
+  "owner": "root; all ST actual live/drive commands remain held",
+  "failed_return": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-remainder-checked-failed-return-intake-01.json",
+    "bytes": 2581,
+    "sha256": "14f3426f61827ae7aaf170676b7a2117770c407a302c784555a98c8ff1bd19ec"
+  },
+  "source_review": "isolated-rollback-source-review-01.json",
+  "source_sha256": "fb47b2adbe5b328993548c1a609dc5e148c962c93d93e04e9c3f004a73c404bc",
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "/usr/bin/env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+    "-B",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01.py"
+  ],
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+  "scope": "new explicitly synthetic operational fixture: same6preserved captures/3matchingreferences,3ordinary nativecorpora,byteexact copiedanalyticalmembers with unchangedprepared/methods and attributed new observedbindings/actualproducer,normalread_results,2normal schema9publications distinctUUID,existing activateA/activateB/restore in ONE explicitdisposable directory",
+  "oracle": "actualfilehash+readonlyschema9header after every transition, includingmiddleactiveB/previousA andfinalactiveA/previousB; incomingabsent. all nativeargv/exits/logs/partialfailures retained; no retry/fact repair/validation bypass",
+  "outputs": {
+    "root": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01",
+    "outer_log": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01-native.log",
+    "outer_exit": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01-native.exit"
+  },
+  "runtime": "qualified primary3.14.8/PYTHONPATHG; pinnedNode24.21+installedGtsx currentoperator. ordinary required entry availability may be checked; no new installs/builds/fallback",
+  "limits": "no /Volumes input/output, realcandidate, primarydatabase, server/HTTP/model/evaluator/fit/rescore, currentpublisheddata or activation. no Rretry/pixel/preservation/cleanup chain. actualcosts/behaviorunknown; failhonestlyandretainpartial",
+  "cost": "measure whole nativecommand and controller/stage clocks; distinguish largest waited-child field from simultaneousprocess aggregate; devicephysicalIOunknown",
+  "stop": "stop/hold supersedes newcommands/reads; no automaticretry"
+}

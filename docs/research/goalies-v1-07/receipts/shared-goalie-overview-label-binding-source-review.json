@@ -1,0 +1,53 @@
+{
+  "disposition": "selected_live_binding_source_clear_pending_readiness_and_root_assignment",
+  "scope": "named local original/successor helper and caller source reads, diff/hash comparison only; no execution/import, live query, external/baseline body read, database, process, mount or source edit",
+  "sources": {
+    "goalie-overview-http-comparison.py": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/goalie-overview-http-comparison.py",
+      "sha256": "550b4011b9424a426f58c7a272af9b6c3a82d01400b213431d1ac31403da1519",
+      "bytes": 11293
+    },
+    "goalie-overview-label-binding.py": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/goalie-overview-label-binding.py",
+      "sha256": "d9ebb5109e725f53e2d06b5175f414b2cb0d3e09871937a1fa14bd68be3903da",
+      "bytes": 11305
+    },
+    "goalie-overview-after-label-01.command": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/goalie-overview-after-label-01.command",
+      "sha256": "3ecd327fbb84e070eb935c84b2c43cd63d93e66719ee249d19c8257dbd161299",
+      "bytes": 1649
+    }
+  },
+  "exact_basename_only_successor": true,
+  "checked_contract": [
+    "successor reverses byte-exactly to the original by changing only its local/external output suffixes; the accepted fixed LOCAL goalie-overview-before01 metadata locator is preserved",
+    "caller selects after mode only, checks ordinary mount/acceptance-root/four fresh output paths, and then runs one pinned-python invocation; no poll, redirect, retry, service startup or qualification sweep is hidden",
+    "at most three fixed sequential localhost3407 goalie-overview GETs, one fresh connection each, for20232024/20242025/20252026 and fixed117/121/123 person counts",
+    "each returned body is capped at16MiB+1, retained at a fresh external path, assessed for complete status200/length/strict finite duplicate-free JSON, publication/schema/publisher/selector/season and ordered goalie identity",
+    "after mode reads only the bounded fixed LOCAL baseline metadata; it never rereads old external response bodies; baseline status, binding, row completeness/counts and hash formats must be valid",
+    "the code gates equality of the entire parsed canonical response plus ordered player identities; new raw response hashes are retained but are not compared by the helper",
+    "all errors and partial response facts remain retained; no failure is exempted or converted into a successful comparison"
+  ],
+  "raw_hash_contract": {
+    "helper_gate": "canonical whole-envelope equality and ordered-identity equality",
+    "root_adjudication": "compare and report all three new raw hashes against accepted baseline metadata separately; helper pass alone is not raw-byte proof",
+    "root_ruling": "raw byte differences alone under canonical equivalence do not establish a public API correctness failure; no source expansion or exhaustive36k replay is assigned"
+  },
+  "baseline_binding": {
+    "fixed_path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/goalie-overview-before-01.json",
+    "body_independently_read": false,
+    "required_owner": "root must bind the actual LOCAL baseline metadata hash to the accepted Gdocs beforemetadata through admission/postreview; helper records the metadata hash; no external before response reread is needed"
+  },
+  "remaining_material_findings": [],
+  "dispatch_prerequisites": [
+    "checked actual normal strict listening/completion for the reviewed source3763/build18ef/candidate and isolated3407; the reviewed cached launch proves running only",
+    "root baseline metadata and freshness/source pin binding, followed by explicit one-invocation assignment",
+    "actual result must be independently adjudicated with canonical/identity gate and raw hash observations distinguished"
+  ],
+  "limits": [
+    "no helper or caller was executed and no baseline metadata body was read by this source review",
+    "this selected current-identity check complements unchanged21-node and candidate-preservation evidence; api02 remains inherited, not a freshly repeated exhaustive run",
+    "all actual label-green, fullbrowser04 journeys/downloads, independent required-layout pixels and separate G/ST boundaries remain owed",
+    "old aborts remain retained/unattributed; no numerical/publication rerun, scientific admission or activation follows"
+  ]
+}

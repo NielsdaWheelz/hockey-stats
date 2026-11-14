@@ -1,0 +1,61 @@
+{
+  "kind": "paired-map-lifecycle-checked-boundary",
+  "status": "completed_diagnostic_with_supported_controller_correction",
+  "scope": "one two-arm same-case diagnostic only; no browser/family/scientific acceptance",
+  "source": {
+    "path": ".tmp/st-map-lifecycle-diagnostic-01.mjs",
+    "bytes": 13785,
+    "sha256": "b8ab0311a903f7a89ec1e00a22b5f1853aac439461bbdea17cef7b703e433b43"
+  },
+  "independent_review": {
+    "path": "docs/research/goalies-v1-07/receipts/st-map-lifecycle-diagnostic-independent-review-01.json",
+    "bytes": 15757,
+    "sha256": "310939fecaf036ccb35018db8571e2209a2ced19eec1e9ff1fc1f8decc7e6553",
+    "evidence_discrepancies": []
+  },
+  "evidence": "docs/research/goalies-v1-07/receipts/st-map-lifecycle-diagnostic-evidence-01.json",
+  "completion": {
+    "native_exit": 0,
+    "proof": "returned MAP_LIFECYCLE_NATIVE_EXIT=0 and exec completion; retained exact0LF/time footer; owned context closed",
+    "kernel_node_pid": 25453,
+    "kernel_ppid": 25452,
+    "kernel_lstart_local": "Sat Nov 14 09:29:41 2026",
+    "command_argv_observed": true,
+    "cwd": "process-reported G cwd matches requested exec workdir; no separate kernel cwd sample"
+  },
+  "observations": {
+    "A_explicit_default": {
+      "api_starts": 31,
+      "finished_200": 25,
+      "aborted": 6
+    },
+    "B_canonical_omission": {
+      "api_starts": 12,
+      "finished_200": 12,
+      "aborted": 0
+    },
+    "pending_at_close": 0,
+    "network_starts_total": 68,
+    "terminal_finished_total": 62,
+    "terminal_failed_total": 6,
+    "supported_correction": "ordinary effect-map controller URLs omit default map=difference; complete absolute and intentional invalid-url cases stay unchanged"
+  },
+  "costs": {
+    "native_wall_seconds": 33.34,
+    "native_max_rss_bytes": 1244037120,
+    "native_raw_footprint_bytes": 109505840,
+    "driver_wall_seconds": 33.303889458,
+    "driver_only_peak_rss_bytes": 145014784,
+    "declared_api_content_length_bytes": 326962583,
+    "actual_http_body_or_wire_bytes": "unmeasured",
+    "physical_io": "unknown"
+  },
+  "limits": [
+    "fixed A-then-B order in one context; timing/cache/order effects not controlled",
+    "chronology supports the selected correction without establishing every internal cancellation step",
+    "no historical abort reclassification or waiver; all old failed windows remain failed",
+    "one initial favicon404 diagnostic observation is not an operational zero-error pass",
+    "no source/build/service/numerical change; no next actual command assigned"
+  ],
+  "next": "ST local minimal source successor preparation only; all actual live/drive stages held"
+}

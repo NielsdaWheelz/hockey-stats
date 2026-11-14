@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "kind": "shared-browser-02-launch-independent-review",
+  "status": "cached_launch_matches_admission_no_browser_outcome",
+  "sha256": {
+    "shared-browser-02-admission.json": "27713af6f923d67fc0836040d6b65560cb26509ac21a1037feb80cb6bd0dad21",
+    "shared-browser-02-actual-launch.json": "5e9022f6c2e5e98d912acb5a236af7a5041046e2b93c6da600f9de7af677a73e",
+    "browser_controller": "a9c06edf5f9e167019e702eab8bb2d48db21a2d321c95f3ba29b620c0c1751fc",
+    "held_caller": "4971c17fd3b58068f3d9b4ba29df154c9f19383a43bad5d6f046099fda5e1200"
+  },
+  "findings": [
+    "cached node 64058/time 64057/wrapper 64056 parent chain and root cwd agree with the held caller. submitted 16:04:58Z and observed 16:05:21Z frame select the pinned node executable, browser-real-02.mjs and exact six arguments: base 3407, api-02, consumer-04, fresh browser-02/profile-02 and pinned Playwright entry.",
+    "admission and frame agree on runtime c90/analysis fee5/app 8ca793/build e885, server 33587 and publication fb604. stored publisher remains 4aa. accepted API 355de/review 289c and consumer c7e/review 4be99/oracle bc293 are the exact upstream bindings.",
+    "embedded preflight records the external parent/mount available, browser output plus three local paths absent, no failure and zero input-body reads. its availability result is not browser acceptance. controller a9 adds only the three independently reviewed rendered-commit waits; original failed attempt and diagnostic evidence remain separate."
+  ],
+  "blocking_launch_mismatches": [],
+  "limits": "local cached admission/frame only; no OS/HTTP/HDD query, runtime/source execution or active browser output read. no completed counts, native outcome or costs inferred. whole fresh matrix and independent human pixels remain unassessed; no family, v1-19, scientific or activation pass and no additional live grant."
+}

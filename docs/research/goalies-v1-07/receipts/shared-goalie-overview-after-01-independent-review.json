@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "kind": "goalie-overview-after-independent-review",
+  "status": "accepted_three_season_overview_response_preservation_only",
+  "sha256": {
+    "shared-goalie-overview-after-01.json": "74af52aa8edeaefcccd7c597dee22b317115f076c64a87f9ecfddb38326ab3b1",
+    "shared-goalie-overview-after-01-native.log": "7fff5f4feb3ce2658a805755a122585a085f82d2628b4dede091b82447fda0d4",
+    "shared-goalie-overview-after-01-native.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "before_metadata": "44f04bde7b4c924d86fe28e0deba2eb4683983d3bc237e7531d76813088a269e",
+    "comparison_controller": "550b4011b9424a426f58c7a272af9b6c3a82d01400b213431d1ac31403da1519"
+  },
+  "findings": [
+    "native exit is exactly 0 plus newline; log and metadata agree on passed_exact_response_comparison_only, mode after, no errors. all three fixed responses are 200, complete, retained, checked and within cap.",
+    "baseline metadata digest is exact. full-response canonical hashes, reported raw-byte hashes, ordered person IDs/counts and lengths match before for 20232024/20242025/20252026. populations remain 117/121/123; returned body total 18971357 bytes. canonical comparison includes the full envelope and ordered rows, not a scalar sample.",
+    "binding remains fb604/real/schema 9/publisher 4aa on 3407. the reviewed c90 read-owner repair and separately accepted startup 02 introduce no candidate/publication/model change. old external bodies were not reread; actual response hashes are controller-bound through retained local metadata."
+  ],
+  "comparison_cost": {
+    "before_internal_wall_seconds": 27.168003333033994,
+    "after_internal_wall_seconds": 24.644541084067896,
+    "after_native_wall_seconds": 24.75,
+    "after_peak_rss_bytes": 107233280,
+    "before_request_read_seconds": [8.917207624996081, 8.857016833033413, 9.05157620809041],
+    "after_request_read_seconds": [16.455789083149284, 3.603677666047588, 4.273316208971664],
+    "scope": "comparison-client wall/RSS and returned logical bytes; server RSS and physical traffic unmeasured. internal timing includes setup/raw writes/checks, excludes local reservation and receipt serialization. one paired run: first season is slower, two faster; no uniform speedup, cache cause or repeatability claim."
+  },
+  "blocking_mismatches": [],
+  "limits": "local saved comparison only; no HTTP/OS/SQL/external-body query or replay. source controls establish four selected reads; this run establishes complete three-season response preservation. final G api-02/consumer/browser/ST matrices, exports/pixels, reset cause, science and activation remain unassessed."
+}

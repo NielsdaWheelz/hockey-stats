@@ -1,0 +1,83 @@
+{
+  "status": "accepted_normal_strict_listening_only",
+  "review_scope": "only fixed local cached startup/listening/listener-observation receipts and prior reviewed bindings; no new OS, process, runtime, HTTP, database, external read/stat or qualification",
+  "evidence": {
+    "startup": {
+      "path": "shared-runtime-03-startup.json",
+      "bytes": 1197,
+      "sha256": "faf3081803a82112c49bc74058f83eaf3d97f3fa9f89b260bcf3851fb0d7724a"
+    },
+    "listening_log": {
+      "path": "shared-runtime-03-listening-log.txt",
+      "bytes": 1143,
+      "sha256": "c39811a4df58a8c988d1deec649fac5c435f042908e3ff5c57a57bb3e44f7acb"
+    },
+    "listener_observation": {
+      "path": "shared-runtime-03-listener-observation.json",
+      "sha256": "4bea2d0857060d65e522599b238699262eebf338c16cfb87b6ce8e60b476ab01",
+      "observed_at": "2026-11-14T04:49:56.569711+00:00"
+    },
+    "preflight_sha256": "8b2d26d1131f75d5246d31927c49398eba618c82541c93eb4d89994c39d7756b",
+    "launch_frame_sha256": "708019c191a104de3028b2ecdf2748df841bcedf144ec16b8086fe9d7156c5ef",
+    "build_receipt_sha256": "18efbc9755732249cb20b4c996e30c02af1f564218e444466ff1167be5748df4"
+  },
+  "bound_runtime": {
+    "node": "v24.21.0",
+    "node_pid": 89887,
+    "time_pid": 89886,
+    "wrapper_pid": 89885,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+    "normal_argv": [
+      "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/app/dist/node/server/main.js",
+      "--publication",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite",
+      "--port",
+      "3407"
+    ],
+    "address": {
+      "address": "127.0.0.1",
+      "family": "IPv4",
+      "port": 3407
+    },
+    "source_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "85201961284eb628e70afbcf976190d209ef6229",
+    "runtime_meter_sha256": "bb37d4a06cbde3a7bf4e350f331e67a14ac34f655a7d877582ea0a6562066ec4",
+    "detached_policy_sha256": "dda6d8f506d99c4fd595f226ade0e47023c858961ddad266aaf4ce1f6b0dfa6a"
+  },
+  "adjudication": [
+    "all three supplied evidence hashes match; the cached listening log repeats the exact meter facts and records normal application listening",
+    "cached listener/process facts independently corroborate node89887 at IPv4 127.0.0.1:3407 and the exact89885→89886→89887 wrapper/time/node chain",
+    "cwd, ordinary compiled-main argv, candidate path and isolated port match the reviewed preflight/launch/build bindings; source admission remains3763/fee5/app852",
+    "the prior fresh38-file preflight and saved21-node byte preservation bind the unchanged normal strict reader; the same reviewed meter/policy introduces no validation bypass",
+    "the candidate path/size/inode/mtime were preserved in the accepted preflight/admission evidence; publisher/database/result pins remain inherited, not freshly rehashed"
+  ],
+  "measured_cost": {
+    "listening_wall_seconds": 2336.116399583,
+    "peak_rss_bytes_through_listening": 1893744640,
+    "latency_scope": "meter entry through actual listening; node boot and static meter imports excluded",
+    "memory_scope": "kernel process-lifetime maxRSS through listening, including boot/static imports; KiB converted to bytes",
+    "native_service_exit": "not observed; cached observation shows the service still alive",
+    "whole_service_lifetime_cost": "not complete; listening cost is not the eventual native time footer"
+  },
+  "publication_limits": {
+    "expected_publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+    "expected_publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "results_manifest_sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+    "producer_receipt_sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654",
+    "meaning": "these remain expected/inherited bindings. neither meter nor cached listener observation reads or proves the database UUID through the API"
+  },
+  "material_findings": [],
+  "pending": [
+    "separately assigned selected live publication/response binding; no fresh API or UUID pass follows listening",
+    "actual label green and complete same-server browser04 journeys/downloads with independent required-layout pixels",
+    "deliberate later ST target/handoff and separately assigned ST matrices; no ST window or target creation is granted"
+  ],
+  "original_input_independence": "startup ran under the reviewed candidate-only original-data denial; actual same-server journeys remain owed. no separate G rollback rotation is introduced.",
+  "startup_accepted": true,
+  "application_accepted": false,
+  "api_accepted_by_this_receipt": false,
+  "st_dispatch_authorized": false,
+  "activation_authorized": false
+}

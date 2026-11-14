@@ -1,0 +1,17 @@
+{
+  "kind": "shared-api-02-actual-launch",
+  "status": "running_not_accepted",
+  "submitted_once_at_utc": "2026-11-13T14:57:52Z",
+  "observed_at": "2026-11-13T14:59:13.315809+00:00",
+  "observed_processes": [
+    "48998 48997 Fri Nov 13 06:57:52 2026           01:21 S+   /usr/bin/time -l /Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/.venv/bin/python -B /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/check_api.py --results /Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results --manifest-sha256 21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3 --publication-id fb60493e-badf-4b11-9585-b5a541387e66 --publisher-commit 4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4 --base-url http://127.0.0.1:3407 --out /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/api-02.json",
+    "48999 48998 Fri Nov 13 06:57:52 2026           01:21 R+   /opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -B /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/check_api.py --results /Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results --manifest-sha256 21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3 --publication-id fb60493e-badf-4b11-9585-b5a541387e66 --publisher-commit 4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4 --base-url http://127.0.0.1:3407 --out /Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/api-02.json"
+  ],
+  "runtime_source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "runtime_build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+  "server_pid": 33587,
+  "candidate_publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "stored_publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "scope": "one unchanged complete goalie API matrix; no numerical provider or second strict startup",
+  "outcome": "unknown until measured native closure and independent retained-output review; all subsequent matrices held"
+}

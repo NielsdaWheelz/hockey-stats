@@ -1,0 +1,19 @@
+{
+  "kind": "st-remainder-canonical-url-wait-static-patch-review",
+  "status": "source_only_virtual_repair_no_invocation",
+  "author": "/root/canonical_trace",
+  "root_review": "five added public-condition wait lines inspected; existing expected metric/map/render query assertions and all timeouts/error/raw guards retained",
+  "patch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/st-remainder-canonical-url-wait-01.patch",
+    "bytes": 1131,
+    "sha256": "690a7a20e34c06c7861de29e499c133e1e4fb32c9265c5aaa39f7c9b9700a39d"
+  },
+  "before_sha256": "2b43040a1ed83aebf5f0f013f68b8a8e3f3ebc7482f9b9e3246fe47740b7466e",
+  "virtual_after": {
+    "bytes": 65029,
+    "sha256": "8f14e272d0b0023c0ff73987f27f6bedc01902bc18a4e2276a495417006b9912"
+  },
+  "inverse_source_note_sha256": "f3be39828908ca507c0865688889af96ae6556b310b8ae9e9d8e00ff8d36c7a4",
+  "scope": "wait for the same pre-existing canonical metric array and removal of invalid map/render in all four negatives. no changed oracle, permitted key, timeout increase, networkidle, sleep, retry, guard or product code",
+  "limits": "source10 immutable; no runnable successor or caller, product/live diagnosis, future tail selection or execution authority. observed transience and48aborts remain unknown"
+}

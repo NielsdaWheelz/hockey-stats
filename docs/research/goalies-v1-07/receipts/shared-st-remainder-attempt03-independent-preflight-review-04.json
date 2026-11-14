@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "review": "shared-st-remainder-attempt03-independent-preflight-review-04",
+  "status": "checker_incomplete",
+  "admission": "no_admission_credit",
+  "scope": "independent cached-only review; no native, source, live, application, browser, capture, or acceptance validation",
+  "failure": {
+    "owner": "reviewer",
+    "kind": "checker_process_lifecycle",
+    "evidence": "the qualified-python process read all four caches once and decoded both json files; it emitted a bounded key/type sketch, then exec_command supplied eof on stdin. the process returned exit_code 0 before the validation phase. its retained in-memory inputs were lost.",
+    "consequence": "artifact identities, values, completion, pins, commands, ownership, scope and read-budget assertions were not performed",
+    "artifact_failure_inference": "none",
+    "automatic_second_pass": false,
+    "cache_rereads": 0
+  },
+  "read_accounting": {
+    "python": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+    "flag": "-B",
+    "input_reads_total": 4,
+    "inputs": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-03.json",
+        "reads": 1,
+        "expected_bytes": 21606,
+        "expected_sha256": "4e2193125a57e460e8d50c70e209a70a5e8fa329d0472a308624fe372a943bdf",
+        "identity_validation": "not_performed"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-03-native.log",
+        "reads": 1,
+        "expected_bytes": 892,
+        "expected_sha256": "d741144821a04cb84c1d795d9022f49602847f05a3a19fdc3b831eba5c112d17",
+        "identity_validation": "not_performed"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-03-native.exit",
+        "reads": 1,
+        "expected_bytes": 2,
+        "expected_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "expected_content": "0\n",
+        "identity_validation": "not_performed"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-preflight-actual-submission-03.json",
+        "reads": 1,
+        "expected_bytes": 11661,
+        "expected_sha256": "21696b736c6c607f8865d73b3e99573b91897951859c4cb3aca127bb0a14f490",
+        "identity_validation": "not_performed"
+      }
+    ],
+    "other_file_reads": 0,
+    "referenced_path_following": false,
+    "prior_review03_read": false,
+    "native_preflight_or_browser_execution": false,
+    "runtime_version_import_or_service_probes": false,
+    "source_or_database_or_hdd_or_http_reads": false,
+    "note": "the checker imported python standard-library json, hashlib and sys for cached processing; it did not import project, playwright or controller code. the second qualified-python invocation only writes this report."
+  },
+  "completed_observations": [
+    {
+      "check": "single read of each assigned cache",
+      "result": "passed",
+      "evidence": "one open/read per enumerated fixed input in the checker"
+    },
+    {
+      "check": "json decoding",
+      "result": "passed",
+      "evidence": "both json caches decoded successfully"
+    },
+    {
+      "check": "actual key/type inspection before assertions",
+      "result": "performed",
+      "evidence": "the checker generated top-level and immediate-child key/type metadata from both decoded json objects; only the bounded first part of that sketch was emitted"
+    },
+    {
+      "check": "retained result shape",
+      "result": "observed_only",
+      "evidence": {
+        "local_pins_length": 46,
+        "local_pin_entry_keys": [
+          "path",
+          "bytes",
+          "sha256"
+        ],
+        "commands_length": 8,
+        "command_entry_keys": [
+          "argv",
+          "cwd",
+          "returncode",
+          "stdout",
+          "stderr"
+        ],
+        "source_checks_length": 2,
+        "fresh_absent_paths_length": 5,
+        "proposed_remainder_submission_template_length": 7,
+        "dispatch_type": "str",
+        "root_dispatch_clearance_keys": [
+          "path",
+          "sha256",
+          "status"
+        ],
+        "module_ownership_keys": [
+          "node",
+          "playwright",
+          "chrome"
+        ]
+      }
+    }
+  ],
+  "required_checks_not_completed": [
+    "all four actual byte counts and sha256 identities",
+    "current operator exact held03 command, current native-exit marker, returned prompt, canonical 0-lf exit and full native footer",
+    "normative result.dispatch equals not_dispatched; producer_reported.browser_dispatch treated as explanatory prose",
+    "expected future browser clearance UNKNOWN_PENDING_ROOT_GRANT with null path and sha256, without authorizing browser",
+    "46 unique local pins and the 2808905-byte total and category accounting",
+    "all eight metadata/version commands and return codes",
+    "selected source, build, target, api, publication and final source identities",
+    "same serving node process, parent, start, cwd and listener observations",
+    "node v24.21.0 and playwright 1.65.0 retained observations; package directory/file/index ownership distinctions",
+    "five fresh attempt03 paths, ordinary selected mount/parents, retained read-budget and no-creation facts",
+    "owner-reported native footer wall 0.09 seconds, rss 23658496 bytes and raw footer 13779424 checked against the entire cached log"
+  ],
+  "frozen_premises_not_revalidated": {
+    "source_phase": "root sourcephase review 362fc17 qualified all 14 sources and 6 whole inverses",
+    "root_clearance_sha256": "2e1c4fe0452878bf1282b423d9caee1aec964bc0c8d5218e420a5bff64f1342a",
+    "authorized_work": "preflight then cached review only",
+    "referenced_source_or_runtime_files_followed": false
+  },
+  "message_only_attribution": {
+    "origin": "parent assignment; not independently checked",
+    "prior_failed_review03": "immutable prior review03 is excluded from allowed inputs. owner attributes three reviewer metadata errors, not native/source/product failures.",
+    "historical_failures": "all historical failures and aborts remain failed and unwaived"
+  },
+  "limits": [
+    "shape observations establish no artifact identity, native completion, source correctness, scientific quality, product behavior or acceptance",
+    "browser and capture remain unresolved and unauthorized by this review",
+    "no automatic reread, second pass, fallback parser, guard relaxation, inverse or approval layer was performed"
+  ],
+  "resolution": "a separately authorized fresh review would need to retain the four inputs through direct validation and exclusive report creation; this failed review must remain intact"
+}

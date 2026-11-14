@@ -1,0 +1,30 @@
+{
+  "kind": "shared-browser-02-actual-launch",
+  "status": "running_not_browser_accepted",
+  "submitted_once_at": "2026-11-13T16:04:58Z",
+  "observed_at": "2026-11-13T16:05:21Z",
+  "native_node_pid": 64058,
+  "native_time_pid": 64057,
+  "wrapper_pid": 64056,
+  "observed_parent_chain": "64058 -> 64057 -> 64056 -> 64054",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+  "argv": [
+    "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-real-02.mjs",
+    "http://127.0.0.1:3407",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/api-02.json",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/consumer-04.json",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-02",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/browser-profile-02",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-playwright-runtime/node_modules/playwright/index.mjs"
+  ],
+  "runtime_source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "runtime_build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+  "server_pid": 33587,
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "controller_sha256": "a9c06edf5f9e167019e702eab8bb2d48db21a2d321c95f3ba29b620c0c1751fc",
+  "held_command_sha256": "4971c17fd3b58068f3d9b4ba29df154c9f19383a43bad5d6f046099fda5e1200",
+  "admission_sha256": "27713af6f923d67fc0836040d6b65560cb26509ac21a1037feb80cb6bd0dad21",
+  "scope": "one full fresh actual-browser matrix; all30 export pairs; machine success still requires independent pixel inspection",
+  "held": "all ST/final preservation/cleanup and new source/build remain held; no automatic retry"
+}

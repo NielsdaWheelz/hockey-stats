@@ -1,0 +1,86 @@
+{
+  "kind": "independent-real-goalie-composition-local-actual-launch-review",
+  "status": "passed_local_launch_bindings_only",
+  "reviewer": "final_score_preparation",
+  "findings": [],
+  "inputs": [
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/composition-01-preflight.json",
+      "sha256": "bda92c0ebe2f27040e360eff8138ce0960dc9af0f89e29381cd22bfdd2b8ecaf",
+      "bytes": 6353
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-actual-launch.json",
+      "sha256": "a3ef330b4e3caa5d54cdb43c5ecb00d483c7d570acb565c264035412d2e48241",
+      "bytes": 4035
+    },
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/prepare_goalie_composition_01.py",
+      "sha256": "966eca1115f145e7997aae75b0385e60ae50c0cd9449e07d60a121fbc62da80f",
+      "bytes": 7598
+    },
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/goalie-composition-01-held.sh",
+      "sha256": "72fb6e68d0df1216ed5fcaf7b119801e1f0c07eccfadfbc2abcc95320f9271c7",
+      "bytes": 1951
+    }
+  ],
+  "locally_verified": [
+    "exact local frame/launch/source/wrapper byte identities",
+    "HEAD4aa8029, analysisfee5, app3242 and declared pinned producer agree",
+    "all six thread variables null and cwd/operator agree",
+    "all five accepted annual selection identities exact; canonical write_json serialization reconstructs the reported1349-byte2964 selection digest without reopening it",
+    "canonical cli/native argv match; root-reported OS command has identical arguments after its underlying executable token",
+    "output/log/local exit paths match; source enforces prelaunch freshness and exclusive writes",
+    "immutable prelaunch snapshot and later running launch record remain distinct; both native exit values remain null"
+  ],
+  "selection_reconstruction": {
+    "sha256": "2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed",
+    "bytes": 1349,
+    "external_selection_opened": false
+  },
+  "runtime_evidence": {
+    "source": "matching preflight and root launch records; no independent runtime query",
+    "producer": {
+      "git_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+      "git_dirty": false,
+      "python_version": "3.14.8",
+      "numpy_version": "2.5.3",
+      "scipy_version": "1.18.1",
+      "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    },
+    "six_unset_variables": [
+      "OPENBLAS_NUM_THREADS",
+      "OMP_NUM_THREADS",
+      "MKL_NUM_THREADS",
+      "VECLIB_MAXIMUM_THREADS",
+      "NUMEXPR_NUM_THREADS",
+      "BLIS_NUM_THREADS"
+    ]
+  },
+  "root_observations": {
+    "source": "root actual-launch receipt and task report only; no new OS/process query",
+    "native_operator": "t-f9f0b50f2271131d",
+    "python_pid": 88892,
+    "time_pid": 88891,
+    "shell_pid": 88852,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+    "cwd_evidence": "root OS lsof -a -p88892 -dcwd observed this exact directory",
+    "actual_executable_token": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python",
+    "executable_note": "reviewed CLI uses this checkout venv path; root OS command reports the underlying Python.app path. argument suffix matches exactly; this review does not independently resolve that filesystem relationship."
+  },
+  "freshness_evidence": "preflight true flags plus reviewed source lstat/exclusive-write/noclobber contract; no active path queried again",
+  "source_freeze": "required by matching records; continued source/HEAD preservation remains root-owned, not independently observed here",
+  "prelaunch_state": "passed_selection_written_not_launched",
+  "root_reported_launch_state": "running_not_accepted",
+  "numeric_native_exit": null,
+  "scope": "local launch-frame/source consistency only; no composition result or scientific/product acceptance",
+  "actions_granted": [],
+  "limits": [
+    "no OS/runtime/git/process query or application/controller import/execution",
+    "no external selection/parent/prepared/score/state/member/output/log/producer-receipt read or stat",
+    "preflight-reported source/runtime/freshness facts are checked against reviewed source and local records, not newly observed machine state",
+    "process existence, cwd and resolved executable spelling are root observations, not this reviewer observations",
+    "no outcome, complete-exchange preservation, publication/startup/browser/activation or subsequent window granted"
+  ]
+}

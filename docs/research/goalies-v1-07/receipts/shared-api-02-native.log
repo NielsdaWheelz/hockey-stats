@@ -1,0 +1,22 @@
+{"season": "20232024", "checked_goalie_seasons": 117, "requests": 11835}
+{"season": "20242025", "checked_goalie_seasons": 238, "requests": 24072}
+{"season": "20252026", "checked_goalie_seasons": 361, "requests": 36510}
+{"status": "passed", "requests": 36695, "checked": {"league_strengths": 33, "goalie_seasons": 361, "goalie_scalar_rows": 3971, "scalar_fields": 51623, "model_maps": 3971, "breakdown_rows": 35739, "observed_rows": 4332, "observed_endpoint_rows": 8664, "danger_rows": 8664, "evidence_maps": 51984, "history_goalie_seasons": 361, "profile_ids": 165, "paired_evidence_view_controls": 6, "negative_requests": 8}}
+      948.72 real       491.88 user         8.40 sys
+           640466944  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               48654  page reclaims
+                 440  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+               36695  messages sent
+              250026  messages received
+                   0  signals received
+                 309  voluntary context switches
+              202523  involuntary context switches
+      11450127889151  instructions retired
+       2196380585197  cycles elapsed
+           634094504  peak memory footprint

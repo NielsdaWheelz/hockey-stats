@@ -1,0 +1,47 @@
+{
+  "kind": "shared-runtime-02-closed-service-local-archive",
+  "status": "incomplete",
+  "scope": "two fixed closed local service log/exit bodies only; no external or process access, runtime, browser, http, source or test action",
+  "old_server_pid": 33587,
+  "closure_context": "root reports the old service was intentionally stopped before this archival assignment",
+  "files": [
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-02.log",
+      "destination": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-02-service-native.log",
+      "cap_bytes": 4194304,
+      "read_complete": false,
+      "archived": false,
+      "returned_bytes": 4194304,
+      "returned_sha256": "500089051f22051f6f7712acf9e39894e578ca85a870a3f5d74f2d3ed3d72fbb"
+    },
+    {
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-02.exit",
+      "destination": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-runtime-02-service-native.exit",
+      "cap_bytes": 64,
+      "read_complete": true,
+      "archived": true,
+      "returned_bytes": 4,
+      "returned_sha256": "f5bde7eb9f6c71611dc5726e8aca3eb4eba3e386da49e0a4ed5c295a90a73a0d",
+      "bytes": 4,
+      "sha256": "f5bde7eb9f6c71611dc5726e8aca3eb4eba3e386da49e0a4ed5c295a90a73a0d"
+    }
+  ],
+  "errors": [],
+  "unknowns": [
+    "source reaches the fixed cap; complete body unknown: /Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/runtime-startup-02.log"
+  ],
+  "native_exit": 130,
+  "cost_interpretation": "the raw native footer measures total service lifetime after prolonged serving; it is not startup latency or a new startup measurement",
+  "startup_measurement_unchanged": {
+    "listening_wall_seconds": 2020.983562,
+    "peak_rss_bytes_through_listening": 1967079424,
+    "scope": "previously accepted startup02 measurement; not reread or rederived here"
+  },
+  "current_server_pid_89887_touched": false,
+  "deletion_performed": false,
+  "limits": [
+    "no source scan, alternate locator, fallback, replay, expansion beyond fixed caps or deletion",
+    "archive identities reflect the bounded returned bytes; no footer timing or startup success is inferred",
+    "intentional native termination retains its own value and does not revise accepted strict startup02"
+  ]
+}

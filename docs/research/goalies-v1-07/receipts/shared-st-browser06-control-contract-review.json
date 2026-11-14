@@ -1,0 +1,47 @@
+{
+  "status": "source_contract_mismatch_confirmed_recovery_not_dispatched",
+  "reviewer": "/root/trace_review",
+  "scope": "independent source-only review; exact named local reads and hashes plus this receipt write only",
+  "sources": [
+    { "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-06.mjs", "sha256": "c74dcf9806d4533308bb00d08bd28e18620653948bddc48b06b1626dd7567fbe" },
+    { "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/docs/issues/st-browser-peer-minimum-control.md", "sha256": "82318c4653898a252bd5cdb890a75d1110acbe383eae1b138275748885284b33" },
+    { "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/app/src/web/explorer.ts", "sha256": "da819693509377658c1500e9ef9e42cfc783633947dbdbf7039d4ae8d32bf346" },
+    { "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/app/src/web/routes/player.tsx", "sha256": "673ca0e3776aad827301e574be450f5eb097b1b774d7fac148ef838ced7f7412" },
+    { "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/app/src/web/peer-distributions.tsx", "sha256": "2bb5562c7701cdd99a76bf06f4b6e49d6e654a1a62a8c35c76f1f7701287ee33" }
+  ],
+  "control_contract": {
+    "chain": [
+      "controller url() at129-132 requests view=comparative",
+      "explorer readView() at57-66 preserves comparative",
+      "player route at237-248 constructs the skater comparative card; at339 renders PeerControls with allCutoffs",
+      "PeerControls renders general and specialty forms; at180-181 its submit names include the cutoff when allCutoffs is true",
+      "specialty submit updates specialtyMin; player changePeers at171-174 commits that public query parameter"
+    ],
+    "actual_button_names": ["apply general peer minimum", "apply specialty peer minimum"],
+    "incorrect_exact_name": "apply peer minimum",
+    "controller_sites": [396, 428, 440, 537],
+    "smallest_source_correction": "replace the exact button name at all four sites with apply specialty peer minimum; each follows specialty input interaction, including the keyboard tab/enter assertion at537; preserve behavioral assertions",
+    "limits": "the failed historical dom was not captured or inspected; source disagreement establishes a controller contract defect, not the complete historical rendered state or a product defect"
+  },
+  "closure_gate": {
+    "finding": "controller raw error, transport failure and api response assertions at564-568 precede owned context closure at574-577; the timeout skips those assertions, and closure-time events are retained without final reassertion",
+    "distinct_from_four_name_fixes": true,
+    "required_recovery": "retain every raw request, response, page/console error and transport failure through owned closure; after closure check the final arrays, require zero transport failures, every observed api response 2xx, and zero page/console errors except the exact existing favicon qualification; preserve any earlier failure and closure failure",
+    "exact_existing_favicon_qualification": {
+      "type": "console",
+      "location_url": "exactly base + /favicon.ico",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "additional_condition": "the same mode has zero declared link[rel~=icon] elements; record that fact before closure; no response-event requirement"
+    },
+    "abort_waiver": "none; no expected transport error or retry exemption"
+  },
+  "reuse": {
+    "verdict": "conditional source-level support; no retained result or artifact acceptance performed in this review",
+    "ordering": "each of forty normal metric records is appended after history, detail, reload and export checks; nine discovery records follow; all precede the first cutoff action at396",
+    "conditions": "reuse only independently adjudicated forty normal history/export and nine discovery records bound to identical target/build/source and api/consumer/oracle inputs, with original artifact identities and complete raw-through-closure review; inspect original pixels later under separate assignment",
+    "composition": "a separately reviewed recovery may cover missing matrix obligations and explicitly reference the retained subset; do not repeat the expensive completed prefix by default",
+    "failed_boundary": "browser06 remains failed with its original exit, timeout, costs and missing obligations; partial reuse never promotes that boundary to passed"
+  },
+  "next_bounded_live_scope": "separately assigned one normal-viewport reproduction of the original first failing pp xg anchor, using the exact same selected input identity; retain public input/form/button identities and url before the action, verify raised specialty cutoff, unchanged magnitude, standing, annual navigation and reload, and retain relevant dom metadata on failure; no dispatch granted here",
+  "not_performed": ["source edits", "tests or app/controller imports", "runtime or os qualification", "builds", "http", "database or external-drive access", "csv or image reads", "output or cached corpus inspection", "dispatch", "commit"]
+}

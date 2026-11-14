@@ -1,0 +1,10 @@
+test_blank_assertion_remains_failed (__main__.Controls.test_blank_assertion_remains_failed) ... {"status": "failed", "requests": 0, "checked": {"league_strengths": 0, "goalie_seasons": 0, "goalie_scalar_rows": 0, "scalar_fields": 0, "model_maps": 0, "breakdown_rows": 0, "observed_rows": 0, "observed_endpoint_rows": 0, "danger_rows": 0, "evidence_maps": 0, "history_goalie_seasons": 0, "profile_ids": 0, "paired_evidence_view_controls": 0, "negative_requests": 0}}
+ok
+test_json_rejects_nonfinite_and_duplicate_fields (__main__.Controls.test_json_rejects_nonfinite_and_duplicate_fields) ... ok
+test_wire_number_spelling_does_not_allow_boolean_substitution (__main__.Controls.test_wire_number_spelling_does_not_allow_boolean_substitution) ... ok
+test_wrong_manifest_identity_precedes_http (__main__.Controls.test_wrong_manifest_identity_precedes_http) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+OK

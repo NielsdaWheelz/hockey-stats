@@ -1,0 +1,300 @@
+{
+  "status": "accepted_isolated_synthetic_fixture_rotation_only",
+  "reviewer": "/root/trace_review",
+  "findings": [],
+  "read_scope": {
+    "fixed_local_metadata_inputs": [
+      {
+        "role": "result",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02/result.json",
+        "bytes": 3661722,
+        "sha256": "2b15c75c9eb4cb7c54c83d3d1ef0aa8fc54836028eaa655b8260a9d0bf61602b"
+      },
+      {
+        "role": "native.log",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02-native.log",
+        "bytes": 936,
+        "sha256": "27052d0b53d3f29fb9d9843d1141744b4d46dbb33558312457515618d863b8a5"
+      },
+      {
+        "role": "native.exit",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02-native.exit",
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      },
+      {
+        "role": "publication-a-verification.json",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02/publication-a/verification.json",
+        "bytes": 13198,
+        "sha256": "258f4c16eac5e8d7e114168ecb7ada251e2b1eac377bfeaec142bbdbcc51e865"
+      },
+      {
+        "role": "publication-b-verification.json",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02/publication-b/verification.json",
+        "bytes": 13197,
+        "sha256": "83df2e4eca5d6a300110466d6d38fc2a1eaedbba073cb1e2c494bb886d8e0427"
+      },
+      {
+        "role": "derivation.json",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02/derivation.json",
+        "bytes": 12757,
+        "sha256": "cd9a1a09fa9ba6d57f6f975eb4267041c1f4e85349aa8a4994b28e1409f3fce8"
+      }
+    ],
+    "input_reads_each": 1,
+    "total_input_logical_bytes": 3701812,
+    "no_referenced_payload_or_database_or_source_reread": true,
+    "final_review_basis": "the retained initial review plus root-supplied typed per-season facts; no original input, archive payload, database, native member, source, runtime or external path was reopened",
+    "root_additional_archival_copy_reads": {
+      "files": 2,
+      "local_logical_bytes": 26395,
+      "scope": "the two already archived publication verification copies, read by root; no originals or databases",
+      "separate_from_initial_six_input_bytes": true
+    },
+    "self_authored_initial_review_reads": {
+      "times": 2,
+      "known_local_logical_bytes": 19882,
+      "scope": "one findings inspection and this correction; not operational payload reads"
+    }
+  },
+  "source_binding": {
+    "controller_sha256": "c5e0af98278b20e3da6aa89e04bdeeb90a5b1c94c07563c53dd9c00173b5fe19",
+    "controller_argv": [
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-02.py"
+    ],
+    "python_executable": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+    "implementation": {
+      "git_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+      "git_dirty": false,
+      "python_version": "3.14.8"
+    },
+    "basis": "cached self-records and previously reviewed source; no independent kernel process frame or new runtime qualification"
+  },
+  "scoped_completed": {
+    "native_exit": 0,
+    "eight_native_step_exits": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "corpus_seasons": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "present_capture_ids": {
+      "20232024": [
+        "2023020001",
+        "2023020012"
+      ],
+      "20242025": [
+        "2024020001",
+        "2024020022"
+      ],
+      "20252026": [
+        "2025020001",
+        "2025020006"
+      ]
+    },
+    "fixture_label": "normal corpus headers remain untouched; same-parent fixture headers and parsed inverse are source-backed assertions, selected digests reconcile with both normal publication verifications",
+    "publications": {
+      "a": {
+        "id": "5185f3d9-0d4e-4bdd-a185-7459ae7d46a2",
+        "identity": {
+          "bytes": 20668416,
+          "sha256": "a84d5372dc66227112848ebbe812aae6373a9862d23770fef6e9ec583395283e"
+        }
+      },
+      "b": {
+        "id": "854c99b1-df83-456b-a52a-71a383b2fdec",
+        "identity": {
+          "bytes": 20668416,
+          "sha256": "6163a4a7cd7b8797d1ceed168800279829a82d504f5b609327ad7e38a8af2d4d"
+        }
+      }
+    },
+    "normal_integrity_foreign_keys_readback_conservation": "both passed",
+    "actual_file_hash_readonly_schema9_header_observations": 7,
+    "incoming_absence_observations": 3,
+    "transition": "activate a; activate b with previous a; restore a with previous b",
+    "final_active": {
+      "id": "5185f3d9-0d4e-4bdd-a185-7459ae7d46a2",
+      "identity": {
+        "bytes": 20668416,
+        "sha256": "a84d5372dc66227112848ebbe812aae6373a9862d23770fef6e9ec583395283e"
+      }
+    },
+    "final_previous": {
+      "id": "854c99b1-df83-456b-a52a-71a383b2fdec",
+      "identity": {
+        "bytes": 20668416,
+        "sha256": "6163a4a7cd7b8797d1ceed168800279829a82d504f5b609327ad7e38a8af2d4d"
+      }
+    },
+    "observation_basis": "independent review of the seven cached actual full-file hash/header observations and three absence observations; no database was opened again"
+  },
+  "preservation": {
+    "original_manifest_sha256": "b2d22b814521029dcf95dcd70dae17be7a1f446463308f9e171f730564a70990",
+    "prepared_sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
+    "pinned_catalog_descriptors_matched": {
+      "people.jsonl": "2d8921451ecaf14135606f7cce9c3242a82adcc915c9f139281ab6ab967fefab",
+      "sources.jsonl": "3e681c9109a8bee4f2837f4c153899aa23b8728a7bd146695249a2131c97ae0d",
+      "methods.jsonl": "76771d0fa0819bb8e495fa90ffcf01b1ae24d3424ab60c3010e5044b30bd1bae",
+      "supports.jsonl": "a5f667daedc340a006758e9aef46bccf109f6554d3db923d8be903cf16444862"
+    },
+    "copied_member_descriptor_count": 47,
+    "normal_result_reader": "passed",
+    "scope": "source-backed original/member/prepared/catalog preservation assertions, copied descriptors and transitive successful normal result/publication readers; no new independent all-member rehash or source-body acceptance",
+    "inherited_analytical_rows": "synthetic and unchanged by the selected source; producer and corpus binding derivations remain attributed"
+  },
+  "costs": {
+    "native_whole_command": {
+      "wall_seconds": 15.66,
+      "user_seconds": 15.89,
+      "system_seconds": 0.83,
+      "reported_max_rss_bytes": 346324992,
+      "raw_peak_memory_footprint_bytes": 159941256
+    },
+    "controller": {
+      "wall_seconds": 15.550527416868135,
+      "controller_peak_rss_bytes": 179863552,
+      "largest_waited_child_peak_rss_bytes": 346324992,
+      "children_user_seconds": 15.215814,
+      "children_system_seconds": 0.738845,
+      "scope": "controller entry through final observations/failure capture; result serialization excluded; child peak is a maximum, not simultaneous aggregate memory"
+    },
+    "scope": "native whole command and internal pre-serialization controller scopes remain distinct; waited-child peak is a maximum, not simultaneous aggregate memory; no physical-io claim",
+    "review_and_archival": "not separately metered; initial six input bytes 3701812; root additional archived-copy bytes 26395 and self-authored review rereads 19882 are separate local logical scopes; no physical-io or native rerun claim"
+  },
+  "archival": {
+    "source": "the same six already-read buffers; originals untouched",
+    "outputs": [
+      {
+        "role": "result_lossless_gzip",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/isolated-rollback-attempt02-result.json.gz",
+        "bytes": 108490,
+        "sha256": "615fb6a78f8a2ce45d747ab8d4259f2fdc8b0ec23cf536a73ed865b67b2f143f",
+        "decoded": {
+          "bytes": 3661722,
+          "sha256": "2b15c75c9eb4cb7c54c83d3d1ef0aa8fc54836028eaa655b8260a9d0bf61602b"
+        }
+      },
+      {
+        "role": "native.log",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/isolated-rollback-attempt02-native.log",
+        "bytes": 936,
+        "sha256": "27052d0b53d3f29fb9d9843d1141744b4d46dbb33558312457515618d863b8a5",
+        "copy": "byte-exact already-read input buffer"
+      },
+      {
+        "role": "native.exit",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/isolated-rollback-attempt02-native.exit",
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "copy": "byte-exact already-read input buffer"
+      },
+      {
+        "role": "publication-a-verification.json",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/isolated-rollback-attempt02-publication-a-verification.json",
+        "bytes": 13198,
+        "sha256": "258f4c16eac5e8d7e114168ecb7ada251e2b1eac377bfeaec142bbdbcc51e865",
+        "copy": "byte-exact already-read input buffer"
+      },
+      {
+        "role": "publication-b-verification.json",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/isolated-rollback-attempt02-publication-b-verification.json",
+        "bytes": 13197,
+        "sha256": "83df2e4eca5d6a300110466d6d38fc2a1eaedbba073cb1e2c494bb886d8e0427",
+        "copy": "byte-exact already-read input buffer"
+      },
+      {
+        "role": "derivation.json",
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/isolated-rollback-attempt02-derivation.json",
+        "bytes": 12757,
+        "sha256": "cd9a1a09fa9ba6d57f6f975eb4267041c1f4e85349aa8a4994b28e1409f3fce8",
+        "copy": "byte-exact already-read input buffer"
+      }
+    ],
+    "scope": "result metadata gzip plus five metadata copies; no test source or database archived",
+    "correction": "all six archive outputs were already exclusively written and remain untouched; no test source or database archive"
+  },
+  "native_completion": "canonical cached 0LF, native summary and complete meter agree; root separately reports actual tool marker0 and returned exit0",
+  "limits": [
+    "isolated new synthetic fixture rotation only",
+    "no real candidate, live activation, scientific, full-family or final protected-primary/preservation pass",
+    "generated payload totals, actual physical io, simultaneous aggregate memory and independent kernel provenance remain unmeasured or unassessed",
+    "all original outputs and cleanup hold remain intact; no cleanup or later command follows"
+  ],
+  "reviewer_correction": {
+    "type": "reviewer_status_field_type_oracle_error",
+    "initial_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/isolated-rollback-attempt02-independent-review.json",
+      "bytes": 9941,
+      "sha256": "c1176693f3c42fe0d123c22c592de818a8aac91f35d0c0e2cf330327ad96356b",
+      "retained_status": "failed_cached_adjudication",
+      "findings": [
+        "a: per-season normal checks differ",
+        "b: per-season normal checks differ"
+      ]
+    },
+    "incorrect_expectation": "every value in a per-season checks dictionary must equal the string passed",
+    "correct_contract": "only read_back and conservation are status fields; the remaining fields are numeric measurements",
+    "source_of_corrective_facts": "root supplied exact values extracted from the two byte-exact archived publication verification copies; the six original metadata inputs were not reread",
+    "same_values_in_publications": [
+      "a",
+      "b"
+    ],
+    "per_season_checks": {
+      "20232024": {
+        "physical_seconds": 5177,
+        "player_seconds": 51770,
+        "physical_attempts": 169,
+        "player_attempts_for": 845,
+        "player_attempts_against": 845,
+        "personal_physical_seconds": 5177,
+        "personal_player_seconds": 51770,
+        "deployment_pairs": 1207,
+        "teammate_pair_seconds": 103540,
+        "opponent_pair_seconds": 129425,
+        "read_back": "passed",
+        "conservation": "passed"
+      },
+      "20242025": {
+        "physical_seconds": 5296,
+        "player_seconds": 52960,
+        "physical_attempts": 179,
+        "player_attempts_for": 895,
+        "player_attempts_against": 895,
+        "personal_physical_seconds": 5296,
+        "personal_player_seconds": 52960,
+        "deployment_pairs": 1204,
+        "teammate_pair_seconds": 105920,
+        "opponent_pair_seconds": 132400,
+        "read_back": "passed",
+        "conservation": "passed"
+      },
+      "20252026": {
+        "physical_seconds": 5887,
+        "player_seconds": 58870,
+        "physical_attempts": 184,
+        "player_attempts_for": 920,
+        "player_attempts_against": 920,
+        "personal_physical_seconds": 5887,
+        "personal_player_seconds": 58870,
+        "deployment_pairs": 1214,
+        "teammate_pair_seconds": 117740,
+        "opponent_pair_seconds": 147175,
+        "read_back": "passed",
+        "conservation": "passed"
+      }
+    },
+    "arithmetic_scope": "existing observed 5v5 conservation only: 10x physical skater seconds, 5x attempts for and against, 20x teammate pair seconds, 25x opponent pair seconds; no new scientific claim",
+    "disposition": "all six explicit read_back/conservation statuses are passed; this corrects a reviewer type/oracle error, not an unavailable-case exception or failed-status waiver",
+    "preserved_guards": "every previously verified native exit, raw failure absence, metadata identity, binding, full-file hash/header, transition and incoming-absence requirement remains unchanged"
+  }
+}

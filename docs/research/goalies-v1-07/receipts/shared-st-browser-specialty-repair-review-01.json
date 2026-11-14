@@ -1,0 +1,36 @@
+{
+  "kind": "shared-st-browser-four-literal-repair-static-review",
+  "scope": "three exact named local source/proof files; in-memory unified-hunk reconstruction only",
+  "reviewer": "/root/canonical_trace",
+  "source": {
+    "bytes": 54030,
+    "sha256": "c74dcf9806d4533308bb00d08bd28e18620653948bddc48b06b1626dd7567fbe"
+  },
+  "patch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-specialty-button-repair-01.patch",
+    "bytes": 3680,
+    "sha256": "502917089eef3ef827e9d0bcaa973b84910ca1a0c4abc4ea68fd37f93f115e85"
+  },
+  "author_proof": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-specialty-button-repair-proof-01.json",
+    "bytes": 1157,
+    "sha256": "345aa7e75a74c07ef94fe27072f508e20de1ace9a16d2ea610c52bf3fe03d047"
+  },
+  "independent_result": {
+    "exact_contexts_and_counts_match": true,
+    "changed_sites": [
+      396,
+      428,
+      440,
+      537
+    ],
+    "only_delta": "four exact apply peer minimum names become apply specialty peer minimum",
+    "virtual_target_bytes": 54070,
+    "virtual_target_sha256": "3601f2f845ae7f0bfb81c8a886f4a3f9a0ad8d007caa654490a5b6057b5a7dd5",
+    "full_inverse_restores_source": true,
+    "runnable_target_materialized": false,
+    "findings": []
+  },
+  "limits": "no historical failure dom, current live qualification, controller import/syntax/test/build/browser/data query or product change; anchor/remainder source and actual command remain separate",
+  "next_scope": "source preparation only; no live/preflight authority"
+}

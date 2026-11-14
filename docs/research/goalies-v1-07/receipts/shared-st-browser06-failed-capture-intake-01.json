@@ -1,0 +1,37 @@
+{
+  "kind": "shared-st-browser06-failed-capture-intake",
+  "closure": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-owned-closure-01.json",
+    "bytes": 2560,
+    "sha256": "453cdca1a79268128c10a2590a35845765ad2af96bac6fb5f718a8bc6ed9c3d2"
+  },
+  "capture": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-postexit-capture-01.json",
+    "bytes": 421697,
+    "sha256": "1d905c47eeb87e5f99da4959d57df8dfc395d11f23407c4e6088ba8b618b7bfe"
+  },
+  "collection_status": "passed",
+  "native_exit": 1,
+  "artifact_acceptance": "NOT_ACCEPTED",
+  "captured_body_identities_verified": {
+    "result": {
+      "bytes": 313511,
+      "sha256": "bc7cd8446b3b7d98b845bf0836f1b7d2837f3f44ff662cd181c632e889059959"
+    },
+    "log": {
+      "bytes": 777,
+      "sha256": "8f23cf0936a42a7857097189430afba640f47be0dbfbca43c981f94db5f6ea13"
+    },
+    "exit": {
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    }
+  },
+  "verified_captured_logical_bytes": 314290,
+  "current_browser_source_sha256": "c74dcf9806d4533308bb00d08bd28e18620653948bddc48b06b1626dd7567fbe",
+  "historical_embedded_source_identifiers": "35c3/f682/09ff remain historical baseline references; current source is bound by amendment/admission/actual frame",
+  "review_scope": "fixed cached local closure and capture only; no original artifact/log/csv/image/member/db/http/os/source read",
+  "independent_semantic_adjudication": "PENDING; owner retains assigned boundary",
+  "failure_cause": "UNESTABLISHED",
+  "next_stage_authority": "NONE; no diagnosis, retry, pixels or cleanup grant"
+}

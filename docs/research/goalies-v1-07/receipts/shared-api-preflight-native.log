@@ -1,0 +1,19 @@
+{"kind": "goalie-api-availability-preflight", "status": "passed_availability_only", "checked_at_utc": "2026-11-13T12:22:05.392819+00:00", "failure": null, "input_body_reads": 0, "mount_present": true, "output_parent_present": true, "saved_source_directory_present": true, "output_absent": true}
+       13.94 real         0.01 user         0.01 sys
+            16302080  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1439  page reclaims
+                 337  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  85  voluntary context switches
+                 142  involuntary context switches
+           239533112  instructions retired
+           109274831  cycles elapsed
+             8454648  peak memory footprint

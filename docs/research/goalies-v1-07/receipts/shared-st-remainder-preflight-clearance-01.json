@@ -1,0 +1,29 @@
+{
+  "kind": "shared-st-remainder-preflight-clearance",
+  "status": "assign_one_preflight_only",
+  "source_intake": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-remainder-source-intake-01.json",
+    "bytes": 1767,
+    "sha256": "0e00edf2261a878ed987224aa53c56444db7c7b24950e07cbe16f7bb43b0bd7a"
+  },
+  "owner": "v1-09 operator; root holds competing live/drive jobs through checked preflight return",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-09",
+  "argv": [
+    "/bin/sh",
+    ".tmp/st-final-browser-remainder-launch-preflight-held-01.sh"
+  ],
+  "source_sha256": "7bbbc9fc6fadc128c7c6692a9f9a3a2465456b252a46400de189c63c8b3a1edc",
+  "held_sha256": "3a76967475c95939ec6f8005250d0eed1f1f178bc5165f0cdb469a80a12b1fbf",
+  "scope": "46 local bodies: six fixed source/held/plan/target/API/build plus38compiled+PWpackage+ChromeInfo. qualified primary3.14.8-B/stdlib, bounded versions/static ownership, exact retained89887 process/start/argv/cwd/listener, ordinary selected mount/parents and five unused remainder01 paths only; no mkdir",
+  "forbidden": "no external consumer/CSV/input/member/DB body or stat; no local prior-prefix body or stat; no HTTP, controller/PW import, Chrome/model launch, array/fullreader, browser or hidden chain",
+  "target_sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a",
+  "outputs": [
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-01.json",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-01-native.log",
+    "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-remainder-launch-preflight-01-native.exit"
+  ],
+  "execution": "verify current owned idle STcwd/plain shell prompt; submit exact argv once. current ST_BROWSER_REMAINDER_PREFLIGHT_NATIVE_EXIT marker+returned prompt and exact native exit artifact establish completion, not delivery/PID absence/theme. preserve any failure; no automatic retry",
+  "return": "retain native result/log/exit and actual submission facts; independently review cached local facts, then return exact identities/costs/unknowns. no referenced input/runtime replay",
+  "next": "browser dispatch path/hash and actual capture launch digest remain unknown. no browser/capture/pixel/rollback/preservation/cleanup/build/startup/publication/fit/rescore/activation or later chain by this grant",
+  "stop": "user stop or hold supersedes all pending commands and reads"
+}

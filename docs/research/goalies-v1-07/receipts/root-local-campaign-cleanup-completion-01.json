@@ -1,0 +1,1291 @@
+{
+  "kind": "goalie-owned-local-cleanup",
+  "status": "completed",
+  "paths": [
+    {
+      "path": ".tmp/goalie-live-acceptance/api-boundary-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-boundary-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-boundary-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-boundary-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-boundary-02",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-boundary-02-held.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-boundary-02-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-boundary-02-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-boundary-02.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-boundary.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-held-02.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-held.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-preflight-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-preflight-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-preflight-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-preflight-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-preflight-01.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-preflight-02.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-preflight-02.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-preflight-02.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-preflight-02.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/api-preparation.md",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/archive-runtime-02.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-01-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-01-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-01.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-02",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-02-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-02-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-02.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-03",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-03-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-03-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-03.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-04",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-04-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-04-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-boundary-04.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-canonical-diagnostic-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-canonical-diagnostic-01-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-canonical-diagnostic-01-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-canonical-diagnostic-02.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-canonical-diagnostic.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-controller-controls.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-controller-controls.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-cutoff-diagnostic-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-cutoff-diagnostic-01-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-cutoff-diagnostic-01-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-cutoff-diagnostic-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-cutoff-diagnostic.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-evidence-diagnostic-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-evidence-diagnostic-01-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-evidence-diagnostic-01-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-evidence-diagnostic.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-held-02.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-held-03-before-local-log.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-held-03.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-held-04.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-held-05.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-held-06.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-held-07.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-held.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-history-label-bounds.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-history-label-green-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-history-label-green-01-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-history-label-green-01-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-history-label-green-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-history-label-red-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-history-label-red-01-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-history-label-red-01-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-native-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-native-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-native-02.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-native-02.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-native-03.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-native-03.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-native-04.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-native-04.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-null-qualification.patch",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-pixel-copy-03.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-pixel-copy-03.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-02.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-02.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-02.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-02.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-03.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-03.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-03.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-03.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-04.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-04.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-04.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preflight-04.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-preparation.md",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-profile-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-profile-02",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-profile-03",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-profile-04",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-qualification-controls.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-qualification-controls.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-real-02-before-evidence-diagnostic.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-real-02.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-real-03.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-real-04-87464d3f.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-real-04.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-real-72b.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-real-consumer-03-before-cutoff-diagnostic.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-real-consumer-03.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-real.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-transport-diagnostic-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-transport-diagnostic-01-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-transport-diagnostic-01-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-transport-diagnostic-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/browser-transport-diagnostic.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/check-api-controls-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/check-api-controls-02.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/check-api-controls.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/check_api.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/cleanup-inventory-source-only-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-before-origin-fix-1b8.ts",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-before-reduction-5c7.ts",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-boundary-03",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-boundary-03-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-boundary-03-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-boundary-03.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-boundary-03.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-boundary-04",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-boundary-04-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-boundary-04-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-boundary-04.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-boundary-04.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-failure-capture-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-failure-capture-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-failure-capture-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-failure-capture-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-failure-capture-02",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-failure-capture-02.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-failure-capture-02.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-failure-capture-02.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-held-02.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-held-03.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-held-04.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-held.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-02.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-02.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-02.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-02.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-03.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-03.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-03.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-03.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-04.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-04.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-04.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/consumer-preflight-04.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/detached-bootstrap-20261113.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/detached-bootstrap-20261113.stderr",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/detached.sb",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/final-preservation-partial-io.patch",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/g-header-recovery.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/g-header-recovery.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/g-header-recovery.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/g-parent-manifest.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/g-parent-producer-receipt.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-after-01-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-after-01-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-after-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-after-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-after-label-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-after-label-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-after-label-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-after-label-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-before-01-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-before-01-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-before-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-before-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-build-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-build-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-controls.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-green-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-green-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-green-01.json.bundle.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-green-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-green-02.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-green-02.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-green-02.json.bundle.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-green-02.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-green-03.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-green-03.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-green-03.json.bundle.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-green-03.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-http-comparison.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-label-binding.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-red-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-red-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-red-01.json.bundle.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-red-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-02.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-02.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-03.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/goalie-overview-typecheck-03.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/history-label-anchor-applied.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/history-label-anchor-inverse.patch",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/history-label-anchor-proposal.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/history-label-anchor-proposed.patch",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/history-label-anchor-proposed.tsx",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/history-label-backend-before.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/history-label-build-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/history-label-build-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/history-label-build-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/history-label-build-preparation.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/history-label-typecheck-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/history-label-typecheck-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/narrow-mechanism-20261113-profile",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/narrow-mechanism-20261113.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/narrow-mechanism-20261113.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/owned-live-terminal.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/probe-narrow-window.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-before-goalie-overview.ts",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-boundary-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-boundary-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-boundary-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-boundary-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-boundary-controls-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-boundary-controls-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-boundary-controls-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-boundary-controls.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-boundary-preparation.md",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-boundary.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-preflight-01.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-preflight-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-preflight-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-preflight-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-preflight.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-preparation.md",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/recover-g-headers.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/recover-g-headers.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/runtime-01-archive.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/runtime-startup-01.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/runtime-startup-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/runtime-startup-01.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/runtime-startup-02.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/runtime-startup-02.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/runtime-startup-02.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/runtime-startup-03.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/runtime-startup-03.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/runtime-startup-03.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/runtime.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/st-api-browser-preparation.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/st-consumer-status-02.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/st-new-runtime-02-status.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/st-overview-repair-status.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/st-runtime02-and-api02-status.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/startup-held-02.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/startup-held-03.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/startup-held.sh",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/startup-preflight-02.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/startup-preflight-03.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/to-st-api-actual-launch.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/to-st-publication-accepted-startup-assigned.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/to-st-publication-status-20261113T0805.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/to-st-publication-status-20261113T0917.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/to-st-publication-status-20261113T1054.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/to-st-startup-accepted-api-window.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/to-st-startup-actual-launch.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-playwright-runtime",
+      "status": "removed"
+    },
+    {
+      "path": "app/goalie-consumers-temporary.ts",
+      "status": "removed"
+    },
+    {
+      "path": "app/goalie-contracts-temporary.ts",
+      "status": "removed"
+    },
+    {
+      "path": "app/goalie-live-consumers-temporary.ts",
+      "status": "removed"
+    },
+    {
+      "path": "app/goalie-selector-review-temporary.ts",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-acceptance/check_panel.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-acceptance/check_reference.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-acceptance/check_evidence.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-acceptance/check_score_contract.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-acceptance/check_method_lineage.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-acceptance/check_sensitivity.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-acceptance/check_malformed_score_cli.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-acceptance/final-fixture-score-command.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-acceptance/run_fixture_score.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-acceptance/compare_targets.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-isolated-rollback-source-locators-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-isolated-rollback-source-preparation-01.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-isolated-rollback-01.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-isolated-rollback-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-isolated-rollback-02.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-isolated-rollback-02-source.patch",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-isolated-rollback-source-preparation-02.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-isolated-rollback-02",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-isolated-rollback-01-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-isolated-rollback-01-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-isolated-rollback-02-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-isolated-rollback-02-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/st-remainder-canonical-url-wait-01.patch",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/st-remainder-canonical-url-wait-01-source-note.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/st-map-lifecycle-diagnostic-01.mjs",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/st-map-lifecycle-diagnostic-01.plan.md",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/st-map-lifecycle-diagnostic-01",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/st-map-lifecycle-diagnostic-01-native.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/st-map-lifecycle-diagnostic-01-native.exit",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/resume-drive-access-20261113.py",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/resume-drive-access-20261113.command",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/resume-drive-access-20261113.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/resume-access-result-20261113.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/resume-root-receipt-clearance-20261113.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/goalie-playwright-install-20261113.log",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/drive-disconnection-hold-20261111.json",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/st-browser06-return-coordination-01.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/st-browser06-source-recovery-preparation-assignment-01.txt",
+      "status": "removed"
+    },
+    {
+      "path": ".tmp/st-browser12-pixel-inputs-01.json",
+      "status": "removed"
+    }
+  ],
+  "error": null
+}

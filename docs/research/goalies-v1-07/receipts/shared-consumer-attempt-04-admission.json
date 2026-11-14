@@ -1,0 +1,27 @@
+{
+  "kind": "shared-consumer-attempt-04-admission",
+  "status": "assigned_once_after_checked_api02_and_freshness",
+  "runtime_source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+  "server_pid": 33587,
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "stored_publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "api_result_sha256": "355de762cb1f72cf496c8c690658d7a751e66d7caff6b3dc7994eb9e40d50472",
+  "source_sha256": "ed64fdb5b45b31ac9eea50bb124d408a2b1440761730faa583cf1a10607aeb4d",
+  "held_command_sha256": "e67f73cb4562c819344bfc8e2d086d6ffefa386ab4a8c4fb35e817c1563d3a85",
+  "freshness": {
+    "kind": "goalie-consumer-freshness",
+    "mount_present": true,
+    "parent_is_directory": true,
+    "absent": {
+      "consumer-04.json": true,
+      "consumer-04.csv": true,
+      "consumer-04-native.log": true,
+      "consumer-04-native.exit": true
+    },
+    "input_body_reads": 0,
+    "status": "passed_availability_only"
+  },
+  "scope": "two real typed anchor loaders;26 metric compositions/78 annual cohort and shared CSV rows; all representative/view/actual-selection checks remain required in full browser matrix",
+  "limits": "unchanged driver, no transport tuning/retry/fallback; old failures remain preserved; outcome unknown until actual closure/capture/review"
+}

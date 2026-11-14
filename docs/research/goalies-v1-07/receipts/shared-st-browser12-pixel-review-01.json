@@ -1,0 +1,644 @@
+{
+  "kind": "independent_original_png_pixel_review",
+  "status": "complete_no_visible_blockers_in_assigned_viewports",
+  "scope": {
+    "input_manifest_path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/st-browser12-pixel-inputs-01.json",
+    "input_manifest_expected_bytes": 56555,
+    "input_manifest_expected_sha256": "b176a914759f4fca30396aab64a52c2cf6313524667f4a1bbf7f0617dbbe0510",
+    "input_manifest_actual": {
+      "manifest_bytes": 56555,
+      "manifest_sha256": "b176a914759f4fca30396aab64a52c2cf6313524667f4a1bbf7f0617dbbe0510",
+      "source_review": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/shared-st-browser12-independent-adjudication-05.json",
+        "bytes": 113505,
+        "sha256": "7707314602c95cb169a7e4c5c02aa30382076e8d9ddcb9bc77580372c4a1e269"
+      }
+    },
+    "entry_indices_inclusive": [
+      1,
+      12
+    ],
+    "png_root": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/",
+    "prohibited_materials_opened": false,
+    "authority": "bounded original-pixel review only; no family, scientific admission or later-stage authority",
+    "preserved_source_identifiers": [
+      "G3763",
+      "fee5",
+      "app852",
+      "build18ef",
+      "Node89887",
+      "fb604",
+      "21de15d"
+    ],
+    "unchanged": "all source, application, build, service and expensive artifacts; only this exclusive report is created"
+  },
+  "method": {
+    "verification": "qualified /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python -B, stdlib pathlib/hashlib/struct/time/resource; exactly one ordinary read_bytes call per selected original for byte count, sha256 and png signature/ihdr extraction",
+    "pixel_view": "each of the twelve original paths was separately passed to tools.view_image and rendered through image(result.image_url); all twelve appeared and were inspected",
+    "substitutes_used": false,
+    "inheritance": "none; all twelve prior_pixel_match_candidate values are null",
+    "view_rechecks": 0,
+    "view_and_recheck_io": "UNKNOWN / unmetered",
+    "physical_io": "UNKNOWN / unmetered; measured logical hash-read bytes do not measure image decoding, caching or physical device reads",
+    "scope_limit": "these are map-position viewport captures. repeated legend prose continues beyond the lower viewport edge, while the title, rink, integral, complete swatch row, units and first neutral-band statement remain visible. content below the viewport is not required for this pixel verdict.",
+    "science_limit": "pixels do not establish the numerical arithmetic, extraction, scientific quality, calibration, attribution, precision or sensitivity claims"
+  },
+  "entries": [
+    {
+      "index": 1,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/001-normal-map.png",
+      "recorded_bytes": 61556,
+      "recorded_sha256": "033c225c1197f8f62a254fd18a5dabb48c98cc07dacab341c5cfa496d225916b",
+      "encoded_dimensions": "UNKNOWN",
+      "mode": "normal",
+      "position": "map",
+      "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_attempts_per60&view=analytical",
+      "metric": "spatial.pp.offense_attempts_per60",
+      "kind": "viewport_capture",
+      "prior_pixel_match_candidate": null,
+      "actual": {
+        "bytes": 61556,
+        "sha256": "033c225c1197f8f62a254fd18a5dabb48c98cc07dacab341c5cfa496d225916b",
+        "png_signature_valid": true,
+        "ihdr_dimensions": [
+          1280,
+          913
+        ],
+        "binary_read_wall_seconds": 0.023785374825820327
+      },
+      "bytes_match": true,
+      "sha256_match": true,
+      "dimensions_comparison": "recorded encoded_dimensions is UNKNOWN; actual ihdr dimensions are 1280×913. no recorded numeric dimension claim is available for comparison.",
+      "pixel_review": {
+        "status": "viewed_no_visible_blocker",
+        "actual_original_view": true,
+        "view_method": "tools.view_image → image(result.image_url)",
+        "view_count": 1,
+        "inherited": false,
+        "visible_title": "pp offense attempts · effect",
+        "metric_title_consistency": "visible title matches the manifest metric and effect/absolute map target",
+        "specific_map_observation": "the vertical full rink is intact. a dark red positive lobe sits in the upper-right attacking zone and a smaller pale red island sits left of the upper goal; the lower rink remains neutral.",
+        "visible_orientation": "full rink: attacking goal above; +x up, +y right",
+        "visible_integral": "4.87636 attempts/60 min",
+        "specific_legend_observation": "the nine signed swatches run from -0.365265 to 0.365265; density is labeled attempts/60 min/100 sqft. the neutral-band statement explicitly says |density| < 0.0913163, not exact zero.",
+        "layout": "title, full rink, orientation, integral, swatch values and first density qualifier are legible and do not overlap. no blank image, corruption or horizontal overflow is visible. the final repeated legend paragraph meets the lower viewport boundary, consistent with a viewport capture.",
+        "reference_experimental_precision_sensitivity_caveats": "no reference, experimental, precision or sensitivity prose is visible in this map-position viewport; below-viewport content is unassessed. the visible density/neutral-fill qualifier is readable.",
+        "season_and_chart_endpoints": "20252026 is present in the target url, but no selected-year control or player header is visible. this is a rink map, not a time-series chart; chart endpoints are not applicable.",
+        "blockers": [],
+        "unknowns": [
+          "content beyond the viewport",
+          "selected-season control outside viewport",
+          "numerical and scientific validity"
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/002-normal-map.png",
+      "recorded_bytes": 66166,
+      "recorded_sha256": "4a8ed8e0a6c60555f0404c9f9de701aa1699ae5fde62d4f21881a3bc961a10d7",
+      "encoded_dimensions": "UNKNOWN",
+      "mode": "normal",
+      "position": "map",
+      "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_attempts_per60&view=analytical&map=absolute",
+      "metric": "spatial.pp.offense_attempts_per60",
+      "kind": "viewport_capture",
+      "prior_pixel_match_candidate": null,
+      "actual": {
+        "bytes": 66166,
+        "sha256": "4a8ed8e0a6c60555f0404c9f9de701aa1699ae5fde62d4f21881a3bc961a10d7",
+        "png_signature_valid": true,
+        "ihdr_dimensions": [
+          1280,
+          913
+        ],
+        "binary_read_wall_seconds": 0.000612917123362422
+      },
+      "bytes_match": true,
+      "sha256_match": true,
+      "dimensions_comparison": "recorded encoded_dimensions is UNKNOWN; actual ihdr dimensions are 1280×913. no recorded numeric dimension claim is available for comparison.",
+      "pixel_review": {
+        "status": "viewed_no_visible_blocker",
+        "actual_original_view": true,
+        "view_method": "tools.view_image → image(result.image_url)",
+        "view_count": 1,
+        "inherited": false,
+        "visible_title": "pp offense attempts · complete focal rate",
+        "metric_title_consistency": "visible title matches the manifest metric and effect/absolute map target",
+        "specific_map_observation": "the sequential blue contours cover the upper attacking end, with the darkest region just below the upper goal and broader lighter contours toward the right and blue line; the lower rink is neutral.",
+        "visible_orientation": "full rink: attacking goal above; +x up, +y right",
+        "visible_integral": "69.0764 attempts/60 min",
+        "specific_legend_observation": "the nine sequential swatches run from 0 to 2.89164; density is labeled attempts/60 min/100 sqft. the complete nonnegative-density note says neutral fill denotes density < 0.361455.",
+        "layout": "title, full rink, orientation, integral, swatch values and first density qualifier are legible and do not overlap. no blank image, corruption or horizontal overflow is visible. the final repeated legend paragraph meets the lower viewport boundary, consistent with a viewport capture.",
+        "reference_experimental_precision_sensitivity_caveats": "no reference, experimental, precision or sensitivity prose is visible in this map-position viewport; below-viewport content is unassessed. the visible density/neutral-fill qualifier is readable.",
+        "season_and_chart_endpoints": "20252026 is present in the target url, but no selected-year control or player header is visible. this is a rink map, not a time-series chart; chart endpoints are not applicable.",
+        "blockers": [],
+        "unknowns": [
+          "content beyond the viewport",
+          "selected-season control outside viewport",
+          "numerical and scientific validity"
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/004-normal-map.png",
+      "recorded_bytes": 58601,
+      "recorded_sha256": "787242c33d047babe816cadb9bebf74b8a381f33c26f58d61b6a2dd3afd7e942",
+      "encoded_dimensions": "UNKNOWN",
+      "mode": "normal",
+      "position": "map",
+      "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_xg_per60&view=analytical",
+      "metric": "spatial.pp.offense_xg_per60",
+      "kind": "viewport_capture",
+      "prior_pixel_match_candidate": null,
+      "actual": {
+        "bytes": 58601,
+        "sha256": "787242c33d047babe816cadb9bebf74b8a381f33c26f58d61b6a2dd3afd7e942",
+        "png_signature_valid": true,
+        "ihdr_dimensions": [
+          1280,
+          913
+        ],
+        "binary_read_wall_seconds": 0.0004184169229120016
+      },
+      "bytes_match": true,
+      "sha256_match": true,
+      "dimensions_comparison": "recorded encoded_dimensions is UNKNOWN; actual ihdr dimensions are 1280×913. no recorded numeric dimension claim is available for comparison.",
+      "pixel_review": {
+        "status": "viewed_no_visible_blocker",
+        "actual_original_view": true,
+        "view_method": "tools.view_image → image(result.image_url)",
+        "view_count": 1,
+        "inherited": false,
+        "visible_title": "pp offense xg · effect",
+        "metric_title_consistency": "visible title matches the manifest metric and effect/absolute map target",
+        "specific_map_observation": "a strong red lobe lies just below and slightly left of the upper goal, with a smaller pale red lobe to its lower right. the contours terminate at the rink boundary; no painted pixels spill outside it.",
+        "visible_orientation": "full rink: attacking goal above; +x up, +y right",
+        "visible_integral": "0.202169 xg/60 min",
+        "specific_legend_observation": "the signed scale runs from -0.0171764 to 0.0171764 in xg/60 min/100 sqft. the central-band text says |density| < 0.0042941, not exact zero.",
+        "layout": "title, full rink, orientation, integral, swatch values and first density qualifier are legible and do not overlap. no blank image, corruption or horizontal overflow is visible. the final repeated legend paragraph meets the lower viewport boundary, consistent with a viewport capture.",
+        "reference_experimental_precision_sensitivity_caveats": "no reference, experimental, precision or sensitivity prose is visible in this map-position viewport; below-viewport content is unassessed. the visible density/neutral-fill qualifier is readable.",
+        "season_and_chart_endpoints": "20252026 is present in the target url, but no selected-year control or player header is visible. this is a rink map, not a time-series chart; chart endpoints are not applicable.",
+        "blockers": [],
+        "unknowns": [
+          "content beyond the viewport",
+          "selected-season control outside viewport",
+          "numerical and scientific validity"
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/005-normal-map.png",
+      "recorded_bytes": 64368,
+      "recorded_sha256": "6cdb0b13ebdaf97768574681751452b6ed6fa7a8dc6e3777bfbd7f4d0523d663",
+      "encoded_dimensions": "UNKNOWN",
+      "mode": "normal",
+      "position": "map",
+      "url": "http://127.0.0.1:3407/players/8471214?season=20252026&metric=spatial.pp.offense_xg_per60&view=analytical&map=absolute",
+      "metric": "spatial.pp.offense_xg_per60",
+      "kind": "viewport_capture",
+      "prior_pixel_match_candidate": null,
+      "actual": {
+        "bytes": 64368,
+        "sha256": "6cdb0b13ebdaf97768574681751452b6ed6fa7a8dc6e3777bfbd7f4d0523d663",
+        "png_signature_valid": true,
+        "ihdr_dimensions": [
+          1280,
+          913
+        ],
+        "binary_read_wall_seconds": 0.00039579090662300587
+      },
+      "bytes_match": true,
+      "sha256_match": true,
+      "dimensions_comparison": "recorded encoded_dimensions is UNKNOWN; actual ihdr dimensions are 1280×913. no recorded numeric dimension claim is available for comparison.",
+      "pixel_review": {
+        "status": "viewed_no_visible_blocker",
+        "actual_original_view": true,
+        "view_method": "tools.view_image → image(result.image_url)",
+        "view_count": 1,
+        "inherited": false,
+        "visible_title": "pp offense xg · complete focal rate",
+        "metric_title_consistency": "visible title matches the manifest metric and effect/absolute map target",
+        "specific_map_observation": "nested blue contours are centered just beneath the upper goal and taper toward the upper blue line; the darkest compact core is distinct from the neutral lower rink.",
+        "visible_orientation": "full rink: attacking goal above; +x up, +y right",
+        "visible_integral": "3.95793 xg/60 min",
+        "specific_legend_observation": "the sequential scale runs from 0 to 0.302028 in xg/60 min/100 sqft; the complete nonnegative-density note defines neutral fill as density < 0.0377534.",
+        "layout": "title, full rink, orientation, integral, swatch values and first density qualifier are legible and do not overlap. no blank image, corruption or horizontal overflow is visible. the final repeated legend paragraph meets the lower viewport boundary, consistent with a viewport capture.",
+        "reference_experimental_precision_sensitivity_caveats": "no reference, experimental, precision or sensitivity prose is visible in this map-position viewport; below-viewport content is unassessed. the visible density/neutral-fill qualifier is readable.",
+        "season_and_chart_endpoints": "20252026 is present in the target url, but no selected-year control or player header is visible. this is a rink map, not a time-series chart; chart endpoints are not applicable.",
+        "blockers": [],
+        "unknowns": [
+          "content beyond the viewport",
+          "selected-season control outside viewport",
+          "numerical and scientific validity"
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/006-normal-map.png",
+      "recorded_bytes": 64920,
+      "recorded_sha256": "aad5538e99010cbfccc298710d6314309ac7bec27acfb33873cacd4adda7cd8b",
+      "encoded_dimensions": "UNKNOWN",
+      "mode": "normal",
+      "position": "map",
+      "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_attempts_per60&view=analytical",
+      "metric": "spatial.pk.defense_attempts_per60",
+      "kind": "viewport_capture",
+      "prior_pixel_match_candidate": null,
+      "actual": {
+        "bytes": 64920,
+        "sha256": "aad5538e99010cbfccc298710d6314309ac7bec27acfb33873cacd4adda7cd8b",
+        "png_signature_valid": true,
+        "ihdr_dimensions": [
+          1280,
+          913
+        ],
+        "binary_read_wall_seconds": 0.00849470915272832
+      },
+      "bytes_match": true,
+      "sha256_match": true,
+      "dimensions_comparison": "recorded encoded_dimensions is UNKNOWN; actual ihdr dimensions are 1280×913. no recorded numeric dimension claim is available for comparison.",
+      "pixel_review": {
+        "status": "viewed_no_visible_blocker",
+        "actual_original_view": true,
+        "view_method": "tools.view_image → image(result.image_url)",
+        "view_count": 1,
+        "inherited": false,
+        "visible_title": "pk defense attempts · effect",
+        "metric_title_consistency": "visible title matches the manifest metric and effect/absolute map target",
+        "specific_map_observation": "negative blue contours occupy the lower defensive end, with the darkest core to the lower right and a broader pale extension leftward. the upper end is neutral; the rink outline and center markings remain visible.",
+        "visible_orientation": "full rink: defended goal below; +x down, +y left; both axes rotated 180°",
+        "visible_integral": "-3.91522 attempts/60 min",
+        "specific_legend_observation": "the signed scale runs from -0.175178 to 0.175178 in attempts/60 min/100 sqft. the central-band text says |density| < 0.0437946, not exact zero.",
+        "layout": "title, full rink, orientation, integral, swatch values and first density qualifier are legible and do not overlap. no blank image, corruption or horizontal overflow is visible. the final repeated legend paragraph meets the lower viewport boundary, consistent with a viewport capture.",
+        "reference_experimental_precision_sensitivity_caveats": "no reference, experimental, precision or sensitivity prose is visible in this map-position viewport; below-viewport content is unassessed. the visible density/neutral-fill qualifier is readable.",
+        "season_and_chart_endpoints": "20252026 is present in the target url, but no selected-year control or player header is visible. this is a rink map, not a time-series chart; chart endpoints are not applicable.",
+        "blockers": [],
+        "unknowns": [
+          "content beyond the viewport",
+          "selected-season control outside viewport",
+          "numerical and scientific validity"
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/007-normal-map.png",
+      "recorded_bytes": 68617,
+      "recorded_sha256": "1a8c92768844e47753379ded9e02c5e6fe5575581f7d2c1a1ca67f6a3873f887",
+      "encoded_dimensions": "UNKNOWN",
+      "mode": "normal",
+      "position": "map",
+      "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_attempts_per60&view=analytical&map=absolute",
+      "metric": "spatial.pk.defense_attempts_per60",
+      "kind": "viewport_capture",
+      "prior_pixel_match_candidate": null,
+      "actual": {
+        "bytes": 68617,
+        "sha256": "1a8c92768844e47753379ded9e02c5e6fe5575581f7d2c1a1ca67f6a3873f887",
+        "png_signature_valid": true,
+        "ihdr_dimensions": [
+          1280,
+          913
+        ],
+        "binary_read_wall_seconds": 0.0005124579183757305
+      },
+      "bytes_match": true,
+      "sha256_match": true,
+      "dimensions_comparison": "recorded encoded_dimensions is UNKNOWN; actual ihdr dimensions are 1280×913. no recorded numeric dimension claim is available for comparison.",
+      "pixel_review": {
+        "status": "viewed_no_visible_blocker",
+        "actual_original_view": true,
+        "view_method": "tools.view_image → image(result.image_url)",
+        "view_count": 1,
+        "inherited": false,
+        "visible_title": "pk defense attempts · complete focal rate",
+        "metric_title_consistency": "visible title matches the manifest metric and effect/absolute map target",
+        "specific_map_observation": "blue contours form a broad bowl across the lower defensive zone, with a darkest diamond-like center immediately above the lower goal. the light outer contour reaches slightly above the lower blue line.",
+        "visible_orientation": "full rink: defended goal below; +x down, +y left; both axes rotated 180°",
+        "visible_integral": "60.2875 attempts/60 min",
+        "specific_legend_observation": "the sequential scale runs from 0 to 2.89917 in attempts/60 min/100 sqft; the complete nonnegative-density note defines neutral fill as density < 0.362396.",
+        "layout": "title, full rink, orientation, integral, swatch values and first density qualifier are legible and do not overlap. no blank image, corruption or horizontal overflow is visible. the final repeated legend paragraph meets the lower viewport boundary, consistent with a viewport capture.",
+        "reference_experimental_precision_sensitivity_caveats": "no reference, experimental, precision or sensitivity prose is visible in this map-position viewport; below-viewport content is unassessed. the visible density/neutral-fill qualifier is readable.",
+        "season_and_chart_endpoints": "20252026 is present in the target url, but no selected-year control or player header is visible. this is a rink map, not a time-series chart; chart endpoints are not applicable.",
+        "blockers": [],
+        "unknowns": [
+          "content beyond the viewport",
+          "selected-season control outside viewport",
+          "numerical and scientific validity"
+        ]
+      }
+    },
+    {
+      "index": 7,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/009-normal-map.png",
+      "recorded_bytes": 59217,
+      "recorded_sha256": "65527c62e60c92527f87d69856b828ae5f4a07bf7c709acec8e6802d715bac46",
+      "encoded_dimensions": "UNKNOWN",
+      "mode": "normal",
+      "position": "map",
+      "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_xg_per60&view=analytical",
+      "metric": "spatial.pk.defense_xg_per60",
+      "kind": "viewport_capture",
+      "prior_pixel_match_candidate": null,
+      "actual": {
+        "bytes": 59217,
+        "sha256": "65527c62e60c92527f87d69856b828ae5f4a07bf7c709acec8e6802d715bac46",
+        "png_signature_valid": true,
+        "ihdr_dimensions": [
+          1280,
+          913
+        ],
+        "binary_read_wall_seconds": 0.00039658299647271633
+      },
+      "bytes_match": true,
+      "sha256_match": true,
+      "dimensions_comparison": "recorded encoded_dimensions is UNKNOWN; actual ihdr dimensions are 1280×913. no recorded numeric dimension claim is available for comparison.",
+      "pixel_review": {
+        "status": "viewed_no_visible_blocker",
+        "actual_original_view": true,
+        "view_method": "tools.view_image → image(result.image_url)",
+        "view_count": 1,
+        "inherited": false,
+        "visible_title": "pk defense xg · effect",
+        "metric_title_consistency": "visible title matches the manifest metric and effect/absolute map target",
+        "specific_map_observation": "a small, slanted negative blue island occupies the lower defensive zone, with a darker interior rising rightward from the lower goal. the rest of the rink is neutral and the lower goal mark remains visible.",
+        "visible_orientation": "full rink: defended goal below; +x down, +y left; both axes rotated 180°",
+        "visible_integral": "-0.166455 xg/60 min",
+        "specific_legend_observation": "the signed scale runs from -0.0152534 to 0.0152534 in xg/60 min/100 sqft. the neutral-band qualifier reads |density| < 0.00381336, not exact zero.",
+        "layout": "title, full rink, orientation, integral, swatch values and first density qualifier are legible and do not overlap. no blank image, corruption or horizontal overflow is visible. the final repeated legend paragraph meets the lower viewport boundary, consistent with a viewport capture.",
+        "reference_experimental_precision_sensitivity_caveats": "no reference, experimental, precision or sensitivity prose is visible in this map-position viewport; below-viewport content is unassessed. the visible density/neutral-fill qualifier is readable.",
+        "season_and_chart_endpoints": "20252026 is present in the target url, but no selected-year control or player header is visible. this is a rink map, not a time-series chart; chart endpoints are not applicable.",
+        "blockers": [],
+        "unknowns": [
+          "content beyond the viewport",
+          "selected-season control outside viewport",
+          "numerical and scientific validity"
+        ]
+      }
+    },
+    {
+      "index": 8,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/010-normal-map.png",
+      "recorded_bytes": 66605,
+      "recorded_sha256": "be75584e81ff738a0b8e609fff9f66ed3ea99db3e69979470031ac5b6c0db2a6",
+      "encoded_dimensions": "UNKNOWN",
+      "mode": "normal",
+      "position": "map",
+      "url": "http://127.0.0.1:3407/players/8476902?season=20252026&metric=spatial.pk.defense_xg_per60&view=analytical&map=absolute",
+      "metric": "spatial.pk.defense_xg_per60",
+      "kind": "viewport_capture",
+      "prior_pixel_match_candidate": null,
+      "actual": {
+        "bytes": 66605,
+        "sha256": "be75584e81ff738a0b8e609fff9f66ed3ea99db3e69979470031ac5b6c0db2a6",
+        "png_signature_valid": true,
+        "ihdr_dimensions": [
+          1280,
+          913
+        ],
+        "binary_read_wall_seconds": 0.013426250079646707
+      },
+      "bytes_match": true,
+      "sha256_match": true,
+      "dimensions_comparison": "recorded encoded_dimensions is UNKNOWN; actual ihdr dimensions are 1280×913. no recorded numeric dimension claim is available for comparison.",
+      "pixel_review": {
+        "status": "viewed_no_visible_blocker",
+        "actual_original_view": true,
+        "view_method": "tools.view_image → image(result.image_url)",
+        "view_count": 1,
+        "inherited": false,
+        "visible_title": "pk defense xg · complete focal rate",
+        "metric_title_consistency": "visible title matches the manifest metric and effect/absolute map target",
+        "specific_map_observation": "compact nested blue rings sit above the lower defended goal, with a dark core centered near that goal and pale contours widening into the lower zone. the upper rink remains clear.",
+        "visible_orientation": "full rink: defended goal below; +x down, +y left; both axes rotated 180°",
+        "visible_integral": "3.58931 xg/60 min",
+        "specific_legend_observation": "the sequential scale runs from 0 to 0.305256 in xg/60 min/100 sqft. the complete nonnegative-density note says neutral fill denotes density < 0.038157.",
+        "layout": "title, full rink, orientation, integral, swatch values and first density qualifier are legible and do not overlap. no blank image, corruption or horizontal overflow is visible. the final repeated legend paragraph meets the lower viewport boundary, consistent with a viewport capture.",
+        "reference_experimental_precision_sensitivity_caveats": "no reference, experimental, precision or sensitivity prose is visible in this map-position viewport; below-viewport content is unassessed. the visible density/neutral-fill qualifier is readable.",
+        "season_and_chart_endpoints": "20252026 is present in the target url, but no selected-year control or player header is visible. this is a rink map, not a time-series chart; chart endpoints are not applicable.",
+        "blockers": [],
+        "unknowns": [
+          "content beyond the viewport",
+          "selected-season control outside viewport",
+          "numerical and scientific validity"
+        ]
+      }
+    },
+    {
+      "index": 9,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/011-normal-map.png",
+      "recorded_bytes": 63475,
+      "recorded_sha256": "2ec402f72d89da6aafb0adfaa7873ba3e242fc1e3635abd3f57489de33266a6c",
+      "encoded_dimensions": "UNKNOWN",
+      "mode": "normal",
+      "position": "map",
+      "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_attempts_per60&view=analytical",
+      "metric": "spatial.5v3.offense_attempts_per60",
+      "kind": "viewport_capture",
+      "prior_pixel_match_candidate": null,
+      "actual": {
+        "bytes": 63475,
+        "sha256": "2ec402f72d89da6aafb0adfaa7873ba3e242fc1e3635abd3f57489de33266a6c",
+        "png_signature_valid": true,
+        "ihdr_dimensions": [
+          1280,
+          913
+        ],
+        "binary_read_wall_seconds": 0.0005472919438034296
+      },
+      "bytes_match": true,
+      "sha256_match": true,
+      "dimensions_comparison": "recorded encoded_dimensions is UNKNOWN; actual ihdr dimensions are 1280×913. no recorded numeric dimension claim is available for comparison.",
+      "pixel_review": {
+        "status": "viewed_no_visible_blocker",
+        "actual_original_view": true,
+        "view_method": "tools.view_image → image(result.image_url)",
+        "view_count": 1,
+        "inherited": false,
+        "visible_title": "5v3 offense attempts · effect",
+        "metric_title_consistency": "visible title matches the manifest metric and effect/absolute map target",
+        "specific_map_observation": "a red positive lobe spans the upper goal region, slanted toward the right, while a distinct blue negative island sits farther down the same attacking zone. both signs are visibly represented without overlapping labels.",
+        "visible_orientation": "full rink: attacking goal above; +x up, +y right",
+        "visible_integral": "0.158543 attempts/60 min",
+        "specific_legend_observation": "the signed scale runs from -0.304284 to 0.304284 in attempts/60 min/100 sqft. the central-band text says |density| < 0.0760709, not exact zero.",
+        "layout": "title, full rink, orientation, integral, swatch values and first density qualifier are legible and do not overlap. no blank image, corruption or horizontal overflow is visible. the final repeated legend paragraph meets the lower viewport boundary, consistent with a viewport capture.",
+        "reference_experimental_precision_sensitivity_caveats": "no reference, experimental, precision or sensitivity prose is visible in this map-position viewport; below-viewport content is unassessed. the visible density/neutral-fill qualifier is readable.",
+        "season_and_chart_endpoints": "20252026 is present in the target url, but no selected-year control or player header is visible. this is a rink map, not a time-series chart; chart endpoints are not applicable.",
+        "blockers": [],
+        "unknowns": [
+          "content beyond the viewport",
+          "selected-season control outside viewport",
+          "numerical and scientific validity"
+        ]
+      }
+    },
+    {
+      "index": 10,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/012-normal-map.png",
+      "recorded_bytes": 68459,
+      "recorded_sha256": "34b76ed2591392ea675b515900d3393ccb04a90644a7341c48cbcac0e6e6a8fb",
+      "encoded_dimensions": "UNKNOWN",
+      "mode": "normal",
+      "position": "map",
+      "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_attempts_per60&view=analytical&map=absolute",
+      "metric": "spatial.5v3.offense_attempts_per60",
+      "kind": "viewport_capture",
+      "prior_pixel_match_candidate": null,
+      "actual": {
+        "bytes": 68459,
+        "sha256": "34b76ed2591392ea675b515900d3393ccb04a90644a7341c48cbcac0e6e6a8fb",
+        "png_signature_valid": true,
+        "ihdr_dimensions": [
+          1280,
+          913
+        ],
+        "binary_read_wall_seconds": 0.00045374990440905094
+      },
+      "bytes_match": true,
+      "sha256_match": true,
+      "dimensions_comparison": "recorded encoded_dimensions is UNKNOWN; actual ihdr dimensions are 1280×913. no recorded numeric dimension claim is available for comparison.",
+      "pixel_review": {
+        "status": "viewed_no_visible_blocker",
+        "actual_original_view": true,
+        "view_method": "tools.view_image → image(result.image_url)",
+        "view_count": 1,
+        "inherited": false,
+        "visible_title": "5v3 offense attempts · complete focal rate",
+        "metric_title_consistency": "visible title matches the manifest metric and effect/absolute map target",
+        "specific_map_observation": "a broad asymmetric blue mound fills the upper attacking zone, with the darkest core just below the upper goal and a secondary shoulder toward the lower left. neutral fill separates it from center ice.",
+        "visible_orientation": "full rink: attacking goal above; +x up, +y right",
+        "visible_integral": "85.6536 attempts/60 min",
+        "specific_legend_observation": "the sequential scale runs from 0 to 3.67562 in attempts/60 min/100 sqft. the complete nonnegative-density note defines neutral fill as density < 0.459453.",
+        "layout": "title, full rink, orientation, integral, swatch values and first density qualifier are legible and do not overlap. no blank image, corruption or horizontal overflow is visible. the final repeated legend paragraph meets the lower viewport boundary, consistent with a viewport capture.",
+        "reference_experimental_precision_sensitivity_caveats": "no reference, experimental, precision or sensitivity prose is visible in this map-position viewport; below-viewport content is unassessed. the visible density/neutral-fill qualifier is readable.",
+        "season_and_chart_endpoints": "20252026 is present in the target url, but no selected-year control or player header is visible. this is a rink map, not a time-series chart; chart endpoints are not applicable.",
+        "blockers": [],
+        "unknowns": [
+          "content beyond the viewport",
+          "selected-season control outside viewport",
+          "numerical and scientific validity"
+        ]
+      }
+    },
+    {
+      "index": 11,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/014-normal-map.png",
+      "recorded_bytes": 59010,
+      "recorded_sha256": "4529ec4d33f5cd57c1dfa36cfb5c58aea0a0044a78319fd69a9da214524bcc17",
+      "encoded_dimensions": "UNKNOWN",
+      "mode": "normal",
+      "position": "map",
+      "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_xg_per60&view=analytical",
+      "metric": "spatial.5v3.offense_xg_per60",
+      "kind": "viewport_capture",
+      "prior_pixel_match_candidate": null,
+      "actual": {
+        "bytes": 59010,
+        "sha256": "4529ec4d33f5cd57c1dfa36cfb5c58aea0a0044a78319fd69a9da214524bcc17",
+        "png_signature_valid": true,
+        "ihdr_dimensions": [
+          1280,
+          913
+        ],
+        "binary_read_wall_seconds": 0.01541733299382031
+      },
+      "bytes_match": true,
+      "sha256_match": true,
+      "dimensions_comparison": "recorded encoded_dimensions is UNKNOWN; actual ihdr dimensions are 1280×913. no recorded numeric dimension claim is available for comparison.",
+      "pixel_review": {
+        "status": "viewed_no_visible_blocker",
+        "actual_original_view": true,
+        "view_method": "tools.view_image → image(result.image_url)",
+        "view_count": 1,
+        "inherited": false,
+        "visible_title": "5v3 offense xg · effect",
+        "metric_title_consistency": "visible title matches the manifest metric and effect/absolute map target",
+        "specific_map_observation": "a red positive lobe sits around and below the upper goal, with a smaller blue negative island beneath it. the two islands are separated by neutral fill; the full rink and center circle are intact.",
+        "visible_orientation": "full rink: attacking goal above; +x up, +y right",
+        "visible_integral": "0.203437 xg/60 min",
+        "specific_legend_observation": "the signed scale runs from -0.0420789 to 0.0420789 in xg/60 min/100 sqft. the central-band note says |density| < 0.0105197, not exact zero.",
+        "layout": "title, full rink, orientation, integral, swatch values and first density qualifier are legible and do not overlap. no blank image, corruption or horizontal overflow is visible. the final repeated legend paragraph meets the lower viewport boundary, consistent with a viewport capture.",
+        "reference_experimental_precision_sensitivity_caveats": "no reference, experimental, precision or sensitivity prose is visible in this map-position viewport; below-viewport content is unassessed. the visible density/neutral-fill qualifier is readable.",
+        "season_and_chart_endpoints": "20252026 is present in the target url, but no selected-year control or player header is visible. this is a rink map, not a time-series chart; chart endpoints are not applicable.",
+        "blockers": [],
+        "unknowns": [
+          "content beyond the viewport",
+          "selected-season control outside viewport",
+          "numerical and scientific validity"
+        ]
+      }
+    },
+    {
+      "index": 12,
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261113-01/real/acceptance/browser-remainder-03/015-normal-map.png",
+      "recorded_bytes": 66240,
+      "recorded_sha256": "ba3eba59fcfb98ecca128122df4076f6f57e2eb4fb7ddc29225820e08004c79e",
+      "encoded_dimensions": "UNKNOWN",
+      "mode": "normal",
+      "position": "map",
+      "url": "http://127.0.0.1:3407/players/8480018?season=20252026&metric=spatial.5v3.offense_xg_per60&view=analytical&map=absolute",
+      "metric": "spatial.5v3.offense_xg_per60",
+      "kind": "viewport_capture",
+      "prior_pixel_match_candidate": null,
+      "actual": {
+        "bytes": 66240,
+        "sha256": "ba3eba59fcfb98ecca128122df4076f6f57e2eb4fb7ddc29225820e08004c79e",
+        "png_signature_valid": true,
+        "ihdr_dimensions": [
+          1280,
+          913
+        ],
+        "binary_read_wall_seconds": 0.0005436670035123825
+      },
+      "bytes_match": true,
+      "sha256_match": true,
+      "dimensions_comparison": "recorded encoded_dimensions is UNKNOWN; actual ihdr dimensions are 1280×913. no recorded numeric dimension claim is available for comparison.",
+      "pixel_review": {
+        "status": "viewed_no_visible_blocker",
+        "actual_original_view": true,
+        "view_method": "tools.view_image → image(result.image_url)",
+        "view_count": 1,
+        "inherited": false,
+        "visible_title": "5v3 offense xg · complete focal rate",
+        "metric_title_consistency": "visible title matches the manifest metric and effect/absolute map target",
+        "specific_map_observation": "blue contours form a compact upper-zone mound, with a dark core just below the upper goal and a broad lighter base extending rightward. the center and lower rink are neutral.",
+        "visible_orientation": "full rink: attacking goal above; +x up, +y right",
+        "visible_integral": "8.58009 xg/60 min",
+        "specific_legend_observation": "the sequential scale runs from 0 to 0.556748 in xg/60 min/100 sqft. the complete nonnegative-density note defines neutral fill as density < 0.0695935.",
+        "layout": "title, full rink, orientation, integral, swatch values and first density qualifier are legible and do not overlap. no blank image, corruption or horizontal overflow is visible. the final repeated legend paragraph meets the lower viewport boundary, consistent with a viewport capture.",
+        "reference_experimental_precision_sensitivity_caveats": "no reference, experimental, precision or sensitivity prose is visible in this map-position viewport; below-viewport content is unassessed. the visible density/neutral-fill qualifier is readable.",
+        "season_and_chart_endpoints": "20252026 is present in the target url, but no selected-year control or player header is visible. this is a rink map, not a time-series chart; chart endpoints are not applicable.",
+        "blockers": [],
+        "unknowns": [
+          "content beyond the viewport",
+          "selected-season control outside viewport",
+          "numerical and scientific validity"
+        ]
+      }
+    }
+  ],
+  "aggregate": {
+    "assigned_png_count": 12,
+    "verified_original_count": 12,
+    "byte_match_count": 12,
+    "sha256_match_count": 12,
+    "png_signature_valid_count": 12,
+    "ihdr_1280x913_count": 12,
+    "individually_viewed_count": 12,
+    "inherited_count": 0,
+    "recheck_count": 0,
+    "visible_blocker_count": 0,
+    "measured_hash_read_bytes": 767234,
+    "measured_binary_read_wall_seconds": 0.0650045417714864,
+    "verification_wall_seconds": 0.06537500000558794,
+    "process_max_rss_raw": 19218432,
+    "process_max_rss_units": "unverified platform-dependent resource.ru_maxrss units",
+    "image_view_io": "UNKNOWN / unmetered",
+    "physical_io": "UNKNOWN / unmetered",
+    "conclusion": "all assigned originals match recorded bytes/hash and render readable maps. no blocker was observed within these captured viewports. no conclusion is made about offscreen content or numerical/scientific correctness."
+  }
+}

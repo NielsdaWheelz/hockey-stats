@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "kind": "shared-api-launch-independent-review",
+  "status": "cached_launch_matches_admission_not_api_accepted",
+  "sha256": {
+    "launch": "eda7ee7060e81ea9de434cfe4c80682732be2e43d38cfd06dd6ddcbc82fd2a42",
+    "admission": "f158c90a95da86793cc25db79898ee1ea49736b7a8a88af2e9994da3ec532a6a",
+    "availability": "22fa754505d93413a91db275b0b03d4af5bbcf98e121ce4140b0e75ae7680744",
+    "availability_log": "639c7b447c6d8c16acf65286f8c32fe71dbe37c65998f3573100c386ae3314b8",
+    "availability_exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "startup_release": "097a78c2e8d3971bef8da4d8f3d805cd9113f3220045af233a40e7abb7cb83e3",
+    "checker": "3a89e054eaaaa7c06eada98eb485b226fc3bdb96a0c529e3c41460b2fb957cb5",
+    "shell": "e02d9de0b48363367746ce426d9019af43a6c26d4743d468c8ea30f7039bacbf"
+  },
+  "findings": [
+    "availability receipt/log agree: four facts passed, no failure, zero input bodies; separate native exit is 0. this is availability only, not API success.",
+    "cached time 6990/python 6991 argv/cwd match shell/admission: source results 21de, publication fb604, publisher 4aa, server 3407 and acceptance-final-g-st-01/api.json. framework python 3.14.8 resolution agrees with the admitted virtualenv. server 98454 retains the accepted candidate/build.",
+    "submission 12:25:09Z and process start 12:25:24Z remain distinct. one dispatch is root-observed; no phase cause, completed count, API cost or outcome is inferred.",
+    "declared scope: three seasons/361 goalie-seasons; each has 11 scalar/map strengths, 12 observed, 99 breakdown, 144 evidence-map and 24 danger rows, plus histories/controls. roughly 36.5k requests is unmeasured, not a completion count."
+  ],
+  "blocking_mismatches": [],
+  "limits": "local cached review only; no OS/HDD/HTTP/runtime/tests/imports or active output/member reads. no reconciliation executed. launch establishes no API/browser/scientific/activation pass."
+}

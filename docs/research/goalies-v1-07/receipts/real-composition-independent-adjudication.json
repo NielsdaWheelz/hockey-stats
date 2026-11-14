@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "kind": "independent-real-goalie-first-complete-exchange-adjudication",
+  "status": "passed_scoped_complete_exchange_boundary",
+  "reviewer": "final_fit_review",
+  "findings": [],
+  "scope": "local cached native/preflight/header/producer/preservation evidence and source-contract inspection only; no external read or stat, runtime query, import, controller invocation or full-reader replay",
+  "checked_inputs": [
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/composition-01-preflight.json",
+      "sha256": "bda92c0ebe2f27040e360eff8138ce0960dc9af0f89e29381cd22bfdd2b8ecaf"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/docs/research/goalies-v1-07/receipts/real-composition-actual-launch.json",
+      "sha256": "a3ef330b4e3caa5d54cdb43c5ecb00d483c7d570acb565c264035412d2e48241"
+    },
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/composition-01-actual-launch-independent-review.json",
+      "sha256": "e4e769ff6b4cb0098539a2f8e554b9c0e775a9503ac9da75943f6dc07c0bdc5b"
+    },
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/composition-01-native-admission.json",
+      "bytes": 2612,
+      "sha256": "e3b344339da1842f4e675fe522a87753aea240758ac34aca00334a771618eb1b"
+    },
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/composition-01-admission-composer.log",
+      "bytes": 891,
+      "sha256": "25b0b943bc9c25f1552a004790daf7ce13df9abad810eb023dd1752612e9ac6c"
+    },
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/composition-01-admission-manifest.json",
+      "bytes": 23317,
+      "sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12"
+    },
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/composition-01-admission-producer-receipt.json",
+      "bytes": 54924,
+      "sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+    },
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/composition-01-preservation-adjudication.json",
+      "bytes": 8547,
+      "sha256": "7b1116c94384422ccc0b500a7cccd847a266d4bc5e4a1d5e641d735509e63058"
+    },
+    {
+      "path": "/tmp/hockey-goalie-v1-07-checks/adjudicate_goalie_composition.py",
+      "sha256": "0da5feeb72143509ed77bf48fb793eb5481e940359e1aa936f8c1db90091adf2",
+      "use": "unchanged reviewed source inspected; not invoked or imported"
+    }
+  ],
+  "native_evidence": {
+    "numeric_exit": 0,
+    "exit_file": "/tmp/hockey-goalie-v1-07-checks/composition-01-native.exit",
+    "exit_file_bytes": 2,
+    "exit_file_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "exit_file_value": "0\n",
+    "wall_seconds": 4416.40,
+    "user_seconds": 4021.06,
+    "system_seconds": 21.57,
+    "max_resident_bytes": 3580559360,
+    "peak_footprint_bytes": 3559312360,
+    "swaps": 0,
+    "root_report_only": "python88892/time88891 closed; owned operator t-f9f0b50f2271131d displayed G_COMPOSITION_NATIVE_EXIT=0 and returned prompt; no independent OS or terminal query by this reviewer",
+    "interpretation": "explicit retained exit evidence, not an inference from absence, zero block-operation counters or successful metadata collection"
+  },
+  "bindings": {
+    "producer_head": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+    "producer_git_dirty": false,
+    "python_version": "3.14.8",
+    "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+    "app_tree": "3242c0186fbf637d8072a4b86cf659de31caadd6",
+    "source_identity_scope": "matching preflight/actual-launch/peer-review/output-producer evidence; no new git/runtime query; continued freeze was root-owned",
+    "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "complete_parent_sha256": "8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee",
+    "selection_sha256": "2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed",
+    "selected_score_years": ["20212022", "20222023", "20232024", "20242025", "20252026"],
+    "selected_score_sha256": [
+      "086a70c4ca0b41329d6879ea83e9d61a02787f7885f5fee89afb2dee1fb7948f",
+      "15d959531ea2561660eb65151a19a007506fffff102b12f96aadc82000091253",
+      "5c75b215c50d3271ab2f4df4bc9d2dca39c26b846977dde251b0d0c39b6a25aa",
+      "c398c0cb69549e9832cc3e4ce0b330b883a1926a9ca6a9fab6e04fe7237882a2",
+      "de378b2ee8cce1075b86d3e883bd29b64fb74fa90356a86753b9e123acfe2e5a"
+    ],
+    "output_manifest_sha256": "7a43b6d3aefd971f49854c8cb83b07e26c17034bba1d5171b24abe8fda41ab12",
+    "completed_producer_receipt_sha256": "037626003d5a3d049e9bb96b6473ee8b9c172ac5ba8efba043470b00ae4a7d28"
+  },
+  "canonical_completion": {
+    "source": "local goalie_composition.py compose_goalie/_annuals contract, actual native exit and completed hash-bound producer receipt",
+    "contract": "old complete parent read; all five annual readers and prepared/base/history/person bindings; inherited copies hashed; staged complete public reader; final manifest rename; completed goalie-composition.json written last",
+    "producer_wall_seconds": 4416.0747326251585,
+    "strict_read_wall_seconds": 1578.2863287909422,
+    "peak_memory_bytes": 3580559360,
+    "output_member_bytes": 23961214711,
+    "independent_replay": false
+  },
+  "nonowned_preservation": {
+    "checker_status": "passed",
+    "checker_native_exit": 0,
+    "exit_file": "/tmp/hockey-goalie-v1-07-checks/composition-01-preservation-command.exit",
+    "exit_file_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "non_goalie_family_entries_exact": 27,
+    "inherited_member_descriptors_exact": 59,
+    "owned_member_descriptors": 20,
+    "people_descriptor_exact": true,
+    "nonowned_header_observed_prepared_exact": true,
+    "catalog_parent_to_output_rows": {"sources": [21, 24], "methods": [12, 15], "supports": [18, 18]},
+    "inherited_raw_catalog_lines_exact_by_id": 51,
+    "added_catalogs": "three displayed-season goalie source ids and three goalie method ids; no support additions",
+    "scope_limit": "checker reads catalog bodies and compares all inherited descriptors; it does not independently reopen copied people/noncatalog bodies. canonical copy hashing and complete reader own those bodies. catalog bytes are compared exactly, not normalized JSON values."
+  },
+  "post_exit_read_accounting": {
+    "admission_native_exit": 0,
+    "admission_exit_file_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "admission_external_bodies": 3,
+    "admission_logical_bytes": 79132,
+    "admission_internal_wall_seconds": 0.0004868328105658293,
+    "admission_internal_peak_rss_bytes": 19038208,
+    "admission_native_wall_seconds": 0.02,
+    "admission_native_peak_rss_bytes": 19038208,
+    "admission_native_footprint_bytes": 9552376,
+    "preservation_small_json_bodies": 4,
+    "preservation_small_json_bytes": 99377,
+    "preservation_catalog_streams": 6,
+    "preservation_catalog_bytes": 201973,
+    "preservation_logical_bytes": 301350,
+    "preservation_internal_wall_seconds": 0.1228217501193285,
+    "preservation_internal_peak_rss_bytes": 24772608,
+    "preservation_native_wall_seconds": 0.15,
+    "preservation_native_peak_rss_bytes": 24788992,
+    "preservation_native_footprint_bytes": 14811640,
+    "overlapping_manifest_and_producer_receipt_bytes": 78241,
+    "completed_logical_bytes_including_overlap": 380482,
+    "distinct_logical_body_bytes": 302241,
+    "meaning": "logical body accounting only; no physical I/O claim. metadata admission and independent preservation each ran once as reported by root and evidenced by separate retained command logs/exit files."
+  },
+  "judgment": "the first goalie complete exchange7a43 and accompanying0376 producer receipt pass the scoped canonical-completion and independent nonowned-preservation boundary; deliberate root parent promotion/release remains separate",
+  "limits": [
+    "preflight and launch receipts remain immutable historical preparation/running evidence; this adjudication owns the later scoped verdict",
+    "no external read/stat, source capture, annual score/state, model, array/table body, controller invocation or full-reader replay by this reviewer",
+    "earlier accepted source/math/probe controls are reused; optimizer accuracy remains unknown and earlier annual sensitivity remains unassessed",
+    "no scientific admission, sqlite conversion/publication, normal startup, application/API/browser/download acceptance or activation follows",
+    "final ST READYb273 remains held/unreserved at12/15 baseline heads; producer03 is untouched; separately reviewed ST development method fixes do not constitute G-parent adoption",
+    "no next owner, heavy window, fit, rescore, parent change or further execution chain is assigned by this receipt"
+  ],
+  "actions_granted": []
+}

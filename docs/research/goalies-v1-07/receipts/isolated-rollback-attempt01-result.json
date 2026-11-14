@@ -1,0 +1,235 @@
+{
+  "kind": "new-synthetic-operational-fixture-isolated-rollback",
+  "status": "failed",
+  "controller_argv": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01.py"
+  ],
+  "python_executable": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+  "steps": [
+    {
+      "label": "corpus_20232024",
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "-B",
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/hockey-stats-corpus",
+        "--reference",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/references/20232024",
+        "--games",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/capture-inputs",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus-20232024"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+      "exit": 0,
+      "stdout": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus_20232024.stdout.log",
+      "stderr": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus_20232024.stderr.log",
+      "wall_seconds": 1.1615408340003341,
+      "stdout_identity": {
+        "bytes": 631,
+        "sha256": "22b8dd95bb00f22b1c5f6a29187706c3075e52cbe387d45187122c5d1eb80143"
+      },
+      "stderr_identity": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "corpus_20242025",
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "-B",
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/hockey-stats-corpus",
+        "--reference",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/references/20242025",
+        "--games",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/capture-inputs",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus-20242025"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+      "exit": 0,
+      "stdout": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus_20242025.stdout.log",
+      "stderr": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus_20242025.stderr.log",
+      "wall_seconds": 1.2028238750062883,
+      "stdout_identity": {
+        "bytes": 690,
+        "sha256": "1dfe7f7d055e3d03b6f819ea72dcfcb92e9517ceffe2c432fb15579a8f32eb51"
+      },
+      "stderr_identity": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "corpus_20252026",
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "-B",
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/hockey-stats-corpus",
+        "--reference",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/references/20252026",
+        "--games",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/capture-inputs",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus-20252026"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+      "exit": 0,
+      "stdout": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus_20252026.stdout.log",
+      "stderr": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus_20252026.stderr.log",
+      "wall_seconds": 1.2360829999670386,
+      "stdout_identity": {
+        "bytes": 568,
+        "sha256": "bbf5522a3c3586b1eeb7ad59ec43b397f6fc0b89b9b6aa7128f6afd6a3d4a3d8"
+      },
+      "stderr_identity": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "publish_a",
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "-B",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "publish",
+        "--observed",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/selection.json",
+        "--results",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/analytical-results",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/publication-a"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-07",
+      "exit": 1,
+      "stdout": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/publish_a.stdout.log",
+      "stderr": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/publish_a.stderr.log",
+      "wall_seconds": 0.7253958338405937,
+      "stdout_identity": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_identity": {
+        "bytes": 182,
+        "sha256": "75e0d0a6e17836c7a94661350600552ef22940291b6c0604daffc85493c0ebfc"
+      }
+    }
+  ],
+  "corpora": [
+    {
+      "season": "20232024",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus-20232024/corpus.json",
+      "bytes": 6847962,
+      "sha256": "ccfc067cf5521f2f50516701e6ea136decab2a3f798c664b53407cecc28f7ef5",
+      "present_games": [
+        {
+          "game_id": "2023020001",
+          "status": "reconstructed"
+        },
+        {
+          "game_id": "2023020012",
+          "status": "reconstructed"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus-20242025/corpus.json",
+      "bytes": 6817913,
+      "sha256": "3516f1afb2cd795e6da2f510e810f0c96e8385178ceb1e67583d3af2b0b61b12",
+      "present_games": [
+        {
+          "game_id": "2024020001",
+          "status": "reconstructed"
+        },
+        {
+          "game_id": "2024020022",
+          "status": "reconstructed"
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01/corpus-20252026/corpus.json",
+      "bytes": 6870674,
+      "sha256": "b6d8e03cef200f237589895afed95ef24c14a0ab29b5493ee09150e2626a40f9",
+      "present_games": [
+        {
+          "game_id": "2025020001",
+          "status": "reconstructed"
+        },
+        {
+          "game_id": "2025020006",
+          "status": "reconstructed"
+        }
+      ]
+    }
+  ],
+  "publications": [],
+  "observations": [],
+  "errors": [
+    {
+      "phase": "publish_a",
+      "type": "InputContractError",
+      "message": "publish_a: native exit 1; retained logs own the failure",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01.py\", line 157, in <module>\n    run(phase, [str(PYTHON), '-B', '-m', 'hockey_stats.analysis_cli', 'publish', '--observed', str(selection_path), '--results', str(derived), '--out', str(output)])\n    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01.py\", line 65, in run\n    require(completed.returncode == 0, f'{label}: native exit {completed.returncode}; retained logs own the failure')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nnandal/Documents/code/hockey-stats-v1-07/analysis/src/hockey_stats/artifacts.py\", line 73, in require\n    raise InputContractError(message)\nhockey_stats.captures.InputContractError: publish_a: native exit 1; retained logs own the failure\n"
+    }
+  ],
+  "input_scope": {
+    "captures": {
+      "20232024": [
+        "2023020001",
+        "2023020012"
+      ],
+      "20242025": [
+        "2024020001",
+        "2024020022"
+      ],
+      "20252026": [
+        "2025020001",
+        "2025020006"
+      ]
+    },
+    "references": [
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/references/20232024",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/references/20242025",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/references/20252026"
+    ],
+    "analytical_fixture": "/Users/nnandal/Documents/code/hockey-stats-v1-07/fixtures/publication-v1-13/results",
+    "manifest_sha256": "b2d22b814521029dcf95dcd70dae17be7a1f446463308f9e171f730564a70990"
+  },
+  "output_root": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01",
+  "cleanup_plan": {
+    "after": "full assigned acceptance and explicit root cleanup grant",
+    "temporary_paths": [
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01.py",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01"
+    ],
+    "retain": "compact derivation/result/native logs and reviewed facts; original fixtures and historical evidence remain untouched"
+  },
+  "limits": [
+    "new fixture operation only; no real analytical, numerical, scientific or activation acceptance",
+    "no server, real candidate, primary publication, external volume or model evaluator access",
+    "all partial outputs remain after failure; no automatic retry or deletion"
+  ],
+  "controller_source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-isolated-rollback-01.py",
+    "bytes": 12233,
+    "sha256": "fb47b2adbe5b328993548c1a609dc5e148c962c93d93e04e9c3f004a73c404bc"
+  },
+  "implementation": {
+    "git_commit": "3763b343fcacb50b2136038e25bf32e3bd98df13",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "cost": {
+    "wall_seconds": 5.254673500079662,
+    "controller_peak_rss_bytes": 135069696,
+    "largest_waited_child_peak_rss_bytes": 140427264,
+    "children_user_seconds": 4.077597,
+    "children_system_seconds": 0.17876999999999998,
+    "scope": "controller entry through final observations/failure capture; result serialization excluded; child peak is a maximum, not simultaneous aggregate memory"
+  }
+}

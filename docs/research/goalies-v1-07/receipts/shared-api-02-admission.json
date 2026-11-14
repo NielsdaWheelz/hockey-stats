@@ -1,0 +1,38 @@
+{
+  "kind": "shared-api-02-admission",
+  "status": "assigned_once_after_checked_runtime_and_overview_equality",
+  "runtime_source_commit": "c90cb73f03c6e0b5f0efe527b0ebe6243160df55",
+  "app_tree": "8ca79395276ab733c6ee32e21465adb8b8229372",
+  "analysis_tree": "fee5c830b4d55e4b2c0cea44522b94e191ef4648",
+  "build_receipt_sha256": "e885344a224e186230960aded904599cfe0d4026072f435027e17766a4d826d2",
+  "runtime_boundary_sha256": "d5e5b36da6adf1e74b47e768034186d8106846dd08a4a7508404d42008c08417",
+  "overview_comparison_independent_sha256": "5470a4b991bf6f7fcfefb1ce45ffaee7e238f596a4708e4bf27ad23d6887fd77",
+  "service": {
+    "pid": 33587,
+    "port": 3407
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "publisher_commit": "4aa8029fabf31b26358285e8a9a1a8e7a9f8e1a4",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-07/.tmp/goalie-live-acceptance/check_api.py",
+    "bytes": 43769,
+    "sha256": "3a89e054eaaaa7c06eada98eb485b226fc3bdb96a0c529e3c41460b2fb957cb5"
+  },
+  "held_command_sha256": "98637d480371e2f906fcd90c2feec09d44508ace596d20a5626424a320c9eb2e",
+  "freshness": {
+    "kind": "goalie-api-02-freshness",
+    "mount_present": true,
+    "parent_is_directory": true,
+    "absent": {
+      "api-02.json": true,
+      "api-02-native.log": true,
+      "api-02-native.exit": true
+    },
+    "input_body_reads": 0,
+    "status": "passed_availability_only"
+  },
+  "scope": "repeat existing complete three-season saved-result to typed HTTP matrix on final common build; stdlib only, no model/arrays/NPZ/full-reader or evaluator",
+  "reason": "the extracted observed-summary projection also serves full G player histories; full real interface regression verification on the final common server",
+  "cost": "unknown; earlier pass924.40s/641384448peakB/9592341395saved logicalB/18275860581HTTPbodyB is historical context, not forecast; physical IO unknown",
+  "held": "consumer04/browser04/ST/final preservation/cleanup require separate checked admissions; no fit, rescore, new publication or activation"
+}

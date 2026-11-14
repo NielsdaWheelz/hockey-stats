@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "disposition": "assigned_13_normal_pk_export_pixels_pass",
+  "scope": "direct actual pixel inspection of all thirteen selected original PNGs only, plus the fixed local browser04 receipt; exact named PNG hashes verified. no copied/resized/modified files, prior pixel inheritance, scan/stat, browser/http/database/model call, rerun or other artifact inspection",
+  "receipt": {
+    "path": "docs/research/goalies-v1-07/receipts/shared-browser-attempt-04-result.json",
+    "bytes": 458090,
+    "sha256": "2777f188f2e686f6430024f7cdbaf3c04c32271217e170623f4c19682a489335",
+    "status": "passed_pending_human_pixel_inspection"
+  },
+  "publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "selection": {
+    "mode": "normal",
+    "metric_prefix": "goalie.pk.",
+    "unique_pngs": 13,
+    "actual_unique_pngs_viewed": 13,
+    "inherited_pixel_judgments": 0,
+    "all_named_png_hashes_match_receipt": true
+  },
+  "shared_pixel_judgment": [
+    "each full-height image shows complete player/metric/pk heading, raw history and selected 2025–26 context, all three annual sections and the publication/footer",
+    "stopping shows goals per 100 common on-net opportunities with multiplier 1; six probability levels show native fraction, displayed percent and multiplier 100; six differences show native fraction, displayed percentage points and multiplier 100",
+    "three present annual points and complete endpoint season labels are visible in every chart; directions agree visually with the annotated annual displayed values",
+    "all thirteen have three provided annual values; no actual missing-year/unavailable gap case is present in this assigned set. the footer's changed-definition/missing-year line-break explanation remains visible",
+    "support, qualification/cutoff, population/reference, experimental construction, no calibrated intervals, proxy/selection limitations and annual numerical-sensitivity caveats remain visible",
+    "the final publication identity and percentile-not-confidence footer are present with bottom margin; no consequential clipping, overlap, corrupted chart or omitted footer was found"
+  ],
+  "images": [
+    {
+      "metric": "goalie.pk.stopping_goals_per100_on_net",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/042-normal-goalie.pk.stopping_goals_per100_on_net.png",
+      "sha256": "1ca9dae10795f9080dc6dfa3a6f5a2286968c02ba44bf8091a206cff8d6fae09",
+      "bytes": 2859245,
+      "width": 1200,
+      "height": 6469,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "-0.4593",
+        "0.898182",
+        "0.829249"
+      ],
+      "display_unit": "goals per 100 common on-net opportunities",
+      "notes": "stopping heading and goals-per100 native/display units are complete; negative first year and positive later values are visible",
+      "full_height_caveats_and_footer_visible": true
+    },
+    {
+      "metric": "goalie.pk.miss_probability",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/045-normal-goalie.pk.miss_probability.png",
+      "sha256": "fad6ec5f710738cef52ac60d5a1ea0de523a9ff8f377a8369c4e88e8774af73e",
+      "bytes": 2798736,
+      "width": 1200,
+      "height": 6353,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "29.2614",
+        "30.8544",
+        "32.6901"
+      ],
+      "display_unit": "%",
+      "notes": "miss heading, fraction-to-percent declaration and increasing three-point history are complete",
+      "full_height_caveats_and_footer_visible": true
+    },
+    {
+      "metric": "goalie.pk.recorded_stop_probability",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/048-normal-goalie.pk.recorded_stop_probability.png",
+      "sha256": "38e83bdf2d2bba5e8c149389b12aadccf86b4049dc30df9d0c0137edbdec08ac",
+      "bytes": 2841353,
+      "width": 1200,
+      "height": 6437,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "19.0651",
+        "19.783",
+        "20.0475"
+      ],
+      "display_unit": "%",
+      "notes": "recorded-stop heading and percentage units are complete; construction explicitly distinguishes the recorded stop from ordinary save percentage",
+      "full_height_caveats_and_footer_visible": true
+    },
+    {
+      "metric": "goalie.pk.conversion_probability",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/051-normal-goalie.pk.conversion_probability.png",
+      "sha256": "b8a8fc0e37f60248da9081f6e73e96e1024ab4438e6ad40441840aca8d1330df",
+      "bytes": 2822483,
+      "width": 1200,
+      "height": 6353,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "14.6913",
+        "14.6966",
+        "14.4168"
+      ],
+      "display_unit": "%",
+      "notes": "long conditional-goal heading is complete; percent units and the small first-two-year change followed by the final decline are visible",
+      "full_height_caveats_and_footer_visible": true
+    },
+    {
+      "metric": "goalie.pk.recorded_reattempt_probability",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/054-normal-goalie.pk.recorded_reattempt_probability.png",
+      "sha256": "72c08bfe9d7f8b92728db5ee3ca5d02a407e178d3e8bcd5cab9931c47e1f71c5",
+      "bytes": 2858383,
+      "width": 1200,
+      "height": 6437,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "14.4695",
+        "15.2552",
+        "16.8954"
+      ],
+      "display_unit": "%",
+      "notes": "long next-recorded-same-team-attempt heading is complete; saved-shot opportunity/within-five-seconds conditioning is visible",
+      "full_height_caveats_and_footer_visible": true
+    },
+    {
+      "metric": "goalie.pk.reattempt_neutral_goal_probability",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/057-normal-goalie.pk.reattempt_neutral_goal_probability.png",
+      "sha256": "babd9f90986be163576d220bc0ce283ac6f133cb19a088c32168c29c75de8d8c",
+      "bytes": 2847635,
+      "width": 1200,
+      "height": 6437,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "10.8731",
+        "11.0681",
+        "10.7012"
+      ],
+      "display_unit": "%",
+      "notes": "next-attempt neutral-danger heading and conditional/h-weighted construction remain visible; middle-year peak and final decline are clear",
+      "full_height_caveats_and_footer_visible": true
+    },
+    {
+      "metric": "goalie.pk.followup_danger",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/060-normal-goalie.pk.followup_danger.png",
+      "sha256": "e9230480d5d7840e3b9e01df31e042532dcaadee9c323937d20be3060d8ebaa5",
+      "bytes": 2840675,
+      "width": 1200,
+      "height": 6437,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "1.57329",
+        "1.68846",
+        "1.80801"
+      ],
+      "display_unit": "%",
+      "notes": "joint follow-up danger heading and per-saved-shot joint construction are visible; three percentage levels increase",
+      "full_height_caveats_and_footer_visible": true
+    },
+    {
+      "metric": "goalie.pk.miss_probability_difference",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/063-normal-goalie.pk.miss_probability_difference.png",
+      "sha256": "904ba016d9b05e3c23fff235476b014ffd7f1ba7895550ca876c69f96a0fcbb7",
+      "bytes": 2835914,
+      "width": 1200,
+      "height": 6353,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "-0.565932",
+        "-1.26529",
+        "-0.37057"
+      ],
+      "display_unit": "percentage points",
+      "notes": "all-negative miss differences retain signs and percentage-point units; middle-year trough is clear",
+      "full_height_caveats_and_footer_visible": true
+    },
+    {
+      "metric": "goalie.pk.recorded_stop_probability_difference",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/066-normal-goalie.pk.recorded_stop_probability_difference.png",
+      "sha256": "265968214f83ff04f930776fbbea78101742c224182a043a868e4bde3c806640",
+      "bytes": 2858668,
+      "width": 1200,
+      "height": 6437,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "1.03081",
+        "1.30904",
+        "2.09525"
+      ],
+      "display_unit": "percentage points",
+      "notes": "positive stop differences use percentage points; complete heading and increasing history are visible",
+      "full_height_caveats_and_footer_visible": true
+    },
+    {
+      "metric": "goalie.pk.conversion_probability_difference",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/069-normal-goalie.pk.conversion_probability_difference.png",
+      "sha256": "7e08f133e3ac9e8d3df7114f65d7a065c1104718b2abccff0db0f343017ef516",
+      "bytes": 2859890,
+      "width": 1200,
+      "height": 6437,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "0.739822",
+        "-0.881155",
+        "-0.647343"
+      ],
+      "display_unit": "percentage points",
+      "notes": "long conditional-goal difference heading fits; positive-to-negative history and percentage-point units are clear",
+      "full_height_caveats_and_footer_visible": true
+    },
+    {
+      "metric": "goalie.pk.recorded_reattempt_probability_difference",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/072-normal-goalie.pk.recorded_reattempt_probability_difference.png",
+      "sha256": "90bd4628999727b2a4dc469a9419131e58375c500c742841e6c0d99c53f90e14",
+      "bytes": 2888417,
+      "width": 1200,
+      "height": 6533,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "-1.35182",
+        "-1.35014",
+        "-1.09897"
+      ],
+      "display_unit": "percentage points",
+      "notes": "longest heading and wrapped qualification identifier remain complete; nearly equal first-two-year negative differences and final rise are visible",
+      "full_height_caveats_and_footer_visible": true
+    },
+    {
+      "metric": "goalie.pk.reattempt_neutral_goal_probability_difference",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/075-normal-goalie.pk.reattempt_neutral_goal_probability_difference.png",
+      "sha256": "9d46c251fac9179d5b968f268be5d59449784690945109c4e05edc69a6df3822",
+      "bytes": 2876403,
+      "width": 1200,
+      "height": 6533,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "0.0720444",
+        "0.0635339",
+        "0.12099"
+      ],
+      "display_unit": "percentage points",
+      "notes": "long next-attempt neutral-danger difference identifier fits; small positive differences use percentage points",
+      "full_height_caveats_and_footer_visible": true
+    },
+    {
+      "metric": "goalie.pk.followup_danger_difference",
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/acceptance-final-g-st-01/browser-04/078-normal-goalie.pk.followup_danger_difference.png",
+      "sha256": "ed80152e06c0e72321a1dbd10001d339233fd5f4d9e032379f7477d65a3195dc",
+      "bytes": 2873240,
+      "width": 1200,
+      "height": 6437,
+      "actual_hash_matches_receipt": true,
+      "pixels_viewed_directly": true,
+      "judgment": "pass",
+      "annual_seasons": [
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "annual_display_values_visually_read": [
+        "-0.135586",
+        "-0.138884",
+        "-0.0958319"
+      ],
+      "display_unit": "percentage points",
+      "notes": "joint follow-up danger difference heading is complete; all-negative differences and final rise remain legible",
+      "full_height_caveats_and_footer_visible": true
+    }
+  ],
+  "consequential_findings": [],
+  "nonblocking_observations": [
+    {
+      "problem": "method limitations are repeated again in the findings text within each annual block, producing very long dense exports",
+      "disposition": "existing repeated-method-notes issue remains open; no new clipping was found and this review does not close or waive that issue"
+    }
+  ],
+  "verdict": "all thirteen assigned normal PK PNGs pass their actual-pixel review. this closes only this image set; it is not an independent numerical/model validation, full browser/network/family acceptance or scientific admission",
+  "limits": [
+    "annual value strings are visual transcriptions, not a separate numerical oracle or recalculation",
+    "other exports and the nineteen browser screenshots are outside this assignment",
+    "no new rendering, export, response, fit, score, publication or source modification was performed"
+  ]
+}

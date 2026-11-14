@@ -1,0 +1,57 @@
+{
+  "kind": "shared-st-browser-url-multiset-amendment-intake",
+  "status": "SOURCE_AMENDMENT_CLEAR_NOT_RUN",
+  "independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-09-verification/st-final-browser-url-multiset-source-review-01.json",
+    "bytes": 4799,
+    "sha256": "5898ffb9a0bd38cf33afbf482b0fe1cbd8d65da80599329b6c8ea2852b57f52e"
+  },
+  "current_source_identities": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-peer-control-anchor-held-03.sh",
+      "bytes": 1092,
+      "sha256": "4f08184f5cacc967e07b2e53bc6e700c3f67de1d1838a8bf9dfadafe00ec6343"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-peer-control-anchor-plan-03.md",
+      "bytes": 9488,
+      "sha256": "b7bc8af7a6d80851925678cf4c28fcc62ec2b3d5e92eceb52fdd29d2a768eea5"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-held-08.sh",
+      "bytes": 1332,
+      "sha256": "6dba7e79df540d5787fe1eccd3d6fb4b6eaf274b708fab85717cd49c35cc2802"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-recovery-plan-03.md",
+      "bytes": 15824,
+      "sha256": "6de311a2eddf887a26b1b8c05fb55c68a42d229ea721f3073f9076864cccd0e6"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-peer-control-anchor-03.mjs",
+      "bytes": 21271,
+      "sha256": "89569295ccd29a986ef244ae88c2856caa9359d566cf4b2a13f741684d77638f"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-09/.tmp/st-final-browser-08.mjs",
+      "bytes": 60741,
+      "sha256": "29e89bf87d181f537638a68d5c88e91e88d75a0a9e5d4b76c76b49c9135d583b"
+    }
+  ],
+  "root_checks": [
+    "fixed review and all six current source identities match",
+    "direct source02-to03 diff retains full API URLs and adds sorted duplicate-preserving URL-vector equality after owned closure, retaining old final gates",
+    "direct source07-to08 diff adds exactly one full [mode,url] tuple-multiset assertion after owned closure",
+    "inputMode wording is recorded-only; no behavioral expansion",
+    "old unused01 output/profile/log/exit/capture mappings remain declared; old sources/failures retained"
+  ],
+  "unresolved": [
+    "anchor admission and exact three-path capture source freeze/review not complete",
+    "no actual pp anchor acceptance",
+    "remainder accepted-anchor/prefix-artifact/old-favicon/dispatch identities remain unresolved",
+    "all remaining live journeys/media, isolated restore, final preservation/protected-primary and cleanup"
+  ],
+  "implementation_disposition": "goalie feature implementation and its scoped runtime/browser acceptance are complete; full specification closeout remains incomplete",
+  "runtime": "same3763/fee5/app852/build18ef/node89887/fb604/21de+15d, referenced only; no fresh live query",
+  "authority": "source preparation only; no import/test/syntax/runtime/OS/HTTP/HDD/DB/CSV/image/preflight/browser/capture/build/publication/startup/activation command granted"
+}

@@ -467,3 +467,5 @@ all three natural irregularities remain unobserved within the five inspected inv
 ## v1-19 synthetic goalie-card successor
 
 [the coherent goalie-card fixture](goalie-card-v1-19/README.md) preserves the original publication-v1-13 bytes and v1-10 mechanism bodies. its explicit synthetic events/projections fix conditional/joint danger, support denominators and stopping/map consistency; ev/pk, unused-backup and absent-season examples remain distinct from original captures and real fitted outputs.
+
+this is the selected combined fixture for the current mandatory goalie/mechanism evidence contract. the [mechanism-only successor](mechanisms-v1-10/README.md) is retained as the exact intermediate stage before goalie evidence was added; its original verification remains historical, rather than a claim that its old goalie rows satisfy the later contract. current readers do not upgrade either older fixture at runtime.

@@ -1,0 +1,21 @@
+{
+  "at": "2026-11-15T02:52:45.165040+00:00",
+  "status": "accepted",
+  "reviewer": "native goalie evidence owner, independent read-only review",
+  "integrated_commit": "5ebdc48c60e011e5386f2e3c9851a4ee91fe9971",
+  "reviewed_source": "565877ca96e73b19c023969d4512c22a3495e362",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "app_tree": "abd38f66300aaa5becd697b10dab6a9d0b985f95",
+  "app_tree_equal_compiled_92379be": true,
+  "findings": [],
+  "contract_checks": [
+    "only analysis_cli.py and player_mechanisms.py change python behavior; goalie readers and publication/schema owners unchanged",
+    "narrow carry uses the existing checked ledger contract; ordinary full completion validation remains",
+    "canonical qualification lookup preserves valid projections; other projection statements are ast-identical",
+    "input-read timing moves from saved design resources to stderr; preparation and fit costs remain recorded"
+  ],
+  "scope": "source review and git integration only; no build/startup/publication/conversion/fit/artifact rewrite",
+  "heavy_owner": "v1-10 remaining serial fitqueue",
+  "real_candidate": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01",
+  "real_candidate_assembled": false
+}

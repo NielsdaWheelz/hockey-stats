@@ -199,6 +199,7 @@ export type GoalieCsvContext = {
   readonly type: string | null;
   readonly methodId: string | null;
   readonly reference: string | null;
+  readonly units: string;
   readonly support: Support | null;
   readonly availability: string;
   readonly reason: string | null;
@@ -225,6 +226,7 @@ export function goalieCsv(
     "reason",
     "selection_support",
     "comparison_companion",
+    "units",
   ];
   const values: readonly CsvCell[] = [
     context.publication.publication_id,
@@ -242,6 +244,7 @@ export function goalieCsv(
     context.reason,
     context.support ? JSON.stringify(context.support) : null,
     context.companion,
+    context.units,
   ];
   if (rows.some((row) => row.length > columns.length))
     throw new Error("goalie csv row exceeds its closed column contract");
@@ -263,6 +266,8 @@ const mapContext = (model: GoalieEvidenceMapModel): GoalieCsvContext => ({
   type: model.response.selection.type,
   methodId: model.methodId,
   reference: model.reference,
+  units:
+    "goals, expected_goals, mass_saved: goals; attempts: attempts; coordinates: feet; area_sqft: square feet; density_per100sqft: goals saved per100 square feet; ratio: percent relative to matched league goals per expected",
   support: model.support,
   availability: model.availability,
   reason: model.reason,

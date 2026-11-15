@@ -20,6 +20,8 @@
   "blank_missing_payload_cells": true,
   "pending_map_no_invented_zero": true,
   "missing_other_map_rejected": true,
+  "pending_model_tiers_unavailable": true,
+  "finite_csv_units": true,
   "requests": [
     "http://127.0.0.1:3419/api/players/9000004?season=20232024",
     "http://127.0.0.1:3419/api/league?season=20252026&kind=goalie&family=overview",

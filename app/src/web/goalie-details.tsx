@@ -66,6 +66,8 @@ function exportContext(profile: ProfileView): GoalieCsvContext {
       ].method_id ?? null,
     reference:
       "matched actual-opportunity evidence; selected strength, all types",
+    units:
+      "recorded counts: events; goal masses: goals; probabilities: fractions; reported time: seconds",
     support: observed?.coverage ?? null,
     availability: observed
       ? "provided"
@@ -138,7 +140,12 @@ export function goalieStageRows(observed: Observed): readonly StageRow[] {
   return rows;
 }
 export function goalieStagesCsv(profile: ProfileView): string {
-  const context = { ...exportContext(profile), population: null },
+  const context = {
+      ...exportContext(profile),
+      population: null,
+      units:
+        "success_count: binary stage successes; fractional_response_sum: summed next-attempt goal-probability fractions; eligible_count: matched stage observations; matched_expected_sum: summed stage-response expectation (binary success count or next-attempt fractional sum)",
+    },
     { observed } = observedEvidence(profile);
   return goalieCsv(
     context,
@@ -169,7 +176,12 @@ export function goalieStagesCsv(profile: ProfileView): string {
   );
 }
 export function goalieGamesCsv(profile: ProfileView): string {
-  const context = { ...exportContext(profile), population: null },
+  const context = {
+      ...exportContext(profile),
+      population: null,
+      units:
+        "reported_seconds: seconds; source counts: recorded events; paired attempts: attempts; paired goals/expected/saved: goals; goals_per100_expected: goals per100 expected goals; probabilities/save fractions: fractions; difficulty_relative_percent: percent; stage responses retain named conditional units",
+    },
     { observed } = observedEvidence(profile);
   return goalieCsv(
     context,
@@ -208,6 +220,8 @@ export function goalieGamesCsv(profile: ProfileView): string {
 export function goalieTiersCsv(profile: ProfileView): string {
   const context = exportContext(profile);
   const result = profile.goalieDetail?.result;
+  const summary =
+    result?.availability === "provided" ? result.data.summary : null;
   const rows =
     result?.availability === "provided"
       ? result.data.breakdowns.filter((row) => row.kind === "danger")
@@ -229,6 +243,19 @@ export function goalieTiersCsv(profile: ProfileView): string {
   const selected = {
     ...context,
     population: "unblocked",
+    units:
+      "events/eligible_weight: matched unblocked attempts; observed_successes/expected_successes: goals; probability: expected goals per unblocked attempt (fraction); effect: goals saved per UNBLOCKED attempt",
+    availability:
+      summary?.availability ?? result?.availability ?? "not_computed",
+    reason:
+      summary?.availability === "provided"
+        ? null
+        : (summary?.explanation ??
+          result?.explanation ??
+          "modeled danger tiers unavailable"),
+    methodId:
+      summary?.availability === "provided" ? summary.data.method_id : null,
+    support: null,
     reference:
       "fully neutral on-net probability tiers; paired unblocked responses",
   };
@@ -272,8 +299,21 @@ export function goalieTiersCsv(profile: ProfileView): string {
         data?.probability.value,
         data?.effect.value,
         data ? JSON.stringify(data.support) : null,
-        row?.availability ?? result?.availability ?? "not_computed",
-        row?.explanation ?? result?.explanation,
+        row?.availability ??
+          (summary?.availability === "provided"
+            ? "not_computed"
+            : summary?.availability) ??
+          result?.availability ??
+          "not_computed",
+        data
+          ? (data.probability.reason_detail?.explanation ??
+            data.probability.unavailable_reason ??
+            data.effect.reason_detail?.explanation ??
+            data.effect.unavailable_reason)
+          : (row?.explanation ??
+            summary?.explanation ??
+            result?.explanation ??
+            "no danger-tier record was published for this stratum"),
         "unblocked",
         "fully neutral on-net probability",
       ];

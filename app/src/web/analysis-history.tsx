@@ -371,7 +371,6 @@ export const analysisCsvHeaders = [
   "direction",
   "spatial_support_meaning",
   "method_evidence",
-  "mechanism_detail",
   "goalie_detail",
 ] as const;
 export function analysisCsvRow(
@@ -462,7 +461,6 @@ export function analysisCsvRow(
     spatialDirection(datum),
     datum.metric.publicationFamily === "spatial" ? spatialSupportMeaning(datum) : null,
     JSON.stringify(datum.methods.map(method => ({ method_id: method.method_id, evidence: method.evidence }))),
-    datum.mechanism_detail === null ? null : JSON.stringify(datum.mechanism_detail),
     datum.goalie_detail === null ? null : JSON.stringify(datum.goalie_detail),
   ];
 }

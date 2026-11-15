@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "observed": [
+    "positive_underflow_keeps_conditional_levels",
+    "true_zero_reattempt_withholds_conditional_but_keeps_zero_joint",
+    "mixed_current_and_borrowed_heads_remain_mixed",
+    "mixed_support_cannot_claim_fully_current",
+    "focal_q_prefix_shortcut_differs_from_stopping",
+    "pk_panels_retain_defending_orientation"
+  ],
+  "incorrect_prefix_stopping": -5.222222222222223,
+  "actual_stopping": -7
+}

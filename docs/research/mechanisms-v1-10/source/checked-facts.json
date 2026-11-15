@@ -1,0 +1,328 @@
+{
+  "kind": "original prepared source witnesses; independently stated expected dispositions",
+  "facts": [
+    {
+      "game_id": "2024020022",
+      "source_indices": [
+        163
+      ],
+      "original_source": [
+        {
+          "owner_team_id": 4,
+          "penalty_type": "BEN",
+          "penalty_duration_minutes": 2,
+          "roles": {
+            "penalty_served_by": 8480797
+          }
+        }
+      ],
+      "group": {
+        "game_id": "2024020022",
+        "period_number": 2,
+        "clock_seconds": 504,
+        "source_indices": [
+          163
+        ],
+        "report_source_indices": [
+          166
+        ],
+        "api_locators": [
+          "/events/163/source"
+        ],
+        "report_locators": [
+          "/game/report_rows/166[PL-167]"
+        ],
+        "group_disposition": "residual",
+        "residual_counts": {
+          "home": 0,
+          "away": 1
+        },
+        "elapsed_assignment": "assigned",
+        "segment_index": 206,
+        "chunk_index": 629,
+        "membership_relation": "before",
+        "reasons": [],
+        "affected_segment_indices": [],
+        "previous_taking_side": "home",
+        "next_taking_side": "away"
+      }
+    },
+    {
+      "game_id": "2024021177",
+      "source_indices": [
+        256,
+        257,
+        258
+      ],
+      "original_source": [
+        {
+          "owner_team_id": 26,
+          "penalty_type": "MIN",
+          "penalty_duration_minutes": 2,
+          "roles": {
+            "penalty_committed_by": 8479998,
+            "penalty_drawn_by": 8479393
+          }
+        },
+        {
+          "owner_team_id": 26,
+          "penalty_type": "MIN",
+          "penalty_duration_minutes": 2,
+          "roles": {
+            "penalty_committed_by": 8479998,
+            "penalty_drawn_by": 8484152
+          }
+        },
+        {
+          "owner_team_id": 28,
+          "penalty_type": "MIN",
+          "penalty_duration_minutes": 2,
+          "roles": {
+            "penalty_committed_by": 8484152,
+            "penalty_drawn_by": 8473453
+          }
+        }
+      ],
+      "group": {
+        "game_id": "2024021177",
+        "period_number": 3,
+        "clock_seconds": 227,
+        "source_indices": [
+          256,
+          257,
+          258
+        ],
+        "report_source_indices": [
+          259,
+          260,
+          261
+        ],
+        "api_locators": [
+          "/events/256/source",
+          "/events/257/source",
+          "/events/258/source"
+        ],
+        "report_locators": [
+          "/game/report_rows/259[PL-260]",
+          "/game/report_rows/260[PL-261]",
+          "/game/report_rows/261[PL-262]"
+        ],
+        "group_disposition": "residual",
+        "residual_counts": {
+          "home": 1,
+          "away": 0
+        },
+        "elapsed_assignment": "assigned",
+        "segment_index": 258,
+        "chunk_index": 925,
+        "membership_relation": "before",
+        "reasons": [],
+        "affected_segment_indices": [],
+        "previous_taking_side": "away",
+        "next_taking_side": "home"
+      }
+    },
+    {
+      "game_id": "2024020186",
+      "source_indices": [
+        221,
+        222,
+        223,
+        224
+      ],
+      "original_source": [
+        {
+          "owner_team_id": 14,
+          "penalty_type": "MIN",
+          "penalty_duration_minutes": 2,
+          "roles": {
+            "penalty_committed_by": 8476878,
+            "penalty_drawn_by": 8479378,
+            "penalty_served_by": 8479591
+          }
+        },
+        {
+          "owner_team_id": 52,
+          "penalty_type": "MAJ",
+          "penalty_duration_minutes": 5,
+          "roles": {
+            "penalty_committed_by": 8479378,
+            "penalty_drawn_by": 8476878
+          }
+        },
+        {
+          "owner_team_id": 14,
+          "penalty_type": "MAJ",
+          "penalty_duration_minutes": 5,
+          "roles": {
+            "penalty_committed_by": 8476878,
+            "penalty_drawn_by": 8479378
+          }
+        },
+        {
+          "owner_team_id": 14,
+          "penalty_type": "MIS",
+          "penalty_duration_minutes": 10,
+          "roles": {
+            "penalty_committed_by": 8476878
+          }
+        }
+      ],
+      "group": {
+        "game_id": "2024020186",
+        "period_number": 3,
+        "clock_seconds": 143,
+        "source_indices": [
+          221,
+          222,
+          223,
+          224
+        ],
+        "report_source_indices": [
+          225,
+          226,
+          227,
+          228
+        ],
+        "api_locators": [
+          "/events/221/source",
+          "/events/222/source",
+          "/events/223/source",
+          "/events/224/source"
+        ],
+        "report_locators": [
+          "/game/report_rows/225[PL-226]",
+          "/game/report_rows/226[PL-227]",
+          "/game/report_rows/227[PL-228]",
+          "/game/report_rows/228[PL-229]"
+        ],
+        "group_disposition": "unresolved",
+        "residual_counts": {
+          "home": 0,
+          "away": 0
+        },
+        "elapsed_assignment": "not_applicable",
+        "segment_index": null,
+        "chunk_index": null,
+        "membership_relation": null,
+        "reasons": [
+          "compound_or_unknown_penalty_kind"
+        ],
+        "affected_segment_indices": [
+          274,
+          275
+        ],
+        "previous_taking_side": "home",
+        "next_taking_side": "unknown"
+      }
+    },
+    {
+      "game_id": "2025021094",
+      "source_indices": [
+        106
+      ],
+      "original_source": [
+        {
+          "owner_team_id": 10,
+          "penalty_type": "MIN",
+          "penalty_duration_minutes": 4,
+          "roles": {
+            "penalty_committed_by": 8478443,
+            "penalty_drawn_by": 8480762
+          }
+        }
+      ],
+      "group": {
+        "game_id": "2025021094",
+        "period_number": 2,
+        "clock_seconds": 117,
+        "source_indices": [
+          106
+        ],
+        "report_source_indices": [
+          109
+        ],
+        "api_locators": [
+          "/events/106/source"
+        ],
+        "report_locators": [
+          "/game/report_rows/109[PL-110]"
+        ],
+        "group_disposition": "outside_population",
+        "residual_counts": {
+          "home": 0,
+          "away": 0
+        },
+        "elapsed_assignment": "not_applicable",
+        "segment_index": null,
+        "chunk_index": null,
+        "membership_relation": null,
+        "reasons": [],
+        "affected_segment_indices": [],
+        "previous_taking_side": "away",
+        "next_taking_side": "away"
+      }
+    },
+    {
+      "game_id": "2025020006",
+      "source_indices": [
+        342,
+        343
+      ],
+      "original_source": [
+        {
+          "owner_team_id": 20,
+          "penalty_type": "MIN",
+          "penalty_duration_minutes": 2,
+          "roles": {
+            "penalty_committed_by": 8477346,
+            "penalty_drawn_by": 8478402,
+            "penalty_served_by": 8482679
+          }
+        },
+        {
+          "owner_team_id": 20,
+          "penalty_type": "MIS",
+          "penalty_duration_minutes": 10,
+          "roles": {
+            "penalty_committed_by": 8477346
+          }
+        }
+      ],
+      "group": {
+        "game_id": "2025020006",
+        "period_number": 4,
+        "clock_seconds": 211,
+        "source_indices": [
+          342,
+          343
+        ],
+        "report_source_indices": [
+          345,
+          346
+        ],
+        "api_locators": [
+          "/events/342/source",
+          "/events/343/source"
+        ],
+        "report_locators": [
+          "/game/report_rows/345[PL-346]",
+          "/game/report_rows/346[PL-347]"
+        ],
+        "group_disposition": "residual",
+        "residual_counts": {
+          "home": 0,
+          "away": 1
+        },
+        "elapsed_assignment": "assigned",
+        "segment_index": 428,
+        "chunk_index": 1420,
+        "membership_relation": "before",
+        "reasons": [],
+        "affected_segment_indices": [],
+        "previous_taking_side": "home",
+        "next_taking_side": "away"
+      }
+    }
+  ]
+}

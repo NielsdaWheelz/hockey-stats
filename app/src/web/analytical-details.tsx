@@ -1096,7 +1096,7 @@ export default function AnalyticalDetails({
                 <th scope="row">{strength}</th>{result.availability === "provided" ? <>
                   {[result.data.probability,result.data.neutral_probability,result.data.difference].map((estimate,index) => <td key={index}>{estimate.value === null ? estimateText(estimate) : displayNumber(100 * estimate.value)}</td>)}
                   <td>{result.data.evidence.reference_unit.forwards}F/{result.data.evidence.reference_unit.defenders}D</td><td>{displayNumber(result.data.support.included_seconds === null ? null : result.data.support.included_seconds / 60)}</td><td>{result.data.evidence.coefficient_support.likelihood_events}</td>
-                  <td>{result.data.evidence.coefficient_support.prior_kind ?? "unavailable"}; {result.data.evidence.coefficient_support.prior_only ? "prior-only" : "current information"}</td>
+                  <td>{result.data.evidence.coefficient_support.prior_kind ?? "unavailable"}; {result.data.evidence.coefficient_support.current_season_information ? "current information" : result.data.evidence.coefficient_support.prior_only ? "prior-only" : "no current information"}</td>
                 </> : <td colSpan={7}>{result.explanation}</td>}
               </tr>)}</tbody>
             </table>

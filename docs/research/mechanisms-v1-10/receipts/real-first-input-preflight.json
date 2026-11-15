@@ -1,0 +1,23 @@
+{
+  "kind": "first_real_mechanism_input_preflight",
+  "status": "pass",
+  "scope": "only two selected input manifests/documents; no full external member audit or upstream refit",
+  "inputs": [
+    {
+      "name": "prepared",
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+      "bytes": 18633830
+    },
+    {
+      "name": "coaches",
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+      "bytes": 39341670
+    }
+  ],
+  "available_bytes": 6879498108928,
+  "selected_season": "20212022",
+  "family": "penalties",
+  "memory_envelope_bytes": 68719476736
+}

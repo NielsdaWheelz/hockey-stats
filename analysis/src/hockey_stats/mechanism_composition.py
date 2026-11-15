@@ -153,15 +153,35 @@ def compose_mechanisms(existing_results, selection_path, output):
         conversion_path = Path(converted_binding['path']).parent/'exchange4-conversion.json'
         descendant_binding = identity(descendant_path)
     conversion = strict_json(conversion_path.read_bytes())
-    publication.fields(conversion,('schema_version','kind','purpose','source_results','output','policy','synthetic_checked_facts','inherited_members'))
+    publication.fields(conversion,('schema_version','kind','purpose','source_results','output','policy','synthetic_checked_facts','goalie_scores','goalie_projections','inherited_members'))
     require(conversion['schema_version'] == 1 and conversion['kind'] == 'attributed_exchange4_conversion'
             and conversion['purpose'] == selection['purpose'], 'invalid exchange4 donor conversion receipt')
     if selection['purpose'] == 'real':
         require(conversion['source_results']['sha256'] == '21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3',
                 'exchange4 donor is not the pinned complete g/ev/st successor')
+    if selection['purpose'] == 'real':
+        require(conversion['goalie_scores'] is not None and conversion['goalie_scores']['sha256'] == '2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed',
+                'exchange4 donor goalie evidence selection differs')
+        require(identity(Path(conversion['goalie_scores']['path'])) == conversion['goalie_scores'], 'exchange4 goalie evidence selection binding differs')
+        require([item['season'] for item in conversion['goalie_projections']] == existing.manifest['seasons'], 'exchange4 goalie evidence years differ')
     require(identity(Path(conversion['source_results']['path'])) == conversion['source_results'], 'original exchange3 donor binding differs')
     require(conversion['output'] == converted_binding, 'exchange4 donor conversion does not bind the selected current donor')
     conversion_binding = identity(conversion_path)
+    for item in conversion['goalie_projections']:
+        publication.fields(item,('season','score','projection','rows','provided_rows','source_member','output_member'))
+        publication.season(item['season'])
+        for key in ('score','projection'):
+            publication.fields(item[key],('path','sha256'))
+            publication.text(item[key]['path'])
+            publication.digest(item[key]['sha256'])
+        for key in ('rows','provided_rows'):
+            publication.number(item[key],minimum=0,integer=True)
+        require(item['provided_rows'] <= item['rows'], 'converted goalie provided row count differs')
+        for key in ('source_member','output_member'):
+            publication.fields(item[key],('path','sha256','rows'))
+            publication.text(item[key]['path'])
+            publication.digest(item[key]['sha256'])
+            require(item[key]['rows'] == item['rows'], 'converted goalie member row count differs')
     annuals = {}
     for item in selection['years']:
         year = item['season']

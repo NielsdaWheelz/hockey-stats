@@ -6,7 +6,7 @@ verification follows temporary integration/live red → green → refactor → g
 
 accepted modeling tradeoffs remain those in the specification: conservative ordinary-minor scope, richer penalty context, pooled shooter skill across seven states, fixed position weights/units and priors, age-neutral raw point-history borrowing, approximate isolated-minor valuation, and unknown optimizer accuracy. final diagnostics do not retroactively establish earlier numerical accuracy.
 
-current environment reuses existing pinned python and application dependencies through worktree-local symlinks. python commands set this worktree’s `analysis/src` on `PYTHONPATH`; no primary source/build/database is modified.
+initial fixture work reused pinned dependencies through worktree-local symlinks. before real fitting, `uv sync --frozen --offline` installed the same lockfile into an ordinary ignored worktree environment (python 3.14.8, numpy 2.5.3, scipy 1.18.1); this removes a symlink-only dirty-source marker. python commands set this worktree’s `analysis/src` on `PYTHONPATH`; no primary source/build/database is modified. application dependencies remain shared and unchanged.
 
 ## completed software and fixture boundaries
 
@@ -21,3 +21,5 @@ first actual fixture annual: penalty `20212022`, 224 skaters, 13,080 directed ti
 ## shared v1-19 integration
 
 v1-19 was assigned separately during this task. it imported the `bc34d27` exchange4/schema10 foundation verbatim and owns the finite goalie evidence extension, card and discovery. v1-10 retains mechanism ownership and the single real converter. selected order: one attributed conversion enriches saved goalie evidence and leaves mechanisms pending; mechanism composition then preserves the complete donor. both roots prefer one combined real candidate. no second real candidate is selected; a cost/sequence decision precedes any alternative. heavy commands remain serial; neither root has launched real conversion or another real candidate.
+
+all ten original-corpus fixture heads and both final continuations completed in 214.97 native seconds with 352,955,932 bound member bytes. [chain receipt](receipts/fixture-chains.json) and [independent saved audit](reviews/fixture-chain-saved-audit.md) separate full producer checks from saved-only reproduction. all raw carry/history/support/centers and every known-position seven-state projection reconcile. final penalty standardized movement is `2.798696e-8/hour`; the saved actual-row maximum is `9.045467e-6/hour`. shooter standardized/actual maxima are `7.419930e-9` / `5.274735e-9` fractions. rates/probabilities are within their fixed diagnostic budgets; minor-value sensitivity remains unassessed until a compatible reference exists. no earlier-year accuracy or scientific admission follows.

@@ -1590,7 +1590,7 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
         return
     if table in ESTIMATE_FIELDS and table != 'attempt_value':
         extra = ('state_weights',) if table == 'skater_spatial' else ('reference_panel','coefficient_support','paired_evidence') if table == 'skater_execution' else ('recorded_drawn','recorded_taken','recorded_served') if table == 'skater_penalties' else ()
-        fields(value, (*ESTIMATE_FIELDS[table], *extra, *(('evidence',) if table in ('skater_penalties','skater_shootiness') else ()), 'support','method_id'))
+        fields(value, (*ESTIMATE_FIELDS[table], *extra, *(('evidence',) if table in ('skater_penalties','skater_shootiness','goalie_result') else ()), 'support','method_id'))
         for field in ESTIMATE_FIELDS[table]:
             probability = field in ('probability','neutral_probability') or field.endswith('_probability') or field == 'followup_danger'
             estimate(value[field], catalogs, probability=probability, nonnegative=field.endswith(('_complete','_neutral')))
@@ -1603,6 +1603,15 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
         _method(value['method_id'], catalogs)
         if table == 'skater_execution':
             _execution_details(value)
+        elif table == 'goalie_result':
+            from .goalie_scores import validate_goalie_projection
+            fields(value['evidence'], ('neutral_values','masses','coefficient_support','panels'))
+            validate_goalie_projection(dict(season=row['season'], player_id=row['player_id'], strength=row['strength'],
+                values={field:value[field]['value'] for field in ESTIMATE_FIELDS[table]},
+                support=value['support'], **value['evidence'],
+                unavailable={field:dict(reason=value[field]['unavailable_reason'],
+                    explanation=value[field]['reason_detail']['explanation'])
+                    for field in ESTIMATE_FIELDS[table] if value[field]['value'] is None}), row['season'])
         elif table == 'skater_spatial':
             require(type(value['state_weights']) is list and value['state_weights'], 'missing state weights')
             states = []

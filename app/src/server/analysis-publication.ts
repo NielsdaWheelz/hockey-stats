@@ -591,6 +591,9 @@ export const validateAnalysis = (
           }
           if (table === "adjustment_decomposition") decode(A.AdjustmentTarget, row.target);
           const result = resultFromRow(table, row, person.kind);
+          if (table === "goalie_result" && result.availability === "provided" &&
+              !A.validGoalieProjectionBinding(decode(A.GoalieResult, result.data), String(row.season), String(row.strength)))
+            throw new Error("goalie projection panel binding differs from selected year/strength");
           if (table === "skater_spatial" && result.availability === "provided") {
             const value = result.data as typeof A.SkaterSpatial.Type;
             const key = `${row.season}:${row.player_id}`;

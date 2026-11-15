@@ -815,8 +815,8 @@ function historySvg(view: HistoryView): string {
         text("conditional experimental mechanism; no causal credit or calibrated uncertainty; optimizer accuracy unknown", 20);
         text(`reference ${evidence.reference_id}; prior ${evidence.coefficient_support.prior_kind ?? "unavailable"}; anchor ${evidence.coefficient_support.prior_anchor_season ?? "none"}; prior-only ${evidence.coefficient_support.prior_only}`, 20);
         if ("valuation" in evidence) {
-          text(`ordinary-minor team awards: neutral ${evidence.neutral_per60}; complete drawing ${evidence.drawn_complete_per60}; complete taking ${evidence.taken_complete_per60} per60. positive taking means more penalties`, 20);
-          text(`isolated-minor value ${evidence.valuation.V_goals ?? "unavailable"} goals; source-pooled sh circumstances differ from hypothetical ev/pp references`, 20);
+          text(`ordinary-minor team awards: neutral ${evidence.neutral_per60}; complete drawing ${evidence.drawn_complete_per60}; complete taking ${evidence.taken_complete_per60} per60. positive taking difference means more penalties`, 20);
+          text(`isolated-minor value ${evidence.valuation.V_goals ?? "unavailable"} goals; taking value = −taking difference × V; V can be negative. source-pooled sh circumstances differ from hypothetical ev/pp references`, 20);
         } else text(`share of team attempts; ${evidence.reference_unit.forwards}F/${evidence.reference_unit.defenders}D unit. exact-state qualifying minutes differ from pooled seven-state candidate information; neither is observed shot share`, 20);
       }
       if (datum.reference_panel) {

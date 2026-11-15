@@ -8,7 +8,7 @@ export function MechanismDetail({evidence}: {readonly evidence: Evidence}) {
   return <div className="mechanism-detail">
     <p>coefficient {coefficient.status}; current-season information {coefficient.current_season_information ? "yes" : "no"}; prior-only {coefficient.prior_only ? "yes" : "no"}; prior {coefficient.prior_kind ?? "unavailable"}; anchor {coefficient.prior_anchor_season ?? "none"}; borrowed seasons {coefficient.prior_seasons.join(", ") || "none"}. calibrated uncertainty and optimizer accuracy are unknown.</p>
     {"valuation" in evidence ? <>
-      <p>complete team-award rates: drawing {number(evidence.drawn_complete_per60)}, taking {number(evidence.taken_complete_per60)}; neutral {number(evidence.neutral_per60)} awards per60. drawing/taking differences subtract that neutral rate. positive taking means more team penalties.</p>
+      <p>complete team-award rates: drawing {number(evidence.drawn_complete_per60)}, taking {number(evidence.taken_complete_per60)}; neutral {number(evidence.neutral_per60)} awards per60. drawing/taking differences subtract that neutral rate. positive taking difference means more team penalties.</p>
       <div className="table-scroll" role="region" tabIndex={0} aria-label="isolated ordinary-minor value reference, scroll horizontally">
         <table><caption>isolated two-minute opportunity reference</caption><thead><tr><th scope="col">quantity</th><th scope="col">value</th><th scope="col">unit</th></tr></thead>
           <tbody>{([
@@ -20,7 +20,7 @@ export function MechanismDetail({evidence}: {readonly evidence: Evidence}) {
         </table>
       </div>
       <p>matched sh support: {number(evidence.valuation.sh_support.included_seconds / 60)} included minutes; {evidence.valuation.sh_support.attempts} attempts; {number(evidence.valuation.sh_support.neutral_goal_mass)} neutral goal mass; {number(evidence.valuation.sh_support.known_excluded_seconds / 60)} known excluded minutes; unquantified gap {evidence.valuation.sh_support.unquantified_gap ? "yes" : "no"}. {evidence.valuation.available ? "valuation available, including zero or negative value" : `valuation unavailable: ${evidence.valuation.reason?.replaceAll("_", " ")}`}.</p>
-      <p>the isolated-minor approximation omits overlap, 5v3, regulation truncation and focal specialty skill. source-pooled sh circumstances differ from hypothetical ev/pp references. a pp goal ends the opportunity; a sh goal does not. taking value reverses the sign of the taking difference.</p>
+      <p>the isolated-minor approximation omits overlap, 5v3, regulation truncation and focal specialty skill. source-pooled sh circumstances differ from hypothetical ev/pp references. a pp goal ends the opportunity; a sh goal does not. taking value = −taking difference × V; V can be negative.</p>
     </> : <>
       <p>share of team attempts conditions on an attempt occurring. common unit: {evidence.reference_unit.forwards} forwards / {evidence.reference_unit.defenders} defenders; focal position {evidence.position_group}. pooled seven-state candidate information: {coefficient.likelihood_events} choices. neither the modeled probability nor its qualifying minutes is observed shot share or finishing.</p>
       <div className="table-scroll" role="region" tabIndex={0} aria-label="exact-state shootiness qualification and pooled candidate information, scroll horizontally">

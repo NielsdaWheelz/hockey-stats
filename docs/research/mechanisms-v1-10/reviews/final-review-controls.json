@@ -1,0 +1,51 @@
+{
+  "kind": "independent_adversarial_review_controls",
+  "scope": "software review; no real numerical acceptance",
+  "status": "pass",
+  "independent_checks": [
+    "seven typed misconduct controls",
+    "retained original raw capture scan: no typed MIS/GAM with missing duration among36selectedgames",
+    "numeric signed minor value1 accepted; booleantrue rejected",
+    "valid assessed/unassessed comparisons accepted; five malformed shape/domain/verdict variants rejected",
+    "four actual analytical detail render scenarios"
+  ],
+  "controller_failure": {
+    "command": "tsx temporary-mechanism-prior-render.tsx without web tsconfig",
+    "result": "React is not defined in source jsx; no application defect",
+    "correction": "tsx --tsconfig tsconfig.web.json temporary-mechanism-prior-render.tsx; passes"
+  },
+  "reviewed_sources": [
+    {
+      "path": "analysis/src/hockey_stats/mechanism_design.py",
+      "sha256": "08f0f819b429b611e52e9e8801942d608b01f537007855f30ac7a54238a968a0"
+    },
+    {
+      "path": "analysis/src/hockey_stats/player_mechanisms.py",
+      "sha256": "3f3605d52ccf49270d5e433e56788a155bcacf8f487c078fbe427dbfdcb6c1d3"
+    },
+    {
+      "path": "analysis/src/hockey_stats/mechanism_state.py",
+      "sha256": "f02c593663d63c300f0b798b6e5274b00692514e2dad2932085a762e5756f3fa"
+    },
+    {
+      "path": "analysis/src/hockey_stats/mechanism_composition.py",
+      "sha256": "fefdbbef61a70cf6b30c0447f95f5f217ada48c77276ecef545e33b2ede1a54b"
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_publication.py",
+      "sha256": "f6c3330c643625aede06859042448be22149acb8f0342e076cc61cab6b1a9f4c"
+    },
+    {
+      "path": "app/src/shared/player-analysis.ts",
+      "sha256": "9b9dccd1539908d901078cc59da97010a02d94253b46dc6520d65eb987c37f1f"
+    },
+    {
+      "path": "app/src/server/analysis-publication.ts",
+      "sha256": "383dcbff9cb1a5c8897aa7a2a50af031b4deca02c7a14b5fa04ee38c45fcb49d"
+    },
+    {
+      "path": "app/src/web/analytical-details.tsx",
+      "sha256": "9e881e709d3be1b6b368a85400ee6056d102fc004526e5f7237fcf5015ae732b"
+    }
+  ]
+}

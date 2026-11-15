@@ -13,7 +13,6 @@ from .captures import strict_json
 from .chance_cli import identity, output_path
 
 YEARS = ('20212022','20222023','20232024','20242025','20252026')
-SELECTED_RESULTS_SHA256 = '8b32c23ed869de95a77faed20cd627e4556d7a4a638c190de24dc836f78151ee'
 ACCEPTED_SCORES_SHA256 = '588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e8c000f9450'
 
 
@@ -82,10 +81,6 @@ def compose_goalie(prepared, combined_results, annual_goalie_scores, output):
     started = perf_counter()
     output = output_path(str(output),[])
     combined_results = Path(combined_results)
-    parent = combined_results/'manifest.json'
-    header = strict_json(parent.read_bytes())
-    if type(header) is dict and header.get('purpose') == 'real':
-        require(identity(parent)['sha256'] == SELECTED_RESULTS_SHA256, 'selected goalie composition parent digest differs')
     existing = publication.read_results(combined_results)
     prepared = read_prepared(prepared,existing.manifest['purpose'])
     require(identity(prepared.directory/'manifest.json')['sha256'] == existing.manifest['prepared_sha256'], 'goalie composition preparation differs')
@@ -108,26 +103,11 @@ def compose_goalie(prepared, combined_results, annual_goalie_scores, output):
     inherited,owned = [],[]
 
     def copy_member(member):
-        source = publication.member_path(existing.directory,member)
-        destination = output/member['path']
-        destination.parent.mkdir(parents=True,exist_ok=True)
-        sha = hashlib.sha256()
-        with source.open('rb') as src,destination.open('xb') as dst:
-            while chunk := src.read(1024*1024):
-                dst.write(chunk); sha.update(chunk)
-        require(sha.hexdigest() == member['sha256'], 'inherited member digest differs during goalie copy')
+        publication.copy_result_member(existing.directory,member,output)
         inherited.append(dict(member))
 
     def write_member(path,rows,table):
-        sha,count,previous = hashlib.sha256(),0,None
-        with (output/path).open('xb') as destination:
-            for row in rows:
-                key = tuple(row[field] for field in publication.KEYS[table])
-                require(previous is None or previous < key, 'goalie '+table+' rows duplicate or unordered')
-                encoded = publication.json_bytes(row)+b'\n'
-                destination.write(encoded); sha.update(encoded)
-                previous,count = key,count+1
-        member = dict(path=path,sha256=sha.hexdigest(),rows=count)
+        member = publication.write_result_member(output,path,rows,table)
         owned.append(dict(member))
         return member
 

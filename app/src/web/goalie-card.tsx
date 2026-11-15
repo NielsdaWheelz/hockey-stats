@@ -635,6 +635,11 @@ export function GoalieDistribution({ field }: { readonly field: Field }) {
   );
 }
 
+const unmappedText = (model: GoalieEvidenceMapModel): string =>
+  model.data
+    ? `unmapped ${model.data.unmapped.attempts} attempts; ${displayNumber(model.data.unmapped.expected_goals - model.data.unmapped.goals)} goals saved.`
+    : "unmapped evidence unavailable";
+
 export default function GoalieCard({
   model,
   detailLink,
@@ -995,6 +1000,7 @@ export default function GoalieCard({
                 <p>{panel.map.reason}</p>
               )}
               <TypeBars model={panel.map} />
+              <p>{unmappedText(panel.map)}</p>
               <GoalieMapLegend model={panel.map} />
               <p>
                 own matched reference {panel.map.reference ?? "unavailable"};{" "}
@@ -1465,6 +1471,7 @@ export function goalieCardSvg(model: GoalieCardModel): string {
             top,
             542,
           );
+          top += wrap(unmappedText(panel.map), x, top + 8, 542);
         } else
           top += wrap(
             `mapped saving ${displayNumber(panel.map.rectangles.reduce((sum, row) => sum + row.mass, 0))}; unmapped ${displayNumber(data.unmapped.expected_goals - data.unmapped.goals)}.`,

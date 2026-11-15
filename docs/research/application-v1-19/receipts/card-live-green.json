@@ -2,7 +2,7 @@
   "passed": true,
   "player": "9000004",
   "season": "20232024",
-  "svg_height": 6062,
+  "svg_height": 6116,
   "card_rows": 93,
   "stage_rows": 41,
   "game_rows": 2,
@@ -25,6 +25,9 @@
   "annual_recorded_history": true,
   "actual_only_model_strength_blank": true,
   "ui_core_does_not_relabel_actual_exports": true,
+  "type_unmapped_accounting": true,
+  "all_four_type_annotations": true,
+  "unavailable_type_unmapped_not_zero": true,
   "requests": [
     "http://127.0.0.1:3419/api/players/9000004?season=20232024",
     "http://127.0.0.1:3419/api/league?season=20252026&kind=goalie&family=overview",

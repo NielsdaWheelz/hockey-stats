@@ -4,7 +4,7 @@
   "sources": [
     {
       "path": "app/src/web/goalie-card.tsx",
-      "sha256": "9040b5c19a8ab889f341793e7a4b08e8cbd0e780fdf2c53fd2af52d02c911ec3"
+      "sha256": "653ba0c501cef380f8dc21a47d4fdf86aada00366d1f932e24173799b631ce4d"
     },
     {
       "path": "app/src/web/goalie-details.tsx",
@@ -52,7 +52,8 @@
     "ev/pk/covered_all observed history copies supplied source/official/paired quantities, without rates recomputed in browser",
     "absent/pending annuals keep their identity/reason and blank unavailable values, without another annual fallback",
     "actual-only csv metadata leaves modeled_strength blank, matching the actual map export contract",
-    "shared formula-safe encoder and rectangular finite rows preserve history text and exact raw fractions/units"
+    "shared formula-safe encoder and rectangular finite rows preserve history text and exact raw fractions/units",
+    "each primary type panel names supplied unmapped attempts and additive goals saved; missing bodies retain unavailable accounting; ratio mode does not change these units"
   ],
   "findings": [
     {
@@ -98,6 +99,11 @@
       "id": "actual-only-modeled-strength",
       "problem": "actual-only exports inherited unrelated ui core strength under modeled_strength",
       "state": "resolved centrally: modeled_strength blank for actual-only exports; actual_strength remains explicit; targeted red/green passed"
+    },
+    {
+      "id": "type-panel-unmapped-accounting",
+      "problem": "valid type panels could show actual/expected goals with no located map mass and omit the matching unmapped explanation",
+      "state": "resolved; one formatter shared by browser/full svg; supplied count and additive goals saved independently checked in mass and ratio views"
     }
   ],
   "limits": [
@@ -155,5 +161,6 @@
       "formula-leading annual display name"
     ],
     "metadata_red_log_sha256": "7bb403642cb9750e1c94e1faf74128cb5c84be88f16064aa5333772d88375f6b"
-  }
+  },
+  "type_unmapped_scoped_review": "independent-type-unmapped-review.json"
 }

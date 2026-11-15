@@ -1,0 +1,45 @@
+{
+  "kind": "remaining_real_mechanism_launch",
+  "launched_at_utc": "2026-11-15T02:44:24.581235+00:00",
+  "git_commit": "565877ca96e73b19c023969d4512c22a3495e362",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "command": "sh .tmp/v1-10/real-remaining-chain.sh",
+  "log": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/remaining-chain.log",
+  "source_files": [
+    {
+      "path": "analysis/src/hockey_stats/analysis_cli.py",
+      "sha256": "248e8358beeaa27244f1f39f3c83f7a71cd6b6e68922e0dfe89e6d73487a9a57"
+    },
+    {
+      "path": "analysis/src/hockey_stats/player_mechanisms.py",
+      "sha256": "ee053345ad6f54d0b2363a272fa0fa97205fbfceb4da1196fc9d5421890b1057"
+    },
+    {
+      "path": ".tmp/v1-10/real-remaining-chain.sh",
+      "sha256": "e772c23de4e14a8db4e42fe33d616d22269d6903cfab80efe6e94cdba1d118fe"
+    },
+    {
+      "path": ".tmp/v1-10/complete-real.py",
+      "sha256": "d6bed4cb2f8b1fa26c568c2ef3af55e6bf492a6453298dc9caaff17ddfba6875"
+    }
+  ],
+  "sequence": {
+    "penalties": [
+      "20222023",
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "shootiness": [
+      "20212022",
+      "20222023",
+      "20232024",
+      "20242025",
+      "20252026"
+    ]
+  },
+  "first_real_saved_audit": "docs/research/mechanisms-v1-10/reviews/real-first-penalty-saved-audit.json",
+  "heavy_window": "v1-19 explicitly released finalfixture/pairedoperation; root now holds serial queue",
+  "status": "launch; no remaining annual completion claimed",
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01"
+}

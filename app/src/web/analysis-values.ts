@@ -453,7 +453,7 @@ const penalties = (["drawn_per60", "taken_per60", "drawn_value_per60", "taken_va
   unit: field.includes("value") ? "goals_per60" : "penalties_per60",
   population: "genuine 5v5 directed ordinary-minor team awards; both goalies present",
   qualificationLabel: "matched physical 5v5 time; zero-award intervals retained",
-  numericReference: field.includes("value") ? "isolated two-minute opportunity; signed drawing value and opposite signed taking value" : "complete focal rate minus the neutral team-award rate",
+  numericReference: field.includes("value") ? "isolated two-minute opportunity; drawing value = drawing difference × V; taking value = −taking difference × V; V can be negative" : "complete focal rate minus the neutral team-award rate",
   select: inputs => fromResult(inputs.penalties, data => ({
     ...estimate(data[field], data.support, data.method_id, "penalties.support.included_seconds"),
     mechanism_detail: data.evidence,

@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "scope": "synthetic finite-contract and zero-choice controls",
+  "checks": [
+    "wrong_member_role",
+    "wrong_source_year",
+    "unknown_manifest_field",
+    "orphan_probe_coefficients",
+    "boolean_projection_scalar",
+    "narrow_probe_probability_closure",
+    "nonfinite_saved_coefficients",
+    "duplicate_json_key",
+    "zero_choice_unavailable_without_coefficients"
+  ]
+}

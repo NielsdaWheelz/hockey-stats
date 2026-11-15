@@ -1,11 +1,1 @@
-Traceback (most recent call last):
-  File "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/mechanisms-v1-10/state_adversarial.py", line 26, in <module>
-    base=Path(temporary)/'base';state=fit_mechanism(d,None,base,final_year=True)
-                                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/analysis/src/hockey_stats/player_mechanisms.py", line 461, in fit_mechanism
-    validate_design(design)
-    ~~~~~~~~~~~~~~~^^^^^^^^
-  File "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/analysis/src/hockey_stats/mechanism_state.py", line 88, in validate_design
-    require(design.coverage['purpose']==design.purpose and design.coverage['season']==design.season
-            ~~~~~~~~~~~~~~~^^^^^^^^^^^
-KeyError: 'purpose'
+passed 9 independent state contract controls

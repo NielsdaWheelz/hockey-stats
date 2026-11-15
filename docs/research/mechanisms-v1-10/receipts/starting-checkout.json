@@ -52,5 +52,24 @@
       "sha256": "2c394cc3549a9ab1be3a69064ddde5f0e325896fcc2e5107eb4869d19467bbd1",
       "bytes": 31976
     }
-  ]
+  ],
+  "primary_publications": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite",
+      "bytes": 11310997504,
+      "inode": 191950541,
+      "mtime_ns": 1793431198154070471
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/previous.sqlite",
+      "bytes": 4635877376,
+      "inode": 173454037,
+      "mtime_ns": 1793080727502487829
+    }
+  ],
+  "primary_server": {
+    "pid": 9645,
+    "port": 3000,
+    "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/main.js"
+  }
 }

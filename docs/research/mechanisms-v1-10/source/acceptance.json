@@ -28,7 +28,14 @@
   ],
   "temporary_controllers": [
     ".tmp/mechanisms-v1-10/source_checks.py",
-    ".tmp/mechanisms-v1-10/source_integration.py"
+    ".tmp/mechanisms-v1-10/source_integration.py",
+    ".tmp/mechanisms-v1-10/state_adversarial.py"
   ],
-  "controller_disposition": "retained until root campaign acceptance, then delete"
+  "controller_disposition": "retained until root campaign acceptance, then delete",
+  "independent_state_contract_checks": 9,
+  "state_contract_evidence": [
+    "numerical-final-replay.txt",
+    "state-rejection-results.json",
+    "state-rejection.txt"
+  ]
 }

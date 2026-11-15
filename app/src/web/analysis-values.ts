@@ -66,8 +66,7 @@ export type AnalysisMetricId = ObservedRateKey
   | `spatial.${"pp" | "5v4" | "5v3" | "4v3"}.offense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
   | `spatial.${"pk" | "4v5" | "3v5" | "3v4"}.defense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
   | `execution.${typeof strengths[number]}.${typeof executionFields[number]}`
-  | `shootiness.${typeof strengths[number]}.${"probability" | "difference"}`
-  | "shootiness.5v5.neutral_probability"
+  | `shootiness.${typeof strengths[number]}.${"probability" | "neutral_probability" | "difference"}`
   | `penalties.${"drawn_per60" | "taken_per60" | "drawn_value_per60" | "taken_value_per60"}`
   | `territory.${"ice_won_goals_per_basket" | "ice_lost_goals_per_basket"}`
   | `territory.${"exit_offense" | "entry_offense" | "zone_retention" | "entry_prevention"}.one_second_probability`
@@ -133,6 +132,7 @@ export type AnalysisDatum = {
   readonly coefficient_support: Execution["coefficient_support"] | null;
   readonly paired_evidence: Execution["paired_evidence"] | null;
   readonly spatial_detail: SpatialDetail | null;
+  readonly mechanism_detail: Shootiness["evidence"] | Penalties["evidence"] | null;
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
   readonly methods: readonly Method[];
@@ -186,6 +186,7 @@ type SelectedValue = {
   readonly coefficient_support?: Execution["coefficient_support"];
   readonly paired_evidence?: Execution["paired_evidence"];
   readonly spatial_detail?: SpatialDetail;
+  readonly mechanism_detail?: Shootiness["evidence"] | Penalties["evidence"];
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
   readonly methodId?: string;
@@ -416,7 +417,7 @@ const execution = strengths.flatMap(strength =>
 );
 
 const shootiness = strengths.flatMap(strength =>
-  (["probability", "difference"] as const).map(field => definition({
+  (["probability", "neutral_probability", "difference"] as const).map(field => definition({
     ...base,
     publicationFamily: "shootiness",
     id: `shootiness.${strength}.${field}`,
@@ -424,69 +425,36 @@ const shootiness = strengths.flatMap(strength =>
     selectionStrength: strength,
     family: strength === "5v5" ? "overview" : "shootiness",
     strength: strength === "5v5" ? null : strength,
-    group: `shootiness ${strength}`,
-    label: `shootiness ${title(field)}`,
+    standingPolicy: field === "neutral_probability" ? "raw_only" : "percentile",
+    group: `share of team attempts · ${strength}`,
+    label: field === "difference" ? "share of team attempts difference" : field === "neutral_probability" ? "neutral share of team attempts" : "share of team attempts",
     unit: "fraction",
-    population: `${strength} shooting opportunities`,
-    qualificationLabel: `${strength} shootiness support`,
-    numericReference: field === "probability"
-      ? "conditional probability"
-      : "published neutral shootiness forecast",
+    population: `${strength} conditional team attempt choices; seven-state pooled player skill`,
+    qualificationLabel: `${strength} qualifying minutes; separate from pooled candidate information`,
+    numericReference: "same-position slot in the declared common unit; other player deviations zero",
     cutoff: strength === "5v5" ? "general" : "specialty",
-    select: inputs => fromResult(
-      inputs.shootiness,
-      data => estimate(
-        data[field],
-        data.support,
-        data.method_id,
-        `shootiness.${strength}.support.included_seconds`
-      )
-    )
+    select: inputs => fromResult(inputs.shootiness, data => ({
+      ...estimate(data[field], data.support, data.method_id, `shootiness.${strength}.support.included_seconds`),
+      mechanism_detail: data.evidence,
+    })),
   })),
 );
 
-const shootinessNeutral = definition({
-  ...base,
-  publicationFamily: "shootiness",
-  id: "shootiness.5v5.neutral_probability",
-  quantityPath: "skater_shootiness.neutral_probability",
-  standingPolicy: "raw_only",
-  selectionStrength: "5v5",
-  group: "shootiness 5v5",
-  label: "shootiness neutral probability",
-  unit: "fraction",
-  population: "5v5 shooting opportunities",
-  qualificationLabel: "5v5 shootiness support",
-  numericReference: "supplied neutral shootiness probability",
-  select: inputs => fromResult(inputs.shootiness, data => estimate(
-    data.neutral_probability, data.support, data.method_id, "shootiness.5v5.support.included_seconds",
-  )),
-});
-
-const penalties = ([
-  "drawn_per60",
-  "taken_per60",
-  "drawn_value_per60",
-  "taken_value_per60",
-] as const).map(field => definition({
+const penalties = (["drawn_per60", "taken_per60", "drawn_value_per60", "taken_value_per60"] as const).map(field => definition({
   ...base,
   publicationFamily: "penalties",
   id: `penalties.${field}`,
   quantityPath: `skater_penalties.${field}`,
-  group: "modeled penalties",
-  label: `penalties ${title(field)}`,
+  group: "ordinary-minor team awards",
+  label: `ordinary-minor ${field.startsWith("drawn") ? "drawing" : "taking"} ${field.includes("value") ? "value" : "difference"}`,
   unit: field.includes("value") ? "goals_per60" : "penalties_per60",
-  population: "modeled penalty opportunities",
-  qualificationLabel: "modeled penalty support",
-  select: inputs => fromResult(
-    inputs.penalties,
-    data => estimate(
-      data[field],
-      data.support,
-      data.method_id,
-      "penalties.support.included_seconds"
-    )
-  )
+  population: "genuine 5v5 directed ordinary-minor team awards; both goalies present",
+  qualificationLabel: "matched physical 5v5 time; zero-award intervals retained",
+  numericReference: field.includes("value") ? "isolated two-minute opportunity; signed drawing value and opposite signed taking value" : "complete focal rate minus the neutral team-award rate",
+  select: inputs => fromResult(inputs.penalties, data => ({
+    ...estimate(data[field], data.support, data.method_id, "penalties.support.included_seconds"),
+    mechanism_detail: data.evidence,
+  })),
 }));
 
 const territory = [
@@ -1085,7 +1053,6 @@ export const analysisMetrics: readonly AnalysisMetric[] = [
   ...spatial,
   ...execution,
   ...shootiness,
-  shootinessNeutral,
   ...penalties,
   ...territory,
   ...context,
@@ -1257,6 +1224,7 @@ function datum(
     coefficient_support: selected.coefficient_support ?? null,
     paired_evidence: selected.paired_evidence ?? null,
     spatial_detail: selected.spatial_detail ?? null,
+    mechanism_detail: selected.mechanism_detail ?? null,
     qualificationSeconds: selected.qualificationSeconds,
     qualificationBasis: selected.qualificationBasis,
     methods,

@@ -146,7 +146,7 @@ export function discoveryPreset(table: DiscoveryTable, strength: string | null) 
       ids = [
         "minutes",
         ...analysisMetrics
-          .filter(metric => metric.id.startsWith(`${table}.${selected}.`))
+          .filter(metric => metric.id.startsWith(`${table}.${selected}.`) && metric.standingPolicy !== "raw_only")
           .map(metric => metric.id),
       ];
       defaultSort = table === "execution"

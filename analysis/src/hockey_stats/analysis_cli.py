@@ -21,9 +21,9 @@ def main(argv=None) -> int:
     facts.add_argument("--observed", required=True, action=Once, metavar="FILE")
     facts.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     fit = commands.add_parser("fit", allow_abbrev=False)
-    fit.add_argument("--family", required=True, choices=("execution", "spatial", "spatial-st", "goalie"), action=Once)
+    fit.add_argument("--family", required=True, choices=("execution", "spatial", "spatial-st", "goalie", "penalties", "shootiness"), action=Once)
     fit.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
-    fit.add_argument("--coaches", required=True, action=Once, metavar="FILE")
+    fit.add_argument("--coaches", action=Once, metavar="FILE")
     fit.add_argument("--valued", action=Once, metavar="DIRECTORY")
     fit.add_argument("--season", required=True, action=Once)
     fit.add_argument("--previous", action=Once, metavar="DIRECTORY")
@@ -37,7 +37,7 @@ def main(argv=None) -> int:
     score.add_argument("--valued", action=Once, metavar="DIRECTORY")
     score.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     summarize = commands.add_parser("summarize", allow_abbrev=False)
-    summarize.add_argument("--family", required=True, choices=("execution", "spatial", "spatial-st", "goalie"), action=Once)
+    summarize.add_argument("--family", required=True, choices=("execution", "spatial", "spatial-st", "goalie", "mechanisms"), action=Once)
     summarize.add_argument("--prepared", action=Once, metavar="DIRECTORY")
     summarize.add_argument("--facts", action=Once, metavar="DIRECTORY")
     summarize.add_argument("--scores", action=Once, metavar="FILE")
@@ -51,10 +51,14 @@ def main(argv=None) -> int:
     publish.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     args = parser.parse_args(argv)
     if args.command == "fit":
+        if args.family == "shootiness" and args.coaches is not None:
+            fit.error("shootiness fit does not accept --coaches")
+        if args.family != "shootiness" and args.coaches is None:
+            fit.error(f"{args.family} fit requires --coaches")
         if args.family in ("spatial", "spatial-st", "goalie") and args.valued is None:
             fit.error(f"{args.family} fit requires --valued")
-        if args.family == "execution" and args.valued is not None:
-            fit.error("execution fit does not accept --valued")
+        if args.family in ("execution", "penalties", "shootiness") and args.valued is not None:
+            fit.error(f"{args.family} fit does not accept --valued")
         if args.family != "spatial-st" and args.basis is not None:
             fit.error(f"{args.family} fit does not accept --basis")
         if args.family == "spatial-st" and (args.previous is None) == (args.basis is None):
@@ -70,12 +74,14 @@ def main(argv=None) -> int:
             "spatial-st": ("results", "states"),
             "execution": ("prepared", "facts", "scores"),
             "goalie": ("prepared", "results", "scores"),
+            "mechanisms": ("results", "states"),
         }[args.family]
         forbidden = {
             "spatial": ("prepared", "facts", "scores"),
             "spatial-st": ("prepared", "facts", "scores", "product_admission"),
             "execution": ("results", "states", "product_admission"),
             "goalie": ("facts", "states", "product_admission"),
+            "mechanisms": ("prepared", "facts", "scores", "product_admission"),
         }[args.family]
         for flag in forbidden:
             if getattr(args, flag) is not None:
@@ -85,7 +91,7 @@ def main(argv=None) -> int:
                 summarize.error(f"{args.family} summarize requires --{flag}")
 
     try:
-        if args.command == "fit" and args.family == "spatial-st":
+        if args.command == "fit" and args.family in ("spatial-st", "penalties", "shootiness"):
             from .chance_cli import output_path
 
             roots = []
@@ -105,6 +111,37 @@ def main(argv=None) -> int:
 
             manifest = build_factual_results(Path(args.prepared), Path(args.observed), Path(args.out))
             print(f"factual results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
+        elif args.command == "fit" and args.family in ("penalties", "shootiness"):
+            from .analysis_data import read_prepared
+            from .artifacts import require
+            from .captures import strict_json
+            from .mechanism_design import prepare_penalties, prepare_shootiness
+            from .mechanism_state import read_mechanism_state
+            from .player_mechanisms import fit_mechanism
+
+            started = perf_counter()
+            manifest = strict_json((Path(args.prepared) / "manifest.json").read_bytes())
+            require(type(manifest) is dict and manifest.get("purpose") in ("real", "fixture"), "invalid prepared manifest purpose")
+            purpose = manifest["purpose"]
+            prepared = read_prepared(args.prepared, purpose)
+            seasons = [row["season"] for row in prepared["seasons"]]
+            require(args.season in seasons, "mechanism season is not selected in preparation")
+            require((args.previous is None) == (args.season == seasons[0]),
+                    "mechanism first selected year requires no predecessor; later years require --previous")
+            previous = read_mechanism_state(Path(args.previous), purpose, args.family) if args.previous is not None else None
+            if previous is not None:
+                require(previous.manifest["season"] == seasons[seasons.index(args.season) - 1],
+                        "mechanism predecessor differs from the preceding selected season")
+                require(previous.head["status"] == "complete", "mechanism predecessor is incomplete")
+            read_seconds = perf_counter() - started
+            design = (prepare_penalties(prepared, Path(args.coaches), args.season) if args.family == "penalties"
+                      else prepare_shootiness(prepared, args.season))
+            design.resources["input_read_wall_seconds"] = read_seconds
+            state = fit_mechanism(design, previous, Path(args.out), final_year=args.season == seasons[-1])
+            print(str(state.path))
+            if state.head["status"] != "complete":
+                print(f"{args.family} family incomplete: " + ", ".join(state.head["reasons"]), file=sys.stderr)
+                return 1
         elif args.command == "fit" and args.family == "goalie":
             from .analysis_data import read_prepared
             from .artifacts import require
@@ -222,6 +259,11 @@ def main(argv=None) -> int:
 
             manifest = compose_special_teams(Path(args.results), Path(args.states), Path(args.out))
             print(f"special-teams results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
+        elif args.command == "summarize" and args.family == "mechanisms":
+            from .mechanism_composition import compose_mechanisms
+
+            manifest = compose_mechanisms(Path(args.results), Path(args.states), Path(args.out))
+            print(f"mechanism results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
         elif args.command == "summarize" and args.family == "goalie":
             from .goalie_composition import compose_goalie
 

@@ -1,0 +1,29 @@
+{
+  "at": "2026-11-15T03:09:19.769275+00:00",
+  "status": "accepted_bounded_source_and_pixel_review",
+  "source": "feefa38e21b4a4ebd596362ec17035196ee27824",
+  "integrated_commit": "6722829d3dfd67efbe196afedd6a0d325322532e",
+  "patch_sha256": "f6c0138caf94f6207d4eb1e83a1cafc6f51b6aba8a68b2dbd9554615e730003a",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "app_tree": "f87c9ffc729d15265073d32b6668902a1b77e837",
+  "reviewers": [
+    "root shared-owner/source review",
+    "native navigation independent systems review",
+    "native card independent actual-pixel review"
+  ],
+  "findings": [],
+  "checks": [
+    "exact patch digest matches supplied reviewed patch and owner receipt",
+    "uncertainty preserves null versus not_estimated and interval level/method/conditions; display bounds scale exactly once",
+    "spatial native detail bounds retain scale one and explicit units",
+    "only identical notes group; population and applicable years remain explicit, annual support/references/sensitivity stay distinct",
+    "csv header and serializer source byte-identical; numerical/structured evidence unchanged",
+    "penalty numericReference wording changes semantic_identity and fallback reference metadata; no whole-file csv identity claim",
+    "two helpers and one local note map add no framework or lifecycle"
+  ],
+  "pixels": "shared-history-control-pixel-review.json",
+  "owner_controls": "../../mechanisms-v1-10/product/history-human-text-controls.json",
+  "compiled_fixture_scope": "92379be remains the historical compiled fixture source; no fixture build/start for feefa38",
+  "remaining": "final real build and actual goalie/mechanism history svg/png downloads; history issue stays open",
+  "heavy_commands": false
+}

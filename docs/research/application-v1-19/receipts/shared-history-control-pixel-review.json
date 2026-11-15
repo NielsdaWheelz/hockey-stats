@@ -1,0 +1,48 @@
+{
+  "status": "passed_bounded_pixel_review",
+  "scope": "independent visual review of two actual shared-renderer synthetic control PNGs; no patch application, code, build or server action by reviewer",
+  "artifacts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/history-presentation-controls-02/goalie-conditional.png",
+      "sha256": "50e73eb8f31121fb6983011211c5595ce135d82b22c07699876b2b4de2a0cb21",
+      "bytes": 447806,
+      "width": 1200,
+      "height": 1737
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/history-presentation-controls-02/mechanism-grouped.png",
+      "sha256": "584c0b424db2dfd40ee3dfc179fa4afa1cd137392f6fa6a506f08f61636bfe05",
+      "bytes": 890822,
+      "width": 1200,
+      "height": 3257
+    }
+  ],
+  "patch_sha256": "f6c0138caf94f6207d4eb1e83a1cafc6f51b6aba8a68b2dbd9554615e730003a",
+  "visual_checks": {
+    "goalie_conditional": [
+      "native fraction/display percentage and multiplier100 named",
+      "90percent interval1to3percent shown once with method conditional synthetic control",
+      "conditions fixed historical means and fixed reference retained",
+      "year2023-24 identity, team, qualification/support/reference and method association retained",
+      "support reasons none is readable prose; no JSON/null placeholder",
+      "complete limitations/findings/publication/synthetic footer legible without clipping"
+    ],
+    "mechanism_grouped": [
+      "all three annual rows individually labeled with identity, support, value, method and corpus",
+      "shared identical caveat and finding each appear once with all three applicable years",
+      "unique2023,2024,2025notes remain attached to their own year",
+      "sensitivity not assessed is retained for2023/2024 and exceeded for2025",
+      "signed taking equation is explicit: taking value equals negative taking difference times V; V can be negative",
+      "positive supplied V and taking value remain visible; no ambiguous opposite-signed shorthand",
+      "complete footer and grouped note section legible; no raw JSON/null prose"
+    ]
+  },
+  "supplied_controller_evidence": "checks.json records44passed actual HTML/SVG controls, including pending uncertainty/reasons, once-scaled interval bounds, preserved structured csv and negative/zero/positive V. reviewer inspected the receipt; this visual pass does not claim to have rerun those controls or viewed every sibling PNG",
+  "findings": [],
+  "open_issue": "docs/issues/history-export-repeated-method-notes.md remains open until actual final real mechanism and goalie svg/png downloads pass",
+  "limits": [
+    "synthetic renderer controls only, not final compiled-site or real-download acceptance",
+    "available conditional intervals in a control do not admit calibrated player uncertainty",
+    "grouping controls are not evidence of real annual method lineage"
+  ]
+}

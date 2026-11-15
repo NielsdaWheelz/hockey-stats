@@ -4,6 +4,8 @@ status: implementation appendix to [the complete program](experimental-player-an
 
 [v1-05](v1-05-execution-base.md) fixes the four-head implementation, annual state and probability interface. it makes the entry-or-carry prior choice and product encoding explicit. [v1-06](v1-06-execution-scoring.md) fixes five-year scoring, reference panels/accounting, paired evidence and three-year publication; [v1-07](v1-07-goalie-continuation.md) fixes the two continuation heads, goalie references/evidence and three-season integration. its separate fractional-response loss, exact source-label populations and prospective diagnostic sensitivity policy supersede inherited binary/gating language for those new heads only. these clarifications do not change completed research.
 
+[v1-19](v1-19-goalie-card-discovery.md) completes their goalie presentation without changing these estimands: one full-rink sheet, additive actual saving first with ratio available, ev/pk cohorts and exact-state raw detail. [saved reference evidence](experimental-application.md#goalie-evidence-projection) copies the accepted prefix/continuation masses, neutral levels and head support; it does not rerun scoring or reconstruct stopping from incompatible focal prefix masses.
+
 the parent's [coverage amendment](experimental-player-analysis.md#input-and-feature-completeness) additionally requires retained event-history/decay/attention and tip/rink alternatives. the equations below still define the initial recipe. the new alternatives need concrete prefix/objective/masking/reference and bounded-exercise contracts here before implementation; this appendix does not yet implement or fully specify them, and their absence keeps expanded coverage open.
 
 ## target and populations

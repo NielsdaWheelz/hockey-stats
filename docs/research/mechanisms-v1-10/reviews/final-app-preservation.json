@@ -1,0 +1,45 @@
+{
+  "kind": "integrated_app_mechanism_preservation",
+  "status": "pass",
+  "base": "7c370321a375cf98682335e41d2e47bfd9bcc2ea",
+  "target": "92379be5ff6470ecfac0f54d2ba9f8018e3ef996",
+  "analysis_tree": "054a40317b8645abbe2c9ad9899d80dfc44fbbc8",
+  "unchanged_owned_modules": [
+    {
+      "path": "app/src/web/analytical-card.tsx",
+      "git_blob": "f66d7c13feb0f78c57136548dc7a401b114b08f2"
+    },
+    {
+      "path": "app/src/web/analytical-details.tsx",
+      "git_blob": "9b0f4491d7ba3f645142bf48b20c0fb0adabf686"
+    },
+    {
+      "path": "app/src/web/mechanism-detail.tsx",
+      "git_blob": "ea8386180ee0c74679b25350ef949d1b742c946a"
+    }
+  ],
+  "checks": [
+    "entire analysis tree identical",
+    "analytical card/detail and shared mechanism detail exact blobs",
+    "shootiness seven-state and penalty metric construction exact source text",
+    "68 unique shared scalar csv columns, mechanism and goalie evidence once each",
+    "signed negative-V history meaning retained"
+  ],
+  "scope": "read-only source preservation; final compiled/browser acceptance remains separately pending",
+  "latest_target_delta": {
+    "from": "ac2e3dd117641d12bfae4ba3f8b6b788980bca9b",
+    "to": "92379be5ff6470ecfac0f54d2ba9f8018e3ef996",
+    "paths": [
+      "app/src/web/goalie-card.tsx",
+      "docs/research/application-v1-19/receipts/card-live-green.json",
+      "docs/research/application-v1-19/receipts/fixture-native-pixel-review.json",
+      "docs/research/application-v1-19/receipts/independent-content-source-review.json",
+      "docs/research/application-v1-19/receipts/independent-type-unmapped-review.json",
+      "docs/research/application-v1-19/receipts/shared-candidate-selection.json",
+      "docs/research/application-v1-19/receipts/type-unmapped-red.txt",
+      "docs/specs/experimental-application.md",
+      "fixtures/README.md"
+    ],
+    "meaning": "seven goalie-card source lines name supplied unmapped attempt and saving mass; no mechanism owner change"
+  }
+}

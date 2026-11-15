@@ -128,16 +128,17 @@ def main(argv=None) -> int:
             require(args.season in seasons, "mechanism season is not selected in preparation")
             require((args.previous is None) == (args.season == seasons[0]),
                     "mechanism first selected year requires no predecessor; later years require --previous")
-            previous = read_mechanism_state(Path(args.previous), purpose, args.family) if args.previous is not None else None
+            previous = read_mechanism_state(Path(args.previous), purpose, args.family, narrow=True) if args.previous is not None else None
             if previous is not None:
                 require(previous.manifest["season"] == seasons[seasons.index(args.season) - 1],
                         "mechanism predecessor differs from the preceding selected season")
                 require(previous.head["status"] == "complete", "mechanism predecessor is incomplete")
             read_seconds = perf_counter() - started
-            design = (prepare_penalties(prepared, Path(args.coaches), args.season) if args.family == "penalties"
-                      else prepare_shootiness(prepared, args.season))
-            design.resources["input_read_wall_seconds"] = read_seconds
-            state = fit_mechanism(design, previous, Path(args.out), final_year=args.season == seasons[-1])
+            print(f"{args.family} input_read_wall_seconds={read_seconds:.6f}", file=sys.stderr)
+            state = fit_mechanism(
+                prepare_penalties(prepared, Path(args.coaches), args.season) if args.family == "penalties"
+                else prepare_shootiness(prepared, args.season),
+                previous, Path(args.out), final_year=args.season == seasons[-1])
             print(str(state.path))
             if state.head["status"] != "complete":
                 print(f"{args.family} family incomplete: " + ", ".join(state.head["reasons"]), file=sys.stderr)

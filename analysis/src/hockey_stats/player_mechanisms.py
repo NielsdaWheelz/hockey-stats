@@ -259,12 +259,6 @@ def _center(design,family,beta,log_rate):
     return centers,reference,centered
 
 
-def _qualification(design, player):
-    collection=design.coverage.get('qualification',design.coverage.get('players',{}))
-    require(player in collection,'mechanism qualification missing roster player')
-    return collection[player]
-
-
 def project_mechanism(design,family,head,beta=None):
     complete=head['status']=='complete'
     centers,reference,centered=(_center(design,family,beta,head['reference']['log_rate'] if family=='penalties' else None) if complete
@@ -275,7 +269,7 @@ def project_mechanism(design,family,head,beta=None):
     projections,supports=[],[]
     for i,player in enumerate(design.players):
         prior=priors[player]
-        qualification=_qualification(design,player)
+        qualification=design.coverage['qualification'][player]
         info=dict(status=head['status'],current_season_information=prior['current_season_information'],
             prior_only=prior['prior_only'] if complete else False,prior_kind=prior['prior_kind'] if complete else None,
             prior_anchor_season=prior['prior_anchor_season'] if complete else None,

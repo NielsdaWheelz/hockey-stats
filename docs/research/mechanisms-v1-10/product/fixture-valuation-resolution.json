@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "kind": "mechanism_fixture_valuation_resolution",
+  "status": "resolved",
+  "purpose": "fixture",
+  "issue": {
+    "path": "docs/issues/mechanism-fixture-valuation.md",
+    "sha256": "c41b2e1f6f7715b561d499f1a074768999085a04974b00ac8646d4db1495e319",
+    "bytes": 1096,
+    "historical_commit": "edb02d74ff4e19168149017ba190494a3176caba"
+  },
+  "resolution": "the attributed corrected synthetic mechanism body passes strict publication, typed API and shared export checks; the coherent joint successor preserves it exactly and the original fixture remains unchanged",
+  "evidence": [
+    {
+      "path": "docs/research/mechanisms-v1-10/product/interface-acceptance.json",
+      "sha256": "d345d88875bb19ef17c97c821d102d98e66d42cf5f43ef25bc833b8cda979ffd",
+      "bytes": 3762
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/receipts/fixture-browser-exports.json",
+      "sha256": "8ef7bfff398a3e1d3b241d5294fbaf530f8c32b9512a6c31352e54cc1cffa8eb",
+      "bytes": 4564
+    },
+    {
+      "path": "fixtures/mechanisms-v1-10/results/exchange4-conversion.json",
+      "sha256": "de0f37d42650367d1977f1a2c2be37d2d43292b85074e6aeafb553467ed15e74",
+      "bytes": 9220
+    },
+    {
+      "path": "fixtures/goalie-card-v1-19/conversion.json",
+      "sha256": "e63ee8cf610569c5843ab8189aa1787385cbd31dddcdd0d4c6f85885ca9b8c0a",
+      "bytes": 22992
+    },
+    {
+      "path": "docs/research/application-v1-19/receipts/fixture-independent-arithmetic.json",
+      "sha256": "c234d8ecdb10ed606ab2ed5a5b60a239781182b15466dd411751e457f11870e7",
+      "bytes": 30742
+    },
+    {
+      "path": "docs/research/application-v1-19/receipts/heavy-fixture-release.json",
+      "sha256": "ac556a2e819870f7c17b8f140b72e77a9c24589a4a3eb40b6e3c182b8a8d51c0",
+      "bytes": 4263
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/final-oracle-02/acceptance.json",
+      "sha256": "a4380d092cfbc321faebaa779fe0b872733b9d7e7dea1d41c94e5050dedbc21d",
+      "bytes": 1587
+    }
+  ],
+  "original_preservation": {
+    "original_commit": "edb02d74ff4e19168149017ba190494a3176caba",
+    "original_files_exact": 57,
+    "inherited_joint_members_exact": 37,
+    "scope": "all57 tracked files under fixtures/publication-v1-13 match their assignment-commit git blob identities; all37 declared non-goalie inherited members match both intermediate and joint successors"
+  },
+  "manifests": [
+    {
+      "path": "fixtures/publication-v1-13/results/manifest.json",
+      "sha256": "b2d22b814521029dcf95dcd70dae17be7a1f446463308f9e171f730564a70990",
+      "bytes": 15932
+    },
+    {
+      "path": "fixtures/mechanisms-v1-10/results/manifest.json",
+      "sha256": "be2a8849a3d907da65e997d42dc5455f9884c94480b89816188eac6bafaff39e",
+      "bytes": 15932
+    },
+    {
+      "path": "fixtures/goalie-card-v1-19/results/manifest.json",
+      "sha256": "a425b2d01ed8bb786bab31b2a8cc65dd74aa9b1157caa0b176bdd45c72927624",
+      "bytes": 17138
+    }
+  ],
+  "replacement": "fixtures/goalie-card-v1-19/README.md",
+  "limits": [
+    "synthetic arithmetic and transport only; no real mechanism capability, fit quality or scientific admission claim",
+    "earlier mechanism-only intermediate lacks mandatory goalie evidence and remains historical; the coherent joint fixture is the current selection",
+    "actual downloads remain their original receipts; final integrated typed/selector/csv checks and byte preservation establish the unchanged corrected mechanism body"
+  ]
+}

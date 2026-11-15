@@ -1,0 +1,40 @@
+{
+  "status": "pass",
+  "scope": "bounded cli predecessor/raw-design ownership and canonical projection qualification; no fits, source passes or large reads",
+  "changed_code": [
+    "analysis/src/hockey_stats/analysis_cli.py",
+    "analysis/src/hockey_stats/player_mechanisms.py"
+  ],
+  "target_controls": {
+    "cli_methods": 3,
+    "cli_family_cases": 6,
+    "qualification_methods": 2,
+    "qualification_family_cases": 4
+  },
+  "existing_controls": {
+    "cli_cases": 8,
+    "pure_mathematics_cases": 11,
+    "pure_source_methods": 3
+  },
+  "preservation": {
+    "all_other_numerical_functions_ast_equal": true,
+    "mechanism_recipe_ast_sha256": "f5d1ce46287f5e977c81045e7e4170daa4e51d3d37e2ce627926376f888df5a2",
+    "source_recipe_and_schema_owner_bytes_equal_to_head": true,
+    "serialized_qualification_and_players_fields_and_equality_retained": true
+  },
+  "evidence": [
+    ".tmp/v1-10/cli-read-ownership-red.txt",
+    ".tmp/v1-10/cli-read-ownership-green.txt",
+    ".tmp/v1-10/qualification-owner-red.txt",
+    ".tmp/v1-10/qualification-owner-green.txt",
+    ".tmp/v1-10/cli-ownership-existing-cli-green.json",
+    ".tmp/v1-10/ownership-pure-replay/math-green.txt",
+    ".tmp/v1-10/ownership-source-pure-green.txt"
+  ],
+  "tradeoff": "input_read_wall_seconds moves from the cli-mutated design resources to ordinary stderr; source preparation_seconds and saved fit costs remain; transient compression overlap remains",
+  "temporary_controllers": [
+    ".tmp/v1-10/check_cli_read_ownership.py",
+    ".tmp/v1-10/check_qualification_owner.py"
+  ],
+  "commit": "not committed"
+}

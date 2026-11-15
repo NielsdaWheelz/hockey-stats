@@ -1,6 +1,7 @@
 import type { SqliteClient } from "@effect/sql-sqlite-node/SqliteClient";
 import * as Effect from "effect/Effect";
 import * as A from "../shared/player-analysis.js";
+import { goalieEvidenceDisplayCells } from "../shared/map-geometry.js";
 import type { Season, SpatialSelection } from "../shared/observed.js";
 import {
   absent,
@@ -97,7 +98,7 @@ export const readMaps = (
       selection.family === "goalie_evidence"
         ? selection.view === "evidence_ratio"
           ? "percent"
-          : "goals"
+          : "goals_per100sqft"
         : `${mapUnits[selection.family]}_per100sqft`;
     for (const player_id of selection.players) {
       if (queries.person(selection.season, player_id) === null) {
@@ -119,9 +120,11 @@ export const readMaps = (
       if (result.availability === "provided") {
         if (selection.family === "goalie_evidence") {
           const data = decode(A.GoalieEvidenceMap, result.data);
-          for (const cell of data.display_cells)
+          const grid = queries.grids.find(grid => grid.kind === "display");
+          if (!grid) return yield* Effect.fail(new Error("goalie evidence display geometry is missing"));
+          for (const cell of goalieEvidenceDisplayCells(grid, data.display_cells))
             if (selection.view === "evidence_ratio" ? cell.ratio !== null : true)
-              values.push(selection.view === "evidence_ratio" ? cell.ratio! : cell.mass_saved);
+              values.push(selection.view === "evidence_ratio" ? cell.ratio! : cell.density_per100sqft);
         } else {
           const data = decode(A.AnalysisMap, result.data);
           for (const cell of data.display_cells ?? []) values.push(cell.density_per100sqft);

@@ -1494,32 +1494,123 @@ export const SkaterExecution = Schema.Struct({
     return true;
   }),
 );
-export const SkaterShootiness = Schema.Struct({
-  probability: ProbabilityEstimate,
-  neutral_probability: ProbabilityEstimate,
-  difference: Estimate,
-  support: Support,
-  method_id: Text,
-}).check(
-  Schema.makeFilter(
-    (value) =>
-      value.difference.value === null ||
-      (value.probability.value !== null &&
-        value.neutral_probability.value !== null &&
-        close(value.difference.value, value.probability.value - value.neutral_probability.value)),
-  ),
-);
-export const SkaterPenalties = Schema.Struct({
-  drawn_per60: Estimate,
-  taken_per60: Estimate,
-  drawn_value_per60: Estimate,
-  taken_value_per60: Estimate,
-  recorded_drawn: penaltyRecord,
-  recorded_taken: penaltyRecord,
-  recorded_served: penaltyRecord,
-  support: Support,
-  method_id: Text,
+const mechanismCoefficientSupport = Schema.Struct({
+  status: Schema.Literals(["complete", "failed", "unavailable"]),
+  current_season_information: Schema.Boolean,
+  prior_only: Schema.Boolean,
+  prior_kind: Schema.NullOr(Schema.Literals(["entry", "carry"])),
+  prior_anchor_season: Schema.NullOr(Season),
+  prior_seasons: Schema.Array(Season),
+  likelihood_events: Count,
+  information_weight: Rate,
+}).check(Schema.makeFilter((value) =>
+  sortedStrings(value.prior_seasons) && value.current_season_information === (value.information_weight > 0) &&
+  (value.status === "complete"
+    ? value.prior_only === !value.current_season_information && (value.prior_kind === "entry"
+      ? value.prior_anchor_season === null && value.prior_seasons.length === 0
+      : value.prior_kind === "carry" && value.prior_seasons.length > 0 && value.prior_anchor_season === value.prior_seasons.at(-1))
+    : !value.prior_only && value.prior_kind === null && value.prior_anchor_season === null && value.prior_seasons.length === 0)));
+const minorValuation = Schema.Struct({
+  available: Schema.Boolean, reason: Schema.NullOr(Text),
+  a: Schema.NullOr(Rate), b: Schema.NullOr(Rate), e_f: Schema.NullOr(Rate), e_a: Schema.NullOr(Rate),
+  T_hours: Schema.Literal(2 / 60), tau_hours: Schema.NullOr(Rate), V_goals: Schema.NullOr(Schema.Finite),
+  sh_support: Schema.Struct({included_seconds: Rate, attempts: Count, neutral_goal_mass: Rate,
+    known_excluded_seconds: Rate, unquantified_gap: Schema.Boolean}),
+  inputs: Schema.Struct({ev_state: Receipt, st_state: Receipt, execution_score: Receipt, reduction: Receipt}),
+}).check(Schema.makeFilter((value) => {
+  const sh = value.sh_support;
+  if (sh.neutral_goal_mass > sh.attempts || (value.b !== null &&
+      (sh.included_seconds <= 0 || !close(value.b, sh.neutral_goal_mass / (sh.included_seconds / 3600))))) return false;
+  const tau = value.a === null ? null : value.a === 0 ? 2 / 60 : -Math.expm1(-value.a * 2 / 60) / value.a;
+  if (tau === null ? value.tau_hours !== null : value.tau_hours === null || !close(tau, value.tau_hours)) return false;
+  return value.available
+    ? value.reason === null && value.a !== null && value.b !== null && value.e_f !== null && value.e_a !== null &&
+      tau !== null && value.V_goals !== null && close(value.V_goals, (value.a - value.e_f - value.b + value.e_a) * tau)
+    : value.reason !== null && value.V_goals === null;
+}));
+export const PenaltyEvidence = Schema.Struct({
+  annual_state: Receipt, coefficient_support: mechanismCoefficientSupport, reference_id: Digest,
+  neutral_per60: Schema.NullOr(Rate.check(Schema.isGreaterThan(0))),
+  drawn_complete_per60: Schema.NullOr(Rate.check(Schema.isGreaterThan(0))),
+  taken_complete_per60: Schema.NullOr(Rate.check(Schema.isGreaterThan(0))), valuation: minorValuation,
 });
+const mechanismStateSupport = Schema.Struct({
+  strength: ExecutionStrength, included_seconds: Rate, known_excluded_seconds: Rate, unquantified_gap: Schema.Boolean,
+  team_choices: Count, personal_attempts: Count, excluded_possible_choices: Count,
+}).check(Schema.makeFilter((value) => value.personal_attempts <= value.team_choices));
+export const ShootinessEvidence = Schema.Struct({
+  annual_state: Receipt, coefficient_support: mechanismCoefficientSupport, reference_id: Digest,
+  position_group: Schema.Literals(["F", "D", "unknown"]),
+  reference_unit: Schema.Struct({forwards: Count.check(Schema.isGreaterThan(0)), defenders: Count.check(Schema.isGreaterThan(0))}),
+  states: Schema.Array(mechanismStateSupport),
+}).check(Schema.makeFilter((value) =>
+  JSON.stringify(value.states.map((state) => state.strength)) === JSON.stringify(ExecutionStrength.literals) &&
+  value.states.reduce((sum, state) => sum + state.team_choices, 0) === value.coefficient_support.likelihood_events &&
+  value.coefficient_support.likelihood_events === value.coefficient_support.information_weight));
+const mechanismSupportMatches = (support: typeof Support.Type, coefficient: typeof mechanismCoefficientSupport.Type) =>
+  support.current_season_information === coefficient.current_season_information && support.prior_only === coefficient.prior_only &&
+  JSON.stringify(support.prior_seasons) === JSON.stringify(coefficient.prior_seasons) &&
+  support.events === coefficient.likelihood_events && support.eligible_weight === coefficient.information_weight;
+const mechanismEstimateMatches = (estimate: Estimate, available: boolean, status: typeof mechanismCoefficientSupport.Type.status) =>
+  estimate.uncertainty.kind === "not_estimated" && (estimate.value !== null) === available &&
+  (status === "failed" ? estimate.unavailable_reason === "failed_fit"
+    : status === "unavailable" ? estimate.unavailable_reason === "no_exposure" : true);
+export const SkaterShootiness = Schema.Struct({
+  probability: ProbabilityEstimate, neutral_probability: ProbabilityEstimate, difference: Estimate,
+  support: Support, method_id: Text, evidence: ShootinessEvidence,
+}).check(Schema.makeFilter((value) => {
+  const coefficient = value.evidence.coefficient_support;
+  const available = coefficient.status === "complete" && value.evidence.position_group !== "unknown";
+  return mechanismSupportMatches(value.support, coefficient) &&
+    [value.probability, value.neutral_probability, value.difference].every((estimate) =>
+      mechanismEstimateMatches(estimate, available, coefficient.status) &&
+      (coefficient.status === "complete" && value.evidence.position_group === "unknown" ? estimate.unavailable_reason === "missing_source" : true)) &&
+    (!available || close(value.difference.value!, value.probability.value! - value.neutral_probability.value!));
+}));
+export const SkaterPenalties = Schema.Struct({
+  drawn_per60: Estimate, taken_per60: Estimate, drawn_value_per60: Estimate, taken_value_per60: Estimate,
+  recorded_drawn: penaltyRecord, recorded_taken: penaltyRecord, recorded_served: penaltyRecord,
+  support: Support, method_id: Text, evidence: PenaltyEvidence,
+}).check(Schema.makeFilter((value) => {
+  const evidence = value.evidence, coefficient = evidence.coefficient_support, complete = coefficient.status === "complete";
+  if (!mechanismSupportMatches(value.support, coefficient) || value.support.included_seconds === null ||
+      !close(value.support.included_seconds, coefficient.information_weight * 3600) ||
+      [evidence.neutral_per60, evidence.drawn_complete_per60, evidence.taken_complete_per60].some((rate) => (rate !== null) !== complete)) return false;
+  for (const [rate, level, valuation, sign] of [
+    [value.drawn_per60, evidence.drawn_complete_per60, value.drawn_value_per60, 1],
+    [value.taken_per60, evidence.taken_complete_per60, value.taken_value_per60, -1],
+  ] as const) {
+    if (!mechanismEstimateMatches(rate, complete, coefficient.status) ||
+        !mechanismEstimateMatches(valuation, complete && evidence.valuation.available, coefficient.status) ||
+        (complete && !close(rate.value!, level! - evidence.neutral_per60!)) ||
+        (complete && evidence.valuation.available && !close(valuation.value!, sign * rate.value! * evidence.valuation.V_goals!)) ||
+        (complete && !evidence.valuation.available && (!["failed_fit", "no_exposure", "missing_source"].includes(evidence.valuation.reason!) ||
+          valuation.unavailable_reason !== evidence.valuation.reason))) return false;
+  }
+  return true;
+}));
+export const validateMechanismSelection = (value: {
+  readonly season: string; readonly strength: string | null;
+  readonly data: typeof SkaterShootiness.Type | typeof SkaterPenalties.Type;
+  readonly methods: Readonly<Record<string, Method>>;
+}): boolean => {
+  const data = value.data, evidence = data.evidence, coefficient = evidence.coefficient_support, method = value.methods[data.method_id];
+  const penalty = "drawn_per60" in data;
+  if (method === undefined || method.family !== (penalty ? "penalties" : "shootiness") ||
+      !method.evidence.some((binding) => binding.uri === evidence.annual_state.uri && binding.sha256 === evidence.annual_state.sha256) ||
+      !method.inputs.some((input) => input.role === "annual_state" && input.sha256 === evidence.annual_state.sha256 &&
+        input.seasons.length === 1 && input.seasons[0] === value.season) ||
+      coefficient.prior_seasons.some((year) => year >= value.season || !method.fit_seasons.includes(year))) return false;
+  if ("position_group" in evidence) {
+    const index = ExecutionStrength.literals.indexOf(value.strength as typeof ExecutionStrength.Type);
+    const units = [[3,2],[4,1],[4,1],[3,1],[2,2],[1,2],[1,2]] as const;
+    if (index < 0 || evidence.reference_unit.forwards !== units[index][0] || evidence.reference_unit.defenders !== units[index][1]) return false;
+    const state = evidence.states[index];
+    if (data.support.included_seconds !== state.included_seconds || data.support.known_excluded_seconds !== state.known_excluded_seconds ||
+        data.support.unquantified_gap !== state.unquantified_gap) return false;
+  }
+  return true;
+};
 const transition = Schema.Struct({
   hazard_per_second: NonnegativeEstimate,
   one_second_probability: ProbabilityEstimate,
@@ -1602,11 +1693,143 @@ const goalieSupport = Schema.Struct({
   reattempt_neutral_goal_probability_difference: Support,
   followup_danger_difference: Support,
 });
-export const GoalieResult = Schema.Struct({
+const goalieMassRecord = (size: number) => Schema.Struct({
+  masses: Schema.Array(Schema.NullOr(Rate)),
+  log_masses: Schema.Array(Schema.NullOr(Schema.Finite)),
+}).check(Schema.makeFilter(record => {
+  if (record.masses.length !== size || record.log_masses.length !== size) return false;
+  for (let i = 0; i < size; i++) {
+    const mass = record.masses[i], log = record.log_masses[i];
+    if (mass === null ? log !== null : log === null ? mass !== 0 :
+        Math.abs(mass - Math.exp(log)) > 1e-12 * Math.max(mass, Math.exp(log)) || !Number.isFinite(Math.exp(log)))
+      return false;
+    if (i > 0 && mass !== null && (record.masses[i - 1] === null ||
+        (log !== null && (record.log_masses[i - 1] === null || log > record.log_masses[i - 1]!))))
+      return false;
+  }
+  return true;
+}));
+const goalieHeadSupport = Schema.Struct({
+  available: Schema.Boolean,
+  likelihood_events: Count,
+  prior_only: Schema.Boolean,
+  prior_seasons: Schema.Array(Season).check(Schema.makeFilter(sortedStrings)),
+  reason: Schema.NullOr(Schema.Literals(["head_incomplete", "actor_coefficient_unavailable"])),
+}).check(Schema.makeFilter(head => head.available === (head.reason === null) &&
+  (head.available || head.likelihood_events === 0) &&
+  head.prior_only === (head.available && head.likelihood_events === 0)));
+export const GoalieEvidence = Schema.Struct({
+  neutral_values: Schema.Struct({
+    miss_probability: Schema.NullOr(Probability),
+    recorded_stop_probability: Schema.NullOr(Probability),
+    conversion_probability: Schema.NullOr(Probability),
+    recorded_reattempt_probability: Schema.NullOr(Probability),
+    reattempt_neutral_goal_probability: Schema.NullOr(Probability),
+    followup_danger: Schema.NullOr(Probability),
+  }),
+  masses: Schema.Struct({
+    prefixes: Schema.Struct({ neutral: goalieMassRecord(4), focal: goalieMassRecord(4) }),
+    continuation: Schema.Struct({ neutral: goalieMassRecord(3), focal: goalieMassRecord(3) }),
+  }),
+  coefficient_support: Schema.Struct({
+    q: goalieHeadSupport, r: goalieHeadSupport, g: goalieHeadSupport,
+    h: goalieHeadSupport, d: goalieHeadSupport,
+  }),
+  panels: Schema.Array(Schema.Struct({
+    panel_id: Text,
+    physical_state: Schema.Array(Count).check(Schema.makeFilter(state =>
+      state.length === 4 && state[2] === 1 && state[3] === 1)),
+    events: Count,
+    origins: Count,
+    events_sha256: Digest,
+    arrays_sha256: Digest,
+  })).check(Schema.makeFilter(panels => panels.length === 1 || panels.length === 3)),
+});
+const goalieDependencies = {
+  stopping_goals_per100_on_net: ["r", "g"],
+  miss_probability: ["q"],
+  recorded_stop_probability: ["q", "r"],
+  conversion_probability: ["q", "r", "g"],
+  recorded_reattempt_probability: ["h"],
+  reattempt_neutral_goal_probability: ["h", "d"],
+  followup_danger: ["h", "d"],
+} as const;
+const goalieResultShape = Schema.Struct({
   ...goalieFields,
   support: goalieSupport,
   method_id: Text,
+  evidence: GoalieEvidence,
 });
+export const GoalieResult = goalieResultShape.check(Schema.makeFilter(value => {
+  const { masses, coefficient_support: heads, neutral_values } = value.evidence;
+  const { prefixes, continuation } = masses;
+  if (prefixes.neutral.masses.some(mass => mass === null) || prefixes.focal.masses[0] === null ||
+      continuation.neutral.masses[0] === null || continuation.focal.masses[0] === null ||
+      continuation.neutral.masses[0] !== continuation.focal.masses[0] ||
+      continuation.neutral.log_masses[0] !== continuation.focal.log_masses[0]) return false;
+  for (const [index, dependencies] of [[1, ["q"]], [2, ["q", "r"]], [3, ["q", "r", "g"]]] as const)
+    if ((prefixes.focal.masses[index] !== null) !== dependencies.every(head => heads[head].available))
+      return false;
+  for (const reference of ["neutral", "focal"] as const)
+    for (const [index, dependencies] of [[1, ["h"]], [2, ["h", "d"]]] as const)
+      if ((continuation[reference].masses[index] !== null) !== dependencies.every(head =>
+        reference === "neutral" ? heads[head].reason !== "head_incomplete" : heads[head].available))
+        return false;
+  const same = (actual: number | null, expected: number | null) =>
+    actual === null || expected === null ? actual === expected :
+      Math.abs(actual - expected) <= Math.max(1e-15, 1e-12 * Math.max(Math.abs(actual), Math.abs(expected)));
+  for (const [field, group, numerator, denominator, complement] of [
+    ["miss_probability", "prefixes", 1, 0, true],
+    ["recorded_stop_probability", "prefixes", 2, 1, true],
+    ["conversion_probability", "prefixes", 3, 2, false],
+    ["recorded_reattempt_probability", "continuation", 1, 0, false],
+    ["reattempt_neutral_goal_probability", "continuation", 2, 1, false],
+    ["followup_danger", "continuation", 2, 0, false],
+  ] as const) {
+    const dependencies = goalieDependencies[field];
+    for (const reference of ["neutral", "focal"] as const) {
+      const logs = masses[group][reference].log_masses;
+      const available = dependencies.every(head => reference === "neutral"
+        ? heads[head].reason !== "head_incomplete" : heads[head].available);
+      const delta = logs[numerator] === null ? -Infinity : logs[numerator]! - logs[denominator]!;
+      const expected = !available || logs[denominator] === null ? null :
+        complement ? -Math.expm1(delta) : Math.exp(delta);
+      if (!same(reference === "neutral" ? neutral_values[field] : value[field].value, expected)) return false;
+    }
+    const focal = value[field].value, neutral = neutral_values[field];
+    if (!same(value[`${field}_difference`].value,
+        focal === null || neutral === null ? null : focal - neutral)) return false;
+  }
+  const denominators = {
+    stopping_goals_per100_on_net: prefixes.neutral.masses[1],
+    miss_probability: prefixes.neutral.masses[0],
+    recorded_stop_probability: prefixes.neutral.masses[1],
+    conversion_probability: prefixes.neutral.masses[2],
+    recorded_reattempt_probability: continuation.neutral.masses[0],
+    reattempt_neutral_goal_probability: continuation.neutral.masses[1],
+    followup_danger: continuation.neutral.masses[0],
+  };
+  for (const field of Object.keys(goalieFields) as (keyof typeof goalieFields)[]) {
+    const base = field.replace(/_difference$/, "") as keyof typeof goalieDependencies;
+    const dependencies = goalieDependencies[base].map(head => heads[head]);
+    const available = dependencies.every(head => head.available);
+    const support = value.support[field];
+    const priorSeasons = [...new Set(dependencies.flatMap(head => head.prior_seasons))].sort();
+    if (support.eligible_weight !== denominators[base] || (value[field].value !== null && !available) ||
+        support.current_season_information !== (available && dependencies.every(head => head.likelihood_events > 0)) ||
+        support.prior_only !== (available && dependencies.every(head => head.prior_only)) ||
+        JSON.stringify(support.prior_seasons) !== JSON.stringify(priorSeasons)) return false;
+  }
+  return true;
+}));
+export function validGoalieProjectionBinding(value: typeof GoalieResult.Type, season: string, strength: string) {
+  const states = strength === "ev" ? ["5v5", "4v4", "3v3"] : strength === "pk" ? ["4v5", "3v5", "3v4"] : [strength];
+  return value.evidence.panels.length === states.length && value.evidence.panels.every((panel, i) => {
+    const [defending, attacking] = states[i].split("v").map(Number);
+    return panel.physical_state[0] === attacking && panel.physical_state[1] === defending &&
+      panel.panel_id === `execution-v1-06-1:${season}:${attacking},${defending},1`;
+  }) && Object.values(value.evidence.coefficient_support).every(head => head.prior_seasons.every(year => year < season));
+}
 const sourceCountShape = Schema.Struct({
   provenance: SourceReference,
   unblocked_attempts: Schema.NullOr(Count),

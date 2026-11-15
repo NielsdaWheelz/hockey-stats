@@ -1459,13 +1459,138 @@ def _spatial_evidence_binding(data, references, baselines):
         require(baselines.setdefault(key,baseline) == baseline, 'spatial annual baseline evidence differs between rows')
 
 
+MECHANISM_UNITS = dict(zip(EXECUTION_STRENGTHS, ((3,2),(4,1),(4,1),(3,1),(2,2),(1,2),(1,2))))
+
+
+def validate_mechanism_evidence(table, value, row, selected_support, estimates):
+    """check detached mechanism meaning, support and arithmetic without source access."""
+    penalty = table == 'skater_penalties'
+    fields(value, ('annual_state','coefficient_support','reference_id', *(
+        ('neutral_per60','drawn_complete_per60','taken_complete_per60','valuation') if penalty
+        else ('position_group','reference_unit','states'))))
+    binding = value['annual_state']
+    fields(binding, ('uri','sha256'))
+    text(binding['uri'])
+    digest(binding['sha256'])
+    digest(value['reference_id'])
+    coefficient = value['coefficient_support']
+    fields(coefficient, ('status','current_season_information','prior_only','prior_kind','prior_anchor_season',
+                         'prior_seasons','likelihood_events','information_weight'))
+    require(coefficient['status'] in ('complete','failed','unavailable'), 'invalid mechanism coefficient status')
+    for key in ('current_season_information','prior_only'):
+        require(type(coefficient[key]) is bool, 'invalid mechanism support flag')
+        require(coefficient[key] == selected_support[key], 'mechanism coefficient/summary support differs')
+    strings(coefficient['prior_seasons'], ordered=True)
+    require(coefficient['prior_seasons'] == selected_support['prior_seasons'], 'mechanism prior years differ')
+    for year in coefficient['prior_seasons']:
+        season(year)
+        require(year < row['season'], 'mechanism future prior')
+    number(coefficient['likelihood_events'], minimum=0, integer=True)
+    number(coefficient['information_weight'], minimum=0)
+    require(coefficient['current_season_information'] == (coefficient['information_weight'] > 0), 'mechanism current information differs')
+    require(selected_support['events'] == coefficient['likelihood_events']
+            and selected_support['eligible_weight'] == coefficient['information_weight'], 'mechanism information units differ')
+    complete = coefficient['status'] == 'complete'
+    if complete:
+        require(coefficient['prior_only'] == (not coefficient['current_season_information']), 'mechanism prior-only differs')
+        if coefficient['prior_kind'] == 'entry':
+            require(coefficient['prior_anchor_season'] is None and not coefficient['prior_seasons'], 'mechanism entry prior has history')
+        else:
+            require(coefficient['prior_kind'] == 'carry' and coefficient['prior_seasons']
+                    and coefficient['prior_anchor_season'] == coefficient['prior_seasons'][-1], 'mechanism carry anchor differs')
+    else:
+        require(not coefficient['prior_only'] and coefficient['prior_kind'] is None
+                and coefficient['prior_anchor_season'] is None and not coefficient['prior_seasons'], 'incomplete mechanism claims fitted prior')
+    if penalty:
+        require(close(selected_support['included_seconds'],3600*coefficient['information_weight']), 'penalty physical hours differ')
+        for key in ('neutral_per60','drawn_complete_per60','taken_complete_per60'):
+            rate = value[key]
+            require((rate is not None) == complete, 'penalty rate/head availability differs')
+            if rate is not None:
+                number(rate,minimum=0)
+                require(rate > 0, 'penalty intensity must be positive')
+        for role in ('drawn','taken'):
+            expected = value[role+'_complete_per60']-value['neutral_per60'] if complete else None
+            actual = estimates[role+'_per60']
+            require(actual is None if expected is None else actual is not None and close(actual,expected), 'penalty complete-minus-neutral differs')
+        valuation = value['valuation']
+        fields(valuation, ('available','reason','a','b','e_f','e_a','T_hours','tau_hours','V_goals','sh_support','inputs'))
+        require(type(valuation['available']) is bool, 'invalid minor availability')
+        require(valuation['T_hours'] == 2/60, 'minor duration differs')
+        for key in ('a','b','e_f','e_a','tau_hours'):
+            number(valuation[key],minimum=0,nullable=True)
+        number(valuation['V_goals'],nullable=True)
+        sh = valuation['sh_support']
+        fields(sh, ('included_seconds','attempts','neutral_goal_mass','known_excluded_seconds','unquantified_gap'))
+        for key in ('included_seconds','attempts','neutral_goal_mass','known_excluded_seconds'):
+            number(sh[key],minimum=0,integer=key == 'attempts')
+        require(type(sh['unquantified_gap']) is bool and sh['neutral_goal_mass'] <= sh['attempts'], 'invalid sh support')
+        if valuation['b'] is not None:
+            require(sh['included_seconds'] > 0 and close(valuation['b'],sh['neutral_goal_mass']/(sh['included_seconds']/3600)), 'minor sh rate differs')
+        a = valuation['a']
+        tau = None if a is None else 2/60 if a == 0 else -math.expm1(-a*2/60)/a
+        require(valuation['tau_hours'] is None if tau is None else valuation['tau_hours'] is not None and close(valuation['tau_hours'],tau), 'minor survival differs')
+        fields(valuation['inputs'], ('ev_state','st_state','execution_score','reduction'))
+        for item in valuation['inputs'].values():
+            fields(item, ('uri','sha256'))
+            text(item['uri'])
+            digest(item['sha256'])
+        if valuation['available']:
+            require(valuation['reason'] is None and all(valuation[key] is not None for key in ('a','b','e_f','e_a','tau_hours','V_goals')), 'available minor lacks inputs')
+            require(close(valuation['V_goals'],(a-valuation['e_f']-valuation['b']+valuation['e_a'])*tau), 'minor value differs')
+        else:
+            text(valuation['reason'])
+            require(valuation['V_goals'] is None, 'unavailable minor has value')
+        for role,sign in (('drawn',1),('taken',-1)):
+            actual = estimates[role+'_value_per60']
+            expected = sign*estimates[role+'_per60']*valuation['V_goals'] if complete and valuation['available'] else None
+            require(actual is None if expected is None else actual is not None and close(actual,expected), 'penalty value closure differs')
+    else:
+        require(value['position_group'] in ('F','D','unknown'), 'invalid shooter position')
+        fields(value['reference_unit'], ('forwards','defenders'))
+        for count in value['reference_unit'].values():
+            number(count,minimum=1,integer=True)
+        require((value['reference_unit']['forwards'],value['reference_unit']['defenders']) == MECHANISM_UNITS[row['strength']], 'shooter reference unit differs')
+        states = value['states']
+        require(type(states) is list and [item['strength'] for item in states] == list(EXECUTION_STRENGTHS), 'shooter support states differ')
+        for item in states:
+            fields(item, ('strength','included_seconds','known_excluded_seconds','unquantified_gap','team_choices','personal_attempts','excluded_possible_choices'))
+            for key in ('included_seconds','known_excluded_seconds','team_choices','personal_attempts','excluded_possible_choices'):
+                number(item[key],minimum=0,integer=key in ('team_choices','personal_attempts','excluded_possible_choices'))
+            require(type(item['unquantified_gap']) is bool and item['personal_attempts'] <= item['team_choices'], 'invalid choice support')
+        total = sum(item['team_choices'] for item in states)
+        require(total == coefficient['likelihood_events'] == coefficient['information_weight'], 'pooled choice information differs')
+        selected = next(item for item in states if item['strength'] == row['strength'])
+        require(all(selected_support[key] == selected[key] for key in ('included_seconds','known_excluded_seconds','unquantified_gap')), 'selected shooter qualification differs')
+        available = complete and value['position_group'] != 'unknown'
+        require(all((estimates[key] is not None) == available for key in ('probability','neutral_probability','difference')), 'shooter/head availability differs')
+        if available:
+            require(close(estimates['difference'],estimates['probability']-estimates['neutral_probability']), 'shooter probability closure differs')
+
+
+def _mechanism_binding(table, value, row, catalogs, references):
+    evidence = value['evidence']
+    method = catalogs['method'][value['method_id']]
+    annual = evidence['annual_state']
+    require(method['family'] == ('penalties' if table == 'skater_penalties' else 'shootiness')
+            and any(item['role'] == 'annual_state' and item['sha256'] == annual['sha256'] and item['seasons'] == [row['season']] for item in method['inputs'])
+            and annual in method['evidence'], 'mechanism method/annual binding differs')
+    require(all(year in method['fit_seasons'] for year in evidence['coefficient_support']['prior_seasons']), 'mechanism prior outside method years')
+    fixed = {key:evidence[key] for key in ('annual_state','reference_id',*(('neutral_per60','valuation') if table == 'skater_penalties' else ()))}
+    key = (table,row['season'])
+    require(references.setdefault(key,fixed) == fixed, 'mechanism annual reference differs between players')
+    if table == 'skater_shootiness':
+        pooled = {key:evidence[key] for key in ('coefficient_support','position_group','states')}
+        require(references.setdefault((table,row['season'],row['player_id']),pooled) == pooled, 'shooter pooled support differs between states')
+
+
 def validate_payload(table, value, row, catalogs, *, person_kind=None):
     if table == 'spatial_evidence':
         validate_spatial_evidence(value,row,catalogs)
         return
     if table in ESTIMATE_FIELDS and table != 'attempt_value':
         extra = ('state_weights',) if table == 'skater_spatial' else ('reference_panel','coefficient_support','paired_evidence') if table == 'skater_execution' else ('recorded_drawn','recorded_taken','recorded_served') if table == 'skater_penalties' else ()
-        fields(value, (*ESTIMATE_FIELDS[table], *extra, 'support','method_id'))
+        fields(value, (*ESTIMATE_FIELDS[table], *extra, *(('evidence',) if table in ('skater_penalties','skater_shootiness','goalie_result') else ()), 'support','method_id'))
         for field in ESTIMATE_FIELDS[table]:
             probability = field in ('probability','neutral_probability') or field.endswith('_probability') or field == 'followup_danger'
             estimate(value[field], catalogs, probability=probability, nonnegative=field.endswith(('_complete','_neutral')))
@@ -1478,6 +1603,15 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
         _method(value['method_id'], catalogs)
         if table == 'skater_execution':
             _execution_details(value)
+        elif table == 'goalie_result':
+            from .goalie_scores import validate_goalie_projection
+            fields(value['evidence'], ('neutral_values','masses','coefficient_support','panels'))
+            validate_goalie_projection(dict(season=row['season'], player_id=row['player_id'], strength=row['strength'],
+                values={field:value[field]['value'] for field in ESTIMATE_FIELDS[table]},
+                support=value['support'], **value['evidence'],
+                unavailable={field:dict(reason=value[field]['unavailable_reason'],
+                    explanation=value[field]['reason_detail']['explanation'])
+                    for field in ESTIMATE_FIELDS[table] if value[field]['value'] is None}), row['season'])
         elif table == 'skater_spatial':
             require(type(value['state_weights']) is list and value['state_weights'], 'missing state weights')
             states = []
@@ -1514,6 +1648,21 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
         elif table == 'skater_penalties':
             for key in extra:
                 _penalty(value[key], catalogs)
+        if table in ('skater_penalties','skater_shootiness'):
+            validate_mechanism_evidence(table,value['evidence'],row,value['support'],{key:value[key]['value'] for key in ESTIMATE_FIELDS[table]})
+            for key in ESTIMATE_FIELDS[table]:
+                item = value[key]
+                require(item['uncertainty']['kind'] == 'not_estimated', 'mechanism uncertainty is not estimated')
+                if value['evidence']['coefficient_support']['status'] == 'failed':
+                    require(item['unavailable_reason'] == 'failed_fit', 'failed mechanism estimate reason differs')
+                elif value['evidence']['coefficient_support']['status'] == 'unavailable':
+                    require(item['unavailable_reason'] == 'no_exposure', 'unavailable mechanism estimate reason differs')
+                elif table == 'skater_penalties' and key in ('drawn_value_per60','taken_value_per60'):
+                    valuation = value['evidence']['valuation']
+                    if not valuation['available']:
+                        require(valuation['reason'] in ('failed_fit','no_exposure','missing_source') and item['unavailable_reason'] == valuation['reason'], 'minor prerequisite unavailable reason differs')
+                elif table == 'skater_shootiness' and value['evidence']['position_group'] == 'unknown':
+                    require(item['unavailable_reason'] == 'missing_source', 'unknown shooter position lacks source reason')
     elif table == 'skater_descriptive':
         _descriptive(value, catalogs)
     elif table == 'skater_context':
@@ -2013,7 +2162,7 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:
     directory = directory.resolve(strict=True)
     manifest = strict_json((directory/manifest_name).read_bytes())
     fields(manifest,('schema_version','kind','purpose','seasons','observed_bindings','prepared_sha256','producer','catalogs','families'))
-    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 3 and manifest['kind'] == 'player_analysis_results' and manifest['purpose'] in ('real','fixture'), 'invalid result manifest')
+    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 4 and manifest['kind'] == 'player_analysis_results' and manifest['purpose'] in ('real','fixture'), 'invalid result manifest')
     strings(manifest['seasons'],ordered=True)
     require(manifest['seasons'] and set(manifest['seasons']) <= set(SEASONS) and (manifest['purpose'] != 'real' or manifest['seasons'] == list(SEASONS)), 'invalid display seasons')
     require(type(manifest['observed_bindings']) is list and len(manifest['observed_bindings']) == len(manifest['seasons']), 'missing observed bindings')
@@ -2046,6 +2195,7 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:
                 catalogs[key][row[KEYS[table][0]]] = row
     require(type(manifest['families']) is list, 'missing family dispositions')
     inventory = []
+    mechanism_references = {}
     for family in manifest['families']:
         fields(family,('season','family','availability','explanation','tables'))
         text(family['family'])
@@ -2066,6 +2216,8 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:
             map_player, maps = None, {}
             for row in result.rows(member,table,family['family']):
                 require(row['season'] == family['season'], 'row season differs from family')
+                if table in ('skater_penalties','skater_shootiness') and row['result']['availability'] == 'provided':
+                    _mechanism_binding(table,row['result']['data'],row,catalogs,mechanism_references)
                 if family['family'] == 'spatial' and table != 'analysis_map':
                     spatial.setdefault(table,{})[tuple(row[key] for key in KEYS[table])] = row['result']
                 if family['family'] == 'spatial' and table == 'skater_spatial' and row['result']['availability'] == 'provided':
@@ -2104,29 +2256,45 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:
     return result
 
 
+def copy_result_member(source_directory, member, output):
+    source = member_path(source_directory,member)
+    target = output/member['path']
+    target.parent.mkdir(parents=True,exist_ok=True)
+    with source.open('rb') as src, target.open('xb') as dest:
+        sha = hashlib.sha256()
+        while block := src.read(1024*1024):
+            dest.write(block)
+            sha.update(block)
+    require(sha.hexdigest() == member['sha256'], 'inherited result member digest differs')
+
+
+def _write_result_row(destination, sha, table, row, previous):
+    key = tuple(row[field] for field in KEYS[table])
+    require(previous is None or previous < key, f'{table}: producer rows must be sorted and unique')
+    data = json_bytes(row)+b'\n'
+    destination.write(data)
+    sha.update(data)
+    return key
+
+
+def write_result_member(output, path, rows, table):
+    sha, count, previous = hashlib.sha256(), 0, None
+    with (output/path).open('xb') as stream:
+        for row in rows:
+            previous = _write_result_row(stream,sha,table,row,previous)
+            count += 1
+    return dict(path=path,sha256=sha.hexdigest(),rows=count)
+
+
 def write_results(selection, catalogs, family_rows, output: Path) -> dict:
     """serialize fixed producer rows; validation precedes the final manifest write."""
     fields(selection,('purpose','seasons','observed_bindings','prepared_sha256'))
     fields(catalogs,('people','sources','methods','supports'))
     require(not output.exists() and not output.is_symlink(), 'result output exists')
     output.mkdir()
-    manifest = dict(schema_version=3,kind='player_analysis_results',**selection,producer=implementation_identity(),catalogs={},families=[])
-    def write_row(destination, sha, table, row, previous):
-        key = tuple(row[field] for field in KEYS[table])
-        require(previous is None or previous < key, f'{table}: producer rows must be sorted and unique')
-        data = json_bytes(row)+b'\n'
-        destination.write(data)
-        sha.update(data)
-        return key
+    manifest = dict(schema_version=4,kind='player_analysis_results',**selection,producer=implementation_identity(),catalogs={},families=[])
     def member(path, rows, table):
-        count = 0
-        previous = None
-        with (output/path).open('xb') as destination:
-            sha = hashlib.sha256()
-            for row in rows:
-                previous = write_row(destination, sha, table, row, previous)
-                count += 1
-        return dict(path=path,sha256=sha.hexdigest(),rows=count)
+        return write_result_member(output,path,rows,table)
     for family in family_rows:
         streamed_evidence = family.get('family') == 'evidence' and 'game_rows' in family
         fields(family,('season','family','availability','explanation','tables','game_ids','game_rows') if streamed_evidence
@@ -2160,7 +2328,7 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
                             if table == 'dressed_game':
                                 dressed.append(row)
                             else:
-                                previous[table] = write_row(destinations[table], hashes[table], table, row, previous[table])
+                                previous[table] = _write_result_row(destinations[table], hashes[table], table, row, previous[table])
                                 counts[table] += 1
             record['tables'] = {table:dict(path=paths[table],sha256=hashes[table].hexdigest(),rows=counts[table]) for table in game_tables}
             record['tables']['dressed_game'] = member(f"{family['season']}-evidence-dressed_game.jsonl",
@@ -2417,6 +2585,10 @@ def check_results(connection, results):
     _check_spatial_evidence(connection,results.catalogs)
     _check_execution_evidence(connection)
     _check_repeated_facts(connection)
+    mechanism_references = {}
+    for table in ('skater_penalties','skater_shootiness'):
+        for row in connection.execute(f"SELECT * FROM {table} WHERE availability='provided'"):
+            _mechanism_binding(table,stored_result(row)['data'],row,results.catalogs,mechanism_references)
 
 
 def _check_spatial_evidence(connection, catalogs):

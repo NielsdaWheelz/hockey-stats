@@ -1,0 +1,9 @@
+# mechanism publication successor
+
+[the current exchange4 fixture](results/manifest.json) is an attributed synthetic successor to the preserved [exchange3 fixture](../publication-v1-13/results/manifest.json). [conversion evidence](results/exchange4-conversion.json) records the exact before/after bindings. every unrelated table member and preexisting catalog record is preserved; the two synthetic mechanism records gain explicitly synthetic checked evidence and new method identities. pending mechanism records remain null.
+
+the drawing/taking rate contrasts remain `3` and `-3` awards/hour. neutral intensity `4` yields complete rates `7` and `1`. the declared synthetic opportunity has `a=6`, `b=1`, `e_f=e_a=2` xg/hour, with `tau=-expm1(-6*2/60)/6` hours and `V=5*tau` goals. drawn value is `3*V`; taken value is `-(-3)*V`, so both are positive under this example. this corrects the earlier incompatible signs without altering the original. penalty 600 seconds equal `1/6` physical information hours; recorded personal facts remain at their descriptive owner.
+
+the synthetic shooter example retains probabilities `.4` and `.3`, with difference `.1`, in a `3F/2D` unit. five candidate incidences inform the coefficient; the seven-state qualification record separates those incidences from 600 exact-state seconds. these are deliberately constructed transport examples, not observations, fitted ability or scientific evidence. the annual checked-fact members retain that distinction.
+
+strict python exchange reading, ordinary sqlite publication and strict typed startup pass. [product verification](../../docs/research/mechanisms-v1-10/product/verification.md) records commands, failures and the separate external locator successor used with retained observed corpora. browser/export acceptance remains separately recorded by the root campaign; the original fixture is preserved byte-for-byte.

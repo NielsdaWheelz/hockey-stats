@@ -1,3 +1,4 @@
+import { MechanismDetail } from "./mechanism-detail";
 import { useId, useRef, useState } from "react";
 import { Link } from "react-router";
 import type { Publication, SeasonEvidence } from "../shared/observed";
@@ -184,6 +185,7 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
           : "this exact-state reference has weight one."}</p>
         <p>{spatialSupportMeaning(datum)}. selected spatial detail exposes structured head information and actual-context adjustments from the same publication.</p>
       </div>}
+      {datum.mechanism_detail && <MechanismDetail evidence={datum.mechanism_detail} />}
       {datum.reference_panel && (
         <div>
           <p>
@@ -364,6 +366,7 @@ export const analysisCsvHeaders = [
   "coefficient_support",
   "paired_evidence",
   "spatial_detail",
+  "mechanism_detail",
   "spatial_strength",
   "direction",
   "spatial_support_meaning",
@@ -454,6 +457,7 @@ export function analysisCsvRow(
     JSON.stringify(datum.coefficient_support),
     JSON.stringify(datum.paired_evidence),
     JSON.stringify(datum.spatial_detail),
+    datum.mechanism_detail === null ? null : JSON.stringify(datum.mechanism_detail),
     datum.metric.publicationFamily === "spatial" ? datum.metric.id.split(".")[1] : null,
     spatialDirection(datum),
     datum.metric.publicationFamily === "spatial" ? spatialSupportMeaning(datum) : null,
@@ -809,6 +813,15 @@ function historySvg(view: HistoryView): string {
           }
         }
         text("conditional seasonal estimate with historical borrowing and inferred blocked origins; no calibrated uncertainty", 20);
+      }
+      if (datum.mechanism_detail) {
+        const evidence = datum.mechanism_detail;
+        text("conditional experimental mechanism; no causal credit or calibrated uncertainty; optimizer accuracy unknown", 20);
+        text(`reference ${evidence.reference_id}; prior ${evidence.coefficient_support.prior_kind ?? "unavailable"}; anchor ${evidence.coefficient_support.prior_anchor_season ?? "none"}; prior-only ${evidence.coefficient_support.prior_only}`, 20);
+        if ("valuation" in evidence) {
+          text(`ordinary-minor team awards: neutral ${evidence.neutral_per60}; complete drawing ${evidence.drawn_complete_per60}; complete taking ${evidence.taken_complete_per60} per60. positive taking difference means more penalties`, 20);
+          text(`isolated-minor value ${evidence.valuation.V_goals ?? "unavailable"} goals; taking value = −taking difference × V; V can be negative. source-pooled sh circumstances differ from hypothetical ev/pp references`, 20);
+        } else text(`share of team attempts; ${evidence.reference_unit.forwards}F/${evidence.reference_unit.defenders}D unit. exact-state qualifying minutes differ from pooled seven-state candidate information; neither is observed shot share`, 20);
       }
       if (datum.reference_panel) {
         const panel = datum.reference_panel;

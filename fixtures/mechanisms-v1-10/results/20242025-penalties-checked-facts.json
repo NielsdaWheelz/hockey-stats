@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "kind": "synthetic_mechanism_checked_facts",
+  "purpose": "fixture",
+  "season": "20242025",
+  "family": "penalties",
+  "construction": "explicit synthetic example, no fitted evidence or scientific support",
+  "source": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/fixtures/publication-v1-13/results/manifest.json",
+    "sha256": "b2d22b814521029dcf95dcd70dae17be7a1f446463308f9e171f730564a70990"
+  },
+  "checks": [
+    "penalty drawing=complete-neutral; taking=complete-neutral; drawing_value=drawn*V; taking_value=-taken*V",
+    "a=6,b=1,e_f=e_a=2 xg/hour; sh=1 neutral goal mass/3600s and 2 attempts; tau=-expm1(-a*2/60)/a",
+    "penalty focal 600s=1/6 physical hours; 5 incident residual awards; synthetic shooter five candidate incidences in 5v5"
+  ]
+}

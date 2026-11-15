@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "shared_goalie_mechanism_foundation_integration",
+  "status": "accepted_software_reconciliation",
+  "previous_review": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/v1-19-shared/integration.json",
+    "sha256": "130d438eb5b2289381e2ce84fbf539f74aa2b4a397b93814dcb5146f138a8838"
+  },
+  "supplement": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/goalie-evidence-supplemental.patch",
+    "sha256": "5fe93098415485d00de2b1718858a77948fb6a32f177228302ee475b7488509e"
+  },
+  "full_final_patch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/goalie-evidence-foundation-final.patch",
+    "sha256": "07294d1bf4b05db40437e133850277fa9ed2b7d458543d0179d1930ae16c5063"
+  },
+  "upstream_reviews": [
+    {
+      "original": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/frozen-goalie-full-reader.json",
+        "sha256": "51b8c5e151bf47c9be06078e608c1332dbaf3ddec53ed3faebf6522fbdbbffe2"
+      },
+      "retained": {
+        "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/v1-19-shared/frozen-goalie-full-reader-final.json",
+        "sha256": "51b8c5e151bf47c9be06078e608c1332dbaf3ddec53ed3faebf6522fbdbbffe2"
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/frozen-goalie-score-row-boundary.json",
+        "sha256": "46712d9e311b4da15ce8c76266669e7da36e8d218fe434a1e6e989503ce04d99"
+      },
+      "retained": {
+        "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/v1-19-shared/frozen-goalie-score-row-boundary-final.json",
+        "sha256": "46712d9e311b4da15ce8c76266669e7da36e8d218fe434a1e6e989503ce04d99"
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-goalie-parity.json",
+        "sha256": "c42d1a8d122d0e72e7c365972dfeb9995762c29796700ce58853d4c0debbc8d7"
+      },
+      "retained": {
+        "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/v1-19-shared/real-goalie-parity-final.json",
+        "sha256": "c42d1a8d122d0e72e7c365972dfeb9995762c29796700ce58853d4c0debbc8d7"
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-typed-evidence.json",
+        "sha256": "4ca1b2c262a40591bb9639b6e94c65a0e763cb0e09b58563913c66f9ea24c38c"
+      },
+      "retained": {
+        "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/v1-19-shared/real-typed-evidence-final.json",
+        "sha256": "4ca1b2c262a40591bb9639b6e94c65a0e763cb0e09b58563913c66f9ea24c38c"
+      }
+    }
+  ],
+  "shared_files": [
+    {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/analysis/src/hockey_stats/analysis_publication.py",
+      "sha256": "b9afda1d41f0e78d22ec6d5a479e5317171cf425c2b034c7f3fb58d9fc23d3a9"
+    },
+    {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/analysis/src/hockey_stats/goalie_composition.py",
+      "sha256": "9231217edabcdea04952588f761b5bedf33e6f7a6f9c8d9e67b196b95a61b6e1"
+    },
+    {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/analysis/src/hockey_stats/goalie_scores.py",
+      "sha256": "bc2dfbf0ccf0bae07cc324a364362686fd7eb28aa1a1af533ad700946d73824d"
+    },
+    {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/app/src/server/analysis-publication.ts",
+      "sha256": "49a544aec9b63d1566b7b51b2f295d3cbae2dfa3ddb38b955151bcd89c6a4aeb"
+    },
+    {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/app/src/shared/player-analysis.ts",
+      "sha256": "b0cd7cb176e36cdba83f5841c2542d3d3c6163a5e49ee8828986886eae093551"
+    }
+  ],
+  "all_five_shared_files_exact_upstream_final": true,
+  "temporary_converter": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/mechanisms-v1-10/convert_exchange.py",
+    "sha256": "78afc3b4daf132f795f06038aa5e203811956c8ff232a6419a73e6db74baaa1b"
+  },
+  "fixes": [
+    "saved goalie-score artifact remains unchanged; strict full reader validates transient enriched rows",
+    "GoalieScores.rows always enriches from checked saved projections",
+    "enrich_goalie_row owned solely by goalie_scores; converter imports that owner",
+    "obsolete normal composition donor pin removed; explicit population/preparation/base/method contracts retained",
+    "current mechanism validators, prior-cell information labels and negative-V copy fixes preserved"
+  ],
+  "checks": [
+    {
+      "name": "node24 typecheck",
+      "status": "passed"
+    },
+    {
+      "name": "python compilation",
+      "status": "passed"
+    },
+    {
+      "name": "git diff whitespace",
+      "status": "passed"
+    }
+  ],
+  "limits": [
+    "real3971-row parity and full352-row frozen fixture checks are attributed upstream results, not rerun here",
+    "no real conversion, large donor read, candidate build or startup performed during integration",
+    "earlier interface05/rollback receipts retain their pre-goalie-extension contract scope; next shared fixture/candidate requires both finite evidence objects"
+  ]
+}

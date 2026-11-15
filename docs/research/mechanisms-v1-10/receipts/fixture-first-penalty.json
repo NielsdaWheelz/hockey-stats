@@ -1,0 +1,39 @@
+{
+  "status": "pass",
+  "kind": "independent_saved_fixture_penalty_audit",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/penalties/20212022/manifest.json",
+    "sha256": "afafc714ff86c698dd405124e402a4bfac47b8635f2f4348698bcbee0abf8133"
+  },
+  "players": 224,
+  "priors": 980,
+  "supported_raw_coordinates": 576,
+  "checks": [
+    "all entry priors and player/coach precisions",
+    "unsupported coordinates exactly conditional mean",
+    "all raw ledgers match saved coefficients",
+    "symmetric drawing/taking support and history",
+    "all exposure-weighted centers and coach applicability",
+    "independent neutral predictor and all complete-minus-neutral projections",
+    "physical time once/directed twice and16awards"
+  ],
+  "solver": {
+    "converged": true,
+    "status": 0,
+    "termination": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 90,
+    "evaluations": 97,
+    "objective": -8.629637482265887,
+    "options": {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06,
+      "maxcor": 10
+    },
+    "gradient_inf_norm": 6.196922345269584e-07,
+    "achieved_gtol": true,
+    "wall_seconds": 0.0804344171192497,
+    "peak_memory_bytes": 945946624
+  },
+  "scope": "saved state only; no source read or numerical objective call"
+}

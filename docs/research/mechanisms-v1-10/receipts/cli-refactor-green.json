@@ -1,0 +1,144 @@
+[
+  {
+    "arguments": [
+      "fit",
+      "--help"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "expected_text": "shootiness",
+    "passed": true,
+    "output": "usage: hockey-stats-analysis fit [-h]\n                                 --family {execution,spatial,spatial-st,goalie,penalties,shootiness}\n                                 --prepared DIRECTORY [--coaches FILE]\n                                 [--valued DIRECTORY] --season SEASON\n                                 [--previous DIRECTORY] [--basis DIRECTORY]\n                                 --out DIRECTORY\n\noptions:\n  -h, --help            show this help message and exit\n  --family {execution,spatial,spatial-st,goalie,penalties,shootiness}\n  --prepared DIRECTORY\n  --coaches FILE\n  --valued DIRECTORY\n  --season SEASON\n  --previous DIRECTORY\n  --basis DIRECTORY\n  --out DIRECTORY\n"
+  },
+  {
+    "arguments": [
+      "summarize",
+      "--help"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "expected_text": "mechanisms",
+    "passed": true,
+    "output": "usage: hockey-stats-analysis summarize [-h]\n                                       --family {execution,spatial,spatial-st,goalie,mechanisms}\n                                       [--prepared DIRECTORY]\n                                       [--facts DIRECTORY] [--scores FILE]\n                                       [--results DIRECTORY] [--states FILE]\n                                       [--product-admission FILE]\n                                       --out DIRECTORY\n\noptions:\n  -h, --help            show this help message and exit\n  --family {execution,spatial,spatial-st,goalie,mechanisms}\n  --prepared DIRECTORY\n  --facts DIRECTORY\n  --scores FILE\n  --results DIRECTORY\n  --states FILE\n  --product-admission FILE\n  --out DIRECTORY\n"
+  },
+  {
+    "arguments": [
+      "fit",
+      "--family",
+      "shootiness",
+      "--prepared",
+      "/missing",
+      "--season",
+      "20212022",
+      "--out",
+      "/missing-output",
+      "--coaches",
+      "/missing"
+    ],
+    "exit": 2,
+    "expected_exit": 2,
+    "expected_text": "does not accept --coaches",
+    "passed": true,
+    "output": "usage: hockey-stats-analysis fit [-h]\n                                 --family {execution,spatial,spatial-st,goalie,penalties,shootiness}\n                                 --prepared DIRECTORY [--coaches FILE]\n                                 [--valued DIRECTORY] --season SEASON\n                                 [--previous DIRECTORY] [--basis DIRECTORY]\n                                 --out DIRECTORY\nhockey-stats-analysis fit: error: shootiness fit does not accept --coaches\n"
+  },
+  {
+    "arguments": [
+      "fit",
+      "--family",
+      "penalties",
+      "--prepared",
+      "/missing",
+      "--season",
+      "20212022",
+      "--out",
+      "/missing-output"
+    ],
+    "exit": 2,
+    "expected_exit": 2,
+    "expected_text": "requires --coaches",
+    "passed": true,
+    "output": "usage: hockey-stats-analysis fit [-h]\n                                 --family {execution,spatial,spatial-st,goalie,penalties,shootiness}\n                                 --prepared DIRECTORY [--coaches FILE]\n                                 [--valued DIRECTORY] --season SEASON\n                                 [--previous DIRECTORY] [--basis DIRECTORY]\n                                 --out DIRECTORY\nhockey-stats-analysis fit: error: penalties fit requires --coaches\n"
+  },
+  {
+    "arguments": [
+      "fit",
+      "--family",
+      "penalties",
+      "--prepared",
+      "/missing",
+      "--coaches",
+      "/missing",
+      "--season",
+      "20212022",
+      "--out",
+      "/missing-output",
+      "--valued",
+      "/missing"
+    ],
+    "exit": 2,
+    "expected_exit": 2,
+    "expected_text": "does not accept --valued",
+    "passed": true,
+    "output": "usage: hockey-stats-analysis fit [-h]\n                                 --family {execution,spatial,spatial-st,goalie,penalties,shootiness}\n                                 --prepared DIRECTORY [--coaches FILE]\n                                 [--valued DIRECTORY] --season SEASON\n                                 [--previous DIRECTORY] [--basis DIRECTORY]\n                                 --out DIRECTORY\nhockey-stats-analysis fit: error: penalties fit does not accept --valued\n"
+  },
+  {
+    "arguments": [
+      "fit",
+      "--family",
+      "shootiness",
+      "--prepared",
+      "/missing",
+      "--season",
+      "20212022",
+      "--out",
+      "/missing-output",
+      "--basis",
+      "/missing"
+    ],
+    "exit": 2,
+    "expected_exit": 2,
+    "expected_text": "does not accept --basis",
+    "passed": true,
+    "output": "usage: hockey-stats-analysis fit [-h]\n                                 --family {execution,spatial,spatial-st,goalie,penalties,shootiness}\n                                 --prepared DIRECTORY [--coaches FILE]\n                                 [--valued DIRECTORY] --season SEASON\n                                 [--previous DIRECTORY] [--basis DIRECTORY]\n                                 --out DIRECTORY\nhockey-stats-analysis fit: error: shootiness fit does not accept --basis\n"
+  },
+  {
+    "arguments": [
+      "summarize",
+      "--family",
+      "mechanisms",
+      "--results",
+      "/missing",
+      "--states",
+      "/missing",
+      "--out",
+      "/missing-output",
+      "--prepared",
+      "/missing"
+    ],
+    "exit": 2,
+    "expected_exit": 2,
+    "expected_text": "does not accept --prepared",
+    "passed": true,
+    "output": "usage: hockey-stats-analysis summarize [-h]\n                                       --family {execution,spatial,spatial-st,goalie,mechanisms}\n                                       [--prepared DIRECTORY]\n                                       [--facts DIRECTORY] [--scores FILE]\n                                       [--results DIRECTORY] [--states FILE]\n                                       [--product-admission FILE]\n                                       --out DIRECTORY\nhockey-stats-analysis summarize: error: mechanisms summarize does not accept --prepared\n"
+  },
+  {
+    "arguments": [
+      "fit",
+      "--family",
+      "shootiness",
+      "--family",
+      "shootiness",
+      "--prepared",
+      "/missing",
+      "--season",
+      "20212022",
+      "--out",
+      "/missing-output"
+    ],
+    "exit": 2,
+    "expected_exit": 2,
+    "expected_text": "must occur exactly once",
+    "passed": true,
+    "output": "usage: hockey-stats-analysis fit [-h]\n                                 --family {execution,spatial,spatial-st,goalie,penalties,shootiness}\n                                 --prepared DIRECTORY [--coaches FILE]\n                                 [--valued DIRECTORY] --season SEASON\n                                 [--previous DIRECTORY] [--basis DIRECTORY]\n                                 --out DIRECTORY\nhockey-stats-analysis fit: error: --family must occur exactly once\n"
+  }
+]

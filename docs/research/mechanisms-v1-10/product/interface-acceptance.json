@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "kind": "mechanism_interface_acceptance",
+  "purpose": "fixture",
+  "canonical_original": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/fixtures/publication-v1-13/results/manifest.json",
+    "sha256": "b2d22b814521029dcf95dcd70dae17be7a1f446463308f9e171f730564a70990"
+  },
+  "canonical_successor": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/fixtures/mechanisms-v1-10/results/manifest.json",
+    "sha256": "be2a8849a3d907da65e997d42dc5455f9884c94480b89816188eac6bafaff39e"
+  },
+  "canonical_conversion": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/fixtures/mechanisms-v1-10/results/exchange4-conversion.json",
+    "sha256": "de0f37d42650367d1977f1a2c2be37d2d43292b85074e6aeafb553467ed15e74"
+  },
+  "ordinary_candidate": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/interface-publication-05/player-analysis.sqlite",
+    "sha256": "c543db057014394bee6384292b8a18bf8bde861e9a6b9d1491cc43592fe7a43a"
+  },
+  "observed_locator_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/interface-source-03/observed-locator-successor.json",
+    "sha256": "6c2ed105cb959058e66bc63692afae8750a55fa054fbbe7a542436505e83c6d0"
+  },
+  "checks": [
+    {
+      "command": "PYTHONPATH=analysis/src analysis/.venv/bin/python .tmp/mechanisms-v1-10/product_contract.py",
+      "result": "pass",
+      "scope": "closed detached Python mechanism evidence, sign/value/source-rate/prior/support mutation controls"
+    },
+    {
+      "command": "node24 app/node_modules/.bin/tsx app/temporary-mechanism-contract.ts (cwd app)",
+      "result": "pass",
+      "scope": "typed mechanism evidence/annual identities, sign/support/unknown-key mutations and seven raw-only neutral selectors"
+    },
+    {
+      "command": "npm --prefix app run typecheck (node24)",
+      "result": "pass"
+    },
+    {
+      "command": "hockey-stats-analysis publish --observed retained-candidate03/selection.json --results fixture/interface-results-03 --out fixture/interface-publication-05",
+      "result": "pass"
+    },
+    {
+      "command": "node24 tsx src/operator/publication-cli.ts check --candidate fixture/interface-publication-05/player-analysis.sqlite",
+      "result": "pass",
+      "scope": "ordinary strict schema10 startup and three-season inventories: 255 people"
+    }
+  ],
+  "failures": [
+    {
+      "stage": "initial Python contract red",
+      "result": "missing validate_mechanism_evidence; target behavior absent"
+    },
+    {
+      "stage": "first synthetic conversion",
+      "result": "method input digest did not account for added annual binding; corrected converter rehashes exact inputs"
+    },
+    {
+      "stage": "retained candidate03 conversion",
+      "result": "historical goalie breakdown support rejected by current paired-count contract; unrelated numerical bodies preserved, canonical source chosen"
+    },
+    {
+      "stage": "observed locator staging attempt02",
+      "result": "exclusive write refused copied manifest; subsequent publish refused original unmatched observed bindings; stage03 uses a fresh attributed successor"
+    },
+    {
+      "stage": "fixture publication03/04",
+      "result": "new cross-record check passed raw normalized payload lacking method_id; fixed to existing stored_result reconstruction; publication05 succeeds"
+    }
+  ],
+  "limitations": [
+    "synthetic interface evidence does not establish real model correctness, browser/download acceptance or scientific support",
+    "temporary tests retained pending root acceptance; converter retained pending real conversion",
+    "no primary app, database, source capture or port3000 changed"
+  ]
+}

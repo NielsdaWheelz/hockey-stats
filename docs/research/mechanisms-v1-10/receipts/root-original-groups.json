@@ -1,0 +1,386 @@
+[
+  {
+    "game_id": "2024021177",
+    "raw_path": "fixtures/captures/2024021177/play-by-play/body.bin",
+    "raw_sha256": "e0796622df32e36057ccd9f12b97d508f16c926714e108d77ecdf94e5e40b80f",
+    "api_indices": [
+      256,
+      257,
+      258
+    ],
+    "source": [
+      {
+        "type": "MIN",
+        "duration": 2,
+        "team": 26,
+        "situationCode": "1551"
+      },
+      {
+        "type": "MIN",
+        "duration": 2,
+        "team": 26,
+        "situationCode": "1551"
+      },
+      {
+        "type": "MIN",
+        "duration": 2,
+        "team": 28,
+        "situationCode": "1551"
+      }
+    ],
+    "expected_disposition": "residual",
+    "expected_counts_by_team": {
+      "26": 1,
+      "28": 0
+    },
+    "actual": {
+      "game_id": "2024021177",
+      "period_number": 3,
+      "clock_seconds": 227,
+      "source_indices": [
+        256,
+        257,
+        258
+      ],
+      "report_source_indices": [
+        259,
+        260,
+        261
+      ],
+      "api_locators": [
+        "/events/256/source",
+        "/events/257/source",
+        "/events/258/source"
+      ],
+      "report_locators": [
+        "/game/report_rows/259[PL-260]",
+        "/game/report_rows/260[PL-261]",
+        "/game/report_rows/261[PL-262]"
+      ],
+      "group_disposition": "residual",
+      "residual_counts": {
+        "home": 1,
+        "away": 0
+      },
+      "elapsed_assignment": "assigned",
+      "segment_index": 258,
+      "chunk_index": 925,
+      "membership_relation": "before",
+      "reasons": [],
+      "affected_segment_indices": [],
+      "previous_taking_side": "away",
+      "next_taking_side": "home"
+    },
+    "passed": true
+  },
+  {
+    "game_id": "2022020744",
+    "raw_path": "fixtures/captures/2022020744/play-by-play/body.bin",
+    "raw_sha256": "592b4116b553c6ea9ef1fbad12b27bbda6641f15aabbd59c5ad3c762363ca721",
+    "api_indices": [
+      61,
+      62
+    ],
+    "source": [
+      {
+        "type": "MIN",
+        "duration": 2,
+        "team": 23,
+        "situationCode": "1551"
+      },
+      {
+        "type": "MIN",
+        "duration": 2,
+        "team": 22,
+        "situationCode": "1541"
+      }
+    ],
+    "expected_disposition": "cancelled",
+    "expected_counts_by_team": {
+      "23": 0,
+      "22": 0
+    },
+    "actual": {
+      "game_id": "2022020744",
+      "period_number": 1,
+      "clock_seconds": 777,
+      "source_indices": [
+        61,
+        62
+      ],
+      "report_source_indices": [
+        64,
+        65
+      ],
+      "api_locators": [
+        "/events/61/source",
+        "/events/62/source"
+      ],
+      "report_locators": [
+        "/game/report_rows/64[PL-65]",
+        "/game/report_rows/65[PL-66]"
+      ],
+      "group_disposition": "cancelled",
+      "residual_counts": {
+        "home": 0,
+        "away": 0
+      },
+      "elapsed_assignment": "not_applicable",
+      "segment_index": null,
+      "chunk_index": null,
+      "membership_relation": null,
+      "reasons": [],
+      "affected_segment_indices": [],
+      "previous_taking_side": "home",
+      "next_taking_side": "home"
+    },
+    "passed": true
+  },
+  {
+    "game_id": "2024020022",
+    "raw_path": "fixtures/captures/2024020022/play-by-play/body.bin",
+    "raw_sha256": "1de0659952b3c8036ac8aee8b36756ede20e1e5d0751521f5d090fa7135204c3",
+    "api_indices": [
+      163
+    ],
+    "source": [
+      {
+        "type": "BEN",
+        "duration": 2,
+        "team": 4,
+        "situationCode": "1551"
+      }
+    ],
+    "expected_disposition": "residual",
+    "expected_counts_by_team": {
+      "4": 1
+    },
+    "actual": {
+      "game_id": "2024020022",
+      "period_number": 2,
+      "clock_seconds": 504,
+      "source_indices": [
+        163
+      ],
+      "report_source_indices": [
+        166
+      ],
+      "api_locators": [
+        "/events/163/source"
+      ],
+      "report_locators": [
+        "/game/report_rows/166[PL-167]"
+      ],
+      "group_disposition": "residual",
+      "residual_counts": {
+        "home": 0,
+        "away": 1
+      },
+      "elapsed_assignment": "assigned",
+      "segment_index": 206,
+      "chunk_index": 629,
+      "membership_relation": "before",
+      "reasons": [],
+      "affected_segment_indices": [],
+      "previous_taking_side": "home",
+      "next_taking_side": "away"
+    },
+    "passed": true
+  },
+  {
+    "game_id": "2025021094",
+    "raw_path": "fixtures/captures/2025021094/play-by-play/body.bin",
+    "raw_sha256": "1cb5834471bb57a2f42084290c949adcf1fa6da0ca962057da1dfa13e5c4b2a6",
+    "api_indices": [
+      106
+    ],
+    "source": [
+      {
+        "type": "MIN",
+        "duration": 4,
+        "team": 10,
+        "situationCode": "1551"
+      }
+    ],
+    "expected_disposition": "outside_population",
+    "expected_counts_by_team": {},
+    "actual": {
+      "game_id": "2025021094",
+      "period_number": 2,
+      "clock_seconds": 117,
+      "source_indices": [
+        106
+      ],
+      "report_source_indices": [
+        109
+      ],
+      "api_locators": [
+        "/events/106/source"
+      ],
+      "report_locators": [
+        "/game/report_rows/109[PL-110]"
+      ],
+      "group_disposition": "outside_population",
+      "residual_counts": {
+        "home": 0,
+        "away": 0
+      },
+      "elapsed_assignment": "not_applicable",
+      "segment_index": null,
+      "chunk_index": null,
+      "membership_relation": null,
+      "reasons": [],
+      "affected_segment_indices": [],
+      "previous_taking_side": "away",
+      "next_taking_side": "away"
+    },
+    "passed": true
+  },
+  {
+    "game_id": "2025020006",
+    "raw_path": "fixtures/captures/2025020006/play-by-play/body.bin",
+    "raw_sha256": "e5c79066faafe9daac9bc1daa12dda899d8cd7382d7f2484085ade1a9c1e57ad",
+    "api_indices": [
+      342,
+      343
+    ],
+    "source": [
+      {
+        "type": "MIN",
+        "duration": 2,
+        "team": 20,
+        "situationCode": "1331"
+      },
+      {
+        "type": "MIS",
+        "duration": 10,
+        "team": 20,
+        "situationCode": "1331"
+      }
+    ],
+    "expected_disposition": "residual",
+    "expected_counts_by_team": {
+      "20": 1
+    },
+    "actual": {
+      "game_id": "2025020006",
+      "period_number": 4,
+      "clock_seconds": 211,
+      "source_indices": [
+        342,
+        343
+      ],
+      "report_source_indices": [
+        345,
+        346
+      ],
+      "api_locators": [
+        "/events/342/source",
+        "/events/343/source"
+      ],
+      "report_locators": [
+        "/game/report_rows/345[PL-346]",
+        "/game/report_rows/346[PL-347]"
+      ],
+      "group_disposition": "residual",
+      "residual_counts": {
+        "home": 0,
+        "away": 1
+      },
+      "elapsed_assignment": "assigned",
+      "segment_index": 428,
+      "chunk_index": 1420,
+      "membership_relation": "before",
+      "reasons": [],
+      "affected_segment_indices": [],
+      "previous_taking_side": "home",
+      "next_taking_side": "away"
+    },
+    "passed": true
+  },
+  {
+    "game_id": "2024020186",
+    "raw_path": "fixtures/captures/2024020186/play-by-play/body.bin",
+    "raw_sha256": "e0f9d79d12a58c7c8d6f9c11e699dcbcf8b20f499061a8008b42c3093e58452f",
+    "api_indices": [
+      221,
+      222,
+      223,
+      224
+    ],
+    "source": [
+      {
+        "type": "MIN",
+        "duration": 2,
+        "team": 14,
+        "situationCode": "1551"
+      },
+      {
+        "type": "MAJ",
+        "duration": 5,
+        "team": 52,
+        "situationCode": "1551"
+      },
+      {
+        "type": "MAJ",
+        "duration": 5,
+        "team": 14,
+        "situationCode": "1551"
+      },
+      {
+        "type": "MIS",
+        "duration": 10,
+        "team": 14,
+        "situationCode": "1551"
+      }
+    ],
+    "expected_disposition": "unresolved",
+    "expected_counts_by_team": {},
+    "actual": {
+      "game_id": "2024020186",
+      "period_number": 3,
+      "clock_seconds": 143,
+      "source_indices": [
+        221,
+        222,
+        223,
+        224
+      ],
+      "report_source_indices": [
+        225,
+        226,
+        227,
+        228
+      ],
+      "api_locators": [
+        "/events/221/source",
+        "/events/222/source",
+        "/events/223/source",
+        "/events/224/source"
+      ],
+      "report_locators": [
+        "/game/report_rows/225[PL-226]",
+        "/game/report_rows/226[PL-227]",
+        "/game/report_rows/227[PL-228]",
+        "/game/report_rows/228[PL-229]"
+      ],
+      "group_disposition": "unresolved",
+      "residual_counts": {
+        "home": 0,
+        "away": 0
+      },
+      "elapsed_assignment": "not_applicable",
+      "segment_index": null,
+      "chunk_index": null,
+      "membership_relation": null,
+      "reasons": [],
+      "affected_segment_indices": [
+        274,
+        275
+      ],
+      "previous_taking_side": "home",
+      "next_taking_side": "unknown"
+    },
+    "passed": true
+  }
+]

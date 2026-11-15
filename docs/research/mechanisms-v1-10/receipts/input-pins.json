@@ -1,0 +1,99 @@
+{
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "coaches": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+  },
+  "source_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+    "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+  },
+  "execution_scores": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores-selection.json",
+    "sha256": "588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e8c000f9450"
+  },
+  "ev_states": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+      "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509"
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01/manifest.json",
+      "sha256": "bdc5c2d4ed8645f5b1aa825abe06397b333ed399c2a4399eff6106dd6b98bd17"
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/manifest.json",
+      "sha256": "42bfbab911efc9a58904b5273a09545d617fd7c29a2be67203bbc55b236eff25"
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/manifest.json",
+      "sha256": "74f35a1c9599335279954170693f7d3add11302bc83611fe14a368322870e6eb"
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/manifest.json",
+      "sha256": "c74b313e2ac4ed0b1b8e09787de024b0febe7e98339879a06fb7537ff2398bab"
+    }
+  ],
+  "st_states": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/manifest.json",
+      "sha256": "7ec561e9c273b833339b8446d7e1a2bb6d0c422d536f72c2c534f71930e16c61"
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-03/real/states/20222023/manifest.json",
+      "sha256": "2ce8f5cf777c9f252da4c053955281fea0c345a93b8b0154e8f4e24622205175"
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/real/states/20232024/manifest.json",
+      "sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7"
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/manifest.json",
+      "sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c"
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-02/real/states/20252026/manifest.json",
+      "sha256": "784c045cba6d591d0da736a90c13f71823f10fc933d81cd82cb1611ce90e5e13"
+    }
+  ],
+  "scores": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022/manifest.json",
+      "sha256": "37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d"
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/manifest.json",
+      "sha256": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20"
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024/manifest.json",
+      "sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238"
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20242025/manifest.json",
+      "sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de"
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026/manifest.json",
+      "sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+AssertionError [ERR_ASSERTION]: absent csv rows must retain the closed width
+    at main (/Users/nnandal/Documents/code/hockey-stats-v1-19/.temporary-v1-19/card-live-integration.tsx:60:53)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

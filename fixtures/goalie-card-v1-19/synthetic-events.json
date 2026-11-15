@@ -1,0 +1,6919 @@
+{
+  "schema_version": 1,
+  "purpose": "fixture",
+  "construction": "explicit synthetic records; not original source captures, fits, or observed measurements",
+  "events": [
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:0",
+      "source_index": 0,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:1",
+      "source_index": 1,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:2",
+      "source_index": 2,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:3",
+      "source_index": 3,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:4",
+      "source_index": 4,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:5",
+      "source_index": 5,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:6",
+      "source_index": 6,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:7",
+      "source_index": 7,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:8",
+      "source_index": 8,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:9",
+      "source_index": 9,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:10",
+      "source_index": 10,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:11",
+      "source_index": 11,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:12",
+      "source_index": 12,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:13",
+      "source_index": 13,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:14",
+      "source_index": 14,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:15",
+      "source_index": 15,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:16",
+      "source_index": 16,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:17",
+      "source_index": 17,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:18",
+      "source_index": 18,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:19",
+      "source_index": 19,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:20",
+      "source_index": 20,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:21",
+      "source_index": 21,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:22",
+      "source_index": 22,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:23",
+      "source_index": 23,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:24",
+      "source_index": 24,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:25",
+      "source_index": 25,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:26",
+      "source_index": 26,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:27",
+      "source_index": 27,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:28",
+      "source_index": 28,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:29",
+      "source_index": 29,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:30",
+      "source_index": 30,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:31",
+      "source_index": 31,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:32",
+      "source_index": 32,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:33",
+      "source_index": 33,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:34",
+      "source_index": 34,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:35",
+      "source_index": 35,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:36",
+      "source_index": 36,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:37",
+      "source_index": 37,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:38",
+      "source_index": 38,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:39",
+      "source_index": 39,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:40",
+      "source_index": 40,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:41",
+      "source_index": 41,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:42",
+      "source_index": 42,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:43",
+      "source_index": 43,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:44",
+      "source_index": 44,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:45",
+      "source_index": 45,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:46",
+      "source_index": 46,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:47",
+      "source_index": 47,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:48",
+      "source_index": 48,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:49",
+      "source_index": 49,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:50",
+      "source_index": 50,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:51",
+      "source_index": 51,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:52",
+      "source_index": 52,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:53",
+      "source_index": 53,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:54",
+      "source_index": 54,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:55",
+      "source_index": 55,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:56",
+      "source_index": 56,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:57",
+      "source_index": 57,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:58",
+      "source_index": 58,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:59",
+      "source_index": 59,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:60",
+      "source_index": 60,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:61",
+      "source_index": 61,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:62",
+      "source_index": 62,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:63",
+      "source_index": 63,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:64",
+      "source_index": 64,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:65",
+      "source_index": 65,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:66",
+      "source_index": 66,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:67",
+      "source_index": 67,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:68",
+      "source_index": 68,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:69",
+      "source_index": 69,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:70",
+      "source_index": 70,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "key": "2023020001:9000004:71",
+      "source_index": 71,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:0",
+      "source_index": 0,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:1",
+      "source_index": 1,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:2",
+      "source_index": 2,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:3",
+      "source_index": 3,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:4",
+      "source_index": 4,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:5",
+      "source_index": 5,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:6",
+      "source_index": 6,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:7",
+      "source_index": 7,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:8",
+      "source_index": 8,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:9",
+      "source_index": 9,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:10",
+      "source_index": 10,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:11",
+      "source_index": 11,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:12",
+      "source_index": 12,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:13",
+      "source_index": 13,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:14",
+      "source_index": 14,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:15",
+      "source_index": 15,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:16",
+      "source_index": 16,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:17",
+      "source_index": 17,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:18",
+      "source_index": 18,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:19",
+      "source_index": 19,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:20",
+      "source_index": 20,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:21",
+      "source_index": 21,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:22",
+      "source_index": 22,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:23",
+      "source_index": 23,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:24",
+      "source_index": 24,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:25",
+      "source_index": 25,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:26",
+      "source_index": 26,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:27",
+      "source_index": 27,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:28",
+      "source_index": 28,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:29",
+      "source_index": 29,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:30",
+      "source_index": 30,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:31",
+      "source_index": 31,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:32",
+      "source_index": 32,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:33",
+      "source_index": 33,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:34",
+      "source_index": 34,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:35",
+      "source_index": 35,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:36",
+      "source_index": 36,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:37",
+      "source_index": 37,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:38",
+      "source_index": 38,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:39",
+      "source_index": 39,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        5,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:40",
+      "source_index": 40,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:41",
+      "source_index": 41,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:42",
+      "source_index": 42,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:43",
+      "source_index": 43,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:44",
+      "source_index": 44,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:45",
+      "source_index": 45,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:46",
+      "source_index": 46,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:47",
+      "source_index": 47,
+      "goalie_id": "9000004",
+      "physical_state": [
+        3,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:48",
+      "source_index": 48,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:49",
+      "source_index": 49,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:50",
+      "source_index": 50,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:51",
+      "source_index": 51,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:52",
+      "source_index": 52,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:53",
+      "source_index": 53,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:54",
+      "source_index": 54,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:55",
+      "source_index": 55,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        4,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:56",
+      "source_index": 56,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:57",
+      "source_index": 57,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:58",
+      "source_index": 58,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:59",
+      "source_index": 59,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:60",
+      "source_index": 60,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:61",
+      "source_index": 61,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:62",
+      "source_index": 62,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:63",
+      "source_index": 63,
+      "goalie_id": "9000004",
+      "physical_state": [
+        5,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:64",
+      "source_index": 64,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 100,
+      "on_net_probability": 0.04,
+      "unblocked_probability": 0.02,
+      "neutral_on_net_probability": 0.03,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": 0.0,
+          "prediction": 0.1,
+          "reason": null
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:65",
+      "source_index": 65,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "miss",
+      "shot_type": "snap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": 0.0,
+      "neutral_on_net_probability": 0.04,
+      "stages": {
+        "miss": {
+          "response": 1,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:66",
+      "source_index": 66,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "slap",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": null,
+      "on_net_probability": 0.25,
+      "unblocked_probability": 0.2,
+      "neutral_on_net_probability": 0.2,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:67",
+      "source_index": 67,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "tip",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 333,
+      "on_net_probability": 0.15,
+      "unblocked_probability": 0.1,
+      "neutral_on_net_probability": 0.1,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:68",
+      "source_index": 68,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "backhand",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 500,
+      "on_net_probability": 0.75,
+      "unblocked_probability": 0.6,
+      "neutral_on_net_probability": 0.4,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:69",
+      "source_index": 69,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": "other",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 655,
+      "on_net_probability": 0.1,
+      "unblocked_probability": 0.05,
+      "neutral_on_net_probability": 0.12,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:70",
+      "source_index": 70,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "goal",
+      "shot_type": "wrist",
+      "source_status": "included",
+      "paired": true,
+      "origin_cell": 234,
+      "on_net_probability": 1.0,
+      "unblocked_probability": 1.0,
+      "neutral_on_net_probability": 1.0,
+      "stages": {
+        "miss": {
+          "response": 0,
+          "prediction": 0.1,
+          "reason": null
+        },
+        "recorded_stop": {
+          "response": 0,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "conversion": {
+          "response": 1,
+          "prediction": 0.2,
+          "reason": null
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "key": "2024020001:9000004:71",
+      "source_index": 71,
+      "goalie_id": "9000004",
+      "physical_state": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "outcome": "save",
+      "shot_type": null,
+      "source_status": "included",
+      "paired": false,
+      "origin_cell": null,
+      "on_net_probability": null,
+      "unblocked_probability": null,
+      "neutral_on_net_probability": null,
+      "stages": {
+        "miss": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "recorded_stop": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "conversion": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "reattempt": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        },
+        "next_attempt_danger": {
+          "response": null,
+          "prediction": null,
+          "reason": "label_unavailable"
+        }
+      }
+    }
+  ]
+}

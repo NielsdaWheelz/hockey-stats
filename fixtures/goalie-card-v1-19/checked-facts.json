@@ -1,0 +1,587 @@
+{
+  "schema_version": 1,
+  "purpose": "fixture",
+  "construction": "independent constant-branch conditional arithmetic; maps allocate 60/40 to two off-center native cells",
+  "source": {
+    "path": "fixtures/mechanisms-v1-10/results/manifest.json",
+    "sha256": "be2a8849a3d907da65e997d42dc5455f9884c94480b89816188eac6bafaff39e"
+  },
+  "original": {
+    "path": "fixtures/publication-v1-13/results/manifest.json",
+    "sha256": "b2d22b814521029dcf95dcd70dae17be7a1f446463308f9e171f730564a70990"
+  },
+  "conditioning": "neutral q=.9,r=.9,g=.1; focal q=1-miss,r=1-recorded_stop,g=conversion; stopping=100*(.9*.1-r*g); W=B-D; h/d constant within each explicitly synthetic common panel",
+  "expected": [
+    {
+      "season": "20232024",
+      "player_id": "8477424",
+      "strength": "5v5",
+      "stopping": 0.0,
+      "levels": {
+        "miss_probability": 0.1,
+        "recorded_stop_probability": 0.1,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.1,
+        "reattempt_neutral_goal_probability": 0.1,
+        "followup_danger": 0.010000000000000002
+      },
+      "current_union": 0,
+      "qualification_seconds": 0.0,
+      "native_map_sum": 0.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "8477424",
+      "strength": "4v4",
+      "stopping": 0.0,
+      "levels": {
+        "miss_probability": 0.1,
+        "recorded_stop_probability": 0.1,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.1,
+        "reattempt_neutral_goal_probability": 0.1,
+        "followup_danger": 0.010000000000000002
+      },
+      "current_union": 0,
+      "qualification_seconds": 0.0,
+      "native_map_sum": 0.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "8477424",
+      "strength": "3v3",
+      "stopping": 0.0,
+      "levels": {
+        "miss_probability": 0.1,
+        "recorded_stop_probability": 0.1,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.1,
+        "reattempt_neutral_goal_probability": 0.1,
+        "followup_danger": 0.010000000000000002
+      },
+      "current_union": 0,
+      "qualification_seconds": 0.0,
+      "native_map_sum": 0.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "8477424",
+      "strength": "5v4",
+      "stopping": 0.0,
+      "levels": {
+        "miss_probability": 0.1,
+        "recorded_stop_probability": 0.1,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.1,
+        "reattempt_neutral_goal_probability": 0.1,
+        "followup_danger": 0.010000000000000002
+      },
+      "current_union": 0,
+      "qualification_seconds": 0.0,
+      "native_map_sum": 0.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "8477424",
+      "strength": "5v3",
+      "stopping": 0.0,
+      "levels": {
+        "miss_probability": 0.1,
+        "recorded_stop_probability": 0.1,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.1,
+        "reattempt_neutral_goal_probability": 0.1,
+        "followup_danger": 0.010000000000000002
+      },
+      "current_union": 0,
+      "qualification_seconds": 0.0,
+      "native_map_sum": 0.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "8477424",
+      "strength": "4v3",
+      "stopping": 0.0,
+      "levels": {
+        "miss_probability": 0.1,
+        "recorded_stop_probability": 0.1,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.1,
+        "reattempt_neutral_goal_probability": 0.1,
+        "followup_danger": 0.010000000000000002
+      },
+      "current_union": 0,
+      "qualification_seconds": 0.0,
+      "native_map_sum": 0.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "8477424",
+      "strength": "4v5",
+      "stopping": 0.0,
+      "levels": {
+        "miss_probability": 0.1,
+        "recorded_stop_probability": 0.1,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.1,
+        "reattempt_neutral_goal_probability": 0.1,
+        "followup_danger": 0.010000000000000002
+      },
+      "current_union": 0,
+      "qualification_seconds": 0.0,
+      "native_map_sum": 0.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "8477424",
+      "strength": "3v5",
+      "stopping": 0.0,
+      "levels": {
+        "miss_probability": 0.1,
+        "recorded_stop_probability": 0.1,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.1,
+        "reattempt_neutral_goal_probability": 0.1,
+        "followup_danger": 0.010000000000000002
+      },
+      "current_union": 0,
+      "qualification_seconds": 0.0,
+      "native_map_sum": 0.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "8477424",
+      "strength": "3v4",
+      "stopping": 0.0,
+      "levels": {
+        "miss_probability": 0.1,
+        "recorded_stop_probability": 0.1,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.1,
+        "reattempt_neutral_goal_probability": 0.1,
+        "followup_danger": 0.010000000000000002
+      },
+      "current_union": 0,
+      "qualification_seconds": 0.0,
+      "native_map_sum": 0.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "8477424",
+      "strength": "ev",
+      "stopping": 0.0,
+      "levels": {
+        "miss_probability": 0.1,
+        "recorded_stop_probability": 0.1,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.1,
+        "reattempt_neutral_goal_probability": 0.1,
+        "followup_danger": 0.010000000000000002
+      },
+      "current_union": 0,
+      "qualification_seconds": 0.0,
+      "native_map_sum": 0.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "8477424",
+      "strength": "pk",
+      "stopping": 0.0,
+      "levels": {
+        "miss_probability": 0.1,
+        "recorded_stop_probability": 0.1,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.1,
+        "reattempt_neutral_goal_probability": 0.1,
+        "followup_danger": 0.010000000000000002
+      },
+      "current_union": 0,
+      "qualification_seconds": 0.0,
+      "native_map_sum": 0.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "5v5",
+      "stopping": -7.000000000000002,
+      "levels": {
+        "miss_probability": 0.2,
+        "recorded_stop_probability": 0.2,
+        "conversion_probability": 0.2,
+        "recorded_reattempt_probability": 0.2,
+        "reattempt_neutral_goal_probability": 0.2,
+        "followup_danger": 0.04000000000000001
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": -7.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "4v4",
+      "stopping": -7.000000000000002,
+      "levels": {
+        "miss_probability": 0.2,
+        "recorded_stop_probability": 0.2,
+        "conversion_probability": 0.2,
+        "recorded_reattempt_probability": 0.2,
+        "reattempt_neutral_goal_probability": 0.2,
+        "followup_danger": 0.04000000000000001
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": -7.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "3v3",
+      "stopping": -7.000000000000002,
+      "levels": {
+        "miss_probability": 0.2,
+        "recorded_stop_probability": 0.2,
+        "conversion_probability": 0.2,
+        "recorded_reattempt_probability": 0.2,
+        "reattempt_neutral_goal_probability": 0.2,
+        "followup_danger": 0.04000000000000001
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": -7.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "5v4",
+      "stopping": -7.000000000000002,
+      "levels": {
+        "miss_probability": 0.2,
+        "recorded_stop_probability": 0.2,
+        "conversion_probability": 0.2,
+        "recorded_reattempt_probability": 0.2,
+        "reattempt_neutral_goal_probability": 0.2,
+        "followup_danger": 0.04000000000000001
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": -7.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "5v3",
+      "stopping": -7.000000000000002,
+      "levels": {
+        "miss_probability": 0.2,
+        "recorded_stop_probability": 0.2,
+        "conversion_probability": 0.2,
+        "recorded_reattempt_probability": 0.2,
+        "reattempt_neutral_goal_probability": 0.2,
+        "followup_danger": 0.04000000000000001
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": -7.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "4v3",
+      "stopping": -7.000000000000002,
+      "levels": {
+        "miss_probability": 0.2,
+        "recorded_stop_probability": 0.2,
+        "conversion_probability": 0.2,
+        "recorded_reattempt_probability": 0.2,
+        "reattempt_neutral_goal_probability": 0.2,
+        "followup_danger": 0.04000000000000001
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": -7.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "4v5",
+      "stopping": -7.000000000000002,
+      "levels": {
+        "miss_probability": 0.2,
+        "recorded_stop_probability": 0.2,
+        "conversion_probability": 0.2,
+        "recorded_reattempt_probability": 0.2,
+        "reattempt_neutral_goal_probability": 0.2,
+        "followup_danger": 0.04000000000000001
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": -7.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "3v5",
+      "stopping": -7.000000000000002,
+      "levels": {
+        "miss_probability": 0.2,
+        "recorded_stop_probability": 0.2,
+        "conversion_probability": 0.2,
+        "recorded_reattempt_probability": 0.2,
+        "reattempt_neutral_goal_probability": 0.2,
+        "followup_danger": 0.04000000000000001
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": -7.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "3v4",
+      "stopping": -7.000000000000002,
+      "levels": {
+        "miss_probability": 0.2,
+        "recorded_stop_probability": 0.2,
+        "conversion_probability": 0.2,
+        "recorded_reattempt_probability": 0.2,
+        "reattempt_neutral_goal_probability": 0.2,
+        "followup_danger": 0.04000000000000001
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": -7.0
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "stopping": -7.000000000000002,
+      "levels": {
+        "miss_probability": 0.2,
+        "recorded_stop_probability": 0.2,
+        "conversion_probability": 0.2,
+        "recorded_reattempt_probability": 0.2,
+        "reattempt_neutral_goal_probability": 0.2,
+        "followup_danger": 0.04000000000000001
+      },
+      "current_union": 5,
+      "qualification_seconds": 600.0,
+      "native_map_sum": -7.000000000000002
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "stopping": -12.249999999999998,
+      "levels": {
+        "miss_probability": 0.25,
+        "recorded_stop_probability": 0.15,
+        "conversion_probability": 0.25,
+        "recorded_reattempt_probability": 0.25,
+        "reattempt_neutral_goal_probability": 0.3,
+        "followup_danger": 0.075
+      },
+      "current_union": 5,
+      "qualification_seconds": 600.0,
+      "native_map_sum": -12.249999999999996
+    },
+    {
+      "season": "20242025",
+      "player_id": "9000004",
+      "strength": "5v5",
+      "stopping": 2.0000000000000018,
+      "levels": {
+        "miss_probability": 0.18,
+        "recorded_stop_probability": 0.3,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.15,
+        "reattempt_neutral_goal_probability": 0.25,
+        "followup_danger": 0.0375
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": 2.0000000000000013
+    },
+    {
+      "season": "20242025",
+      "player_id": "9000004",
+      "strength": "4v4",
+      "stopping": 2.0000000000000018,
+      "levels": {
+        "miss_probability": 0.18,
+        "recorded_stop_probability": 0.3,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.15,
+        "reattempt_neutral_goal_probability": 0.25,
+        "followup_danger": 0.0375
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": 2.0000000000000013
+    },
+    {
+      "season": "20242025",
+      "player_id": "9000004",
+      "strength": "3v3",
+      "stopping": 2.0000000000000018,
+      "levels": {
+        "miss_probability": 0.18,
+        "recorded_stop_probability": 0.3,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.15,
+        "reattempt_neutral_goal_probability": 0.25,
+        "followup_danger": 0.0375
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": 2.0000000000000013
+    },
+    {
+      "season": "20242025",
+      "player_id": "9000004",
+      "strength": "5v4",
+      "stopping": 2.0000000000000018,
+      "levels": {
+        "miss_probability": 0.18,
+        "recorded_stop_probability": 0.3,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.15,
+        "reattempt_neutral_goal_probability": 0.25,
+        "followup_danger": 0.0375
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": 2.0000000000000013
+    },
+    {
+      "season": "20242025",
+      "player_id": "9000004",
+      "strength": "5v3",
+      "stopping": 2.0000000000000018,
+      "levels": {
+        "miss_probability": 0.18,
+        "recorded_stop_probability": 0.3,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.15,
+        "reattempt_neutral_goal_probability": 0.25,
+        "followup_danger": 0.0375
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": 2.0000000000000013
+    },
+    {
+      "season": "20242025",
+      "player_id": "9000004",
+      "strength": "4v3",
+      "stopping": 2.0000000000000018,
+      "levels": {
+        "miss_probability": 0.18,
+        "recorded_stop_probability": 0.3,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.15,
+        "reattempt_neutral_goal_probability": 0.25,
+        "followup_danger": 0.0375
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": 2.0000000000000013
+    },
+    {
+      "season": "20242025",
+      "player_id": "9000004",
+      "strength": "4v5",
+      "stopping": 2.0000000000000018,
+      "levels": {
+        "miss_probability": 0.18,
+        "recorded_stop_probability": 0.3,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.15,
+        "reattempt_neutral_goal_probability": 0.25,
+        "followup_danger": 0.0375
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": 2.0000000000000013
+    },
+    {
+      "season": "20242025",
+      "player_id": "9000004",
+      "strength": "3v5",
+      "stopping": 2.0000000000000018,
+      "levels": {
+        "miss_probability": 0.18,
+        "recorded_stop_probability": 0.3,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.15,
+        "reattempt_neutral_goal_probability": 0.25,
+        "followup_danger": 0.0375
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": 2.0000000000000013
+    },
+    {
+      "season": "20242025",
+      "player_id": "9000004",
+      "strength": "3v4",
+      "stopping": 2.0000000000000018,
+      "levels": {
+        "miss_probability": 0.18,
+        "recorded_stop_probability": 0.3,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.15,
+        "reattempt_neutral_goal_probability": 0.25,
+        "followup_danger": 0.0375
+      },
+      "current_union": 5,
+      "qualification_seconds": 200.0,
+      "native_map_sum": 2.0000000000000013
+    },
+    {
+      "season": "20242025",
+      "player_id": "9000004",
+      "strength": "ev",
+      "stopping": 2.0000000000000018,
+      "levels": {
+        "miss_probability": 0.18,
+        "recorded_stop_probability": 0.3,
+        "conversion_probability": 0.1,
+        "recorded_reattempt_probability": 0.15,
+        "reattempt_neutral_goal_probability": 0.25,
+        "followup_danger": 0.0375
+      },
+      "current_union": 5,
+      "qualification_seconds": 600.0,
+      "native_map_sum": 2.0000000000000013
+    },
+    {
+      "season": "20242025",
+      "player_id": "9000004",
+      "strength": "pk",
+      "stopping": -12.249999999999998,
+      "levels": {
+        "miss_probability": 0.25,
+        "recorded_stop_probability": 0.15,
+        "conversion_probability": 0.25,
+        "recorded_reattempt_probability": 0.25,
+        "reattempt_neutral_goal_probability": 0.3,
+        "followup_danger": 0.075
+      },
+      "current_union": 5,
+      "qualification_seconds": 600.0,
+      "native_map_sum": -12.249999999999996
+    }
+  ],
+  "corrected_synthetic_fields": [
+    "followup_danger: .2 -> .04 at 20232024/9000004/5v5",
+    "followup_danger_difference: .1 -> .03 at same key",
+    "stopping_goals_per100_on_net: 3 -> -7 at same key",
+    "all thirteen eligible_weight denominators use explicit neutral masses",
+    "stopping map replaced with coherent -7 native mass",
+    "provided fixture workload/stage/map/danger/type bodies replaced from explicit synthetic-events.json",
+    "all eleven modeled/twelve actual strengths filled for synthetic example populations; current 2023/24 and prior-only backup cases; absent 2025 remains absent"
+  ],
+  "preserves": "original publication-v1-13 bytes, non-goalie mechanism successor family bodies and existing catalog rows"
+}

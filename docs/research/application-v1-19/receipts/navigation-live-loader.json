@@ -1,0 +1,4452 @@
+{
+  "origin": "http://127.0.0.1:3419",
+  "cases": [
+    {
+      "name": "goalie discovery uses one overview",
+      "requests": [
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 12.147750000000002
+        }
+      ]
+    },
+    {
+      "name": "profile ev/unblocked/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 30.342792000000003
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 1.9730830000000026
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 4.84212500000001
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 8.683749999999975
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 5.993749999999977
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 305945,
+          "ms": 13.571208999999953
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 302087,
+          "ms": 19.96524999999997
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 249323,
+          "ms": 25.84658300000001
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 289949,
+          "ms": 32.22608300000002
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 302471,
+          "ms": 38.78308300000003
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 289954,
+          "ms": 45.532332999999994
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=ev&view=effect",
+          "status": 200,
+          "bytes": 206051,
+          "ms": 49.330791999999974
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=ev&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 267665,
+          "ms": 6.0691249999999854
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=ev",
+          "status": 200,
+          "bytes": 63286,
+          "ms": 1.5296670000000177
+        }
+      ]
+    },
+    {
+      "name": "profile ev/unblocked/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 30.682916000000034
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 1.6136670000000208
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 4.65016700000001
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 8.577042000000006
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.908958000000041
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_ratio&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 305903,
+          "ms": 11.41316599999999
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_ratio&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 302043,
+          "ms": 17.824666999999977
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_ratio&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 249318,
+          "ms": 24.107833000000028
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_ratio&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 289909,
+          "ms": 30.862416999999994
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_ratio&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 302429,
+          "ms": 37.434124999999995
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_ratio&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 289912,
+          "ms": 44.04845799999998
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=ev&view=effect",
+          "status": 200,
+          "bytes": 206051,
+          "ms": 47.94991700000003
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=ev&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 267665,
+          "ms": 5.854249999999979
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=ev",
+          "status": 200,
+          "bytes": 63286,
+          "ms": 1.3839169999999967
+        }
+      ]
+    },
+    {
+      "name": "profile ev/on_net/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 29.490625000000023
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 1.174250000000029
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 4.0831249999999955
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.919499999999971
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.780290999999977
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_mass&population=on_net&type=all",
+          "status": 200,
+          "bytes": 305953,
+          "ms": 11.382083000000023
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_mass&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 302076,
+          "ms": 18.28729199999998
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_mass&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 249281,
+          "ms": 25.47550000000001
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_mass&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 289819,
+          "ms": 32.64041599999996
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_mass&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 300321,
+          "ms": 39.81787499999996
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_mass&population=on_net&type=other",
+          "status": 200,
+          "bytes": 289930,
+          "ms": 46.17612500000001
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=ev&view=effect",
+          "status": 200,
+          "bytes": 206051,
+          "ms": 50.41395800000004
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=ev&population=on_net&type=all",
+          "status": 200,
+          "bytes": 267647,
+          "ms": 6.208791000000019
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=ev",
+          "status": 200,
+          "bytes": 63286,
+          "ms": 1.7226249999999936
+        }
+      ]
+    },
+    {
+      "name": "profile ev/on_net/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 29.03687500000001
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.9902920000000677
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.8195830000000797
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.609208999999964
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.508958000000007
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_ratio&population=on_net&type=all",
+          "status": 200,
+          "bytes": 305913,
+          "ms": 10.830666999999949
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_ratio&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 302034,
+          "ms": 17.469249999999988
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_ratio&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 249276,
+          "ms": 23.456332999999972
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_ratio&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 289777,
+          "ms": 29.92333300000007
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_ratio&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 300279,
+          "ms": 36.22104200000001
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=ev&view=evidence_ratio&population=on_net&type=other",
+          "status": 200,
+          "bytes": 289888,
+          "ms": 42.932000000000016
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=ev&view=effect",
+          "status": 200,
+          "bytes": 206051,
+          "ms": 46.634874999999965
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=ev&population=on_net&type=all",
+          "status": 200,
+          "bytes": 267647,
+          "ms": 5.3627500000000055
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=ev",
+          "status": 200,
+          "bytes": 63286,
+          "ms": 1.2111250000000382
+        }
+      ]
+    },
+    {
+      "name": "profile pk/unblocked/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.720042000000035
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.9740829999999505
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.7660419999999704
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.570374999999899
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.388667000000055
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 305945,
+          "ms": 11.012292000000002
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 302087,
+          "ms": 17.160167
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 249323,
+          "ms": 23.156582999999955
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 289949,
+          "ms": 29.292291999999975
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 302471,
+          "ms": 35.577999999999975
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 289954,
+          "ms": 42.04341699999998
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=pk&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 267665,
+          "ms": 5.525582999999983
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=pk",
+          "status": 200,
+          "bytes": 63219,
+          "ms": 1.182166000000052
+        }
+      ]
+    },
+    {
+      "name": "profile pk/unblocked/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 29.57391700000005
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 1.0583329999999478
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.813625000000002
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.562665999999922
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.776292000000012
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_ratio&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 305903,
+          "ms": 11.322750000000042
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_ratio&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 302043,
+          "ms": 17.58604200000002
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_ratio&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 249318,
+          "ms": 23.58416699999998
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_ratio&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 289909,
+          "ms": 29.706040999999914
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_ratio&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 302429,
+          "ms": 35.994249999999965
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_ratio&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 289912,
+          "ms": 42.45329200000003
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=pk&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 267665,
+          "ms": 5.838000000000079
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=pk",
+          "status": 200,
+          "bytes": 63219,
+          "ms": 1.2914580000000342
+        }
+      ]
+    },
+    {
+      "name": "profile pk/on_net/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 29.248750000000086
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.9839170000000195
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.7308329999999614
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.384042000000022
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.423291000000063
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_mass&population=on_net&type=all",
+          "status": 200,
+          "bytes": 305953,
+          "ms": 10.823750000000018
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_mass&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 302076,
+          "ms": 16.993584000000055
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_mass&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 249281,
+          "ms": 23.051417000000015
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_mass&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 289819,
+          "ms": 29.508291999999983
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_mass&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 300321,
+          "ms": 36.304709
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_mass&population=on_net&type=other",
+          "status": 200,
+          "bytes": 289930,
+          "ms": 42.46679199999994
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=pk&population=on_net&type=all",
+          "status": 200,
+          "bytes": 267647,
+          "ms": 5.612292000000025
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=pk",
+          "status": 200,
+          "bytes": 63219,
+          "ms": 1.3820000000000618
+        }
+      ]
+    },
+    {
+      "name": "profile pk/on_net/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 33.32895899999994
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 1.01462499999991
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.7840830000000096
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.484250000000088
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.486166999999909
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_ratio&population=on_net&type=all",
+          "status": 200,
+          "bytes": 305913,
+          "ms": 11.365541000000007
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_ratio&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 302034,
+          "ms": 17.380792000000042
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_ratio&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 249276,
+          "ms": 23.372124999999983
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_ratio&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 289777,
+          "ms": 29.602708000000007
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_ratio&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 300279,
+          "ms": 36.42545800000005
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=pk&view=evidence_ratio&population=on_net&type=other",
+          "status": 200,
+          "bytes": 289888,
+          "ms": 42.61929200000009
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=pk&population=on_net&type=all",
+          "status": 200,
+          "bytes": 267647,
+          "ms": 5.564832999999908
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=pk",
+          "status": 200,
+          "bytes": 63219,
+          "ms": 1.2506249999999
+        }
+      ]
+    },
+    {
+      "name": "profile 5v5/unblocked/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 29.554875000000038
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 1.059582999999975
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 5.413999999999987
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 8.511915999999928
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.427791999999954
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 305809,
+          "ms": 11.167333000000099
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128857,
+          "ms": 13.048458999999866
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128851,
+          "ms": 14.799457999999959
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 16.581290999999965
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128855,
+          "ms": 18.282707999999957
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 20.064708999999993
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=5v5&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 23.82683300000008
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v5&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 248895,
+          "ms": 5.154166000000032
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v5",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.2066659999998137
+        }
+      ]
+    },
+    {
+      "name": "profile 5v5/unblocked/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.987583000000086
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.9227499999999509
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.6475420000001577
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.441916999999876
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.339541999999938
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_ratio&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 305767,
+          "ms": 10.52475000000004
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_ratio&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 12.27779099999998
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_ratio&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128846,
+          "ms": 14.029459000000088
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_ratio&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 15.737167
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_ratio&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 17.8968339999999
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_ratio&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 19.74608400000011
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=5v5&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 23.516124999999874
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v5&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 248895,
+          "ms": 5.017291999999998
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v5",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.1318330000001424
+        }
+      ]
+    },
+    {
+      "name": "profile 5v5/on_net/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.35858300000018
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 1.7026670000000195
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.8967499999998836
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.665165999999999
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.298915999999963
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_mass&population=on_net&type=all",
+          "status": 200,
+          "bytes": 305843,
+          "ms": 10.736416999999847
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_mass&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128854,
+          "ms": 12.492999999999938
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_mass&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128848,
+          "ms": 14.231416000000081
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_mass&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 16.022292000000107
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_mass&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 17.798041000000012
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_mass&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 19.560625000000073
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=5v5&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 23.29016700000011
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v5&population=on_net&type=all",
+          "status": 200,
+          "bytes": 248931,
+          "ms": 4.954791999999998
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v5",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.1554590000000644
+        }
+      ]
+    },
+    {
+      "name": "profile 5v5/on_net/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.328125
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8669159999999465
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.535374999999931
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.312124999999924
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.3674170000001595
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_ratio&population=on_net&type=all",
+          "status": 200,
+          "bytes": 305801,
+          "ms": 10.696583000000146
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_ratio&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 12.538625000000138
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_ratio&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128843,
+          "ms": 14.335791999999856
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_ratio&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 16.030915999999934
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_ratio&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 18.16991700000017
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&view=evidence_ratio&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128844,
+          "ms": 19.940249999999878
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=5v5&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 23.65058399999998
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v5&population=on_net&type=all",
+          "status": 200,
+          "bytes": 248931,
+          "ms": 4.958084000000099
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v5",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.1547500000001492
+        }
+      ]
+    },
+    {
+      "name": "profile 4v4/unblocked/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.82241699999986
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8880840000001626
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.6118330000001606
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.384708000000046
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.454750000000104
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 6.574583000000075
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128857,
+          "ms": 8.331166999999823
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128851,
+          "ms": 10.173749999999927
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 11.996667000000116
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128855,
+          "ms": 13.712458999999853
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 15.459040999999843
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=4v4&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 19.20504199999982
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=4v4&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.5795829999999569
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=4v4",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.1021250000001146
+        }
+      ]
+    },
+    {
+      "name": "profile 4v4/unblocked/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.67204199999992
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.879790999999841
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.5054159999999683
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.227917000000161
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.242665999999872
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_ratio&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 6.003292000000101
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_ratio&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 7.738957999999911
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_ratio&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128846,
+          "ms": 9.44116699999995
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_ratio&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 11.22524999999996
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_ratio&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 12.946833999999853
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_ratio&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 14.740332999999964
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=4v4&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.41616699999986
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=4v4&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.438041000000112
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=4v4",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0729999999998654
+        }
+      ]
+    },
+    {
+      "name": "profile 4v4/on_net/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.44950000000017
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 2.208750000000009
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 4.021165999999994
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.647417000000132
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.177999999999884
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_mass&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 5.938000000000102
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_mass&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128854,
+          "ms": 7.629417000000103
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_mass&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128848,
+          "ms": 9.43379200000004
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_mass&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 11.151166000000103
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_mass&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 12.870625000000018
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_mass&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 14.602166000000125
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=4v4&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.506790999999794
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=4v4&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.5109999999999673
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=4v4",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.1001249999999345
+        }
+      ]
+    },
+    {
+      "name": "profile 4v4/on_net/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.185666999999967
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8804590000002008
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.576583000000028
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.332499999999982
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.290917000000036
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_ratio&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 6.041208999999981
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_ratio&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 7.786166999999978
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_ratio&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128843,
+          "ms": 9.545000000000073
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_ratio&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 11.311249999999973
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_ratio&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 13.465583999999808
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v4&view=evidence_ratio&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128844,
+          "ms": 15.289250000000038
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=4v4&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.952792000000045
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=4v4&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.4957500000000437
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=4v4",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.05404099999987
+        }
+      ]
+    },
+    {
+      "name": "profile 3v3/unblocked/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.208875000000035
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8521249999998872
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.938084000000117
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.604041999999936
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.242709000000104
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 6.10287500000004
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128857,
+          "ms": 7.867083000000093
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128851,
+          "ms": 10.050374999999804
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 11.95750000000021
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128855,
+          "ms": 13.678083000000015
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 15.451082999999926
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=3v3&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 19.198624999999993
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=3v3&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.5364999999999327
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=3v3",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0521249999999327
+        }
+      ]
+    },
+    {
+      "name": "profile 3v3/unblocked/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.36908399999993
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8741250000000491
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.5552920000000086
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.349333999999999
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.344124999999849
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_ratio&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 6.415875000000142
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_ratio&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 8.165291999999909
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_ratio&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128846,
+          "ms": 9.8431250000001
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_ratio&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 11.57095900000013
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_ratio&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 13.329208000000108
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_ratio&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 15.055625000000191
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=3v3&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.633666000000176
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=3v3&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.418374999999969
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=3v3",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 0.9880410000000666
+        }
+      ]
+    },
+    {
+      "name": "profile 3v3/on_net/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.378666000000067
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8119590000001153
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.5169160000000375
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.294292000000041
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.886625000000095
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_mass&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 6.605041999999912
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_mass&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128854,
+          "ms": 8.33441700000003
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_mass&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128848,
+          "ms": 10.079250000000002
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_mass&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 11.787291000000096
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_mass&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 13.516500000000178
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_mass&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 15.233584000000064
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=3v3&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.97308399999997
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=3v3&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.4935840000000553
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=3v3",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0594590000000608
+        }
+      ]
+    },
+    {
+      "name": "profile 3v3/on_net/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.754417000000103
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.9765830000001188
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.7519999999999527
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.5006249999999
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.247624999999971
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_ratio&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 6.067499999999882
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_ratio&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 7.813083000000006
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_ratio&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128843,
+          "ms": 9.578207999999904
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_ratio&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 11.294083
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_ratio&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 13.044583000000102
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v3&view=evidence_ratio&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128844,
+          "ms": 14.823707999999897
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=3v3&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.87391600000001
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=3v3&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.555749999999989
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=3v3",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0148750000000746
+        }
+      ]
+    },
+    {
+      "name": "profile 5v4/unblocked/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.200582999999824
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8616250000000036
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.6580410000001393
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.461334000000079
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.309792000000016
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 7.533709000000044
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128857,
+          "ms": 8.523249999999962
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128851,
+          "ms": 9.947875000000067
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 11.703624999999874
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128855,
+          "ms": 13.867666999999983
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 15.666500000000042
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=5v4&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 19.33725000000004
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v4&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.4856669999999212
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v4",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0235000000000127
+        }
+      ]
+    },
+    {
+      "name": "profile 5v4/unblocked/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 30.052291999999852
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.9342909999998028
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.7366669999998976
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.42208299999993
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.287500000000136
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_ratio&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 6.001208000000133
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_ratio&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 7.732666000000108
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_ratio&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128846,
+          "ms": 9.849707999999964
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_ratio&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 11.705832999999984
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_ratio&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 13.569917000000032
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_ratio&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 15.499082999999928
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=5v4&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 19.561374999999998
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v4&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.6737910000001648
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v4",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.2012079999999514
+        }
+      ]
+    },
+    {
+      "name": "profile 5v4/on_net/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 30.08550000000014
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8770829999998568
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.596708000000035
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.5086670000000595
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.296915999999783
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_mass&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 6.980082999999922
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_mass&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128854,
+          "ms": 8.837625000000116
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_mass&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128848,
+          "ms": 11.979499999999916
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_mass&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 13.19095900000002
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_mass&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 14.770166000000245
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_mass&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 16.643666999999823
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=5v4&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 20.464500000000044
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v4&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.6720000000000255
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v4",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0095830000000205
+        }
+      ]
+    },
+    {
+      "name": "profile 5v4/on_net/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.93887500000028
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.7932910000004085
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.5714170000001104
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.27416600000015
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.366583999999875
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_ratio&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 6.231166999999914
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_ratio&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 8.023415999999997
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_ratio&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128843,
+          "ms": 9.821582999999919
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_ratio&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 11.702125000000251
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_ratio&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 13.483416999999918
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v4&view=evidence_ratio&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128844,
+          "ms": 15.230999999999767
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=5v4&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 19.113790999999765
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v4&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.5427919999997357
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v4",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0447080000003552
+        }
+      ]
+    },
+    {
+      "name": "profile 5v3/unblocked/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.812667000000147
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.7975409999999101
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.589625000000069
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.27633300000025
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.226959000000079
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 6.010207999999693
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128857,
+          "ms": 7.747875000000022
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128851,
+          "ms": 9.49350000000004
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 11.1970409999999
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128855,
+          "ms": 12.920874999999796
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 14.643750000000182
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=5v3&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.742874999999913
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v3&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.541124999999738
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v3",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 0.9926249999998618
+        }
+      ]
+    },
+    {
+      "name": "profile 5v3/unblocked/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.152874999999767
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.850709000000279
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.6637080000000424
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.445500000000266
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.281666999999743
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_ratio&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 6.003750000000309
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_ratio&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 7.839249999999993
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_ratio&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128846,
+          "ms": 9.607750000000124
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_ratio&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 11.329083999999966
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_ratio&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 13.409041999999772
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_ratio&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 15.257207999999991
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=5v3&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 19.036333000000013
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v3&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.4294169999998303
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v3",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0212910000000193
+        }
+      ]
+    },
+    {
+      "name": "profile 5v3/on_net/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.443499999999858
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8229999999998654
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.5524169999998776
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.216542000000118
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.388124999999945
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_mass&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 6.26825000000008
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_mass&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128854,
+          "ms": 8.124250000000302
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_mass&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128848,
+          "ms": 10.23641699999962
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_mass&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 12.084749999999985
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_mass&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 13.817250000000058
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_mass&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 15.552208999999948
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=5v3&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 19.296249999999873
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v3&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.5512920000001031
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v3",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0488749999999527
+        }
+      ]
+    },
+    {
+      "name": "profile 5v3/on_net/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 29.485541000000012
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8982499999997344
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.6523329999999987
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.404541999999765
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.277083999999832
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_ratio&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 6.461542000000009
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_ratio&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 8.25566600000002
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_ratio&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128843,
+          "ms": 9.962082999999893
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_ratio&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 11.69158299999981
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_ratio&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 13.473500000000058
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v3&view=evidence_ratio&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128844,
+          "ms": 15.271208000000115
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=5v3&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 19.075000000000273
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v3&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.5242079999998168
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v3",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0100419999998849
+        }
+      ]
+    },
+    {
+      "name": "profile 4v3/unblocked/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.639750000000276
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.865041999999903
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.6430410000002666
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.477832999999919
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.263500000000022
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 6.012041999999838
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128857,
+          "ms": 7.7590000000000146
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128851,
+          "ms": 9.49758299999985
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 11.303459000000203
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128855,
+          "ms": 13.074791999999889
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 14.855291999999736
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=4v3&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.567333999999846
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=4v3&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.4737500000001091
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=4v3",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0689170000000559
+        }
+      ]
+    },
+    {
+      "name": "profile 4v3/unblocked/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.431499999999687
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 2.185375000000022
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 4.139250000000175
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.906875000000127
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.237959000000046
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_ratio&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 5.97649999999976
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_ratio&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 7.768166000000292
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_ratio&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128846,
+          "ms": 9.521374999999807
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_ratio&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 11.409125000000131
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_ratio&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 13.150874999999814
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_ratio&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 14.8618749999996
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=4v3&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.876416999999947
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=4v3&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.39904099999967
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=4v3",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0563339999998789
+        }
+      ]
+    },
+    {
+      "name": "profile 4v3/on_net/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.144834000000174
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.859541999999692
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.4300829999997404
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.214792000000216
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.1003749999999854
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_mass&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 5.784624999999778
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_mass&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128854,
+          "ms": 7.50295799999958
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_mass&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128848,
+          "ms": 9.222875000000386
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_mass&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 11.000417000000198
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_mass&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 13.130291999999827
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_mass&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 14.884167000000161
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=4v3&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.530166999999892
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=4v3&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.5307920000000195
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=4v3",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.1186250000000655
+        }
+      ]
+    },
+    {
+      "name": "profile 4v3/on_net/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.1393750000002
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.784541999999874
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.551082999999835
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.6159999999999854
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.2941249999998945
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_ratio&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 6.12670799999978
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_ratio&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 7.895415999999841
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_ratio&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128843,
+          "ms": 9.981916000000183
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_ratio&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 11.721708000000035
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_ratio&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 13.44537500000024
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v3&view=evidence_ratio&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128844,
+          "ms": 15.196125000000393
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=4v3&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.951208999999835
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=4v3&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.4625839999998789
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=4v3",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0163750000001528
+        }
+      ]
+    },
+    {
+      "name": "profile 4v5/unblocked/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.152541999999812
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8325830000003407
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.4507920000000922
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.156874999999673
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.1157499999999345
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 6.239458000000013
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128857,
+          "ms": 7.947916999999961
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128851,
+          "ms": 9.664749999999913
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 11.397249999999985
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128855,
+          "ms": 13.123875000000226
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 14.876624999999876
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=4v5&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.535750000000007
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=4v5&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.4455000000002656
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=4v5",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.1474159999997937
+        }
+      ]
+    },
+    {
+      "name": "profile 4v5/unblocked/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.257458000000042
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.849083999999948
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.558375000000069
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.336499999999887
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.601999999999862
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_ratio&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 6.322000000000116
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_ratio&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 8.088166999999885
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_ratio&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128846,
+          "ms": 9.78537499999993
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_ratio&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 11.536791999999878
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_ratio&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 13.37341699999979
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_ratio&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 15.140333000000282
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=4v5&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.88137500000039
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=4v5&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.5197500000003856
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=4v5",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0112920000001395
+        }
+      ]
+    },
+    {
+      "name": "profile 4v5/on_net/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.390375000000404
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.78387500000008
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.527458000000024
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.48379100000011
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 6.376459000000068
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_mass&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 8.944042000000081
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_mass&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128854,
+          "ms": 11.566041999999925
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_mass&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128848,
+          "ms": 14.178583000000344
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_mass&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 16.816083000000162
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_mass&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 19.361374999999953
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_mass&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 21.885125000000244
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=4v5&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 27.53708400000005
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=4v5&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 4.189584000000195
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=4v5",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.175666000000092
+        }
+      ]
+    },
+    {
+      "name": "profile 4v5/on_net/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.51599999999962
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.9250409999999647
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.722291000000041
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.481708999999682
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.354874999999993
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_ratio&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 7.390084000000115
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_ratio&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 8.412708000000293
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_ratio&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128843,
+          "ms": 10.196125000000393
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_ratio&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 11.937667000000147
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_ratio&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 13.646249999999782
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=4v5&view=evidence_ratio&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128844,
+          "ms": 15.38104199999998
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=4v5&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 19.426708999999846
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=4v5&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.4247919999997976
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=4v5",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 0.9705840000001444
+        }
+      ]
+    },
+    {
+      "name": "profile 3v5/unblocked/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.349249999999756
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8854579999997441
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.5644579999998314
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.332792000000154
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.819790999999896
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 6.473833000000013
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128857,
+          "ms": 8.245416999999634
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128851,
+          "ms": 10.010459000000083
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 11.818249999999807
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128855,
+          "ms": 14.005625000000236
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 15.690167000000201
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=3v5&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 19.490959000000203
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=3v5&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.5073750000001382
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=3v5",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.1585000000000036
+        }
+      ]
+    },
+    {
+      "name": "profile 3v5/unblocked/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 29.06754200000023
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.9244579999999587
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.665958000000046
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.487458999999944
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.520708000000013
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_ratio&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 6.52212499999996
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_ratio&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 10.12237499999992
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_ratio&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128846,
+          "ms": 11.325875000000451
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_ratio&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 13.009417000000212
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_ratio&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 14.723415999999816
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_ratio&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 16.462999999999738
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=3v5&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 20.331458999999995
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=3v5&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.5996250000002874
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=3v5",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.1312080000002425
+        }
+      ]
+    },
+    {
+      "name": "profile 3v5/on_net/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.82791700000007
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8563329999997222
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.5924589999999625
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.469250000000102
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.276666000000205
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_mass&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 6.088333000000148
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_mass&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128854,
+          "ms": 7.887916000000132
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_mass&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128848,
+          "ms": 9.642166999999972
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_mass&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 11.425416999999925
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_mass&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 13.178249999999935
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_mass&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 14.953875000000153
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=3v5&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.606667000000016
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=3v5&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.4740420000002814
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=3v5",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 0.9800830000003771
+        }
+      ]
+    },
+    {
+      "name": "profile 3v5/on_net/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.655500000000302
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.9634170000003905
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.844000000000051
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.53933300000017
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.522542000000158
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_ratio&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 6.418083999999908
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_ratio&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 8.283458999999766
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_ratio&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128843,
+          "ms": 10.062250000000404
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_ratio&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 11.863084000000072
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_ratio&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 13.680707999999868
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v5&view=evidence_ratio&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128844,
+          "ms": 15.546875
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=3v5&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 20.014208000000053
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=3v5&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.6550420000003214
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=3v5",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0419589999996788
+        }
+      ]
+    },
+    {
+      "name": "profile 3v4/unblocked/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.977833999999802
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8697909999996227
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.739125000000058
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.375458999999864
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.1900839999998425
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 5.970416999999998
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128857,
+          "ms": 7.716417000000092
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128851,
+          "ms": 9.47629199999983
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 11.27433400000018
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128855,
+          "ms": 13.358083000000079
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 15.028957999999875
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=3v4&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.707042
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=3v4&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.4176669999997102
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=3v4",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0625
+        }
+      ]
+    },
+    {
+      "name": "profile 3v4/unblocked/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.203750000000127
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.734958000000006
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.3556659999999283
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 6.988624999999956
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.003000000000156
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_ratio&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 5.798041999999896
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_ratio&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 7.545916999999918
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_ratio&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128846,
+          "ms": 9.657208000000082
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_ratio&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128845,
+          "ms": 11.44516700000031
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_ratio&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 13.174207999999908
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_ratio&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 14.901208000000224
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=3v4&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.554209000000355
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=3v4&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 71973,
+          "ms": 1.509375000000091
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=3v4",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 0.9801659999998265
+        }
+      ]
+    },
+    {
+      "name": "profile 3v4/on_net/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.5451250000001
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8030410000001211
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.5329999999999018
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.217749999999796
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.156833000000006
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_mass&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 6.227374999999938
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_mass&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128854,
+          "ms": 7.948041999999987
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_mass&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128848,
+          "ms": 9.722375000000284
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_mass&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 11.497791000000234
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_mass&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128852,
+          "ms": 13.239292000000205
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_mass&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 15.039166999999907
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=3v4&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.669790999999805
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=3v4&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.453874999999698
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=3v4",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 1.0402500000000146
+        }
+      ]
+    },
+    {
+      "name": "profile 3v4/on_net/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.399417000000085
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.7332080000001042
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.4579170000001795
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.245583999999781
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.017124999999851
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_ratio&population=on_net&type=all",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 5.665166000000227
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_ratio&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 7.376875000000382
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_ratio&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 128843,
+          "ms": 9.109917000000223
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_ratio&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 128842,
+          "ms": 10.88741600000003
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_ratio&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 128847,
+          "ms": 12.655249999999796
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=3v4&view=evidence_ratio&population=on_net&type=other",
+          "status": 200,
+          "bytes": 128844,
+          "ms": 14.401041000000077
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=3v4&view=effect",
+          "status": 200,
+          "bytes": 206070,
+          "ms": 18.173457999999755
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=3v4&population=on_net&type=all",
+          "status": 200,
+          "bytes": 71972,
+          "ms": 1.410707999999886
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie&strength=3v4",
+          "status": 200,
+          "bytes": 62563,
+          "ms": 0.9760409999998956
+        }
+      ]
+    },
+    {
+      "name": "profile covered_all/unblocked/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.14654200000041
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 2.4060420000000704
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.7249580000002425
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.42325000000028
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.11745800000017
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 307517,
+          "ms": 10.726083000000017
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 304098,
+          "ms": 17.125874999999724
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 251738,
+          "ms": 23.42379099999971
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 291990,
+          "ms": 29.62537499999962
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 304580,
+          "ms": 35.833250000000135
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 292384,
+          "ms": 42.17170899999974
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=covered_all&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 325775,
+          "ms": 6.722875000000386
+        }
+      ]
+    },
+    {
+      "name": "profile covered_all/unblocked/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.438708000000133
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8012079999998605
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.5875419999997575
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.4012079999997695
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.08358300000009
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_ratio&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 307477,
+          "ms": 10.440791999999874
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_ratio&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 304054,
+          "ms": 17.174958999999944
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_ratio&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 251733,
+          "ms": 23.347749999999905
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_ratio&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 291948,
+          "ms": 29.653166000000056
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_ratio&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 304546,
+          "ms": 35.898791000000074
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_ratio&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 292342,
+          "ms": 42.486041000000114
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=covered_all&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 325775,
+          "ms": 6.669750000000022
+        }
+      ]
+    },
+    {
+      "name": "profile covered_all/on_net/mass",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.523584000000028
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.7813750000000255
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.5376659999997173
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.208499999999731
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.098333000000366
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_mass&population=on_net&type=all",
+          "status": 200,
+          "bytes": 307481,
+          "ms": 10.359750000000076
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_mass&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 304170,
+          "ms": 16.863624999999956
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_mass&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 251732,
+          "ms": 22.91591699999981
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_mass&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 292018,
+          "ms": 29.13675000000012
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_mass&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 302473,
+          "ms": 35.28808300000037
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_mass&population=on_net&type=other",
+          "status": 200,
+          "bytes": 292339,
+          "ms": 41.93358399999988
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=covered_all&population=on_net&type=all",
+          "status": 200,
+          "bytes": 325738,
+          "ms": 6.774167000000034
+        }
+      ]
+    },
+    {
+      "name": "profile covered_all/on_net/ratio",
+      "requests": [
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 29.09595900000022
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.8255409999997028
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.711457999999766
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.551124999999956
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_stopping&strength=pk&view=effect",
+          "status": 200,
+          "bytes": 205867,
+          "ms": 4.292707999999948
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_ratio&population=on_net&type=all",
+          "status": 200,
+          "bytes": 307439,
+          "ms": 10.959499999999935
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_ratio&population=on_net&type=wrist_snap",
+          "status": 200,
+          "bytes": 304126,
+          "ms": 17.287083000000166
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_ratio&population=on_net&type=slap",
+          "status": 200,
+          "bytes": 251727,
+          "ms": 23.569833000000017
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_ratio&population=on_net&type=tip",
+          "status": 200,
+          "bytes": 291978,
+          "ms": 30.00720900000033
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_ratio&population=on_net&type=backhand",
+          "status": 200,
+          "bytes": 302433,
+          "ms": 36.43062500000042
+        },
+        {
+          "path": "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=covered_all&view=evidence_ratio&population=on_net&type=other",
+          "status": 200,
+          "bytes": 292299,
+          "ms": 44.5217090000001
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=covered_all&population=on_net&type=all",
+          "status": 200,
+          "bytes": 325738,
+          "ms": 6.891417000000274
+        }
+      ]
+    },
+    {
+      "name": "observed goalie with pending modeled outputs remains renderable",
+      "requests": [
+        {
+          "path": "/api/players/8477424?season=20232024",
+          "status": 200,
+          "bytes": 399968,
+          "ms": 10.433500000000095
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.7535829999997077
+        },
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 3.6192089999999553
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 7.465125000000171
+        },
+        {
+          "path": "/api/maps?season=20232024&players=8477424&family=goalie_stopping&strength=ev&view=effect",
+          "status": 200,
+          "bytes": 178254,
+          "ms": 4.328957999999602
+        },
+        {
+          "path": "/api/maps?season=20232024&players=8477424&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 6.1530830000001515
+        },
+        {
+          "path": "/api/maps?season=20232024&players=8477424&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 128856,
+          "ms": 7.965791000000081
+        },
+        {
+          "path": "/api/maps?season=20232024&players=8477424&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 128850,
+          "ms": 9.78512499999988
+        },
+        {
+          "path": "/api/maps?season=20232024&players=8477424&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 128849,
+          "ms": 11.575834000000214
+        },
+        {
+          "path": "/api/maps?season=20232024&players=8477424&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 128854,
+          "ms": 13.344084000000294
+        },
+        {
+          "path": "/api/maps?season=20232024&players=8477424&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 128851,
+          "ms": 15.08349999999973
+        },
+        {
+          "path": "/api/players/8477424/evidence?season=20232024&family=goalie_evidence&strength=ev&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 63839,
+          "ms": 1.1893749999999272
+        },
+        {
+          "path": "/api/players/8477424/evidence?season=20232024&family=goalie&strength=ev",
+          "status": 200,
+          "bytes": 65103,
+          "ms": 1.075832999999875
+        }
+      ]
+    },
+    {
+      "name": "same-kind comparison preserves absent selected-season identity and paired scales",
+      "requests": [
+        {
+          "path": "/api/league?season=20242025&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 107347,
+          "ms": 2.9870419999997466
+        },
+        {
+          "path": "/api/players/9000004?season=20242025",
+          "status": 200,
+          "bytes": 866999,
+          "ms": 29.007040999999845
+        },
+        {
+          "path": "/api/players/8477424?season=20242025",
+          "status": 200,
+          "bytes": 226200,
+          "ms": 36.725374999999985
+        },
+        {
+          "path": "/api/league?season=20252026&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 48583,
+          "ms": 0.6521670000001905
+        },
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 4.372250000000349
+        },
+        {
+          "path": "/api/maps?season=20242025&players=9000004%2C8477424&family=goalie_stopping&strength=ev&view=effect",
+          "status": 200,
+          "bytes": 205358,
+          "ms": 4.457332999999835
+        },
+        {
+          "path": "/api/maps?season=20242025&players=9000004%2C8477424&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 129222,
+          "ms": 6.32791700000007
+        },
+        {
+          "path": "/api/maps?season=20242025&players=9000004%2C8477424&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=wrist_snap",
+          "status": 200,
+          "bytes": 129229,
+          "ms": 8.123458000000028
+        },
+        {
+          "path": "/api/maps?season=20242025&players=9000004%2C8477424&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=slap",
+          "status": 200,
+          "bytes": 129223,
+          "ms": 9.859625000000051
+        },
+        {
+          "path": "/api/maps?season=20242025&players=9000004%2C8477424&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=tip",
+          "status": 200,
+          "bytes": 129222,
+          "ms": 11.612708000000111
+        },
+        {
+          "path": "/api/maps?season=20242025&players=9000004%2C8477424&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=backhand",
+          "status": 200,
+          "bytes": 129227,
+          "ms": 13.271208999999999
+        },
+        {
+          "path": "/api/maps?season=20242025&players=9000004%2C8477424&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=other",
+          "status": 200,
+          "bytes": 129224,
+          "ms": 14.973667000000205
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20242025&family=goalie_evidence&strength=ev&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 90842,
+          "ms": 1.8311250000001564
+        },
+        {
+          "path": "/api/players/8477424/evidence?season=20242025&family=goalie_evidence&strength=ev&population=unblocked&type=all",
+          "status": 200,
+          "bytes": 49209,
+          "ms": 2.3236249999999927
+        },
+        {
+          "path": "/api/players/9000004/evidence?season=20242025&family=goalie&strength=ev",
+          "status": 200,
+          "bytes": 64020,
+          "ms": 1.0978749999999309
+        },
+        {
+          "path": "/api/players/8477424/evidence?season=20242025&family=goalie&strength=ev",
+          "status": 200,
+          "bytes": 49183,
+          "ms": 1.4878749999998035
+        }
+      ]
+    },
+    {
+      "name": "mixed kinds rejected before maps",
+      "requests": [
+        {
+          "path": "/api/league?season=20232024&kind=goalie&family=overview",
+          "status": 200,
+          "bytes": 139308,
+          "ms": 4.268750000000182
+        },
+        {
+          "path": "/api/players/9000004?season=20232024",
+          "status": 200,
+          "bytes": 861321,
+          "ms": 28.399374999999964
+        },
+        {
+          "path": "/api/players/8473507?season=20232024",
+          "status": 200,
+          "bytes": 66188,
+          "ms": 33.434541999999965
+        }
+      ]
+    },
+    {
+      "name": "skater defaults preserved",
+      "requests": [
+        {
+          "path": "/api/players/8473507?season=20232024",
+          "status": 200,
+          "bytes": 66188,
+          "ms": 1.662166999999954
+        },
+        {
+          "path": "/api/league?season=20252026&kind=skater&family=overview",
+          "status": 200,
+          "bytes": 282795,
+          "ms": 8.127333999999792
+        },
+        {
+          "path": "/api/league?season=20242025&kind=skater&family=overview",
+          "status": 200,
+          "bytes": 290902,
+          "ms": 15.588709000000108
+        },
+        {
+          "path": "/api/league?season=20232024&kind=skater&family=overview",
+          "status": 200,
+          "bytes": 284254,
+          "ms": 45.44862499999999
+        }
+      ]
+    }
+  ]
+}

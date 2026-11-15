@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "input": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/manifest.json",
+    "sha256": "219a109775d3ddb255ad40fca0082c57acfc09e371bc586de7c85b2a9afd5bb5"
+  },
+  "purpose": "fixture",
+  "full_reader": true,
+  "scalar_rows": 352,
+  "people": 32,
+  "projections": 352,
+  "wall_seconds": 63.43584441696294,
+  "peak_resident_bytes": 160546816,
+  "saved_member_bytes": 653461396,
+  "scoped_open_paths": [
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/analysis_map.jsonl",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/catalogs.json",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/coverage.json",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/event_values.jsonl",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/execution_breakdown.jsonl",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/goalie_danger.jsonl",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/goalie_evidence_map.jsonl",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/goalie_observed.jsonl",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/goalie_result.jsonl",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/manifest.json",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/people.jsonl",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/projections.jsonl",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/sensitivity.json",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/source_games.jsonl",
+    "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/targets.jsonl"
+  ],
+  "source_writes": 0,
+  "checks": [
+    "actual read_goalie_scores full strict saved contract",
+    "all15 contained score members only; no preparation, fit, source capture, or corrected-base artifact reads",
+    "full source/likelihood-key union validation retained",
+    "all frozen public scalar rows transiently enriched and strict current validated",
+    "GoalieScores.rows outputs exact authoritative saved evidence",
+    "original frozen manifest identity unchanged"
+  ],
+  "limitations": [
+    "fixture software integration only; no real full-score reread, estimator change, or scientific claim"
+  ]
+}

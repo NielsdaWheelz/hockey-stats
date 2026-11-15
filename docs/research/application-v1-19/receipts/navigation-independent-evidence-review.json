@@ -1,0 +1,55 @@
+{
+  "reviewer": "native goalie-navigation agent, independent of evidence/schema implementation",
+  "scope": "saved projection evidence, narrow proof lineage, finite public schema and detached validation",
+  "source_sha256": {
+    "analysis/src/hockey_stats/goalie_scores.py": "a7e8e16a2c96e83bda3f0d918518b851e00d20c3fa7b57e62d7cab51942d6ef5",
+    "analysis/src/hockey_stats/goalie_composition.py": "276ea008a15499efac9ebb69707afca3d6bd6bffb2dfab9ce54abe2ea107d760",
+    "analysis/src/hockey_stats/analysis_publication.py": "b9afda1d41f0e78d22ec6d5a479e5317171cf425c2b034c7f3fb58d9fc23d3a9",
+    "app/src/shared/player-analysis.ts": "b0cd7cb176e36cdba83f5841c2542d3d3c6163a5e49ee8828986886eae093551",
+    "app/src/server/analysis-publication.ts": "49a544aec9b63d1566b7b51b2f295d3cbae2dfa3ddb38b955151bcd89c6a4aeb"
+  },
+  "real_rows": [
+    {
+      "season": "20232024",
+      "players": 117,
+      "rows": 1287
+    },
+    {
+      "season": "20242025",
+      "players": 121,
+      "rows": 1331
+    },
+    {
+      "season": "20252026",
+      "players": 123,
+      "rows": 1353
+    }
+  ],
+  "observed_checks": [
+    "all3971 provided real goalie rows decode the strict current typescript evidence schema",
+    "all3971 reject a wrong-year panel binding",
+    "all3971 inherited scalar/support/unavailable bodies remain exactly equal after removing the newly attached evidence object",
+    "provided rows without bound projection proofs are rejected",
+    "read scope is selected annual manifests, projections, donor catalogs and goalie-result members; no preparation, event or fit-array read"
+  ],
+  "resolved_findings": [
+    {
+      "problem": "python accepted a null difference despite defined focal and neutral levels",
+      "repair": "shared pure projection validator now requires exact null parity and focal-minus-neutral closure; reviewed source after producer mutation regression passed"
+    },
+    {
+      "problem": "python list equality accepted boolean physical-state presence entries as integer one",
+      "repair": "shared pure projection validator now requires four exact integer state entries before orientation comparison; reviewed source after producer mutation regression passed"
+    }
+  ],
+  "reviewed_contracts": [
+    "selected manifest and projection hashes; purpose/year/preparation binding",
+    "published goalie method and corrected execution state/score/coaches bindings",
+    "complete selected goalie-by-strength projection matrix",
+    "strict masses/log-masses, mathematical zero versus underflow, fixed neutral continuation weighting and dependency masks",
+    "per-head flags/history and aggregate supplied support; full reader retains original likelihood-key union checks",
+    "defending orientation, constituent order, detached yearly binding and catalog chronology",
+    "frozen numerical-score reader attaches authoritative saved proof before strict current public validation; no current exchange fallback or frozen-file mutation"
+  ],
+  "verdict": "no remaining concrete producer/schema finding in this scope; numerical quality and source assertions remain inherited, not newly assessed"
+}

@@ -29,7 +29,8 @@ import type {
 } from "./explorer";
 import type { CsvCell } from "./export";
 
-type Overview = Extract<LeagueResponse, { kind: "skater"; family: "overview" }>;
+type Overview = Extract<LeagueResponse, { family: "overview" }>;
+type SkaterOverview = Extract<Overview, { kind: "skater" }>;
 export type MetadataId =
   | "minutes"
   | "reportedAppearances"
@@ -96,6 +97,15 @@ export function discoveryPreset(table: DiscoveryTable, strength: string | null) 
   let ids: readonly (AnalysisMetricId | MetadataId)[];
   let defaultSort: AnalysisMetricId | MetadataId;
   switch (table) {
+    case "goalie": {
+      const core = strength === "pk" ? "pk" : "ev";
+      ids = ["reportedAppearances", "reportedMinutes", "minutes",
+        `goalie.${core}.stopping_goals_per100_on_net`,
+        ...analysisMetrics.filter(metric => metric.kind === "goalie" &&
+          metric.selectionStrength === core && metric.id.endsWith("_difference")).map(metric => metric.id)];
+      defaultSort = `goalie.${core}.stopping_goals_per100_on_net`;
+      break;
+    }
     case "overview":
       ids = [
         "minutes",
@@ -146,7 +156,7 @@ export function discoveryPreset(table: DiscoveryTable, strength: string | null) 
       ids = [
         "minutes",
         ...analysisMetrics
-          .filter(metric => metric.id.startsWith(`${table}.${selected}.`))
+          .filter(metric => metric.id.startsWith(`${table}.${selected}.`) && metric.standingPolicy !== "raw_only")
           .map(metric => metric.id),
       ];
       defaultSort = table === "execution"
@@ -182,15 +192,16 @@ export function discoveryPreset(table: DiscoveryTable, strength: string | null) 
     defaultSort,
     columns: ids.map(id => ({
       id,
-      label: table === "spatial" && id === "minutes" ? `actual qualifying ${strength ?? "5v5"} min`
+      label: table === "goalie" && id === "minutes" ? `current supported goalie ${strength ?? "ev"} min`
+        : table === "spatial" && id === "minutes" ? `actual qualifying ${strength ?? "5v5"} min`
         : analysisMetric(id)?.label ?? metadataLabels[id as MetadataId],
     })),
   };
 }
 
 function metadataValue(
-  overview: Overview,
-  row: Overview["players"][number],
+  overview: SkaterOverview,
+  row: SkaterOverview["players"][number],
   id: MetadataId,
   selectedCohort: LeagueResponse,
 ): MetadataValue {
@@ -328,6 +339,43 @@ function metadataValue(
   };
 }
 
+function goalieMetadataValue(
+  overview: Extract<Overview, { kind: "goalie" }>,
+  row: Extract<Overview, { kind: "goalie" }>["players"][number],
+  id: MetadataId,
+  strength: "ev" | "pk",
+): MetadataValue {
+  const unit = id === "minutes" ? "seconds" : id === "reportedMinutes" ? "minutes_per_appearance" : "appearances";
+  const envelope = row.result;
+  const data = envelope.availability === "provided" ? envelope.data : null;
+  const usage = data?.reported_usage.availability === "provided" ? data.reported_usage.data : null;
+  const goalie = data?.goalie[strength];
+  const model = goalie?.availability === "provided" ? goalie.data : null;
+  const support = id === "minutes" ? model?.support.stopping_goals_per100_on_net ?? null : usage?.support ?? null;
+  const source = usage ? overview.sources[usage.provenance.id] : null;
+  if (usage && !source) throw new Error(`unresolved source ${usage.provenance.id}`);
+  const value = id === "minutes" ? support?.included_seconds ?? null
+    : id === "reportedAppearances" ? usage?.positive_toi_appearances ?? null
+    : usage?.minutes_per_appearance.value ?? null;
+  const reason = value !== null ? null : envelope.availability !== "provided" ? envelope.explanation
+    : id === "minutes" ? goalie?.explanation ?? "current supported goalie elapsed time unavailable"
+    : data?.reported_usage.explanation ?? usage?.minutes_per_appearance.reason_detail?.explanation ?? "reported usage unavailable";
+  const definition = id === "minutes" ? `current supported goalie ${strength} elapsed time; qualification, not likelihood-event counts or precision`
+    : id === "reportedAppearances" ? "reported positive-time appearances" : "reported minutes per positive-time appearance";
+  return {
+    value, unit, displayScale: id === "minutes" ? 1 / 60 : 1,
+    displayUnit: id === "minutes" ? "minutes" : id === "reportedMinutes" ? "minutes per appearance" : "appearances",
+    status: value === null ? "unavailable" : "provided", reason, support, source: source ?? null,
+    original: id === "reportedMinutes" ? usage?.minutes_per_appearance ?? null : null,
+    observedSupport: null,
+    evidence: id === "minutes" ? { support, strength, method_id: model?.method_id ?? null } : { reported_usage: usage },
+    semanticKey: JSON.stringify([id, unit, id === "minutes" ? strength : null,
+      id === "minutes" ? model ? overview.methods[model.method_id]?.support_policy_id : null : [source?.construction, source?.population, source?.definition]]),
+    semanticIdentityKnown: id === "minutes" ? model !== null : source !== null,
+    definition,
+  };
+}
+
 export function composeDiscoveryRows(
   overview: Overview,
   selectedCohort: LeagueResponse,
@@ -339,21 +387,23 @@ export function composeDiscoveryRows(
     cells: {} as Record<string, DiscoveryCell>,
   }));
   for (const column of columns) {
-    const metric = analysisMetric(column.id === "reportedMinutes"
+    const metric = analysisMetric(column.id === "reportedMinutes" && overview.kind === "skater"
       ? "descriptive.usage.minutes_per_appearance" : column.id);
     if (!metric) {
-      overview.players.forEach((row, index) => {
-        rows[index]!.cells[column.id] = {
-          kind: "metadata",
-          ...metadataValue(overview, row, column.id as MetadataId, selectedCohort),
-        };
+      if (overview.kind === "goalie") {
+        const strength = columns.some(column => column.id.startsWith("goalie.pk.")) ? "pk" : "ev";
+        overview.players.forEach((row, index) => {
+          rows[index]!.cells[column.id] = { kind: "metadata", ...goalieMetadataValue(overview, row, column.id as MetadataId, strength) };
+        });
+      } else overview.players.forEach((row, index) => {
+        rows[index]!.cells[column.id] = { kind: "metadata", ...metadataValue(overview, row, column.id as MetadataId, selectedCohort) };
       });
       continue;
     }
     const response = metric.family === "overview" || metric.family === "observed" ||
       column.id === "reportedMinutes" && selectedCohort.family !== "descriptive"
       ? overview : selectedCohort;
-    const datums = selectLeagueValues(response, metric, overview);
+    const datums = selectLeagueValues(response, metric, overview.kind === "skater" ? overview : undefined);
     const present = new Set(datums.map(datum => datum.playerId));
     for (const row of rows) {
       if (!present.has(row.person.player_id))

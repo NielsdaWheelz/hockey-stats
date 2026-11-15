@@ -1,0 +1,63 @@
+{
+  "checks": [
+    {
+      "name": "absent map reason",
+      "rows": 1,
+      "columns": 37
+    },
+    {
+      "name": "absent stages reason",
+      "rows": 1,
+      "columns": 24
+    },
+    {
+      "name": "absent games reason",
+      "rows": 1,
+      "columns": 27
+    },
+    {
+      "name": "absent tiers reason",
+      "rows": 3,
+      "columns": 27
+    },
+    {
+      "name": "absent exact history",
+      "rows": 16,
+      "columns": 70
+    },
+    {
+      "name": "absent danger reason",
+      "rows": 1,
+      "columns": 28
+    },
+    {
+      "name": "complete card envelope",
+      "rows": 56,
+      "columns": 77
+    },
+    {
+      "name": "raw exact-state scalar and history",
+      "rows": 16,
+      "columns": 70
+    },
+    {
+      "name": "defined stages",
+      "rows": 20,
+      "columns": 24
+    },
+    {
+      "name": "defined games",
+      "rows": 1,
+      "columns": 27
+    },
+    {
+      "name": "defined tiers",
+      "rows": 3,
+      "columns": 27
+    }
+  ],
+  "immutableExportSnapshot": true,
+  "incompleteOverviewRejected": true,
+  "incompleteTypeRejected": true,
+  "rawOnlyExactStateMetadata": true
+}

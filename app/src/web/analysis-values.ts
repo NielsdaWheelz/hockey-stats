@@ -17,6 +17,7 @@ import type {
   SkaterTerritory,
   ValueLedger,
   GoalieResult,
+  GoalieStrength,
   SkaterContext,
   SkaterDescriptive,
   ReportedUsage,
@@ -66,8 +67,7 @@ export type AnalysisMetricId = ObservedRateKey
   | `spatial.${"pp" | "5v4" | "5v3" | "4v3"}.offense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
   | `spatial.${"pk" | "4v5" | "3v5" | "3v4"}.defense_${"attempts_per60" | "xg_per60" | "attempts_relative_percent" | "xg_relative_percent"}`
   | `execution.${typeof strengths[number]}.${typeof executionFields[number]}`
-  | `shootiness.${typeof strengths[number]}.${"probability" | "difference"}`
-  | "shootiness.5v5.neutral_probability"
+  | `shootiness.${typeof strengths[number]}.${"probability" | "neutral_probability" | "difference"}`
   | `penalties.${"drawn_per60" | "taken_per60" | "drawn_value_per60" | "taken_value_per60"}`
   | `territory.${"ice_won_goals_per_basket" | "ice_lost_goals_per_basket"}`
   | `territory.${"exit_offense" | "entry_offense" | "zone_retention" | "entry_prevention"}.one_second_probability`
@@ -78,7 +78,7 @@ export type AnalysisMetricId = ObservedRateKey
   | "descriptive.usage.minutes_per_appearance"
   | `descriptive.scoring.${"ev" | "pp"}.primary_points_per60`
   | `microstats.${keyof SkaterMicrostats}`
-  | `goalie.${"ev" | "pk"}.${typeof goalieFields[number]}`;
+  | `goalie.${typeof GoalieStrength.Type}.${typeof goalieFields[number]}`;
 
 // one fixed card/table order; these are existing selectors, never additive terms.
 export const comparativeTileIds = [
@@ -114,7 +114,7 @@ export type AnalysisMetric = {
   readonly qualificationLabel: string;
   readonly observedPopulation?: "personal" | "onIce";
   readonly quantityPath?: typeof QuantityPath.Type;
-  readonly selectionStrength?: typeof import("../shared/player-analysis").ExecutionStrength.Type | "ev" | "pk";
+  readonly selectionStrength?: typeof import("../shared/player-analysis").ExecutionStrength.Type | typeof GoalieStrength.Type;
   readonly select: (inputs: ValueInputs) => SelectedValue;
 };
 
@@ -133,6 +133,8 @@ export type AnalysisDatum = {
   readonly coefficient_support: Execution["coefficient_support"] | null;
   readonly paired_evidence: Execution["paired_evidence"] | null;
   readonly spatial_detail: SpatialDetail | null;
+  readonly mechanism_detail: Shootiness["evidence"] | Penalties["evidence"] | null;
+  readonly goalie_detail: Goalie["evidence"] | null;
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
   readonly methods: readonly Method[];
@@ -172,7 +174,7 @@ type ValueInputs = {
   descriptive: Result<SkaterDescriptive>;
   reportedUsage: Result<typeof ReportedUsage.Type>;
   microstats: Result<SkaterMicrostats>;
-  goalie: (strength: "ev" | "pk") => Result<Goalie>;
+  goalie: (strength: typeof GoalieStrength.Type) => Result<Goalie>;
 };
 
 type SelectedValue = {
@@ -186,6 +188,8 @@ type SelectedValue = {
   readonly coefficient_support?: Execution["coefficient_support"];
   readonly paired_evidence?: Execution["paired_evidence"];
   readonly spatial_detail?: SpatialDetail;
+  readonly mechanism_detail?: Shootiness["evidence"] | Penalties["evidence"];
+  readonly goalie_detail?: Goalie["evidence"];
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
   readonly methodId?: string;
@@ -416,7 +420,7 @@ const execution = strengths.flatMap(strength =>
 );
 
 const shootiness = strengths.flatMap(strength =>
-  (["probability", "difference"] as const).map(field => definition({
+  (["probability", "neutral_probability", "difference"] as const).map(field => definition({
     ...base,
     publicationFamily: "shootiness",
     id: `shootiness.${strength}.${field}`,
@@ -424,69 +428,36 @@ const shootiness = strengths.flatMap(strength =>
     selectionStrength: strength,
     family: strength === "5v5" ? "overview" : "shootiness",
     strength: strength === "5v5" ? null : strength,
-    group: `shootiness ${strength}`,
-    label: `shootiness ${title(field)}`,
+    standingPolicy: field === "neutral_probability" ? "raw_only" : "percentile",
+    group: `share of team attempts · ${strength}`,
+    label: field === "difference" ? "share of team attempts difference" : field === "neutral_probability" ? "neutral share of team attempts" : "share of team attempts",
     unit: "fraction",
-    population: `${strength} shooting opportunities`,
-    qualificationLabel: `${strength} shootiness support`,
-    numericReference: field === "probability"
-      ? "conditional probability"
-      : "published neutral shootiness forecast",
+    population: `${strength} conditional team attempt choices; seven-state pooled player skill`,
+    qualificationLabel: `${strength} qualifying minutes; separate from pooled candidate information`,
+    numericReference: "same-position slot in the declared common unit; other player deviations zero",
     cutoff: strength === "5v5" ? "general" : "specialty",
-    select: inputs => fromResult(
-      inputs.shootiness,
-      data => estimate(
-        data[field],
-        data.support,
-        data.method_id,
-        `shootiness.${strength}.support.included_seconds`
-      )
-    )
+    select: inputs => fromResult(inputs.shootiness, data => ({
+      ...estimate(data[field], data.support, data.method_id, `shootiness.${strength}.support.included_seconds`),
+      mechanism_detail: data.evidence,
+    })),
   })),
 );
 
-const shootinessNeutral = definition({
-  ...base,
-  publicationFamily: "shootiness",
-  id: "shootiness.5v5.neutral_probability",
-  quantityPath: "skater_shootiness.neutral_probability",
-  standingPolicy: "raw_only",
-  selectionStrength: "5v5",
-  group: "shootiness 5v5",
-  label: "shootiness neutral probability",
-  unit: "fraction",
-  population: "5v5 shooting opportunities",
-  qualificationLabel: "5v5 shootiness support",
-  numericReference: "supplied neutral shootiness probability",
-  select: inputs => fromResult(inputs.shootiness, data => estimate(
-    data.neutral_probability, data.support, data.method_id, "shootiness.5v5.support.included_seconds",
-  )),
-});
-
-const penalties = ([
-  "drawn_per60",
-  "taken_per60",
-  "drawn_value_per60",
-  "taken_value_per60",
-] as const).map(field => definition({
+const penalties = (["drawn_per60", "taken_per60", "drawn_value_per60", "taken_value_per60"] as const).map(field => definition({
   ...base,
   publicationFamily: "penalties",
   id: `penalties.${field}`,
   quantityPath: `skater_penalties.${field}`,
-  group: "modeled penalties",
-  label: `penalties ${title(field)}`,
+  group: "ordinary-minor team awards",
+  label: `ordinary-minor ${field.startsWith("drawn") ? "drawing" : "taking"} ${field.includes("value") ? "value" : "difference"}`,
   unit: field.includes("value") ? "goals_per60" : "penalties_per60",
-  population: "modeled penalty opportunities",
-  qualificationLabel: "modeled penalty support",
-  select: inputs => fromResult(
-    inputs.penalties,
-    data => estimate(
-      data[field],
-      data.support,
-      data.method_id,
-      "penalties.support.included_seconds"
-    )
-  )
+  population: "genuine 5v5 directed ordinary-minor team awards; both goalies present",
+  qualificationLabel: "matched physical 5v5 time; zero-award intervals retained",
+  numericReference: field.includes("value") ? "isolated two-minute opportunity; signed drawing value and opposite signed taking value" : "complete focal rate minus the neutral team-award rate",
+  select: inputs => fromResult(inputs.penalties, data => ({
+    ...estimate(data[field], data.support, data.method_id, "penalties.support.included_seconds"),
+    mechanism_detail: data.evidence,
+  })),
 }));
 
 const territory = [
@@ -822,7 +793,7 @@ const microstats = (Object.keys(microstatFields) as (keyof SkaterMicrostats)[]).
   });
 });
 
-const goalieFields = [
+export const goalieFields = [
   "stopping_goals_per100_on_net",
   "miss_probability",
   "recorded_stop_probability",
@@ -838,7 +809,7 @@ const goalieFields = [
   "followup_danger_difference",
 ] as const;
 
-const goalieMeanings = {
+export const goalieMeanings = {
   stopping_goals_per100_on_net: {
     label: "experimental stopping",
     conditioning: "common on-net opportunities; neutral u/q weights, focal r/g only",
@@ -876,22 +847,26 @@ const goalieMeanings = {
   },
 } as const;
 
-const goalie = (["ev", "pk"] as const).flatMap(strength =>
-  goalieFields.map(field => {
-    const difference = field.endsWith("_difference");
-    const name = (difference ? field.slice(0, -"_difference".length) : field) as keyof typeof goalieMeanings;
-    const meaning = goalieMeanings[name];
-    return definition({
+export type GoalieField = typeof goalieFields[number];
+
+function goalieMetric(strength: typeof GoalieStrength.Type, field: GoalieField, standingPolicy: "percentile" | "raw_only"): AnalysisMetric {
+  const difference = field.endsWith("_difference");
+  const name = (difference ? field.slice(0, -"_difference".length) : field) as keyof typeof goalieMeanings;
+  const meaning = goalieMeanings[name];
+  return definition({
+    standingPolicy,
     ...base,
     publicationFamily: "goalie",
     id: `goalie.${strength}.${field}`,
+    family: standingPolicy === "raw_only" ? "goalie" : "overview",
+    strength: standingPolicy === "raw_only" ? strength : null,
     quantityPath: `goalie_result.${field}`,
     selectionStrength: strength,
     kind: "goalie",
     group: `goalie ${strength}`,
     label: `${meaning.label}${difference ? " difference" : ""}`,
     unit: field === "stopping_goals_per100_on_net" ? "goals_per100_on_net" : "fraction",
-    population: `goalie ${strength === "ev" ? "ev (5v5/4v4/3v3)" : "pk (defending 4v5/3v5/3v4)"}; constituent common-panel masses pooled before normalization; ${meaning.conditioning}`,
+    population: `goalie ${strength === "ev" ? "ev (5v5/4v4/3v3)" : strength === "pk" ? "pk (defending 4v5/3v5/3v4)" : `defending ${strength}`}; constituent common-panel masses pooled before normalization; ${meaning.conditioning}`,
     qualificationLabel: `current-season supported goalie ${strength} elapsed minutes; coefficient information is separate`,
     construction: "experimental season-level estimate; reattempt and follow-up danger quantities use next-recorded-attempt proxies, not proven physical rebound control; head-specific point priors may supply partial or prior-only estimates; h/d optimizer sensitivity is diagnostic and remaining accuracy may be unknown; no calibrated intervals",
     numericReference: difference
@@ -900,16 +875,21 @@ const goalie = (["ev", "pk"] as const).flatMap(strength =>
     cutoff: strength === "ev" ? "general" : "specialty",
     select: inputs => fromResult(
       inputs.goalie(strength),
-      data => estimate(
-        data[field],
-        data.support[field],
-        data.method_id,
-        `goalie.${strength}.support.${field}.included_seconds`
-      )
+      data => ({
+        ...estimate(data[field], data.support[field], data.method_id,
+          `goalie.${strength}.support.${field}.included_seconds`),
+        goalie_detail: data.evidence,
+      })
     )
-    });
-  }),
-);
+  });
+}
+
+const goalie = (["ev", "pk"] as const).flatMap(strength =>
+  goalieFields.map(field => goalieMetric(strength, field, "percentile")));
+
+// exact-state detail has no ranked selector or cohort request.
+export const goalieDetailMetric = (strength: typeof GoalieStrength.Type, field: GoalieField): AnalysisMetric =>
+  goalieMetric(strength, field, "raw_only");
 
 const ledgerTerms = [
   "five_on_five_offense",
@@ -1085,7 +1065,6 @@ export const analysisMetrics: readonly AnalysisMetric[] = [
   ...spatial,
   ...execution,
   ...shootiness,
-  shootinessNeutral,
   ...penalties,
   ...territory,
   ...context,
@@ -1257,6 +1236,8 @@ function datum(
     coefficient_support: selected.coefficient_support ?? null,
     paired_evidence: selected.paired_evidence ?? null,
     spatial_detail: selected.spatial_detail ?? null,
+    mechanism_detail: selected.mechanism_detail ?? null,
+    goalie_detail: selected.goalie_detail ?? null,
     qualificationSeconds: selected.qualificationSeconds,
     qualificationBasis: selected.qualificationBasis,
     methods,
@@ -1329,7 +1310,10 @@ export function selectLeagueValues(
         const data = row.result.data;
         return make(row.person, {
           ...emptyInputs(),
-          goalie: strength => data.goalie[strength]
+          goalie: strength => {
+            if (strength !== "ev" && strength !== "pk") throw new Error("exact goalie states require annual detail");
+            return data.goalie[strength];
+          }
         });
       });
       return response.players.map(row => {

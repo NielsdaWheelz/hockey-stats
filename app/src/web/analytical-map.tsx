@@ -10,6 +10,7 @@ import type { Publication, SeasonEvidence } from "../shared/observed";
 import { csvText, downloadBlob, svgPng } from "./export";
 import { displayNumber } from "./analysis-history";
 import Rink from "./rink";
+import { goaliePoint } from "../shared/map-geometry";
 
 type ModelResponse = Exclude<
   MapsResponse,
@@ -24,7 +25,7 @@ export type AnalyticalMapModel = {
   readonly strength: ModelResponse["selection"]["strength"];
   readonly view: ModelResponse["selection"]["view"];
   readonly title: string;
-  readonly direction: "offense" | "defense";
+  readonly direction: "offense" | "defense" | "goalie";
   readonly orientation: string;
   readonly availability: "provided" | "not_computed" | "absent" | "unavailable";
   readonly reason: string | null;
@@ -54,7 +55,7 @@ export type AnalyticalMapModel = {
     readonly width: number;
     readonly height: number;
     readonly fill: string;
-    readonly density: number;
+    readonly density: number | null;
     readonly mass: number;
     readonly bounds: ModelResponse["definition"]["display_grid"]["cells"][number];
   }[];
@@ -98,7 +99,11 @@ const mapUnits: Readonly<Record<ModelResponse["family"], typeof MapUnit.Type>> =
     ice_lost: "goals_per_basket",
     goalie_stopping: "goals_per100_on_net",
   };
-const color = (value: number, maximum: number, absolute: boolean): string => {
+export const analyticalMapColor = (
+  value: number,
+  maximum: number,
+  absolute: boolean,
+): string => {
   if (maximum === 0 || value === 0) return neutral;
   const palette = absolute ? complete : value < 0 ? negative : positive;
   const level = palette.reduce(
@@ -109,6 +114,110 @@ const color = (value: number, maximum: number, absolute: boolean): string => {
   );
   return level === 0 ? neutral : palette[level - 1];
 };
+
+type DrawingCell = {
+  readonly cell_id: number;
+  readonly mass: number;
+  readonly density_per100sqft: number | null;
+  readonly bounds: ModelResponse["definition"]["display_grid"]["cells"][number];
+};
+
+// both modeled density and actual saving use the same published display cells.
+export function prepareMapDrawing(
+  cells: readonly DrawingCell[],
+  direction: AnalyticalMapModel["direction"],
+  maximum: number,
+  absolute: boolean,
+  positiveFavorable = false,
+  ratio = false,
+): Pick<AnalyticalMapModel, "rectangles" | "contours" | "levels" | "legend"> {
+  const point = (x: number, y: number) =>
+    direction === "goalie"
+      ? goaliePoint(x, y)
+      : direction === "offense"
+        ? { x: 42.5 + y, y: 100 - x }
+        : { x: 42.5 - y, y: 100 + x };
+  const fill = (value: number | null) =>
+    value === null
+      ? "url(#undefined)"
+      : analyticalMapColor(
+          positiveFavorable ? -value : value,
+          maximum,
+          absolute,
+        );
+  const magnitudes =
+    maximum === 0
+      ? []
+      : Array.from(
+          { length: absolute ? 8 : 4 },
+          (_, i) => (maximum * (i + 1)) / (absolute ? 8 : 4),
+        );
+  const levels =
+    maximum === 0
+      ? [0]
+      : absolute
+        ? [0, ...magnitudes]
+        : [...magnitudes.map((value) => -value).reverse(), 0, ...magnitudes];
+  const rectangles = cells.map((cell) => {
+    const a = point(cell.bounds.x_min, cell.bounds.y_min),
+      b = point(cell.bounds.x_max, cell.bounds.y_max);
+    return {
+      cellId: cell.cell_id,
+      x: Math.min(a.x, b.x),
+      y: Math.min(a.y, b.y),
+      width: Math.abs(b.x - a.x),
+      height: Math.abs(b.y - a.y),
+      fill: fill(cell.density_per100sqft),
+      density: cell.density_per100sqft,
+      mass: cell.mass,
+      bounds: cell.bounds,
+    };
+  });
+  const raster = new Array<number>(40 * 17).fill(0);
+  for (const cell of cells) {
+    const xi = Math.floor(cell.cell_id / 17),
+      yi = cell.cell_id % 17;
+    raster[xi + 40 * yi] = cell.density_per100sqft ?? 0;
+  }
+  const geometry = contours()
+    .size([40, 17])
+    .thresholds(magnitudes)
+    .smooth(true);
+  const polygons =
+    ratio || maximum === 0 || !cells.length
+      ? []
+      : [
+          ...geometry(raster).map((polygon) => ({ polygon, sign: 1 })),
+          ...(absolute
+            ? []
+            : geometry(raster.map((value) => -value)).map((polygon) => ({
+                polygon,
+                sign: -1,
+              }))),
+        ];
+  return {
+    rectangles,
+    levels,
+    legend: levels.map((value) => ({ value, fill: fill(value) })),
+    contours: polygons.map(({ polygon, sign }) => ({
+      level: sign * polygon.value,
+      fill: fill(sign * polygon.value),
+      path: polygon.coordinates
+        .flatMap((shape) =>
+          shape.map(
+            (ring) =>
+              ring
+                .map(([u, v], i) => {
+                  const p = point(-100 + 5 * u, -42.5 + 5 * v);
+                  return `${i ? "L" : "M"}${p.x},${p.y}`;
+                })
+                .join("") + "Z",
+          ),
+        )
+        .join(""),
+    })),
+  };
+}
 
 export function prepareAnalyticalMap(
   response: MapsResponse,
@@ -122,82 +231,28 @@ export function prepareAnalyticalMap(
   const result = selected.result;
   const data = result.availability === "provided" ? result.data : null;
   const direction =
-    response.family.startsWith("defense_") || response.family === "ice_lost"
-      ? "defense"
-      : "offense";
+    response.family === "goalie_stopping"
+      ? "goalie"
+      : response.family.startsWith("defense_") || response.family === "ice_lost"
+        ? "defense"
+        : "offense";
   const absolute = response.selection.view === "complete";
   const maximum = response.scale.maximum;
-  const magnitudes =
-    maximum === 0
-      ? []
-      : Array.from(
-          { length: absolute ? 8 : 4 },
-          (_, i) => maximum * ((i + 1) / (absolute ? 8 : 4)),
-        );
-  const levels =
-    maximum === 0
-      ? [0]
-      : absolute
-        ? [0, ...magnitudes]
-        : [...magnitudes.map((level) => -level).reverse(), 0, ...magnitudes];
   const display = new Map(
     response.definition.display_grid.cells.map((cell) => [cell.cell_id, cell]),
   );
-  const rectangles = (data?.display_cells ?? []).map((cell) => {
-    const bounds = display.get(cell.cell_id);
-    if (!bounds) throw new Error("analytical map display geometry is missing");
-    return {
-      cellId: cell.cell_id,
-      x: direction === "offense" ? 42.5 + bounds.y_min : 42.5 - bounds.y_max,
-      y: direction === "offense" ? 100 - bounds.x_max : 100 + bounds.x_min,
-      width: bounds.y_max - bounds.y_min,
-      height: bounds.x_max - bounds.x_min,
-      fill: color(cell.density_per100sqft, maximum, absolute),
-      density: cell.density_per100sqft,
-      mass: cell.mass,
-      bounds,
-    };
-  });
-  const raster = new Array<number>(40 * 17).fill(0);
-  for (const cell of data?.display_cells ?? []) {
-    const xi = Math.floor(cell.cell_id / 17),
-      yi = cell.cell_id % 17;
-    raster[xi + 40 * yi] = cell.density_per100sqft;
-  }
-  const geometry = contours()
-    .size([40, 17])
-    .thresholds(magnitudes)
-    .smooth(true);
-  const polygons =
-    data?.display_cells && maximum > 0
-      ? [
-          ...geometry(raster).map((polygon) => ({ polygon, sign: 1 })),
-          ...(absolute
-            ? []
-            : geometry(raster.map((value) => -value)).map((polygon) => ({
-                polygon,
-                sign: -1,
-              }))),
-        ]
-      : [];
-  const paths = polygons.map(({ polygon, sign }) => ({
-    level: sign * polygon.value,
-    fill: color(sign * polygon.value, maximum, absolute),
-    path: polygon.coordinates
-      .flatMap((shape) =>
-        shape.map(
-          (ring) =>
-            ring
-              .map(([u, v], i) => {
-                const x = -100 + 5 * u,
-                  y = -42.5 + 5 * v;
-                return `${i === 0 ? "M" : "L"}${direction === "offense" ? 42.5 + y : 42.5 - y},${direction === "offense" ? 100 - x : 100 + x}`;
-              })
-              .join("") + "Z",
-        ),
-      )
-      .join(""),
-  }));
+  const drawing = prepareMapDrawing(
+    (data?.display_cells ?? []).map((cell) => {
+      const bounds = display.get(cell.cell_id);
+      if (!bounds)
+        throw new Error("analytical map display geometry is missing");
+      return { ...cell, bounds };
+    }),
+    direction,
+    maximum,
+    absolute,
+    response.family === "goalie_stopping",
+  );
   const native = new Map(
     response.definition.native_grid.cells.map((cell) => [cell.cell_id, cell]),
   );
@@ -227,9 +282,11 @@ export function prepareAnalyticalMap(
     title: `${response.selection.strength} ${response.family.replaceAll("_", " ")} · ${absolute ? "complete focal rate" : "effect"}`,
     direction,
     orientation:
-      direction === "offense"
-        ? "full rink: attacking goal above; +x up, +y right"
-        : "full rink: defended goal below; +x down, +y left; both axes rotated 180°",
+      direction === "goalie"
+        ? "full rink: defended goal left; stored +x points left, +y down"
+        : direction === "offense"
+          ? "full rink: attacking goal above; +x up, +y right"
+          : "full rink: defended goal below; +x down, +y left; both axes rotated 180°",
     availability: data
       ? data.cells
         ? "provided"
@@ -254,18 +311,15 @@ export function prepareAnalyticalMap(
     integral: data?.integrated_value ?? null,
     maximum,
     minimum: response.scale.minimum,
-    levels,
-    legend: levels.map((value) => ({
-      value,
-      fill: color(value, maximum, absolute),
-    })),
+    levels: drawing.levels,
+    legend: drawing.legend,
     nativeCells: (data?.cells ?? []).map((cell) => {
       const point = native.get(cell.cell_id);
       if (!point) throw new Error("analytical map native geometry is missing");
       return { ...point, value: cell.value };
     }),
-    rectangles,
-    contours: paths,
+    rectangles: drawing.rectangles,
+    contours: drawing.contours,
   };
 }
 
@@ -288,20 +342,54 @@ const againstMeaning = (model: AnalyticalMapModel): string =>
     ? "higher complete density means more against; stored signs are unchanged."
     : "positive differences mean more against; stored signs are unchanged.";
 
+export type MapDrawingModel = Pick<
+  AnalyticalMapModel,
+  | "title"
+  | "orientation"
+  | "densityUnit"
+  | "direction"
+  | "rectangles"
+  | "contours"
+>;
+
 export function AnalyticalMapDrawing({
   model,
   render = "contours",
+  onPoint,
 }: {
-  readonly model: AnalyticalMapModel;
+  readonly model: MapDrawingModel;
   readonly render?: "contours" | "rectangles";
+  readonly onPoint?: (x: number, y: number) => void;
 }) {
+  const id = useId();
   return (
     <Rink
-      className="analytical-rink"
+      onPoint={onPoint}
+      className={
+        model.direction === "goalie" ? "goalie-rink" : "analytical-rink"
+      }
+      orientation={model.direction === "goalie" ? "goalie" : "portrait"}
       label={model.title}
       description={`${model.orientation}; ${model.densityUnit}; 10ft display pooling, contour interpolation is not measured subcell precision`}
     >
-      <rect x="0" y="0" width="85" height="200" fill={neutral} />
+      <defs>
+        <pattern
+          id={`${id}-undefined`}
+          width="3"
+          height="3"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect width="3" height="3" fill="#e5e5e1" />
+          <path d="M0 3L3 0" stroke="#8b9695" strokeWidth="0.4" />
+        </pattern>
+      </defs>
+      <rect
+        x="0"
+        y="0"
+        width={model.direction === "goalie" ? 200 : 85}
+        height={model.direction === "goalie" ? 85 : 200}
+        fill={neutral}
+      />
       {render === "rectangles"
         ? model.rectangles.map((cell) => (
             <rect
@@ -310,7 +398,7 @@ export function AnalyticalMapDrawing({
               y={cell.y}
               width={cell.width}
               height={cell.height}
-              fill={cell.fill}
+              fill={cell.density === null ? `url(#${id}-undefined)` : cell.fill}
             >
               <title>{`cell ${cell.cellId}; density ${cell.density}; display mass ${cell.mass}; raw x ${cell.bounds.x_min}…${cell.bounds.x_max}, y ${cell.bounds.y_min}…${cell.bounds.y_max} ft`}</title>
             </rect>
@@ -522,11 +610,14 @@ const xml = (value: string | number) =>
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
 export function analyticalMapDrawingSvg(
-  model: AnalyticalMapModel,
+  model: MapDrawingModel,
   id: string,
   render: "contours" | "rectangles" = "contours",
 ): string {
-  return `<svg viewBox="-1 -1 87 202" width="100%" height="100%"><title>${xml(model.title)}</title><desc>${xml(model.orientation)}</desc><defs><clipPath id="${id}"><rect width="85" height="200" rx="28"/></clipPath></defs><g clip-path="url(#${id})"><rect width="85" height="200" fill="${neutral}"/>${render === "rectangles" ? model.rectangles.map((cell) => `<rect x="${cell.x}" y="${cell.y}" width="${cell.width}" height="${cell.height}" fill="${cell.fill}"/>`).join("") : model.contours.map((contour) => `<path d="${contour.path}" fill="${contour.fill}" fill-rule="evenodd"/>`).join("")}<g fill="none" stroke="#64767b" stroke-width="0.3"><path d="M0 75H85M0 125H85M0 100H85"/><circle cx="42.5" cy="100" r="15"/><path d="M39.5 11H45.5M39.5 189H45.5"/></g></g><rect width="85" height="200" rx="28" fill="none" stroke="#59676d" stroke-width="0.6"/></svg>`;
+  const landscape = model.direction === "goalie";
+  const width = landscape ? 200 : 85,
+    height = landscape ? 85 : 200;
+  return `<svg viewBox="-1 -1 ${width + 2} ${height + 2}" width="100%" height="100%"><title>${xml(model.title)}</title><desc>${xml(model.orientation)}</desc><defs><pattern id="${id}-undefined" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="3" fill="#e5e5e1"/><path d="M0 3L3 0" stroke="#8b9695" stroke-width="0.4"/></pattern><clipPath id="${id}"><rect width="${width}" height="${height}" rx="28"/></clipPath></defs><g clip-path="url(#${id})"><rect width="${width}" height="${height}" fill="${neutral}"/>${render === "rectangles" ? model.rectangles.map((cell) => `<rect x="${cell.x}" y="${cell.y}" width="${cell.width}" height="${cell.height}" fill="${cell.density === null ? `url(#${id}-undefined)` : cell.fill}"/>`).join("") : model.contours.map((contour) => `<path d="${contour.path}" fill="${contour.fill}" fill-rule="evenodd"/>`).join("")}<g fill="none" stroke="#64767b" stroke-width="0.3"${landscape ? ' transform="matrix(0,1,1,0,0,0)"' : ""}><path d="M0 75H85M0 125H85M0 100H85"/><circle cx="42.5" cy="100" r="15"/><path d="M39.5 11H45.5M39.5 189H45.5"/></g></g><rect width="${width}" height="${height}" rx="28" fill="none" stroke="#59676d" stroke-width="0.6"/></svg>`;
 }
 
 function analyticalMapSvg(

@@ -1,0 +1,60 @@
+{
+  "origin": "http://127.0.0.1:3419",
+  "delayed": 6,
+  "controls": [
+    {
+      "label": "download complete goalie sheet png",
+      "blocked": false
+    },
+    {
+      "label": "download goalie-card.csv",
+      "blocked": false
+    },
+    {
+      "label": "download selected goalie map png",
+      "blocked": false
+    },
+    {
+      "label": "download goalie-map.csv",
+      "blocked": false
+    },
+    {
+      "label": "download goalie-tiers.csv",
+      "blocked": false
+    },
+    {
+      "label": "download goalie-stages.csv",
+      "blocked": false
+    },
+    {
+      "label": "download goalie-games.csv",
+      "blocked": false
+    },
+    {
+      "label": "download exact-state scalars and history csv",
+      "blocked": false
+    },
+    {
+      "label": "download goalie-danger.csv",
+      "blocked": false
+    },
+    {
+      "label": "download distribution png",
+      "blocked": false
+    },
+    {
+      "label": "download distribution csv",
+      "blocked": false
+    },
+    {
+      "label": "download history png",
+      "blocked": false
+    },
+    {
+      "label": "download history csv",
+      "blocked": false
+    }
+  ],
+  "allDownloadsBlocked": false,
+  "visibleLoadingReason": false
+}

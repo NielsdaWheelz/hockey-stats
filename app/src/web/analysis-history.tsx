@@ -368,6 +368,8 @@ export const analysisCsvHeaders = [
   "direction",
   "spatial_support_meaning",
   "method_evidence",
+  "mechanism_detail",
+  "goalie_detail",
 ] as const;
 export function analysisCsvRow(
   publication: Publication,
@@ -456,6 +458,8 @@ export function analysisCsvRow(
     spatialDirection(datum),
     datum.metric.publicationFamily === "spatial" ? spatialSupportMeaning(datum) : null,
     JSON.stringify(datum.methods.map(method => ({ method_id: method.method_id, evidence: method.evidence }))),
+    datum.mechanism_detail === null ? null : JSON.stringify(datum.mechanism_detail),
+    datum.goalie_detail === null ? null : JSON.stringify(datum.goalie_detail),
   ];
 }
 
@@ -549,7 +553,7 @@ function geometry(view: HistoryView) {
   };
 }
 
-function HistoryPlot({ view }: { readonly view: HistoryView }) {
+export function HistoryPlot({ view }: { readonly view: HistoryView }) {
   const { values, prepared, domain, x, y } = geometry(view);
   const nativeX = (index: number) => `${x(index) / 12}%`;
   const nativeY = (value: number) => 30 + ((y(value) - 70) * 130) / 220;
@@ -900,8 +904,10 @@ export default function AnalysisHistory({
   view,
   onScaleChange,
   seasonLink,
+  exportPending = false,
 }: {
   readonly view: HistoryView;
+  readonly exportPending?: boolean;
   readonly onScaleChange: (scale: HistoryScale) => void;
   readonly seasonLink: (season: string) => { to: string; state: unknown };
 }) {
@@ -1019,7 +1025,7 @@ export default function AnalysisHistory({
       <div className="card-actions">
         <button
           type="button"
-          disabled={status === "rendering"}
+          disabled={exportPending || status === "rendering"}
           onClick={async () => {
             if (busy.current) return;
             busy.current = true;
@@ -1043,6 +1049,7 @@ export default function AnalysisHistory({
         </button>
         <button
           type="button"
+          disabled={exportPending}
           onClick={() => {
             const snapshot = view;
             try {

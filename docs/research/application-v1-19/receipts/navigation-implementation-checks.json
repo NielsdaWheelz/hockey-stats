@@ -1,0 +1,30 @@
+{
+  "temporary_checks": "app/.tmp-v1-19-nav/selection-check.ts; app/.tmp-v1-19-nav/live-loader.ts",
+  "red": {
+    "case": "goalie kind and finite selector contract",
+    "result": "TypeError: explorer.readKind is not a function before implementation"
+  },
+  "green": [
+    "invalid and duplicate selectors canonicalized",
+    "core ev/pk switch preserves selected field and defaults actual evidence to the new core",
+    "goalie discovery removes skater position/preset filters; skater discovery removes goalie-only selections",
+    "node24 full app typecheck",
+    "git diff --check"
+  ],
+  "integration": {
+    "cases": 53,
+    "requests": 697,
+    "response_bytes": 139119991,
+    "full_actual_matrix": "12 strengths \u00d72 populations \u00d72 map quantities",
+    "other_cases": [
+      "one-overview goalie discovery with ten columns",
+      "pending modeled output remains renderable",
+      "same-kind comparison with selected-season absence and paired map requests",
+      "mixed kinds rejected before map requests",
+      "skater comparative/ledger defaults preserved"
+    ],
+    "all_requests_unique_within_case": true,
+    "all_responses_http200": true
+  },
+  "temporary_test_disposition": "retained until root completes browser acceptance and approves campaign cleanup"
+}

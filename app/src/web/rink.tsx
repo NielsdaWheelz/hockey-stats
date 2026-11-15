@@ -5,17 +5,34 @@ export default function Rink({
   label,
   description,
   className = "spatial-rink",
+  orientation = "portrait",
+  onPoint,
 }: {
   readonly children: ReactNode;
   readonly label: string;
   readonly description: string;
   readonly className?: string;
+  readonly orientation?: "portrait" | "goalie";
+  readonly onPoint?: (x: number, y: number) => void;
 }) {
   const id = useId();
   return (
     <svg
       className={className}
-      viewBox="-1 -1 87 202"
+      viewBox={orientation === "goalie" ? "-1 -1 202 87" : "-1 -1 87 202"}
+      onPointerMove={
+        onPoint
+          ? (event) => {
+              const matrix = event.currentTarget.getScreenCTM();
+              if (!matrix) return;
+              const point = event.currentTarget.createSVGPoint();
+              point.x = event.clientX;
+              point.y = event.clientY;
+              const local = point.matrixTransform(matrix.inverse());
+              onPoint(local.x, local.y);
+            }
+          : undefined
+      }
       role="img"
       aria-labelledby={`${id}-title`}
       aria-describedby={`${id}-description`}
@@ -24,7 +41,13 @@ export default function Rink({
       <desc id={`${id}-description`}>{description}</desc>
       <defs>
         <clipPath id={`${id}-clip`}>
-          <rect x="0" y="0" width="85" height="200" rx="28" />
+          <rect
+            x="0"
+            y="0"
+            width={orientation === "goalie" ? 200 : 85}
+            height={orientation === "goalie" ? 85 : 200}
+            rx="28"
+          />
         </clipPath>
       </defs>
       <g clipPath={`url(#${id}-clip)`}>
@@ -34,6 +57,9 @@ export default function Rink({
           fill="none"
           stroke="#64767b"
           strokeWidth="0.3"
+          transform={
+            orientation === "goalie" ? "matrix(0,1,1,0,0,0)" : undefined
+          }
         >
           <path d="M0 75H85M0 125H85M0 100H85" />
           <circle cx="42.5" cy="100" r="15" />
@@ -44,8 +70,8 @@ export default function Rink({
         className="spatial-outline"
         x="0"
         y="0"
-        width="85"
-        height="200"
+        width={orientation === "goalie" ? 200 : 85}
+        height={orientation === "goalie" ? 85 : 200}
         rx="28"
         fill="none"
         stroke="#59676d"

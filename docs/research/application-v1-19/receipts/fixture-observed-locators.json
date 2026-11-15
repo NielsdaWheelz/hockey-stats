@@ -1,0 +1,44 @@
+{
+  "kind": "attributed_fixture_observed_locator_successor",
+  "source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/fixtures/goalie-card-v1-19/results/manifest.json",
+    "sha256": "a425b2d01ed8bb786bab31b2a8cc65dd74aa9b1157caa0b176bdd45c72927624"
+  },
+  "selection": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/application-v1-18-20261109-01/fixture/candidate-03/selection.json",
+    "sha256": "d53cc2255c1beba187e76f9b83e1a3838f27ad7116c301c3132be14487d11210"
+  },
+  "previous_bindings": [
+    {
+      "season": "20232024",
+      "corpus_sha256": "5ef7a0cb757f0283386377308687b854d84b2ff144e7085d80ca0242cf0cbbb0"
+    },
+    {
+      "season": "20242025",
+      "corpus_sha256": "12276e3802058e11eb1493bdbc8de4c9f2eeb8a50649c57a2f1c9e252aca0813"
+    },
+    {
+      "season": "20252026",
+      "corpus_sha256": "5d9e84d335097513b523b37ca972d116685741f323bc15e0ed9d9fd878431e07"
+    }
+  ],
+  "current_bindings": [
+    {
+      "season": "20232024",
+      "corpus_sha256": "e47859cf1279c8bc975d06c3c11f252792c1a7ebdce5c28bae6372dabbf3fee3"
+    },
+    {
+      "season": "20242025",
+      "corpus_sha256": "380172cdb3b2416b5086ac4e975c116b12db8b2e0f0444d7487e51da3d73beed"
+    },
+    {
+      "season": "20252026",
+      "corpus_sha256": "db8b329ef54ea11c04e69437fe0f78adfa5b0d8463fd436529e42687f47245e0"
+    }
+  ],
+  "policy": "member/catalog bytes exact; only corpus locator digests adopt retained already-accepted fixture corpora",
+  "output": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/fixture-results/manifest.json",
+    "sha256": "515f46a1842c326902a029f647b679656fab7c81d24901f41068046c2882a8f2"
+  }
+}

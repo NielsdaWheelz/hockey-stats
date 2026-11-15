@@ -7,7 +7,7 @@ import {
   type ShouldRevalidateFunctionArgs,
 } from "react-router";
 import { HockeyId, type Team } from "../shared/observed";
-import { ExecutionStrength, type SpatialStrength } from "../shared/player-analysis";
+import { ExecutionStrength, GoalieStrength, type SpatialStrength } from "../shared/player-analysis";
 import {
   analysisMetric,
   defaultAnalysisMetric,
@@ -29,8 +29,9 @@ export type Sort =
   | "reportedMinutes"
   | "evScoringMinutes"
   | "ppScoringMinutes";
-export type AnalysisView = "comparative" | "observed" | "microstats" | "analytical";
+export type AnalysisView = "comparative" | "observed" | "microstats" | "analytical" | "goalie";
 export type DiscoveryTable =
+  | "goalie"
   | "overview"
   | "observed"
   | "descriptive"
@@ -42,6 +43,7 @@ export type DiscoveryTable =
 export type TableSelection = {
   readonly table: DiscoveryTable;
   readonly strength:
+    | "ev"
     | "5v5"
     | "pp"
     | "pk"
@@ -54,11 +56,28 @@ export type TableSelection = {
     | null;
 };
 
-export function readView(search: URLSearchParams): {
+export function readKind(search: URLSearchParams): {
+  readonly kind: "skater" | "goalie";
+  readonly search: URLSearchParams;
+} {
+  const next = new URLSearchParams(search);
+  const values = search.getAll("kind");
+  const kind = values.length === 1 && values[0] === "goalie" ? "goalie" : "skater";
+  if (values.length && (values.length !== 1 || values[0] !== kind)) next.delete("kind");
+  return { kind, search: next };
+}
+
+export function readView(search: URLSearchParams, kind = readKind(search).kind): {
   readonly view: AnalysisView;
   readonly search: URLSearchParams;
 } {
   const next = new URLSearchParams(search);
+  if (kind === "goalie") {
+    next.set("view", "goalie");
+    for (const key of ["position", "peers", "table", "map"]) next.delete(key);
+    return { view: "goalie", search: next };
+  }
+  for (const key of ["evidenceStrength", "population", "evidenceView", "type"]) next.delete(key);
   const values = search.getAll("view");
   const selected = values.length === 1 ? values[0] : undefined;
   if (values.length && selected !== "comparative" && selected !== "observed" && selected !== "microstats" && selected !== "analytical")
@@ -66,11 +85,65 @@ export function readView(search: URLSearchParams): {
   return { view: selected === "observed" || selected === "microstats" || selected === "analytical" ? selected : "comparative", search: next };
 }
 
+export type GoalieSelection = {
+  readonly coreStrength: "ev" | "pk";
+  readonly evidenceStrength: typeof GoalieStrength.Type | "covered_all";
+  readonly population: "unblocked" | "on_net";
+  readonly evidenceView: "mass" | "ratio";
+  readonly type: "all" | "wrist_snap" | "slap" | "tip" | "backhand" | "other";
+};
+
+export function readGoalieSelection(search: URLSearchParams): {
+  readonly selection: GoalieSelection;
+  readonly search: URLSearchParams;
+} {
+  const { metric, search: next } = readMetric(search, "goalie", "goalie");
+  const coreStrength = metric.selectionStrength === "pk" ? "pk" : "ev";
+  const strengthValues = next.getAll("evidenceStrength");
+  const rawStrength = strengthValues.length === 1 ? strengthValues[0] : undefined;
+  const evidenceStrength = rawStrength === "covered_all" || Schema.is(GoalieStrength)(rawStrength)
+    ? rawStrength : coreStrength;
+  if (strengthValues.length && rawStrength !== evidenceStrength) next.delete("evidenceStrength");
+  const populations = next.getAll("population");
+  const population = populations.length === 1 && populations[0] === "on_net" ? "on_net" : "unblocked";
+  if (populations.length && (populations.length !== 1 || populations[0] !== population)) next.delete("population");
+  const views = next.getAll("evidenceView");
+  const evidenceView = views.length === 1 && views[0] === "ratio" ? "ratio" : "mass";
+  if (views.length && (views.length !== 1 || views[0] !== evidenceView)) next.delete("evidenceView");
+  const types = next.getAll("type");
+  const type = types.length === 1 && ["wrist_snap", "slap", "tip", "backhand", "other"].includes(types[0])
+    ? types[0] as GoalieSelection["type"] : "all";
+  if (types.length && (types.length !== 1 || types[0] !== type)) next.delete("type");
+  next.delete("strength");
+  return { selection: { coreStrength, evidenceStrength, population, evidenceView, type }, search: next };
+}
+
+export function goalieSelectionSearch(search: URLSearchParams, changes: Partial<GoalieSelection>): URLSearchParams {
+  const next = new URLSearchParams(search);
+  if (changes.coreStrength !== undefined) {
+    const metric = readMetric(next, "goalie", "goalie").metric;
+    next.set("metric", `goalie.${changes.coreStrength}.${metric.id.split(".")[2]}`);
+  }
+  for (const key of ["evidenceStrength", "population", "evidenceView", "type"] as const)
+    if (changes[key] !== undefined) next.set(key, changes[key]);
+  return readGoalieSelection(next).search;
+}
+
 export function readTableSelection(search: URLSearchParams): {
   readonly selection: TableSelection;
   readonly search: URLSearchParams;
 } {
-  const next = new URLSearchParams(search);
+  const { kind, search: next } = readKind(search);
+  if (kind === "goalie") {
+    for (const key of ["table", "position", "peers", "view", "metric", "evidenceStrength", "population", "evidenceView", "type", "render", "map"]) next.delete(key);
+    const strengths = next.getAll("strength");
+    const raw = strengths.length === 1 ? strengths[0] : undefined;
+    const strength = raw === "pk" ? "pk" : "ev";
+    if (strengths.length && raw !== strength) next.delete("strength");
+    return { selection: { table: "goalie", strength }, search: next };
+  }
+  for (const key of ["evidenceStrength", "population", "evidenceView", "type"]) next.delete(key);
+  if (next.get("view") === "goalie") next.delete("view");
   const tables: readonly DiscoveryTable[] = [
     "overview", "observed", "descriptive", "spatial", "execution", "shootiness", "penalties", "territory",
   ];
@@ -186,7 +259,7 @@ export function readPeerSettings(search: URLSearchParams): {
 export function readMetric(
   search: URLSearchParams,
   kind: "skater" | "goalie",
-  view = readView(search).view,
+  view = readView(search, kind).view,
 ): {
   readonly metric: AnalysisMetric;
   readonly search: URLSearchParams;
@@ -278,7 +351,7 @@ export function readMapRender(search: URLSearchParams): {
 } {
   const next = new URLSearchParams(search);
   const values = search.getAll("render");
-  const render = readView(search).view === "analytical" && values.length === 1 && values[0] === "rectangles"
+  const render = (readView(search).view === "analytical" || search.get("view") === "goalie") && values.length === 1 && values[0] === "rectangles"
     ? "rectangles" : "contours";
   if (render === "contours") next.delete("render");
   return { render, search: next };

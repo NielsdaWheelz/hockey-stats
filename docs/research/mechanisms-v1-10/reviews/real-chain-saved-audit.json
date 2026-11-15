@@ -1,0 +1,1466 @@
+{
+  "schema_version": 1,
+  "kind": "independent_real_mechanism_chain_saved_audit",
+  "purpose": "real",
+  "status": "pass",
+  "checks": 3808846,
+  "input_pins": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/receipts/input-pins.json",
+    "sha256": "6ffd46d6d974e70635b8c22c739bb3d846e9b37c02af9f617e1e4f8561b5cb70"
+  },
+  "consumed": "only ten manifests and bound head/reference/support/projection/coverage/probe json and small coefficient archives; approved pins read locally; no sources, design.json, arrays.npz, production imports, objective calls or fits",
+  "limits": [
+    "all entry/carry priors, last-supported raw ledgers, support, centers and standardized projections independently reconstructed",
+    "source membership and exposure checked through sealed coverage accounting, not independent original-source reconstruction",
+    "actual fitting-row maxima remain producer-reported; saved worst shooter candidate unit independently reproduced when assessed and present; exhaustive actual-row maxima not recomputed",
+    "native function-tolerance completion is permitted; achieved gradient tolerance is reported separately and does not establish coefficient accuracy",
+    "all coefficient accuracy remains unknown; these are in-sample diagnostics, not calibrated uncertainty, causal isolation, held-out accuracy or scientific admission"
+  ],
+  "wall_seconds": 8.183986291987821,
+  "peak_resident_bytes": 1115652096,
+  "consumed_bytes": 557778921,
+  "annuals": [
+    {
+      "family": "penalties",
+      "season": "20212022",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20212022/manifest.json",
+        "sha256": "d41c456c30bbba9d34a8ea2bf8cb1ab8ce56f37edbb007938878c193dc008712"
+      },
+      "players": 1004,
+      "projections": 1004,
+      "raw_actors": 2918,
+      "ledger": 2552,
+      "history": {
+        "entry": 2918,
+        "carry": 0,
+        "unsupported": 366
+      },
+      "cases": {
+        "prior_only": 1,
+        "unknown_position": 0,
+        "zero_state_time_available": 0,
+        "never_shooting_informed": 0
+      },
+      "coverage": {
+        "games": 1312,
+        "included_groups": 4945,
+        "awards": 4958,
+        "source_dispositions": {
+          "residual": 7299,
+          "cancelled": 433,
+          "unresolved": 138,
+          "outside_population": 390
+        },
+        "model_dispositions": {
+          "excluded": 885,
+          "included": 4945,
+          "not_applicable": 961,
+          "outside_population": 1469
+        },
+        "physical_hours": 1041.453888888889,
+        "directed_hours": 2082.907777777778,
+        "player_slot_hours": 10414.538888888888,
+        "known_excluded_physical_hours": 6.825833333333334
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 1176,
+        "evaluations": 1298,
+        "objective": -554.4774271466538,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 3.100378085803615e-05,
+        "achieved_gtol": false,
+        "wall_seconds": 188.12376962509006,
+        "peak_memory_bytes": 17691738112
+      },
+      "coefficient_accuracy": "unknown",
+      "in_sample": {
+        "kind": "in_sample_not_held_out",
+        "expected_awards": 4958.048539347861,
+        "observed_awards": 4958.0
+      },
+      "diagnostic": {
+        "status": "not_assessed",
+        "reason": "earlier_annual"
+      },
+      "resources": {
+        "wall_seconds": 209.6041693331208,
+        "peak_memory_bytes": 17691738112,
+        "coordinates": 3273,
+        "baseline_solves": 1,
+        "diagnostic_solves": 0,
+        "preparation": {
+          "preparation_seconds": 5327.824599290965,
+          "input_read_wall_seconds": 1.4197552499826998
+        },
+        "wall_scope": "fit/projection/diagnostic before artifact writing; preparation separately reported",
+        "output_bytes": 10952203159,
+        "write_wall_seconds": 156.20850554201752
+      }
+    },
+    {
+      "family": "penalties",
+      "season": "20222023",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20222023/manifest.json",
+        "sha256": "017891d420672898068874b888fa3762678a15cf4e348ac52bf835d36e80c0bc"
+      },
+      "players": 951,
+      "projections": 951,
+      "raw_actors": 2812,
+      "ledger": 2926,
+      "history": {
+        "entry": 640,
+        "carry": 2172,
+        "unsupported": 448
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 0,
+        "never_shooting_informed": 0
+      },
+      "coverage": {
+        "games": 1312,
+        "included_groups": 5792,
+        "awards": 5816,
+        "source_dispositions": {
+          "residual": 7745,
+          "outside_population": 435,
+          "cancelled": 362,
+          "unresolved": 112
+        },
+        "model_dispositions": {
+          "included": 5792,
+          "not_applicable": 909,
+          "outside_population": 1767,
+          "excluded": 186
+        },
+        "physical_hours": 1048.1169444444445,
+        "directed_hours": 2096.233888888889,
+        "player_slot_hours": 10481.169444444444,
+        "known_excluded_physical_hours": 1.6097222222222223
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 1205,
+        "evaluations": 1326,
+        "objective": -1144.3708814632037,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 3.6504016667941036e-05,
+        "achieved_gtol": false,
+        "wall_seconds": 303.51887862500735,
+        "peak_memory_bytes": 27659681792
+      },
+      "coefficient_accuracy": "unknown",
+      "in_sample": {
+        "kind": "in_sample_not_held_out",
+        "expected_awards": 5816.054225623006,
+        "observed_awards": 5816.0
+      },
+      "diagnostic": {
+        "status": "not_assessed",
+        "reason": "earlier_annual"
+      },
+      "resources": {
+        "wall_seconds": 330.9732197090052,
+        "peak_memory_bytes": 27659681792,
+        "coordinates": 3167,
+        "baseline_solves": 1,
+        "diagnostic_solves": 0,
+        "preparation": {
+          "preparation_seconds": 6354.217377291992
+        },
+        "wall_scope": "fit/projection/diagnostic before artifact writing; preparation separately reported",
+        "output_bytes": 13520676216,
+        "write_wall_seconds": 214.35581475007348
+      }
+    },
+    {
+      "family": "penalties",
+      "season": "20232024",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20232024/manifest.json",
+        "sha256": "e172684fa5d9c66b1c51721a98fb0dab5ac254e6bfc32a1e7666935ae16b39ad"
+      },
+      "players": 924,
+      "projections": 924,
+      "raw_actors": 2758,
+      "ledger": 3280,
+      "history": {
+        "entry": 494,
+        "carry": 2264,
+        "unsupported": 364
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 0,
+        "never_shooting_informed": 0
+      },
+      "coverage": {
+        "games": 1312,
+        "included_groups": 5439,
+        "awards": 5457,
+        "source_dispositions": {
+          "residual": 7573,
+          "outside_population": 416,
+          "unresolved": 128,
+          "cancelled": 380
+        },
+        "model_dispositions": {
+          "included": 5439,
+          "outside_population": 1728,
+          "not_applicable": 924,
+          "excluded": 406
+        },
+        "physical_hours": 1029.0700000000002,
+        "directed_hours": 2058.1400000000003,
+        "player_slot_hours": 10290.7,
+        "known_excluded_physical_hours": 1.3816666666666666
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 1166,
+        "evaluations": 1294,
+        "objective": -929.2958073127659,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 8.432459095903235e-05,
+        "achieved_gtol": false,
+        "wall_seconds": 238.02881133393385,
+        "peak_memory_bytes": 22936600576
+      },
+      "coefficient_accuracy": "unknown",
+      "in_sample": {
+        "kind": "in_sample_not_held_out",
+        "expected_awards": 5457.055725168341,
+        "observed_awards": 5457.0
+      },
+      "diagnostic": {
+        "status": "not_assessed",
+        "reason": "earlier_annual"
+      },
+      "resources": {
+        "wall_seconds": 283.9895659580361,
+        "peak_memory_bytes": 22936600576,
+        "coordinates": 3113,
+        "baseline_solves": 1,
+        "diagnostic_solves": 0,
+        "preparation": {
+          "preparation_seconds": 8944.70828716713
+        },
+        "wall_scope": "fit/projection/diagnostic before artifact writing; preparation separately reported",
+        "output_bytes": 13130689289,
+        "write_wall_seconds": 174.23666012496687
+      }
+    },
+    {
+      "family": "penalties",
+      "season": "20242025",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20242025/manifest.json",
+        "sha256": "1c48e9b7b2d0794fbca0ab6f1a77ad90cbe82682e740e59e3870346c98399730"
+      },
+      "players": 920,
+      "projections": 920,
+      "raw_actors": 2750,
+      "ledger": 3572,
+      "history": {
+        "entry": 360,
+        "carry": 2390,
+        "unsupported": 426
+      },
+      "cases": {
+        "prior_only": 10,
+        "unknown_position": 0,
+        "zero_state_time_available": 0,
+        "never_shooting_informed": 0
+      },
+      "coverage": {
+        "games": 1312,
+        "included_groups": 4864,
+        "awards": 4878,
+        "source_dispositions": {
+          "residual": 6751,
+          "unresolved": 169,
+          "outside_population": 379,
+          "cancelled": 377
+        },
+        "model_dispositions": {
+          "outside_population": 1412,
+          "included": 4864,
+          "not_applicable": 925,
+          "excluded": 475
+        },
+        "physical_hours": 1015.0561111111111,
+        "directed_hours": 2030.1122222222223,
+        "player_slot_hours": 10150.56111111111,
+        "known_excluded_physical_hours": 2.0094444444444446
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 1098,
+        "evaluations": 1222,
+        "objective": -340.1297447080799,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 4.6772825860478574e-05,
+        "achieved_gtol": false,
+        "wall_seconds": 208.8061905419454,
+        "peak_memory_bytes": 36148609024
+      },
+      "coefficient_accuracy": "unknown",
+      "in_sample": {
+        "kind": "in_sample_not_held_out",
+        "expected_awards": 4878.051650004309,
+        "observed_awards": 4878.0
+      },
+      "diagnostic": {
+        "status": "not_assessed",
+        "reason": "earlier_annual"
+      },
+      "resources": {
+        "wall_seconds": 229.60667254100554,
+        "peak_memory_bytes": 36148609024,
+        "coordinates": 3105,
+        "baseline_solves": 1,
+        "diagnostic_solves": 0,
+        "preparation": {
+          "preparation_seconds": 5824.438779333141
+        },
+        "wall_scope": "fit/projection/diagnostic before artifact writing; preparation separately reported",
+        "output_bytes": 13127725223,
+        "write_wall_seconds": 171.4839229581412
+      }
+    },
+    {
+      "family": "penalties",
+      "season": "20252026",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20252026/manifest.json",
+        "sha256": "0a0b679f9d67fd3d856eea8be64d95ae309129018afb8e2511a949126bcfe1df"
+      },
+      "players": 940,
+      "projections": 940,
+      "raw_actors": 2790,
+      "ledger": 3864,
+      "history": {
+        "entry": 292,
+        "carry": 2498,
+        "unsupported": 408
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 0,
+        "never_shooting_informed": 0
+      },
+      "coverage": {
+        "games": 1312,
+        "included_groups": 5368,
+        "awards": 5391,
+        "source_dispositions": {
+          "residual": 7244,
+          "outside_population": 396,
+          "unresolved": 111,
+          "cancelled": 406
+        },
+        "model_dispositions": {
+          "included": 5368,
+          "not_applicable": 913,
+          "outside_population": 1695,
+          "excluded": 181
+        },
+        "physical_hours": 1052.1472222222221,
+        "directed_hours": 2104.2944444444443,
+        "player_slot_hours": 10521.472222222223,
+        "known_excluded_physical_hours": 0.9136111111111112
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 1231,
+        "evaluations": 1358,
+        "objective": -680.1089675172462,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 3.7614178269819096e-05,
+        "achieved_gtol": false,
+        "wall_seconds": 241.58322312496603,
+        "peak_memory_bytes": 33116225536
+      },
+      "coefficient_accuracy": "unknown",
+      "in_sample": {
+        "kind": "in_sample_not_held_out",
+        "expected_awards": 5391.056116661885,
+        "observed_awards": 5391.0
+      },
+      "diagnostic": {
+        "comparison": {
+          "status": "within_budget",
+          "reason": null,
+          "projection_maximum": 5.336368680275427e-09,
+          "fitting_row_maximum": 2.5616384711213414e-06,
+          "worst_projection": {
+            "player_id": "8484762",
+            "strength": null,
+            "field": "taken_per60"
+          },
+          "worst_fitting_row": {
+            "axis": "time_rows",
+            "row": 2390660,
+            "source_rows": {
+              "source_rows": [
+                {
+                  "game_id": "2025021060",
+                  "segment_index": 110,
+                  "chunk_index": 381,
+                  "start_seconds": 970,
+                  "end_seconds": 975,
+                  "source_index": null,
+                  "attacking_side": "home",
+                  "attacking_players": [
+                    "8473507",
+                    "8475692",
+                    "8477451",
+                    "8478864",
+                    "8480800"
+                  ],
+                  "defending_players": [
+                    "8476931",
+                    "8478057",
+                    "8478443",
+                    "8480870",
+                    "8481582"
+                  ],
+                  "attacking_team_id": 30,
+                  "defending_team_id": 10,
+                  "repeat": "none"
+                }
+              ]
+            }
+          },
+          "budget": 0.0001,
+          "penalty_value_status": "unassessed"
+        },
+        "native": {
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 2,
+          "evaluations": 6,
+          "objective": -680.1089675172493,
+          "options": {
+            "maxiter": 10000,
+            "ftol": 1e-16,
+            "gtol": 1e-07,
+            "maxcor": 10
+          },
+          "gradient_inf_norm": 4.18166263959005e-05,
+          "achieved_gtol": false,
+          "wall_seconds": 1.414241624996066,
+          "peak_memory_bytes": 33116225536
+        },
+        "coefficient_accuracy": "unknown",
+        "actual_rows": "producer-reported finite actual-row maximum; exhaustive maximum not recomputed"
+      },
+      "resources": {
+        "wall_seconds": 264.24268799996935,
+        "peak_memory_bytes": 33116225536,
+        "coordinates": 3145,
+        "baseline_solves": 1,
+        "diagnostic_solves": 1,
+        "preparation": {
+          "preparation_seconds": 6291.6415266669355
+        },
+        "wall_scope": "fit/projection/diagnostic before artifact writing; preparation separately reported",
+        "output_bytes": 13551984504,
+        "write_wall_seconds": 173.98761908407323
+      }
+    },
+    {
+      "family": "shootiness",
+      "season": "20212022",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/shootiness/20212022/manifest.json",
+        "sha256": "f157b7df78d5205ab42004ccab29afe4c3f6ee878ae9d3e93e0b1e1021d39882"
+      },
+      "players": 1004,
+      "projections": 7028,
+      "raw_actors": 1004,
+      "ledger": 1004,
+      "history": {
+        "entry": 1004,
+        "carry": 0,
+        "unsupported": 0
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 14,
+        "zero_state_time_available": 2764,
+        "never_shooting_informed": 12
+      },
+      "coverage": {
+        "games": 1312,
+        "choices": 140977,
+        "candidate_incidence": 701300,
+        "states": {
+          "5v5": 117689,
+          "5v4": 19190,
+          "5v3": 561,
+          "4v3": 324,
+          "4v5": 3165,
+          "3v5": 18,
+          "3v4": 30
+        },
+        "dispositions": {
+          "included": 140977,
+          "outside_population": 7802,
+          "excluded": 633
+        },
+        "included_player_seconds": 44148837.0,
+        "known_excluded_player_seconds": 135814.0
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 325,
+        "evaluations": 376,
+        "objective": 222134.5422987421,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 0.0023054734563632273,
+        "achieved_gtol": false,
+        "wall_seconds": 5.186810709070414,
+        "peak_memory_bytes": 1734934528
+      },
+      "coefficient_accuracy": "unknown",
+      "in_sample": {
+        "kind": "in_sample_not_held_out",
+        "choices": 140977,
+        "states": [
+          {
+            "strength": "5v5",
+            "expected_by_role": [
+              76987.08723163026,
+              40594.03653302112,
+              107.87623534592556
+            ],
+            "observed_by_role": [
+              76987.0,
+              40594.0,
+              108.0
+            ]
+          },
+          {
+            "strength": "5v4",
+            "expected_by_role": [
+              14860.729852535636,
+              4329.270147464345,
+              0.0
+            ],
+            "observed_by_role": [
+              14861.0,
+              4329.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "5v3",
+            "expected_by_role": [
+              430.79805824116943,
+              130.20194175883017,
+              0.0
+            ],
+            "observed_by_role": [
+              431.0,
+              130.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "4v3",
+            "expected_by_role": [
+              255.79113874001084,
+              68.20886125998886,
+              0.0
+            ],
+            "observed_by_role": [
+              256.0,
+              68.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "4v5",
+            "expected_by_role": [
+              2369.5715364905013,
+              795.0414188113202,
+              0.38704469817318765
+            ],
+            "observed_by_role": [
+              2370.0,
+              795.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "3v5",
+            "expected_by_role": [
+              9.43980963284116,
+              8.560190367158839,
+              0.0
+            ],
+            "observed_by_role": [
+              9.0,
+              9.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "3v4",
+            "expected_by_role": [
+              16.22823906040673,
+              13.771760939593277,
+              0.0
+            ],
+            "observed_by_role": [
+              16.0,
+              14.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "diagnostic": {
+        "status": "not_assessed",
+        "reason": "earlier_annual"
+      },
+      "resources": {
+        "wall_seconds": 6.198592999950051,
+        "peak_memory_bytes": 1734934528,
+        "coordinates": 1018,
+        "baseline_solves": 1,
+        "diagnostic_solves": 0,
+        "preparation": {
+          "preparation_seconds": 3956.212971916888
+        },
+        "wall_scope": "fit/projection/diagnostic before artifact writing; preparation separately reported",
+        "output_bytes": 398929048,
+        "write_wall_seconds": 5.7464879581239074
+      }
+    },
+    {
+      "family": "shootiness",
+      "season": "20222023",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/shootiness/20222023/manifest.json",
+        "sha256": "ef10d1fb7700ec40919acb7349c94b84c4bdb8b20df9239419d0594cbdd6f3d2"
+      },
+      "players": 951,
+      "projections": 6657,
+      "raw_actors": 951,
+      "ledger": 1141,
+      "history": {
+        "entry": 137,
+        "carry": 814,
+        "unsupported": 1
+      },
+      "cases": {
+        "prior_only": 1,
+        "unknown_position": 7,
+        "zero_state_time_available": 2786,
+        "never_shooting_informed": 14
+      },
+      "coverage": {
+        "games": 1312,
+        "choices": 145059,
+        "candidate_incidence": 721538,
+        "states": {
+          "5v5": 119649,
+          "5v4": 21045,
+          "5v3": 640,
+          "4v3": 452,
+          "4v5": 3241,
+          "3v5": 15,
+          "3v4": 17
+        },
+        "dispositions": {
+          "included": 145059,
+          "outside_population": 7700,
+          "excluded": 589
+        },
+        "included_player_seconds": 44756771.0,
+        "known_excluded_player_seconds": 35662.0
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 274,
+        "evaluations": 315,
+        "objective": 228760.09865878965,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 0.0004701176090939896,
+        "achieved_gtol": false,
+        "wall_seconds": 4.239473875146359,
+        "peak_memory_bytes": 2027028480
+      },
+      "coefficient_accuracy": "unknown",
+      "in_sample": {
+        "kind": "in_sample_not_held_out",
+        "choices": 145059,
+        "states": [
+          {
+            "strength": "5v5",
+            "expected_by_role": [
+              78649.98627395798,
+              40947.93396242906,
+              51.07976361157276
+            ],
+            "observed_by_role": [
+              78650.0,
+              40948.0,
+              51.0
+            ]
+          },
+          {
+            "strength": "5v4",
+            "expected_by_role": [
+              16666.621436576326,
+              4378.254979874715,
+              0.12358354896413397
+            ],
+            "observed_by_role": [
+              16667.0,
+              4378.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "5v3",
+            "expected_by_role": [
+              498.8270841605831,
+              141.17291583941568,
+              0.0
+            ],
+            "observed_by_role": [
+              499.0,
+              141.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "4v3",
+            "expected_by_role": [
+              368.7789164335153,
+              83.22108356648428,
+              0.0
+            ],
+            "observed_by_role": [
+              369.0,
+              83.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "4v5",
+            "expected_by_role": [
+              2360.61392366052,
+              879.9511980885216,
+              0.4348782509599547
+            ],
+            "observed_by_role": [
+              2361.0,
+              880.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "3v5",
+            "expected_by_role": [
+              8.185086078588776,
+              6.814913921411223,
+              0.0
+            ],
+            "observed_by_role": [
+              8.0,
+              7.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "3v4",
+            "expected_by_role": [
+              9.223621599611812,
+              7.776378400388188,
+              0.0
+            ],
+            "observed_by_role": [
+              9.0,
+              8.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "diagnostic": {
+        "status": "not_assessed",
+        "reason": "earlier_annual"
+      },
+      "resources": {
+        "wall_seconds": 4.916256875032559,
+        "peak_memory_bytes": 2027028480,
+        "coordinates": 965,
+        "baseline_solves": 1,
+        "diagnostic_solves": 0,
+        "preparation": {
+          "preparation_seconds": 4791.501918791793
+        },
+        "wall_scope": "fit/projection/diagnostic before artifact writing; preparation separately reported",
+        "output_bytes": 406845221,
+        "write_wall_seconds": 8.926889542024583
+      }
+    },
+    {
+      "family": "shootiness",
+      "season": "20232024",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/shootiness/20232024/manifest.json",
+        "sha256": "b9d3e0a00887b3edf438d4ed82dd027cbc7d045c30805cc9206265823f88684a"
+      },
+      "players": 924,
+      "projections": 6468,
+      "raw_actors": 924,
+      "ledger": 1255,
+      "history": {
+        "entry": 114,
+        "carry": 810,
+        "unsupported": 0
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 7,
+        "zero_state_time_available": 2731,
+        "never_shooting_informed": 14
+      },
+      "coverage": {
+        "games": 1312,
+        "choices": 151337,
+        "candidate_incidence": 753087,
+        "states": {
+          "5v5": 125323,
+          "5v4": 21869,
+          "5v3": 581,
+          "4v3": 417,
+          "4v5": 3113,
+          "3v5": 14,
+          "3v4": 20
+        },
+        "dispositions": {
+          "included": 151337,
+          "outside_population": 8126,
+          "excluded": 660
+        },
+        "included_player_seconds": 43810572.0,
+        "known_excluded_player_seconds": 24470.0
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 307,
+        "evaluations": 350,
+        "objective": 238603.4977998177,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 0.0013135150297394205,
+        "achieved_gtol": false,
+        "wall_seconds": 4.5330088750924915,
+        "peak_memory_bytes": 2175942656
+      },
+      "coefficient_accuracy": "unknown",
+      "in_sample": {
+        "kind": "in_sample_not_held_out",
+        "choices": 151337,
+        "states": [
+          {
+            "strength": "5v5",
+            "expected_by_role": [
+              82445.02719497107,
+              42850.95103895443,
+              27.021766072359306
+            ],
+            "observed_by_role": [
+              82445.0,
+              42851.0,
+              27.0
+            ]
+          },
+          {
+            "strength": "5v4",
+            "expected_by_role": [
+              17066.72414263791,
+              4802.275857361949,
+              0.0
+            ],
+            "observed_by_role": [
+              17067.0,
+              4802.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "5v3",
+            "expected_by_role": [
+              459.7275233502438,
+              121.27247664975657,
+              0.0
+            ],
+            "observed_by_role": [
+              460.0,
+              121.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "4v3",
+            "expected_by_role": [
+              341.7080287967673,
+              75.29197120323215,
+              0.0
+            ],
+            "observed_by_role": [
+              342.0,
+              75.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "4v5",
+            "expected_by_role": [
+              2319.7933669693,
+              793.2066330307063,
+              0.0
+            ],
+            "observed_by_role": [
+              2320.0,
+              793.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "3v5",
+            "expected_by_role": [
+              8.142705689734075,
+              5.8572943102659245,
+              0.0
+            ],
+            "observed_by_role": [
+              8.0,
+              6.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "3v4",
+            "expected_by_role": [
+              6.607846411704636,
+              13.392153588295363,
+              0.0
+            ],
+            "observed_by_role": [
+              6.0,
+              14.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "diagnostic": {
+        "status": "not_assessed",
+        "reason": "earlier_annual"
+      },
+      "resources": {
+        "wall_seconds": 5.575240874895826,
+        "peak_memory_bytes": 2175942656,
+        "coordinates": 938,
+        "baseline_solves": 1,
+        "diagnostic_solves": 0,
+        "preparation": {
+          "preparation_seconds": 5145.05078604212
+        },
+        "wall_scope": "fit/projection/diagnostic before artifact writing; preparation separately reported",
+        "output_bytes": 423125904,
+        "write_wall_seconds": 6.216345709050074
+      }
+    },
+    {
+      "family": "shootiness",
+      "season": "20242025",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/shootiness/20242025/manifest.json",
+        "sha256": "1a7cf253097fbb1903f1316821f013b7b4236a40931179d7a48779223701dcc7"
+      },
+      "players": 920,
+      "projections": 6440,
+      "raw_actors": 920,
+      "ledger": 1365,
+      "history": {
+        "entry": 110,
+        "carry": 810,
+        "unsupported": 0
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 2869,
+        "never_shooting_informed": 7
+      },
+      "coverage": {
+        "games": 1312,
+        "choices": 147530,
+        "candidate_incidence": 734588,
+        "states": {
+          "5v5": 125344,
+          "5v4": 18566,
+          "5v3": 575,
+          "4v3": 307,
+          "4v5": 2721,
+          "3v5": 8,
+          "3v4": 9
+        },
+        "dispositions": {
+          "included": 147530,
+          "excluded": 686,
+          "outside_population": 8406
+        },
+        "included_player_seconds": 42519669.0,
+        "known_excluded_player_seconds": 12125.0
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 292,
+        "evaluations": 336,
+        "objective": 233048.2797505704,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 0.003962844934818577,
+        "achieved_gtol": false,
+        "wall_seconds": 4.444956792052835,
+        "peak_memory_bytes": 2216312832
+      },
+      "coefficient_accuracy": "unknown",
+      "in_sample": {
+        "kind": "in_sample_not_held_out",
+        "choices": 147530,
+        "states": [
+          {
+            "strength": "5v5",
+            "expected_by_role": [
+              80247.07440805402,
+              45096.925591942745,
+              0.0
+            ],
+            "observed_by_role": [
+              80247.0,
+              45097.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "5v4",
+            "expected_by_role": [
+              14598.711090663626,
+              3967.2889093364156,
+              0.0
+            ],
+            "observed_by_role": [
+              14599.0,
+              3967.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "5v3",
+            "expected_by_role": [
+              473.63095082155246,
+              101.3690491784458,
+              0.0
+            ],
+            "observed_by_role": [
+              474.0,
+              101.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "4v3",
+            "expected_by_role": [
+              257.6212465813841,
+              49.37875341861582,
+              0.0
+            ],
+            "observed_by_role": [
+              258.0,
+              49.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "4v5",
+            "expected_by_role": [
+              2032.79174018786,
+              688.2082598121392,
+              0.0
+            ],
+            "observed_by_role": [
+              2033.0,
+              688.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "3v5",
+            "expected_by_role": [
+              2.6607935511365266,
+              5.339206448863473,
+              0.0
+            ],
+            "observed_by_role": [
+              2.0,
+              6.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "3v4",
+            "expected_by_role": [
+              4.3131766562972915,
+              4.686823343702707,
+              0.0
+            ],
+            "observed_by_role": [
+              4.0,
+              5.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "diagnostic": {
+        "status": "not_assessed",
+        "reason": "earlier_annual"
+      },
+      "resources": {
+        "wall_seconds": 5.528757625026628,
+        "peak_memory_bytes": 2216312832,
+        "coordinates": 934,
+        "baseline_solves": 1,
+        "diagnostic_solves": 0,
+        "preparation": {
+          "preparation_seconds": 5135.881860832917
+        },
+        "wall_scope": "fit/projection/diagnostic before artifact writing; preparation separately reported",
+        "output_bytes": 413444860,
+        "write_wall_seconds": 6.025568042183295
+      }
+    },
+    {
+      "family": "shootiness",
+      "season": "20252026",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/shootiness/20252026/manifest.json",
+        "sha256": "04b6f6b35e8c8b3c6e7f37086574a76399c268f377bb738751e75a39b3c9ccb4"
+      },
+      "players": 940,
+      "projections": 6580,
+      "raw_actors": 940,
+      "ledger": 1481,
+      "history": {
+        "entry": 116,
+        "carry": 824,
+        "unsupported": 0
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 2834,
+        "never_shooting_informed": 5
+      },
+      "coverage": {
+        "games": 1312,
+        "choices": 144283,
+        "candidate_incidence": 718197,
+        "states": {
+          "5v5": 120906,
+          "5v4": 19553,
+          "5v3": 637,
+          "4v3": 419,
+          "4v5": 2737,
+          "3v5": 10,
+          "3v4": 21
+        },
+        "dispositions": {
+          "included": 144283,
+          "outside_population": 8791,
+          "excluded": 680
+        },
+        "included_player_seconds": 44438002.0,
+        "known_excluded_player_seconds": 8863.0
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 259,
+        "evaluations": 290,
+        "objective": 227688.11568653333,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 0.0026599797383966006,
+        "achieved_gtol": false,
+        "wall_seconds": 3.9333534580655396,
+        "peak_memory_bytes": 2128543744
+      },
+      "coefficient_accuracy": "unknown",
+      "in_sample": {
+        "kind": "in_sample_not_held_out",
+        "choices": 144283,
+        "states": [
+          {
+            "strength": "5v5",
+            "expected_by_role": [
+              78764.05335658007,
+              42141.94664341897,
+              0.0
+            ],
+            "observed_by_role": [
+              78764.0,
+              42142.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "5v4",
+            "expected_by_role": [
+              15401.716431728095,
+              4151.283568271862,
+              0.0
+            ],
+            "observed_by_role": [
+              15402.0,
+              4151.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "5v3",
+            "expected_by_role": [
+              488.8140819579125,
+              148.18591804208756,
+              0.0
+            ],
+            "observed_by_role": [
+              489.0,
+              148.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "4v3",
+            "expected_by_role": [
+              348.80481980992715,
+              70.19518019007302,
+              0.0
+            ],
+            "observed_by_role": [
+              349.0,
+              70.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "4v5",
+            "expected_by_role": [
+              2074.762230732952,
+              662.2377692670483,
+              0.0
+            ],
+            "observed_by_role": [
+              2075.0,
+              662.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "3v5",
+            "expected_by_role": [
+              6.049770757859126,
+              3.9502292421408725,
+              0.0
+            ],
+            "observed_by_role": [
+              6.0,
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "strength": "3v4",
+            "expected_by_role": [
+              13.013029372931607,
+              7.986970627068394,
+              0.0
+            ],
+            "observed_by_role": [
+              13.0,
+              8.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "diagnostic": {
+        "comparison": {
+          "status": "within_budget",
+          "reason": null,
+          "projection_maximum": 9.250878329480905e-07,
+          "fitting_row_maximum": 7.069493966338491e-07,
+          "worst_projection": {
+            "player_id": "8482479",
+            "strength": "4v5",
+            "field": "difference"
+          },
+          "worst_fitting_row": {
+            "axis": "candidates",
+            "candidate_index": 147534,
+            "choice_index": 29700,
+            "choice_candidate_slot": 3,
+            "player_id": "8482479",
+            "source_rows": {
+              "source_rows": [
+                {
+                  "game_id": "2025020492",
+                  "source_index": 30,
+                  "locator": "/attempts/30",
+                  "status": "included",
+                  "reason": null,
+                  "strength": "5v5",
+                  "attacking_side": "away",
+                  "candidates": [
+                    "8479359",
+                    "8479982",
+                    "8481524",
+                    "8482479",
+                    "8482623"
+                  ],
+                  "known_candidates": [
+                    "8479359",
+                    "8479982",
+                    "8481524",
+                    "8482479",
+                    "8482623"
+                  ],
+                  "shooter_id": "8482479"
+                }
+              ]
+            }
+          },
+          "budget": 1e-05,
+          "penalty_value_status": null
+        },
+        "native": {
+          "converged": true,
+          "status": 0,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "iterations": 14,
+          "evaluations": 17,
+          "objective": 227688.11568652725,
+          "options": {
+            "maxiter": 10000,
+            "ftol": 1e-16,
+            "gtol": 1e-07,
+            "maxcor": 10
+          },
+          "gradient_inf_norm": 0.0001617642375362216,
+          "achieved_gtol": false,
+          "wall_seconds": 0.24297041585668921,
+          "peak_memory_bytes": 2128543744
+        },
+        "coefficient_accuracy": "unknown",
+        "actual_rows": "producer-reported finite actual-row maximum; exhaustive maximum not recomputed; saved worst shooter candidate unit independently reproduced from bound locator group"
+      },
+      "resources": {
+        "wall_seconds": 5.2204586658626795,
+        "peak_memory_bytes": 2128543744,
+        "coordinates": 954,
+        "baseline_solves": 1,
+        "diagnostic_solves": 1,
+        "preparation": {
+          "preparation_seconds": 5332.086324667092
+        },
+        "wall_scope": "fit/projection/diagnostic before artifact writing; preparation separately reported",
+        "output_bytes": 409419617,
+        "write_wall_seconds": 6.583755624946207
+      }
+    }
+  ]
+}

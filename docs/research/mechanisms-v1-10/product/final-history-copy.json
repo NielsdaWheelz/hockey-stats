@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "kind": "final_signed_value_history_export_acceptance",
+  "status": "passed",
+  "purpose": "fixture",
+  "publication_id": "64f000ad-9205-4217-9372-0d86d749dfe7",
+  "selection": {
+    "player_id": "9000001",
+    "season": "20232024",
+    "metric": "penalties.taken_value_per60",
+    "history": "raw"
+  },
+  "actual_downloads": [
+    {
+      "file": "history.csv",
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/final-history-copy-01/history.csv",
+      "bytes": 7003,
+      "sha256": "a86b3f12ffeb80fec1dba307e3a373f61eacfa33f2f25d31617777a526517b08",
+      "download_name": "hockey-stats-9000001-penalties.taken_value_per60-20232024-20252026-history.csv"
+    },
+    {
+      "file": "history.png",
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/final-history-copy-01/history.png",
+      "bytes": 730659,
+      "sha256": "2e3eccb482566943ee66cd2770a8727979006471f10c494f0445c2d121e8e089",
+      "download_name": "hockey-stats-9000001-penalties.taken_value_per60-20232024-20252026-history-raw.png"
+    }
+  ],
+  "render_input": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/final-history-copy-01/history-render-input.svg",
+    "sha256": "4e2151e47df9e93f791d63a321ad237ccc7eb48174c7c6319f34c7449312ec8a",
+    "bytes": 8219
+  },
+  "api": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/final-history-copy-01/profile-api.json",
+    "sha256": "aacccabbbce02ee45b4a3852ef39bed83b104d1732ad58ebc7857af3f86d607c",
+    "bytes": 386837
+  },
+  "checks": [
+    "actual downloaded csv raw/display values equal supplied API taking value; evidence exact; unavailable later seasons remain blank",
+    "actual downloaded png inspected: complete title/year/units, signed value equation, qualified positive-taking-difference wording, unavailable years and final synthetic disclaimer are legible and unclipped",
+    "minus sign and multiplication glyph render in the actual png; no unconditional taking-sign reversal claim remains"
+  ],
+  "raster_review_owner": "v1-10 product image inspection; root independent review requested",
+  "limitations": [
+    "single immutable synthetic positive-V history; negative-V arithmetic checked separately",
+    "no build/startup, production edit or real-data capability claim"
+  ]
+}

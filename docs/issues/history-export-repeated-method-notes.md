@@ -15,3 +15,9 @@ the inspected download is [the three-season stopping history png](/Volumes/Expan
 ## resolution criteria
 
 the shared history/export owner presents repeated caveats once where their applicability is unchanged, in readable prose. retain meaningful unique caveats and every annual distinction in support, conditioning, reference and sensitivity. verify the affected selected-field svg/png with actual downloads: all required content remains legible, correctly associated with its year and unclipped. no fixed height target or compact-card redesign is implied.
+
+## implementation and remaining proof
+
+v1-10's shared owner now renders support reasons and uncertainty as readable text, converts interval bounds to display units once, and groups identical note text with its applicable years. distinct caveats, annual sensitivity, support, conditioning, references and uncertainty remain separate. [bounded mechanism/goalie renderer controls](../research/mechanisms-v1-10/product/history-human-text-controls.json) pass; csv structured evidence remains unchanged.
+
+this issue remains open. actual final real mechanism and goalie svg/png downloads must still prove legibility, complete caveats and correct annual association under the integrated application. temporary renderer controls and earlier fixture downloads do not close that criterion.

@@ -1,0 +1,42 @@
+{
+  "kind": "bounded_remaining_chain_source_review",
+  "status": "clear_with_explicit_launch_environment",
+  "scope": "source/diff/script inspection only; no real command executed",
+  "files": [
+    {
+      "path": "analysis/src/hockey_stats/analysis_cli.py",
+      "sha256": "248e8358beeaa27244f1f39f3c83f7a71cd6b6e68922e0dfe89e6d73487a9a57"
+    },
+    {
+      "path": "analysis/src/hockey_stats/player_mechanisms.py",
+      "sha256": "ee053345ad6f54d0b2363a272fa0fa97205fbfceb4da1196fc9d5421890b1057"
+    },
+    {
+      "path": ".tmp/v1-10/real-remaining-chain.sh",
+      "sha256": "e772c23de4e14a8db4e42fe33d616d22269d6903cfab80efe6e94cdba1d118fe"
+    },
+    {
+      "path": ".tmp/v1-10/complete-real.py",
+      "sha256": "d6bed4cb2f8b1fa26c568c2ef3af55e6bf492a6453298dc9caaff17ddfba6875"
+    }
+  ],
+  "checks": [
+    "predecessor uses existing strict narrow reader; final own-state full validation retained",
+    "caller raw design binding removed; prepare and fit public signatures unchanged",
+    "canonical qualification index preserves frozen serialized fields and valid outputs",
+    "recipe equations, priors, solver settings, compression and projections unchanged",
+    "remaining shell chain uses explicit paths, independent families, serial commands, exclusive logs and stops on failed baseline",
+    "final-year CLI automatically runs sole prescribed probes; diagnostic-only failure remains distinct from failed baseline",
+    "post-fit uses exact selected manifests, compatible source proofs, fresh outputs, separately saved minor references and current-schema donor",
+    "publication command is staged for shared v1-19 owner and is not executed"
+  ],
+  "runtime_lifetime_check": {
+    "runtime": "pinned local python3.14",
+    "result": [
+      "raw released",
+      "after parameter rebound"
+    ],
+    "scope": "tiny temporary object only; no production fit/source or model test"
+  },
+  "launch_condition": "complete-real.py imports hockey_stats before setting its child environment: caller must already set absolute worktree PYTHONPATH and pinned python; set the three thread variables on parent too for the selected resource policy"
+}

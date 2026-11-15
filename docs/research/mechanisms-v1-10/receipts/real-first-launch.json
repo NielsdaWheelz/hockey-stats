@@ -1,0 +1,40 @@
+{
+  "kind": "first_real_mechanism_launch",
+  "launched_at_utc": "2026-11-15T00:56:26.723629+00:00",
+  "family": "penalties",
+  "season": "20212022",
+  "git_commit": "7c370321a375cf98682335e41d2e47bfd9bcc2ea",
+  "analysis_tree": "054a40317b8645abbe2c9ad9899d80dfc44fbbc8",
+  "source_files": [
+    {
+      "path": "analysis/src/hockey_stats/mechanism_design.py",
+      "sha256": "08f0f819b429b611e52e9e8801942d608b01f537007855f30ac7a54238a968a0"
+    },
+    {
+      "path": "analysis/src/hockey_stats/elapsed_design.py",
+      "sha256": "193bffbcd1b93eb50b8420041b9ad44cc16b15aba378f41f812b1feccd6f1b48"
+    },
+    {
+      "path": "analysis/src/hockey_stats/player_mechanisms.py",
+      "sha256": "3f3605d52ccf49270d5e433e56788a155bcacf8f487c078fbe427dbfdcb6c1d3"
+    },
+    {
+      "path": "analysis/src/hockey_stats/mechanism_state.py",
+      "sha256": "f02c593663d63c300f0b798b6e5274b00692514e2dad2932085a762e5756f3fa"
+    },
+    {
+      "path": "analysis/src/hockey_stats/chance.py",
+      "sha256": "91fa1bc81332121206a5de0893136bccfc867da6d32b3a0ab3b2eb870f2e16f7"
+    }
+  ],
+  "command": "/usr/bin/time -l env PYTHONPATH=analysis/src OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 analysis/.venv/bin/python -m hockey_stats.analysis_cli fit --family penalties --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --coaches /Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json --season 20212022 --out /Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20212022",
+  "output": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20212022",
+  "log": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties-20212022.log",
+  "status": "running; no completed annual claimed",
+  "native_processes": {
+    "time_pid": 51337,
+    "python_pid": 51354,
+    "exec_session_id": 84887
+  },
+  "shared_candidate_target": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01"
+}

@@ -22,7 +22,7 @@ an initial staging command attempted an exclusive write over a copied manifest a
 
 a first member-writer check incorrectly demanded that normalized serialization preserve the historical fixture's original formatting. that check failed as it should: inherited bytes are protected by the copy owner. the proper full writer/reader roundtrip instead verifies every semantic payload, and passes. no historical input was changed to satisfy a test.
 
-temporary integration scripts remain until root accepts the full campaign. synthetic checks do not prove actual fits, real source populations, browser layouts/downloads or scientific quality. the unresolved fixture issue stays open until source-to-export acceptance proves its resolution.
+temporary integration scripts remain until root accepts the full campaign. synthetic checks do not prove actual fits, real source populations, browser layouts/downloads or scientific quality. [synthetic fixture valuation is resolved](#fixture-valuation-resolution); real component integration and scientific support remain separate.
 
 ## isolated schema-paired rollback
 
@@ -45,3 +45,19 @@ three proportional component renders with negative, zero and positive supplied `
 the initial integration review identified an accidental coupling between frozen saved-score rows and the new exchange payload. the supplemental fix preserves original score artifacts, validates their transiently enriched current rows and makes ordinary score-row iteration always expose checked saved proof. its independently measured full fixture reader checks 352 rows and fifteen contained members in 63.44 seconds; the saved scalar boundary and 3971 real-row parity remain attributed upstream evidence. no fit, rescore or source replay occurs. the obsolete normal goalie composition donor pin is removed while explicit prepared, observed, base-score and method bindings remain.
 
 local node24 typechecking, python compilation and whitespace checks pass. no new real conversion, expensive donor read or application startup ran in this reconciliation. earlier interface and isolated operation checks retain their original contract scope; the next shared candidate must carry both mandatory goalie and mechanism evidence.
+
+## final consumer oracle readiness
+
+[oracle readiness](final-oracle-readiness.json) binds the temporary real-output oracle and its lightweight dry run against the explicitly selected v1-19 fixture on port 3419. it checks source-owned table keys, sqlite values via the public typed decoder, API envelopes, independently recomputed closure, factual copies, existing selectors/cohorts, shared csv columns and public profile/comparison clients. real execution discovers multi-team, sparse, prior-only and zero-specialty-time cases from actual saved support rather than a fabricated identity list. exact-state qualification and pooled candidate information remain separate; raw neutral fields never receive ranks.
+
+the available/pending fixture passes 672 producer/sqlite rows, 2016 API envelopes, 4536 cohort comparisons, seven exact scalar/evidence csv checks, one available profile client and both non-spatial map refusals. the map refusal control first succeeds with the same valid spatial query, so an unrelated malformed selector cannot manufacture the rejection. the fixture does not supply an available defense, multi-team, prior-only, zero-specialty-time or positive-taking ranking example, nor a second available mechanism person for comparison. those gaps remain explicit; this does not establish real capability.
+
+two oracle setup failures are preserved: the first wrongly expected sqlite to materialize globally pending family rows; the corrected inventory follows explicit source members while real acceptance still demands complete one-plus-seven matrices. the next reached all scalar transport checks but lacked the browser origin required by the existing public client. supplying that context inside the temporary node process allows the unchanged consumer to run. a final dry run also checks sqlite/API publication identity and exact observed-season bindings. no source/model replay, full database hash, publisher/build/startup or permanent source edit ran while the first real fit was active.
+
+## fixture valuation resolution
+
+[the resolution receipt](fixture-valuation-resolution.json) closes the synthetic penalty-fixture issue. the attributed intermediate corrected player `9000001`'s values using one reference: `drawn_value=drawn_difference*V` and `taken_value=-taken_difference*V`. complete/neutral rates, physical-hour support and valuation survived ordinary python publication, strict typed reading, actual card/history csv downloads and exact API/export evidence checks. the original incompatible synthetic example is preserved.
+
+[the coherent joint fixture](../../../../fixtures/goalie-card-v1-19/README.md) then retained all 37 non-goalie table members byte-for-byte, including that corrected penalty member. its current-contract publication/strict startup and the final integrated port 3419 oracle preserve the same source/sqlite/API/csv values and evidence. a bounded documentation audit independently verifies all 57 original publication-fixture files against the assignment commit's git blob identities and every declared inherited joint member against both successor stages.
+
+this satisfies both strict readers, source-to-export fidelity and exact original preservation. the older [mechanism-only intermediate](../../../../fixtures/mechanisms-v1-10/README.md) lacks mandatory goalie proof and remains historical. no historical fixture body or receipt was rewritten, and this resolution establishes neither real model capability nor scientific support.

@@ -1,0 +1,18 @@
+{
+  "at": "2026-11-15T02:03:13.636189+00:00",
+  "port": 3419,
+  "pid": 49423,
+  "action": "intentional stop after interim fixture checks",
+  "source": "pre-final compiled browser, not final92379be frontend",
+  "fixture_database": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/fixture-publication/player-analysis.sqlite",
+    "sha256": "2aa8284dab0582b8d4c1a4dbb08faacc3de9f4601ce3564d9479f55b424e7520",
+    "bytes": 29249536,
+    "publication_id": "64f000ad-9205-4217-9372-0d86d749dfe7"
+  },
+  "peak_runtime_resident_bytes": 300023808,
+  "whole_process_wall_seconds": 4203.98,
+  "wall_scope": "entire interim runtime including idle and selected requests; not startup duration",
+  "next": "final isolated build, strict detached fixture startup and disposable rollback after explicit shared heavy release",
+  "primary_port_3000_pid": 9645
+}

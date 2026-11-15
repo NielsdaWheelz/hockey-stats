@@ -2290,3 +2290,489 @@
   'http.url': '/api/players/9000004/evidence',
   'http.status': 200
 }
+[17:45:50.354] INFO (#3997) http.span=57ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:45:50.373] INFO (#4000) http.span=0ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.384] INFO (#4001) http.span=11ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.393] INFO (#4002) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.408] INFO (#4003) http.span=6ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.421] INFO (#4005) http.span=12ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.429] INFO (#4007) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.438] INFO (#4008) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.446] INFO (#4009) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.455] INFO (#4010) http.span=9ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.463] INFO (#4011) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.476] INFO (#4012) http.span=9ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:45:50.482] INFO (#4014) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:45:50.563] INFO (#4016) http.span=35ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:45:50.572] INFO (#4017) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.576] INFO (#4018) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.580] INFO (#4019) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.592] INFO (#4020) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.594] INFO (#4021) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.597] INFO (#4022) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.599] INFO (#4023) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.601] INFO (#4024) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.603] INFO (#4025) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.606] INFO (#4026) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.619] INFO (#4027) http.span=13ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.626] INFO (#4028) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:45:50.630] INFO (#4029) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:45:50.691] INFO (#4030) http.span=55ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:45:50.701] INFO (#4031) http.span=0ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.706] INFO (#4032) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.712] INFO (#4033) http.span=6ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.723] INFO (#4034) http.span=6ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.737] INFO (#4035) http.span=13ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.746] INFO (#4036) http.span=9ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.755] INFO (#4037) http.span=9ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.762] INFO (#4038) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.772] INFO (#4039) http.span=9ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.780] INFO (#4040) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.794] INFO (#4041) http.span=11ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:45:50.833] INFO (#4042) http.span=31ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:45:50.839] INFO (#4043) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.845] INFO (#4044) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.854] INFO (#4045) http.span=9ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.871] INFO (#4046) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.875] INFO (#4047) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.879] INFO (#4048) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.882] INFO (#4049) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.885] INFO (#4050) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.887] INFO (#4051) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.890] INFO (#4052) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.892] INFO (#4053) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:45:50.894] INFO (#4054) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:45:50.934] INFO (#4055) http.span=34ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:45:50.941] INFO (#4056) http.span=0ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.945] INFO (#4057) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.950] INFO (#4058) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:45:50.958] INFO (#4059) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.960] INFO (#4060) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.962] INFO (#4061) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.965] INFO (#4062) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.967] INFO (#4063) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.969] INFO (#4064) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.972] INFO (#4065) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:45:50.975] INFO (#4066) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:45:50.978] INFO (#4067) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:29.226] INFO (#4068) http.span=33ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:46:29.245] INFO (#4069) http.span=0ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.250] INFO (#4070) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.256] INFO (#4071) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.267] INFO (#4072) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.275] INFO (#4073) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.282] INFO (#4074) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.289] INFO (#4075) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.296] INFO (#4076) http.span=6ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.303] INFO (#4077) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.310] INFO (#4078) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.318] INFO (#4079) http.span=5ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:29.322] INFO (#4080) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:29.401] INFO (#4081) http.span=35ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:46:29.411] INFO (#4082) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.415] INFO (#4083) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.420] INFO (#4084) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.430] INFO (#4085) http.span=6ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.433] INFO (#4086) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.436] INFO (#4087) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.438] INFO (#4088) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.440] INFO (#4089) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.443] INFO (#4090) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.445] INFO (#4091) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.449] INFO (#4092) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.453] INFO (#4093) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:29.455] INFO (#4094) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:29.492] INFO (#4095) http.span=32ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:46:29.501] INFO (#4096) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.504] INFO (#4097) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.509] INFO (#4098) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.520] INFO (#4099) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.528] INFO (#4100) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.536] INFO (#4101) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.544] INFO (#4102) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.552] INFO (#4103) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.564] INFO (#4104) http.span=10ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.573] INFO (#4105) http.span=9ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.584] INFO (#4106) http.span=9ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:29.617] INFO (#4107) http.span=29ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:46:29.622] INFO (#4108) http.span=0ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.626] INFO (#4109) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.632] INFO (#4110) http.span=6ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.638] INFO (#4111) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.641] INFO (#4112) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.644] INFO (#4113) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.647] INFO (#4114) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.650] INFO (#4115) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.652] INFO (#4116) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.654] INFO (#4117) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.657] INFO (#4118) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:29.659] INFO (#4119) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:29.697] INFO (#4120) http.span=32ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:46:29.706] INFO (#4121) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.710] INFO (#4122) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.714] INFO (#4123) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:29.722] INFO (#4124) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.725] INFO (#4125) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.728] INFO (#4126) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.730] INFO (#4127) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.732] INFO (#4128) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.734] INFO (#4129) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.737] INFO (#4130) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:29.740] INFO (#4131) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:29.742] INFO (#4132) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:31.216] INFO (#4133) http.span=33ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:46:31.236] INFO (#4134) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.239] INFO (#4135) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.244] INFO (#4136) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.257] INFO (#4137) http.span=6ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.265] INFO (#4138) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.273] INFO (#4139) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.281] INFO (#4140) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.289] INFO (#4141) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.298] INFO (#4142) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.306] INFO (#4143) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.315] INFO (#4144) http.span=6ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:31.320] INFO (#4145) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:31.400] INFO (#4146) http.span=34ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:46:31.410] INFO (#4147) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.413] INFO (#4148) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.419] INFO (#4149) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.428] INFO (#4150) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.431] INFO (#4151) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.433] INFO (#4152) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.436] INFO (#4153) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.438] INFO (#4154) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.441] INFO (#4155) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.443] INFO (#4156) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.448] INFO (#4157) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.451] INFO (#4158) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:31.454] INFO (#4159) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:31.492] INFO (#4160) http.span=32ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:46:31.501] INFO (#4161) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.504] INFO (#4162) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.509] INFO (#4163) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.518] INFO (#4164) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.526] INFO (#4165) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.534] INFO (#4166) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.542] INFO (#4167) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.550] INFO (#4168) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.557] INFO (#4169) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.565] INFO (#4170) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.576] INFO (#4171) http.span=8ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:31.609] INFO (#4172) http.span=28ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:46:31.615] INFO (#4173) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.618] INFO (#4174) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.623] INFO (#4175) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.631] INFO (#4176) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.633] INFO (#4177) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.636] INFO (#4178) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.638] INFO (#4179) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.641] INFO (#4180) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.644] INFO (#4181) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.646] INFO (#4182) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.649] INFO (#4183) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:31.651] INFO (#4184) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:31.691] INFO (#4185) http.span=33ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:46:31.700] INFO (#4186) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.703] INFO (#4187) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.709] INFO (#4188) http.span=6ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:46:31.717] INFO (#4189) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.719] INFO (#4190) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.722] INFO (#4191) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.724] INFO (#4192) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.727] INFO (#4193) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.729] INFO (#4194) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.731] INFO (#4195) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:46:31.736] INFO (#4196) http.span=3ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:46:31.739] INFO (#4197) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:47:03.757] INFO (#4198) http.span=36ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:47:03.777] INFO (#4199) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:03.781] INFO (#4200) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:03.786] INFO (#4201) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:03.798] INFO (#4202) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.806] INFO (#4203) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.814] INFO (#4204) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.823] INFO (#4205) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.830] INFO (#4206) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.838] INFO (#4207) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.846] INFO (#4208) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.856] INFO (#4209) http.span=7ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:47:03.861] INFO (#4210) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:47:03.944] INFO (#4211) http.span=35ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:47:03.953] INFO (#4212) http.span=0ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:03.957] INFO (#4213) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:03.963] INFO (#4214) http.span=6ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:03.974] INFO (#4215) http.span=6ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.977] INFO (#4216) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.980] INFO (#4217) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.982] INFO (#4218) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.985] INFO (#4219) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.989] INFO (#4220) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.991] INFO (#4221) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:03.997] INFO (#4222) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.001] INFO (#4223) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:47:04.003] INFO (#4224) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:47:04.046] INFO (#4225) http.span=37ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:47:04.056] INFO (#4226) http.span=0ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:04.060] INFO (#4227) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:04.065] INFO (#4228) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:04.075] INFO (#4229) http.span=6ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.085] INFO (#4230) http.span=10ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.094] INFO (#4231) http.span=9ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.103] INFO (#4232) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.111] INFO (#4233) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.119] INFO (#4234) http.span=8ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.126] INFO (#4235) http.span=7ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.137] INFO (#4236) http.span=8ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:47:04.172] INFO (#4237) http.span=30ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:47:04.177] INFO (#4238) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:04.181] INFO (#4239) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:04.186] INFO (#4240) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:04.193] INFO (#4241) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.195] INFO (#4242) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.198] INFO (#4243) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.201] INFO (#4244) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.203] INFO (#4245) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.205] INFO (#4246) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.207] INFO (#4247) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.209] INFO (#4248) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:47:04.210] INFO (#4249) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:47:04.248] INFO (#4250) http.span=31ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[17:47:04.255] INFO (#4251) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:04.258] INFO (#4252) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:04.263] INFO (#4253) http.span=5ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[17:47:04.270] INFO (#4254) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.273] INFO (#4255) http.span=3ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.275] INFO (#4256) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.276] INFO (#4257) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.278] INFO (#4258) http.span=1ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.280] INFO (#4259) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.282] INFO (#4260) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:47:04.286] INFO (#4261) http.span=2ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:47:04.288] INFO (#4262) http.span=1ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004/evidence',
+  'http.status': 200
+}
+[17:49:26.999] INFO (#4263) http.span=12ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[17:49:27.014] INFO (#4264) http.span=11ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }

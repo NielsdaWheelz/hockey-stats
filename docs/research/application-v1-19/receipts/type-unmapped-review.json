@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "problem": "a type can have adverse total saving with a neutral located map when every matched attempt is unlocated; the old primary panels omitted the accounting that explains this",
+  "source": "fixture ev/unblocked slap:3attempts,3goals,0.6expected, all3unmapped",
+  "repair": "each primary type panel adds its supplied unmapped attempt count and unmapped expected-minus-goals saving in browser and full png; unavailable bodies do not become zeros",
+  "owner": "app/src/web/goalie-card.tsx",
+  "shared_presentation": "unmappedText used by both renderers",
+  "scope_unchanged": [
+    "no new request",
+    "no schema change",
+    "no estimator",
+    "no numerical body change",
+    "existing unmapped rawFacts/csv inputs retained"
+  ],
+  "red_receipt": "type-unmapped-red.txt",
+  "green_receipt": "card-live-green.json",
+  "checks": [
+    "all4primarytypeannotations in browser and svg",
+    "slap3unmappedattempts and -2.4unmappedsaving",
+    "pendingtypebody says unavailable rather than0",
+    "web typecheck passed"
+  ],
+  "fixture_svg": {
+    "width": 1200,
+    "height": 6116,
+    "prior_height": 6062
+  },
+  "independent_review": "cleared; independent-type-unmapped-review.json",
+  "supersedes": "fixture-native-pixel-review.json did not detect this missing per-type annotation; final native export must use the amended source"
+}

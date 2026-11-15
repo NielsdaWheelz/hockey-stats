@@ -10,5 +10,11 @@
   "frozen_analysis_tree": "054a40317b8645abbe2c9ad9899d80dfc44fbbc8",
   "integration_owner": "v1-19 root owns final app build, strict detached runtime, goalie acceptance",
   "mechanism_acceptance_owner": "v1-10 root/product checks same database/API/publication identity",
-  "activation": false
+  "activation": false,
+  "reaffirmed_after_first_annual_exceeded_one_hour": {
+    "at": "2026-11-15T01:59:07.761420+00:00",
+    "user_choice": "keep one combined candidate; wait for all mechanism outputs",
+    "alternative_not_selected": "earlier pending-mechanism goalie publication, repeating roughly31gb/full strict startup later",
+    "timing": "no total runtime forecast; first annual remains uninterrupted"
+  }
 }

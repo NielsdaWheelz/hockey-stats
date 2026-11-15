@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "finding": "g14 annual recorded source/paired history was absent from goalie detail",
+  "repair": "two finite annual tables and one raw history csv consume existing PlayerResponse.history.goalie_observed at the selected actual strength; no extra request or metric",
+  "owners": [
+    "app/src/web/goalie-details.tsx",
+    "app/src/web/goalie-card.tsx",
+    "app/src/web/goalie-evidence.tsx"
+  ],
+  "shared_facts": "goalieObservedFacts supplies current card and annual raw history without recomputing estimates",
+  "selection_cases": [
+    "ev",
+    "covered_all",
+    "own annual provided data",
+    "pending/absent annual family reasons"
+  ],
+  "value_contract": [
+    "own annual season/corpus/player identity/teams",
+    "source and official counts distinct",
+    "unblocked and on_net matched populations distinct",
+    "saved fractions and estimate reasons copied exactly",
+    "on_net expected save fraction only",
+    "own field support/method/reference/source",
+    "formula-safe finite csv with rectangular rows"
+  ],
+  "red_receipt": "observed-history-red.txt",
+  "green_receipt": "card-live-green.json",
+  "independent_review_owner": "goalie_evidence",
+  "limits": "detail history only; full-sheet png composition is unchanged; real candidate/native download acceptance remains with root"
+}

@@ -1,18 +1,18 @@
 {
-  "status": "findings_sent_to_owners",
+  "status": "cleared",
   "scope": "independent saved-quantity/content/export source review; browser pixels belong to root",
   "sources": [
     {
       "path": "app/src/web/goalie-card.tsx",
-      "sha256": "f218240f937f31eee244e33acbd6d44f683dc1ed5db93ec36fe4114e01c8f4c5"
+      "sha256": "9040b5c19a8ab889f341793e7a4b08e8cbd0e780fdf2c53fd2af52d02c911ec3"
     },
     {
       "path": "app/src/web/goalie-details.tsx",
-      "sha256": "c91c4d81397d8458dd65f8c45412aa9eabef390f9dd241565af482ccf042afa6"
+      "sha256": "836c652e315c8eedba1621f6a25e691300e58b356264447ed0693603c8dcf188"
     },
     {
       "path": "app/src/web/goalie-evidence.tsx",
-      "sha256": "35eba8006d1732253d3852d98b8ab72690ff8df31bed41c0aef50341a4e936e1"
+      "sha256": "cdc7915f7c3583c692a7efe9a9cd60b91f68b6a956408689f62b17760b5db209"
     },
     {
       "path": "app/src/web/analytical-map.tsx",
@@ -47,32 +47,113 @@
     "three danger tiers remain fully-neutral-on-net strata with paired-unblocked responses; covered_all undefined",
     "saved stage successes/fractional response/denominators keep overlapping scopes distinct",
     "head support/masses/logs/reference bindings and source limitations stay inspectable",
-    "complete svg/png composition uses supplied models and local svg rasterization, no screenshot or browser estimation"
+    "complete svg/png composition uses supplied models and local svg rasterization, no screenshot or browser estimation",
+    "three annual observed rows retain own season/corpus/person/teams/methods/support/source provenance",
+    "ev/pk/covered_all observed history copies supplied source/official/paired quantities, without rates recomputed in browser",
+    "absent/pending annuals keep their identity/reason and blank unavailable values, without another annual fallback",
+    "actual-only csv metadata leaves modeled_strength blank, matching the actual map export contract",
+    "shared formula-safe encoder and rectangular finite rows preserve history text and exact raw fractions/units"
   ],
   "findings": [
     {
       "id": "csv-observed-availability",
       "problem": "inner unavailable observed result inherited provided outer envelope",
-      "state": "owner fixed; independently source-confirmed"
+      "state": "resolved; independently source-confirmed",
+      "initial_state": "owner fixed; independently source-confirmed"
     },
     {
       "id": "csv-danger-reason",
       "problem": "provided histogram carried danger unavailable fallback reason",
-      "state": "owner fixed; independently source-confirmed"
+      "state": "resolved; independently source-confirmed",
+      "initial_state": "owner fixed; independently source-confirmed"
     },
     {
       "id": "unavailable-mapped-zero",
       "problem": "sheet actual accounting reduced empty rectangles to invented mapped0 for unavailable map",
-      "state": "sent to root/card owner; verify after fix"
+      "state": "resolved; independently source-confirmed",
+      "initial_state": "sent to root/card owner; verify after fix"
     },
     {
       "id": "absent-csv-payload-types",
       "problem": "unavailable sentinel text entered typed numeric/enum payload columns and made short records",
-      "state": "sent to root/card owner; requested full-width null payload row, exact status/reason envelope"
+      "state": "resolved; independently source-confirmed",
+      "initial_state": "sent to root/card owner; requested full-width null payload row, exact status/reason envelope"
+    },
+    {
+      "id": "pending-tier-disposition",
+      "problem": "provided query envelope could label unpublished tier rows as provided",
+      "state": "resolved by inner summary/stratum disposition and exact reason"
+    },
+    {
+      "id": "explicit-detail-csv-units",
+      "problem": "standalone conditional tier/stage effects needed explicit units beyond generic names",
+      "state": "resolved by finite shared units column, supplied by each export owner"
+    },
+    {
+      "id": "g14-annual-observed-history",
+      "problem": "root found missing three-season recorded source/workload and paired history rows",
+      "state": "resolved by finite annual tables and raw csv from existing selected-strength annual summary; independent121checks passed"
+    },
+    {
+      "id": "actual-only-modeled-strength",
+      "problem": "actual-only exports inherited unrelated ui core strength under modeled_strength",
+      "state": "resolved centrally: modeled_strength blank for actual-only exports; actual_strength remains explicit; targeted red/green passed"
     }
   ],
   "limits": [
-    "review is code/quantity semantics, not native visual or actual-download acceptance",
-    "final content review closes after concrete findings are resolved; no additional numerical campaign required"
-  ]
+    "source/quantity/csv acceptance is cleared; native pixel and final real candidate acceptance remain with root",
+    "no new requests, source acquisition, estimator, fit or scientific quality claim; temporary campaign checks are deleted at root cleanup"
+  ],
+  "initial_status": "findings_sent_to_owners",
+  "initial_review_sources": [
+    {
+      "path": "app/src/web/goalie-card.tsx",
+      "sha256": "f218240f937f31eee244e33acbd6d44f683dc1ed5db93ec36fe4114e01c8f4c5"
+    },
+    {
+      "path": "app/src/web/goalie-details.tsx",
+      "sha256": "c91c4d81397d8458dd65f8c45412aa9eabef390f9dd241565af482ccf042afa6"
+    },
+    {
+      "path": "app/src/web/goalie-evidence.tsx",
+      "sha256": "35eba8006d1732253d3852d98b8ab72690ff8df31bed41c0aef50341a4e936e1"
+    },
+    {
+      "path": "app/src/web/analytical-map.tsx",
+      "sha256": "47365ed3fb8972cf7f23f5a8652932fa372939223046df426d24e9896814824f"
+    },
+    {
+      "path": "app/src/web/rink.tsx",
+      "sha256": "1f9750735194d954569a9ddad429f9dc073d2f7ecd3c3f7c166086aacd827fb6"
+    },
+    {
+      "path": "app/src/shared/map-geometry.ts",
+      "sha256": "6f72893638d4946825a93d0f3e99970c98cbcfa58a949bc8a34bf4732c0c28c3"
+    },
+    {
+      "path": "app/src/server/selected-publication.ts",
+      "sha256": "c33a34f48d36bf53d3e9644cd3701be9a5706a644ed03f467b2f1e52ce0ba513"
+    },
+    {
+      "path": "app/src/web/client.ts",
+      "sha256": "5f59569485999c10fb046c08054385d40d3923621a051e78e05f36090eae90f8"
+    }
+  ],
+  "bounded_verification": {
+    "receipt": "independent-g14-observed-history.json",
+    "runtime": "node24.21.0",
+    "checks": 121,
+    "live_input": "one existing published PlayerResponse for9000004; three annual rows",
+    "actual_strengths": [
+      "ev",
+      "pk",
+      "covered_all"
+    ],
+    "targeted_mutations": [
+      "distinct2024workload/support",
+      "pending2024summary",
+      "formula-leading annual display name"
+    ],
+    "metadata_red_log_sha256": "7bb403642cb9750e1c94e1faf74128cb5c84be88f16064aa5333772d88375f6b"
+  }
 }

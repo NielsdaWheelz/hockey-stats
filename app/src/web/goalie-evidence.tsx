@@ -205,30 +205,29 @@ export type GoalieCsvContext = {
   readonly reason: string | null;
   readonly companion?: string | null;
 };
-export function goalieCsv(
+export const goalieCsvHeaders = [
+  "publication_id",
+  "purpose",
+  "season",
+  "corpus_sha256",
+  "player_id",
+  "modeled_strength",
+  "actual_strength",
+  "population",
+  "type",
+  "method_id",
+  "numeric_reference",
+  "availability",
+  "reason",
+  "selection_support",
+  "comparison_companion",
+  "units",
+];
+
+export function goalieCsvContextRow(
   context: GoalieCsvContext,
-  columns: readonly string[],
-  rows: readonly (readonly CsvCell[])[],
-): string {
-  const headers = [
-    "publication_id",
-    "purpose",
-    "season",
-    "corpus_sha256",
-    "player_id",
-    "modeled_strength",
-    "actual_strength",
-    "population",
-    "type",
-    "method_id",
-    "numeric_reference",
-    "availability",
-    "reason",
-    "selection_support",
-    "comparison_companion",
-    "units",
-  ];
-  const values: readonly CsvCell[] = [
+): readonly CsvCell[] {
+  return [
     context.publication.publication_id,
     context.publication.purpose,
     context.season.season,
@@ -246,10 +245,18 @@ export function goalieCsv(
     context.companion,
     context.units,
   ];
+}
+
+export function goalieCsv(
+  context: GoalieCsvContext,
+  columns: readonly string[],
+  rows: readonly (readonly CsvCell[])[],
+): string {
+  const values = goalieCsvContextRow(context);
   if (rows.some((row) => row.length > columns.length))
     throw new Error("goalie csv row exceeds its closed column contract");
   return csvText(
-    [...headers, ...columns],
+    [...goalieCsvHeaders, ...columns],
     rows.map((row) => [
       ...values,
       ...columns.map((_, index) => row[index] ?? null),

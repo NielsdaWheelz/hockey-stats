@@ -1,0 +1,14 @@
+{
+  "issue": {
+    "path": "docs/issues/goalie-fixture-conditioning.md",
+    "sha256": "7a0abc87e486c03f79f6b746f3e14e979b14bca2444110caa39ac32a455e59ee",
+    "historical_commit": "64de561"
+  },
+  "resolution": "coherent attributed successor, strict publication, source-to-card checks and independent conditional/mass/preservation audit pass; original fixture retained exactly",
+  "evidence": [
+    "fixture-independent-arithmetic.json",
+    "fixture-publication.json",
+    "card-live-green.json"
+  ],
+  "replacement": "fixtures/goalie-card-v1-19/README.md"
+}

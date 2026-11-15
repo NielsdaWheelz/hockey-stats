@@ -26,7 +26,7 @@ the prior combined candidate was 31,261,470,720 bytes; strict startup took about
 
 coordinate **one exchange4/schema10 foundation** with v1-10, as defined in [the shared cutover](experimental-application.md#shared-exchange4schema10-cutover). v1-19 owns goalie evidence and the shared browser changes; v1-10 owns mechanism evidence. the integration owner reconciles the three payload extensions before either candidate is built. one temporary attributed converter upgrades the pinned donor; it preserves numerical bodies, enriches existing goalie rows from saved proofs and leaves pending mechanisms null. current production writers/readers accept only the new version. remove the converter after verified use; retain its input/output identities and checked fixtures. no permanent backward reader or schema fork.
 
-the old [synthetic goalie fixture](../issues/goalie-fixture-conditioning.md) has inconsistent conditional/joint danger. create an attributed coherent fixture successor, including ev/pk examples, with independently checked masses/scalars/support/maps. enumerate corrected synthetic fields and preserve the original exactly. this exception never changes real estimates; ordinary real enrichment remains exact.
+the old [synthetic goalie fixture](../../fixtures/goalie-card-v1-19/README.md) has inconsistent conditional/joint danger. create an attributed coherent fixture successor, including ev/pk examples, with independently checked masses/scalars/support/maps. enumerate corrected synthetic fields and preserve the original exactly. this exception never changes real estimates; ordinary real enrichment remains exact.
 
 ## owners and interfaces
 

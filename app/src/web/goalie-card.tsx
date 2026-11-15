@@ -3,6 +3,8 @@ import { Link } from "react-router";
 import type {
   GoalieDanger,
   GoalieObserved,
+  GoalieObservedSummary,
+  Method,
   Person,
   MapsResponse,
 } from "../shared/player-analysis";
@@ -143,6 +145,195 @@ export type GoalieCardModel = {
   readonly footer: readonly string[];
 };
 
+export function goalieObservedFacts(
+  observed: typeof GoalieObservedSummary.Type,
+  methods: Readonly<Record<string, typeof Method.Type>>,
+): readonly GoalieRawFact[] {
+  const rawFacts: GoalieRawFact[] = [];
+  const add = (
+    section: string,
+    slot: string,
+    path: string,
+    value: CsvCell,
+    unit: string,
+    support: unknown,
+    reason: string | null = null,
+    methodId: string | null = null,
+    reference: string | null = null,
+    sourceId: string | null = null,
+  ) =>
+    rawFacts.push({
+      section,
+      slot,
+      path,
+      value,
+      unit,
+      support,
+      reason: value === null ? (reason ?? "source field unavailable") : null,
+      methodId,
+      reference,
+      sourceId,
+    });
+  for (const source of ["source_counts", "reported_boxscore_counts"] as const) {
+    const counts = observed[source];
+    for (const field of [
+      "unblocked_attempts",
+      "misses",
+      "shots_on_goal",
+      "saves",
+      "goals_against",
+    ] as const)
+      add(
+        "source",
+        "g03",
+        `goalie_observed.${source}.${field}`,
+        counts[field],
+        "count",
+        counts.support,
+        "source count unavailable",
+        null,
+        source === "source_counts"
+          ? "recorded event source"
+          : "separately reported official totals",
+        counts.provenance.id,
+      );
+    add(
+      "source",
+      "g03",
+      `goalie_observed.${source}.save_percentage.value`,
+      counts.save_percentage.value,
+      "fraction",
+      counts.support,
+      counts.save_percentage.reason_detail?.explanation ??
+        counts.save_percentage.unavailable_reason,
+      null,
+      "recorded saves / on-net source count",
+      counts.provenance.id,
+    );
+    add(
+      "source",
+      "g03",
+      `goalie_observed.${source}.provenance`,
+      JSON.stringify(counts.provenance),
+      "source reference",
+      counts.support,
+      null,
+      null,
+      null,
+      counts.provenance.id,
+    );
+  }
+  for (const population of ["unblocked", "on_net"] as const) {
+    const key =
+        population === "unblocked" ? "unblocked_evidence" : "on_net_evidence",
+      row = observed[key];
+    const reference = methods[row.method_id]?.reference ?? null;
+    for (const field of ["attempts", "goals", "expected_goals"] as const)
+      add(
+        "paired",
+        "g04",
+        `goalie_observed.${key}.${field}`,
+        row[field],
+        field === "attempts" ? "attempts" : "goals",
+        row.support,
+        null,
+        row.method_id,
+        reference,
+      );
+    for (const field of [
+      "goals_saved_above_expected",
+      "goals_per100_expected",
+      "mean_goal_probability",
+      "league_mean_goal_probability",
+      "difficulty_relative_percent",
+    ] as const)
+      add(
+        field.includes("probability") || field === "difficulty_relative_percent"
+          ? "difficulty"
+          : "paired",
+        field.includes("probability") || field === "difficulty_relative_percent"
+          ? "g05"
+          : "g04",
+        `goalie_observed.${key}.${field}.value`,
+        row[field].value,
+        field.includes("probability")
+          ? "fraction"
+          : field === "goals_saved_above_expected"
+            ? "goals"
+            : field === "goals_per100_expected"
+              ? "goals per100 expected"
+              : "percent",
+        row.support,
+        row[field].reason_detail?.explanation ?? row[field].unavailable_reason,
+        row.method_id,
+        reference,
+      );
+  }
+  const onNet = observed.on_net_evidence;
+  add(
+    "paired",
+    "g04",
+    "goalie_observed.on_net_evidence.expected_save_fraction.value",
+    onNet.expected_save_fraction.value,
+    "fraction",
+    onNet.support,
+    onNet.expected_save_fraction.reason_detail?.explanation ??
+      onNet.expected_save_fraction.unavailable_reason,
+    onNet.method_id,
+    methods[onNet.method_id]?.reference ?? null,
+  );
+  for (const field of [
+    "starts",
+    "relief_appearances",
+    "unknown_start_status",
+  ] as const)
+    add(
+      "workload",
+      "g01",
+      `goalie_observed.${field}`,
+      observed[field],
+      "appearances",
+      observed.coverage,
+      null,
+      null,
+      "reported workload",
+      observed.provenance.id,
+    );
+  for (const field of [
+    "positive_toi_appearances",
+    "reported_seconds",
+    "listed_games",
+    "supported_games",
+    "missing_games",
+  ] as const)
+    add(
+      "workload",
+      "g01",
+      `goalie_observed.reported_usage.${field}`,
+      observed.reported_usage[field],
+      field === "reported_seconds" ? "seconds" : "count",
+      observed.reported_usage.support,
+      "reported workload field unavailable",
+      null,
+      "reported workload",
+      observed.reported_usage.provenance.id,
+    );
+  add(
+    "workload",
+    "g01",
+    "goalie_observed.reported_usage.minutes_per_appearance.value",
+    observed.reported_usage.minutes_per_appearance.value,
+    "minutes per appearance",
+    observed.reported_usage.support,
+    observed.reported_usage.minutes_per_appearance.reason_detail?.explanation ??
+      observed.reported_usage.minutes_per_appearance.unavailable_reason,
+    null,
+    "reported workload",
+    observed.reported_usage.provenance.id,
+  );
+  return rawFacts;
+}
+
 export function prepareGoalieCard(
   profile: ProfileView,
   settings: PeerSettings,
@@ -266,7 +457,9 @@ export function prepareGoalieCard(
       "goalie card is missing its required other-type evidence response",
     );
   const otherMap = prepareGoalieEvidenceMap(other, profile.player_id);
-  const rawFacts: GoalieRawFact[] = [];
+  const rawFacts: GoalieRawFact[] = observed
+    ? [...goalieObservedFacts(observed, profile.detail.methods)]
+    : [];
   const add = (
     section: string,
     slot: string,
@@ -291,173 +484,6 @@ export function prepareGoalieCard(
       reference,
       sourceId,
     });
-  if (observed) {
-    for (const source of [
-      "source_counts",
-      "reported_boxscore_counts",
-    ] as const) {
-      const counts = observed[source];
-      for (const field of [
-        "unblocked_attempts",
-        "misses",
-        "shots_on_goal",
-        "saves",
-        "goals_against",
-      ] as const)
-        add(
-          "source",
-          "g03",
-          `goalie_observed.${source}.${field}`,
-          counts[field],
-          "count",
-          counts.support,
-          "source count unavailable",
-          null,
-          source === "source_counts"
-            ? "recorded event source"
-            : "separately reported official totals",
-          counts.provenance.id,
-        );
-      add(
-        "source",
-        "g03",
-        `goalie_observed.${source}.save_percentage.value`,
-        counts.save_percentage.value,
-        "fraction",
-        counts.support,
-        counts.save_percentage.reason_detail?.explanation ??
-          counts.save_percentage.unavailable_reason,
-        null,
-        "recorded saves / on-net source count",
-        counts.provenance.id,
-      );
-      add(
-        "source",
-        "g03",
-        `goalie_observed.${source}.provenance`,
-        JSON.stringify(counts.provenance),
-        "source reference",
-        counts.support,
-        null,
-        null,
-        null,
-        counts.provenance.id,
-      );
-    }
-    for (const population of ["unblocked", "on_net"] as const) {
-      const key =
-          population === "unblocked" ? "unblocked_evidence" : "on_net_evidence",
-        row = observed[key];
-      const reference =
-        profile.detail.methods[row.method_id]?.reference ?? null;
-      for (const field of ["attempts", "goals", "expected_goals"] as const)
-        add(
-          "paired",
-          "g04",
-          `goalie_observed.${key}.${field}`,
-          row[field],
-          field === "attempts" ? "attempts" : "goals",
-          row.support,
-          null,
-          row.method_id,
-          reference,
-        );
-      for (const field of [
-        "goals_saved_above_expected",
-        "goals_per100_expected",
-        "mean_goal_probability",
-        "league_mean_goal_probability",
-        "difficulty_relative_percent",
-      ] as const)
-        add(
-          field.includes("probability") ||
-            field === "difficulty_relative_percent"
-            ? "difficulty"
-            : "paired",
-          field.includes("probability") ||
-            field === "difficulty_relative_percent"
-            ? "g05"
-            : "g04",
-          `goalie_observed.${key}.${field}.value`,
-          row[field].value,
-          field.includes("probability")
-            ? "fraction"
-            : field === "goals_saved_above_expected"
-              ? "goals"
-              : field === "goals_per100_expected"
-                ? "goals per100 expected"
-                : "percent",
-          row.support,
-          row[field].reason_detail?.explanation ??
-            row[field].unavailable_reason,
-          row.method_id,
-          reference,
-        );
-    }
-    const onNet = observed.on_net_evidence;
-    add(
-      "paired",
-      "g04",
-      "goalie_observed.on_net_evidence.expected_save_fraction.value",
-      onNet.expected_save_fraction.value,
-      "fraction",
-      onNet.support,
-      onNet.expected_save_fraction.reason_detail?.explanation ??
-        onNet.expected_save_fraction.unavailable_reason,
-      onNet.method_id,
-      profile.detail.methods[onNet.method_id]?.reference ?? null,
-    );
-    for (const field of [
-      "starts",
-      "relief_appearances",
-      "unknown_start_status",
-    ] as const)
-      add(
-        "workload",
-        "g01",
-        `goalie_observed.${field}`,
-        observed[field],
-        "appearances",
-        observed.coverage,
-        null,
-        null,
-        "reported workload",
-        observed.provenance.id,
-      );
-    for (const field of [
-      "positive_toi_appearances",
-      "reported_seconds",
-      "listed_games",
-      "supported_games",
-      "missing_games",
-    ] as const)
-      add(
-        "workload",
-        "g01",
-        `goalie_observed.reported_usage.${field}`,
-        observed.reported_usage[field],
-        field === "reported_seconds" ? "seconds" : "count",
-        observed.reported_usage.support,
-        "reported workload field unavailable",
-        null,
-        "reported workload",
-        observed.reported_usage.provenance.id,
-      );
-    add(
-      "workload",
-      "g01",
-      "goalie_observed.reported_usage.minutes_per_appearance.value",
-      observed.reported_usage.minutes_per_appearance.value,
-      "minutes per appearance",
-      observed.reported_usage.support,
-      observed.reported_usage.minutes_per_appearance.reason_detail
-        ?.explanation ??
-        observed.reported_usage.minutes_per_appearance.unavailable_reason,
-      null,
-      "reported workload",
-      observed.reported_usage.provenance.id,
-    );
-  }
   for (const { type, map } of [
     { type: "all", map: actualMap },
     ...typeMaps,

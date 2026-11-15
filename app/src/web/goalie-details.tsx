@@ -1,5 +1,9 @@
 import { useState } from "react";
-import type { GoalieObserved, Support } from "../shared/player-analysis";
+import type {
+  GoalieObserved,
+  GoalieObservedSummary,
+  Support,
+} from "../shared/player-analysis";
 import type { ProfileView } from "./client";
 import type { PeerSettings } from "./explorer";
 import {
@@ -12,10 +16,17 @@ import {
 } from "./analysis-history";
 import { goalieDetailMetric, selectHistoryValue } from "./analysis-values";
 import { rawOnlyStanding } from "./analysis-cohorts";
-import { goalieFields, goalieSkills, prepareGoalieCard } from "./goalie-card";
+import {
+  goalieFields,
+  goalieSkills,
+  prepareGoalieCard,
+  goalieObservedFacts,
+} from "./goalie-card";
 import {
   GoalieEvidenceMapFigure,
   goalieCsv,
+  goalieCsvHeaders,
+  goalieCsvContextRow,
   goalieDangerCsv,
   goalieSupportText,
   prepareGoalieEvidenceMap,
@@ -54,7 +65,7 @@ function exportContext(profile: ProfileView): GoalieCsvContext {
     publication: profile.publication,
     season: profile.season,
     playerId: profile.player_id,
-    coreStrength: selection.coreStrength,
+    coreStrength: null,
     strength: selection.evidenceStrength,
     population: selection.population,
     type: null,
@@ -403,6 +414,339 @@ export function goalieExactCsv(profile: ProfileView): string {
       ]);
     }
   return csvText(headers, rows);
+}
+
+type ObservedHistoryRow = {
+  readonly annual: ProfileView["detail"]["history"][number];
+  readonly availability: "provided" | "not_computed" | "absent";
+  readonly reason: string | null;
+  readonly observed: typeof GoalieObservedSummary.Type | null;
+};
+
+function observedHistory(profile: ProfileView): readonly ObservedHistoryRow[] {
+  const strength = profile.goalieSelection!.evidenceStrength;
+  return profile.detail.history.map((annual) => {
+    const families = annual.families;
+    if ("availability" in families)
+      return {
+        annual,
+        availability: families.availability,
+        reason: families.explanation,
+        observed: null,
+      };
+    if (families.kind !== "goalie")
+      throw new Error("goalie history has an incompatible annual kind");
+    if (families.goalie_observed.availability !== "provided")
+      return {
+        annual,
+        availability: families.goalie_observed.availability,
+        reason: families.goalie_observed.explanation,
+        observed: null,
+      };
+    const selected = families.goalie_observed.data.find(
+      (row) => row.strength === strength,
+    );
+    if (!selected)
+      throw new Error(
+        "annual goalie history omits the selected actual strength",
+      );
+    return {
+      annual,
+      availability: selected.result.availability,
+      reason: selected.result.explanation,
+      observed:
+        selected.result.availability === "provided"
+          ? selected.result.data
+          : null,
+    };
+  });
+}
+
+export function goalieObservedHistoryCsv(profile: ProfileView): string {
+  const columns = [
+    "section",
+    "source_path",
+    "raw_number",
+    "raw_text",
+    "raw_unit",
+    "raw_support",
+    "source_id",
+    "display_name",
+    "teams",
+  ];
+  const rows: CsvCell[][] = [];
+  for (const row of observedHistory(profile)) {
+    const person = row.annual.person;
+    const context: GoalieCsvContext = {
+      ...exportContext(profile),
+      season: row.annual.season,
+      type: "all",
+      population: null,
+      availability: row.availability,
+      reason: row.reason,
+      methodId: null,
+      reference:
+        "selected annual recorded source and matched paired populations",
+      support: row.observed?.coverage ?? null,
+    };
+    const facts = row.observed
+      ? goalieObservedFacts(row.observed, profile.detail.methods)
+      : [];
+    if (!facts.length)
+      rows.push([
+        ...goalieCsvContextRow(context),
+        "unavailable",
+        "goalie_observed",
+        null,
+        null,
+        null,
+        null,
+        null,
+        person?.display_name,
+        person ? JSON.stringify(person.teams) : null,
+      ]);
+    for (const fact of facts)
+      rows.push([
+        ...goalieCsvContextRow({
+          ...context,
+          population: fact.path.includes(".on_net_evidence.")
+            ? "on_net"
+            : fact.path.includes(".unblocked_evidence.")
+              ? "unblocked"
+              : null,
+          availability: fact.value === null ? "unavailable" : "provided",
+          reason: fact.reason,
+          methodId: fact.methodId,
+          reference: fact.reference,
+          units: fact.unit,
+        }),
+        fact.section,
+        fact.path,
+        typeof fact.value === "number" ? fact.value : null,
+        typeof fact.value === "string" ? fact.value : null,
+        fact.unit,
+        fact.support ? JSON.stringify(fact.support) : null,
+        fact.sourceId,
+        person?.display_name,
+        person ? JSON.stringify(person.teams) : null,
+      ]);
+  }
+  return csvText([...goalieCsvHeaders, ...columns], rows);
+}
+
+function GoalieObservedHistory({ profile }: { readonly profile: ProfileView }) {
+  const history = observedHistory(profile);
+  return (
+    <section>
+      <h4>
+        three-season recorded results ·{" "}
+        {profile.goalieSelection!.evidenceStrength}
+      </h4>
+      <p>
+        each annual row retains its own identity, source and supported
+        population. absence and pending work do not reuse another season. these
+        are recorded results and matched expectations, not talent estimates.
+      </p>
+      <div className="table-scroll" tabIndex={0}>
+        <table>
+          <caption>
+            annual source outcomes and reported workload; event and official
+            boxscore totals stay distinct
+          </caption>
+          <thead>
+            <tr>
+              <th>season / identity / teams</th>
+              <th>reported workload</th>
+              <th>recorded unblocked / misses / on-net / saves / goals</th>
+              <th>recorded save %</th>
+              <th>reported official totals</th>
+              <th>support / source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {history.map((row) => {
+              const value = row.observed;
+              return (
+                <tr key={row.annual.season.season}>
+                  <th>
+                    {seasonLabel(row.annual.season.season)}
+                    <br />
+                    {row.annual.person?.display_name ??
+                      "absent annual identity"}
+                    <br />
+                    {row.annual.person?.teams.map(teamName).join(" / ")}
+                  </th>
+                  {value ? (
+                    <>
+                      <td>
+                        {value.reported_usage.positive_toi_appearances}{" "}
+                        appearances; {value.starts} starts /{" "}
+                        {value.relief_appearances} relief /{" "}
+                        {value.unknown_start_status} unknown;{" "}
+                        {displayNumber(
+                          value.reported_usage.reported_seconds === null
+                            ? null
+                            : value.reported_usage.reported_seconds / 60,
+                        )}{" "}
+                        reported min;{" "}
+                        {displayNumber(
+                          value.reported_usage.minutes_per_appearance.value,
+                        )}{" "}
+                        min/appearance
+                      </td>
+                      <td>
+                        {value.source_counts.unblocked_attempts ??
+                          "unavailable"}{" "}
+                        / {value.source_counts.misses ?? "unavailable"} /{" "}
+                        {value.source_counts.shots_on_goal ?? "unavailable"} /{" "}
+                        {value.source_counts.saves ?? "unavailable"} /{" "}
+                        {value.source_counts.goals_against ?? "unavailable"}
+                      </td>
+                      <td>
+                        {displayNumber(
+                          value.source_counts.save_percentage.value === null
+                            ? null
+                            : 100 * value.source_counts.save_percentage.value,
+                        )}
+                      </td>
+                      <td>
+                        unblocked{" "}
+                        {value.reported_boxscore_counts.unblocked_attempts ??
+                          "unavailable"}
+                        ; misses{" "}
+                        {value.reported_boxscore_counts.misses ?? "unavailable"}
+                        ; on-net{" "}
+                        {value.reported_boxscore_counts.shots_on_goal ??
+                          "unavailable"}
+                        ; saves{" "}
+                        {value.reported_boxscore_counts.saves ?? "unavailable"};
+                        goals{" "}
+                        {value.reported_boxscore_counts.goals_against ??
+                          "unavailable"}
+                        ; save{" "}
+                        {displayNumber(
+                          value.reported_boxscore_counts.save_percentage
+                            .value === null
+                            ? null
+                            : 100 *
+                                value.reported_boxscore_counts.save_percentage
+                                  .value,
+                        )}
+                        %
+                      </td>
+                      <td>
+                        {goalieSupportText(value.coverage)};{" "}
+                        {JSON.stringify(value.source_counts.provenance)}
+                      </td>
+                    </>
+                  ) : (
+                    <td colSpan={5}>
+                      {row.availability}: {row.reason}
+                    </td>
+                  )}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div className="table-scroll" tabIndex={0}>
+        <table>
+          <caption>
+            annual matched actual-opportunity saving; both populations keep
+            their own attempts and expectations
+          </caption>
+          <thead>
+            <tr>
+              <th>season</th>
+              <th>population</th>
+              <th>attempts / actual / expected goals</th>
+              <th>saved goals / goals per100 expected</th>
+              <th>own / league probability; relative difficulty</th>
+              <th>expected save %</th>
+              <th>method / support</th>
+            </tr>
+          </thead>
+          <tbody>
+            {history.flatMap((row) =>
+              row.observed
+                ? (["unblocked", "on_net"] as const).map((population) => {
+                    const value =
+                      row.observed![
+                        population === "on_net"
+                          ? "on_net_evidence"
+                          : "unblocked_evidence"
+                      ];
+                    return (
+                      <tr key={`${row.annual.season.season}-${population}`}>
+                        <th>{seasonLabel(row.annual.season.season)}</th>
+                        <td>{population}</td>
+                        <td>
+                          {value.attempts} / {value.goals} /{" "}
+                          {displayNumber(value.expected_goals)}
+                        </td>
+                        <td>
+                          {displayNumber(
+                            value.goals_saved_above_expected.value,
+                          )}{" "}
+                          / {displayNumber(value.goals_per100_expected.value)}
+                        </td>
+                        <td>
+                          {displayNumber(value.mean_goal_probability.value)} /{" "}
+                          {displayNumber(
+                            value.league_mean_goal_probability.value,
+                          )}{" "}
+                          (fractions);{" "}
+                          {displayNumber(
+                            value.difficulty_relative_percent.value,
+                          )}
+                          %
+                        </td>
+                        <td>
+                          {population === "on_net"
+                            ? displayNumber(
+                                row.observed!.on_net_evidence
+                                  .expected_save_fraction.value === null
+                                  ? null
+                                  : 100 *
+                                      row.observed!.on_net_evidence
+                                        .expected_save_fraction.value,
+                              )
+                            : "not defined"}
+                        </td>
+                        <td>
+                          {value.method_id}; {goalieSupportText(value.support)}
+                        </td>
+                      </tr>
+                    );
+                  })
+                : [
+                    <tr key={row.annual.season.season}>
+                      <th>{seasonLabel(row.annual.season.season)}</th>
+                      <td colSpan={6}>
+                        {row.availability}: {row.reason}
+                      </td>
+                    </tr>,
+                  ],
+            )}
+          </tbody>
+        </table>
+      </div>
+      <button
+        type="button"
+        onClick={() =>
+          downloadBlob(
+            new Blob([goalieObservedHistoryCsv(profile)], {
+              type: "text/csv;charset=utf-8",
+            }),
+            `hockey-stats-${profile.player_id}-${profile.goalieSelection!.evidenceStrength}-goalie-observed-history.csv`,
+          )
+        }
+      >
+        download recorded goalie history csv
+      </button>
+    </section>
+  );
 }
 
 function StageTable({ rows }: { readonly rows: readonly StageRow[] }) {
@@ -793,6 +1137,7 @@ export default function GoalieDetails({
           download goalie-games.csv
         </button>
       </section>
+      <GoalieObservedHistory profile={profile} />
       <section>
         <h4>
           {selection.evidenceStrength} exact modeled values and raw three-season

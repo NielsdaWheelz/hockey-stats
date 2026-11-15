@@ -14,7 +14,7 @@ from time import perf_counter
 import numpy as np
 from scipy.special import logsumexp
 
-from .artifacts import implementation, require
+from .artifacts import require
 from .captures import InputContractError
 from .chance import solve_logistic
 from .chance_cli import identity
@@ -370,9 +370,8 @@ def _fit_head(design,family,incoming,*,initial=None,tightened=False):
     if no_information:
         head.update(status='unavailable',reasons=['no_exposure' if family=='penalties' else 'no_choices'])
         return head,{},None
-    work=design
-    objective=(lambda b:penalty_objective(b,work,mean,precision,log_rate)) if family=='penalties' else (
-        lambda b:shooter_objective(b,work,mean[:len(design.players)],precision[:len(design.players)]))
+    objective=(lambda b:penalty_objective(b,design,mean,precision,log_rate)) if family=='penalties' else (
+        lambda b:shooter_objective(b,design,mean[:len(design.players)],precision[:len(design.players)]))
     options=CONTINUATION if tightened else SOLVER
     began=perf_counter()
     try:
@@ -470,15 +469,18 @@ def fit_mechanism(design,previous,output,*,final_year=False):
     family='penalties' if isinstance(design,PenaltyDesign) else 'shootiness'
     began=perf_counter()
     validate_design(design)
-    design=_compress_penalty(design) if family=='penalties' else _compress_shootiness(design)
     previous_state=None
     if previous is not None:
         previous_state=previous if isinstance(previous,MechanismState) else read_mechanism_state(previous,design.purpose,family,narrow=True)
         require(previous_state.manifest['purpose']==design.purpose and previous_state.manifest['family']==family
             and previous_state.manifest['recipe']==mechanism_recipe(family,design.recipe),'mechanism predecessor purpose/family/recipe differs')
+        for source in ('prepared','coaches') if family=='penalties' else ('prepared',):
+            require(all(previous_state.manifest[source][key]==getattr(design,source)[key] for key in ('path','sha256')),
+                    f'mechanism predecessor {source} binding differs')
         require(previous_state.manifest['season']==f'{int(design.season[:4])-1}{design.season[:4]}'
                 and previous_state.head['status']=='complete','mechanism predecessor is not the exact completed prior year')
     require(design.purpose!='real' or (design.season=='20212022')==(previous_state is None),'real mechanism chronology differs')
+    design=_compress_penalty(design) if family=='penalties' else _compress_shootiness(design)
     incoming=[] if previous_state is None else previous_state.head['ledger']
     head,arrays,projected=_fit_head(design,family,incoming)
     if projected is None:
@@ -495,7 +497,8 @@ def fit_mechanism(design,previous,output,*,final_year=False):
             comparison=compare_mechanism_probe(design,family,baseline,variant,projections,probe_rows)
             probe=dict(head=probe_head,arrays=probe_arrays,projections=probe_rows,reference=None if probe_projected is None else probe_projected[2],comparison=comparison)
         else:
-            probe=dict(head=None,arrays={},projections=[],reference=None,comparison=dict(status='unassessed',reason='baseline_incomplete'))
+            probe=dict(head=None,arrays={},projections=[],reference=None,comparison=dict(status='unassessed',reason='baseline_incomplete',projection_maximum=None,fitting_row_maximum=None,
+                worst_projection=None,worst_fitting_row=None,penalty_value_status='unassessed' if family=='penalties' else None))
     resources=dict(wall_seconds=perf_counter()-began,peak_memory_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
         coordinates=len(design.columns) if family=='penalties' else len(design.players)+14,
         baseline_solves=int(head['status']!='unavailable'),diagnostic_solves=int(probe is not None and probe['head'] is not None),

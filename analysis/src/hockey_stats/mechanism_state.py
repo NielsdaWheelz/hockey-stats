@@ -186,11 +186,14 @@ def _write_design(root,design):
 def _read_design(root,expected_identity):
     document=read_json(root/'design.json')
     require_fields(document,('schema_version','family','metadata','axes','arrays','numerical_identity'),'mechanism design')
-    require(document['schema_version']==1 and document['family'] in ('penalties','shootiness'),'invalid mechanism design schema/family')
+    require(type(document['schema_version']) is int and document['schema_version']==1 and document['family'] in ('penalties','shootiness'),'invalid mechanism design schema/family')
     require(body_digest(document)==expected_identity,'mechanism design identity differs')
     archive=document['arrays'];require_fields(archive,('arrays','array_shapes'),'mechanism array contract')
     require(archive['arrays']==identity(root/'arrays.npz'),'mechanism design array binding differs from owned member')
-    for shape in archive['array_shapes']:require_fields(shape,('name','shape','dtype'),'mechanism saved array shape')
+    for shape in archive['array_shapes']:
+        require_fields(shape,('name','shape','dtype'),'mechanism saved array shape')
+        require(type(shape['name']) is str and type(shape['dtype']) is str and type(shape['shape']) is list
+            and all(type(length) is int and length>=0 for length in shape['shape']),'mechanism saved array axes/dtype types differ')
     arrays=load_arrays(archive)
     require(ordered_array_digest(arrays)==document['numerical_identity'],'mechanism numerical identity differs')
     values=document['metadata']
@@ -429,6 +432,60 @@ def _validate_projection_evidence(manifest,head,reference,projections,support):
                     'shootiness probability closure differs')
 
 
+def _validate_comparison(comparison,family,baseline_rows,probe_rows):
+    assessed=comparison['status'] in ('within_budget','exceeded')
+    keys=('status','reason','projection_maximum','fitting_row_maximum','worst_projection','worst_fitting_row','penalty_value_status')
+    require_fields(comparison,(*keys,'budget') if assessed else keys,'mechanism probe comparison')
+    require(comparison['status'] in ('within_budget','exceeded','unassessed'),'invalid mechanism diagnostic status')
+    require(comparison['penalty_value_status']==('unassessed' if family=='penalties' else None),'mechanism penalty value assessment differs')
+    if not assessed:
+        require(type(comparison['reason']) is str and comparison['reason']
+            and all(comparison[key] is None for key in ('projection_maximum','fitting_row_maximum','worst_projection','worst_fitting_row')),
+            'unassessed mechanism probe claims measured movement')
+        return
+    require(comparison['reason'] is None,'assessed mechanism probe has a failure reason')
+    budget=1e-4 if family=='penalties' else 1e-5
+    require_number(comparison['budget'],'mechanism diagnostic budget',low=0)
+    require(comparison['budget']==budget,'mechanism diagnostic family budget differs')
+    for key in ('projection_maximum','fitting_row_maximum'):require_number(comparison[key],'mechanism diagnostic maximum',low=0)
+    expected='exceeded' if max(comparison['projection_maximum'],comparison['fitting_row_maximum'])>budget else 'within_budget'
+    require(comparison['status']==expected,'mechanism diagnostic status/maxima differ')
+    require(len(baseline_rows)==len(probe_rows) and baseline_rows,'assessed mechanism diagnostic lacks projections')
+    columns=('drawn_per60','taken_per60','drawn_complete_per60','taken_complete_per60','neutral_per60') if family=='penalties' else ('probability','neutral_probability','difference')
+    maximum=0.
+    for before,after in zip(baseline_rows,probe_rows,strict=True):
+        require((before['player_id'],before.get('strength'))==(after['player_id'],after.get('strength')),'mechanism diagnostic projection axes differ')
+        for column in columns:
+            require((before[column] is None)==(after[column] is None),'mechanism diagnostic availability differs')
+            if before[column] is not None:maximum=max(maximum,abs(before[column]-after[column]))
+    require(math.isclose(maximum,comparison['projection_maximum'],rel_tol=1e-10,abs_tol=1e-12),'mechanism diagnostic saved projection movement differs')
+    worst=comparison['worst_projection']
+    if worst is None:require(maximum==0,'mechanism diagnostic lacks worst projection')
+    else:
+        require_fields(worst,('player_id','strength','field'),'mechanism worst projection')
+        require(worst['field'] in columns and worst['strength'] in ((None,) if family=='penalties' else STATES),'mechanism worst projection axis differs')
+        before=next((r for r in baseline_rows if r['player_id']==worst['player_id'] and r.get('strength')==worst['strength']),None)
+        after=next((r for r in probe_rows if r['player_id']==worst['player_id'] and r.get('strength')==worst['strength']),None)
+        require(before is not None and after is not None and before[worst['field']] is not None
+            and math.isclose(abs(before[worst['field']]-after[worst['field']]),maximum,rel_tol=1e-10,abs_tol=1e-12),'mechanism worst projection movement differs')
+    worst=comparison['worst_fitting_row']
+    if worst is None:
+        require(comparison['fitting_row_maximum']==0,'mechanism diagnostic lacks worst fitting row')
+        return
+    if family=='penalties':
+        require_fields(worst,('axis','row','source_rows'),'mechanism worst penalty row')
+        require(worst['axis'] in ('time_rows','event_rows') and type(worst['row']) is int and worst['row']>=0,
+                'mechanism worst penalty row axis/index differs')
+    else:
+        require_fields(worst,('axis','candidate_index','choice_index','choice_candidate_slot','player_id','source_rows'),'mechanism worst choice candidate')
+        require(worst['axis']=='candidates' and worst['player_id'] in {r['player_id'] for r in baseline_rows}
+            and all(type(worst[key]) is int and worst[key]>=0 for key in ('candidate_index','choice_index','choice_candidate_slot')),
+            'mechanism worst choice candidate axis/index differs')
+    require_fields(worst['source_rows'],('source_rows',),'mechanism fitting-row source group')
+    require(type(worst['source_rows']['source_rows']) is list and worst['source_rows']['source_rows']
+        and all(type(row) is dict for row in worst['source_rows']['source_rows']),'mechanism fitting-row source locators missing')
+
+
 def _read_mechanism_state(path,purpose,family,*,narrow=False):
     root=Path(path).resolve(strict=True)
     if root.is_file():require(root.name=='manifest.json','expected mechanism manifest');root=root.parent
@@ -473,6 +530,8 @@ def _read_mechanism_state(path,purpose,family,*,narrow=False):
         path=state_member_path(root,name);item=members[name]
         require(path.stat().st_size==item['bytes'] and identity(path)['sha256']==item['sha256'],'mechanism member digest/bytes differ')
     head=read_json(root/'head.json');_validate_head(head,manifest)
+    from .player_mechanisms import SOLVER,CONTINUATION
+    if head['solver'] is not None:require(head['solver']['options']==SOLVER,'mechanism baseline solve options differ')
     reference=read_json(root/'reference.json');projections=list(rows(root/'projections.jsonl'));support=list(rows(root/'support.jsonl'));coverage=read_json(root/'coverage.json')
     for value in (head,reference,projections,support,coverage):require_finite_state(value,'mechanism saved evidence')
     _validate_projection_evidence(manifest,head,reference,projections,support)
@@ -488,8 +547,8 @@ def _read_mechanism_state(path,purpose,family,*,narrow=False):
             width=len(design.columns) if family=='penalties' else len(design.players)+14
             require(arrays['coefficients'].shape==(width,) and arrays['coefficients'].dtype==np.dtype('float64')
                 and np.isfinite(arrays['coefficients']).all(),'mechanism coefficient array differs')
+            ledger={(r['block'],r['id'],r['subblock']):r for r in head['ledger']}
             for prior in head['priors']:
-                ledger={(r['block'],r['id'],r['subblock']):r for r in head['ledger']}
                 carried=ledger.get((prior['block'],prior['id'],prior['subblock']))
                 if prior['current_season_information']:
                     require(carried is not None and carried['season']==manifest['season']
@@ -508,12 +567,14 @@ def _read_mechanism_state(path,purpose,family,*,narrow=False):
         require_finite_state(probe,'mechanism probe')
         require(type(probe['comparison']) is dict and probe['comparison']['status'] in ('within_budget','exceeded','unassessed'),
                 'invalid mechanism diagnostic verdict')
+        _validate_comparison(probe['comparison'],family,projections,probe['projections'])
         if probe['head'] is None:
             require('probe-coefficients.npz' not in members and not probe['projections'] and probe['reference'] is None and probe['comparison']['status']=='unassessed',
                     'absent mechanism probe claims results')
         else:
             descriptor=dict(manifest,head=dict(status=probe['head']['status'],path='head.json'))
             _validate_head(probe['head'],descriptor)
+            if probe['head']['solver'] is not None:require(probe['head']['solver']['options']==CONTINUATION,'mechanism diagnostic continuation options differ')
             if probe['head']['status']=='complete':
                 require('probe-coefficients.npz' in members and len(probe['projections'])==len(projections)
                     and probe['reference']==probe['head']['reference'],'completed mechanism probe lacks saved results')
@@ -562,7 +623,7 @@ def _read_mechanism_selection(path,purpose):
     selection=read_json(Path(path))
     require_fields(selection,('schema_version','purpose','prepared','coaches','source_results','execution_scores','years'),'mechanism selection')
     require_finite_state(selection,'mechanism selection')
-    require(selection['schema_version']==1 and selection['purpose']==purpose and purpose in ('real','fixture'),'mechanism selection schema/purpose differs')
+    require(type(selection['schema_version']) is int and selection['schema_version']==1 and selection['purpose']==purpose and purpose in ('real','fixture'),'mechanism selection schema/purpose differs')
     for key in ('prepared','coaches','source_results','execution_scores'):
         require_fields(selection[key],('path','sha256'),'mechanism selection binding');linked_path(selection[key])
     years=selection['years'];require(type(years) is list and years,'mechanism selection years missing')
@@ -573,7 +634,7 @@ def _read_mechanism_selection(path,purpose):
     require(purpose!='real' or labels==['20212022','20222023','20232024','20242025','20252026'],'real mechanism selection needs all five years')
     score_selection=read_json(linked_path(selection['execution_scores']))
     require_fields(score_selection,('schema_version','purpose','prepared_sha256','scores'),'mechanism execution score selection')
-    require(score_selection['schema_version']==1 and score_selection['purpose']==purpose
+    require(type(score_selection['schema_version']) is int and score_selection['schema_version']==1 and score_selection['purpose']==purpose
         and score_selection['prepared_sha256']==selection['prepared']['sha256'],'mechanism score selection lineage differs')
     require([r['season'] for r in score_selection['scores']]==labels,'mechanism score selection years differ')
     for item,score in zip(years,score_selection['scores'],strict=True):
@@ -608,7 +669,7 @@ def _read_minor_reference(path,purpose,season,*,expected_inputs=None):
     value=read_json(path)
     require_fields(value,('schema_version','kind','purpose','season','valuation','construction','reference_id'),'minor reference')
     require_finite_state(value,'minor reference')
-    require(value['schema_version']==1 and value['kind']=='isolated_minor_reference' and value['purpose']==purpose
+    require(type(value['schema_version']) is int and value['schema_version']==1 and value['kind']=='isolated_minor_reference' and value['purpose']==purpose
         and value['season']==season,'minor reference identity differs')
     require_season_label(season);digest(value['reference_id'])
     require(body_digest({k:v for k,v in value.items() if k!='reference_id'})==value['reference_id'],'minor reference digest differs')
@@ -624,7 +685,7 @@ def _read_minor_reference(path,purpose,season,*,expected_inputs=None):
     receipt=read_json(reduction_path)
     require_fields(receipt,('schema_version','kind','purpose','season','inputs','sh_support','games','construction'),'minor reduction receipt')
     require_finite_state(receipt,'minor reduction receipt')
-    require(receipt['schema_version']==1 and receipt['kind']=='shorthanded_neutral_reduction' and receipt['purpose']==purpose
+    require(type(receipt['schema_version']) is int and receipt['schema_version']==1 and receipt['kind']=='shorthanded_neutral_reduction' and receipt['purpose']==purpose
         and receipt['season']==season and receipt['sh_support']==valuation['sh_support'],'minor reduction identity/support differs')
     require_fields(receipt['inputs'],('prepared','execution_score','ev_state','st_state'),'minor reduction source identities')
     for key,binding in receipt['inputs'].items():
@@ -653,6 +714,7 @@ def _read_minor_reference(path,purpose,season,*,expected_inputs=None):
     if a is not None:
         expected=2/60 if a==0 else -math.expm1(-a*2/60)/a
         require(math.isclose(tau,expected,rel_tol=1e-10,abs_tol=1e-10),'minor survival equation differs')
+    if valuation['V_goals'] is not None:require_number(valuation['V_goals'],'minor signed value')
     available=all(valuation[k] is not None for k in ('a','b','e_f','e_a'))
     require(valuation['available']==available,'minor valuation availability differs')
     if available:

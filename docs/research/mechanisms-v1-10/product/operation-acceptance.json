@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "kind": "mechanism_operation_acceptance",
+  "purpose": "fixture",
+  "status": "passed",
+  "receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/operation-01/schema-paired-rollback.json",
+    "sha256": "d0a4e88b2b45168ae4514745c0d2590d3274f7b1e24ae261e00fcfdba372f26c"
+  },
+  "schema9_publication_verification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/operation-schema9-publication-01/verification.json",
+    "sha256": "0c6f1b72dfd8ddb4a3f8d5b64901dfb2ac2a78c0db761dced9172aee8eafe0cd"
+  },
+  "preserved_build_log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/operation-01/schema9-build.log",
+    "sha256": "d6a81128347042c88b8f6e409f7481985e46e7c289f9b4e78ac828cea5e6fcb7"
+  },
+  "source_commit": "edb02d74ff4e19168149017ba190494a3176caba",
+  "cleanup": "pending independent root acceptance; temporary source/build/controller and isolated disposable databases remain identified",
+  "costs": {
+    "schema9_publication_wall_seconds": 4.548599250148982,
+    "schema9_publication_peak_rss_bytes": 188645376,
+    "base_app_build_wall_seconds": 1.02,
+    "base_app_build_maximum_rss_bytes": 606142464,
+    "restored_schema9_startup_seconds": 1.0627382500097156
+  },
+  "limits": [
+    "isolated synthetic rollback only; no primary activation",
+    "current schema10 reader refuses schema9 before rotation; matching rebuilt schema9 application restores and serves it",
+    "physical drive absence is not claimed"
+  ]
+}

@@ -128,23 +128,25 @@ def classify_penalty_group(rows):
     counts = dict(home=0,away=0)
     if not rows:
         return 'unresolved', counts
-    unresolved, ordinary = False, False
+    unresolved, ordinary, nonordinary = False, False, False
     for row in rows:
         kind, duration, side = row['penalty_type'], row['penalty_duration_minutes'], row['owner_side']
-        if not row['kind_valid'] or kind is None or duration is None:
+        if not row['kind_valid'] or kind is None:
             unresolved = True
+        elif kind in ('MIS','GAM'):
+            continue
         elif kind in ('MIN','BEN') and duration == 2:
             ordinary = True
             if side not in counts:
                 unresolved = True
             else:
                 counts[side] += 1
-        elif kind not in ('MIS','GAM'):
-            # a known nonordinary-only group is outside; any ordinary companion is ambiguous.
+        elif kind in ('MAJ','MAT','PS') or kind == 'MIN' and duration == 4:
+            nonordinary = True
+        else:
             unresolved = True
-    if unresolved:
-        known_nonordinary = all(row['kind_valid'] and (row['penalty_type'] in ('MAJ','MAT','PS','MIS','GAM') and row['penalty_duration_minutes'] is not None or row['penalty_type'] == 'MIN' and row['penalty_duration_minutes'] == 4) for row in rows)
-        return ('outside_population' if known_nonordinary and not ordinary else 'unresolved'), dict(home=0,away=0)
+    if unresolved or ordinary and nonordinary:
+        return 'unresolved', dict(home=0,away=0)
     if not ordinary:
         return 'outside_population', counts
     cancel = min(counts.values())

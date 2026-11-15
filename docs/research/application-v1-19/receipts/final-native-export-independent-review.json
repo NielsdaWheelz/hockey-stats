@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "scope": "actual downloaded final compiled92379be fixture exports; no real candidate or scientific acceptance",
+  "pngs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/fixture/exports/native-final/1-card.png",
+      "sha256": "e1d2c30ed6627e905ad9ade7ec63a9b30985a8892d29353f7461671195387446",
+      "bytes": 1471411,
+      "width": 1200,
+      "height": 6116
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/fixture/exports/native-final/2-card.png",
+      "sha256": "e1d2c30ed6627e905ad9ade7ec63a9b30985a8892d29353f7461671195387446",
+      "bytes": 1471411,
+      "width": 1200,
+      "height": 6116
+    }
+  ],
+  "native_200_percent_byte_identity": true,
+  "card_csv_byte_identity": true,
+  "visual_review": [
+    "all six full-rink maps and actual/model meaning distinct",
+    "all four type annotations visible; neutral slap map explained by3unmapped attempts and -2.4unmapped goals saved",
+    "type bars and source/paired totals legible",
+    "fixed raw stopping history and six subskills present",
+    "histogram0/max axes and full probability range present",
+    "complete method/support/uncertainty/footer retained",
+    "no visible overlap or clipped text"
+  ],
+  "observed_history_csv": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/fixture/exports/independent-final/goalie-observed-history.csv",
+    "sha256": "2528c316998dfa53abe8d60010a114ccccc6e82aecf19ccadd9969fe224884db",
+    "rows": 81,
+    "columns": 25,
+    "assertions": 505,
+    "annual_identity_support_method_and_values_exact": true,
+    "missing_annual_reason_and_blank_values": true,
+    "on_net_expected_save_only": true
+  },
+  "source_bytes_equal_compiled_commit": {
+    "app/src/web/goalie-card.tsx": "653ba0c501cef380f8dc21a47d4fdf86aada00366d1f932e24173799b631ce4d",
+    "app/src/web/goalie-details.tsx": "836c652e315c8eedba1621f6a25e691300e58b356264447ed0693603c8dcf188",
+    "app/src/web/goalie-evidence.tsx": "cdc7915f7c3583c692a7efe9a9cd60b91f68b6a956408689f62b17760b5db209",
+    "app/src/web/analytical-map.tsx": "47365ed3fb8972cf7f23f5a8652932fa372939223046df426d24e9896814824f",
+    "app/src/web/rink.tsx": "1f9750735194d954569a9ddad429f9dc073d2f7ecd3c3f7c166086aacd827fb6"
+  },
+  "publication_id": "64f000ad-9205-4217-9372-0d86d749dfe7",
+  "findings": []
+}

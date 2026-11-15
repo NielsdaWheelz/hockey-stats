@@ -1,0 +1,268 @@
+{
+  "kind": "goalie_disposable_schema_paired_rollback",
+  "passed": true,
+  "old": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/operation-schema9-publication-01/player-analysis.sqlite",
+    "sha256": "0cb0483b2ed7f1e3c5c52de955c82cea6d29a5e1201040bc395da4de5a91d44f"
+  },
+  "new": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/fixture-publication/player-analysis.sqlite",
+    "sha256": "2aa8284dab0582b8d4c1a4dbb08faacc3de9f4601ce3564d9479f55b424e7520"
+  },
+  "directory": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/rollback/disposable-publication",
+  "steps": [
+    {
+      "label": "initialize-old9",
+      "argv": [
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/v1-10-operation/schema9-source/app/dist/node/operator/publication-cli.js",
+        "activate",
+        "--candidate",
+        "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/operation-schema9-publication-01/player-analysis.sqlite",
+        "--directory",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/rollback/disposable-publication"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.9907484999857843
+    },
+    {
+      "label": "activate-disposable10",
+      "argv": [
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-19/app/dist/node/operator/publication-cli.js",
+        "activate",
+        "--candidate",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/fixture-publication/player-analysis.sqlite",
+        "--directory",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/rollback/disposable-publication"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.242213916964829
+    },
+    {
+      "label": "current-refuses-old9",
+      "argv": [
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-19/app/dist/node/operator/publication-cli.js",
+        "restore",
+        "--directory",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/rollback/disposable-publication"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 0.24681070796214044
+    },
+    {
+      "label": "matching-check-old9",
+      "argv": [
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/v1-10-operation/schema9-source/app/dist/node/operator/publication-cli.js",
+        "check",
+        "--candidate",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/rollback/disposable-publication/active.sqlite"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.9182706668507308
+    },
+    {
+      "label": "matching-old9-API",
+      "wall_seconds": 0.8785912920720875,
+      "publication": {
+        "publication_id": "b53890db-eecf-4391-8201-ca31b31fe1a1",
+        "kind": "player_analysis",
+        "schema_version": 9,
+        "purpose": "fixture",
+        "generated_at": "2026-11-15T00:30:49.557386Z",
+        "population_version": "matched_attempts_v2",
+        "personal_population_version": "matched_personal_credits_v2",
+        "spatial_population_version": "matched_unblocked_locations_v2",
+        "spatial_display_version": "rect5_gaussian10_v1",
+        "git_commit": "edb02d74ff4e19168149017ba190494a3176caba",
+        "families": [
+          {
+            "season": "20232024",
+            "family": "descriptive",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20232024",
+            "family": "evidence",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20232024",
+            "family": "execution",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20232024",
+            "family": "goalie",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20232024",
+            "family": "ledger",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20232024",
+            "family": "microstats",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20232024",
+            "family": "penalties",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20232024",
+            "family": "shootiness",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20232024",
+            "family": "spatial",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20232024",
+            "family": "territory",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20242025",
+            "family": "descriptive",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20242025",
+            "family": "evidence",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20242025",
+            "family": "execution",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20242025",
+            "family": "goalie",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20242025",
+            "family": "ledger",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20242025",
+            "family": "microstats",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20242025",
+            "family": "penalties",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20242025",
+            "family": "shootiness",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20242025",
+            "family": "spatial",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20242025",
+            "family": "territory",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20252026",
+            "family": "descriptive",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20252026",
+            "family": "evidence",
+            "availability": "provided",
+            "explanation": null
+          },
+          {
+            "season": "20252026",
+            "family": "execution",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20252026",
+            "family": "goalie",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20252026",
+            "family": "ledger",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20252026",
+            "family": "microstats",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20252026",
+            "family": "penalties",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20252026",
+            "family": "shootiness",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20252026",
+            "family": "spatial",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          },
+          {
+            "season": "20252026",
+            "family": "territory",
+            "availability": "not_computed",
+            "explanation": "not computed; later-season fixture family pending"
+          }
+        ]
+      }
+    }
+  ],
+  "manual_restore": true,
+  "primary_changes": false,
+  "limits": "disposable synthetic files only; current schema10 reader remains strict; matching schema9 code is reused from the other task temporary build, not retained as infrastructure"
+}

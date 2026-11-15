@@ -20,7 +20,7 @@ material implementation choice: one authoritative row-enrichment helper serves o
 
 ## remaining acceptance
 
-coherent attributed synthetic successor; complete g01–g14 sheet/detail/download checks; fixture and real discovery/profile/comparison/selection journeys; native png/csv, narrow and native200 layouts; bounded request/export snapshot checks; one real conversion/candidate, strict detached startup and disposable schema-paired rollback; final independent numerical, systems and content review; scoped temporary cleanup. these remain pending, not passed.
+one real conversion/candidate and strict detached startup; real discovery/profile/comparison/selection, detail and download journeys; final real numerical, systems and content acceptance; primary preservation proof and scoped temporary cleanup. source, coherent synthetic fixture, final compiled fixture journeys/exports and disposable schema-paired rollback pass below. fixture acceptance does not close real delivery.
 
 ## integrated source and fixture acceptance
 
@@ -32,7 +32,7 @@ the coherent [fixture](../../../fixtures/goalie-card-v1-19/README.md) and indepe
 
 [native zoom](receipts/fixture-native-layout-first.json) verifies1280outer/640csspixels at200%,dpr2,visualscale1,no page overflow and byte-identical actual png/csv downloads across zoom. the interim complete sheet is1200×6062px. this first native proof predates the last export-label and loading-guard repairs; final compiled browser acceptance remains required. [started snapshot](receipts/started-export-snapshot-green.json) proves an already-started export retains its frozen year/population/mode/cohort while controls change.
 
-independent [systems](systems-review.md), [numerical](final-numerical-review.md) and [content](receipts/independent-content-source-review.json) reviews found and repaired concrete availability/export bugs. source/live-contract checks pass. the final loading-guard browser green, final exports/layouts, disposable schema-paired rollback and real complete-card candidate remain pending. the sole heavy slot is currently v1-10's first real annual; v1-19 has reserved the next bounded fixture build/start/operation window after its explicit release. no runtime forecast or completion verdict is inferred.
+independent [systems](systems-review.md), [numerical](final-numerical-review.md) and [content](receipts/independent-content-source-review.json) reviews found and repaired concrete availability/export bugs. source/live-contract checks pass. the final compiled fixture and finite operation checks pass below; real complete-card acceptance remains pending. no runtime forecast or completion verdict is inferred.
 
 ## final g14 crosswalk repair
 
@@ -43,3 +43,17 @@ the resolved synthetic conditioning issue is removed from current issues. [resol
 ## interim runtime stop
 
 [the interim runtime](receipts/interim-runtime-stop.json) was intentionally stopped after its selected checks. the fixture database remains exact; the source tree is frozen for the reserved final build/start/rollback window. the user explicitly reaffirmed one combined real candidate after reviewing the long first-annual timing and extra-publication alternative. [candidate selection](receipts/shared-candidate-selection.json) records that decision. all actual mechanism outputs/references must be ready before real assembly; no pending-mechanism alternative is selected.
+
+## final compiled fixture acceptance
+
+after v1-10's first real annual completed, the explicitly reserved [bounded window](receipts/final-fixture-heavy-acquisition.json) built frontend `92379be`, checked disposable publication operations and started the immutable fixture on3419. [release](receipts/final-fixture-heavy-release.json) binds the exact database hash/publication id, costs and listener. the build took1.35s at633,225,216peak resident bytes; the finite operation took4.91s at348,241,920bytes. startup reached ready in approximately1.23s, measured from shell output-file creation through the listening timestamp. these are measurements, not forecasts. v1-10 has reacquired the heavy slot for the remaining serial fits; no real conversion or candidate assembly has run.
+
+the detached fixture uses a temporary javascript read/open allowlist and an explicit readonly sqlite path. an original-input probe is denied; there are no unexpected denials. this proves the selected node read boundary, not physical mount absence or an operating-system sandbox. a prior node-permission attempt [refused startup](receipts/node-permission-startup-refusal.log) because the sqlite driver's extension setting is incompatible with that mode; no application or dependency was changed to bypass it.
+
+[schema-paired rollback](receipts/schema-paired-rollback.json) initializes disposable schema9 files, activates schema10, proves the current reader refuses restoring9 without changing either file, manually copies the retained9 file and verifies it with matching schema9 code and an isolated API. no primary publication changes.
+
+the final [native zoom check](receipts/final-fixture-native-layout.json) downloads identical1200×6116pngs and card csvs at100% and200% native browser zoom. outer1280becomes640csspixels/dpr2 with no overflow. [independent pixel/data review](receipts/final-native-export-independent-review.json) checks all six maps, four explicit unmapped annotations, histogram endpoints, raw history and complete footer; the actual observed-history download passes505checks across81data rows and25columns.
+
+[final browser journeys](receipts/final-fixture-browser-journeys.json) download rectangular, uniquely headed stage/game/tier/exact/map/danger csvs, both comparison pngs, a375px comparison and a pk/covered_all/on_net/ratio/other profile, including back/forward navigation. the actual comparison downloads are1200×6171and1200×5534; [independent pixels](receipts/final-comparison-pixel-independent-review.json) retain matching corresponding scales, companion identities and explicit prior-only, absent-year and unavailable-map meanings. browser journeys report no page errors.
+
+the native [profile](receipts/pending-export-profile-green.json) and [comparison](receipts/pending-export-comparison-green.json) checks hold requests while changing selections. all14/26displayed download controls are disabled with a visible reason; controls remain usable and rapid changes commit coherently. the [started export](receipts/started-export-snapshot-green.json) separately retains its original selection while an in-progress png completes. [final browser csv checks](receipts/browser-export-green.json) verify unavailable-map row width and blank unavailable reasons on provided danger rows.

@@ -1,0 +1,137 @@
+{
+  "at": "2026-11-16T16:49:03.240237+00:00",
+  "status": "merged_and_scoped_cleanup_complete",
+  "pull_request": {
+    "number": 64,
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/64",
+    "head": "17263785fe2a72dc3ac9e10485db5cae766376c3",
+    "merge_commit": "7dae50316d1444a5d75fa11b09b1dbd9ad5cf6d2",
+    "method": "merge commit preserves accepted source ancestry",
+    "checks": [
+      {
+        "name": "GitGuardian Security Checks",
+        "conclusion": "SUCCESS"
+      }
+    ],
+    "independent_premerge_review": "read-only source/scope/ten-proof-binding review clear"
+  },
+  "production": {
+    "compiled_acceptance_source": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+    "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+    "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+    "merge_tree_matches_reviewed_head": true
+  },
+  "primary_drafts": {
+    "all_fourteen_originals_matched_and_archived_before_update": true,
+    "archive_directory": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/delivery-20261116-01/primary-drafts",
+    "archive_manifest": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/delivery-20261116-01/pre-merge-primary.json",
+    "git_copies": [
+      {
+        "path": "docs/architecture.md",
+        "sha256": "ad19ed51a9c7e3a64639dc19b93406f9c8f91565c916697b736ce85c262d9be7",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/brief.md",
+        "sha256": "9a157d1e7c55323c2e801b6e982ee899c790af62bbd7a74eb754d169d146814d",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/plan.md",
+        "sha256": "5fed2f7a4db279579c0f42a817cf4f939c9dcbc6b66ce596b00a310d7b62dc53",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/product-inventory.md",
+        "sha256": "6c49272442d130e2623f55fef11f9acafa14bb22b746d51886eaed70f24f82ac",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/research/council.md",
+        "sha256": "d14f19cefcffba64acc202a59e1b822779788f07c4ffed2db2f6a9303000c337",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/roadmap.md",
+        "sha256": "463bc9188424a98f51e301e012c4bc35c17d4f7eaaa340158df7bdcf1245838f",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/specs/experimental-application.md",
+        "sha256": "01cb06aa3a903008abb6d1bba0f1e400e2bca36cb3856d2c036467bff7c02c0c",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/specs/experimental-attribution.md",
+        "sha256": "f884d8b6318621203c3678e212b7aa6683231553fb32c487fb04f2f1a0ece4bf",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/specs/experimental-chance.md",
+        "sha256": "c88b9188fe5ea8602396fb42da2bd34039fb2466b27ab2c7783a866edc79b93f",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/specs/experimental-player-analysis.md",
+        "sha256": "5ddb8adaa7bfda523e96d09b128c3956dfee00c2c335dd7d48ef2eaf990b2936",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/issues/goalie-fixture-conditioning.md",
+        "sha256": "7a0abc87e486c03f79f6b746f3e14e979b14bca2444110caa39ac32a455e59ee",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/issues/mechanism-fixture-valuation.md",
+        "sha256": "c41b2e1f6f7715b561d499f1a074768999085a04974b00ac8646d4db1495e319",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/specs/v1-10-penalties-shootiness.md",
+        "sha256": "f6d94e73d82f669e50515095266a0e2b80e7718bbd5a41b98d550ba5db3c785f",
+        "original_input_commit": "64de561"
+      },
+      {
+        "path": "docs/specs/v1-19-goalie-card-discovery.md",
+        "sha256": "440a95c8265562a3886aff144bc1923932edba40c43c2a63a375b032a201b7ec",
+        "original_input_commit": "64de561"
+      }
+    ]
+  },
+  "cleanup": {
+    "archive_manifest": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/delivery-20261116-01/worktree-cleanup.json",
+    "verified_removed_generated_paths": 7,
+    "removed_classes": [
+      "v1-19 generated app build and router cache",
+      "v1-19 app dependency symlink only",
+      "both task source pycache directories",
+      "completed coordination scratch and published PR-body scratch"
+    ],
+    "protected_dependency_environment_inode_mtimes_unchanged": 3,
+    "protected_v1_10_environment_inode": 253709945
+  },
+  "archive_availability_qualification": "external drive became unmounted after successful archive write/readback and scoped cleanup; manifests cannot be reread at final documentation time. all original draft bytes remain in git64de561; no external output deletion or new numerical work occurred. no current external-manifest hash is claimed.",
+  "task_branches_removed": [
+    "implement/v1-10-penalties-shootiness",
+    "implement/v1-19-goalie-card-discovery"
+  ],
+  "remote_task_branch_removed": "implement/v1-19-goalie-card-discovery",
+  "retained_exact_source_checkouts": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-19",
+    "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats"
+  ],
+  "retention_reason": "saved source/receipt paths, original v1-10 environment and immutable fixture paths remain exact; checkouts detached at1726378; generated builds/caches/dependency alias removed",
+  "older_source_history": "v1-09 checkout/branch and three producers retained unchanged; original source history is not an ancestor of squash-merged main",
+  "primary_preserved": {
+    "compiled_build_files_exact": 38,
+    "databases_size_mtime_schema_uuid_exact": true,
+    "listener_pid": 9645,
+    "port": 3000,
+    "source_update": "main fast-forwarded after exact archived draft consumption; compiled serving state unchanged"
+  },
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01",
+  "publication_status": "inactive",
+  "new_fitting_rescoring_build_publication_or_startup": false,
+  "activation": false
+}

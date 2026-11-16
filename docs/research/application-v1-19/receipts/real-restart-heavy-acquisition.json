@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-16T11:25:40.496468+00:00",
+  "owner": "v1-19",
+  "source_commit": "63b49e69102a74be440aaea3ce0484093f466ce7",
+  "app_tree": "a18f27a393229ebea8f1ed0417c9d85ac7700f70",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "authorization": "explicit user/root acceptance of tiny hook patch and bounded same-candidate restart after typed oracle completion",
+  "scope": [
+    "stop owned idle runtime",
+    "node24 typecheck/build",
+    "strict detached restart same immutable candidate3419",
+    "native navigation/download acceptance"
+  ],
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "prior_startup_seconds": 2097.7500235829502,
+  "publication_or_database_rewrite": false,
+  "numerical_api_matrix_repeat": false,
+  "activation": false
+}

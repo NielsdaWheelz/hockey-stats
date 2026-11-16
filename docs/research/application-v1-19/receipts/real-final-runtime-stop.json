@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-16T13:36:50.463661+00:00",
+  "status": "completed_acceptance_intentional_stop",
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "pid": 84748,
+  "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node --import /Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/detached-guard.mjs /Users/nnandal/Documents/code/hockey-stats-v1-19/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite --port 3419",
+  "signal": "SIGTERM",
+  "authorization": "both owners explicitly finished and released runtime; final root completion message",
+  "audit": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/detached-read-audit-final.jsonl",
+    "sha256": "ceb21ba0a1c9b2d44bc222153f088f5638caf0bf189268277702bf7b78cf08e7",
+    "records": 719,
+    "intentional_probe_denials": [
+      {
+        "operation": "readFileSync",
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+        "allowed": false
+      }
+    ],
+    "unexpected_denials": 0,
+    "scope": "javascript file reads/opens plus explicit readonly native sqlite database; physical drive absence not claimed"
+  },
+  "primary_changes": false,
+  "activation": false
+}

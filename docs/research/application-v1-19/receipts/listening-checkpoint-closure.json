@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "scope": "historical listening-time hashes preserved exactly after one-shot wrappers append intentional-stop/lifetime metadata; no old review or scientific verdict edited",
+  "checkpoints": [
+    {
+      "review": "real-goalie-publication-independent-review.json",
+      "binding": "listening_checkpoint",
+      "original_lifecycle_path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-detached-startup-timing.json",
+      "historical_listening_sha256": "49fba97ae68fb791ca09663a467e659038c61043f9255919590133517c8bf9ac",
+      "immutable_listening_checkpoint": {
+        "path": "docs/research/application-v1-19/receipts/real-listening-checkpoint-01.json",
+        "sha256": "49fba97ae68fb791ca09663a467e659038c61043f9255919590133517c8bf9ac"
+      },
+      "completed_lifecycle_sha256": "cb6309b5a3fd57a3135d016b91ce48b62d21a9e48960e2fe0e2497665c5dc45a",
+      "only_later_fields": [
+        "exit_code",
+        "service_lifetime_seconds"
+      ]
+    },
+    {
+      "review": "real-g14-download-independent-review.json",
+      "binding": "matching_listening_checkpoint",
+      "original_lifecycle_path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-detached-startup-02-timing.json",
+      "historical_listening_sha256": "db23ce6d43eadcc71d1e8d197f4c7c29c54bbd6e54f7babe68dd42df2ac9af28",
+      "immutable_listening_checkpoint": {
+        "path": "docs/research/application-v1-19/receipts/real-listening-checkpoint-02.json",
+        "sha256": "db23ce6d43eadcc71d1e8d197f4c7c29c54bbd6e54f7babe68dd42df2ac9af28"
+      },
+      "completed_lifecycle_sha256": "4cc6f6a37c91adc76a7f5865ea8b58989048a52f66d3182db27dab9e13827ddf",
+      "only_later_fields": [
+        "exit_code",
+        "service_lifetime_seconds"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-16T12:39:51.700026+00:00",
+  "owner": "v1-19",
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "authorization": "explicit user/root final combined build/restart after shared18952ab and private SVG review; all runtime owners released",
+  "scope": [
+    "stop owned idle runtime63305",
+    "final node24 typecheck/build",
+    "strict detached restart same immutable candidate3419",
+    "finite refreshed native downloads/pixels/history/zoom and CSV hash equality"
+  ],
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "previous_startup_seconds": 1802.5562999581452,
+  "publication_or_database_rewrite": false,
+  "numerical_api_matrix_repeat": false,
+  "activation": false
+}

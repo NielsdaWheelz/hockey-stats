@@ -1,0 +1,597 @@
+{
+  "status": "cleared_with_explicit_scope",
+  "reviewer": "goalie evidence owner and temporary reconciliation-controller author; root executed the actual database-backed reconciliation",
+  "scope": "saved receipt bindings and actual seven csv/PlayerResponse sidecars only; no database, api, source, build or runtime action",
+  "blocking_findings": [],
+  "bindings": {
+    "g14_reconciliation": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-g14-download-reconciliation.json",
+      "sha256": "54300e1f961b29a4615dced242336caf862bc859ebfb2daec65b36c723b99b5f"
+    },
+    "controller": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19-evidence/real-g14-downloads.py",
+      "sha256": "36571bebc9bef67b6de1a0f020f476c71726a2e71ef3152af438dee3957c57c1"
+    },
+    "publication_reconciliation": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-goalie-publication-reconciliation.json",
+      "sha256": "511565250120dbeebb49e31bf383ce872b6f9c89b68a89bf77272051585a9966"
+    },
+    "accepted_publication_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+      "sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a"
+    },
+    "actual_browser_journeys_before_svg_layout_repair": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/journeys.json",
+      "sha256": "84031b8dcf6e99ff6480c32c95fb38ab7cb70417fd9f7606f789d36255d009dd"
+    },
+    "matching_runtime_restart": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-restart-heavy-acquisition.json",
+      "sha256": "396d580b218dfed150685405e496e2c6023623d0a67b2946d560ee5e92fbfa75"
+    },
+    "matching_listening_checkpoint": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-detached-startup-02-timing.json",
+      "sha256": "db23ce6d43eadcc71d1e8d197f4c7c29c54bbd6e54f7babe68dd42df2ac9af28"
+    },
+    "native_reconciliation_cost": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-g14-download-reconciliation-cost.txt",
+      "sha256": "17a1ead93ed7148bae826e42876ca2cdf2737fa3d77684480019eaf4d9cdc5c0"
+    }
+  },
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "browser_source_commit": "63b49e69102a74be440aaea3ce0484093f466ce7",
+  "browser_app_tree": "a18f27a393229ebea8f1ed0417c9d85ac7700f70",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "root_database_backed_reconciliation": {
+    "assertions": 6492,
+    "controller_wall_seconds": 1.6003513329196721,
+    "controller_peak_resident_bytes": 57376768,
+    "native_wall_seconds": 1.68,
+    "native_peak_resident_bytes": 57458688
+  },
+  "offline_actual_file_review": {
+    "exports": 7,
+    "columns": 25,
+    "annual_slots": 21,
+    "provided_annuals": 18,
+    "absent_annuals": 3,
+    "provided_annual_fact_paths": 40,
+    "raw_facts_equal_intercepted_annual_source": 720,
+    "total_data_rows": 723,
+    "actual_dispositions": {
+      "provided": 652,
+      "unavailable": 68,
+      "negative_raw_numeric_values": 23,
+      "provided_zero_values": 83
+    },
+    "all_seven_csv_and_response_hashes_match": true,
+    "all_three_annual_identities_own_methods_support_and_provenance_preserved": true,
+    "raw_fraction_units_preserved": true,
+    "negative_saved_goal_values_remain_numeric": true,
+    "provided_zero_distinct_from_unavailable_fraction_and_absent_year": true,
+    "actual_only_modeled_strength_blank": true
+  },
+  "exports": [
+    {
+      "case": "ordinary",
+      "csv": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-observed-history.csv",
+        "sha256": "868ba65fe627c4040a58205ac8541035b45ce7b294f14fb74ffc5655bdc973b7"
+      },
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/published-player.json",
+        "sha256": "01c94efd5964a068e2d835c58ee58f6dc49c6ac4a4ec8c1345990f40c151cddb"
+      },
+      "selection": {
+        "playerId": "8478872",
+        "season": "20252026",
+        "strength": "ev",
+        "population": "unblocked",
+        "evidenceView": "mass",
+        "type": "all",
+        "metric": "goalie.ev.stopping_goals_per100_on_net"
+      },
+      "rows": 120,
+      "columns": 25,
+      "annuals": [
+        {
+          "season": "20232024",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "53",
+              "abbreviation": "ARI"
+            }
+          ],
+          "source_shots_on_goal": 868,
+          "source_goals_against": 83,
+          "on_net_expected_goals": 77.94427480250494,
+          "on_net_goals_saved": -5.0557251974950645,
+          "on_net_expected_save_fraction": 0.9102024483842109,
+          "reported_seconds": 122408,
+          "source_id": "goalie-source-v1-07-20232024",
+          "paired_method_id": "goalie-v1-07-20232024"
+        },
+        {
+          "season": "20242025",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "59",
+              "abbreviation": "UTA"
+            }
+          ],
+          "source_shots_on_goal": 1185,
+          "source_goals_against": 98,
+          "on_net_expected_goals": 115.1972266033315,
+          "on_net_goals_saved": 17.1972266033315,
+          "on_net_expected_save_fraction": 0.9027871505457118,
+          "reported_seconds": 202100,
+          "source_id": "goalie-source-v1-07-20242025",
+          "paired_method_id": "goalie-v1-07-20242025"
+        },
+        {
+          "season": "20252026",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "68",
+              "abbreviation": "UTA"
+            }
+          ],
+          "source_shots_on_goal": 1277,
+          "source_goals_against": 121,
+          "on_net_expected_goals": 129.4292571718436,
+          "on_net_goals_saved": 8.429257171843602,
+          "on_net_expected_save_fraction": 0.8986458440314459,
+          "reported_seconds": 221565,
+          "source_id": "goalie-source-v1-07-20252026",
+          "paired_method_id": "goalie-v1-07-20252026"
+        }
+      ]
+    },
+    {
+      "case": "thin",
+      "csv": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/thin/goalie-observed-history.csv",
+        "sha256": "a3994a4500e1d2aa409755db62ad12ec05f5680ed8fadc014e1293850e8b0281"
+      },
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/thin/published-player.json",
+        "sha256": "0544cda8c856e03fc9f01828fd75dc102df938afa42584a9c155615f11707dc7"
+      },
+      "selection": {
+        "playerId": "8480022",
+        "season": "20252026",
+        "strength": "ev",
+        "population": "unblocked",
+        "evidenceView": "mass",
+        "type": "all",
+        "metric": "goalie.ev.stopping_goals_per100_on_net"
+      },
+      "rows": 81,
+      "columns": 25,
+      "annuals": [
+        {
+          "season": "20232024",
+          "rows": 1,
+          "availability": "absent",
+          "reason": "player is absent from selected season"
+        },
+        {
+          "season": "20242025",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "6",
+              "abbreviation": "BOS"
+            }
+          ],
+          "source_shots_on_goal": 0,
+          "source_goals_against": 0,
+          "on_net_expected_goals": 0,
+          "on_net_goals_saved": 0,
+          "on_net_expected_save_fraction": null,
+          "reported_seconds": 0,
+          "source_id": "goalie-source-v1-07-20242025",
+          "paired_method_id": "goalie-v1-07-20242025"
+        },
+        {
+          "season": "20252026",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "6",
+              "abbreviation": "BOS"
+            }
+          ],
+          "source_shots_on_goal": 1,
+          "source_goals_against": 0,
+          "on_net_expected_goals": 0.14238863388746384,
+          "on_net_goals_saved": 0.14238863388746384,
+          "on_net_expected_save_fraction": 0.8576113661125362,
+          "reported_seconds": 363,
+          "source_id": "goalie-source-v1-07-20252026",
+          "paired_method_id": "goalie-v1-07-20252026"
+        }
+      ]
+    },
+    {
+      "case": "unused",
+      "csv": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/unused/goalie-observed-history.csv",
+        "sha256": "05615d4850edcc3047303777469b748b51317590ddc47dd1dc201580f59662d7"
+      },
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/unused/published-player.json",
+        "sha256": "bda1eb4871ed2ee7f1699adb2c70f18d744f7f2490a36aa416269850e34f9c79"
+      },
+      "selection": {
+        "playerId": "8477361",
+        "season": "20252026",
+        "strength": "ev",
+        "population": "unblocked",
+        "evidenceView": "mass",
+        "type": "all",
+        "metric": "goalie.ev.stopping_goals_per100_on_net"
+      },
+      "rows": 81,
+      "columns": 25,
+      "annuals": [
+        {
+          "season": "20232024",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "4",
+              "abbreviation": "PHI"
+            }
+          ],
+          "source_shots_on_goal": 104,
+          "source_goals_against": 15,
+          "on_net_expected_goals": 7.305871927900334,
+          "on_net_goals_saved": -7.694128072099666,
+          "on_net_expected_save_fraction": 0.9297512314624968,
+          "reported_seconds": 16615,
+          "source_id": "goalie-source-v1-07-20232024",
+          "paired_method_id": "goalie-v1-07-20232024"
+        },
+        {
+          "season": "20242025",
+          "rows": 1,
+          "availability": "absent",
+          "reason": "player is absent from selected season"
+        },
+        {
+          "season": "20252026",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "30",
+              "abbreviation": "MIN"
+            }
+          ],
+          "source_shots_on_goal": 0,
+          "source_goals_against": 0,
+          "on_net_expected_goals": 0,
+          "on_net_goals_saved": 0,
+          "on_net_expected_save_fraction": null,
+          "reported_seconds": 0,
+          "source_id": "goalie-source-v1-07-20252026",
+          "paired_method_id": "goalie-v1-07-20252026"
+        }
+      ]
+    },
+    {
+      "case": "traded",
+      "csv": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/traded/goalie-observed-history.csv",
+        "sha256": "2f0064089a1a496bc271e1789256bdf808385f0b7428c047943d66573cc3f944"
+      },
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/traded/published-player.json",
+        "sha256": "ab7769fbecee775db7c0e15a5eaf49223f928381b1110513b849d2d17b244b03"
+      },
+      "selection": {
+        "playerId": "8477465",
+        "season": "20252026",
+        "strength": "ev",
+        "population": "unblocked",
+        "evidenceView": "mass",
+        "type": "all",
+        "metric": "goalie.ev.stopping_goals_per100_on_net"
+      },
+      "rows": 120,
+      "columns": 25,
+      "annuals": [
+        {
+          "season": "20232024",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "5",
+              "abbreviation": "PIT"
+            }
+          ],
+          "source_shots_on_goal": 1133,
+          "source_goals_against": 99,
+          "on_net_expected_goals": 99.99487898602173,
+          "on_net_goals_saved": 0.9948789860217317,
+          "on_net_expected_save_fraction": 0.9117432665613224,
+          "reported_seconds": 164438,
+          "source_id": "goalie-source-v1-07-20232024",
+          "paired_method_id": "goalie-v1-07-20232024"
+        },
+        {
+          "season": "20242025",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "5",
+              "abbreviation": "PIT"
+            }
+          ],
+          "source_shots_on_goal": 781,
+          "source_goals_against": 80,
+          "on_net_expected_goals": 71.33811940279325,
+          "on_net_goals_saved": -8.661880597206746,
+          "on_net_expected_save_fraction": 0.9086579777172942,
+          "reported_seconds": 121194,
+          "source_id": "goalie-source-v1-07-20242025",
+          "paired_method_id": "goalie-v1-07-20242025"
+        },
+        {
+          "season": "20252026",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "22",
+              "abbreviation": "EDM"
+            },
+            {
+              "id": "5",
+              "abbreviation": "PIT"
+            }
+          ],
+          "source_shots_on_goal": 647,
+          "source_goals_against": 69,
+          "on_net_expected_goals": 61.94465036154274,
+          "on_net_goals_saved": -7.055349638457258,
+          "on_net_expected_save_fraction": 0.9042586547735043,
+          "reported_seconds": 106417,
+          "source_id": "goalie-source-v1-07-20252026",
+          "paired_method_id": "goalie-v1-07-20252026"
+        }
+      ]
+    },
+    {
+      "case": "absent",
+      "csv": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/absent/goalie-observed-history.csv",
+        "sha256": "7a6641fb0d6672ef33360eb5afaf7e3e2d18c79ba77e7899416f951f644968ca"
+      },
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/absent/published-player.json",
+        "sha256": "08061f2cb418d8606f170cfc16c094499c3a496aec044f2db11724eeca187576"
+      },
+      "selection": {
+        "playerId": "8470594",
+        "season": "20252026",
+        "strength": "ev",
+        "population": "unblocked",
+        "evidenceView": "mass",
+        "type": "all",
+        "metric": "goalie.ev.stopping_goals_per100_on_net"
+      },
+      "rows": 81,
+      "columns": 25,
+      "annuals": [
+        {
+          "season": "20232024",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "30",
+              "abbreviation": "MIN"
+            }
+          ],
+          "source_shots_on_goal": 824,
+          "source_goals_against": 67,
+          "on_net_expected_goals": 66.78151420197699,
+          "on_net_goals_saved": -0.2184857980230106,
+          "on_net_expected_save_fraction": 0.9189544730558532,
+          "reported_seconds": 133960,
+          "source_id": "goalie-source-v1-07-20232024",
+          "paired_method_id": "goalie-v1-07-20232024"
+        },
+        {
+          "season": "20242025",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "30",
+              "abbreviation": "MIN"
+            }
+          ],
+          "source_shots_on_goal": 565,
+          "source_goals_against": 48,
+          "on_net_expected_goals": 44.128201653220565,
+          "on_net_goals_saved": -3.8717983467794355,
+          "on_net_expected_save_fraction": 0.9218969882243884,
+          "reported_seconds": 83416,
+          "source_id": "goalie-source-v1-07-20242025",
+          "paired_method_id": "goalie-v1-07-20242025"
+        },
+        {
+          "season": "20252026",
+          "rows": 1,
+          "availability": "absent",
+          "reason": "player is absent from selected season"
+        }
+      ]
+    },
+    {
+      "case": "selection-exact",
+      "csv": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/goalie-observed-history.csv",
+        "sha256": "286d50d3b742d12d4099fba1d0673e3180a80235fe8dec99d5622d7f23c6aa86"
+      },
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/published-player.json",
+        "sha256": "01c94efd5964a068e2d835c58ee58f6dc49c6ac4a4ec8c1345990f40c151cddb"
+      },
+      "selection": {
+        "playerId": "8478872",
+        "season": "20252026",
+        "strength": "4v5",
+        "population": "on_net",
+        "evidenceView": "ratio",
+        "type": "other",
+        "metric": "goalie.pk.conversion_probability_difference"
+      },
+      "rows": 120,
+      "columns": 25,
+      "annuals": [
+        {
+          "season": "20232024",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "53",
+              "abbreviation": "ARI"
+            }
+          ],
+          "source_shots_on_goal": 157,
+          "source_goals_against": 20,
+          "on_net_expected_goals": 20.613564966195536,
+          "on_net_goals_saved": 0.6135649661955362,
+          "on_net_expected_save_fraction": 0.8687034078586271,
+          "reported_seconds": 122408,
+          "source_id": "goalie-source-v1-07-20232024",
+          "paired_method_id": "goalie-v1-07-20232024"
+        },
+        {
+          "season": "20242025",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "59",
+              "abbreviation": "UTA"
+            }
+          ],
+          "source_shots_on_goal": 240,
+          "source_goals_against": 35,
+          "on_net_expected_goals": 38.93971920384653,
+          "on_net_goals_saved": 3.939719203846529,
+          "on_net_expected_save_fraction": 0.8377511699839728,
+          "reported_seconds": 202100,
+          "source_id": "goalie-source-v1-07-20242025",
+          "paired_method_id": "goalie-v1-07-20242025"
+        },
+        {
+          "season": "20252026",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "68",
+              "abbreviation": "UTA"
+            }
+          ],
+          "source_shots_on_goal": 255,
+          "source_goals_against": 37,
+          "on_net_expected_goals": 36.68907456694742,
+          "on_net_goals_saved": -0.31092543305258147,
+          "on_net_expected_save_fraction": 0.8561212762080493,
+          "reported_seconds": 221565,
+          "source_id": "goalie-source-v1-07-20252026",
+          "paired_method_id": "goalie-v1-07-20252026"
+        }
+      ]
+    },
+    {
+      "case": "selection-covered_all",
+      "csv": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/covered_all/goalie-observed-history.csv",
+        "sha256": "d1fc905b3314f59980d07ab08a35c7415132de8ad5f4b46bf504dde1d7dec8c1"
+      },
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/covered_all/published-player.json",
+        "sha256": "01c94efd5964a068e2d835c58ee58f6dc49c6ac4a4ec8c1345990f40c151cddb"
+      },
+      "selection": {
+        "playerId": "8478872",
+        "season": "20252026",
+        "strength": "covered_all",
+        "population": "on_net",
+        "evidenceView": "ratio",
+        "type": "other",
+        "metric": "goalie.pk.conversion_probability_difference"
+      },
+      "rows": 120,
+      "columns": 25,
+      "annuals": [
+        {
+          "season": "20232024",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "53",
+              "abbreviation": "ARI"
+            }
+          ],
+          "source_shots_on_goal": 1088,
+          "source_goals_against": 111,
+          "on_net_expected_goals": 105.56211225291632,
+          "on_net_goals_saved": -5.437887747083678,
+          "on_net_expected_save_fraction": 0.9029759997675402,
+          "reported_seconds": 122408,
+          "source_id": "goalie-source-v1-07-20232024",
+          "paired_method_id": "goalie-v1-07-20232024"
+        },
+        {
+          "season": "20242025",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "59",
+              "abbreviation": "UTA"
+            }
+          ],
+          "source_shots_on_goal": 1507,
+          "source_goals_against": 144,
+          "on_net_expected_goals": 164.79303913044293,
+          "on_net_goals_saved": 20.793039130442935,
+          "on_net_expected_save_fraction": 0.8906482819306948,
+          "reported_seconds": 202100,
+          "source_id": "goalie-source-v1-07-20242025",
+          "paired_method_id": "goalie-v1-07-20242025"
+        },
+        {
+          "season": "20252026",
+          "rows": 40,
+          "teams": [
+            {
+              "id": "68",
+              "abbreviation": "UTA"
+            }
+          ],
+          "source_shots_on_goal": 1626,
+          "source_goals_against": 168,
+          "on_net_expected_goals": 178.84117846922905,
+          "on_net_goals_saved": 10.84117846922905,
+          "on_net_expected_save_fraction": 0.8900115753571777,
+          "reported_seconds": 221565,
+          "source_id": "goalie-source-v1-07-20252026",
+          "paired_method_id": "goalie-v1-07-20252026"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "the root database-backed proof is reviewed and attributed, not rerun; only the existing selected downloads and saved response sidecars were read here",
+    "the historical accepted database digest is a prior publisher binding, not a fresh hash",
+    "actual real names do not exercise formula-prefix escaping; prior synthetic formula-safe export evidence owns that case",
+    "the accepted files precede the pending svg-only geometry repair; final downloaded csvs must match these saved hashes",
+    "native png pixels and the two known svg layout defects are separate content acceptance, not cleared by this numerical csv review",
+    "no new source/fit/projection validation, scientific admission or activation"
+  ]
+}

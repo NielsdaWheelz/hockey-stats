@@ -1,0 +1,31 @@
+{
+  "at": "2026-11-16T13:19:09.585014+00:00",
+  "status": "resolved",
+  "issues": [
+    "goalie-history-axis-overlap",
+    "goalie-empty-distribution-overlap"
+  ],
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "source_review": {
+    "path": "docs/research/application-v1-19/receipts/goalie-svg-layout-source-review.json",
+    "sha256": "6dac93ccf7aa4f2c798bb69b31614554bf931a3fb25685248d41e6eea4bcdf2a"
+  },
+  "red_pixels": {
+    "path": "docs/research/application-v1-19/receipts/real-export-pixel-independent-review.json",
+    "sha256": "63d42e3276c690b2e8bd377131a7a0d693e075a83eb23a801534beb9714b8fe4"
+  },
+  "final_native": {
+    "path": "docs/research/application-v1-19/receipts/real-native-final.json",
+    "sha256": "66ea505530a619a24a70a749b44134cbba280ec09beb00cf973594a3f0dbc248"
+  },
+  "final_independent_pixels": {
+    "path": "docs/research/application-v1-19/receipts/real-final-export-pixel-independent-acceptance.json",
+    "sha256": "65a839189064dd99acdc076f05bf1269c8f951c6aa9dbc14d0d7f01bf296723a"
+  },
+  "current_population_text_bounds": {
+    "path": "docs/research/application-v1-19/receipts/real-stopping-history-label-bounds.json",
+    "sha256": "eb2b10da1bcfac2392394a65f56c1172d65e9d8e5f6a1032d4aff661c6544f59"
+  },
+  "result": "all five actual case cards and both comparison downloads pass; all seven absent empty-caption/cohort pairs separated; all528axis labels fit; fonts20/18 and data/CSV unchanged"
+}

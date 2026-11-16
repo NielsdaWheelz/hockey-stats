@@ -1568,3 +1568,18 @@
 [18:50:09.649] INFO (#3012) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
 [18:50:09.653] INFO (#3013) http.span=4ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
 [18:50:09.655] INFO (#3014) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/maps', 'http.status': 200 }
+[18:58:50.112] INFO (#3015) http.span=31ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[18:59:40.869] INFO (#3018) http.span=32ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}
+[19:00:38.538] INFO (#3019) http.span=31ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/api/players/9000004',
+  'http.status': 200
+}

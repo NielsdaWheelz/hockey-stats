@@ -1,0 +1,29 @@
+{
+  "at": "2026-11-16T04:13:48.084354+00:00",
+  "status": "native_publication_running",
+  "session_id": 8301,
+  "source_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "app_tree": "f87c9ffc729d15265073d32b6668902a1b77e837",
+  "processes": [
+    {
+      "pid": 26898,
+      "ppid": 11090,
+      "command": "/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-19/analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python -B -m hockey_stats.analysis_cli publish --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json --results /Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results --out /Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01"
+    },
+    {
+      "pid": 26904,
+      "ppid": 26898,
+      "command": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -B -m hockey_stats.analysis_cli publish --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json --results /Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results --out /Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01"
+    }
+  ],
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01",
+  "log": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/publication.log",
+  "cost": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/publication-cost.txt",
+  "one_candidate": true,
+  "build_exit": 0,
+  "build_cost": "        4.69 real         5.14 user         1.26 sys\n           585695232  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n               67616  page reclaims\n                3791  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   3  messages sent\n                   2  messages received\n                 372  signals received\n                2869  voluntary context switches\n               57497  involuntary context switches\n          1161809276  instructions retired\n           670744382  cycles elapsed\n            26463304  peak memory footprint\n",
+  "fixture_runtime_stopped": true,
+  "strict_real_startup": false,
+  "activation": false
+}

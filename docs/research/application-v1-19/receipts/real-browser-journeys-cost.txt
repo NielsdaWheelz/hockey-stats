@@ -1,0 +1,37 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: discovery to ordinary profile: repeated selected request
+
+13 !== 26
+
+    at recordSelection (file:///Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19-browser/real-journeys.mjs:109:10)
+    at async file:///Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19-browser/real-journeys.mjs:206:3 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 13,
+  expected: 26,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.21.0
+       42.94 real         3.84 user         1.23 sys
+           455442432  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              212637  page reclaims
+               12205  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                2562  messages sent
+                2762  messages received
+                   7  signals received
+                3114  voluntary context switches
+               60920  involuntary context switches
+         10867933671  instructions retired
+          3814789221  cycles elapsed
+           272960928  peak memory footprint

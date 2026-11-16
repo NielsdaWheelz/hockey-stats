@@ -1,0 +1,486 @@
+{
+  "schema_version": 1,
+  "kind": "player_analysis_publication_verification",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "purpose": "real",
+  "producer": {
+    "git_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "spatial_consumed_fields": [
+      "interpreted.events.reported_x",
+      "interpreted.events.reported_y",
+      "interpreted.events.home_team_defending_side",
+      "reconstruction.events.attacking_x",
+      "reconstruction.events.attacking_y",
+      "reconstruction.events.coordinate_status"
+    ],
+    "sqlite_version": "3.54.1"
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+    "bytes": 711,
+    "copy": "selection.json",
+    "document": {
+      "schema_version": 1,
+      "purpose": "real",
+      "corpora": [
+        {
+          "season": "20232024",
+          "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/corpus.json",
+          "sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414"
+        },
+        {
+          "season": "20242025",
+          "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20242025/corpus.json",
+          "sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639"
+        },
+        {
+          "season": "20252026",
+          "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20252026/corpus.json",
+          "sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43"
+        }
+      ]
+    }
+  },
+  "results": {
+    "manifest_sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41",
+    "copy": "results",
+    "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "families": [
+      {
+        "season": "20232024",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "execution",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "goalie",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "penalties",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "shootiness",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "spatial",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "execution",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "goalie",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "penalties",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "shootiness",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "spatial",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "execution",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "goalie",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "penalties",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "shootiness",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "spatial",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      }
+    ]
+  },
+  "seasons": [
+    {
+      "season": "20232024",
+      "receipt": {
+        "path": "seasons/20232024/verification.json",
+        "sha256": "0646d2c99e06b464c4042721c4fe8dd28d3548887cc56397dd3cc376a3f2954f"
+      },
+      "corpus_sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414",
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 1298,
+        "partial_games": 687,
+        "unavailable_games": 14,
+        "games_with_unassigned_player_associations": 0
+      },
+      "spatial_coverage": {
+        "included_seconds": 3664623,
+        "known_excluded_seconds": 45003,
+        "unblocked_attempts": 85868,
+        "unblocked_per60": 42.17688968278593,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "count_accounting_conflict",
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "event_exposure_conflict",
+          "spatial_frame_unresolved",
+          "spatial_location_outside_rink",
+          "unpaired_report_attempt"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 1298,
+        "partial_games": 689,
+        "unavailable_games": 14,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 14
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 623
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 542
+          },
+          {
+            "code": "event_exposure_conflict",
+            "games": 2
+          },
+          {
+            "code": "spatial_frame_unresolved",
+            "games": 1
+          },
+          {
+            "code": "spatial_location_outside_rink",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 98
+          }
+        ]
+      },
+      "checks": {
+        "physical_seconds": 3665767,
+        "player_seconds": 36657670,
+        "physical_attempts": 120624,
+        "player_attempts_for": 603120,
+        "player_attempts_against": 603120,
+        "personal_physical_seconds": 3665767,
+        "personal_player_seconds": 36657670,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 238489,
+        "teammate_pair_seconds": 73315340,
+        "opponent_pair_seconds": 91644175
+      }
+    },
+    {
+      "season": "20242025",
+      "receipt": {
+        "path": "seasons/20242025/verification.json",
+        "sha256": "bd2003914e23753db92d5056c083765d073c7f47167e2ff5e8d14f4967bb0957"
+      },
+      "corpus_sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639",
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 1230,
+        "partial_games": 403,
+        "unavailable_games": 82,
+        "games_with_unassigned_player_associations": 0
+      },
+      "spatial_coverage": {
+        "included_seconds": 3590806,
+        "known_excluded_seconds": 70630,
+        "unblocked_attempts": 82524,
+        "unblocked_per60": 41.36764837755089,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "count_accounting_conflict",
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "event_exposure_conflict",
+          "shift_source_empty",
+          "spatial_location_outside_rink",
+          "unpaired_report_attempt"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 1230,
+        "partial_games": 404,
+        "unavailable_games": 82,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 24
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 377
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 359
+          },
+          {
+            "code": "event_exposure_conflict",
+            "games": 1
+          },
+          {
+            "code": "shift_source_empty",
+            "games": 57
+          },
+          {
+            "code": "spatial_location_outside_rink",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 74
+          }
+        ]
+      },
+      "checks": {
+        "physical_seconds": 3590853,
+        "player_seconds": 35908530,
+        "physical_attempts": 116285,
+        "player_attempts_for": 581425,
+        "player_attempts_against": 581425,
+        "personal_physical_seconds": 3590853,
+        "personal_player_seconds": 35908530,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 231692,
+        "teammate_pair_seconds": 71817060,
+        "opponent_pair_seconds": 89771325
+      }
+    },
+    {
+      "season": "20252026",
+      "receipt": {
+        "path": "seasons/20252026/verification.json",
+        "sha256": "16866327dc79efdf0ad922a644a13a6a3958e0450fc354ec444c803d29323cce"
+      },
+      "corpus_sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43",
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 1280,
+        "partial_games": 381,
+        "unavailable_games": 32,
+        "games_with_unassigned_player_associations": 0
+      },
+      "spatial_coverage": {
+        "included_seconds": 3700910,
+        "known_excluded_seconds": 90109,
+        "unblocked_attempts": 84180,
+        "unblocked_per60": 40.942362824278355,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "count_accounting_conflict",
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "roster_identity_unresolved",
+          "spatial_location_outside_rink",
+          "unpaired_report_attempt"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 1280,
+        "partial_games": 382,
+        "unavailable_games": 32,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 30
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 297
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 310
+          },
+          {
+            "code": "roster_identity_unresolved",
+            "games": 1
+          },
+          {
+            "code": "spatial_location_outside_rink",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 74
+          }
+        ]
+      },
+      "checks": {
+        "physical_seconds": 3700934,
+        "player_seconds": 37009340,
+        "physical_attempts": 116620,
+        "player_attempts_for": 583100,
+        "player_attempts_against": 583100,
+        "personal_physical_seconds": 3700934,
+        "personal_player_seconds": 37009340,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 240584,
+        "teammate_pair_seconds": 74018680,
+        "opponent_pair_seconds": 92523350
+      }
+    }
+  ],
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+    "sha256": "483b1e1b98112ddabc85cf1d7794b76cccfad004962f6991402abb1d4825840e"
+  },
+  "checks": {
+    "integrity": "passed",
+    "foreign_keys": "passed",
+    "read_back": "passed",
+    "per_season_conservation": "passed"
+  },
+  "cost": {
+    "wall_seconds": 22867.279455957934,
+    "peak_rss_bytes": 3280093184,
+    "consumed_bytes": 41205680672,
+    "database_bytes": 31359414272
+  },
+  "cost_scope": "through independent read-back; top receipt writing and final rename excluded; peak rss is process high-water",
+  "scientific_admission": "not_performed"
+}

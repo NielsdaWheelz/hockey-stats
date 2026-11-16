@@ -1,0 +1,169 @@
+{
+  "status": "passed",
+  "scope": "actual native annual csv downloads compared with independently indexed prior accepted and current candidate rows, plus intercepted actual PlayerResponse",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "database": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+  "publication_reconciliation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-goalie-publication-reconciliation.json",
+    "sha256": "511565250120dbeebb49e31bf383ce872b6f9c89b68a89bf77272051585a9966"
+  },
+  "accepted_publication_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+    "sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a"
+  },
+  "historical_accepted_database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite",
+    "publisher_sha256": "17241928149f70bbd353815a4ec8feab39210d570205b494ad6c2af8cfb9a612",
+    "bytes": 31261470720
+  },
+  "csv_assertions": 6492,
+  "exports": [
+    {
+      "case": "ordinary",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-observed-history.csv",
+      "sha256": "868ba65fe627c4040a58205ac8541035b45ce7b294f14fb74ffc5655bdc973b7",
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/published-player.json",
+        "sha256": "01c94efd5964a068e2d835c58ee58f6dc49c6ac4a4ec8c1345990f40c151cddb"
+      },
+      "selection": {
+        "playerId": "8478872",
+        "season": "20252026",
+        "strength": "ev",
+        "population": "unblocked",
+        "evidenceView": "mass",
+        "type": "all",
+        "metric": "goalie.ev.stopping_goals_per100_on_net"
+      },
+      "rows": 120,
+      "columns": 25
+    },
+    {
+      "case": "thin",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/thin/goalie-observed-history.csv",
+      "sha256": "a3994a4500e1d2aa409755db62ad12ec05f5680ed8fadc014e1293850e8b0281",
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/thin/published-player.json",
+        "sha256": "0544cda8c856e03fc9f01828fd75dc102df938afa42584a9c155615f11707dc7"
+      },
+      "selection": {
+        "playerId": "8480022",
+        "season": "20252026",
+        "strength": "ev",
+        "population": "unblocked",
+        "evidenceView": "mass",
+        "type": "all",
+        "metric": "goalie.ev.stopping_goals_per100_on_net"
+      },
+      "rows": 81,
+      "columns": 25
+    },
+    {
+      "case": "unused",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/unused/goalie-observed-history.csv",
+      "sha256": "05615d4850edcc3047303777469b748b51317590ddc47dd1dc201580f59662d7",
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/unused/published-player.json",
+        "sha256": "bda1eb4871ed2ee7f1699adb2c70f18d744f7f2490a36aa416269850e34f9c79"
+      },
+      "selection": {
+        "playerId": "8477361",
+        "season": "20252026",
+        "strength": "ev",
+        "population": "unblocked",
+        "evidenceView": "mass",
+        "type": "all",
+        "metric": "goalie.ev.stopping_goals_per100_on_net"
+      },
+      "rows": 81,
+      "columns": 25
+    },
+    {
+      "case": "traded",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/traded/goalie-observed-history.csv",
+      "sha256": "2f0064089a1a496bc271e1789256bdf808385f0b7428c047943d66573cc3f944",
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/traded/published-player.json",
+        "sha256": "ab7769fbecee775db7c0e15a5eaf49223f928381b1110513b849d2d17b244b03"
+      },
+      "selection": {
+        "playerId": "8477465",
+        "season": "20252026",
+        "strength": "ev",
+        "population": "unblocked",
+        "evidenceView": "mass",
+        "type": "all",
+        "metric": "goalie.ev.stopping_goals_per100_on_net"
+      },
+      "rows": 120,
+      "columns": 25
+    },
+    {
+      "case": "absent",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/absent/goalie-observed-history.csv",
+      "sha256": "7a6641fb0d6672ef33360eb5afaf7e3e2d18c79ba77e7899416f951f644968ca",
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/absent/published-player.json",
+        "sha256": "08061f2cb418d8606f170cfc16c094499c3a496aec044f2db11724eeca187576"
+      },
+      "selection": {
+        "playerId": "8470594",
+        "season": "20252026",
+        "strength": "ev",
+        "population": "unblocked",
+        "evidenceView": "mass",
+        "type": "all",
+        "metric": "goalie.ev.stopping_goals_per100_on_net"
+      },
+      "rows": 81,
+      "columns": 25
+    },
+    {
+      "case": "selection-exact",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/goalie-observed-history.csv",
+      "sha256": "286d50d3b742d12d4099fba1d0673e3180a80235fe8dec99d5622d7f23c6aa86",
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/published-player.json",
+        "sha256": "01c94efd5964a068e2d835c58ee58f6dc49c6ac4a4ec8c1345990f40c151cddb"
+      },
+      "selection": {
+        "playerId": "8478872",
+        "season": "20252026",
+        "strength": "4v5",
+        "population": "on_net",
+        "evidenceView": "ratio",
+        "type": "other",
+        "metric": "goalie.pk.conversion_probability_difference"
+      },
+      "rows": 120,
+      "columns": 25
+    },
+    {
+      "case": "selection-covered_all",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/covered_all/goalie-observed-history.csv",
+      "sha256": "d1fc905b3314f59980d07ab08a35c7415132de8ad5f4b46bf504dde1d7dec8c1",
+      "player_response": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/covered_all/published-player.json",
+        "sha256": "01c94efd5964a068e2d835c58ee58f6dc49c6ac4a4ec8c1345990f40c151cddb"
+      },
+      "selection": {
+        "playerId": "8478872",
+        "season": "20252026",
+        "strength": "covered_all",
+        "population": "on_net",
+        "evidenceView": "ratio",
+        "type": "other",
+        "metric": "goalie.pk.conversion_probability_difference"
+      },
+      "rows": 120,
+      "columns": 25
+    }
+  ],
+  "wall_seconds": 1.6003513329196721,
+  "peak_resident_bytes": 57376768,
+  "limits": [
+    "prior database identity is the accepted historical binding/header, not a fresh whole-file hash",
+    "only selected annual raw rows and referenced methods read through primary keys",
+    "no new source/fit/projection validation or browser requests; no scientific admission"
+  ]
+}

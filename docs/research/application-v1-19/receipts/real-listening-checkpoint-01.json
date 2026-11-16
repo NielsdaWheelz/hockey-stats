@@ -1,0 +1,40 @@
+{
+  "status": "listening",
+  "source_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+  "app_tree": "f87c9ffc729d15265073d32b6668902a1b77e837",
+  "expected_publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-19",
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "--import",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/detached-guard.mjs",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-19/app/dist/node/server/main.js",
+    "--publication",
+    "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+    "--port",
+    "3419"
+  ],
+  "env_overrides": {
+    "GOALIE_DETACHED_DATABASE": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+    "GOALIE_DETACHED_AUDIT": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/detached-real-audit.jsonl"
+  },
+  "inherited_environment": true,
+  "database": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+  "port": 3419,
+  "stdout_log": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/detached-startup.log",
+  "stderr_and_lifecycle_cost": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/detached-lifecycle-cost.txt",
+  "wrapper_sha256": "4d82e296d71b2c4c007e307766408cbf91cfa0ce2c5649d71a37a40e1cf74f84",
+  "pids": {
+    "wrapper": 47651,
+    "time": 47657,
+    "node": 47658
+  },
+  "startup_clock": "perf_counter immediately before Popen through observation of the first exact readiness line",
+  "lifecycle_clock": "/usr/bin/time -l measures service lifetime through native exit, not startup",
+  "launched_at_utc": "2026-11-16T10:36:03.339355+00:00",
+  "startup_seconds": 2097.7500235829502,
+  "readiness_log_line": "[03:11:01.113] INFO (#1): Listening on http://127.0.0.1:3419",
+  "readiness_observed_at_utc": "2026-11-16T11:11:01.212831+00:00"
+}

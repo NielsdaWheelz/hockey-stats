@@ -1,0 +1,39 @@
+{
+  "source_commit": "63b49e69102a74be440aaea3ce0484093f466ce7",
+  "status": "functional_native_journeys_passed_manual_pixel_defects_remain",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "files": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/attempt-03/journeys.json",
+      "sha256": "84031b8dcf6e99ff6480c32c95fb38ab7cb70417fd9f7606f789d36255d009dd"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/attempt-03/comparison/8478872.png",
+      "sha256": "1bcab9be7949462a5cee002156455f505421a30acab22f96f8a3008a37b3dd2b"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/attempt-03/comparison/8478872.svg",
+      "sha256": "1c513c1e6de4c34a28a5b3bee27d5e8d4286de49b7440ef2a82f3906c13a2465"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/attempt-03/comparison/8477465.png",
+      "sha256": "7527bc0939ec3e27391a3ffc4a605b7aa9b7cc04d411c9ae10ca0727cb5b9f37"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/attempt-03/comparison/8477465.svg",
+      "sha256": "1bfdf1c56f547137a8c15c5297aa989fa0de11229e4b7700397a68ba4d6d2b7d"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/attempt-03/cases/absent/goalie-card.png",
+      "sha256": "ad932afbf55d7b4784da4d7b217b35787cef7bacde0d87598067acbe02afc455"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/attempt-03/cases/absent/goalie-card.svg",
+      "sha256": "a58a9299547897740a1c57f5814deaf68b9fe7943a6453bc26480cbd728b8bf0"
+    }
+  ],
+  "findings": [
+    "history axis label overlaps firstpoint",
+    "absent distribution text cursor overlaps empty reason and cohort metadata"
+  ]
+}

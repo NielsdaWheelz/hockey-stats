@@ -1,0 +1,38 @@
+{
+  "at": "2026-11-16T13:18:12.728289+00:00",
+  "status": "passed",
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "primary": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats",
+    "head": "345b3a743015cbaf6f7d55c6195754cd663269f9",
+    "status_exact": true,
+    "build_files_exact": 38,
+    "databases": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/previous.sqlite",
+        "bytes": 4635877376,
+        "mtime_ns": 1793080727502487829,
+        "schema": 7,
+        "publication": "eb4e31ab-a35c-4df6-be34-9bccceb4fe3d"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite",
+        "bytes": 11310997504,
+        "mtime_ns": 1793431198154070471,
+        "schema": 8,
+        "publication": "9a5b4061-f909-4c1b-b624-5729e5acb6bf"
+      }
+    ],
+    "listener": "COMMAND  PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    9645 nnandal   15u  IPv4 0xc2742b6b63798716      0t0  TCP 127.0.0.1:3000 (LISTEN)\n"
+  },
+  "frozen_donor_manifest_and_composition_exact": true,
+  "fixture": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/fixture-publication/player-analysis.sqlite",
+    "bytes": 29249536,
+    "sha256": "2aa8284dab0582b8d4c1a4dbb08faacc3de9f4601ce3564d9479f55b424e7520",
+    "publication_id": "64f000ad-9205-4217-9372-0d86d749dfe7",
+    "matches_immutable_release": true
+  },
+  "scope": "protected primary source/status/build and database bytes/mtime/header/listener plus two small frozen donor receipts; no huge database hash or source/fit campaign",
+  "activation": false
+}

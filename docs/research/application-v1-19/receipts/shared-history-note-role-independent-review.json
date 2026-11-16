@@ -1,0 +1,68 @@
+{
+  "status": "cleared_source_scope",
+  "scope": "independent production diff and saved-control receipt review; no tests, API, database, browser, build or runtime repeated",
+  "commit": "18952abf0b8469d8c781afc2ad3ab1ff4f2998ef",
+  "source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/app/src/web/analysis-history.tsx",
+    "sha256": "8fe223cf5f7f04f06b050f11c7344da12490b7eb83df9fb412965b6a32c86747"
+  },
+  "app_tree": "6a0134d373f4d8a5127e932741def25652ef4121",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "blocking_findings": [],
+  "bindings": {
+    "controls_summary": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/mechanisms-v1-10/product/history-note-role-controls.json",
+      "sha256": "fd2d36454bff55c19b41273b0ff79f1d7b8075a9cc5af06a3d76f769df119a5f"
+    },
+    "red_controls": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/mechanisms-v1-10/product/history-note-role-controls-red.json",
+      "sha256": "db6ebb63bfb416c34e9f476dab466dd3416c72b1c0b71b54e46bd019279b1dae"
+    },
+    "green_controls": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/mechanisms-v1-10/product/history-note-role-controls-green.json",
+      "sha256": "b0ca0f50191a8e2f6a8faa9d85455766563c48cf79a2295e99b89d088077ba0c"
+    },
+    "other_independent_source_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/mechanisms-v1-10/reviews/history-note-role-source-review.json",
+      "sha256": "ac90486602c9f141227b6fa14945edf2f14fe4aaa6f0a59affcddaa1fb3b5808"
+    }
+  },
+  "reasoning": [
+    "the production diff is confined to historySvg note presentation; no numerical, schema, API, CSV or semantic-identity owner changes",
+    "joined finding factoring requires exact original method-limitations join and an assessment entry matching summary, population and selected quantity; unrelated summaries remain whole and internal semicolons are not parsed",
+    "each annual statement retains all supplied method-limitation and finding-population roles; only identical body and role sets share the existing applicable-year grouping",
+    "role sorting uses a copied array; the local map and sets do not mutate datum, original limitations, support, numerical references or semantic identities",
+    "the surrounding history view keeps the quantity fixed and the existing note key retains different annual role/population applicability"
+  ],
+  "independent_csv_source_comparison": {
+    "byte_exact": true,
+    "region_start": "export const analysisCsvHeaders =",
+    "region_end_exclusive": "function plottedValue(",
+    "bytes": 4892,
+    "sha256": "1aee58922f9e7f90408847cea87f6abfce9ee4aca9b035142afc2aadd05ff190"
+  },
+  "attributed_saved_controls": {
+    "actual_saved_input": 97,
+    "targeted_valid_domain_roles": 13,
+    "total": 110,
+    "failed": 0,
+    "csv_bytes_exact": {
+      "corey": "f712b96339a71eb65a008a6db33a1fffb31f22ad4043570072383111d63f8838",
+      "goalie-ordinary": "2213d75c6ae77db3d7f54d693c46c412c371a5e6f7aa05e06ba3d3c2e0e12d14",
+      "goalie-pk": "4149e929c8f36e36ba39ea88f234a42d145335d56cd7812beb667b856f40f3d4"
+    },
+    "pre_note_annual_svg_text_exact": true,
+    "datum_support_reference_semantic_identity_unmutated": true
+  },
+  "pending": [
+    "final combined build and same-publication strict runtime restart",
+    "actual revised goalie and mechanism history SVG/PNG downloads and independent pixel review",
+    "the separate five-line goalie geometry repair remains outside this source review"
+  ],
+  "limits": [
+    "saved real controls are attributed and inspected, not rerun",
+    "controlled renderer artifacts do not replace final compiled native-download acceptance",
+    "no new scientific admission, publication rewrite or activation"
+  ]
+}

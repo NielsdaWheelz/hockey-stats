@@ -1,0 +1,62 @@
+{
+  "status": "completed",
+  "scope": "three strict startups against the SAME immutable candidate; service lifetime includes startup, acceptance and idle coordination, so its peak is not startup-only memory",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "runs": [
+    {
+      "source_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+      "app_tree": "f87c9ffc729d15265073d32b6668902a1b77e837",
+      "startup_seconds": 2097.7500235829502,
+      "service_lifetime_seconds": 2977.1843942920677,
+      "native_service_wall_seconds": 2977.16,
+      "native_service_maximum_resident_bytes": 2338406400,
+      "exit_code": 130,
+      "termination": "intentional SIGTERM after acceptance/owner release",
+      "timing": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-detached-startup-timing.json",
+        "sha256": "cb6309b5a3fd57a3135d016b91ce48b62d21a9e48960e2fe0e2497665c5dc45a"
+      },
+      "native_lifecycle_cost": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/detached-lifecycle-cost.txt",
+        "sha256": "590f6cf89f908c49ab7ea2d83bf3bae50d34ce810e023fbe113b4c923f8faffd"
+      }
+    },
+    {
+      "source_commit": "63b49e69102a74be440aaea3ce0484093f466ce7",
+      "app_tree": "a18f27a393229ebea8f1ed0417c9d85ac7700f70",
+      "startup_seconds": 1802.5562999581452,
+      "service_lifetime_seconds": 4400.62443516613,
+      "native_service_wall_seconds": 4400.66,
+      "native_service_maximum_resident_bytes": 2217984000,
+      "exit_code": 130,
+      "termination": "intentional SIGTERM after acceptance/owner release",
+      "timing": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-detached-startup-02-timing.json",
+        "sha256": "4cc6f6a37c91adc76a7f5865ea8b58989048a52f66d3182db27dab9e13827ddf"
+      },
+      "native_lifecycle_cost": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/detached-lifecycle-02-cost.txt",
+        "sha256": "74e032fd719d1ce02c196651c20bd4ceded3151156086cbe688f02ee930370dc"
+      }
+    },
+    {
+      "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+      "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+      "startup_seconds": 1862.6067394579295,
+      "service_lifetime_seconds": 3376.4389352919534,
+      "native_service_wall_seconds": 3376.47,
+      "native_service_maximum_resident_bytes": 1995915264,
+      "exit_code": 130,
+      "termination": "intentional SIGTERM after acceptance/owner release",
+      "timing": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-detached-startup-03-timing.json",
+        "sha256": "644ab7d43ea229991680b3c8e277382829623306f1c85f980a9d68734f3fe569"
+      },
+      "native_lifecycle_cost": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/detached-lifecycle-03-cost.txt",
+        "sha256": "8d41ae07fce593c6d2ade1e44436f22880054548a27e4a0ed003968bf4f734b1"
+      }
+    }
+  ],
+  "activation": false
+}

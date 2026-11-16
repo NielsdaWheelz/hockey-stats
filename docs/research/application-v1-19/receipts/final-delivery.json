@@ -1,0 +1,81 @@
+{
+  "at": "2026-11-16T13:48:24.958776+00:00",
+  "status": "complete_verified_experimental_real_goalie_delivery",
+  "scope": "v1-19 all goals, requirements and acceptance criteria, g01-g14; no activation or scientific admission",
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+    "sha256": "483b1e1b98112ddabc85cf1d7794b76cccfad004962f6991402abb1d4825840e",
+    "bytes": 31359414272,
+    "digest_owner": "ordinary native writer; no repeated huge-file hash"
+  },
+  "proofs": {
+    "real-native-final.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-native-final.json",
+      "sha256": "66ea505530a619a24a70a749b44134cbba280ec09beb00cf973594a3f0dbc248"
+    },
+    "final-numerical-artifact-closure.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/final-numerical-artifact-closure.json",
+      "sha256": "1a7483b515a6fb1b0ffabc5f128672a077843838b61e29307001cdbb33ff2edf"
+    },
+    "real-final-export-pixel-independent-acceptance.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-final-export-pixel-independent-acceptance.json",
+      "sha256": "65a839189064dd99acdc076f05bf1269c8f951c6aa9dbc14d0d7f01bf296723a"
+    },
+    "real-history-independent-review.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-history-independent-review.json",
+      "sha256": "b927476ae42c3678088ad002d73d7815efa304a9caeada34567a768d955b66d8"
+    },
+    "real-g14-download-independent-review.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-g14-download-independent-review.json",
+      "sha256": "687c5bbc9145dd662c95cbe5e70121ab8169291da35e61d6ef890d3173dcbad4"
+    },
+    "final-primary-preservation.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/final-primary-preservation.json",
+      "sha256": "ce3c24f5d13e0859cea3da16a10f311aacf9212bdc60af6552cc446b6bfc6975"
+    },
+    "temporary-test-deletion.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/temporary-test-deletion.json",
+      "sha256": "d3403a4927622f7b43533e5b5abd7dfece290d99f3ab482fa65a77df2c14bcb1"
+    },
+    "real-final-runtime-stop.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-final-runtime-stop.json",
+      "sha256": "0126ca2e282ecff1d144d63aba23dbb062eef374b142e1398d280cac98f7232e"
+    },
+    "real-runtime-costs.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-runtime-costs.json",
+      "sha256": "f8c5b79c34f64935dd510b60341e7f56447a4b036d799409498e8a2ec6b6b4ec"
+    },
+    "listening-checkpoint-closure.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/listening-checkpoint-closure.json",
+      "sha256": "e0384208b71dc6349868391200fc7e475d0615cfe0aaceb26bfeba2947bf3412"
+    }
+  },
+  "coverage": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/coverage.md",
+    "sha256": "b7946bfc0b350afdc675bd68e12c362f8862a27479df2518b1226d991a114149"
+  },
+  "shared_owner_cleanup": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/receipts/final-cleanup.json",
+    "sha256": "891ae5f50beccce20c0edba501882c09a9dcdb4764eb07e69b4efe523d839894"
+  },
+  "test_runtime_stopped": true,
+  "port3419_listener_absent": true,
+  "primary_preserved": true,
+  "resolved_own_issues": [
+    "goalie-profile-normalization-refetch",
+    "goalie-history-axis-overlap",
+    "goalie-empty-distribution-overlap"
+  ],
+  "shared_history_issue": "rendering criterion passed for both actual families; root owns issue deletion and final plan closure",
+  "native_scope": {
+    "full_goalie_card_png_and_csv_native100_200": "byte-identical",
+    "selected_history_native200": "actual fidelity/readability accepted; mechanism history has ten x attributes across nine elements differ by at most1/128 SVG unit,638of4338000edge pixels; text/data/y/CSV exact; encoded PNG identity not required or claimed"
+  },
+  "scientific_admission": false,
+  "optimizer_accuracy": "unknown; inherited explicit limitations retained",
+  "activation": false
+}

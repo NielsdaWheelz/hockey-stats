@@ -1309,7 +1309,7 @@ export function goalieCardSvg(model: GoalieCardModel): string {
         'text-anchor="end"',
       );
       bottom = top + 105;
-    } else bottom += wrap("no finite distribution", x, top + 30, width);
+    } else bottom = top + 30 + wrap("no finite distribution", x, top + 30, width);
     bottom += wrap(
       `${group.peerGroup}; n=${group.members.length}; ≥${group.cutoffMinutes ?? "?"} supported min; ${standingText(row.standing)}${row.member === false ? "; selected outsider" : ""}`,
       x,
@@ -1325,10 +1325,10 @@ export function goalieCardSvg(model: GoalieCardModel): string {
     trajectory.flatMap((point) => (point.value === null ? [] : [point.value])),
   );
   if (domain) {
-    const x = (i: number) => 140 + i * 450,
+    const x = (i: number) => 200 + i * 440,
       sy = (value: number) =>
         y + 150 - (140 * (value - domain[0])) / (domain[1] - domain[0]);
-    parts.push(`<path d="M100 ${y + 160}h1000" stroke="#64767b"/>`);
+    parts.push(`<path d="M200 ${y + 160}h900" stroke="#64767b"/>`);
     for (let i = 0; i < trajectory.length; i++) {
       const point = trajectory[i];
       if (
@@ -1359,8 +1359,8 @@ export function goalieCardSvg(model: GoalieCardModel): string {
         'text-anchor="middle"',
       );
     }
-    text(displayNumber(domain[0]), 44, y + 158);
-    text(displayNumber(domain[1]), 44, y + 16);
+    text(displayNumber(domain[0]), 170, y + 158, 20, 'text-anchor="end"');
+    text(displayNumber(domain[1]), 170, y + 16, 20, 'text-anchor="end"');
     y += 255;
   } else full("stopping history unavailable; no line drawn.");
   title(

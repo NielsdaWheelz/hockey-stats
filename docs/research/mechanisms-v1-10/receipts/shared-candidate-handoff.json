@@ -1,0 +1,91 @@
+{
+  "kind": "shared_candidate_publication_handoff",
+  "purpose": "real",
+  "status": "reviewed_source_ready_publication_unstarted",
+  "recorded_at_utc": "2026-11-16T04:09:43.642053+00:00",
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01",
+  "candidate_count": 1,
+  "source_worktree": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "app_tree": "f87c9ffc729d15265073d32b6668902a1b77e837",
+  "bindings": {
+    "input_pins": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/receipts/input-pins.json",
+      "sha256": "6ffd46d6d974e70635b8c22c739bb3d846e9b37c02af9f617e1e4f8561b5cb70"
+    },
+    "original": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+      "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+    },
+    "converted": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/exchange4-base/manifest.json",
+      "sha256": "db5d36733a93e46e3def0ab60bf498603134e06af6de00be8136c57f456c2670"
+    },
+    "results": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+      "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41"
+    },
+    "conversion": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/exchange4-base/exchange4-conversion.json",
+      "sha256": "625c6f25f7ac5d9ad55d67064693ed41d14a8451e05e76157f7bab93d869d04f"
+    },
+    "composition": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/mechanism-composition.json",
+      "sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5"
+    },
+    "selection": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/mechanisms-selection.json",
+      "sha256": "ac2d598431fab3d0eaafcd952a47588ccd9a0e60194250e4e087b2b34ccd1029"
+    },
+    "postfit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/post-fit-resources.json",
+      "sha256": "c19ceb93e2611574e14d207e9578b76a24e48cff576fc520a958cee62d6867d8"
+    }
+  },
+  "observed_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9"
+  },
+  "audits": {
+    "preservation": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-composition-preservation.json",
+      "sha256": "71e000e59b1caa9e011d71d1dcc7a05729029efaed73229e0b32e3218696e976"
+    },
+    "minor_references": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-minor-reference-saved-audit.json",
+      "sha256": "45a10a71bc8564faec2123a40a4d0b557051eba42296052f2d37779af03825b0"
+    },
+    "annual_chains": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-chain-saved-audit.json",
+      "sha256": "311a0f5d94e62199b0753226392fbd934aed673ab962b818031b705cc8ec4198"
+    }
+  },
+  "publication": {
+    "cwd": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats",
+    "environment": {
+      "PYTHONPATH": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/analysis/src"
+    },
+    "argv": [
+      "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/analysis/.venv/bin/python",
+      "-m",
+      "hockey_stats.analysis_cli",
+      "publish",
+      "--observed",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+      "--results",
+      "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results",
+      "--out",
+      "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01"
+    ],
+    "executed": false
+  },
+  "ownership": "v1-19 owns the next sole heavy window for ordinary publication, final app build and strict detached startup; v1-10 verifies mechanisms against that same publication/database/api",
+  "scope": "ten baselines/two final diagnostic attempts, five checked references, one attributed conversion and ordinary composition passed; independent saved audits bind arithmetic/preservation; no publication, build or startup has run for this candidate",
+  "limits": [
+    "all baseline/continuation gradient tolerances unmet; coefficient accuracy unknown despite within-budget final diagnostic movements",
+    "all five sh references retain source-gap flags and known exclusions; mixed reference isolated-minor approximation remains",
+    "nonowned bulk byte preservation uses exact member path/hash/row descriptors plus completed producer strict reads, not another bulk scan",
+    "goalie numerical bodies are preserved; prior saved-proof campaign is attributed, not repeated",
+    "no activation or scientific admission assigned"
+  ]
+}

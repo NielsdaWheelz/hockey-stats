@@ -1,0 +1,121 @@
+{
+  "status": "pass",
+  "scope": "saved conversion/composition preservation, explicit lineage and complete owned key inventory; no duplicated value/probability/api arithmetic campaign",
+  "bindings": {
+    "input_pins": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/receipts/input-pins.json",
+      "sha256": "6ffd46d6d974e70635b8c22c739bb3d846e9b37c02af9f617e1e4f8561b5cb70"
+    },
+    "original": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+      "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+    },
+    "converted": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/exchange4-base/manifest.json",
+      "sha256": "db5d36733a93e46e3def0ab60bf498603134e06af6de00be8136c57f456c2670"
+    },
+    "results": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+      "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41"
+    },
+    "conversion": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/exchange4-base/exchange4-conversion.json",
+      "sha256": "625c6f25f7ac5d9ad55d67064693ed41d14a8451e05e76157f7bab93d869d04f"
+    },
+    "composition": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/mechanism-composition.json",
+      "sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5"
+    },
+    "selection": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/mechanisms-selection.json",
+      "sha256": "ac2d598431fab3d0eaafcd952a47588ccd9a0e60194250e4e087b2b34ccd1029"
+    },
+    "postfit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/post-fit-resources.json",
+      "sha256": "c19ceb93e2611574e14d207e9578b76a24e48cff576fc520a958cee62d6867d8"
+    }
+  },
+  "inherited": {
+    "table_members": 72,
+    "bound_rows": 38042240,
+    "actual_bulk_bytes_rescanned": false,
+    "byte_identity_basis": "exact path/hash/row descriptors plus completed converter/compositor strict-read receipts",
+    "catalogs": {
+      "people": 3145,
+      "sources": 24,
+      "supports": 18
+    },
+    "preexisting_methods": 18,
+    "new_owned_methods": [
+      "penalties-v1-10-20232024",
+      "penalties-v1-10-20242025",
+      "penalties-v1-10-20252026",
+      "shootiness-v1-10-20232024",
+      "shootiness-v1-10-20242025",
+      "shootiness-v1-10-20252026"
+    ]
+  },
+  "goalie": {
+    "20232024": {
+      "rows": 1287,
+      "provided": 1287
+    },
+    "20242025": {
+      "rows": 1331,
+      "provided": 1331
+    },
+    "20252026": {
+      "rows": 1353,
+      "provided": 1353
+    }
+  },
+  "mechanisms": [
+    {
+      "season": "20232024",
+      "family": "penalties",
+      "rows": 924,
+      "source_skaters": 924
+    },
+    {
+      "season": "20232024",
+      "family": "shootiness",
+      "rows": 6468,
+      "source_skaters": 924
+    },
+    {
+      "season": "20242025",
+      "family": "penalties",
+      "rows": 920,
+      "source_skaters": 920
+    },
+    {
+      "season": "20242025",
+      "family": "shootiness",
+      "rows": 6440,
+      "source_skaters": 920
+    },
+    {
+      "season": "20252026",
+      "family": "penalties",
+      "rows": 940,
+      "source_skaters": 940
+    },
+    {
+      "season": "20252026",
+      "family": "shootiness",
+      "rows": 6580,
+      "source_skaters": 940
+    }
+  ],
+  "resources": {
+    "wall_seconds": 4.363387999823317,
+    "process_peak_resident_bytes": 104103936
+  },
+  "excluded_reads": [
+    "bulk nonowned evidence/map members",
+    "model state/design/coefficient members",
+    "original sources",
+    "sqlite",
+    "api"
+  ]
+}

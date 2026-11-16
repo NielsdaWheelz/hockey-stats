@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "kind": "root_final_native_history_contract_classification",
+  "reviewer": "root",
+  "status": "passed_stated_content_layout_and_native200_criteria",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+  "selection": {
+    "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+    "player_id": "8470621",
+    "season": "20232024",
+    "metric_id": "penalties.taken_value_per60",
+    "history_scale": "raw"
+  },
+  "artifacts": {
+    "normal_png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.png",
+      "bytes": 1201080,
+      "sha256": "90f07852bdb61e5266e06fe2a84219f0c493dc5eb7be808837e883e26930ed4a",
+      "download_name": "hockey-stats-8470621-penalties.taken_value_per60-20232024-20252026-history-raw.png"
+    },
+    "normal_svg": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.svg",
+      "bytes": 13190,
+      "sha256": "a3500ea3362fdbf76d7f539ea85d491c7c3ed5425d2cbedab3afba8389a2591d"
+    },
+    "native": [
+      {
+        "kind": "csv",
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/history.csv",
+        "bytes": 23469,
+        "sha256": "f712b96339a71eb65a008a6db33a1fffb31f22ad4043570072383111d63f8838",
+        "download_name": "hockey-stats-8470621-penalties.taken_value_per60-20232024-20252026-history.csv",
+        "failure": null
+      },
+      {
+        "kind": "png",
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/history.png",
+        "bytes": 1200981,
+        "sha256": "d2fa770bc371f827908fef5191abe871d4d44e85363df62c4872501d667603a5",
+        "download_name": "hockey-stats-8470621-penalties.taken_value_per60-20232024-20252026-history-raw.png",
+        "failure": null
+      },
+      {
+        "kind": "svg",
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/history.svg",
+        "bytes": 13200,
+        "sha256": "60828502d08d70c0431a3b449104a7a4eef50f06fc48a554e0601b1a6405db28"
+      }
+    ],
+    "diagnostic": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/diagnosis.json",
+      "bytes": 134696,
+      "sha256": "98f6becc86992ff05547decf44c9d9055e4b2a87e3435e7ec74271919130d5b8"
+    }
+  },
+  "root_observations": {
+    "full_actual_native_png_inspected": true,
+    "png_dimensions": [
+      1200,
+      3615
+    ],
+    "readable": true,
+    "unclipped": true,
+    "csv_byte_equal": true,
+    "xml_text_tags_data_year_support_reference_and_y_cy_exact": true,
+    "changed_x_family_attributes": 10,
+    "maximum_x_change_svg_units": 0.0078125,
+    "uniform_spacing_preserved": true,
+    "last_point_x": 1090,
+    "differing_edge_pixels": 638,
+    "changed_svg_elements": 9,
+    "all_non_x_attributes_exact": true
+  },
+  "contract_decision": "encoded PNG/SVG byte equality across native browser zoom was an over-strict temporary-controller gate, not a stated v1-10/application requirement; measured subpixel horizontal variation preserves the required content, units, relationships, legibility and native200 layout",
+  "tradeoff": "retain ordinary browser-native subpixel typography variation; no deterministic encoded-image-byte guarantee is added",
+  "historical_evidence": "original30s navigation failure, stronger native byte-equality failure, exit137, distinct actual hashes and full diagnostic originals remain unchanged; exit137 cause is not independently established",
+  "former_issue": {
+    "path": "docs/issues/history-export-native-zoom.md",
+    "resolution": "unsupported gate; no unresolved product defect demonstrated"
+  },
+  "limits": [
+    "root contract/pixel classification; independent adversarial classification is separate",
+    "no encoded-byte invariance, latency/SLA, scientific admission or calibrated-uncertainty claim",
+    "shared repeated-notes issue remains under root ownership pending synchronized final goalie role proof",
+    "no production repair, rebuild or further browser/API/DB operation"
+  ]
+}

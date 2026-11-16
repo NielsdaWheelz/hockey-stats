@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "kind": "root_real_mechanism_product_pixel_review",
+  "reviewer": "root",
+  "purpose": "real",
+  "status": "cards_and_layout_pass_shared_history_blocked",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "source_commit": "63b49e69102a74be440aaea3ce0484093f466ce7",
+  "app_tree": "a18f27a393229ebea8f1ed0417c9d85ac7700f70",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "artifacts": {
+    "profile-card.png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/profile-card.png",
+      "bytes": 962261,
+      "sha256": "30b315a40a1b296b6523d2876e1e36c470f99a3d998a611344a977234b7d4fa2"
+    },
+    "comparison-second-card.png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/comparison-second-card.png",
+      "bytes": 956745,
+      "sha256": "2479127e959cf5a8dff30568a2cb69cd77d532a1add1dda3ea98b3792ea637ad"
+    },
+    "profile-375.png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/profile-375.png",
+      "bytes": 63190,
+      "sha256": "509710b8c6bf71c7e365b4a6efa1694a8594158990bb35cdaf4acd2a25f62452"
+    },
+    "native-capture-profile-surface.png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/native-capture-profile-surface.png",
+      "bytes": 105837,
+      "sha256": "0dfd69d2ed7bb72de5f13417298233699df035e489f4bde745a5757571140387"
+    },
+    "native-capture-comparison-surface.png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/native-capture-comparison-surface.png",
+      "bytes": 110876,
+      "sha256": "cd2f10291976812fcd1b30bb867281e5b9c5a0a6bbcb4228070fe7532429a26a"
+    },
+    "profile-history.png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/profile-history.png",
+      "bytes": 1300979,
+      "sha256": "e787dfde61bd812969e455d7811915c4a8104e3d389b20caaa83d23d8211e347"
+    },
+    "profile-history.svg": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/profile-history.svg",
+      "bytes": 14257,
+      "sha256": "60814298d9a9ea458f33b2ae211185da2dcf557311b99d0dfc4ee361f7b0015c"
+    }
+  },
+  "identity_source": "existing actual browser/download/native capture receipts; no new browser/api/database/hash/test run",
+  "accepted_findings": [
+    "root independently inspected both full forward/defense analytical card pngs: legible quantities, units and sign language; no product clipping",
+    "root independently inspected actual375px profile and both corrected native200% profile/comparison viewports: legible, no product clipping; local table horizontal scroll is intentional",
+    "actual corey8470621 three-provided-year history png/svg are legible, correctly associated with annual quantities/support/references/sensitivity, and unclipped"
+  ],
+  "shared_history": {
+    "status": "blocked",
+    "issue": "docs/issues/history-export-repeated-method-notes.md",
+    "review": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-history-independent-review.json",
+      "bytes": 9728,
+      "sha256": "e455c0820cb0f317588b3040bc42d796b02f7f17a2a5ad74ec857b7531788eac"
+    },
+    "problem": "the same limitation/finding summary body is still rendered twice for identical applicable years, including the long final-year movement and budget summary",
+    "required_change": "shared renderer must present each exact body once while preserving limitation/finding meaning, population and exact applicable years; annual support/conditioning/reference/sensitivity remain explicit",
+    "owner": "source agent owns the minimal shared renderer repair; it joins the v1-19 goalie-only geometry fix in one final build/restart"
+  },
+  "limits": [
+    "scoped card/layout/download fidelity acceptance only; no final mechanism-family completion or shared history issue closure",
+    "the present actual63b49e6 artifacts remain frozen; corrected final shared history requires actual mechanism and goalie export review",
+    "no source change, api/browser/database/build/test/deletion/commit in this documentation update",
+    "computational/presentation acceptance does not confer scientific admission or calibrated uncertainty"
+  ]
+}

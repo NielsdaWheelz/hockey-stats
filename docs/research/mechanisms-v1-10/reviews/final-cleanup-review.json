@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "kind": "independent_scoped_cleanup_review",
+  "status": "pass",
+  "recorded_at_utc": "2026-11-16T13:43:56.472615+00:00",
+  "cleanup_receipt": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/receipts/final-cleanup.json",
+    "bytes": 19602,
+    "sha256": "891ae5f50beccce20c0edba501882c09a9dcdb4764eb07e69b4efe523d839894"
+  },
+  "source_baseline": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "tracked_app_analysis_working_diff_empty": true,
+  "absent_roots": [
+    ".tmp/mechanism-misconduct-controls.py",
+    ".tmp/mechanism-numerical-tests.py",
+    ".tmp/mechanism-reducer-controls.py",
+    ".tmp/mechanism-reducer-integration.py",
+    ".tmp/adversarial-v1-10",
+    ".tmp/mechanisms-v1-10",
+    ".tmp/v1-10",
+    ".tmp/v1-10-browser",
+    ".tmp/v1-10-operation",
+    "app/temporary-mechanism-contract.ts",
+    "app/temporary-mechanism-prior-render.tsx",
+    "app/temporary-mechanism-sign-copy.tsx",
+    "app/temporary-mechanisms-final.ts",
+    "app/node_modules",
+    "app/dist",
+    "app/.react-router"
+  ],
+  "controller_identity_records": 49,
+  "sole_temporary_converter": {
+    "path": ".tmp/mechanisms-v1-10/convert_exchange.py",
+    "bytes": 10502,
+    "sha256": "78afc3b4daf132f795f06038aa5e203811956c8ff232a6419a73e6db74baaa1b",
+    "deletion_scope": "sole temporary exchange converter removed with .tmp/mechanisms-v1-10; no converter source archived"
+  },
+  "protected_directory_metadata": [
+    {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/analysis/.venv",
+      "metadata": {
+        "kind": "directory",
+        "device": 16777233,
+        "inode": 253709945,
+        "mtime_ns": 1794703356423326539
+      },
+      "scope": "directory lstat only; contents not traversed"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/node_modules",
+      "metadata": {
+        "kind": "directory",
+        "device": 16777233,
+        "inode": 131249372,
+        "mtime_ns": 1794387012051080028
+      },
+      "scope": "directory lstat only; contents not traversed"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv",
+      "metadata": {
+        "kind": "directory",
+        "device": 16777233,
+        "inode": 130502776,
+        "mtime_ns": 1792210886581080110
+      },
+      "scope": "directory lstat only; contents not traversed"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist",
+      "metadata": {
+        "kind": "directory",
+        "device": 16777233,
+        "inode": 191938280,
+        "mtime_ns": 1793431029183716392
+      },
+      "scope": "directory lstat only; contents not traversed"
+    }
+  ],
+  "protected_tracked_scripts": [
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-held.sh",
+      "bytes": 1225,
+      "sha256": "14b7e23c90998e4a6cd697df8dfacebe69ac8dde27ae655465b756f994a9c23c"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-launch-01.command",
+      "bytes": 106,
+      "sha256": "d237460d7c37d6e2106e9585b751654697afb611299b69471f2ca834f6ec4a7e"
+    }
+  ],
+  "alias_review": {
+    "local_alias": "app/node_modules",
+    "absent": true,
+    "recorded_before_kind": "symlink",
+    "protected_target": "/Users/nnandal/Documents/code/hockey-stats/app/node_modules",
+    "target_metadata_preserved": true,
+    "ownership": "cleanup owner records local alias removal only; independent audit confirms absence and unchanged target directory device/inode/mtime without target traversal"
+  },
+  "own_analysis_venv_retained": true,
+  "inventory_snapshot": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/receipts/pre-cleanup-snapshots/cleanup-inventory.json",
+    "bytes": 4964,
+    "sha256": "3b9cdace25ecca7c8c8f5fda4ff142212d9601e6ee39810a8a9465ce6f80b95a"
+  },
+  "external_outputs": {
+    "no_external_path_in_recorded_removal_roots": true,
+    "retention": "attributed to cleanup owner; no external output deletion is recorded",
+    "independent_external_scan_performed": false
+  },
+  "blockers": [],
+  "scope": "receipt coherence, exact16 root absence, four protected directory lstats, two retained tracked launch scripts and git production-tree/worktree comparisons only",
+  "limits": [
+    "no deleted controller/converter body accessed or archived;49 hashes and sole converter identity inspected as receipt metadata only",
+    "primary dependency/environment/build contents not traversed; directory metadata preservation does not claim a recursive integrity audit",
+    "no external analytical data/database access or hashing, API/browser/build/tests, source/status edits, deletion or commit; only this review receipt written"
+  ]
+}

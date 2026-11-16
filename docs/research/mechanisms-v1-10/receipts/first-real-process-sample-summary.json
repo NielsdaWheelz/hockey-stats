@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "kind": "mechanism_first_real_process_sample_summary",
+  "purpose": "real",
+  "scope": "historical /usr/bin/sample header during the first real penalty annual; no new sample, fit or source read; no stack-dump archive",
+  "source": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/v1-10/first-real-process-sample.txt",
+    "sha256": "47394ee6509fc67ac5d4af8de68fcb67ffd3e2c80a79d40ed0bd5d6318b3d4e2",
+    "bytes": 740125
+  },
+  "process": "Python [51354]",
+  "sampling_time": "2026-11-14 18:28:20.936 -0800",
+  "launch_time": "2026-11-14 16:56:26.740 -0800",
+  "physical_footprint_at_sampling": "31.8G",
+  "physical_footprint_peak_at_sampling": "38.1G",
+  "units": "original rounded G display strings, preserved verbatim; no conversion to exact bytes",
+  "interpretation": "a historical in-process snapshot, distinct from the final native command high-water measurement",
+  "original_header": "Analysis of sampling Python (pid 51354) every 10 milliseconds\nProcess:         Python [51354]\nPath:            /opt/homebrew/*/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python\nLoad Address:    0x102038000\nIdentifier:      org.python.python\nVersion:         3.14.8 (3.14.8)\nCode Type:       ARM64\nPlatform:        macOS\nParent Process:  time [51337]\nTarget Type:     live task (Roots Present)\n\nDate/Time:       2026-11-14 18:28:20.936 -0800\nLaunch Time:     2026-11-14 16:56:26.740 -0800\nOS Version:      macOS 27.0.1 (26A434)\nReport Version:  7\nAnalysis Tool:   /usr/bin/sample\n\nPhysical footprint:         31.8G\nPhysical footprint (peak):  38.1G\nIdle exit:                  untracked\n"
+}

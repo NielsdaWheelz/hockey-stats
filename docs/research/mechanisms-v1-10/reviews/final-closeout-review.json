@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "kind": "independent_final_documentation_closeout_review",
+  "status": "accepted_documentation_and_closeout_scope",
+  "basis": "previously inspected status diffs, selected receipts, source/protocol reviews, actual history pixels and scoped cleanup audit, plus the completed final document-check receipt; no verification rerun",
+  "source": {
+    "compiled_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+    "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+    "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+    "publication_writer_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+    "owner_documentation_fast_forward": "02f318f",
+    "disposition": "final documentation distinguishes native publication source from later frontend source; app and analysis remain unchanged"
+  },
+  "candidate": {
+    "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01",
+    "status": "inactive",
+    "activation": "not assigned or performed"
+  },
+  "accepted_findings": [
+    "current plan, mechanism source/numerical/product verification and final acceptance metadata coherently distinguish complete experimental software, real integration, numerical diagnostics and scientific support",
+    "ten annual baselines, two prescribed final diagnostic attempts, five matched references and the selected source-to-screen boundaries retain attributable evidence and correctly scoped costs",
+    "function-tolerance completion does not establish achieved gradient tolerance or coefficient accuracy; earlier sensitivities remain unassessed, scientific limitations remain explicit, and old verdicts and failures are preserved",
+    "native history content and layout satisfy the stated contract with the explicitly accepted maximum1/128 export-pixel horizontal variation; encoded bytes and decoded pixels are not claimed invariant, and stronger failed assertions remain failed observations",
+    "cleanup preserves exactly49 unique script identities including the sole converter; the separate converter record repeats the same path and hash, rather than adding a fiftieth unique identity",
+    "the scoped cleanup audit found all16 authorized local roots absent, protected metadata and inherited launch scripts preserved, the ordinary analysis environment retained and production trees unchanged"
+  ],
+  "cleanup": {
+    "receipt": "docs/research/mechanisms-v1-10/receipts/final-cleanup.json",
+    "independent_review": "docs/research/mechanisms-v1-10/reviews/final-cleanup-review.json",
+    "absent_authorized_roots": 16,
+    "retained_unique_script_hashes_including_converter": 49,
+    "converter_also_recorded_separately": true,
+    "separate_record_duplicates_existing_identity": true,
+    "earlier_review_count_correction": "the proposed count50 unique identities was incorrect and withdrawn;49 includes the converter"
+  },
+  "final_document_check": {
+    "name": "final changed-document links",
+    "owner": "source documentation owner",
+    "status": "attributed pass with preserved historical log whitespace",
+    "receipt": {
+      "path": "docs/research/mechanisms-v1-10/receipts/final-document-checks.json",
+      "bytes": 12133,
+      "sha256": "a10261d9df446afdb673d3a9efd7a667ac530da9f590ad85a7210b40bdc9a093"
+    },
+    "checked_markdown_files": 32,
+    "local_targets": 1391,
+    "markdown_anchors": 232,
+    "source_line_references": 10,
+    "four_resolved_issue_paths_absent": true,
+    "four_final_owner_receipts_present": true,
+    "current_documentation_and_changed_markdown_json_whitespace": "passed",
+    "historical_whitespace_qualification": {
+      "broad_docs_diff_exit_code": 2,
+      "warnings": [
+        "docs/research/application-v1-19/receipts/real-final-typecheck.log:4: new blank line at EOF",
+        "docs/research/application-v1-19/receipts/real-restart-typecheck.log:4: new blank line at EOF"
+      ],
+      "disposition": "original copied stdout bytes intentionally preserved by the owner; no source/code defect and no unqualified all-file whitespace pass claim"
+    },
+    "attribution": "completed source-owner receipt read and its supplied digest confirmed; checks not repeated by this reviewer"
+  },
+  "stated_acceptance_blockers": [],
+  "limits": [
+    "documentation and closeout review only; final local-link and consistency pass is attributed to the bound source-owner receipt, with its two historical stdout EOF warnings preserved",
+    "no new tests, numerical/API/browser/database work, build, source or status edit, staging, commit or deletion; only this review receipt written",
+    "no calibrated uncertainty, coefficient-error bound, causal isolation, scientific admission, activation or unrelated-assignment completion claim"
+  ]
+}

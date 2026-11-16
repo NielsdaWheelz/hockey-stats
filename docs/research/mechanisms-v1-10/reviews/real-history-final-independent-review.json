@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "kind": "independent_final_compiled_mechanism_history_review",
+  "status": "passed_actual_mechanism_history",
+  "recorded_at_utc": "2026-11-16T13:17:35.641044+00:00",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "renderer_sha256": "8fe223cf5f7f04f06b050f11c7344da12490b7eb83df9fb412965b6a32c86747",
+  "ready_handoff": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-api-ready-final-handoff.json",
+    "bytes": 7304,
+    "sha256": "5496fe551846fd4dd4ef275902ad35b515454e508bd11a4b1a602cf0e8d0bec3"
+  },
+  "selection": {
+    "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+    "player_id": "8470621",
+    "season": "20232024",
+    "metric_id": "penalties.taken_value_per60",
+    "history_scale": "raw"
+  },
+  "selection_sha256": "dccc6dc0d91798aede0331c52e3104dc33c197c79e853a5533bdf5a6c5191fd9",
+  "artifacts": {
+    "actual-history-artifacts.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/actual-history-artifacts.json",
+      "bytes": 1715,
+      "sha256": "7f7215fc76540c728c177cb9b1f3110a2fd05c9bac737975d7fd419f4a32d13e"
+    },
+    "history-1.svg": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.svg",
+      "bytes": 13190,
+      "sha256": "a3500ea3362fdbf76d7f539ea85d491c7c3ed5425d2cbedab3afba8389a2591d"
+    },
+    "history-1.png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.png",
+      "bytes": 1201080,
+      "sha256": "90f07852bdb61e5266e06fe2a84219f0c493dc5eb7be808837e883e26930ed4a"
+    },
+    "history-1.csv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.csv",
+      "bytes": 23469,
+      "sha256": "f712b96339a71eb65a008a6db33a1fffb31f22ad4043570072383111d63f8838"
+    }
+  },
+  "png_dimensions": {
+    "width": 1200,
+    "height": 3615
+  },
+  "annuals": [
+    {
+      "season": "20232024",
+      "player_id": "8470621",
+      "native_value": 0.002882526964930933,
+      "display_value": 0.002882526964930933,
+      "reference_id": "e320aa6c90f387b79feb91d1d1ada2e2babfb54fec504e989b3e029e16f475d7",
+      "prior_kind": "carry",
+      "prior_anchor_season": "20222023",
+      "prior_seasons": [
+        "20212022",
+        "20222023"
+      ]
+    },
+    {
+      "season": "20242025",
+      "player_id": "8470621",
+      "native_value": 0.0011326241302772341,
+      "display_value": 0.0011326241302772341,
+      "reference_id": "d42bf3cf7039747ad0672c4f1e1436bb000317d77853704596f91dfd47ec3b82",
+      "prior_kind": "carry",
+      "prior_anchor_season": "20232024",
+      "prior_seasons": [
+        "20212022",
+        "20222023",
+        "20232024"
+      ]
+    },
+    {
+      "season": "20252026",
+      "player_id": "8470621",
+      "native_value": -0.009339723267409684,
+      "display_value": -0.009339723267409684,
+      "reference_id": "a7cee1d28b41c023cc5b844b5dd926547f7a14401a541148363d24aa76cabddd",
+      "prior_kind": "carry",
+      "prior_anchor_season": "20242025",
+      "prior_seasons": [
+        "20212022",
+        "20222023",
+        "20232024",
+        "20242025"
+      ]
+    }
+  ],
+  "exact_comparisons": {
+    "svg_matches_reviewed_new_control": true,
+    "png_matches_reviewed_new_control": true,
+    "csv_matches_accepted_prior_actual": true
+  },
+  "diagnostic_summary_occurrences": [
+    {
+      "summary": "baseline complete; numerical sensitivity not_assessed; optimizer accuracy unknown; in-sample diagnostics are not held-out accuracy; calibrated uncertainty not estimated",
+      "occurrences": 1
+    },
+    {
+      "summary": "baseline complete; numerical sensitivity within_budget; optimizer accuracy unknown; in-sample diagnostics are not held-out accuracy; calibrated uncertainty not estimated; maximum standardized movement 5.336368680275427e-09 and actual fitting-row movement 2.5616384711213414e-06 awards/hour; comparison budget 0.0001; maximum penalty-value movement 4.561332891749386e-10 goals/hour and 7.602221486248978e-09 goals per 1000 minutes; budgets 1e-4 and 1e-3 respectively",
+      "occurrences": 1
+    }
+  ],
+  "pixel_content_findings": [
+    "full fresh compiled 1200 by 3615 PNG and its actual SVG independently inspected; header, plot, all annual sections, grouped notes and footer are readable and unclipped",
+    "corey perry 8470621 and raw penalties.taken_value_per60 selection match the final source/ready/publication artifact receipt; 2023\u201324, 2024\u201325 and 2025\u201326 remain distinct, with 2023\u201324 selected",
+    "each formerly duplicated diagnostic body appears once for its exact applicable years, retaining both finding population and method-limitation roles",
+    "annual team identity, cohort context, support/exclusions/gaps, current information, carry anchors/prior years, references and not-estimated uncertainty remain visible and correctly associated",
+    "earlier-year sensitivity remains not assessed; final-year within-budget standardized, actual-row and value movement/budget claims remain scoped to 2025\u201326 with optimizer accuracy unknown",
+    "taking value = negative taking difference times signed V, goals per 60 minutes and display multiplier one remain explicit; the negative final-year value and three-point geometry are preserved",
+    "no json-shaped placeholders, invented missing values or harmful duplicate diagnostic paragraphs remain; no height target imposed"
+  ],
+  "final_targeted_controller": {
+    "status": "pending_at_review",
+    "receipt_path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/acceptance.json",
+    "scope": "normal actual artifacts inspected; completed frozen-start/native200 receipt absent at review"
+  },
+  "previous_review": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-history-independent-review.json",
+    "sha256": "e455c0820cb0f317588b3040bc42d796b02f7f17a2a5ad74ec857b7531788eac",
+    "preserved": "original earlier actual RED review left unchanged"
+  },
+  "blockers": [],
+  "global_issue": {
+    "path": "docs/issues/history-export-repeated-method-notes.md",
+    "mechanism_history_finding": "resolved by these fresh compiled actual artifacts",
+    "closure_requires": "final refreshed goalie shared histories also green under the shared application owner",
+    "not_closed_by_this_review": true
+  },
+  "scope": "saved actual compiled mechanism history artifacts and small identity/ready receipts only; no new browser/api/database/test/build, source change, commit or deletion; no numerical/source reconstruction or scientific admission claim"
+}

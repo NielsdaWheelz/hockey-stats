@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "kind": "final_actual_mechanism_history_acceptance",
+  "status": "passed_stated_content_layout_and_native200_criteria",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+  "selection": {
+    "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+    "player_id": "8470621",
+    "season": "20232024",
+    "metric_id": "penalties.taken_value_per60",
+    "history_scale": "raw"
+  },
+  "normal": {
+    "status": "passed",
+    "receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/actual-history-artifacts.json",
+      "bytes": 1715,
+      "sha256": "7f7215fc76540c728c177cb9b1f3110a2fd05c9bac737975d7fd419f4a32d13e"
+    },
+    "csv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.csv",
+      "bytes": 23469,
+      "sha256": "f712b96339a71eb65a008a6db33a1fffb31f22ad4043570072383111d63f8838",
+      "download_name": "hockey-stats-8470621-penalties.taken_value_per60-20232024-20252026-history.csv"
+    },
+    "png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.png",
+      "bytes": 1201080,
+      "sha256": "90f07852bdb61e5266e06fe2a84219f0c493dc5eb7be808837e883e26930ed4a",
+      "download_name": "hockey-stats-8470621-penalties.taken_value_per60-20232024-20252026-history-raw.png"
+    },
+    "svg": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.svg",
+      "bytes": 13190,
+      "sha256": "a3500ea3362fdbf76d7f539ea85d491c7c3ed5425d2cbedab3afba8389a2591d"
+    },
+    "root_pixel_verdict": "passed fresh final normal history",
+    "independent_review": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-history-final-independent-review.json",
+      "bytes": 6989,
+      "sha256": "5509d55031aa32432331db3b8efc3d66308872e7eb8cfbed908294df6175a49a"
+    }
+  },
+  "frozen_navigation": {
+    "status": "passed_separate_diagnosis",
+    "receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/navigation-diagnosis.json",
+      "bytes": 44647,
+      "sha256": "9644ba022bf87da1fc6715938c094e7d3f512c7b3b8b01bbb3286e85013b3511"
+    },
+    "started_png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/diagnostic-started-taking-value-after-selection-change.png",
+      "bytes": 1201080,
+      "sha256": "90f07852bdb61e5266e06fe2a84219f0c493dc5eb7be808837e883e26930ed4a"
+    },
+    "observation": "actual public drawn-change event preceded the unchanged taking export; target URL/control subsequently committed; all8 revalidation requests200 and no pageerrors"
+  },
+  "original_invocation": {
+    "status": "failed",
+    "receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/failure.json",
+      "bytes": 2800,
+      "sha256": "cb0cbfd757ff576b899379030f52be54b2bf1cad607e5ba9c245ac97e297f4c9"
+    },
+    "reason": "30s later navigation wait failed after valid normal artifacts; not recast as a successful invocation"
+  },
+  "native200": {
+    "status": "passed_stated_criteria_with_measured_subpixel_variance",
+    "normal_png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.png",
+      "bytes": 1201080,
+      "sha256": "90f07852bdb61e5266e06fe2a84219f0c493dc5eb7be808837e883e26930ed4a"
+    },
+    "actual_png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-final/history.png",
+      "bytes": 1200981,
+      "sha256": "d2fa770bc371f827908fef5191abe871d4d44e85363df62c4872501d667603a5"
+    },
+    "actual_csv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-final/history.csv",
+      "bytes": 23469,
+      "sha256": "f712b96339a71eb65a008a6db33a1fffb31f22ad4043570072383111d63f8838"
+    },
+    "diagnosis": {
+      "status": "difference_observed",
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/diagnosis.json",
+        "bytes": 134696,
+        "sha256": "98f6becc86992ff05547decf44c9d9055e4b2a87e3435e7ec74271919130d5b8"
+      },
+      "actual_artifacts": [
+        {
+          "kind": "csv",
+          "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/history.csv",
+          "bytes": 23469,
+          "sha256": "f712b96339a71eb65a008a6db33a1fffb31f22ad4043570072383111d63f8838",
+          "download_name": "hockey-stats-8470621-penalties.taken_value_per60-20232024-20252026-history.csv",
+          "failure": null
+        },
+        {
+          "kind": "png",
+          "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/history.png",
+          "bytes": 1200981,
+          "sha256": "d2fa770bc371f827908fef5191abe871d4d44e85363df62c4872501d667603a5",
+          "download_name": "hockey-stats-8470621-penalties.taken_value_per60-20232024-20252026-history-raw.png",
+          "failure": null
+        },
+        {
+          "kind": "svg",
+          "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/history.svg",
+          "bytes": 13200,
+          "sha256": "60828502d08d70c0431a3b449104a7a4eef50f06fc48a554e0601b1a6405db28"
+        }
+      ],
+      "normalized_text_equal": true,
+      "first_text_layout_difference": {
+        "index": 5,
+        "normal": {
+          "text": "-0.00933972",
+          "x": "189.109375",
+          "y": "539.4",
+          "anchor": "end"
+        },
+        "actual": {
+          "text": "-0.00933972",
+          "x": "189.1015625",
+          "y": "539.4",
+          "anchor": "end"
+        }
+      },
+      "first_point_difference": {
+        "index": 0,
+        "normal": {
+          "x": 199.109375,
+          "y": 319.4
+        },
+        "actual": {
+          "x": 199.1015625,
+          "y": 319.4
+        }
+      },
+      "cause": "historySvg uses fractional getComputedTextLength width directly in fixed-export plotLeft; native zoom changes the measured label width by1/128 SVG unit; original source values and point Y coordinates remain unchanged"
+    },
+    "stronger_assertion_failure": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-final/failure.json",
+      "bytes": 2279,
+      "sha256": "9aff2efc6d87fee9687ce12e8b2fcec957472dd37d5bd4950d5a2eda1324bbe2"
+    },
+    "contract_classification": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-history-native-contract-classification.json",
+      "bytes": 4376,
+      "sha256": "c59c7cb8a87ce0af5db067fb0522c10f0f7bf86fbaae26c2c51ddf0b6e279bea"
+    },
+    "encoded_png_byte_equal": false,
+    "root_pixel_verdict": "full actual native png is readable and unclipped; stated content/layout/native200 criteria pass",
+    "measured_variance": {
+      "full_actual_native_png_inspected": true,
+      "png_dimensions": [
+        1200,
+        3615
+      ],
+      "readable": true,
+      "unclipped": true,
+      "csv_byte_equal": true,
+      "xml_text_tags_data_year_support_reference_and_y_cy_exact": true,
+      "changed_x_family_attributes": 10,
+      "maximum_x_change_svg_units": 0.0078125,
+      "uniform_spacing_preserved": true,
+      "last_point_x": 1090,
+      "differing_edge_pixels": 638,
+      "changed_svg_elements": 9,
+      "all_non_x_attributes_exact": true
+    }
+  },
+  "limits": [
+    "accepts stated history content/layout/native200 criteria across separately recorded phases; original30s invocation and stronger byte assertion remain failed historical test-method evidence",
+    "native encoded PNG/SVG byte or pixel invariance is not claimed; ten x-family attributes across nine elements vary by at most1/128 SVG unit and638 edge pixels differ",
+    "exit137 during large Buffer assertion reporting is preserved; its exact process-termination cause remains unconfirmed",
+    "no latency/SLA inference from the separate successful frozen/public-navigation diagnosis",
+    "final role/year/text/data/native readability, exact CSV and frozen selection are accepted; temporary controllers, converter and test-only dependencies are removed",
+    "scientific admission, calibrated uncertainty and optimizer coefficient accuracy are unchanged"
+  ],
+  "retired_test_gate": {
+    "former_issue": "docs/issues/history-export-native-zoom.md",
+    "decision": "encoded PNG/SVG byte equality across native browser zoom was an over-strict temporary-controller gate, not a stated v1-10/application requirement; measured subpixel horizontal variation preserves the required content, units, relationships, legibility and native200 layout",
+    "tradeoff": "retain ordinary browser-native subpixel typography variation; no deterministic encoded-image-byte guarantee is added"
+  },
+  "closeout": {
+    "status": "completed_stated_product_acceptance_and_cleanup",
+    "final_source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+    "final_app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+    "cleanup": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/receipts/final-cleanup.json",
+      "bytes": 19602,
+      "sha256": "891ae5f50beccce20c0edba501882c09a9dcdb4764eb07e69b4efe523d839894"
+    },
+    "removed_temporary_roots": 16,
+    "sole_temporary_converter_removed": true,
+    "production_app_analysis_unchanged": true,
+    "final_role_controls": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/product/history-note-role-controls.json",
+      "bytes": 6280,
+      "sha256": "fd2d36454bff55c19b41273b0ff79f1d7b8075a9cc5af06a3d76f769df119a5f"
+    },
+    "independent_final_actual_history": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-history-final-independent-review.json",
+      "bytes": 6989,
+      "sha256": "5509d55031aa32432331db3b8efc3d66308872e7eb8cfbed908294df6175a49a"
+    },
+    "independent_native_qualification": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-history-native-qualification.json",
+      "bytes": 9455,
+      "sha256": "52d690f1574bc90a828b66c8fbef95b8c45e2ef8db28a8b17a90369beb345a9f"
+    },
+    "retained_unique_script_hashes_including_converter": 49,
+    "script_identity_count_note": "49 unique script identity hashes, including the sole converter, whose deletion is also recorded separately"
+  }
+}

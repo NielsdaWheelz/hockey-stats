@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "kind": "real_mechanism_browser_acceptance",
+  "status": "passed_stated_product_criteria_with_final_history_successor",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "base_url": "http://127.0.0.1:3419",
+  "source_commit": "63b49e69102a74be440aaea3ce0484093f466ce7",
+  "app_tree": "a18f27a393229ebea8f1ed0417c9d85ac7700f70",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "receipts": {
+    "oracle": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/final-oracle-01/acceptance.json",
+      "bytes": 1862,
+      "sha256": "0a91797ff92c435f4f91a980394532143e16d7b45fc0cf40a3f5db3c52cf92ff"
+    },
+    "browser": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/browser-acceptance.json",
+      "bytes": 8011,
+      "sha256": "ae6e131095d436f0158ec361936424c7cf23926a8a3f61c48e75595f4edfc5c0"
+    },
+    "download_fidelity": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/actual-download-fidelity.json",
+      "bytes": 1816,
+      "sha256": "0bcb7902d086694b85b9c524b6f1598005d0ab78c5f0bdcfddcc592a750fc5ae"
+    },
+    "native_capture": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/native-capture-diagnosis.json",
+      "bytes": 5252,
+      "sha256": "702a7f5e15bfd2e9b5aa2fa4e5787a259801cc30ed9b30fa9082a449ced98d3e"
+    },
+    "initial_timeout": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-01/initial-invocation.json",
+      "bytes": 1523,
+      "sha256": "0157b04bcd499b3e397be0631d0d0a9b0628f2c6cd9f13949fdf1fbc2a910ade"
+    }
+  },
+  "counts": {
+    "downloads": 9,
+    "layout_and_case_screenshots": 8,
+    "independent_download_checks": 17,
+    "correct_native_viewports": 2
+  },
+  "cases": {
+    "forward": {
+      "season": "20232024",
+      "player_id": "8470604"
+    },
+    "defense": {
+      "season": "20232024",
+      "player_id": "8470600"
+    },
+    "history": {
+      "season": "20232024",
+      "player_id": "8470621"
+    },
+    "additional": [
+      {
+        "name": "multi_team",
+        "status": "rendered",
+        "selection": {
+          "season": "20232024",
+          "player_id": "8470621"
+        },
+        "metric": "penalties.taken_per60"
+      },
+      {
+        "name": "sparse",
+        "status": "rendered",
+        "selection": {
+          "season": "20232024",
+          "player_id": "8473473"
+        },
+        "metric": "penalties.taken_per60"
+      },
+      {
+        "name": "prior_only",
+        "status": "rendered",
+        "selection": {
+          "season": "20242025",
+          "player_id": "8478173"
+        },
+        "metric": "penalties.taken_per60"
+      },
+      {
+        "name": "zero_specialty_time",
+        "status": "rendered",
+        "selection": {
+          "season": "20232024",
+          "player_id": "8470600",
+          "strength": "5v3"
+        },
+        "metric": "shootiness.5v3.probability"
+      }
+    ]
+  },
+  "history": {
+    "selection": {
+      "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+      "player_id": "8470621",
+      "season": "20232024",
+      "metric_id": "penalties.taken_value_per60",
+      "history_scale": "raw"
+    },
+    "selection_sha256": "dccc6dc0d91798aede0331c52e3104dc33c197c79e853a5533bdf5a6c5191fd9",
+    "annual_axis": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "actual_svg": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/profile-history.svg",
+      "bytes": 14257,
+      "sha256": "60814298d9a9ea458f33b2ae211185da2dcf557311b99d0dfc4ee361f7b0015c"
+    },
+    "actual_png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/profile-history.png",
+      "bytes": 1300979,
+      "sha256": "e787dfde61bd812969e455d7811915c4a8104e3d389b20caaa83d23d8211e347"
+    },
+    "actual_csv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/profile-history.csv",
+      "bytes": 23469,
+      "sha256": "f712b96339a71eb65a008a6db33a1fffb31f22ad4043570072383111d63f8838"
+    },
+    "started_png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/started-taking-value-after-selection-change.png",
+      "bytes": 1300979,
+      "sha256": "e787dfde61bd812969e455d7811915c4a8104e3d389b20caaa83d23d8211e347"
+    },
+    "started_matches_selected_png": true,
+    "original_pixel_review": "root accepts legibility, units/signs, annual association and lack of clipping; actual residual limitation/finding summary duplication blocks shared history acceptance",
+    "current_history_qualification": "original63b49e6 note duplication is resolved by the final actuale0ba850 successor; stated content/layout/native200 criteria pass with explicitly measured subpixel raster variance"
+  },
+  "native": {
+    "metrics": [
+      {
+        "name": "profile",
+        "metrics": {
+          "outerWidth": 1280,
+          "innerWidth": 640,
+          "innerHeight": 456,
+          "devicePixelRatio": 2,
+          "documentWidth": 640,
+          "visualScale": 1,
+          "scrollX": 0,
+          "scrollY": 7471.5
+        },
+        "bounds": {
+          "left": 16,
+          "top": 0.1015625,
+          "right": 624,
+          "bottom": 24.1015625,
+          "width": 608,
+          "height": 24
+        },
+        "css_visual_viewport": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "pageX": 0,
+          "pageY": 7471.5,
+          "clientWidth": 640,
+          "clientHeight": 456.5,
+          "scale": 1,
+          "zoom": 2
+        }
+      },
+      {
+        "name": "comparison",
+        "metrics": {
+          "outerWidth": 1280,
+          "innerWidth": 640,
+          "innerHeight": 456,
+          "devicePixelRatio": 2,
+          "documentWidth": 640,
+          "visualScale": 1,
+          "scrollX": 0,
+          "scrollY": 1448.5
+        },
+        "bounds": {
+          "left": 16,
+          "top": 0.109375,
+          "right": 624,
+          "bottom": 5640.734375,
+          "width": 608,
+          "height": 5640.625
+        },
+        "css_visual_viewport": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "pageX": 0,
+          "pageY": 1448.5,
+          "clientWidth": 640,
+          "clientHeight": 456.5,
+          "scale": 1,
+          "zoom": 2
+        }
+      }
+    ],
+    "actual_viewports": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/native-capture-profile-surface.png",
+        "bytes": 105837,
+        "sha256": "0dfd69d2ed7bb72de5f13417298233699df035e489f4bde745a5757571140387"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/native-capture-comparison-surface.png",
+        "bytes": 110876,
+        "sha256": "cd2f10291976812fcd1b30bb867281e5b9c5a0a6bbcb4228070fe7532429a26a"
+      }
+    ],
+    "method": "native chrome preference200%; original direct Page.captureScreenshot surface png with no clip or transformation; actual target scrolled into view",
+    "review": "root independently inspected both corrected actual viewports: legible profile/comparison content, correct units/signs and no product clipping; local table horizontal scroll is intentional"
+  },
+  "scope": [
+    "actual first-forward profile/card/recorded facts and defense comparison exports",
+    "all7 shootiness detail rows; actual multi-team/sparse/prior-only/zero-specialty cases",
+    "375px document-overflow checks and saved viewports",
+    "native200% actual geometry and byte-identical card png versus normal zoom",
+    "three provided annual history rows bound exactly to actual8470621/api/publication/selection; csv and structured evidence exact",
+    "saved SVG/PNG identities and frozen started-export PNG independently hashed"
+  ],
+  "limits": [
+    "the exact original63b49e6 browser proof remains scoped to that source; final actual role/year/text/data/native history acceptance and cleanup are complete under final_history_successor/closeout",
+    "initial30000ms cold-control test bound failed; separate15000ms reinspection exposed expected controls with all8 API responses200; no product latency/SLA conclusion",
+    "original Playwright native200 screenshots were blank/cropped by capture coordinates and remain preserved; direct CDP surface screenshots supply actual viewports",
+    "headless direct CDP view-mode capture was unsupported and produced no image; recorded explicitly",
+    "no build/start/publication/conversion/database hash or numerical/API matrix repeated here",
+    "computational and presentation checks do not establish scientific admission, calibrated uncertainty or optimizer coefficient accuracy",
+    "unchanged full browser/cohort/API matrices were not repeated after reviewed frontend changes; targeted final actual history and native qualification supply the affected-boundary proof"
+  ],
+  "root_pixel_review": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-product-pixel-review.json",
+    "bytes": 4432,
+    "sha256": "2f7c29f3cb1b60db7627306190f708078bf824142816dccc1c6347307ba0937b"
+  },
+  "shared_history": {
+    "status": "passed_final_successor",
+    "original_source_commit": "63b49e69102a74be440aaea3ce0484093f466ce7",
+    "original_review": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-history-independent-review.json",
+    "original_finding": "the same limitation/finding summary body is still rendered twice for identical applicable years, including the long final-year movement and budget summary",
+    "final_source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+    "final_review": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-history-final-independent-review.json",
+      "bytes": 6989,
+      "sha256": "5509d55031aa32432331db3b8efc3d66308872e7eb8cfbed908294df6175a49a"
+    },
+    "role_controls": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/product/history-note-role-controls.json",
+      "bytes": 6280,
+      "sha256": "fd2d36454bff55c19b41273b0ff79f1d7b8075a9cc5af06a3d76f769df119a5f"
+    },
+    "native_qualification": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-history-native-qualification.json",
+      "bytes": 9455,
+      "sha256": "52d690f1574bc90a828b66c8fbef95b8c45e2ef8db28a8b17a90369beb345a9f"
+    }
+  },
+  "final_history_successor": {
+    "path": "docs/research/mechanisms-v1-10/product/final-history-acceptance.json",
+    "normal_pixel_verdict": "passed under finale0ba850",
+    "status": "passed stated content/layout/native200 criteria; exact CSV, fixed-start export and public navigation verified; measured subpixel raster variance retained without byte/pixel invariance claim"
+  },
+  "source_scope": "source_commit/app_tree and original browser artifacts describe the exact63b49e6 run; final_history_successor and closeout bind targeted finale0ba850 proof without rerunning the unchanged full browser/transport contracts",
+  "runtime_retained_at_original_run": true,
+  "closeout": {
+    "status": "completed_stated_product_acceptance_and_cleanup",
+    "final_source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+    "final_app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+    "cleanup": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/receipts/final-cleanup.json",
+      "bytes": 19602,
+      "sha256": "891ae5f50beccce20c0edba501882c09a9dcdb4764eb07e69b4efe523d839894"
+    },
+    "removed_temporary_roots": 16,
+    "sole_temporary_converter_removed": true,
+    "production_app_analysis_unchanged": true,
+    "final_role_controls": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/product/history-note-role-controls.json",
+      "bytes": 6280,
+      "sha256": "fd2d36454bff55c19b41273b0ff79f1d7b8075a9cc5af06a3d76f769df119a5f"
+    },
+    "independent_final_actual_history": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-history-final-independent-review.json",
+      "bytes": 6989,
+      "sha256": "5509d55031aa32432331db3b8efc3d66308872e7eb8cfbed908294df6175a49a"
+    },
+    "independent_native_qualification": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-history-native-qualification.json",
+      "bytes": 9455,
+      "sha256": "52d690f1574bc90a828b66c8fbef95b8c45e2ef8db28a8b17a90369beb345a9f"
+    },
+    "retained_unique_script_hashes_including_converter": 49,
+    "script_identity_count_note": "49 unique script identity hashes, including the sole converter, whose deletion is also recorded separately"
+  }
+}

@@ -1,12 +1,12 @@
 # numerical and saved-state software verification
 
-scope: software and bounded fixture evidence. this record does not accept the ten real annual heads, real specialty-reference integration, detached application, numerical accuracy or scientific ability claims. the root verification owns those separate verdicts.
+status: numerical/state software, ten actual annual heads, two prescribed final diagnostic continuations and five real matched references accepted for experimental use. [root verification](../verification.md#final-real-source-to-screen-acceptance-and-cleanup--2026-11-16) owns the complete actual source-to-screen boundary and cleanup. computational acceptance does not establish coefficient accuracy or scientific ability claims.
 
 ## red, green and refactor
 
 `.tmp/mechanism-numerical-tests.py` first failed at import because `player_mechanisms.py` did not exist. the implemented objectives then passed independent hand sums, all-coordinate finite differences, full candidate normalization and signed minor survival controls. annual integration exposed a missing shooter-only reference branch; the branch was corrected and the full controls passed.
 
-final command: `PYTHONPATH=analysis/src analysis/.venv/bin/python .tmp/mechanism-numerical-tests.py`.
+historical final command: `PYTHONPATH=analysis/src analysis/.venv/bin/python .tmp/mechanism-numerical-tests.py`; the temporary controller is deleted after actual acceptance.
 
 verified behavior:
 
@@ -29,9 +29,9 @@ refactoring groups identical numeric rows before fitting and saving, preserving 
 
 ## limits and disposition
 
-native `ftol` completion does not prove `gtol` or coefficient accuracy. final-year diagnostic failure/nonfinite results remain unassessed, not zero movement. the penalty comparison retains its value assessment as unassessed until the separately bound minor reference is available; composition propagates both saved variants through that reference. earlier annuals remain not assessed.
+native `ftol` completion does not prove `gtol` or coefficient accuracy. final-year diagnostic failure/nonfinite results remain unassessed, not zero movement. the penalty comparison retained its value assessment as unassessed before the separately bound minor reference; composition subsequently propagated both saved variants through that reference and the final value movement is within budget. earlier annuals remain not assessed.
 
-temporary campaign checks remain pending root's final acceptance and deletion. checked facts, review records and useful numerical diagnostics remain. no permanent harness is introduced.
+[final cleanup](../receipts/final-cleanup.json) deleted temporary campaign checks after root's complete actual acceptance. checked facts, review records, expensive states and useful numerical diagnostics remain. no permanent harness is introduced.
 
 ## fresh independent review repairs
 
@@ -42,3 +42,26 @@ known typed `MIS/GAM` companions are now classified before checking their irrele
 fresh review subsequently tightened the source classifier into one pass: each record contributes ordinary, nonordinary, ignorable or unresolved evidence. pure typed major/match/penalty-shot groups stay outside the target even when their irrelevant duration is absent; an ordinary companion makes the group unresolved. missing ordinary-minor duration remains unresolved. three added controls reproduced the missing-major-duration failure before repair; the full ten-control set passes. this removes the duplicated nonordinary predicate without adding a new abstraction.
 
 the saved diagnostic reader now enforces separate closed assessed/unassessed records, the prescribed family budget, finite nonnegative maxima, verdict closure, explicit worst-row axes/source locators, and independent projection-movement reduction from saved baseline/probe rows. baseline and continuation solver options have distinct contracts. missing/nonfinite findings cannot become zero movement. the minor reader also rejects boolean signed values and requires integer schema versions; array shape contracts require integer dimensions. these checks operate on bound local evidence and add no source access or objective evaluation to narrow reads.
+
+## completed real numerical boundary
+
+[native completion](../receipts/real-chains.json) retains exact manifests, logs, preparation/fit scopes, ten baselines and exactly two prescribed final continuations. native annual command costs include their applicable diagnostic continuation and ordinary write/full reread:
+
+| family | season | native wall seconds | peak resident bytes | peak physical-footprint bytes |
+|---|---|---:|---:|---:|
+| penalties | 20212022 | 5890.16 | 18671763456 | 47750509304 |
+| penalties | 20222023 | 7195.65 | 27659681792 | 52306571880 |
+| penalties | 20232024 | 9589.83 | 32265371648 | 52628868072 |
+| penalties | 20242025 | 6373.18 | 36148609024 | 53360456128 |
+| penalties | 20252026 | 6886.18 | 33116225536 | 55280743664 |
+| shootiness | 20212022 | 3974.74 | 2820308992 | 2766506552 |
+| shootiness | 20222023 | 4812.85 | 3091152896 | 3041872680 |
+| shootiness | 20232024 | 5164.23 | 3231842304 | 3175680880 |
+| shootiness | 20242025 | 5155.15 | 3370254336 | 3318696912 |
+| shootiness | 20252026 | 5352.93 | 2977726464 | 2936769152 |
+
+total native annual cost is `60,394.90` seconds with `66,335,043,041` bound member bytes; maximum physical footprint is `55,280,743,664` bytes. within those commands, final penalty/shooter continuation solver clocks are `1.414241624996066` / `0.24297041585668921` seconds, with saved process high-water resident bytes `33,116,225,536` / `2,128,543,744`; those scopes are not additional annual costs. all twelve solves terminated by function tolerance with requested gradient tolerance unmet. optimizer coefficient accuracy remains unknown; completed baselines remain authoritative and continuations do not replace them.
+
+[independent saved-chain review](../reviews/real-chain-saved-audit.json) passes `3,808,846` accounting/projection checks without opening designs, source or objectives. final standardized/actual penalty-rate movements are `5.336368680275427e-9` / `2.5616384711213414e-6` per hour; shooter movements are `9.250878329480905e-7` / `7.069493966338491e-7` fractions. these pass the fixed final diagnostic budgets without establishing earlier-year or coefficient-error bounds.
+
+[independent reference review](../reviews/real-minor-reference-saved-audit.json) passes `6,839,512` checks for all five matched references. each reference retains known excluded time and an unquantified source-gap flag. final penalty-value movement is `4.561332891749386e-10` goals/hour or `7.602221486248978e-9` goals per 1,000 minutes, within budget. [composition preservation](../reviews/real-composition-preservation.json) and [root's actual typed-consumer matrix](../receipts/final-real-numerical-consumer-acceptance.json) establish the later numerical consumer boundary independently of the producer. exhaustive fitting-row maxima remain producer-attributed; saved worst-case units and all projections are independently checked within the audit's stated scope. no held-out performance, calibrated uncertainty, causal isolation, scientific admission or activation is established.

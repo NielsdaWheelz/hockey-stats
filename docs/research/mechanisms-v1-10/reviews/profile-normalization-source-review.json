@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "kind": "independent_profile_normalization_source_review",
+  "status": "accepted_source_scope",
+  "reviewer": "independent v1-10 adversarial reviewer",
+  "reviewed_commit": "63b49e69102a74be440aaea3ce0484093f466ce7",
+  "parent_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+  "app_tree": "a18f27a393229ebea8f1ed0417c9d85ac7700f70",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "reviewed_patch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/profile-normalization.patch",
+    "sha256": "1aa2d31af05307a85784a2a842f2ff2753f620737677640a1be65678e462206c",
+    "bytes": 1119,
+    "matches_committed_explorer_diff_exactly": true
+  },
+  "source_paths": [
+    "app/src/web/explorer.ts",
+    "app/src/web/routes/league.tsx",
+    "app/src/web/routes/player.tsx",
+    "app/src/web/routes/compare.tsx",
+    "app/src/web/client.ts"
+  ],
+  "diagnosis": {
+    "path": "docs/research/application-v1-19/receipts/duplicate-profile-diagnosis.json",
+    "scope": "native browser identities show 26 requests for 13 paths while the explicit-season profile url removes redundant kind=goalie; this is pre-repair evidence"
+  },
+  "change": "remove only the omitted-season condition around the existing canonicalization marker; equivalent idle normalization with an explicit season receives the same exact from/to exemption",
+  "reasoning": [
+    "useCanonicalSearch runs the replacement only while navigation is idle, resets the marker before comparing searches, and records exact pathname plus search for both endpoints; replace, scroll and location-state semantics are preserved",
+    "shouldRevalidateView suppresses only that exact recorded pair; the existing marker stays stable for duplicate router questions and is cleared by the idle hook at the committed location",
+    "ordinary season, player pathname, comparison a/b, metric, view or effective kind changes produce another pair and continue through existing season/default revalidation; a canonical marker cannot cover an unrelated destination",
+    "loadLeague uses readKind and readTableSelection, matching league normalization; discovery and peer normalization alter presentation state or remove values already interpreted as defaults",
+    "loadProfile derives kind from the returned player identity; deleting redundant url kind preserves that identity and the same normalized view, metric and goalie selections already loaded",
+    "loadComparison uses the same kind, view, metric and goalie selection readers as its normalization and preserves a/b; effective player changes retain loader ownership",
+    "map and history normalization use the existing readers or presentation-only state; no new lifecycle, caching mechanism or stale-data exemption is introduced"
+  ],
+  "prior_numerical_api_oracle": {
+    "status": "passed_as_reported_by_parent_integration_owner",
+    "app_tree": "f87c9ffc729d15265073d32b6668902a1b77e837",
+    "applicability": "numerical and api contracts remain unchanged; the only production diff is the browser canonicalization hook/marker, which that oracle does not exercise",
+    "limitation": "the earlier green oracle does not verify revised browser navigation or duplicate-request removal"
+  },
+  "pending": [
+    "revised build",
+    "same-candidate strict restart",
+    "native navigation request-count proof on revised runtime",
+    "browser and real download acceptance"
+  ],
+  "review_scope": "read-only source and saved diagnosis review; committed diff identity checked through git metadata; no requests, tests, database reads, source edits, build, deletion or commit performed by this reviewer",
+  "blockers": []
+}

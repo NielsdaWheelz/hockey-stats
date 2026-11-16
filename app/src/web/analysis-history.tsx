@@ -895,10 +895,24 @@ function historySvg(view: HistoryView): string {
         20,
       );
       const limitations = datum.methods.flatMap(method => method.limitations);
-      for (const limitation of limitations) note(`method limitation: ${limitation}`, point.season.season);
+      const methodNotes = new Map<string, Set<string>>();
+      for (const limitation of limitations)
+        methodNotes.set(limitation, new Set(["method limitation"]));
       if (!limitations.length) note("method limitations: none supplied", point.season.season);
-      for (const finding of datum.findings)
-        note(`finding for ${finding.population}: ${finding.summary}`, point.season.season);
+      for (const finding of datum.findings) {
+        const method = datum.methods.find(method =>
+          finding.summary === method.limitations.join("; ") &&
+          method.assessment.findings.some(entry => entry.summary === finding.summary &&
+            entry.population === finding.population && datum.metric.quantityPath !== undefined &&
+            entry.quantities.includes(datum.metric.quantityPath)));
+        for (const body of method ? method.limitations : [finding.summary]) {
+          const labels = methodNotes.get(body) ?? new Set<string>();
+          labels.add(`finding for ${finding.population}`);
+          methodNotes.set(body, labels);
+        }
+      }
+      for (const [body, labels] of methodNotes)
+        note(`${[...labels].sort().join("; ")}: ${body}`, point.season.season);
       if (!datum.findings.length) note("findings: none supplied", point.season.season);
       text(`uncertainty: ${uncertaintyText(datum.original, datum.metric.displayScale, datum.metric.displayUnit)}`, 20);
       for (const source of datum.sources)

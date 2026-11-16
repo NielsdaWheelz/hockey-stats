@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "kind": "independent_shared_history_note_role_source_review",
+  "status": "accepted_source_scope",
+  "recorded_at_utc": "2026-11-16T12:33:42.725828+00:00",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "base_source_commit": "63b49e69102a74be440aaea3ce0484093f466ce7",
+  "source": {
+    "path": "app/src/web/analysis-history.tsx",
+    "sha256": "8fe223cf5f7f04f06b050f11c7344da12490b7eb83df9fb412965b6a32c86747",
+    "bytes": 49690,
+    "scope": "only historySvg note presentation; uncommitted reviewed source"
+  },
+  "controls": {
+    "history-note-role-controls.json": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/product/history-note-role-controls.json",
+      "bytes": 6280,
+      "sha256": "fd2d36454bff55c19b41273b0ff79f1d7b8075a9cc5af06a3d76f769df119a5f"
+    },
+    "history-note-role-controls-red.json": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/product/history-note-role-controls-red.json",
+      "bytes": 34342,
+      "sha256": "db6ebb63bfb416c34e9f476dab466dd3416c72b1c0b71b54e46bd019279b1dae"
+    },
+    "history-note-role-controls-green.json": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/product/history-note-role-controls-green.json",
+      "bytes": 36233,
+      "sha256": "b0ca0f50191a8e2f6a8faa9d85455766563c48cf79a2295e99b89d088077ba0c"
+    }
+  },
+  "control_results": {
+    "red_checks": 97,
+    "red_failed": 72,
+    "final_actual_saved_input_checks": 97,
+    "final_targeted_valid_domain_checks": 13,
+    "final_total_checks": 110,
+    "final_failed": 0,
+    "attribution": "saved producer control receipts independently inspected; no control rerun by reviewer"
+  },
+  "reasoning": [
+    "exact statement bodies share per-annual role/population labels; original limitations remain strings from the original method array",
+    "joined findings factor only on exact summary equality plus a selected quantity/population finding in that method; unique and non-equivalent findings remain intact; no summary parsing or semicolon splitting",
+    "finding summaries use the nonempty Text schema, so an empty original limitation array cannot match a valid empty summary or erase a valid finding; no extra invalid-input guard is required",
+    "sorting a copied label array makes equal role sets independent of finding insertion order; different annual role sets remain separate and year order follows the existing chronological view",
+    "all transformations allocate local maps/sets/arrays and do not mutate source datum, support, references, numerical values or semantic identity",
+    "the saved three actual-input controls preserve complete CSV bytes, every pre-note annual SVG text element and original data; the production diff changes no producer, numerical/API contract or CSV code"
+  ],
+  "independent_csv_source_check": {
+    "start_marker": "export const analysisCsvHeaders =",
+    "end_marker_exclusive": "function plottedValue(",
+    "byte_exact": true,
+    "bytes": 4892,
+    "sha256": "1aee58922f9e7f90408847cea87f6abfce9ee4aca9b035142afc2aadd05ff190"
+  },
+  "controlled_pixel_review": {
+    "selection": {
+      "player_id": "8478872",
+      "display_name": "Karel Vejmelka",
+      "season": "20252026",
+      "metric_id": "goalie.ev.stopping_goals_per100_on_net",
+      "history_scale": "raw"
+    },
+    "artifacts": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/valid-domain-final/goalie-ordinary.svg",
+        "bytes": 17029,
+        "sha256": "0dd50cbb8ff0caf91b25effdd59b059d3ad49159186e5327701404e0bcfc24b2"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/valid-domain-final/goalie-ordinary.png",
+        "bytes": 1530513,
+        "sha256": "d84fa62410ec5098e044375bc85202cc73d675d67c5d47a6545b22329840cb3e",
+        "width": 1200,
+        "height": 4189
+      }
+    ],
+    "findings": [
+      "full controlled 1200 by 4189 ordinary-goalie PNG visually inspected with its saved SVG",
+      "combined finding population and limitation labels are readable; each original caveat body appears once for its applicable years",
+      "2023\u201324 and 2024\u201325 unassessed sensitivity remains separate from the assessed 2025\u201326 scalar and pointwise movement statements",
+      "annual values, units, teams, support, history assumptions, reference meaning and not-estimated uncertainty remain visible; header, plot, notes and footer are unclipped; no JSON placeholders seen",
+      "repeated population/role labels preserve context for distinct statements; no new height target is imposed"
+    ]
+  },
+  "addresses": "docs/research/mechanisms-v1-10/reviews/real-history-independent-review.json",
+  "blockers": [],
+  "pending": [
+    "final combined application build and strict same-candidate restart",
+    "actual live mechanism and goalie SVG/PNG downloads from that revised runtime",
+    "final pixel/content and frozen-start acceptance before closing the repeated-method-notes issue"
+  ],
+  "limits": [
+    "source and bounded controlled saved-input review only; controlled PNGs are not final compiled/live download proof",
+    "root owns the controlled Corey and pk image reviews; this reviewer independently inspected ordinary-goalie output",
+    "no API/database/new browser/new test/full build, source edit, deletion or commit performed by this reviewer; no scientific admission claim"
+  ]
+}

@@ -405,7 +405,7 @@ export function seasonSearch(search: URLSearchParams | string, season: string) {
   return next;
 }
 
-// only the idle normalization below may skip an omitted-season reload.
+// only the idle normalization below may skip reloading an equivalent selection.
 let canonicalization: { readonly from: string; readonly to: string } | undefined;
 
 export function useCanonicalSearch(
@@ -421,11 +421,10 @@ export function useCanonicalSearch(
     if (navigation.state !== "idle") return;
     canonicalization = undefined;
     if (next.toString() === search.toString()) return;
-    if (!search.has("season"))
-      canonicalization = {
-        from: location.pathname + location.search,
-        to: `${location.pathname}?${next}`,
-      };
+    canonicalization = {
+      from: location.pathname + location.search,
+      to: `${location.pathname}?${next}`,
+    };
     setSearch(next, {
       replace: true,
       preventScrollReset: true,

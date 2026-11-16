@@ -1,0 +1,18 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: absent csv must retain every closed column
+
+16 !== 37
+
+    at file:///Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19-browser/export-contract.mjs:12:9 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 16,
+  expected: 37,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.21.0

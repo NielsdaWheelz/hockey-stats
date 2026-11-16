@@ -1,0 +1,101 @@
+{
+  "status": "pass",
+  "purpose": "fixture",
+  "checks": [
+    "penalties.drawn_per60: raw value and closed evidence equal api; fractional display once",
+    "penalties.taken_per60: raw value and closed evidence equal api; fractional display once",
+    "penalties.drawn_value_per60: raw value and closed evidence equal api; fractional display once",
+    "penalties.taken_value_per60: raw value and closed evidence equal api; fractional display once",
+    "shootiness.5v5.probability: raw value and closed evidence equal api; fractional display once",
+    "shootiness.5v5.neutral_probability: raw value and closed evidence equal api; fractional display once",
+    "shootiness.5v5.difference: raw value and closed evidence equal api; fractional display once",
+    "history selected value/evidence exact; absent annual fields stay unavailable",
+    "recorded evidence exactly3 descriptive roles, no duplicate modeled owner"
+  ],
+  "files": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/browser-02/card.csv",
+      "bytes": 129764,
+      "sha256": "f7bd5c4438e023a37069381044f635aacf010d5f6ac731d5cb25cea9fbf007c8"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/browser-02/card.png",
+      "bytes": 805585,
+      "sha256": "1bcff9b7abeb495126ed6c4dd721127b5446132ae5dfd6b87022f8f566a1e1bf"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/browser-02/checks.json",
+      "bytes": 371,
+      "sha256": "42161176155f0e538f065eaadfad7405ef3342a62aa9764ebd3b5ea9f0dbc267"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/browser-02/history.csv",
+      "bytes": 7014,
+      "sha256": "484ced343659953719478314cfb1011d247143fdea9693368578598a9d677986"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/browser-02/history.png",
+      "bytes": 731439,
+      "sha256": "4aa6b50deab379f94ffaba5c756414e9cd57195da7c96fb20b1597caea561a3f"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/browser-02/narrow.png",
+      "bytes": 62898,
+      "sha256": "8290b3a91e5990b837a7efc254cf6df1115115ea007b0ff84b0e2a1dc1117d0e"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/browser-02/profile-api.json",
+      "bytes": 379030,
+      "sha256": "d440131a002c878b5ab04938d85f98e662c9de18ecf402c864e53e774f687286"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/browser-02/recorded.csv",
+      "bytes": 2244,
+      "sha256": "3616fed9ae0d244658fa38c79affe0f884a9385e3b4c6befc5e15326a97de997"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/browser-02/zoom-attempt.json",
+      "bytes": 187,
+      "sha256": "135c216dde3706bef35b87aef4c88609749e0789a6250c020f530a74db90841a"
+    }
+  ],
+  "native_zoom": [
+    {
+      "zoom": 1,
+      "metrics": {
+        "innerWidth": 1280,
+        "outerWidth": 1280,
+        "devicePixelRatio": 1,
+        "documentWidth": 1280,
+        "visualScale": 1
+      },
+      "hashes": {
+        "card.csv": "f7bd5c4438e023a37069381044f635aacf010d5f6ac731d5cb25cea9fbf007c8",
+        "card.png": "6eb1053dc17b474534d685a5067c2fb24e01b401a014d39d7358c700ce575068"
+      }
+    },
+    {
+      "zoom": 2,
+      "metrics": {
+        "innerWidth": 640,
+        "outerWidth": 1280,
+        "devicePixelRatio": 2,
+        "documentWidth": 640,
+        "visualScale": 1
+      },
+      "hashes": {
+        "card.csv": "f7bd5c4438e023a37069381044f635aacf010d5f6ac731d5cb25cea9fbf007c8",
+        "card.png": "6eb1053dc17b474534d685a5067c2fb24e01b401a014d39d7358c700ce575068"
+      }
+    }
+  ],
+  "pixel_review": [
+    "downloaded analytical png preserves focal40%, neutral30%, difference10percentage points, drawing3/taking-3 awardsper60 and explicit synthetic/experimental limits",
+    "native200 viewport wraps narrative, retains table scrolling and has no document overflow"
+  ],
+  "controller_failures": [
+    "initial Playwright default executable unavailable; existing cached browser selected explicitly",
+    "headless shell ignores Chrome zoom preferences; two attempts correctly failed native-zoom assertions; full Chrome native profile passed"
+  ],
+  "native_zoom_method_source": "https://chromium.googlesource.com/chromium/src/+/lkgr/chrome/browser/ui/zoom/chrome_zoom_level_prefs.cc"
+}

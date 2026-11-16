@@ -1345,3 +1345,167 @@ footer {
 .analytical-details .analysis-controls select { min-width: 0; max-width: 100%; }
 @container (max-width: 850px) { .analytical-map-pair { grid-template-columns: 1fr; } .analytical-core-map-body { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); } .analytical-core-map-body > .analytical-rink { max-width: 280px; } }
 @container (max-width: 500px) { .analytical-core-map-body, .analytical-distributions, .analytical-ledger { grid-template-columns: 1fr; } .analytical-core-map-body > .analytical-rink { width: 260px; max-width: 100%; margin: 0 auto; } .analytical-map-inset { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem .9rem; font-size: .9rem; } .analytical-density-legend { grid-column: 1 / -1; } .analytical-ledger { padding-left: 1.25rem; } .analytical-ledger::before { left: .5rem; } .analytical-ledger-term { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); } .analytical-ledger-term:nth-child(n)::after { left: auto; right: 100%; } }
+
+/* the goalie sheet keeps actual populations separate from common-reference skill. */
+.goalie-card {
+  max-width: 84rem;
+  margin: 1.5rem auto;
+  padding: clamp(1rem, 2.4vw, 2rem);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  overflow-wrap: anywhere;
+}
+.goalie-card header {
+  border-bottom: 2px solid #33494a;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.goalie-card h3 {
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  margin: .4rem 0;
+  line-height: 1.15;
+}
+.goalie-card h4 {
+  margin: .25rem 0 1rem;
+  font-size: 1.15rem;
+}
+.goalie-card h5 {
+  font-size: 1rem;
+  margin: 0 0 .5rem;
+}
+.goalie-card p,
+.goalie-details p {
+  max-width: none;
+}
+.goalie-card > section,
+.goalie-card > div:not(.card-actions),
+.goalie-card footer {
+  margin-top: 1.5rem;
+}
+.goalie-stopping-belt,
+.goalie-skills,
+.goalie-map-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.goalie-stopping-belt > section,
+.goalie-skills > section,
+.goalie-map-grid > figure {
+  min-width: 0;
+  margin: 0;
+}
+.goalie-skills > section {
+  padding: 1rem 0;
+  border-top: 1px solid var(--rule);
+}
+.goalie-headline {
+  font-size: 2rem;
+  font-weight: 650;
+  line-height: 1.2;
+}
+.goalie-headline span {
+  display: block;
+  margin-top: .5rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.goalie-distribution svg,
+.goalie-danger-plot,
+.goalie-rink {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.goalie-distribution p {
+  font-size: .9rem;
+}
+.goalie-map-grid figcaption,
+.goalie-evidence-map figcaption {
+  font-size: 1.05rem;
+  font-weight: 650;
+  margin-bottom: .7rem;
+}
+.goalie-map-drawing {
+  min-width: 0;
+}
+.goalie-rink {
+  aspect-ratio: 202 / 87;
+}
+.goalie-map-inspection {
+  font-size: .85rem;
+  font-variant-numeric: tabular-nums;
+}
+.goalie-density-legend span {
+  min-width: 0;
+  font-size: .75rem;
+}
+.goalie-density-legend p {
+  flex-basis: 100%;
+}
+.goalie-type-bars p {
+  position: relative;
+  margin: .5rem 0;
+  padding-top: .9rem;
+  font-size: .9rem;
+}
+.goalie-type-bars span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: .55rem;
+  max-width: 100%;
+}
+.goalie-card footer {
+  padding-top: 1rem;
+  border-top: 2px solid #33494a;
+  font-size: .9rem;
+}
+.goalie-details {
+  margin: 2.5rem 0;
+  min-width: 0;
+}
+.goalie-details > section {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2rem;
+  margin-top: 1.5rem;
+}
+.goalie-details .goalie-evidence-map {
+  max-width: 64rem;
+  margin: 1.5rem auto;
+}
+.goalie-details pre {
+  max-width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: .8rem;
+}
+.goalie-details td,
+.goalie-details th {
+  vertical-align: top;
+}
+.comparison-goalie-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.comparison-goalie-cards .goalie-card {
+  width: 100%;
+}
+@media (max-width: 58rem) {
+  .goalie-stopping-belt,
+  .goalie-skills,
+  .goalie-map-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .goalie-card {
+    padding: 1rem;
+    width: 100%;
+  }
+}
+.goalie-export-snapshot {
+  min-width: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}

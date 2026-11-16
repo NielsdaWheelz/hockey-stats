@@ -1,0 +1,1080 @@
+{
+  "status": "passed",
+  "fixture": {
+    "path": "fixtures/goalie-card-v1-19/results/manifest.json",
+    "sha256": "a425b2d01ed8bb786bab31b2a8cc65dd74aa9b1157caa0b176bdd45c72927624"
+  },
+  "original": {
+    "path": "fixtures/publication-v1-13/results/manifest.json",
+    "sha256": "b2d22b814521029dcf95dcd70dae17be7a1f446463308f9e171f730564a70990"
+  },
+  "arithmetic_checks": 660,
+  "modeled_rows": 33,
+  "source_summaries": 36,
+  "histograms": 72,
+  "actual_maps": 38,
+  "preserved_non_goalie_members": 37,
+  "existing_method_definitions_preserved": 12,
+  "source_and_support_catalogs_preserved": true,
+  "corrected_synthetic_field_records": [
+    {
+      "table": "goalie_result",
+      "key": [
+        "20232024",
+        "9000004",
+        "5v5"
+      ],
+      "changed_fields": [
+        "conversion_probability_difference.value",
+        "evidence",
+        "followup_danger.value",
+        "followup_danger_difference.value",
+        "method_id",
+        "miss_probability.value",
+        "miss_probability_difference.value",
+        "reattempt_neutral_goal_probability_difference.value",
+        "recorded_reattempt_probability_difference.value",
+        "recorded_stop_probability.value",
+        "recorded_stop_probability_difference.value",
+        "stopping_goals_per100_on_net.value",
+        "support.conversion_probability.eligible_weight",
+        "support.conversion_probability.included_seconds",
+        "support.conversion_probability.inferred_inputs",
+        "support.conversion_probability_difference.eligible_weight",
+        "support.conversion_probability_difference.included_seconds",
+        "support.conversion_probability_difference.inferred_inputs",
+        "support.followup_danger.eligible_weight",
+        "support.followup_danger.included_seconds",
+        "support.followup_danger.inferred_inputs",
+        "support.followup_danger_difference.eligible_weight",
+        "support.followup_danger_difference.included_seconds",
+        "support.followup_danger_difference.inferred_inputs",
+        "support.miss_probability.eligible_weight",
+        "support.miss_probability.included_seconds",
+        "support.miss_probability_difference.eligible_weight",
+        "support.miss_probability_difference.included_seconds",
+        "support.reattempt_neutral_goal_probability.eligible_weight",
+        "support.reattempt_neutral_goal_probability.included_seconds",
+        "support.reattempt_neutral_goal_probability.inferred_inputs",
+        "support.reattempt_neutral_goal_probability_difference.eligible_weight",
+        "support.reattempt_neutral_goal_probability_difference.included_seconds",
+        "support.reattempt_neutral_goal_probability_difference.inferred_inputs",
+        "support.recorded_reattempt_probability.eligible_weight",
+        "support.recorded_reattempt_probability.included_seconds",
+        "support.recorded_reattempt_probability.inferred_inputs",
+        "support.recorded_reattempt_probability_difference.eligible_weight",
+        "support.recorded_reattempt_probability_difference.included_seconds",
+        "support.recorded_reattempt_probability_difference.inferred_inputs",
+        "support.recorded_stop_probability.eligible_weight",
+        "support.recorded_stop_probability.included_seconds",
+        "support.recorded_stop_probability_difference.eligible_weight",
+        "support.recorded_stop_probability_difference.included_seconds",
+        "support.stopping_goals_per100_on_net.eligible_weight",
+        "support.stopping_goals_per100_on_net.included_seconds",
+        "support.stopping_goals_per100_on_net.inferred_inputs"
+      ]
+    },
+    {
+      "table": "goalie_observed",
+      "key": [
+        "20232024",
+        "9000004",
+        "5v5"
+      ],
+      "changed_fields": [
+        "actual_states",
+        "coverage.eligible_weight",
+        "coverage.events",
+        "coverage.included_seconds",
+        "coverage.known_excluded_seconds",
+        "games",
+        "on_net_evidence.attempts",
+        "on_net_evidence.difficulty_relative_percent.value",
+        "on_net_evidence.expected_goals",
+        "on_net_evidence.expected_save_fraction.value",
+        "on_net_evidence.goals",
+        "on_net_evidence.goals_per100_expected.value",
+        "on_net_evidence.goals_saved_above_expected.value",
+        "on_net_evidence.league_mean_goal_probability.value",
+        "on_net_evidence.mean_goal_probability.value",
+        "on_net_evidence.method_id",
+        "on_net_evidence.support.eligible_weight",
+        "on_net_evidence.support.events",
+        "on_net_evidence.support.included_seconds",
+        "on_net_evidence.support.inferred_inputs",
+        "on_net_evidence.support.known_excluded_seconds",
+        "reported_boxscore_counts.goals_against",
+        "reported_boxscore_counts.misses",
+        "reported_boxscore_counts.save_percentage.reason_detail",
+        "reported_boxscore_counts.save_percentage.unavailable_reason",
+        "reported_boxscore_counts.save_percentage.value",
+        "reported_boxscore_counts.saves",
+        "reported_boxscore_counts.shots_on_goal",
+        "reported_boxscore_counts.support.eligible_weight",
+        "reported_boxscore_counts.support.events",
+        "reported_boxscore_counts.support.reason_counts",
+        "reported_boxscore_counts.unblocked_attempts",
+        "reported_usage.minutes_per_appearance.value",
+        "reported_usage.reported_seconds",
+        "reported_usage.reported_shifts",
+        "reported_usage.support.eligible_weight",
+        "reported_usage.support.events",
+        "reported_usage.support.included_seconds",
+        "reported_usage.support.known_excluded_seconds",
+        "reported_usage.teams",
+        "source_counts.goals_against",
+        "source_counts.save_percentage.value",
+        "source_counts.saves",
+        "source_counts.shots_on_goal",
+        "source_counts.support.eligible_weight",
+        "source_counts.support.events",
+        "source_counts.support.included_seconds",
+        "source_counts.support.known_excluded_seconds",
+        "source_counts.unblocked_attempts",
+        "stage_evidence.conversion.eligible_count",
+        "stage_evidence.conversion.matched_expected_sum",
+        "stage_evidence.conversion.success_count",
+        "stage_evidence.conversion.support.included_seconds",
+        "stage_evidence.conversion.support.inferred_inputs",
+        "stage_evidence.conversion.support.known_excluded_seconds",
+        "stage_evidence.miss.eligible_count",
+        "stage_evidence.miss.matched_expected_sum",
+        "stage_evidence.miss.support.eligible_weight",
+        "stage_evidence.miss.support.events",
+        "stage_evidence.miss.support.included_seconds",
+        "stage_evidence.miss.support.known_excluded_seconds",
+        "stage_evidence.next_attempt_danger.fractional_response_sum",
+        "stage_evidence.next_attempt_danger.matched_expected_sum",
+        "stage_evidence.next_attempt_danger.support.eligible_weight",
+        "stage_evidence.next_attempt_danger.support.events",
+        "stage_evidence.next_attempt_danger.support.included_seconds",
+        "stage_evidence.next_attempt_danger.support.inferred_inputs",
+        "stage_evidence.next_attempt_danger.support.known_excluded_seconds",
+        "stage_evidence.reattempt.matched_expected_sum",
+        "stage_evidence.reattempt.support.eligible_weight",
+        "stage_evidence.reattempt.support.events",
+        "stage_evidence.reattempt.support.included_seconds",
+        "stage_evidence.reattempt.support.known_excluded_seconds",
+        "stage_evidence.recorded_stop.eligible_count",
+        "stage_evidence.recorded_stop.matched_expected_sum",
+        "stage_evidence.recorded_stop.support.eligible_weight",
+        "stage_evidence.recorded_stop.support.events",
+        "stage_evidence.recorded_stop.support.included_seconds",
+        "stage_evidence.recorded_stop.support.known_excluded_seconds",
+        "unblocked_evidence.attempts",
+        "unblocked_evidence.difficulty_relative_percent.value",
+        "unblocked_evidence.expected_goals",
+        "unblocked_evidence.goals",
+        "unblocked_evidence.goals_per100_expected.value",
+        "unblocked_evidence.goals_saved_above_expected.value",
+        "unblocked_evidence.league_mean_goal_probability.value",
+        "unblocked_evidence.mean_goal_probability.value",
+        "unblocked_evidence.method_id",
+        "unblocked_evidence.support.eligible_weight",
+        "unblocked_evidence.support.events",
+        "unblocked_evidence.support.included_seconds",
+        "unblocked_evidence.support.inferred_inputs",
+        "unblocked_evidence.support.known_excluded_seconds"
+      ]
+    },
+    {
+      "table": "goalie_observed",
+      "key": [
+        "20232024",
+        "9000004",
+        "covered_all"
+      ],
+      "changed_fields": [
+        "actual_states",
+        "coverage.eligible_weight",
+        "coverage.events",
+        "coverage.unquantified_gap",
+        "games",
+        "on_net_evidence.attempts",
+        "on_net_evidence.difficulty_relative_percent.value",
+        "on_net_evidence.expected_goals",
+        "on_net_evidence.expected_save_fraction.value",
+        "on_net_evidence.goals",
+        "on_net_evidence.goals_per100_expected.value",
+        "on_net_evidence.goals_saved_above_expected.value",
+        "on_net_evidence.league_mean_goal_probability.value",
+        "on_net_evidence.mean_goal_probability.value",
+        "on_net_evidence.method_id",
+        "on_net_evidence.support.eligible_weight",
+        "on_net_evidence.support.events",
+        "on_net_evidence.support.inferred_inputs",
+        "on_net_evidence.support.unquantified_gap",
+        "reported_boxscore_counts.goals_against",
+        "reported_boxscore_counts.misses",
+        "reported_boxscore_counts.save_percentage.value",
+        "reported_boxscore_counts.saves",
+        "reported_boxscore_counts.shots_on_goal",
+        "reported_boxscore_counts.support.eligible_weight",
+        "reported_boxscore_counts.support.events",
+        "reported_boxscore_counts.support.unquantified_gap",
+        "reported_boxscore_counts.unblocked_attempts",
+        "reported_usage.minutes_per_appearance.value",
+        "reported_usage.reported_seconds",
+        "reported_usage.reported_shifts",
+        "reported_usage.support.eligible_weight",
+        "reported_usage.support.events",
+        "reported_usage.support.included_seconds",
+        "reported_usage.support.known_excluded_seconds",
+        "reported_usage.teams",
+        "source_counts.goals_against",
+        "source_counts.misses",
+        "source_counts.save_percentage.value",
+        "source_counts.saves",
+        "source_counts.shots_on_goal",
+        "source_counts.support.eligible_weight",
+        "source_counts.support.events",
+        "source_counts.support.unquantified_gap",
+        "source_counts.unblocked_attempts",
+        "stage_evidence.conversion.eligible_count",
+        "stage_evidence.conversion.matched_expected_sum",
+        "stage_evidence.conversion.success_count",
+        "stage_evidence.conversion.support.eligible_weight",
+        "stage_evidence.conversion.support.events",
+        "stage_evidence.conversion.support.inferred_inputs",
+        "stage_evidence.conversion.support.unquantified_gap",
+        "stage_evidence.miss.eligible_count",
+        "stage_evidence.miss.matched_expected_sum",
+        "stage_evidence.miss.success_count",
+        "stage_evidence.miss.support.eligible_weight",
+        "stage_evidence.miss.support.events",
+        "stage_evidence.miss.support.unquantified_gap",
+        "stage_evidence.next_attempt_danger.eligible_count",
+        "stage_evidence.next_attempt_danger.fractional_response_sum",
+        "stage_evidence.next_attempt_danger.matched_expected_sum",
+        "stage_evidence.next_attempt_danger.support.eligible_weight",
+        "stage_evidence.next_attempt_danger.support.events",
+        "stage_evidence.next_attempt_danger.support.inferred_inputs",
+        "stage_evidence.next_attempt_danger.support.unquantified_gap",
+        "stage_evidence.reattempt.eligible_count",
+        "stage_evidence.reattempt.matched_expected_sum",
+        "stage_evidence.reattempt.success_count",
+        "stage_evidence.reattempt.support.eligible_weight",
+        "stage_evidence.reattempt.support.events",
+        "stage_evidence.reattempt.support.unquantified_gap",
+        "stage_evidence.recorded_stop.eligible_count",
+        "stage_evidence.recorded_stop.matched_expected_sum",
+        "stage_evidence.recorded_stop.success_count",
+        "stage_evidence.recorded_stop.support.eligible_weight",
+        "stage_evidence.recorded_stop.support.events",
+        "stage_evidence.recorded_stop.support.unquantified_gap",
+        "unblocked_evidence.attempts",
+        "unblocked_evidence.difficulty_relative_percent.value",
+        "unblocked_evidence.expected_goals",
+        "unblocked_evidence.goals",
+        "unblocked_evidence.goals_per100_expected.value",
+        "unblocked_evidence.goals_saved_above_expected.value",
+        "unblocked_evidence.league_mean_goal_probability.value",
+        "unblocked_evidence.mean_goal_probability.value",
+        "unblocked_evidence.method_id",
+        "unblocked_evidence.support.eligible_weight",
+        "unblocked_evidence.support.events",
+        "unblocked_evidence.support.inferred_inputs",
+        "unblocked_evidence.support.unquantified_gap"
+      ]
+    },
+    {
+      "table": "goalie_evidence_map",
+      "key": [
+        "20232024",
+        "9000004",
+        "5v5",
+        "unblocked",
+        "all"
+      ],
+      "changed_fields": [
+        "actual_states",
+        "display_cells",
+        "league_expected_goals",
+        "league_goals",
+        "method_id",
+        "native_cells",
+        "reference",
+        "support.eligible_weight",
+        "support.events",
+        "support.inferred_inputs",
+        "support.unquantified_gap",
+        "totals.attempts",
+        "totals.expected_goals",
+        "totals.goals",
+        "unmapped.expected_goals"
+      ]
+    },
+    {
+      "table": "goalie_evidence_map",
+      "key": [
+        "20232024",
+        "9000004",
+        "covered_all",
+        "unblocked",
+        "all"
+      ],
+      "changed_fields": [
+        "actual_states",
+        "display_cells",
+        "league_expected_goals",
+        "league_goals",
+        "method_id",
+        "native_cells",
+        "reference",
+        "support.eligible_weight",
+        "support.events",
+        "support.inferred_inputs",
+        "support.unquantified_gap",
+        "totals.attempts",
+        "totals.expected_goals",
+        "totals.goals",
+        "unmapped.attempts",
+        "unmapped.expected_goals",
+        "unmapped.goals"
+      ]
+    },
+    {
+      "table": "goalie_danger",
+      "key": [
+        "20232024",
+        "9000004",
+        "5v5",
+        "unblocked"
+      ],
+      "changed_fields": [
+        "actual_states",
+        "attempt_counts",
+        "expected_goal_mass",
+        "goal_mass",
+        "method_id",
+        "support.eligible_weight",
+        "support.events",
+        "support.inferred_inputs",
+        "support.unquantified_gap",
+        "totals.attempts",
+        "totals.expected_goals",
+        "totals.goals"
+      ]
+    },
+    {
+      "table": "goalie_danger",
+      "key": [
+        "20232024",
+        "9000004",
+        "covered_all",
+        "unblocked"
+      ],
+      "changed_fields": [
+        "actual_states",
+        "attempt_counts",
+        "expected_goal_mass",
+        "goal_mass",
+        "method_id",
+        "support.eligible_weight",
+        "support.events",
+        "support.inferred_inputs",
+        "support.unquantified_gap",
+        "totals.attempts",
+        "totals.expected_goals",
+        "totals.goals"
+      ]
+    },
+    {
+      "table": "analysis_map",
+      "key": [
+        "20232024",
+        "9000004",
+        "goalie_stopping",
+        "5v5",
+        "effect"
+      ],
+      "changed_fields": [
+        "cells",
+        "display_cells",
+        "integrated_value",
+        "method_id",
+        "reference",
+        "support.eligible_weight",
+        "support.events",
+        "support.included_seconds",
+        "support.inferred_inputs",
+        "support.known_excluded_seconds"
+      ]
+    },
+    {
+      "table": "execution_breakdown",
+      "key": [
+        "20232024",
+        "9000004",
+        "5v5",
+        "shot_type",
+        "wrist"
+      ],
+      "changed_fields": [
+        "effect.value",
+        "eligible_weight",
+        "events",
+        "expected_successes",
+        "method_id",
+        "probability.value",
+        "support.eligible_weight",
+        "support.events",
+        "support.inferred_inputs",
+        "support.known_excluded_seconds"
+      ]
+    }
+  ],
+  "map_checked_facts": [
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "5v5",
+      "population": "on_net",
+      "type": "all",
+      "totals": {
+        "attempts": 6,
+        "goals": 3,
+        "expected_goals": 2.29
+      },
+      "unmapped": {
+        "attempts": 1,
+        "expected_goals": 0.25,
+        "goals": 1
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "5v5",
+      "population": "unblocked",
+      "type": "all",
+      "totals": {
+        "attempts": 7,
+        "goals": 3,
+        "expected_goals": 1.97
+      },
+      "unmapped": {
+        "attempts": 2,
+        "expected_goals": 0.2,
+        "goals": 1
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "covered_all",
+      "population": "on_net",
+      "type": "all",
+      "totals": {
+        "attempts": 54,
+        "goals": 27,
+        "expected_goals": 20.61
+      },
+      "unmapped": {
+        "attempts": 9,
+        "expected_goals": 2.25,
+        "goals": 9
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "covered_all",
+      "population": "on_net",
+      "type": "backhand",
+      "totals": {
+        "attempts": 9,
+        "goals": 9,
+        "expected_goals": 6.75
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "covered_all",
+      "population": "on_net",
+      "type": "other",
+      "totals": {
+        "attempts": 9,
+        "goals": 0,
+        "expected_goals": 0.9
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "covered_all",
+      "population": "on_net",
+      "type": "slap",
+      "totals": {
+        "attempts": 9,
+        "goals": 9,
+        "expected_goals": 2.25
+      },
+      "unmapped": {
+        "attempts": 9,
+        "expected_goals": 2.25,
+        "goals": 9
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "covered_all",
+      "population": "on_net",
+      "type": "tip",
+      "totals": {
+        "attempts": 9,
+        "goals": 0,
+        "expected_goals": 1.3499999999999999
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "covered_all",
+      "population": "on_net",
+      "type": "wrist_snap",
+      "totals": {
+        "attempts": 18,
+        "goals": 9,
+        "expected_goals": 9.36
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "covered_all",
+      "population": "unblocked",
+      "type": "all",
+      "totals": {
+        "attempts": 63,
+        "goals": 27,
+        "expected_goals": 17.73
+      },
+      "unmapped": {
+        "attempts": 18,
+        "expected_goals": 1.7999999999999998,
+        "goals": 9
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "covered_all",
+      "population": "unblocked",
+      "type": "backhand",
+      "totals": {
+        "attempts": 9,
+        "goals": 9,
+        "expected_goals": 5.3999999999999995
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "covered_all",
+      "population": "unblocked",
+      "type": "other",
+      "totals": {
+        "attempts": 9,
+        "goals": 0,
+        "expected_goals": 0.45
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "covered_all",
+      "population": "unblocked",
+      "type": "slap",
+      "totals": {
+        "attempts": 9,
+        "goals": 9,
+        "expected_goals": 1.8
+      },
+      "unmapped": {
+        "attempts": 9,
+        "expected_goals": 1.7999999999999998,
+        "goals": 9
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "covered_all",
+      "population": "unblocked",
+      "type": "tip",
+      "totals": {
+        "attempts": 9,
+        "goals": 0,
+        "expected_goals": 0.9
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "covered_all",
+      "population": "unblocked",
+      "type": "wrist_snap",
+      "totals": {
+        "attempts": 27,
+        "goals": 9,
+        "expected_goals": 9.18
+      },
+      "unmapped": {
+        "attempts": 9,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "population": "on_net",
+      "type": "all",
+      "totals": {
+        "attempts": 18,
+        "goals": 9,
+        "expected_goals": 6.87
+      },
+      "unmapped": {
+        "attempts": 3,
+        "expected_goals": 0.75,
+        "goals": 3
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "population": "on_net",
+      "type": "backhand",
+      "totals": {
+        "attempts": 3,
+        "goals": 3,
+        "expected_goals": 2.25
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "population": "on_net",
+      "type": "other",
+      "totals": {
+        "attempts": 3,
+        "goals": 0,
+        "expected_goals": 0.30000000000000004
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "population": "on_net",
+      "type": "slap",
+      "totals": {
+        "attempts": 3,
+        "goals": 3,
+        "expected_goals": 0.75
+      },
+      "unmapped": {
+        "attempts": 3,
+        "expected_goals": 0.75,
+        "goals": 3
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "population": "on_net",
+      "type": "tip",
+      "totals": {
+        "attempts": 3,
+        "goals": 0,
+        "expected_goals": 0.44999999999999996
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "population": "on_net",
+      "type": "wrist_snap",
+      "totals": {
+        "attempts": 6,
+        "goals": 3,
+        "expected_goals": 3.12
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "population": "unblocked",
+      "type": "all",
+      "totals": {
+        "attempts": 21,
+        "goals": 9,
+        "expected_goals": 5.91
+      },
+      "unmapped": {
+        "attempts": 6,
+        "expected_goals": 0.6000000000000001,
+        "goals": 3
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "population": "unblocked",
+      "type": "backhand",
+      "totals": {
+        "attempts": 3,
+        "goals": 3,
+        "expected_goals": 1.7999999999999998
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "population": "unblocked",
+      "type": "other",
+      "totals": {
+        "attempts": 3,
+        "goals": 0,
+        "expected_goals": 0.15000000000000002
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "population": "unblocked",
+      "type": "slap",
+      "totals": {
+        "attempts": 3,
+        "goals": 3,
+        "expected_goals": 0.6000000000000001
+      },
+      "unmapped": {
+        "attempts": 3,
+        "expected_goals": 0.6000000000000001,
+        "goals": 3
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "population": "unblocked",
+      "type": "tip",
+      "totals": {
+        "attempts": 3,
+        "goals": 0,
+        "expected_goals": 0.30000000000000004
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "ev",
+      "population": "unblocked",
+      "type": "wrist_snap",
+      "totals": {
+        "attempts": 9,
+        "goals": 3,
+        "expected_goals": 3.06
+      },
+      "unmapped": {
+        "attempts": 3,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "population": "on_net",
+      "type": "all",
+      "totals": {
+        "attempts": 18,
+        "goals": 9,
+        "expected_goals": 6.87
+      },
+      "unmapped": {
+        "attempts": 3,
+        "expected_goals": 0.75,
+        "goals": 3
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "population": "on_net",
+      "type": "backhand",
+      "totals": {
+        "attempts": 3,
+        "goals": 3,
+        "expected_goals": 2.25
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "population": "on_net",
+      "type": "other",
+      "totals": {
+        "attempts": 3,
+        "goals": 0,
+        "expected_goals": 0.30000000000000004
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "population": "on_net",
+      "type": "slap",
+      "totals": {
+        "attempts": 3,
+        "goals": 3,
+        "expected_goals": 0.75
+      },
+      "unmapped": {
+        "attempts": 3,
+        "expected_goals": 0.75,
+        "goals": 3
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "population": "on_net",
+      "type": "tip",
+      "totals": {
+        "attempts": 3,
+        "goals": 0,
+        "expected_goals": 0.44999999999999996
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "population": "on_net",
+      "type": "wrist_snap",
+      "totals": {
+        "attempts": 6,
+        "goals": 3,
+        "expected_goals": 3.12
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "population": "unblocked",
+      "type": "all",
+      "totals": {
+        "attempts": 21,
+        "goals": 9,
+        "expected_goals": 5.91
+      },
+      "unmapped": {
+        "attempts": 6,
+        "expected_goals": 0.6000000000000001,
+        "goals": 3
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "population": "unblocked",
+      "type": "backhand",
+      "totals": {
+        "attempts": 3,
+        "goals": 3,
+        "expected_goals": 1.7999999999999998
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "population": "unblocked",
+      "type": "other",
+      "totals": {
+        "attempts": 3,
+        "goals": 0,
+        "expected_goals": 0.15000000000000002
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "population": "unblocked",
+      "type": "slap",
+      "totals": {
+        "attempts": 3,
+        "goals": 3,
+        "expected_goals": 0.6000000000000001
+      },
+      "unmapped": {
+        "attempts": 3,
+        "expected_goals": 0.6000000000000001,
+        "goals": 3
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "population": "unblocked",
+      "type": "tip",
+      "totals": {
+        "attempts": 3,
+        "goals": 0,
+        "expected_goals": 0.30000000000000004
+      },
+      "unmapped": {
+        "attempts": 0,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "strength": "pk",
+      "population": "unblocked",
+      "type": "wrist_snap",
+      "totals": {
+        "attempts": 9,
+        "goals": 3,
+        "expected_goals": 3.06
+      },
+      "unmapped": {
+        "attempts": 3,
+        "expected_goals": 0.0,
+        "goals": 0
+      }
+    }
+  ],
+  "limits": [
+    "synthetic arithmetic/software evidence only; no scientific admission",
+    "bounded provided map bodies; other selector rows explicitly pending",
+    "publication/browser acceptance belongs to root"
+  ]
+}

@@ -1,0 +1,34 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.selectOption: Timeout 90000ms exceeded.
+Call log:
+[2m  - waiting for getByLabel('modeled core strength', { exact: true })[22m
+
+    at /Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19-browser/real-journeys.mjs:302:51 {
+  log: [
+    "  - waiting for getByLabel('modeled core strength', { exact: true })"
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.21.0
+      213.75 real        16.05 user         3.09 sys
+           738541568  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              695890  page reclaims
+                9019  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+               15568  messages sent
+               14713  messages received
+                   7  signals received
+                7222  voluntary context switches
+              267794  involuntary context switches
+         45165037673  instructions retired
+         15579985948  cycles elapsed
+           439603560  peak memory footprint

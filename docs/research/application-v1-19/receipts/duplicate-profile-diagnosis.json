@@ -1,0 +1,4449 @@
+{
+  "before": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+  "after": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+  "urls": [
+    {
+      "url": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 2216.302083
+    },
+    {
+      "url": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 6892.826166
+    },
+    {
+      "url": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 33302.047833
+    }
+  ],
+  "requests": [
+    {
+      "id": "61108.20",
+      "path": "/api/players/8478872?season=20252026",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642267.303704,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 18179
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 18500
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 18590
+            },
+            {
+              "functionName": "Vr",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 12220
+            },
+            {
+              "functionName": "di",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 33261
+            },
+            {
+              "functionName": "t",
+              "scriptId": "27",
+              "url": "http://127.0.0.1:3419/assets/player-client-loader-CFpk0sQo.js",
+              "lineNumber": 0,
+              "columnNumber": 71
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 1,
+              "columnNumber": 17460
+            },
+            {
+              "functionName": "u",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 60546
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 60807
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 1,
+              "columnNumber": 4945
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 60802
+            },
+            {
+              "functionName": "f",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 60860
+            },
+            {
+              "functionName": "zt",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 61109
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.21",
+      "path": "/api/league?season=20252026&kind=goalie&family=overview",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642267.846667,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.22",
+      "path": "/api/league?season=20242025&kind=goalie&family=overview",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642267.847128,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.23",
+      "path": "/api/league?season=20232024&kind=goalie&family=overview",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642267.847616,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.24",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_stopping&strength=ev&view=effect",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642280.31225,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.25",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=all",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642280.312481,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.26",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=wrist_snap",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642280.312657,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.27",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=slap",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642280.312835,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.28",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=tip",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642280.313018,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.29",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=backhand",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642280.313209,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.30",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=other",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642280.313362,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.31",
+      "path": "/api/players/8478872/evidence?season=20252026&family=goalie_evidence&strength=ev&population=unblocked&type=all",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642280.576039,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.32",
+      "path": "/api/players/8478872/evidence?season=20252026&family=goalie&strength=ev",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642281.038149,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.33",
+      "path": "/api/players/8478872?season=20252026",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642281.391078,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 18179
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 18500
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 18590
+            },
+            {
+              "functionName": "Vr",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 12220
+            },
+            {
+              "functionName": "di",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 33261
+            },
+            {
+              "functionName": "t",
+              "scriptId": "27",
+              "url": "http://127.0.0.1:3419/assets/player-client-loader-CFpk0sQo.js",
+              "lineNumber": 0,
+              "columnNumber": 71
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 1,
+              "columnNumber": 17460
+            },
+            {
+              "functionName": "u",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 60546
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 60807
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 1,
+              "columnNumber": 4945
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 60802
+            },
+            {
+              "functionName": "f",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 60860
+            },
+            {
+              "functionName": "zt",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 61302
+            },
+            {
+              "functionName": "resolve",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 59010
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 1,
+              "columnNumber": 4890
+            },
+            {
+              "functionName": "si",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 1,
+              "columnNumber": 4846
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 1,
+              "columnNumber": 4361
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 59954
+            },
+            {
+              "functionName": "Pt",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 58021
+            },
+            {
+              "functionName": "Nt",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 57757
+            },
+            {
+              "functionName": "Mt",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 57282
+            },
+            {
+              "functionName": "Rt.c",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 59945
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 1,
+              "columnNumber": 4102
+            },
+            {
+              "functionName": "Rt",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 60109
+            },
+            {
+              "functionName": "Ae",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 44154
+            },
+            {
+              "functionName": "je",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 44793
+            },
+            {
+              "functionName": "we",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 38537
+            },
+            {
+              "functionName": "Se",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 35570
+            },
+            {
+              "functionName": "be",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 33456
+            },
+            {
+              "functionName": "",
+              "scriptId": "6",
+              "url": "http://127.0.0.1:3419/assets/jsx-runtime-Bcb-PiJy.js",
+              "lineNumber": 0,
+              "columnNumber": 80381
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 0,
+              "columnNumber": 7269
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 6,
+              "columnNumber": 195884
+            },
+            {
+              "functionName": "El",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 94919
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118087
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118067
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118067
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118108
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118067
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118067
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118067
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118067
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118067
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118108
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118067
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118067
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118067
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118067
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118108
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118067
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 119303
+            },
+            {
+              "functionName": "Hu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 117860
+            },
+            {
+              "functionName": "Uu",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 118133
+            },
+            {
+              "functionName": "ff",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 132523
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 7,
+              "columnNumber": 129536
+            },
+            {
+              "functionName": "x",
+              "scriptId": "5",
+              "url": "http://127.0.0.1:3419/assets/entry.client-CimxyNE3.js",
+              "lineNumber": 0,
+              "columnNumber": 1727
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.34",
+      "path": "/api/league?season=20252026&kind=goalie&family=overview",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642282.761281,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.35",
+      "path": "/api/league?season=20242025&kind=goalie&family=overview",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642282.761404,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.36",
+      "path": "/api/league?season=20232024&kind=goalie&family=overview",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642282.761756,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.37",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_stopping&strength=ev&view=effect",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642290.124333,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.38",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=all",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642290.124552,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.39",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=wrist_snap",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642290.124665,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.40",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=slap",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642290.124891,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.41",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=tip",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642290.125001,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.42",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=backhand",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642290.125081,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.43",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=other",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642290.125332,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.44",
+      "path": "/api/players/8478872/evidence?season=20252026&family=goalie_evidence&strength=ev&population=unblocked&type=all",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642292.606713,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "61108.45",
+      "path": "/api/players/8478872/evidence?season=20252026&family=goalie&strength=ev",
+      "documentUrl": "http://127.0.0.1:3419/players/8478872?season=20252026&history=raw&kind=goalie&view=goalie&metric=goalie.ev.stopping_goals_per100_on_net",
+      "at": 1642293.230675,
+      "initiator": {
+        "type": "script",
+        "stack": {
+          "callFrames": [
+            {
+              "functionName": "try",
+              "scriptId": "29",
+              "url": "http://127.0.0.1:3419/assets/client-BkeBUPwy.js",
+              "lineNumber": 1,
+              "columnNumber": 5084
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6674
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "xu",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17994
+            },
+            {
+              "functionName": "ee",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 16953
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17437
+            },
+            {
+              "functionName": "~effect/Effect/evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6860
+            },
+            {
+              "functionName": "runLoop",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3554
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 2693
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 17317
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "evaluate",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 3095
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6900
+            },
+            {
+              "functionName": "",
+              "scriptId": "9",
+              "url": "http://127.0.0.1:3419/assets/explorer-DuZWEkn0.js",
+              "lineNumber": 5,
+              "columnNumber": 6687
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "responses": [
+    {
+      "id": "61108.20",
+      "path": "/api/players/8478872?season=20252026",
+      "status": 200,
+      "at": 1642267.817525
+    },
+    {
+      "id": "61108.23",
+      "path": "/api/league?season=20232024&kind=goalie&family=overview",
+      "status": 200,
+      "at": 1642279.59236
+    },
+    {
+      "id": "61108.21",
+      "path": "/api/league?season=20252026&kind=goalie&family=overview",
+      "status": 200,
+      "at": 1642280.013181
+    },
+    {
+      "id": "61108.22",
+      "path": "/api/league?season=20242025&kind=goalie&family=overview",
+      "status": 200,
+      "at": 1642280.086701
+    },
+    {
+      "id": "61108.24",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_stopping&strength=ev&view=effect",
+      "status": 200,
+      "at": 1642280.343881
+    },
+    {
+      "id": "61108.25",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=all",
+      "status": 200,
+      "at": 1642280.351737
+    },
+    {
+      "id": "61108.26",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=wrist_snap",
+      "status": 200,
+      "at": 1642280.360592
+    },
+    {
+      "id": "61108.30",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=other",
+      "status": 200,
+      "at": 1642280.401699
+    },
+    {
+      "id": "61108.27",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=slap",
+      "status": 200,
+      "at": 1642280.468795
+    },
+    {
+      "id": "61108.28",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=tip",
+      "status": 200,
+      "at": 1642280.50176
+    },
+    {
+      "id": "61108.29",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=backhand",
+      "status": 200,
+      "at": 1642280.563076
+    },
+    {
+      "id": "61108.31",
+      "path": "/api/players/8478872/evidence?season=20252026&family=goalie_evidence&strength=ev&population=unblocked&type=all",
+      "status": 200,
+      "at": 1642281.019172
+    },
+    {
+      "id": "61108.32",
+      "path": "/api/players/8478872/evidence?season=20252026&family=goalie&strength=ev",
+      "status": 200,
+      "at": 1642281.304391
+    },
+    {
+      "id": "61108.33",
+      "path": "/api/players/8478872?season=20252026",
+      "status": 200,
+      "at": 1642282.752086
+    },
+    {
+      "id": "61108.34",
+      "path": "/api/league?season=20252026&kind=goalie&family=overview",
+      "status": 200,
+      "at": 1642289.39337
+    },
+    {
+      "id": "61108.35",
+      "path": "/api/league?season=20242025&kind=goalie&family=overview",
+      "status": 200,
+      "at": 1642289.471924
+    },
+    {
+      "id": "61108.36",
+      "path": "/api/league?season=20232024&kind=goalie&family=overview",
+      "status": 200,
+      "at": 1642289.770114
+    },
+    {
+      "id": "61108.41",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=tip",
+      "status": 200,
+      "at": 1642291.415989
+    },
+    {
+      "id": "61108.37",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_stopping&strength=ev&view=effect",
+      "status": 200,
+      "at": 1642291.420511
+    },
+    {
+      "id": "61108.38",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=all",
+      "status": 200,
+      "at": 1642291.428291
+    },
+    {
+      "id": "61108.39",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=wrist_snap",
+      "status": 200,
+      "at": 1642291.436862
+    },
+    {
+      "id": "61108.40",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=slap",
+      "status": 200,
+      "at": 1642291.763253
+    },
+    {
+      "id": "61108.43",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=other",
+      "status": 200,
+      "at": 1642292.113476
+    },
+    {
+      "id": "61108.42",
+      "path": "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=backhand",
+      "status": 200,
+      "at": 1642292.122249
+    },
+    {
+      "id": "61108.44",
+      "path": "/api/players/8478872/evidence?season=20252026&family=goalie_evidence&strength=ev&population=unblocked&type=all",
+      "status": 200,
+      "at": 1642293.191306
+    },
+    {
+      "id": "61108.45",
+      "path": "/api/players/8478872/evidence?season=20252026&family=goalie&strength=ev",
+      "status": 200,
+      "at": 1642293.534475
+    }
+  ],
+  "distinctRequestIds": 26,
+  "distinctResponseIds": 26,
+  "uniquePaths": 13,
+  "repeatedPaths": [
+    [
+      "/api/players/8478872?season=20252026",
+      [
+        "61108.20",
+        "61108.33"
+      ]
+    ],
+    [
+      "/api/league?season=20252026&kind=goalie&family=overview",
+      [
+        "61108.21",
+        "61108.34"
+      ]
+    ],
+    [
+      "/api/league?season=20242025&kind=goalie&family=overview",
+      [
+        "61108.22",
+        "61108.35"
+      ]
+    ],
+    [
+      "/api/league?season=20232024&kind=goalie&family=overview",
+      [
+        "61108.23",
+        "61108.36"
+      ]
+    ],
+    [
+      "/api/maps?season=20252026&players=8478872&family=goalie_stopping&strength=ev&view=effect",
+      [
+        "61108.24",
+        "61108.37"
+      ]
+    ],
+    [
+      "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=all",
+      [
+        "61108.25",
+        "61108.38"
+      ]
+    ],
+    [
+      "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=wrist_snap",
+      [
+        "61108.26",
+        "61108.39"
+      ]
+    ],
+    [
+      "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=slap",
+      [
+        "61108.27",
+        "61108.40"
+      ]
+    ],
+    [
+      "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=tip",
+      [
+        "61108.28",
+        "61108.41"
+      ]
+    ],
+    [
+      "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=backhand",
+      [
+        "61108.29",
+        "61108.42"
+      ]
+    ],
+    [
+      "/api/maps?season=20252026&players=8478872&family=goalie_evidence&strength=ev&view=evidence_mass&population=unblocked&type=other",
+      [
+        "61108.30",
+        "61108.43"
+      ]
+    ],
+    [
+      "/api/players/8478872/evidence?season=20252026&family=goalie_evidence&strength=ev&population=unblocked&type=all",
+      [
+        "61108.31",
+        "61108.44"
+      ]
+    ],
+    [
+      "/api/players/8478872/evidence?season=20252026&family=goalie&strength=ev",
+      [
+        "61108.32",
+        "61108.45"
+      ]
+    ]
+  ],
+  "proof": "CDP network request ids are browser-native identities, independent of the acceptance response observer"
+}

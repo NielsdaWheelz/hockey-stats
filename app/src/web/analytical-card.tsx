@@ -82,8 +82,8 @@ const distributionSlots = [
     "inferred setting",
     "execution.5v5.setting_goals_per100_assisted_opportunities",
   ],
-  ["i09", "ordinary-minor drawing", "penalties.drawn_per60"],
-  ["i10", "ordinary-minor taking", "penalties.taken_per60"],
+  ["i09", "ordinary-minor drawing difference", "penalties.drawn_per60"],
+  ["i10", "ordinary-minor taking difference", "penalties.taken_per60"],
 ] as const;
 
 export const analyticalCardSlots: readonly {
@@ -257,6 +257,8 @@ function supportPopulation(metric: AnalysisMetricId): string {
   throw new Error(`no analytical-sheet support population for ${metric}`);
 }
 const cautions = [
+  "share of team attempts: focal/neutral probabilities and percentage-point difference in a 3F/2D unit; seven-state skill, exact-state qualifying minutes. not observed share or finishing.",
+  "ordinary-minor distributions show team-award differences. value uses an isolated two-minute approximation; calibrated uncertainty and optimizer accuracy are unknown.",
   "calibrated player uncertainty is unknown; empirical population spread is not uncertainty.",
   "reference execution: virtual neutral shooter, inferred setter and goalie. complete maps insert one focal player, not actual deployment.",
   "workload: 1,000 5v5 / 100 pp / 100 pk min. pp/pk use league-time mixtures; specialty time may be hypothetical or prior-only.",
@@ -742,7 +744,7 @@ export default function AnalyticalCard({
       </header>
       {mapPair(model.maps.slice(0, 2))}
       <section className="analytical-skill-belt">
-        <h4>5v5 shootiness and empirical skills</h4>
+        <h4>5v5 share of team attempts and empirical skills</h4>
         <div className="analytical-shootiness">
           {model.shootiness.map((field, i) => (
             <p key={field.row.datum.metric.id}>
@@ -1009,7 +1011,7 @@ function analyticalCardSvg(model: AnalyticalCardModel): string {
     y = bottom;
   };
   mapPair(model.maps.slice(0, 2));
-  text("5v5 shootiness", 44, y, 24, 'font-weight="700"');
+  text("5v5 share of team attempts", 44, y, 24, 'font-weight="700"');
   y += 32;
   const shootiness = model.shootiness
     .map(

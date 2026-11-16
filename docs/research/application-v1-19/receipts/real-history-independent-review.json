@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "kind": "independent_final_actual_goalie_history_review",
+  "purpose": "real",
+  "status": "passed_final_actual_goalie_histories",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "parent_reported_compiled_source": "e0ba850",
+  "scope": "two actual final native-downloaded goalie selected-history SVG/PNG/CSV sets; local files and pixels only, no API/browser/database/build/source action by reviewer",
+  "checked_contract_assertions": 248,
+  "cases": [
+    {
+      "directory": "cases/ordinary",
+      "metric_id": "goalie.ev.stopping_goals_per100_on_net",
+      "actual_evidence_selection": {
+        "playerId": "8478872",
+        "season": "20252026",
+        "strength": "ev",
+        "population": "unblocked",
+        "evidenceView": "mass",
+        "type": "all",
+        "metric": "goalie.ev.stopping_goals_per100_on_net"
+      },
+      "artifacts": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/selected-history.png",
+          "bytes": 1530513,
+          "sha256": "d84fa62410ec5098e044375bc85202cc73d675d67c5d47a6545b22329840cb3e"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/selected-history.svg",
+          "bytes": 17029,
+          "sha256": "0dd50cbb8ff0caf91b25effdd59b059d3ad49159186e5327701404e0bcfc24b2"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/selected-history.csv",
+          "bytes": 39301,
+          "sha256": "2213d75c6ae77db3d7f54d693c46c412c371a5e6f7aa05e06ba3d3c2e0e12d14"
+        }
+      ],
+      "pixel_dimensions": {
+        "width": 1200,
+        "height": 4189
+      },
+      "csv_byte_identity_with_pre_consolidation": true,
+      "checked_contract_assertions": 124,
+      "annuals": [
+        {
+          "season": "20232024",
+          "teams": [
+            {
+              "id": "53",
+              "abbreviation": "ARI"
+            }
+          ],
+          "native_value": -0.3484072358634314,
+          "native_unit": "goals_per100_on_net",
+          "display_value": -0.3484072358634314,
+          "display_multiplier": 1,
+          "display_unit": "goals per 100 common on-net opportunities",
+          "included_seconds": 96469,
+          "support_reasons": [
+            {
+              "code": "elapsed_unavailable",
+              "count": 45
+            }
+          ],
+          "prior_seasons": [
+            "20222023"
+          ],
+          "method_id": "goalie-v1-07-20232024",
+          "reference_id": "goalie-v1-07-neutral-execution",
+          "uncertainty": "not_estimated"
+        },
+        {
+          "season": "20242025",
+          "teams": [
+            {
+              "id": "59",
+              "abbreviation": "UTA"
+            }
+          ],
+          "native_value": 0.6470942299216433,
+          "native_unit": "goals_per100_on_net",
+          "display_value": 0.6470942299216433,
+          "display_multiplier": 1,
+          "display_unit": "goals per 100 common on-net opportunities",
+          "included_seconds": 157670,
+          "support_reasons": [
+            {
+              "code": "elapsed_unavailable",
+              "count": 23
+            }
+          ],
+          "prior_seasons": [
+            "20232024"
+          ],
+          "method_id": "goalie-v1-07-20242025",
+          "reference_id": "goalie-v1-07-neutral-execution",
+          "uncertainty": "not_estimated"
+        },
+        {
+          "season": "20252026",
+          "teams": [
+            {
+              "id": "68",
+              "abbreviation": "UTA"
+            }
+          ],
+          "native_value": 0.6491125816985565,
+          "native_unit": "goals_per100_on_net",
+          "display_value": 0.6491125816985565,
+          "display_multiplier": 1,
+          "display_unit": "goals per 100 common on-net opportunities",
+          "included_seconds": 183847,
+          "support_reasons": [
+            {
+              "code": "elapsed_unavailable",
+              "count": 13
+            }
+          ],
+          "prior_seasons": [
+            "20242025"
+          ],
+          "method_id": "goalie-v1-07-20252026",
+          "reference_id": "goalie-v1-07-neutral-execution",
+          "uncertainty": "not_estimated"
+        }
+      ],
+      "distinct_consolidated_caveat_bodies": 17,
+      "both_roles_population_exact_applicability": true,
+      "whole_joined_finding_extra_occurrences": 0,
+      "sensitivity_paragraphs": [
+        {
+          "years": [
+            "2023\u201324",
+            "2024\u201325"
+          ],
+          "body": "numerical sensitivity: not assessed for this annual state; remaining optimizer accuracy is unknown; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+          "occurrences": 1,
+          "prior_actual_occurrences": 2
+        },
+        {
+          "years": [
+            "2025\u201326"
+          ],
+          "body": "numerical sensitivity: assessed; maximum summary probability movement 1.3001512613464161e-06; remaining optimizer accuracy is unknown; no assessed summary exceeds 1e-4; maximum frozen pointwise h/d/joint probability movement 1.494934723789143e-06; no assessed frozen pointwise comparison exceeds 1e-5; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+          "occurrences": 1,
+          "prior_actual_occurrences": 2
+        }
+      ],
+      "visual_review": "all three overlapping original-pixel crops inspected, including complete title/chart/all annual facts/all caveat bodies/final footer; legible and unclipped",
+      "findings": []
+    },
+    {
+      "directory": "selections/exact",
+      "metric_id": "goalie.pk.conversion_probability_difference",
+      "actual_evidence_selection": {
+        "playerId": "8478872",
+        "season": "20252026",
+        "strength": "4v5",
+        "population": "on_net",
+        "evidenceView": "ratio",
+        "type": "other",
+        "metric": "goalie.pk.conversion_probability_difference"
+      },
+      "artifacts": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/selected-history.png",
+          "bytes": 1544408,
+          "sha256": "29d8666eef7b6be95afe2dcd7d34eac2dbf39de6b45c8832a1ff94c21cac116e"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/selected-history.svg",
+          "bytes": 17699,
+          "sha256": "aeefffa728e285e845527ba0493fd832490154ee122e7dfdc357f8969fbab8f8"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/selected-history.csv",
+          "bytes": 39290,
+          "sha256": "4149e929c8f36e36ba39ea88f234a42d145335d56cd7812beb667b856f40f3d4"
+        }
+      ],
+      "pixel_dimensions": {
+        "width": 1200,
+        "height": 4241
+      },
+      "csv_byte_identity_with_pre_consolidation": true,
+      "checked_contract_assertions": 124,
+      "annuals": [
+        {
+          "season": "20232024",
+          "teams": [
+            {
+              "id": "53",
+              "abbreviation": "ARI"
+            }
+          ],
+          "native_value": 0.007398219346843232,
+          "native_unit": "fraction",
+          "display_value": 0.7398219346843232,
+          "display_multiplier": 100,
+          "display_unit": "percentage points",
+          "included_seconds": 10200,
+          "support_reasons": [
+            {
+              "code": "elapsed_unavailable",
+              "count": 45
+            }
+          ],
+          "prior_seasons": [
+            "20222023"
+          ],
+          "method_id": "goalie-v1-07-20232024",
+          "reference_id": "goalie-v1-07-neutral-execution",
+          "uncertainty": "not_estimated"
+        },
+        {
+          "season": "20242025",
+          "teams": [
+            {
+              "id": "59",
+              "abbreviation": "UTA"
+            }
+          ],
+          "native_value": -0.008811550323371803,
+          "native_unit": "fraction",
+          "display_value": -0.8811550323371803,
+          "display_multiplier": 100,
+          "display_unit": "percentage points",
+          "included_seconds": 15751,
+          "support_reasons": [
+            {
+              "code": "elapsed_unavailable",
+              "count": 23
+            }
+          ],
+          "prior_seasons": [
+            "20232024"
+          ],
+          "method_id": "goalie-v1-07-20242025",
+          "reference_id": "goalie-v1-07-neutral-execution",
+          "uncertainty": "not_estimated"
+        },
+        {
+          "season": "20252026",
+          "teams": [
+            {
+              "id": "68",
+              "abbreviation": "UTA"
+            }
+          ],
+          "native_value": -0.006473434588561783,
+          "native_unit": "fraction",
+          "display_value": -0.6473434588561783,
+          "display_multiplier": 100,
+          "display_unit": "percentage points",
+          "included_seconds": 17993,
+          "support_reasons": [
+            {
+              "code": "elapsed_unavailable",
+              "count": 13
+            }
+          ],
+          "prior_seasons": [
+            "20242025"
+          ],
+          "method_id": "goalie-v1-07-20252026",
+          "reference_id": "goalie-v1-07-neutral-execution",
+          "uncertainty": "not_estimated"
+        }
+      ],
+      "distinct_consolidated_caveat_bodies": 17,
+      "both_roles_population_exact_applicability": true,
+      "whole_joined_finding_extra_occurrences": 0,
+      "sensitivity_paragraphs": [
+        {
+          "years": [
+            "2023\u201324",
+            "2024\u201325"
+          ],
+          "body": "numerical sensitivity: not assessed for this annual state; remaining optimizer accuracy is unknown; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+          "occurrences": 1,
+          "prior_actual_occurrences": 2
+        },
+        {
+          "years": [
+            "2025\u201326"
+          ],
+          "body": "numerical sensitivity: assessed; maximum summary probability movement 1.3001512613464161e-06; remaining optimizer accuracy is unknown; no assessed summary exceeds 1e-4; maximum frozen pointwise h/d/joint probability movement 1.494934723789143e-06; no assessed frozen pointwise comparison exceeds 1e-5; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+          "occurrences": 1,
+          "prior_actual_occurrences": 2
+        }
+      ],
+      "visual_review": "all three overlapping original-pixel crops inspected, including complete title/chart/all annual facts/all caveat bodies/final footer; legible and unclipped",
+      "findings": []
+    }
+  ],
+  "resolved_findings": [
+    {
+      "issue": "docs/issues/history-export-repeated-method-notes.md",
+      "prior_problem": "each actual full annual sensitivity paragraph appeared twice across limitation and finding roles",
+      "final_proof": "both final goalie histories now contain every source caveat body once with both roles/population/exact years; each unique earlier/final sensitivity paragraph occurs once, old concatenated finding adds zero occurrences, and both CSV files remain byte-identical",
+      "prior_gap_receipt": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/history-independent-review/pre-final-gap-review.json",
+      "prior_gap_receipt_sha256": "1f70b9e3397f263f30ecbaa3cdf5c4bbe48357b647417c5f29cd37a13a9f249a"
+    }
+  ],
+  "findings": [],
+  "inspection_crops": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/history-independent-review/final",
+  "limits": [
+    "acceptance is scoped to these two actual goalie histories; root owns the independent mechanism proofs and shared-issue closure",
+    "no scientific admission, calibrated uncertainty, runtime activation or global campaign completion is claimed",
+    "the prior gap and review-scope correction remain archived; earlier role-prefixed grouping alone was insufficient"
+  ]
+}

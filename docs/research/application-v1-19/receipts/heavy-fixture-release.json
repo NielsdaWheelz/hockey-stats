@@ -1,0 +1,71 @@
+{
+  "at": "2026-11-15T00:53:08.176256+00:00",
+  "owner": "v1-19",
+  "heavy_commands_complete": true,
+  "fixture_publication": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/fixture-publication/player-analysis.sqlite",
+    "sha256": "2aa8284dab0582b8d4c1a4dbb08faacc3de9f4601ce3564d9479f55b424e7520",
+    "bytes": 29249536,
+    "publication_id": "64f000ad-9205-4217-9372-0d86d749dfe7",
+    "wall_seconds": 7.02,
+    "peak_resident_bytes": 181420032
+  },
+  "final_fixture_build": {
+    "wall_seconds": 0.99,
+    "peak_resident_bytes": 622510080
+  },
+  "strict_fixture_read": {
+    "port": 3419,
+    "startup_log": "fixture-startup-green.txt",
+    "ready": true,
+    "file_creation_to_ready_log_seconds": 1.0799150466918945,
+    "measurement": "file creation at shell redirection through final listening log write; approximate",
+    "api_response_verified": true
+  },
+  "historical_frozen_fixture_read": {
+    "status": "passed",
+    "input": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/manifest.json",
+      "sha256": "219a109775d3ddb255ad40fca0082c57acfc09e371bc586de7c85b2a9afd5bb5"
+    },
+    "purpose": "fixture",
+    "full_reader": true,
+    "scalar_rows": 352,
+    "people": 32,
+    "projections": 352,
+    "wall_seconds": 63.43584441696294,
+    "peak_resident_bytes": 160546816,
+    "saved_member_bytes": 653461396,
+    "scoped_open_paths": [
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/analysis_map.jsonl",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/catalogs.json",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/coverage.json",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/event_values.jsonl",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/execution_breakdown.jsonl",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/goalie_danger.jsonl",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/goalie_evidence_map.jsonl",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/goalie_observed.jsonl",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/goalie_result.jsonl",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/manifest.json",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/people.jsonl",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/projections.jsonl",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/sensitivity.json",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/source_games.jsonl",
+      "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/targets.jsonl"
+    ],
+    "source_writes": 0,
+    "checks": [
+      "actual read_goalie_scores full strict saved contract",
+      "all15 contained score members only; no preparation, fit, source capture, or corrected-base artifact reads",
+      "full source/likelihood-key union validation retained",
+      "all frozen public scalar rows transiently enriched and strict current validated",
+      "GoalieScores.rows outputs exact authoritative saved evidence",
+      "original frozen manifest identity unchanged"
+    ],
+    "limitations": [
+      "fixture software integration only; no real full-score reread, estimator change, or scientific claim"
+    ]
+  },
+  "primary_listener_unchanged": "COMMAND  PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    9645 nnandal   15u  IPv4 0xc2742b6b63798716      0t0  TCP 127.0.0.1:3000 (LISTEN)\n",
+  "remaining": "lightweight selected API/browser/export acceptance only; no new build/startup/conversion until coordinated"
+}

@@ -1,0 +1,185 @@
+{
+  "status": "cleared_with_explicit_scope",
+  "reviewer": "goalie evidence owner; author of the temporary controller; root executed the actual publication reconciliation",
+  "scope": "saved receipt, identity and oracle review; no repeat source, database, api or numerical campaign",
+  "blocking_findings": [],
+  "bindings": {
+    "reconciliation": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-goalie-publication-reconciliation.json",
+      "sha256": "511565250120dbeebb49e31bf383ce872b6f9c89b68a89bf77272051585a9966"
+    },
+    "controller": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19-evidence/real-publication-reconcile.py",
+      "sha256": "53f74fd02232801063d717bda23fcbd99200ec577df29e48d0309583313c9516"
+    },
+    "publication": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-publication-complete.json",
+      "sha256": "b5f8ca4511adb10c6d96baa9edaeabdabf646cba06354853290d6d19ac58e387"
+    },
+    "publisher_verification": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-publication-verification.json",
+      "sha256": "f0e7ce78ced72b3f1ed0ef35d0515a7cf2d842f0c8aac93c748acc2c4ff49567"
+    },
+    "listening_checkpoint": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-detached-startup-timing.json",
+      "sha256": "49fba97ae68fb791ca09663a467e659038c61043f9255919590133517c8bf9ac"
+    },
+    "prior_saved_proof": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-goalie-parity.json",
+      "sha256": "c42d1a8d122d0e72e7c365972dfeb9995762c29796700ce58853d4c0debbc8d7"
+    },
+    "inherited_member_audit": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-composition-preservation.json",
+      "sha256": "71e000e59b1caa9e011d71d1dcc7a05729029efaed73229e0b32e3218696e976"
+    },
+    "repository_copy_of_inherited_audit": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/mechanisms-v1-10/reviews/real-composition-preservation.json",
+      "sha256": "71e000e59b1caa9e011d71d1dcc7a05729029efaed73229e0b32e3218696e976"
+    },
+    "accepted_publication_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+      "sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a"
+    }
+  },
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "source_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+  "app_tree": "f87c9ffc729d15265073d32b6668902a1b77e837",
+  "candidate_database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+    "sha256": "483b1e1b98112ddabc85cf1d7794b76cccfad004962f6991402abb1d4825840e"
+  },
+  "confirmed": {
+    "annual_rows": [
+      {
+        "season": "20232024",
+        "rows": 1287,
+        "source_member": {
+          "path": "20232024-goalie-goalie_result.jsonl",
+          "sha256": "2d09e593293f476f16f72448ccf6c4a735b86a7e497cf3cba583a8273be70795",
+          "rows": 1287
+        }
+      },
+      {
+        "season": "20242025",
+        "rows": 1331,
+        "source_member": {
+          "path": "20242025-goalie-goalie_result.jsonl",
+          "sha256": "ee4d05541f2b0ea7da9228e98f4b451c3166bab55b7b614dc23498572fabe87a",
+          "rows": 1331
+        }
+      },
+      {
+        "season": "20252026",
+        "rows": 1353,
+        "source_member": {
+          "path": "20252026-goalie-goalie_result.jsonl",
+          "sha256": "68af8ed92d93348976f157d415f3377b4946282724f4fcef1169a8d80a4056e4",
+          "rows": 1353
+        }
+      }
+    ],
+    "total_goalie_rows": 3971,
+    "source_to_db_estimates_support_reasons_evidence_exact": true,
+    "exact_source_and_composition_audit_binding": true,
+    "prior_3971_saved_projection_parity_attributed_not_rerun": true,
+    "indexed_selected_raw_observed_map_and_danger_preserved_against_prior_publication": true,
+    "selected_api_paired_methods_equal_current_database": true,
+    "five_cases": [
+      {
+        "case": "ordinary",
+        "player_id": "8478872",
+        "season": "20252026",
+        "present": true,
+        "annual_scalar_rows": 33,
+        "annual_observed_summaries": 3
+      },
+      {
+        "case": "thin",
+        "player_id": "8480022",
+        "season": "20252026",
+        "present": true,
+        "annual_scalar_rows": 22,
+        "annual_observed_summaries": 2
+      },
+      {
+        "case": "unused",
+        "player_id": "8477361",
+        "season": "20252026",
+        "present": true,
+        "annual_scalar_rows": 22,
+        "annual_observed_summaries": 2
+      },
+      {
+        "case": "traded",
+        "player_id": "8477465",
+        "season": "20252026",
+        "present": true,
+        "annual_scalar_rows": 33,
+        "annual_observed_summaries": 3
+      },
+      {
+        "case": "absent",
+        "player_id": "8470594",
+        "season": "20252026",
+        "present": false,
+        "annual_scalar_rows": 22,
+        "annual_observed_summaries": 2
+      }
+    ],
+    "selected_annual_scalar_rows": 132,
+    "selected_annual_observed_summaries": 12,
+    "api_requests": 18,
+    "api_response_bytes": 10179021,
+    "map_units": [
+      {
+        "family": "goalie_stopping",
+        "view": "effect",
+        "unit": "goals_per100_on_net_per100sqft"
+      },
+      {
+        "family": "goalie_evidence",
+        "view": "evidence_mass",
+        "unit": "goals_per100sqft"
+      },
+      {
+        "family": "goalie_evidence",
+        "view": "evidence_ratio",
+        "unit": "percent"
+      }
+    ],
+    "query_plans": [
+      {
+        "table": "goalie_result",
+        "plan": "SEARCH goalie_result USING INDEX sqlite_autoindex_goalie_result_1 (season=? AND player_id=? AND strength=?)"
+      },
+      {
+        "table": "goalie_observed",
+        "plan": "SEARCH goalie_observed USING INDEX sqlite_autoindex_goalie_observed_1 (season=? AND player_id=? AND strength=?)"
+      },
+      {
+        "table": "goalie_evidence_map",
+        "plan": "SEARCH goalie_evidence_map USING INDEX sqlite_autoindex_goalie_evidence_map_1 (season=? AND player_id=? AND strength=? AND population=? AND type=?)"
+      }
+    ],
+    "api_exact_history_and_strength_coverage_asserted": true
+  },
+  "actual_execution_cost": {
+    "controller_wall_seconds": 20.354419833049178,
+    "native_wall_seconds": 20.41,
+    "controller_peak_resident_bytes": 55508992,
+    "native_peak_resident_bytes": 55525376,
+    "cost_receipt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-goalie-publication-reconciliation-cost.txt",
+      "sha256": "a3de21ae09ec552ebc74e735096959c4b34744e8568b900ccde1e4e7764c829a"
+    }
+  },
+  "limits": [
+    "the root executed the reviewed controller; this review only verifies its saved evidence and binding chain",
+    "the earlier saved-projection parity and separate inherited-member audit are attributed, not rerun",
+    "the old database hash is its accepted historical publisher binding; only selected indexed rows and its header were freshly read by the controller",
+    "the current database digest is the ordinary publisher result, not a second full-file hash",
+    "selected map scale arithmetic checks density and fixed ratio units; this is not a whole-map campaign",
+    "g14 actual annual downloads and final real native pixel/content acceptance remain separate pending obligations",
+    "no fit, rescore, frozen full-reader replay, source-corpus read, scientific admission or activation"
+  ]
+}

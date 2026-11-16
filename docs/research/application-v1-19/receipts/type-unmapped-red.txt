@@ -1,0 +1,10 @@
+AssertionError [ERR_ASSERTION]: full png type panel must show supplied unmapped accounting
+    at main (/Users/nnandal/Documents/code/hockey-stats-v1-19/.temporary-v1-19/card-live-integration.tsx:97:1)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

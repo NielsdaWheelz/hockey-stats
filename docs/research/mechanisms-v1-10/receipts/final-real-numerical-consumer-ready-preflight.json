@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "base_url": "http://127.0.0.1:3419",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "inputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+      "bytes": 24033,
+      "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/mechanism-composition.json",
+      "bytes": 17547,
+      "sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5"
+    },
+    {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-composition-preservation.json",
+      "bytes": 3838,
+      "sha256": "71e000e59b1caa9e011d71d1dcc7a05729029efaed73229e0b32e3218696e976"
+    }
+  ],
+  "endpoint": "http://127.0.0.1:3419/api/league?season=20232024&kind=skater&family=overview",
+  "scope": "small pinned inputs and one api identity check before the prepared typed oracle"
+}

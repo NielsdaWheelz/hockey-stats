@@ -582,9 +582,11 @@ def _origin_objective(beta, design, counts, layout, config, edges):
     return float(value), gradient
 
 
-def solve_logistic(objective, initial, *, maxiter, ftol, gtol, maxfun=None, maxls=None):
+def solve_logistic(objective, initial, *, maxiter, ftol, gtol, maxfun=None, maxls=None, maxcor=None):
     """one scipy call for native fits and explicitly capped diagnostic endpoints."""
     options = dict(maxiter=maxiter, ftol=ftol, gtol=gtol)
+    if maxcor is not None:
+        options["maxcor"] = maxcor
     if maxfun is not None:
         options["maxfun"] = maxfun
     if maxls is not None:

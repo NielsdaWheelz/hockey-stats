@@ -125,7 +125,12 @@ export default function League() {
       if (search.has(key)) next.set(key, search.get(key)!);
     if (selection.table === "observed" || selection.table === "descriptive") next.set("view", "observed");
     const selectedMetric = metric ?? search.get("metric");
-    if (selectedMetric && analysisMetric(selectedMetric)?.kind === "skater")
+    if (data.kind === "goalie") {
+      next.set("kind", "goalie");
+      next.set("view", "goalie");
+      next.set("metric", `goalie.${selection.strength ?? "ev"}.stopping_goals_per100_on_net`);
+    }
+    if (selectedMetric && analysisMetric(selectedMetric)?.kind === data.kind)
       next.set("metric", selectedMetric);
     return next;
   };
@@ -190,7 +195,15 @@ export default function League() {
       <p className="experimental-status">
         experimental estimates · seasonal levels, not forecasts or causal effects
       </p>
-      <nav className="discovery-presets" aria-label="analytical table">
+      <nav className="discovery-presets" aria-label="player kind">
+        {(["skater", "goalie"] as const).map(kind => <button key={kind} type="button" aria-pressed={data.kind === kind} onClick={() => {
+          const next = viewSearch(location, navigation.location);
+          if (kind === "goalie") next.set("kind", "goalie"); else next.delete("kind");
+          for (const key of ["table", "strength", "sort", "dir", "position", "view", "metric"]) next.delete(key);
+          commit(next);
+        }}>{kind === "goalie" ? "goalies" : "skaters"}</button>)}
+      </nav>
+      {data.kind === "skater" && <nav className="discovery-presets" aria-label="analytical table">
         {discoveryTables.map(table => (
           <button
             key={table}
@@ -219,10 +232,10 @@ export default function League() {
               : table === "descriptive" ? "recorded card facts" : table}
           </button>
         ))}
-      </nav>
+      </nav>}
       {selection.strength !== null && (
         <div className="strength-control">
-          <label htmlFor="table-strength">{selection.table === "spatial" ? "strength or reference mixture" : "exact table strength"}</label>
+          <label htmlFor="table-strength">{data.kind === "goalie" ? "goalie core strength" : selection.table === "spatial" ? "strength or reference mixture" : "exact table strength"}</label>
           <select
             id="table-strength"
             value={selection.strength}
@@ -238,7 +251,7 @@ export default function League() {
               commit(next);
             }}
           >
-            {(selection.table === "spatial"
+            {(data.kind === "goalie" ? ["ev", "pk"] : selection.table === "spatial"
               ? spatialStrengths
               : ["5v5", "5v4", "5v3", "4v3", "4v5", "3v5", "3v4"]
             ).map(strength => <option key={strength}>{strength}</option>)}
@@ -246,9 +259,10 @@ export default function League() {
         </div>
       )}
       {selection.table !== "descriptive" && (
-        <PeerControls settings={settings} onChange={changePeers} allCutoffs />
+        <PeerControls settings={settings} onChange={changePeers}
+          metric={data.kind === "goalie" ? analysisMetric(preset.defaultSort) : undefined} allCutoffs />
       )}
-      <GlobalGap season={data.season} />
+      {data.kind === "skater" && <GlobalGap season={data.season} />}
       <div className="discovery-controls">
         <div className="search-control">
           <label htmlFor="player-search">search players</label>
@@ -267,7 +281,7 @@ export default function League() {
             spellCheck={false}
           />
         </div>
-        <div>
+        {data.kind === "skater" && <div>
           <label htmlFor="discovery-position">reported position group</label>
           <select
             id="discovery-position"
@@ -283,7 +297,7 @@ export default function League() {
             <option value="f">reported forwards</option>
             <option value="d">reported defense</option>
           </select>
-        </div>
+        </div>}
         <div>
           <label htmlFor="discovery-team">listed season team</label>
           <select
@@ -333,7 +347,7 @@ export default function League() {
           }}
         >
           <label htmlFor="discovery-min">
-            {selection.table === "spatial" ? `minimum actual qualifying ${selection.strength} minutes` : "minimum on-ice included 5v5 minutes"}
+            {data.kind === "goalie" ? `minimum current supported goalie ${selection.strength} minutes` : selection.table === "spatial" ? `minimum actual qualifying ${selection.strength} minutes` : "minimum on-ice included 5v5 minutes"}
           </label>
           <div className="minute-input">
             <input
@@ -371,11 +385,11 @@ export default function League() {
       <p className="control-note">
         matches listed season teams; results still cover all included season
         games. display filters never change peer populations. a zero minimum includes
-        missing or zero observed time; a positive minimum uses available included observed 5v5 time in every table.
-        {min > 0 && ` ${unknownTimeExcluded} otherwise matching skaters excluded because observed time is unavailable.`}
+        missing or zero time; a positive minimum uses {data.kind === "goalie" ? `current supported goalie ${selection.strength} elapsed time` : "available included observed 5v5 time"}.
+        {min > 0 && ` ${unknownTimeExcluded} otherwise matching ${data.kind === "goalie" ? "goalies" : "skaters"} excluded because selected time is unavailable.`}
       </p>
       <p role="status" className="result-count">
-        {players.length} of {data.overview.players.length} published skaters
+        {players.length} of {data.overview.players.length} published {data.kind === "goalie" ? "goalies" : "skaters"}
       </p>
       <button
         type="button"
@@ -398,7 +412,7 @@ export default function League() {
       {exportError && <p role="alert">{exportError}</p>}
       {players.length === 0 ? (
         <p className="empty-search">
-          no skaters match these filters.{" "}
+          no {data.kind === "goalie" ? "goalies" : "skaters"} match these filters.{" "}
           <button type="button" onClick={clear}>clear filters</button>
         </p>
       ) : (
@@ -412,7 +426,7 @@ export default function League() {
               {selection.table} {selection.strength ?? ""} · {selection.table === "descriptive"
                 ? "unadjusted recorded values; no percentile defined. ev and pp use their own scoring minutes."
                 : "raw values and neutral standings; higher percentile means higher named value."}
-              {" "}included observed time is 5v5. reported usage/count/time columns have no percentile.
+              {" "}{data.kind === "goalie" ? "qualification uses selected-state supported goalie time. stopping is a common-reference estimate, not observed save percentage; high conditional differences are not automatically favorable." : "included observed time is 5v5."} reported usage/count/time columns have no percentile.
             </caption>
             <thead>
               <tr>

@@ -1,0 +1,36 @@
+{
+  "at": "2026-11-16T12:39:19.584452+00:00",
+  "status": "source_review_clear_actual_green_pending",
+  "base_source": "18952abf0b8469d8c781afc2ad3ab1ff4f2998ef",
+  "file": "app/src/web/goalie-card.tsx",
+  "patch_sha256": "7bd0228a5455d80f23f53eff005b15e72293415d27ed1011407e5d5187e4318f",
+  "author": "goalie_navigation",
+  "independent_reviewers": [
+    "root",
+    "goalie_card"
+  ],
+  "changes": [
+    "advance absent distribution cursor from actual drawn baseline",
+    "right-align20px history axis labels at170, points200/640/1080, baseline200..1100"
+  ],
+  "red_receipt": "real-export-pixel-independent-review.json",
+  "actual_axis_labels": 528,
+  "axis_label_maximum_characters": 10,
+  "actual_menlo20_maximum_label_width_px": 120.41015625,
+  "minimum_left_px": 49.58984375,
+  "first_point_to_label_clearance_px": 23,
+  "scope": "SVG geometry only; all numerical values, y-domain, history breaks, font sizes, CSV/API/support/methods unchanged",
+  "extra_cost": "one final bounded build and strict restart of same immutable candidate; previous actual1802.5562999581452s; no publication/conversion/database rewrite or repeated matrices",
+  "required_green": "refreshed actual five-case/comparison/fullsheet native downloads; independent pixel review; fresh native100/200 byte identity",
+  "earlier_unapplied_patch": {
+    "sha256": "3f8db43f69f94a180ffa3b0589b757c29b49f522032923cca6fde540ef09fb4a",
+    "scope": "fourteen selected-case labels only",
+    "rejected_by": "full current-population label diagnostic found twelve labels outside that gutter"
+  },
+  "actual_axis_label_domains": 264,
+  "actual_axis_label_core_rows": 722,
+  "full_population_bounds": {
+    "path": "docs/research/application-v1-19/receipts/real-stopping-history-label-bounds.json",
+    "sha256": "eb2b10da1bcfac2392394a65f56c1172d65e9d8e5f6a1032d4aff661c6544f59"
+  }
+}

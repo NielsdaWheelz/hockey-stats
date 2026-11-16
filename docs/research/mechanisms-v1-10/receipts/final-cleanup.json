@@ -1,0 +1,590 @@
+{
+  "schema_version": 1,
+  "kind": "scoped_final_task_cleanup",
+  "status": "completed",
+  "started_at_utc": "2026-11-16T13:41:01.239385+00:00",
+  "authorization": "root explicitly authorized deletion of these exact 16 roots after all acceptance criteria passed; measured subpixel export variation is separately qualified without byte/pixel identity claims",
+  "worktree": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats",
+  "source_head": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "production_comparison_baseline": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "inventory_snapshot": {
+    "source": ".tmp/v1-10/cleanup-inventory.json",
+    "bytes": 4964,
+    "sha256": "3b9cdace25ecca7c8c8f5fda4ff142212d9601e6ee39810a8a9465ce6f80b95a",
+    "retained": "docs/research/mechanisms-v1-10/receipts/pre-cleanup-snapshots/cleanup-inventory.json"
+  },
+  "roots": [
+    {
+      "path": ".tmp/mechanism-misconduct-controls.py",
+      "kind": "file",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": ".tmp/mechanism-numerical-tests.py",
+      "kind": "file",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": ".tmp/mechanism-reducer-controls.py",
+      "kind": "file",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": ".tmp/mechanism-reducer-integration.py",
+      "kind": "file",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": ".tmp/adversarial-v1-10",
+      "kind": "directory",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": ".tmp/mechanisms-v1-10",
+      "kind": "directory",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": ".tmp/v1-10",
+      "kind": "directory",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": ".tmp/v1-10-browser",
+      "kind": "directory",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": ".tmp/v1-10-operation",
+      "kind": "directory",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": "app/temporary-mechanism-contract.ts",
+      "kind": "file",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": "app/temporary-mechanism-prior-render.tsx",
+      "kind": "file",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": "app/temporary-mechanism-sign-copy.tsx",
+      "kind": "file",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": "app/temporary-mechanisms-final.ts",
+      "kind": "file",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": "app/node_modules",
+      "kind": "symlink",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": "app/dist",
+      "kind": "directory",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    },
+    {
+      "path": "app/.react-router",
+      "kind": "directory",
+      "tracked_paths": [],
+      "removal": "removed",
+      "absent_after": true
+    }
+  ],
+  "controller_hashes_only": [
+    {
+      "path": ".tmp/adversarial-v1-10/audit_fixture_chain.py",
+      "bytes": 17192,
+      "sha256": "1626e1d44f4cfdac07d0b980d8435c95f228813ff97d64d4b9c8a76eb0e9f5bb"
+    },
+    {
+      "path": ".tmp/adversarial-v1-10/audit_real_chain.py",
+      "bytes": 37268,
+      "sha256": "da4f5a2d4301412132a97ec90d02299d1933ffc1928b6083b95230be19a2afea"
+    },
+    {
+      "path": ".tmp/adversarial-v1-10/audit_real_first.py",
+      "bytes": 17274,
+      "sha256": "7d8db8865e6063aa4fb16d9ba56e8764de7f3cf545cd255bd54d2d0b623e56ce"
+    },
+    {
+      "path": ".tmp/adversarial-v1-10/audit_real_minor_references.py",
+      "bytes": 15225,
+      "sha256": "5be0ca6b2de5753030d790c051761b5dcdf01c92278c220f0c26567a0d744786"
+    },
+    {
+      "path": ".tmp/adversarial-v1-10/check_comparisons.py",
+      "bytes": 1568,
+      "sha256": "0249c3fad7265eb4fbcc8fe7dff354ada6531705f717a8900a93a61f946aa749"
+    },
+    {
+      "path": ".tmp/adversarial-v1-10/check_minor_types.py",
+      "bytes": 2113,
+      "sha256": "f4910c4b59158c967d169eb75adab6e97fbf99c3e748cad7b77dcd262e78c81a"
+    },
+    {
+      "path": ".tmp/mechanism-misconduct-controls.py",
+      "bytes": 1087,
+      "sha256": "53ac93532a08936c65c186da3697314b0e39db5a278f75e96583cea6f499551d"
+    },
+    {
+      "path": ".tmp/mechanism-numerical-tests.py",
+      "bytes": 7250,
+      "sha256": "c958d0ddd88738cb234f24642ec18d8ef7bb6de8d65b1ab1979518a64777da3a"
+    },
+    {
+      "path": ".tmp/mechanism-reducer-controls.py",
+      "bytes": 6224,
+      "sha256": "f3a25bc711b4b66c3155cf098e4b2bafaca26bdd74846e9c9a89429dd1411cbc"
+    },
+    {
+      "path": ".tmp/mechanism-reducer-integration.py",
+      "bytes": 1768,
+      "sha256": "dd4c112dcdae0c00f75fd2fbaaa50707e6cca4d786095507f0605560fb3585a3"
+    },
+    {
+      "path": ".tmp/mechanisms-v1-10/convert_exchange.py",
+      "bytes": 10502,
+      "sha256": "78afc3b4daf132f795f06038aa5e203811956c8ff232a6419a73e6db74baaa1b"
+    },
+    {
+      "path": ".tmp/mechanisms-v1-10/product_contract.py",
+      "bytes": 1991,
+      "sha256": "b5009e3e981c193c5e5f04c1f0c257f57d0b1bff3ed5a2ea0d8426e62080f9b0"
+    },
+    {
+      "path": ".tmp/mechanisms-v1-10/source_checks.py",
+      "bytes": 1799,
+      "sha256": "beec4812ad0f2baa0bfacdff3d1afa6837357f0d7d04477560a9925626192cd5"
+    },
+    {
+      "path": ".tmp/mechanisms-v1-10/source_integration.py",
+      "bytes": 9123,
+      "sha256": "50ae20796608980aa56c0259c07d35377799dadbd049d23585c990f459ee690f"
+    },
+    {
+      "path": ".tmp/mechanisms-v1-10/state_adversarial.py",
+      "bytes": 4913,
+      "sha256": "370477fce86ebaf95ac4a246f1a123ed70b94e4898a704c9c9f958e29251af9c"
+    },
+    {
+      "path": ".tmp/mechanisms-v1-10/web_edit.py",
+      "bytes": 10111,
+      "sha256": "2f0477ff40b3bd9c27b181dc159d1a2dc0fa0a993c1c67eddfa9c288f2f8d8a2"
+    },
+    {
+      "path": ".tmp/v1-10/browser-check.mjs",
+      "bytes": 3424,
+      "sha256": "4a2436d7250fd49c575e2c66eb310f5c4c00fa2bf5aa0f3e32e788d312efc9e2"
+    },
+    {
+      "path": ".tmp/v1-10/browser-inspect.mjs",
+      "bytes": 1059,
+      "sha256": "51c633fe6aa3b16385d42c24edfe21d551d76d5f6af6709b09b49080b88825fe"
+    },
+    {
+      "path": ".tmp/v1-10/browser-native.mjs",
+      "bytes": 2768,
+      "sha256": "5b8cd8ac909e85e4795335bb41f24aa413845b39c3b79c512b6bb8594113fa0b"
+    },
+    {
+      "path": ".tmp/v1-10/check-final-history-copy.mjs",
+      "bytes": 3934,
+      "sha256": "b955aac603c71908a7cfbb104518187652cbf00978156737e67b6db8d6eb851f"
+    },
+    {
+      "path": ".tmp/v1-10/check-final-history.mjs",
+      "bytes": 10467,
+      "sha256": "8355f43f30f1507965e452c39d996c17721b7055c57da4ba96c7daab059cf2e8"
+    },
+    {
+      "path": ".tmp/v1-10/check-history-note-roles.mjs",
+      "bytes": 13303,
+      "sha256": "1597af513b66465a70ec6472dd66eaa247cfda3c974cc47a14ae24de4db22069"
+    },
+    {
+      "path": ".tmp/v1-10/check-history-presentation.mjs",
+      "bytes": 8489,
+      "sha256": "eb6f867b66b6e2044590153804bcc40d95de5a6ff68be9c47516b7ffb7cd352d"
+    },
+    {
+      "path": ".tmp/v1-10/check-real-browser-before-actual.mjs",
+      "bytes": 12045,
+      "sha256": "7c6dd3b09d8362f8a7e85784868592a9eb32f3c1ea01ae56310199b2c7cb612a"
+    },
+    {
+      "path": ".tmp/v1-10/check-real-browser-exports-before-actual.py",
+      "bytes": 3253,
+      "sha256": "ab7ff238356582db7c5c0b1dc9a0ec32c7a96281914dc0adc2bf2fea427437f6"
+    },
+    {
+      "path": ".tmp/v1-10/check-real-browser-exports.py",
+      "bytes": 6066,
+      "sha256": "fb12be71dc83f000c2d3a879ab6fb35f334e087d9f748085b57ab2b767461842"
+    },
+    {
+      "path": ".tmp/v1-10/check-real-browser.mjs",
+      "bytes": 13037,
+      "sha256": "e2299b68f62aee285f45d67e316b8dc112bb92f32f4173e87fa80085a7400ec3"
+    },
+    {
+      "path": ".tmp/v1-10/check-real-native-capture.mjs",
+      "bytes": 4471,
+      "sha256": "9a8bf8b3fd1593df907cf99b252080968fb1bbadc40cd3d937193729fb0a94fa"
+    },
+    {
+      "path": ".tmp/v1-10/check-real-native-view-attempt.mjs",
+      "bytes": 4338,
+      "sha256": "062fa2d29127f5ea0d76f376ae3c27e13b0076d60470a72fd7d217609d623ae1"
+    },
+    {
+      "path": ".tmp/v1-10/check_actual_design.py",
+      "bytes": 1590,
+      "sha256": "3ed2a1ce6a7131f05bdc30860aa9392af2858947b40433cce4e86ee6f64cef48"
+    },
+    {
+      "path": ".tmp/v1-10/check_cli.py",
+      "bytes": 1835,
+      "sha256": "5ca4728f9fb19712e3b7a039016e805535cc6cb0bdf4d6f5e17da7aaadb6e051"
+    },
+    {
+      "path": ".tmp/v1-10/check_cli_read_ownership.py",
+      "bytes": 3856,
+      "sha256": "32e0ccfbcb47a958658cdff3207d2d207581ef56016e3bcf07f2cf1016d1a691"
+    },
+    {
+      "path": ".tmp/v1-10/check_exports.py",
+      "bytes": 2029,
+      "sha256": "244a2fd5da934f8009f8da42b10a87ab3a1afed34d9872053479ef8f4088ee36"
+    },
+    {
+      "path": ".tmp/v1-10/check_math_independent.py",
+      "bytes": 3316,
+      "sha256": "e542c2ad837423d80ea52b51ecff0acd90b3b4e856d772588c07762b78a5465d"
+    },
+    {
+      "path": ".tmp/v1-10/check_original_groups.py",
+      "bytes": 2049,
+      "sha256": "53d019e102d4781e45b0583bb89f2961dc0b3ea2f08567794ba1c7bbf6d73981"
+    },
+    {
+      "path": ".tmp/v1-10/check_qualification_owner.py",
+      "bytes": 2155,
+      "sha256": "bb64bc999c47cec9279d7f03018070c61a861821ca43361ea080708a5e69e2ac"
+    },
+    {
+      "path": ".tmp/v1-10/check_real_composition_preservation.py",
+      "bytes": 17553,
+      "sha256": "0876ed50538bbce1303280787434287d1305e93dec784ab0fba48beeb7c67b6e"
+    },
+    {
+      "path": ".tmp/v1-10/check_saved_penalty.py",
+      "bytes": 3870,
+      "sha256": "101f961c42c756a595d6358dd14391a7ae99ee7aa5481db1673b06aac471ab57"
+    },
+    {
+      "path": ".tmp/v1-10/complete-real.py",
+      "bytes": 9077,
+      "sha256": "d6bed4cb2f8b1fa26c568c2ef3af55e6bf492a6453298dc9caaff17ddfba6875"
+    },
+    {
+      "path": ".tmp/v1-10/diagnose-final-history-navigation.mjs",
+      "bytes": 6779,
+      "sha256": "c574a0d818a48ba1b43fb901745784bfd24ca37aafbf31cc20b6b36e3124e59f"
+    },
+    {
+      "path": ".tmp/v1-10/diagnose-final-native-svg.mjs",
+      "bytes": 7440,
+      "sha256": "ab21b5646b8e9e0c92263430df403e02c6c508f0117e15de288f7bc3aa4fb152"
+    },
+    {
+      "path": ".tmp/v1-10/finish-final-history-native.mjs",
+      "bytes": 6221,
+      "sha256": "e94efd87cf5a7993e70b9e89c92f5b87809ca0f19428d9c366be47bf7f6fa7fd"
+    },
+    {
+      "path": ".tmp/v1-10/fixture-chain.sh",
+      "bytes": 1834,
+      "sha256": "13b1f4b2a3c0ab8e6b00a22aea6373e1106f5f41f16f14eb1f2c106186f3f3ea"
+    },
+    {
+      "path": ".tmp/v1-10/real-remaining-chain.sh",
+      "bytes": 2542,
+      "sha256": "e772c23de4e14a8db4e42fe33d616d22269d6903cfab80efe6e94cdba1d118fe"
+    },
+    {
+      "path": ".tmp/v1-10-operation/operation_acceptance.py",
+      "bytes": 5904,
+      "sha256": "d172cb1596775bee277ecf5f481eeb0bbad0de88680ad5f488811efeb49965e4"
+    },
+    {
+      "path": "app/temporary-mechanism-contract.ts",
+      "bytes": 1928,
+      "sha256": "e40254fac408bd3c9045236515a2497b29fc87d9b4fb0dcdac04fcbbd8f7ba1c"
+    },
+    {
+      "path": "app/temporary-mechanism-prior-render.tsx",
+      "bytes": 2110,
+      "sha256": "e0ececb39b6d5e6d740df2fcc86d55b04dbdfe772b400f3b847982301036f529"
+    },
+    {
+      "path": "app/temporary-mechanism-sign-copy.tsx",
+      "bytes": 1253,
+      "sha256": "0b2eedd95a7842b8feecedc576f1a4ef3b3db34bfd7b3865f86a0246c4c90644"
+    },
+    {
+      "path": "app/temporary-mechanisms-final.ts",
+      "bytes": 21798,
+      "sha256": "e441cc6bed3d226ee1efb6746c45000d1009d7623155954f5d69facd8ff10078"
+    }
+  ],
+  "temporary_exchange_converter": {
+    "path": ".tmp/mechanisms-v1-10/convert_exchange.py",
+    "bytes": 10502,
+    "sha256": "78afc3b4daf132f795f06038aa5e203811956c8ff232a6419a73e6db74baaa1b",
+    "deletion_scope": "sole temporary exchange converter removed with .tmp/mechanisms-v1-10; no converter source archived"
+  },
+  "test_only_dependency": {
+    "root": ".tmp/v1-10-browser",
+    "declared_dependency": {
+      "playwright": "^1.65.0"
+    },
+    "resolved_versions": {
+      "node_modules/playwright": "1.65.0",
+      "node_modules/playwright-core": "1.65.0"
+    },
+    "package_files": [
+      {
+        "path": ".tmp/v1-10-browser/package.json",
+        "bytes": 56,
+        "sha256": "9501471f16b3ad41c171f15317a31abedad474042fec986b6e4e94f0a0a78ac9"
+      },
+      {
+        "path": ".tmp/v1-10-browser/package-lock.json",
+        "bytes": 1072,
+        "sha256": "e5b2a8bcac1d4d91cce3f609b82b6de40e7983f6f71411c58b49ddfe17bcc2a7"
+      }
+    ],
+    "deletion_scope": "temporary package manifests/lock and node_modules removed; no production dependency changed"
+  },
+  "disposable_schema9_source_and_build": {
+    "root": ".tmp/v1-10-operation/schema9-source",
+    "builds": [
+      {
+        "path": ".tmp/v1-10-operation/schema9-source/app/dist",
+        "kind": "directory",
+        "present_before": true
+      },
+      {
+        "path": ".tmp/v1-10-operation/schema9-source/app/.react-router",
+        "kind": "directory",
+        "present_before": true
+      }
+    ],
+    "deletion_scope": "local standalone rollback clone and generated app build/types removed; its primary dependency/environment symlink targets preserved"
+  },
+  "symlink_aliases_before": [
+    {
+      "path": "app/node_modules",
+      "target": "/Users/nnandal/Documents/code/hockey-stats/app/node_modules",
+      "device": 16777233,
+      "inode": 253632868,
+      "mtime_ns": 1794701150283610250,
+      "policy": "remove local alias only; never traverse target"
+    },
+    {
+      "path": ".tmp/v1-10-operation/schema9-source/analysis/.venv",
+      "target": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv",
+      "device": 16777233,
+      "inode": 253658012,
+      "mtime_ns": 1794702648272580120,
+      "policy": "remove local alias only; never traverse target"
+    },
+    {
+      "path": ".tmp/v1-10-operation/schema9-source/app/node_modules",
+      "target": "/Users/nnandal/Documents/code/hockey-stats/app/node_modules",
+      "device": 16777233,
+      "inode": 253658011,
+      "mtime_ns": 1794702648272534912,
+      "policy": "remove local alias only; never traverse target"
+    }
+  ],
+  "protected_directories": [
+    {
+      "path": "analysis/.venv",
+      "before": {
+        "kind": "directory",
+        "device": 16777233,
+        "inode": 253709945,
+        "mtime_ns": 1794703356423326539
+      },
+      "after": {
+        "kind": "directory",
+        "device": 16777233,
+        "inode": 253709945,
+        "mtime_ns": 1794703356423326539
+      },
+      "unchanged": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/node_modules",
+      "before": {
+        "kind": "directory",
+        "device": 16777233,
+        "inode": 131249372,
+        "mtime_ns": 1794387012051080028
+      },
+      "after": {
+        "kind": "directory",
+        "device": 16777233,
+        "inode": 131249372,
+        "mtime_ns": 1794387012051080028
+      },
+      "unchanged": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv",
+      "before": {
+        "kind": "directory",
+        "device": 16777233,
+        "inode": 130502776,
+        "mtime_ns": 1792210886581080110
+      },
+      "after": {
+        "kind": "directory",
+        "device": 16777233,
+        "inode": 130502776,
+        "mtime_ns": 1792210886581080110
+      },
+      "unchanged": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist",
+      "before": {
+        "kind": "directory",
+        "device": 16777233,
+        "inode": 191938280,
+        "mtime_ns": 1793431029183716392
+      },
+      "after": {
+        "kind": "directory",
+        "device": 16777233,
+        "inode": 191938280,
+        "mtime_ns": 1793431029183716392
+      },
+      "unchanged": true
+    }
+  ],
+  "protected_tracked_scripts": [
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-held.sh",
+      "bytes": 1225,
+      "sha256": "14b7e23c90998e4a6cd697df8dfacebe69ac8dde27ae655465b756f994a9c23c",
+      "tracked": true,
+      "preserved_after": true
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance/publication-launch-01.command",
+      "bytes": 106,
+      "sha256": "d237460d7c37d6e2106e9585b751654697afb611299b69471f2ca834f6ec4a7e",
+      "tracked": true,
+      "preserved_after": true
+    }
+  ],
+  "previously_preserved_small_evidence": [
+    {
+      "path": "docs/research/mechanisms-v1-10/receipts/cli-ownership-evidence/cli-read-ownership-red.txt",
+      "bytes": 5129,
+      "sha256": "c52efedd37fe47f71a7f974bcb9c4136134910c57b4c318f2311b684b752cd0c",
+      "byte_exact_before_deletion": true
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/receipts/cli-ownership-evidence/cli-read-ownership-green.txt",
+      "bytes": 101,
+      "sha256": "91966424b0f0f81026554b0fbe08c364c0ed80f6726f963f14b612ee46826e2a",
+      "byte_exact_before_deletion": true
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/receipts/cli-ownership-evidence/qualification-owner-red.txt",
+      "bytes": 1197,
+      "sha256": "819ab447022016c8cea6c95df719e93661ecc9a9779266d1bd17ab86cc4d73fa",
+      "byte_exact_before_deletion": true
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/receipts/cli-ownership-evidence/qualification-owner-green.txt",
+      "bytes": 100,
+      "sha256": "fe008aab760eb03ccac7578e2b84665b1b50b0d7f855b17a0c7a8d039435b658",
+      "byte_exact_before_deletion": true
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/receipts/cli-ownership-evidence/qualification-owned-before.json",
+      "bytes": 4605,
+      "sha256": "2988512841f3fe246377b030b8664beef4a0ecd9208007b65bb32f69214f32e2",
+      "byte_exact_before_deletion": true
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/receipts/pre-cleanup-snapshots/cleanup-inventory.json",
+      "bytes": 4964,
+      "sha256": "3b9cdace25ecca7c8c8f5fda4ff142212d9601e6ee39810a8a9465ce6f80b95a",
+      "byte_exact_before_deletion": true
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/receipts/pre-cleanup-snapshots/changed-doc-links.json",
+      "bytes": 1268,
+      "sha256": "d33a8b3df882edfdc426767a4627a0b4a27f750fc3e89f988c9fbb452821f192",
+      "byte_exact_before_deletion": true
+    }
+  ],
+  "preservation_scope": [
+    "analysis/.venv ordinary directory and both tracked .tmp/goalie-live-acceptance scripts retained",
+    "primary worktree, dependencies, environment, build and databases not cleaned",
+    "shared chrome cache, desktop docker and canonical fixtures not touched",
+    "all external raw captures, fits, evidence, exports, receipts and published databases retained; no external directory cleanup or database hashing"
+  ],
+  "limits": [
+    "no app/API/browser/build/tests or heavy recomputation",
+    "no shared dependency enumeration/hash or external data scan",
+    "no code archived; controller/converter identity hashes only",
+    "no staging, commit or unrelated documentation/status edits"
+  ],
+  "production_tracked_app_analysis_diff_empty_before_and_after": true,
+  "removed_root_count": 16,
+  "all_16_roots_absent": true,
+  "completed_at_utc": "2026-11-16T13:41:01.309875+00:00"
+}

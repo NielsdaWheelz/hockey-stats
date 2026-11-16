@@ -1,0 +1,256 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+[SchemaError: Expected no excess property
+  at ["evidence"]] {
+  issue: Composite {
+    '~effect/SchemaIssue/Issue': '~effect/SchemaIssue/Issue',
+    _tag: 'Composite',
+    ast: Objects {
+      '~effect/Schema': '~effect/Schema',
+      annotations: undefined,
+      checks: undefined,
+      encoding: undefined,
+      context: undefined,
+      _tag: 'Objects',
+      propertySignatures: [
+        PropertySignature {
+          name: 'stopping_goals_per100_on_net',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'miss_probability',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'recorded_stop_probability',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'conversion_probability',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'recorded_reattempt_probability',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'reattempt_neutral_goal_probability',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'followup_danger',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'miss_probability_difference',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'recorded_stop_probability_difference',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'conversion_probability_difference',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'recorded_reattempt_probability_difference',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'reattempt_neutral_goal_probability_difference',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'followup_danger_difference',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'support',
+          type: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: undefined,
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        },
+        PropertySignature {
+          name: 'method_id',
+          type: String {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: [Array],
+            encoding: undefined,
+            context: undefined,
+            _tag: 'String'
+          }
+        }
+      ],
+      indexSignatures: [],
+      encodingChecks: undefined
+    },
+    issues: [
+      Pointer {
+        '~effect/SchemaIssue/Issue': '~effect/SchemaIssue/Issue',
+        _tag: 'Pointer',
+        path: [ 'evidence' ],
+        issue: UnexpectedKey {
+          '~effect/SchemaIssue/Issue': '~effect/SchemaIssue/Issue',
+          _tag: 'UnexpectedKey',
+          ast: Objects {
+            '~effect/Schema': '~effect/Schema',
+            annotations: undefined,
+            checks: undefined,
+            encoding: undefined,
+            context: undefined,
+            _tag: 'Objects',
+            propertySignatures: [Array],
+            indexSignatures: [],
+            encodingChecks: undefined
+          }
+        }
+      }
+    ]
+  },
+  _tag: 'SchemaError',
+  '~effect/Schema/SchemaError': '~effect/Schema/SchemaError'
+}
+
+Node.js v24.21.0

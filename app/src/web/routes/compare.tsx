@@ -14,6 +14,9 @@ import type { Person } from "../../shared/player-analysis";
 import { loadComparison } from "../client";
 import PlayerPicker from "../player-picker";
 import {
+  readKind,
+  readGoalieSelection,
+  goalieSelectionSearch,
   readMapMode,
   readMapRender,
   readView,
@@ -27,6 +30,9 @@ import {
   type PeerSettings,
 } from "../explorer";
 import SpatialViews from "../spatial-views";
+import GoalieCard, { prepareGoalieCard } from "../goalie-card";
+import GoalieDetails from "../goalie-details";
+import GoalieControls from "../goalie-controls";
 import ComparativeCard, { prepareComparativeCard } from "../comparative-card";
 import MicrostatCard from "../microstat-card";
 import { prepareMicrostatCard } from "../microstat-values";
@@ -71,6 +77,7 @@ function selection(
   slot: "first" | "second",
   players: readonly Person[],
   season: string,
+  kind: "skater" | "goalie",
 ): {
   readonly player?: Person;
   readonly error?: string;
@@ -84,7 +91,7 @@ function selection(
   return player
     ? { player }
     : {
-        error: `no published skater record for player ${values[0]} in ${seasonLabel(season)}`,
+        error: `no published ${kind} record for player ${values[0]} in ${seasonLabel(season)}`,
         absentId: values[0],
       };
 }
@@ -96,25 +103,31 @@ export default function Compare() {
   const [search, setSearch] = useSearchParams();
   const leagueSearch =
     historySearch(location.state?.leagueSearch) ||
-    `?${seasonSearch("", data.season.season)}`;
-  const { view, search: viewNormalized } = readView(search);
+    `?${seasonSearch(data.kind === "goalie" ? "kind=goalie" : "", data.season.season)}`;
+  const { view, search: viewNormalized } = readView(readKind(search).search, data.kind);
   const { settings, search: peerNormalized } = readPeerSettings(viewNormalized);
   const { mode, search: mapNormalized } = readMapMode(peerNormalized);
   const { render, search: renderNormalized } = readMapRender(mapNormalized);
   const { metric, search: metricNormalized } = readMetric(
     renderNormalized,
-    "skater",
+    data.kind,
   );
-  const { scale, search: normalized } = readHistoryScale(metricNormalized, metric);
+  const goalieSelection = readGoalieSelection(metricNormalized);
+  const { scale, search: normalized } = readHistoryScale(data.kind === "goalie" ? goalieSelection.search : metricNormalized, metric);
   useCanonicalSearch(data.season.season, normalized);
   const viewQuery = seasonSearch("", data.season.season);
   if (view !== "comparative") viewQuery.set("view", view);
+  if (data.kind === "goalie") {
+    viewQuery.set("kind", "goalie");
+    for (const key of ["evidenceStrength", "population", "evidenceView", "type"])
+      if (search.has(key)) viewQuery.set(key, search.get(key)!);
+  }
   viewQuery.set("metric", metric.id);
   if (scale !== "raw") viewQuery.set("history", scale);
   if (settings.specialtyMin !== 50)
     viewQuery.set("specialtyMin", String(settings.specialtyMin));
   if (mode === "absolute") viewQuery.set("map", "absolute");
-  if (view === "analytical" && render === "rectangles") viewQuery.set("render", render);
+  if ((view === "analytical" || view === "goalie") && render === "rectangles") viewQuery.set("render", render);
   if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
   if (settings.peerMin !== 300)
     viewQuery.set("peerMin", String(settings.peerMin));
@@ -142,7 +155,7 @@ export default function Compare() {
   };
   const changeMetric = (nextMetric: AnalysisMetric) => {
     const next = viewSearch(location, navigation.location);
-    if (nextMetric.id === readMetric(next, "skater").metric.id) return;
+    if (nextMetric.id === readMetric(next, data.kind).metric.id) return;
     next.set("metric", nextMetric.id);
     setSearch(next, {
       preventScrollReset: true,
@@ -178,12 +191,14 @@ export default function Compare() {
     "first",
     data.persons,
     data.season.season,
+    data.kind,
   );
   const second = selection(
     search.getAll("b"),
     "second",
     data.persons,
     data.season.season,
+    data.kind,
   );
   const secondError =
     first.player && first.player.player_id === second.player?.player_id
@@ -208,7 +223,15 @@ export default function Compare() {
         flushSync: true,
       });
   };
+  const changeGoalieSelection = (changes: Parameters<typeof goalieSelectionSearch>[1]) => {
+    setSearch(goalieSelectionSearch(viewSearch(location, navigation.location), changes), {
+      preventScrollReset: true, state: location.state, flushSync: true,
+    });
+  };
   const pair = data.pair;
+  const goalieCards = useMemo(() => view === "goalie" && data.profiles
+    ? data.profiles.map((profile, index) => prepareGoalieCard(profile, settings, { render, companion: data.pair?.[1 - index] })) : null,
+    [data.profiles, data.pair, render, view, settings.peerMin, settings.specialtyMin]);
   const comparison = useMemo(() => {
     const firstObserved = data.players.find(
       (player) => player.player_id === pair?.[0].player_id,
@@ -309,9 +332,17 @@ export default function Compare() {
             shots. attempts include scored, saved, missed and blocked shots.
           </p>
         )}
-        <p>{view === "analytical" ? "known identities can name an absent player; every value retains its selected season." : "both player searches use this season's published records."}</p>
+        <p>{view === "analytical" || view === "goalie" ? "known identities can name an absent player; every value retains its selected season." : "both player searches use this season's published records."}</p>
       </section>
-      <nav className="comparative-view-nav" aria-label="comparison view">
+      <nav className="discovery-presets" aria-label="comparison player kind">
+        {(["skater", "goalie"] as const).map(kind => <button type="button" key={kind} aria-pressed={data.kind === kind} onClick={() => {
+          const next = viewSearch(location, navigation.location);
+          if (kind === "goalie") next.set("kind", "goalie"); else next.delete("kind");
+          for (const key of ["a", "b", "metric", "view", "strength", "evidenceStrength", "population", "evidenceView", "type", "render", "map", "position", "peers"]) next.delete(key);
+          setSearch(next, { preventScrollReset: true, state: location.state, flushSync: true });
+        }}>{kind === "goalie" ? "goalies" : "skaters"}</button>)}
+      </nav>
+      {data.kind === "skater" && <nav className="comparative-view-nav" aria-label="comparison view">
         {(["comparative", "observed", "microstats", "analytical"] as const).map((choice) => {
           const next = seasonSearch(search, data.season.season);
           if (choice !== "comparative") next.set("view", choice);
@@ -329,13 +360,16 @@ export default function Compare() {
             </Link>
           );
         })}
-      </nav>
+      </nav>}
+      {data.selectionError && <p role="alert" className="selection-error">{data.selectionError}</p>}
       {data.persons.length === 0 && (
         <p className="empty-search">no players are available in this season</p>
       )}
       <div className="comparison-pickers">
         <PlayerPicker
           slot="first"
+          kind={data.kind}
+          season={data.season.season}
           players={data.persons}
           selected={first.player}
           error={first.error}
@@ -346,6 +380,8 @@ export default function Compare() {
         />
         <PlayerPicker
           slot="second"
+          kind={data.kind}
+          season={data.season.season}
           players={data.persons}
           selected={second.player}
           error={secondError}
@@ -380,6 +416,22 @@ export default function Compare() {
         </nav>
       )}
       {view === "observed" && <GlobalGap season={data.season} />}
+      {view === "goalie" && <>
+        <GoalieControls selection={goalieSelection.selection} render={render}
+          onChange={changeGoalieSelection} onRenderChange={changeRender} />
+        <PeerControls settings={settings} onChange={changePeers} metric={metric} allCutoffs />
+      </>}
+      {view === "goalie" && navigation.state !== "idle" && <p role="status">exports unavailable while the requested selection loads.</p>}
+      {goalieCards && data.profiles && <section className="goalie-pair" aria-label="complete goalie sheet comparison">
+        {goalieCards.map((model, index) => <fieldset className="goalie-export-snapshot" key={model.playerId} disabled={navigation.state !== "idle"}>
+          <GoalieCard model={model} detailLink={id => {
+            const next = seasonSearch(search, data.season.season);
+            next.set("metric", id);
+            return { to: `${location.pathname}?${next}`, state: location.state };
+          }} />
+          <GoalieDetails profile={data.profiles![index]} settings={settings} render={render} />
+        </fieldset>)}
+      </section>}
       {cards && (
         <section
           className="comparative-controls"
@@ -552,6 +604,7 @@ export default function Compare() {
       )}
       {scalarComparison && (
         <PeerDistributions
+          exportPending={navigation.state !== "idle"}
           metricIds={view === "microstats" ? [...microstatMetricIds, ...microstatComponentIds] : undefined}
           showPeerControls={view === "observed" && metric.standingPolicy !== "raw_only"}
           cohort={scalarComparison}
@@ -569,6 +622,7 @@ export default function Compare() {
         <section key={history.playerId} aria-label={`selected quantity history for ${history.person ? playerName(history.person) : `player ${history.playerId}`}`}>
           <h3>{history.person ? playerName(history.person) : `player ${history.playerId}`} · selected quantity history</h3>
           <AnalysisHistory
+            exportPending={navigation.state !== "idle"}
             view={{ publication: data.publication, metric, selectedSeason: data.season.season,
               scale, points: history.views.map(({ point }) => point) }}
             onScaleChange={changeScale}

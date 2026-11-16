@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "kind": "independent_final_native_history_visual_content_qualification",
+  "status": "accepted_stated_native_zoom_criteria",
+  "recorded_at_utc": "2026-11-16T13:37:31.953402+00:00",
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "selection": {
+    "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+    "player_id": "8470621",
+    "season": "20232024",
+    "metric_id": "penalties.taken_value_per60",
+    "history_scale": "raw"
+  },
+  "native_geometry": {
+    "outerWidth": 1280,
+    "innerWidth": 640,
+    "devicePixelRatio": 2,
+    "visualScale": 1,
+    "documentWidth": 640
+  },
+  "evidence": {
+    "native_diagnosis": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/diagnosis.json",
+      "bytes": 134696,
+      "sha256": "98f6becc86992ff05547decf44c9d9055e4b2a87e3435e7ec74271919130d5b8"
+    },
+    "pixel_comparison": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/product/final-history-png-pixel-comparison.json",
+      "bytes": 9899,
+      "sha256": "8dbc24058f0cf3423808a77078f54dc62781e0b8f4d63d5a8cdd1c6ff006bc2d"
+    },
+    "failed_byte_gate": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-final/failure.json",
+      "bytes": 2279,
+      "sha256": "9aff2efc6d87fee9687ce12e8b2fcec957472dd37d5bd4950d5a2eda1324bbe2"
+    },
+    "normal_review": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-history-final-independent-review.json",
+      "bytes": 6989,
+      "sha256": "5509d55031aa32432331db3b8efc3d66308872e7eb8cfbed908294df6175a49a"
+    }
+  },
+  "artifacts": {
+    "normal_png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.png",
+      "bytes": 1201080,
+      "sha256": "90f07852bdb61e5266e06fe2a84219f0c493dc5eb7be808837e883e26930ed4a"
+    },
+    "normal_csv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.csv",
+      "bytes": 23469,
+      "sha256": "f712b96339a71eb65a008a6db33a1fffb31f22ad4043570072383111d63f8838"
+    },
+    "native_files": [
+      {
+        "kind": "csv",
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/history.csv",
+        "bytes": 23469,
+        "sha256": "f712b96339a71eb65a008a6db33a1fffb31f22ad4043570072383111d63f8838",
+        "download_name": "hockey-stats-8470621-penalties.taken_value_per60-20232024-20252026-history.csv",
+        "failure": null
+      },
+      {
+        "kind": "png",
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/history.png",
+        "bytes": 1200981,
+        "sha256": "d2fa770bc371f827908fef5191abe871d4d44e85363df62c4872501d667603a5",
+        "download_name": "hockey-stats-8470621-penalties.taken_value_per60-20232024-20252026-history-raw.png",
+        "failure": null
+      },
+      {
+        "kind": "svg",
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/history.svg",
+        "bytes": 13200,
+        "sha256": "60828502d08d70c0431a3b449104a7a4eef50f06fc48a554e0601b1a6405db28"
+      }
+    ]
+  },
+  "observed_invariance": {
+    "csv_bytes_identical": true,
+    "xml_text_and_tag_structure_identical": true,
+    "non_horizontal_attributes_identical": true,
+    "value_y_coordinates_identical": true,
+    "uniform_categorical_year_spacing_preserved": true,
+    "dimensions": [
+      1200,
+      3615
+    ],
+    "png_encoded_bytes_identical": false,
+    "png_decoded_pixels_identical": false,
+    "full_svg_geometry_identical": false
+  },
+  "saved_comparison": {
+    "horizontal_geometry": {
+      "changed_elements": 9,
+      "changed_attributes": 10,
+      "attribute_names": [
+        "x",
+        "x1",
+        "x2",
+        "cx"
+      ],
+      "maximum_change_in_export_pixels": 0.0078125,
+      "first_point_x": {
+        "normal": 199.109375,
+        "native": 199.1015625
+      },
+      "middle_point_x": {
+        "normal": 644.5546875,
+        "native": 644.55078125
+      },
+      "last_point_x": {
+        "normal": 1090,
+        "native": 1090
+      },
+      "all_other_xml": "tags, text, tails, attribute-name sets and every non-x attribute exact",
+      "attribution": "parent/source bounded comparison of already saved normal/native SVGs; not recomputed by this reviewer"
+    },
+    "pixels": {
+      "encoded_files_equal": false,
+      "non_idat_chunks_equal": true,
+      "only_encoding_or_metadata_differs": false,
+      "decoded_rgba_equal": false,
+      "total_pixels": 4338000,
+      "different_pixels": 638,
+      "different_pixel_fraction": 0.0001470723835869064,
+      "different_channels": 930,
+      "bounds_inclusive": {
+        "left": 192,
+        "top": 312,
+        "right": 1078,
+        "bottom": 576
+      },
+      "maximum_absolute_channel_difference": {
+        "r": 65,
+        "g": 63,
+        "b": 61,
+        "a": 0
+      },
+      "different_channels_by_name": {
+        "r": 305,
+        "g": 320,
+        "b": 305,
+        "a": 0
+      },
+      "nonzero_channel_deltas_equal_one": 703,
+      "regions": [
+        {
+          "region": "plot_strokes_and_markers",
+          "rows_half_open": [
+            300,
+            550
+          ],
+          "different_pixels": 572,
+          "bounds_inclusive": {
+            "left": 192,
+            "top": 312,
+            "right": 1078,
+            "bottom": 539
+          }
+        },
+        {
+          "region": "year_labels",
+          "rows_half_open": [
+            550,
+            590
+          ],
+          "different_pixels": 66,
+          "bounds_inclusive": {
+            "left": 601,
+            "top": 560,
+            "right": 611,
+            "bottom": 576
+          }
+        },
+        {
+          "region": "annual_details_and_notes",
+          "rows_half_open": [
+            590,
+            3615
+          ],
+          "different_pixels": 0,
+          "bounds_inclusive": null
+        }
+      ]
+    },
+    "attribution": "saved decoded-pixel comparison inspected; no new image decoding/diff computation performed by this reviewer"
+  },
+  "independent_pixel_content_review": [
+    "entire saved native200-diagnosis/history.png visually inspected; header, axes, all three values/years, annual evidence, notes and footer remain readable and unclipped",
+    "correct corey perry 8470621 raw taking-value selection, signed final negative value, goals-per-60 units, three distinct annual sections, once-only caveats and combined role/population/year labels remain intact",
+    "annual support, carry, reference, uncertainty and earlier-versus-final sensitivity meanings match the accepted normal image; no changed data or lost content is indicated",
+    "the measured tiny horizontal gutter/spacing variance leaves categorical years uniformly spaced and every value y coordinate unchanged; it does not misrepresent magnitude or sign"
+  ],
+  "contract_classification": {
+    "specifications": [
+      "docs/specs/v1-10-penalties-shootiness.md:154",
+      "docs/specs/v1-10-penalties-shootiness.md:175",
+      "docs/specs/v1-19-goalie-card-discovery.md:85",
+      "docs/specs/v1-19-goalie-card-discovery.md:123",
+      "docs/specs/v1-19-goalie-card-discovery.md:149"
+    ],
+    "required": "faithful values, selection, reference/units/limits, readable complete native downloads and native200 layout; fixed export width where specified",
+    "not_required": "encoded-byte or decoded-pixel identity between separate normal and native-zoom PNG exports",
+    "finding": "no remaining stated product acceptance blocker for this native history",
+    "variance_accepted": "observed maximum1/128 export-pixel horizontal text-gutter variation; no general tolerance or broader geometry waiver introduced",
+    "source_disposition": "no source fix or rebuild justified by these measured artifacts; no deterministic-byte or encoding-only claim"
+  },
+  "preserved_observations": [
+    "the failed PNG byte-equality gate remains failed under its stronger controller assertion; original normal, failed-native and diagnostic files remain unchanged",
+    "the difference includes real decoded pixel changes, not just metadata or PNG encoding; this qualification does not relabel either PNG or SVG as identical",
+    "the earlier30s navigation wait and exit137 observations remain separate; no cause, latency promise, SLA failure or stale-selection defect is inferred here"
+  ],
+  "blockers": [],
+  "limits": [
+    "bounded saved-artifact source/protocol and visual/content review; no new browser/API/database/build/test/source edit, image transformation, commit or deletion",
+    "artifact digests and pixel statistics are attributed to the bound saved receipts; this reviewer independently inspected the saved native image and diagnosis, not a new capture",
+    "qualifies this one final Corey history at native200; no scientific admission, all-browser byte reproducibility or global shared-issue closure claim"
+  ]
+}

@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "kind": "actual_normal_native200_png_decoded_comparison",
+  "recorded_at_utc": "2026-11-16T13:33:33.138310+00:00",
+  "scope": "read-only comparison of two existing actual downloads with installed Pillow and numpy; no app/browser/API/database/build/source operations; no transformed image created",
+  "tools": {
+    "pillow": "12.3.0",
+    "numpy": "2.5.3"
+  },
+  "images": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.png",
+      "bytes": 1201080,
+      "sha256": "90f07852bdb61e5266e06fe2a84219f0c493dc5eb7be808837e883e26930ed4a",
+      "mode": "RGBA",
+      "width": 1200,
+      "height": 3615,
+      "metadata": {},
+      "chunk_counts": {
+        "IHDR": 1,
+        "IDAT": 294,
+        "IEND": 1
+      },
+      "idat_payload_bytes": 1197507,
+      "idat_concatenated_sha256": "80cfecb0fd4d6c9207c4fa521fd578046309bab6da7c2e9457e9eab58716fef4",
+      "non_idat_chunks": [
+        {
+          "type": "IHDR",
+          "bytes": 13,
+          "sha256": "8bbc1db6bd3338580acaafcd2c622811d1730d9e03f7a590657b9c6ead74a7a7"
+        },
+        {
+          "type": "IEND",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "all_chunk_crc_valid": true,
+      "decoded_rgba_sha256": "6205c21b485e9a4b907254f4ed5fe088ded72831bf5ca33132261f79afb3eced"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-final/history.png",
+      "bytes": 1200981,
+      "sha256": "d2fa770bc371f827908fef5191abe871d4d44e85363df62c4872501d667603a5",
+      "mode": "RGBA",
+      "width": 1200,
+      "height": 3615,
+      "metadata": {},
+      "chunk_counts": {
+        "IHDR": 1,
+        "IDAT": 294,
+        "IEND": 1
+      },
+      "idat_payload_bytes": 1197408,
+      "idat_concatenated_sha256": "ed0f0940a07e3ec906c89ad556399b00d19abb8ae6fd9ca429dedd910cabc990",
+      "non_idat_chunks": [
+        {
+          "type": "IHDR",
+          "bytes": 13,
+          "sha256": "8bbc1db6bd3338580acaafcd2c622811d1730d9e03f7a590657b9c6ead74a7a7"
+        },
+        {
+          "type": "IEND",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "all_chunk_crc_valid": true,
+      "decoded_rgba_sha256": "71308d51fbc346001406bbd78c734af1f0de3558ed446779034285e3f6ba41ab"
+    }
+  ],
+  "comparison": {
+    "encoded_files_equal": false,
+    "non_idat_chunks_equal": true,
+    "only_encoding_or_metadata_differs": false,
+    "decoded_rgba_equal": false,
+    "total_pixels": 4338000,
+    "different_pixels": 638,
+    "different_pixel_fraction": 0.0001470723835869064,
+    "different_channels": 930,
+    "bounds_inclusive": {
+      "left": 192,
+      "top": 312,
+      "right": 1078,
+      "bottom": 576
+    },
+    "maximum_absolute_channel_difference": {
+      "r": 65,
+      "g": 63,
+      "b": 61,
+      "a": 0
+    },
+    "different_channels_by_name": {
+      "r": 305,
+      "g": 320,
+      "b": 305,
+      "a": 0
+    },
+    "nonzero_channel_deltas_equal_one": 703,
+    "regions": [
+      {
+        "region": "plot_strokes_and_markers",
+        "rows_half_open": [
+          300,
+          550
+        ],
+        "different_pixels": 572,
+        "bounds_inclusive": {
+          "left": 192,
+          "top": 312,
+          "right": 1078,
+          "bottom": 539
+        }
+      },
+      {
+        "region": "year_labels",
+        "rows_half_open": [
+          550,
+          590
+        ],
+        "different_pixels": 66,
+        "bounds_inclusive": {
+          "left": 601,
+          "top": 560,
+          "right": 611,
+          "bottom": 576
+        }
+      },
+      {
+        "region": "annual_details_and_notes",
+        "rows_half_open": [
+          590,
+          3615
+        ],
+        "different_pixels": 0,
+        "bounds_inclusive": null
+      }
+    ]
+  },
+  "saved_normal_svg": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.svg",
+    "bytes": 13190,
+    "sha256": "a3500ea3362fdbf76d7f539ea85d491c7c3ed5425d2cbedab3afba8389a2591d",
+    "plot_centres": [
+      [
+        199.109375,
+        319.4
+      ],
+      [
+        644.5546875,
+        350.89817883822593
+      ],
+      [
+        1090,
+        539.4
+      ]
+    ],
+    "year_label_baseline": 577.4,
+    "first_annual_body_baseline": 644.4
+  },
+  "finding": "the 638 decoded pixel differences remain real; the saved native SVG establishes a maximum 1/128 px change in ten x-family attributes across nine elements from measured plotLeft, with exact tags/text/y/cy/data/body. root accepts the measured subpixel export variation under content/layout fidelity; this is not a current source defect or a claim of byte/pixel equality",
+  "limits": [
+    "no rerender was performed; the saved SVG comparison establishes exact geometry/content differences and the earlier saved PNG comparison establishes pixel differences",
+    "root owns the reported full native PNG visual acceptance and specification interpretation",
+    "no inference about the earlier exit137 cause",
+    "CSV identity is reported by the parent acceptance owner, not rechecked in this image/SVG-only comparison",
+    "no browser/API/database/build/source operations, transformed images or original artifact changes"
+  ],
+  "updated_at_utc": "2026-11-16T13:36:45.214652+00:00",
+  "native_svg_diagnosis": {
+    "scope": "bounded exact original saved SVG comparison only; no rendering/browser/API/database/source change",
+    "artifacts": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/history-1.svg",
+        "bytes": 13190,
+        "sha256": "a3500ea3362fdbf76d7f539ea85d491c7c3ed5425d2cbedab3afba8389a2591d"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-final-01/native200-diagnosis/history.svg",
+        "bytes": 13200,
+        "sha256": "60828502d08d70c0431a3b449104a7a4eef50f06fc48a554e0601b1a6405db28"
+      }
+    ],
+    "element_count": 104,
+    "element_tags_text_tails_and_attribute_names_exact": true,
+    "only_x_family_attributes_differ": true,
+    "changed_attributes": 10,
+    "changed_elements": 9,
+    "attribute_changes": [
+      {
+        "element_index": 7,
+        "tag": "line",
+        "attribute": "x1",
+        "normal": "199.109375",
+        "native200": "199.1015625",
+        "native200_minus_normal": "-0.0078125"
+      },
+      {
+        "element_index": 8,
+        "tag": "text",
+        "attribute": "x",
+        "normal": "189.109375",
+        "native200": "189.1015625",
+        "native200_minus_normal": "-0.0078125"
+      },
+      {
+        "element_index": 9,
+        "tag": "text",
+        "attribute": "x",
+        "normal": "189.109375",
+        "native200": "189.1015625",
+        "native200_minus_normal": "-0.0078125"
+      },
+      {
+        "element_index": 10,
+        "tag": "circle",
+        "attribute": "cx",
+        "normal": "199.109375",
+        "native200": "199.1015625",
+        "native200_minus_normal": "-0.0078125"
+      },
+      {
+        "element_index": 11,
+        "tag": "text",
+        "attribute": "x",
+        "normal": "199.109375",
+        "native200": "199.1015625",
+        "native200_minus_normal": "-0.0078125"
+      },
+      {
+        "element_index": 12,
+        "tag": "line",
+        "attribute": "x1",
+        "normal": "199.109375",
+        "native200": "199.1015625",
+        "native200_minus_normal": "-0.0078125"
+      },
+      {
+        "element_index": 12,
+        "tag": "line",
+        "attribute": "x2",
+        "normal": "644.5546875",
+        "native200": "644.55078125",
+        "native200_minus_normal": "-0.00390625"
+      },
+      {
+        "element_index": 13,
+        "tag": "circle",
+        "attribute": "cx",
+        "normal": "644.5546875",
+        "native200": "644.55078125",
+        "native200_minus_normal": "-0.00390625"
+      },
+      {
+        "element_index": 14,
+        "tag": "text",
+        "attribute": "x",
+        "normal": "644.5546875",
+        "native200": "644.55078125",
+        "native200_minus_normal": "-0.00390625"
+      },
+      {
+        "element_index": 15,
+        "tag": "line",
+        "attribute": "x1",
+        "normal": "644.5546875",
+        "native200": "644.55078125",
+        "native200_minus_normal": "-0.00390625"
+      }
+    ],
+    "maximum_absolute_x_delta": "0.0078125",
+    "maximum_absolute_x_delta_fraction": "1/128",
+    "all_y_cy_attributes_exact": true,
+    "all_body_text_and_source_data_exact": true,
+    "source_owner": "app/src/web/analysis-history.tsx historySvg derives plotLeft from probe.getComputedTextLength(); year/marker/segment x positions derive from plotLeft",
+    "established_geometry_difference": "native200 measured plotLeft is 199.1015625 versus normal 199.109375; midpoint 644.55078125 versus 644.5546875; final 1090 is unchanged; ten derived x-family attributes differ across nine elements",
+    "interpretation": "the decoded differences are localized to the measured subpixel x geometry and its plot/year-label rasterization; no values, chronology, vertical geometry or annual-body content differ",
+    "disposition": "qualified actual export variation accepted by root; no current source defect or source fix",
+    "root_acceptance": {
+      "basis": "root reports full native PNG visual pass and adversarial confirmation that the specification does not require encoded PNG byte equality",
+      "accepted_tradeoff": "measured subpixel variation is accepted under content and layout fidelity; neither encoded-byte nor decoded-pixel invariance is claimed",
+      "scope": "parent acceptance judgment; this agent independently checked saved SVG and decoded PNG artifacts only"
+    }
+  }
+}

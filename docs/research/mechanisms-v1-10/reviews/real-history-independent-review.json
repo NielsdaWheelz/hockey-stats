@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "kind": "independent_actual_shared_history_review",
+  "purpose": "real",
+  "status": "needs_note_deduplication",
+  "recorded_at_utc": "2026-11-16T12:16:16.989241+00:00",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "selection": {
+    "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+    "player_id": "8470621",
+    "season": "20232024",
+    "metric_id": "penalties.taken_value_per60",
+    "history_scale": "raw"
+  },
+  "selection_sha256": "dccc6dc0d91798aede0331c52e3104dc33c197c79e853a5533bdf5a6c5191fd9",
+  "artifacts": {
+    "profile-history.svg": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/profile-history.svg",
+      "bytes": 14257,
+      "sha256": "60814298d9a9ea458f33b2ae211185da2dcf557311b99d0dfc4ee361f7b0015c"
+    },
+    "profile-history.png": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/profile-history.png",
+      "bytes": 1300979,
+      "sha256": "e787dfde61bd812969e455d7811915c4a8104e3d389b20caaa83d23d8211e347"
+    },
+    "history-api.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/history-api.json",
+      "bytes": 1945962,
+      "sha256": "ec60800ebae76856cbd088ec6ea6a3a1c7137d051d6dc9384941a101298b1f21"
+    },
+    "browser-acceptance.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/browser-acceptance.json",
+      "bytes": 8011,
+      "sha256": "ae6e131095d436f0158ec361936424c7cf23926a8a3f61c48e75595f4edfc5c0"
+    },
+    "actual-download-fidelity.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/actual-download-fidelity.json",
+      "bytes": 1816,
+      "sha256": "0bcb7902d086694b85b9c524b6f1598005d0ab78c5f0bdcfddcc592a750fc5ae"
+    }
+  },
+  "png_dimensions": {
+    "width": 1200,
+    "height": 3831
+  },
+  "svg_viewbox": "0 0 1200 3831",
+  "annuals": [
+    {
+      "season": "20232024",
+      "person": "Corey Perry",
+      "player_id": "8470621",
+      "teams": [
+        {
+          "id": "16",
+          "abbreviation": "CHI"
+        },
+        {
+          "id": "22",
+          "abbreviation": "EDM"
+        }
+      ],
+      "availability": "provided",
+      "taken_value_per60": 0.002882526964930933,
+      "display_value": "0.00288253",
+      "included_seconds": 35395,
+      "known_excluded_seconds": 14,
+      "unquantified_gap": true,
+      "current_season_information": true,
+      "prior_only": false,
+      "prior_kind": "carry",
+      "prior_anchor_season": "20222023",
+      "prior_seasons": [
+        "20212022",
+        "20222023"
+      ],
+      "reference_id": "e320aa6c90f387b79feb91d1d1ada2e2babfb54fec504e989b3e029e16f475d7",
+      "V_goals": 0.08026319641486722,
+      "uncertainty": {
+        "kind": "not_estimated"
+      },
+      "method_id": "penalties-v1-10-20232024"
+    },
+    {
+      "season": "20242025",
+      "person": "Corey Perry",
+      "player_id": "8470621",
+      "teams": [
+        {
+          "id": "22",
+          "abbreviation": "EDM"
+        }
+      ],
+      "availability": "provided",
+      "taken_value_per60": 0.0011326241302772341,
+      "display_value": "0.00113262",
+      "included_seconds": 46708,
+      "known_excluded_seconds": 49,
+      "unquantified_gap": true,
+      "current_season_information": true,
+      "prior_only": false,
+      "prior_kind": "carry",
+      "prior_anchor_season": "20232024",
+      "prior_seasons": [
+        "20212022",
+        "20222023",
+        "20232024"
+      ],
+      "reference_id": "d42bf3cf7039747ad0672c4f1e1436bb000317d77853704596f91dfd47ec3b82",
+      "V_goals": 0.08854687778183556,
+      "uncertainty": {
+        "kind": "not_estimated"
+      },
+      "method_id": "penalties-v1-10-20242025"
+    },
+    {
+      "season": "20252026",
+      "person": "Corey Perry",
+      "player_id": "8470621",
+      "teams": [
+        {
+          "id": "14",
+          "abbreviation": "TBL"
+        },
+        {
+          "id": "26",
+          "abbreviation": "LAK"
+        }
+      ],
+      "availability": "provided",
+      "taken_value_per60": -0.009339723267409684,
+      "display_value": "-0.00933972",
+      "included_seconds": 46297,
+      "known_excluded_seconds": 77,
+      "unquantified_gap": true,
+      "current_season_information": true,
+      "prior_only": false,
+      "prior_kind": "carry",
+      "prior_anchor_season": "20242025",
+      "prior_seasons": [
+        "20212022",
+        "20222023",
+        "20232024",
+        "20242025"
+      ],
+      "reference_id": "a7cee1d28b41c023cc5b844b5dd926547f7a14401a541148363d24aa76cabddd",
+      "V_goals": 0.08547634477747443,
+      "uncertainty": {
+        "kind": "not_estimated"
+      },
+      "method_id": "penalties-v1-10-20252026"
+    }
+  ],
+  "accepted_findings": [
+    "actual 1200 by 3831 png visually inspected in full; header, plot, all annual sections, grouped notes and footer remain legible and unclipped",
+    "corey perry 8470621, selected 2023\u201324, three provided annuals and the raw penalties.taken_value_per60 selection match saved api and actual-download receipts",
+    "annual teams, cohort details, qualification/exclusions/gaps, current information, carry anchors/prior years, numerical references and not-estimated uncertainty remain associated with the correct year",
+    "goals per 60 minutes with display multiplier one is correct; taking value equals negative taking difference times signed V, and the negative 2025\u201326 taking value is preserved",
+    "earlier annuals are explicitly not assessed; 2025\u201326 within-budget sensitivity and its movements/budgets remain explicitly limited by unknown optimizer accuracy and absent calibrated uncertainty",
+    "common note applicability is labeled with the correct years; no json arrays, object placeholders or missing-value substitutions were visible"
+  ],
+  "findings": [
+    {
+      "severity": "acceptance_gap",
+      "owner": "shared history/export renderer",
+      "issue": "docs/issues/history-export-repeated-method-notes.md",
+      "criterion": "present repeated caveats once where their applicability is unchanged",
+      "location": "method notes and interpretation; earlier-year limitation/finding pair and the last two 2025\u201326 paragraphs",
+      "problem": "identical diagnostic caveats and numerical summary are rendered twice with the same applicable years, once as a method limitation and again as a finding; the long final-year movements and budgets are repeated in full",
+      "impact": "the specific limitation/finding duplication named by the existing issue remains; the extra paragraph adds no annual distinction",
+      "evidence": [
+        {
+          "season": "20232024",
+          "method_id": "penalties-v1-10-20232024",
+          "population": "genuine 5v5 two-direction ordinary-minor team awards; both goalies; independent matched membership and award exclusions",
+          "summary": "baseline complete; numerical sensitivity not_assessed; optimizer accuracy unknown; in-sample diagnostics are not held-out accuracy; calibrated uncertainty not estimated",
+          "rendered_twice_as": [
+            "method limitation",
+            "finding for the same population"
+          ]
+        },
+        {
+          "season": "20242025",
+          "method_id": "penalties-v1-10-20242025",
+          "population": "genuine 5v5 two-direction ordinary-minor team awards; both goalies; independent matched membership and award exclusions",
+          "summary": "baseline complete; numerical sensitivity not_assessed; optimizer accuracy unknown; in-sample diagnostics are not held-out accuracy; calibrated uncertainty not estimated",
+          "rendered_twice_as": [
+            "method limitation",
+            "finding for the same population"
+          ]
+        },
+        {
+          "season": "20252026",
+          "method_id": "penalties-v1-10-20252026",
+          "population": "genuine 5v5 two-direction ordinary-minor team awards; both goalies; independent matched membership and award exclusions",
+          "summary": "baseline complete; numerical sensitivity within_budget; optimizer accuracy unknown; in-sample diagnostics are not held-out accuracy; calibrated uncertainty not estimated; maximum standardized movement 5.336368680275427e-09 and actual fitting-row movement 2.5616384711213414e-06 awards/hour; comparison budget 0.0001; maximum penalty-value movement 4.561332891749386e-10 goals/hour and 7.602221486248978e-09 goals per 1000 minutes; budgets 1e-4 and 1e-3 respectively",
+          "rendered_twice_as": [
+            "method limitation",
+            "finding for the same population"
+          ]
+        }
+      ],
+      "resolution": "render each shared summary once for its exact applicable years while retaining its finding population and limitation/finding meaning; preserve annual conditioning, references, sensitivity and structured evidence"
+    }
+  ],
+  "scope": "actual mechanism shared history only: existing saved svg/png, history api body and small acceptance receipts; no new browser/api/database/test/build, source change, commit or deletion; no arbitrary height target or scientific admission",
+  "limits": [
+    "svg/png identity and unchanged-blob provenance agree with saved browser/fidelity receipts; this is bounded content/pixel review, not fresh numerical/source reconstruction",
+    "separate actual goalie shared-history review was reported by parent; separate goalie-card gutter work is outside this mechanism-history review",
+    "the existing repeated-method-notes issue should remain open pending the concrete shared-summary deduplication above"
+  ]
+}

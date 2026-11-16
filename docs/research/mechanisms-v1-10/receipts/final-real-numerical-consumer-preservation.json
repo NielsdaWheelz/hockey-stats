@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "kind": "preserved_final_real_numerical_consumer_acceptance",
+  "preserved_at_utc": "2026-11-16T11:23:55.847613+00:00",
+  "scope": "verbatim saved numerical/api consumer receipts for frozen f87 application source; browser, actual downloads and layouts remain pending",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "source_revision": {
+    "git_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+    "app_tree": "f87c9ffc729d15265073d32b6668902a1b77e837",
+    "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f"
+  },
+  "files": [
+    {
+      "source": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/final-oracle-01/acceptance.json",
+      "target": "docs/research/mechanisms-v1-10/receipts/final-real-numerical-consumer-acceptance.json",
+      "bytes": 1862,
+      "sha256": "0a91797ff92c435f4f91a980394532143e16d7b45fc0cf40a3f5db3c52cf92ff"
+    },
+    {
+      "source": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/final-oracle-01/ready-preflight.json",
+      "target": "docs/research/mechanisms-v1-10/receipts/final-real-numerical-consumer-ready-preflight.json",
+      "bytes": 1063,
+      "sha256": "869c29a6a1ff531c82851674acf9d76beb1e4df8b341520622284a971424b2da"
+    }
+  ],
+  "consumer_run": {
+    "reported_exit_code": 0,
+    "exit_attribution": "parent reported native typed run exited zero; preservation does not rerun it",
+    "stats": {
+      "producerRows": 22272,
+      "sqliteRows": 22272,
+      "apiRows": 22272,
+      "arithmeticRows": 22272,
+      "cohortChecks": 50112,
+      "csvChecks": 69600,
+      "profileChecks": 5,
+      "comparisonChecks": 1,
+      "mapRejections": 2,
+      "positiveTakingRankChecks": 983
+    },
+    "actual_cases": {
+      "forward": {
+        "season": "20232024",
+        "player_id": "8470604"
+      },
+      "defense": {
+        "season": "20232024",
+        "player_id": "8470600"
+      },
+      "multi_team": {
+        "season": "20232024",
+        "player_id": "8470621"
+      },
+      "sparse": {
+        "season": "20232024",
+        "player_id": "8473473"
+      },
+      "prior_only": {
+        "season": "20242025",
+        "player_id": "8478173"
+      },
+      "zero_specialty_time": {
+        "season": "20232024",
+        "player_id": "8470600",
+        "strength": "5v3"
+      }
+    },
+    "unexercised_actual_cases": []
+  },
+  "pending": {
+    "browser_download_layout": "pending; not accepted by these numerical/api receipts",
+    "canonical_navigation": "hook-only fix under review; these passing receipts belong to frozen f87 source, not that forthcoming change"
+  },
+  "preservation_limits": [
+    "only the two named small external receipts were read and copied",
+    "no database open/hash or api request",
+    "no production edit, test, build, deletion or commit",
+    "no final browser/new-application acceptance and no plan update"
+  ]
+}

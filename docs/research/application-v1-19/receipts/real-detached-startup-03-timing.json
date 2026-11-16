@@ -1,0 +1,42 @@
+{
+  "status": "listening",
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+  "expected_publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-19",
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "--import",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/detached-guard.mjs",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-19/app/dist/node/server/main.js",
+    "--publication",
+    "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+    "--port",
+    "3419"
+  ],
+  "env_overrides": {
+    "GOALIE_DETACHED_DATABASE": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+    "GOALIE_DETACHED_AUDIT": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/detached-real-03-audit.jsonl"
+  },
+  "inherited_environment": true,
+  "database": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+  "port": 3419,
+  "stdout_log": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/detached-startup-03.log",
+  "stderr_and_lifecycle_cost": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/detached-lifecycle-03-cost.txt",
+  "wrapper_sha256": "9d7054e002eadbfb24cfb3a50410dbe987029331297fc5abb6a619623f528d7e",
+  "pids": {
+    "wrapper": 84741,
+    "time": 84747,
+    "node": 84748
+  },
+  "startup_clock": "perf_counter immediately before Popen through observation of the first exact readiness line",
+  "lifecycle_clock": "/usr/bin/time -l measures service lifetime through native exit, not startup",
+  "launched_at_utc": "2026-11-16T12:40:33.999289+00:00",
+  "startup_seconds": 1862.6067394579295,
+  "readiness_log_line": "[05:11:36.625] INFO (#1): Listening on http://127.0.0.1:3419",
+  "readiness_observed_at_utc": "2026-11-16T13:11:36.735732+00:00",
+  "exit_code": 130,
+  "service_lifetime_seconds": 3376.4389352919534
+}

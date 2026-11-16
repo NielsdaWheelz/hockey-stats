@@ -1,0 +1,9 @@
+{
+  "at": "2026-11-16T04:12:44.016701+00:00",
+  "pid": 9524,
+  "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node --import /Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/detached-guard.mjs app/dist/node/server/main.js --publication /Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/fixture-publication/player-analysis.sqlite --port 3419",
+  "signal": "SIGTERM",
+  "reason": "completed fixture acceptance; final real build/publication window",
+  "fixture_publication_preserved": true,
+  "primary_changes": false
+}

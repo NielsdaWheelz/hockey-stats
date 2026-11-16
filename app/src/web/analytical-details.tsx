@@ -1,3 +1,4 @@
+import { MechanismDetail } from "./mechanism-detail";
 import { useId, useState } from "react";
 import type { Estimate, SkaterPenalties } from "../shared/player-analysis";
 import type { ProfileView, SpatialEvidence } from "./client";
@@ -364,7 +365,6 @@ const penaltyEvidenceCsvHeaders = [
 ] as const;
 function penaltyEvidenceCsvRows(
   profile: ProfileView,
-  owner: "descriptive" | "penalties",
 ): readonly (readonly CsvCell[])[] {
   const families = profile.detail.families;
   if ("availability" in families || families.kind !== "skater")
@@ -377,7 +377,7 @@ function penaltyEvidenceCsvRows(
         profile.player_id,
         "recorded",
         "all strengths",
-        owner,
+        "descriptive",
         null,
         null,
         null,
@@ -397,20 +397,8 @@ function penaltyEvidenceCsvRows(
     families.descriptive.availability === "provided"
       ? families.descriptive.data
       : null;
-  const penalties =
-    families.penalties.availability === "provided"
-      ? families.penalties.data
-      : null;
-  const records =
-    owner === "descriptive"
-      ? descriptive?.recorded_penalties.focal
-      : penalties
-        ? {
-            drawn: penalties.recorded_drawn,
-            taken: penalties.recorded_taken,
-            served: penalties.recorded_served,
-          }
-        : null;
+  const owner = "descriptive";
+  const records = descriptive?.recorded_penalties.focal;
   return (["drawn", "taken", "served"] as const).map((role) => [
     profile.publication.publication_id,
     profile.publication.purpose,
@@ -428,12 +416,10 @@ function penaltyEvidenceCsvRows(
     JSON.stringify(records?.[role].categories ?? null),
     JSON.stringify(records?.[role].support ?? null),
     JSON.stringify(
-      owner === "descriptive" ? (descriptive?.provenance ?? null) : null,
+      descriptive?.provenance ?? null,
     ),
     JSON.stringify(
-      owner === "penalties" && penalties
-        ? profile.detail.methods[penalties.method_id]
-        : null,
+      null,
     ),
     records ? "provided" : families[owner].availability,
     records?.[role].per1000minutes.reason_detail?.explanation ??
@@ -834,6 +820,9 @@ export default function AnalyticalDetails({
     families.penalties.availability === "provided"
       ? families.penalties.data
       : null;
+  const selectedShootiness = families.shootiness.availability === "provided"
+    ? families.shootiness.data.find(row => row.strength === (metric.publicationFamily === "shootiness" ? metric.selectionStrength ?? "5v5" : "5v5"))?.result
+    : families.shootiness;
   const recorded =
     families.descriptive.availability === "provided"
       ? families.descriptive.data.recorded_penalties.focal
@@ -1098,6 +1087,24 @@ export default function AnalyticalDetails({
         )}
       </section>
       <section>
+        <h3>share of team attempts</h3>
+        <p>conditional focal probability, same-slot neutral probability and their percentage-point difference. qualification is exact-state time; information is pooled across seven strengths. high percentile means a larger supplied quantity.</p>
+        {families.shootiness.availability === "provided" ? <>
+          <div className="table-scroll" role="region" tabIndex={0} aria-label="share of team attempts by strength, scroll horizontally">
+            <table><thead><tr><th scope="col">strength</th><th scope="col">focal %</th><th scope="col">neutral %</th><th scope="col">difference · percentage points</th><th scope="col">common unit</th><th scope="col">qualifying min</th><th scope="col">pooled choices</th><th scope="col">prior</th></tr></thead>
+              <tbody>{families.shootiness.data.map(({strength,result}) => <tr key={strength}>
+                <th scope="row">{strength}</th>{result.availability === "provided" ? <>
+                  {[result.data.probability,result.data.neutral_probability,result.data.difference].map((estimate,index) => <td key={index}>{estimate.value === null ? estimateText(estimate) : displayNumber(100 * estimate.value)}</td>)}
+                  <td>{result.data.evidence.reference_unit.forwards}F/{result.data.evidence.reference_unit.defenders}D</td><td>{displayNumber(result.data.support.included_seconds === null ? null : result.data.support.included_seconds / 60)}</td><td>{result.data.evidence.coefficient_support.likelihood_events}</td>
+                  <td>{result.data.evidence.coefficient_support.prior_kind ?? "unavailable"}; {result.data.evidence.coefficient_support.current_season_information ? "current information" : result.data.evidence.coefficient_support.prior_only ? "prior-only" : "no current information"}</td>
+                </> : <td colSpan={7}>{result.explanation}</td>}
+              </tr>)}</tbody>
+            </table>
+          </div>
+          {selectedShootiness?.availability === "provided" && <MechanismDetail evidence={selectedShootiness.data.evidence} />}
+        </> : <p>{families.shootiness.explanation}</p>}
+      </section>
+      <section>
         <h3>
           penalties · recorded all-strength evidence and modeled 5v5 awards
         </h3>
@@ -1118,16 +1125,6 @@ export default function AnalyticalDetails({
             label="descriptive facts · recorded all-strength penalty evidence"
           />
         )}
-        {penalties && (
-          <RecordedPenaltyTable
-            records={{
-              drawn: penalties.recorded_drawn,
-              taken: penalties.recorded_taken,
-              served: penalties.recorded_served,
-            }}
-            label="penalty-family supplied records · recorded all-strength penalty evidence"
-          />
-        )}
 
         {penalties ? (
           <>
@@ -1139,42 +1136,26 @@ export default function AnalyticalDetails({
               value {estimateText(penalties.taken_value_per60)} goals per 60
               min.
             </p>
+            <MechanismDetail evidence={penalties.evidence} />
             <p>
               model included seconds{" "}
               {displayNumber(penalties.support.included_seconds)}; known
               excluded seconds{" "}
               {displayNumber(penalties.support.known_excluded_seconds)};
               unquantified gap {String(penalties.support.unquantified_gap)}.
-              exclusions: {JSON.stringify(penalties.support.reason_counts)}.
+              exclusions: {penalties.support.reason_counts.map(row => `${row.code.replaceAll("_", " ")}: ${row.count}`).join("; ") || "none"}.
             </p>
           </>
         ) : (
           <p>modeled penalties: {families.penalties.explanation}</p>
         )}
-        {(["descriptive", "penalties"] as const).map((owner) => (
-          <button
-            type="button"
-            key={owner}
-            onClick={() => {
-              try {
-                downloadCsv(
-                  penaltyEvidenceCsvHeaders,
-                  penaltyEvidenceCsvRows(profile, owner),
-                  `hockey-stats-${profile.season.season}-${profile.player_id}-${owner}-recorded-penalties.csv`,
-                );
-                setStatus(`${owner} recorded penalty evidence csv prepared`);
-              } catch {
-                setStatus(
-                  "recorded penalty evidence export failed; retry the download",
-                );
-              }
-            }}
-          >
-            {owner === "descriptive"
-              ? "download recorded penalty evidence csv"
-              : "download supplied penalty evidence csv"}
-          </button>
-        ))}
+        <button type="button" onClick={() => {
+          try {
+            downloadCsv(penaltyEvidenceCsvHeaders, penaltyEvidenceCsvRows(profile),
+              `hockey-stats-${profile.season.season}-${profile.player_id}-recorded-penalties.csv`);
+            setStatus("recorded penalty evidence csv prepared");
+          } catch { setStatus("recorded penalty evidence export failed; retry the download"); }
+        }}>download recorded penalty evidence csv</button>
       </section>
       <section>
         <h3>inferred territory subskills</h3>

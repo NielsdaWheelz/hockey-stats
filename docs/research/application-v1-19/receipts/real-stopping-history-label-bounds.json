@@ -1,0 +1,163 @@
+{
+  "source_commit": "63b49e6",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "database": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+  "sql": "SELECT player_id,strength,json_extract(payload_json,'$.stopping_goals_per100_on_net.value') AS value FROM goalie_result WHERE season=? AND strength IN ('ev','pk')",
+  "query_plan": [
+    {
+      "id": 3,
+      "parent": 0,
+      "notused": 62,
+      "detail": "SEARCH goalie_result USING INDEX sqlite_autoindex_goalie_result_1 (season=?)"
+    }
+  ],
+  "annuals": [
+    {
+      "season": "20232024",
+      "rows": 234,
+      "finite": 196
+    },
+    {
+      "season": "20242025",
+      "rows": 242,
+      "finite": 206
+    },
+    {
+      "season": "20252026",
+      "rows": 246,
+      "finite": 196
+    }
+  ],
+  "players": 165,
+  "player_strength_groups": 330,
+  "domains": 264,
+  "single_finite_point_domains": 68,
+  "axis_labels": 528,
+  "unique_axis_labels": 528,
+  "formatter": "shared displayNumber + shared plotDomain, imported from app/src/web/analysis-history.tsx",
+  "font": "native AppKit Menlo20, matching explicit svg fallback",
+  "right_anchor": 156,
+  "minimum_left": 44,
+  "longest": {
+    "identity": "8474596:ev",
+    "finite_points": 3,
+    "value": -0.09245568702461386,
+    "label": "-0.0924557",
+    "width_px": 120.41015625,
+    "left_px": 35.58984375
+  },
+  "failures": [
+    {
+      "identity": "8474596:ev",
+      "finite_points": 3,
+      "value": -0.09245568702461386,
+      "label": "-0.0924557",
+      "width_px": 120.41015625,
+      "left_px": 35.58984375
+    },
+    {
+      "identity": "8476316:ev",
+      "finite_points": 2,
+      "value": -0.013852255141935258,
+      "label": "-0.0138523",
+      "width_px": 120.41015625,
+      "left_px": 35.58984375
+    },
+    {
+      "identity": "8479496:ev",
+      "finite_points": 3,
+      "value": -0.02407320069512303,
+      "label": "-0.0240732",
+      "width_px": 120.41015625,
+      "left_px": 35.58984375
+    },
+    {
+      "identity": "8479496:pk",
+      "finite_points": 3,
+      "value": -0.023680282212350853,
+      "label": "-0.0236803",
+      "width_px": 120.41015625,
+      "left_px": 35.58984375
+    },
+    {
+      "identity": "8479973:ev",
+      "finite_points": 3,
+      "value": -0.06933224568798296,
+      "label": "-0.0693322",
+      "width_px": 120.41015625,
+      "left_px": 35.58984375
+    },
+    {
+      "identity": "8479973:pk",
+      "finite_points": 3,
+      "value": -0.09387181023651371,
+      "label": "-0.0938718",
+      "width_px": 120.41015625,
+      "left_px": 35.58984375
+    },
+    {
+      "identity": "8481611:ev",
+      "finite_points": 3,
+      "value": -0.013927277082686904,
+      "label": "-0.0139273",
+      "width_px": 120.41015625,
+      "left_px": 35.58984375
+    },
+    {
+      "identity": "8481611:pk",
+      "finite_points": 3,
+      "value": -0.01927456336456468,
+      "label": "-0.0192746",
+      "width_px": 120.41015625,
+      "left_px": 35.58984375
+    },
+    {
+      "identity": "8482445:ev",
+      "finite_points": 2,
+      "value": -0.0870223713868677,
+      "label": "-0.0870224",
+      "width_px": 120.41015625,
+      "left_px": 35.58984375
+    },
+    {
+      "identity": "8482515:ev",
+      "finite_points": 1,
+      "value": 0.009340248322358847,
+      "label": "0.00934025",
+      "width_px": 120.41015625,
+      "left_px": 35.58984375
+    },
+    {
+      "identity": "8482515:pk",
+      "finite_points": 1,
+      "value": 0.0066292399041965495,
+      "label": "0.00662924",
+      "width_px": 120.41015625,
+      "left_px": 35.58984375
+    },
+    {
+      "identity": "8482515:pk",
+      "finite_points": 1,
+      "value": 0.007327054630954082,
+      "label": "0.00732705",
+      "width_px": 120.41015625,
+      "left_px": 35.58984375
+    }
+  ],
+  "status": "original_fixed_gutter_rejected_corrected_patch_fits_current_population",
+  "attempts": "first extraction repeated after JXA console.log wrote metrics to stderr instead of stdout; same three indexed scalar queries, no other data read",
+  "scope": "indexed ev/pk stopping scalar extraction only; no projection/fit/source scan, hash/integrity operation, api/browser/build/start or production edit",
+  "corrected_patch": {
+    "right_anchor": 170,
+    "minimum_current_label_left_px": 49.58984375,
+    "first_point": 200,
+    "point_step": 440,
+    "last_point": 1080,
+    "baseline_start": 200,
+    "baseline_end": 1100,
+    "label_to_first_circle_clearance_px": 23,
+    "font_px": 20,
+    "all_current_labels_fit": true,
+    "sha256": "7bd0228a5455d80f23f53eff005b15e72293415d27ed1011407e5d5187e4318f"
+  }
+}

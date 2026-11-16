@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "scope": "saved goalie evidence local algebra and three selected real annual manifests/projections only",
+  "red": [
+    {
+      "check": "pure conditional proof suite",
+      "log_sha256": "ac214cc4bbc2edc666690d5169b679a1e3fbf15a501a4faa127dce0c08d2df69",
+      "result": "failed: missing validate_goalie_projection"
+    },
+    {
+      "check": "narrow saved-proof reader integration",
+      "log_sha256": "3720aad67d30cf90a91eab9d769409c45fde991840e29de931d5dfed01841f0a",
+      "result": "failed: missing read_goalie_projection_evidence"
+    }
+  ],
+  "green": {
+    "pure_tests": 3,
+    "narrow_integration_tests": 2,
+    "checks": [
+      "six conditional levels and six focal-minus-neutral differences",
+      "fixed neutral saved-shot reference and joint versus conditional danger",
+      "likelihood union is preserved, never a sum of five counts",
+      "current,prior-only,missing-actor,failed-head,true-zero and positive-underflow cases",
+      "wrong season/purpose/preparation/method/projection/base proof and incomplete population rejected",
+      "log mass,mask,physical orientation,physical-state boolean,current/prior flags and neutral denominator mutations rejected",
+      "computable differences cannot become null/no_exposure",
+      "deep copied finite evidence does not mutate original projection",
+      "published goalie and corrected-execution recipe/cutoff/reference/support-policy mutations rejected without external reads"
+    ],
+    "real_integration": "three actual selected displayed annuals; each open restricted to manifest and bound projections.jsonl; all exact goalie\u00d711 matrices checked",
+    "frozen_score_rows": 352,
+    "full_frozen_score_reader_receipt": "frozen-goalie-full-reader.json"
+  },
+  "source": [
+    {
+      "path": "analysis/src/hockey_stats/goalie_scores.py",
+      "sha256": "bc2dfbf0ccf0bae07cc324a364362686fd7eb28aa1a1af533ad700946d73824d"
+    },
+    {
+      "path": "analysis/src/hockey_stats/goalie_composition.py",
+      "sha256": "9231217edabcdea04952588f761b5bedf33e6f7a6f9c8d9e67b196b95a61b6e1"
+    }
+  ],
+  "temporary_checks": [
+    {
+      "path": ".tmp/v1-19-evidence/check_evidence.py",
+      "sha256": "038900c41fa46711d9cc01bcf942a84617f6e9f9ca1edbeb8633b006e52e7c4c"
+    },
+    {
+      "path": ".tmp/v1-19-evidence/check_frozen_rows.py",
+      "sha256": "6c3d666a6efa257a908504179862c096a178a7c7825b5ce5f54c7cc96ae737e8"
+    },
+    {
+      "path": ".tmp/v1-19-evidence/check_full_frozen_score.py",
+      "sha256": "80dd624d1275a1058fa73fec279ab3596f7f815dcd9d6e9f9ad2abf9eaaac0f0"
+    },
+    {
+      "path": ".tmp/v1-19-evidence/check_narrow.py",
+      "sha256": "3d3c50b85814b862e0411f4b8ec1be4a3c09bd8941b80067508f5da78ff56882"
+    }
+  ],
+  "refactor": [
+    "one projection-local algebra owner shared by current publication, full saved reader and narrow reader",
+    "full saved reader retains original likelihood-key union checks",
+    "one row enrichment owner for ordinary scores, composition reads and temporary converter",
+    "shared publication member copy/write primitives replace duplicate implementations",
+    "obsolete real-donor pin removed; checked explicit current exchange lineage remains",
+    "no long-lived converter or whole-exchange copy engine added",
+    "enrichment helper moved to saved-score owner; no scores-to-composition reverse dependency or reexport alias",
+    "frozen score schema is interpreted by score owner; all current exchange rows still require evidence and reject its absence"
+  ],
+  "limits": [
+    "these are computational/source-contract checks, not scientific support",
+    "temporary campaign tests are deleted after root acceptance",
+    "real conversion/publication/browser acceptance have separate receipts"
+  ]
+}

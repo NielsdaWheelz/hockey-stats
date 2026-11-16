@@ -1,0 +1,34 @@
+{
+  "scope": "new/changed markdown-link lines in changed markdown files against origin/main; local worktree targets only; no external bulk reads; local :line selectors checked against existing source file bounds",
+  "changed_markdown_files": 35,
+  "passed": 197,
+  "concerns": [],
+  "outside_worktree_not_checked": [],
+  "line_selector_links": [
+    {
+      "source": "docs/research/mechanisms-v1-10/reviews/history-human-text-review.md",
+      "line": 5,
+      "target": "../../../../app/src/web/analysis-history.tsx:668"
+    },
+    {
+      "source": "docs/research/mechanisms-v1-10/reviews/history-human-text-review.md",
+      "line": 6,
+      "target": "../../../../app/src/web/analysis-history.tsx:129"
+    },
+    {
+      "source": "docs/research/mechanisms-v1-10/reviews/history-human-text-review.md",
+      "line": 7,
+      "target": "../../../../app/src/web/analysis-history.tsx:835"
+    },
+    {
+      "source": "docs/research/mechanisms-v1-10/reviews/history-human-text-review.md",
+      "line": 7,
+      "target": "../../../../app/src/web/analysis-values.ts:456"
+    },
+    {
+      "source": "docs/research/mechanisms-v1-10/reviews/history-human-text-review.md",
+      "line": 8,
+      "target": "../../../../app/src/web/analysis-values.ts:1196"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "kind": "mechanism_pre_cleanup_evidence_preservation",
+  "preserved_at_utc": "2026-11-16T06:10:13.675780+00:00",
+  "scope": "copies and attributable diagnostic-header summary only; real acceptance and cleanup remain pending; neither snapshot is final acceptance or final documentation verification",
+  "worktree": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats",
+  "source_head": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "app_tree": "f87c9ffc729d15265073d32b6668902a1b77e837",
+  "copies": [
+    {
+      "source": ".tmp/v1-10/cli-read-ownership-red.txt",
+      "target": "docs/research/mechanisms-v1-10/receipts/cli-ownership-evidence/cli-read-ownership-red.txt",
+      "bytes": 5129,
+      "sha256": "c52efedd37fe47f71a7f974bcb9c4136134910c57b4c318f2311b684b752cd0c",
+      "scope": "historical ownership-repair output or synthetic expected projection; not a retained controller"
+    },
+    {
+      "source": ".tmp/v1-10/cli-read-ownership-green.txt",
+      "target": "docs/research/mechanisms-v1-10/receipts/cli-ownership-evidence/cli-read-ownership-green.txt",
+      "bytes": 101,
+      "sha256": "91966424b0f0f81026554b0fbe08c364c0ed80f6726f963f14b612ee46826e2a",
+      "scope": "historical ownership-repair output or synthetic expected projection; not a retained controller"
+    },
+    {
+      "source": ".tmp/v1-10/qualification-owner-red.txt",
+      "target": "docs/research/mechanisms-v1-10/receipts/cli-ownership-evidence/qualification-owner-red.txt",
+      "bytes": 1197,
+      "sha256": "819ab447022016c8cea6c95df719e93661ecc9a9779266d1bd17ab86cc4d73fa",
+      "scope": "historical ownership-repair output or synthetic expected projection; not a retained controller"
+    },
+    {
+      "source": ".tmp/v1-10/qualification-owner-green.txt",
+      "target": "docs/research/mechanisms-v1-10/receipts/cli-ownership-evidence/qualification-owner-green.txt",
+      "bytes": 100,
+      "sha256": "fe008aab760eb03ccac7578e2b84665b1b50b0d7f855b17a0c7a8d039435b658",
+      "scope": "historical ownership-repair output or synthetic expected projection; not a retained controller"
+    },
+    {
+      "source": ".tmp/v1-10/qualification-owned-before.json",
+      "target": "docs/research/mechanisms-v1-10/receipts/cli-ownership-evidence/qualification-owned-before.json",
+      "bytes": 4605,
+      "sha256": "2988512841f3fe246377b030b8664beef4a0ecd9208007b65bb32f69214f32e2",
+      "scope": "historical ownership-repair output or synthetic expected projection; not a retained controller"
+    },
+    {
+      "source": ".tmp/v1-10/cleanup-inventory.json",
+      "target": "docs/research/mechanisms-v1-10/receipts/pre-cleanup-snapshots/cleanup-inventory.json",
+      "bytes": 4964,
+      "sha256": "3b9cdace25ecca7c8c8f5fda4ff142212d9601e6ee39810a8a9465ce6f80b95a",
+      "scope": "pre-acceptance/pre-cleanup candidate path inventory only; no path deletion or final cleanup result"
+    },
+    {
+      "source": ".tmp/v1-10/changed-doc-links.json",
+      "target": "docs/research/mechanisms-v1-10/receipts/pre-cleanup-snapshots/changed-doc-links.json",
+      "bytes": 1268,
+      "sha256": "d33a8b3df882edfdc426767a4627a0b4a27f750fc3e89f988c9fbb452821f192",
+      "scope": "pre-acceptance/pre-cleanup changed-document link check only; not a check of later closeout documentation"
+    }
+  ],
+  "process_sample_summary": {
+    "path": "docs/research/mechanisms-v1-10/receipts/first-real-process-sample-summary.json",
+    "bytes": 1681,
+    "sha256": "db068b0b09fd1fa4ad41eea343a9e7082071d27d4101b98d64f84aa6bed4f3ca"
+  },
+  "limits": [
+    "no production source change or commit",
+    "no external-body reads, tests, build, primary action or deletion",
+    "no controllers or full process stack dump archived",
+    "historical cli-ownership-repair.json remains unchanged; this record maps its temporary evidence to preserved exact copies"
+  ]
+}

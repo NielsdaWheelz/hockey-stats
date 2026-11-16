@@ -1,0 +1,345 @@
+{
+  "status": "passed",
+  "scope": "receipt-bound source -> indexed candidate sqlite -> finite selected api; earlier3971 saved-proof parity reused, not rerun",
+  "results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+    "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41"
+  },
+  "composition": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/mechanism-composition.json",
+    "sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5"
+  },
+  "inherited_member_audit": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-composition-preservation.json",
+    "sha256": "71e000e59b1caa9e011d71d1dcc7a05729029efaed73229e0b32e3218696e976",
+    "status": "pass",
+    "results": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+      "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41"
+    },
+    "composition": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/mechanism-composition.json",
+      "sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5"
+    }
+  },
+  "prior_saved_proof": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-goalie-parity.json",
+    "sha256": "c42d1a8d122d0e72e7c365972dfeb9995762c29796700ce58853d4c0debbc8d7"
+  },
+  "accepted_publication_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/goalies-v1-07/receipts/shared-final-g-st-live-target.json",
+    "sha256": "1a301b57f850760f66cc129811f7e3548eab93c8b2ebf19e8afe830c06650d7a"
+  },
+  "historical_accepted_database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/candidate-final-g-st-01/player-analysis.sqlite",
+    "publisher_sha256": "17241928149f70bbd353815a4ec8feab39210d570205b494ad6c2af8cfb9a612",
+    "bytes": 31261470720
+  },
+  "accepted_database_header_publication_id": "fb60493e-badf-4b11-9585-b5a541387e66",
+  "candidate_database": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "annuals": [
+    {
+      "season": "20232024",
+      "rows": 1287,
+      "source_member": {
+        "path": "20232024-goalie-goalie_result.jsonl",
+        "sha256": "2d09e593293f476f16f72448ccf6c4a735b86a7e497cf3cba583a8273be70795",
+        "rows": 1287
+      },
+      "all_estimates_support_reasons_evidence_exact": true
+    },
+    {
+      "season": "20242025",
+      "rows": 1331,
+      "source_member": {
+        "path": "20242025-goalie-goalie_result.jsonl",
+        "sha256": "ee4d05541f2b0ea7da9228e98f4b451c3166bab55b7b614dc23498572fabe87a",
+        "rows": 1331
+      },
+      "all_estimates_support_reasons_evidence_exact": true
+    },
+    {
+      "season": "20252026",
+      "rows": 1353,
+      "source_member": {
+        "path": "20252026-goalie-goalie_result.jsonl",
+        "sha256": "68af8ed92d93348976f157d415f3377b4946282724f4fcef1169a8d80a4056e4",
+        "rows": 1353
+      },
+      "all_estimates_support_reasons_evidence_exact": true
+    }
+  ],
+  "indexed_query_plans": [
+    {
+      "table": "goalie_result",
+      "plan": "SEARCH goalie_result USING INDEX sqlite_autoindex_goalie_result_1 (season=? AND player_id=? AND strength=?)"
+    },
+    {
+      "table": "goalie_observed",
+      "plan": "SEARCH goalie_observed USING INDEX sqlite_autoindex_goalie_observed_1 (season=? AND player_id=? AND strength=?)"
+    },
+    {
+      "table": "goalie_evidence_map",
+      "plan": "SEARCH goalie_evidence_map USING INDEX sqlite_autoindex_goalie_evidence_map_1 (season=? AND player_id=? AND strength=? AND population=? AND type=?)"
+    }
+  ],
+  "api_samples": [
+    {
+      "case": "ordinary",
+      "player_id": "8478872",
+      "season": "20252026",
+      "present": true,
+      "annual_scalar_rows": 33,
+      "annual_observed_summaries": 3
+    },
+    {
+      "case": "thin",
+      "player_id": "8480022",
+      "season": "20252026",
+      "present": true,
+      "annual_scalar_rows": 22,
+      "annual_observed_summaries": 2
+    },
+    {
+      "case": "unused",
+      "player_id": "8477361",
+      "season": "20252026",
+      "present": true,
+      "annual_scalar_rows": 22,
+      "annual_observed_summaries": 2
+    },
+    {
+      "case": "traded",
+      "player_id": "8477465",
+      "season": "20252026",
+      "present": true,
+      "annual_scalar_rows": 33,
+      "annual_observed_summaries": 3
+    },
+    {
+      "case": "absent",
+      "player_id": "8470594",
+      "season": "20252026",
+      "present": false,
+      "annual_scalar_rows": 22,
+      "annual_observed_summaries": 2
+    }
+  ],
+  "map_units": [
+    {
+      "family": "goalie_stopping",
+      "view": "effect",
+      "unit": "goals_per100_on_net_per100sqft"
+    },
+    {
+      "family": "goalie_evidence",
+      "view": "evidence_mass",
+      "unit": "goals_per100sqft"
+    },
+    {
+      "family": "goalie_evidence",
+      "view": "evidence_ratio",
+      "unit": "percent"
+    }
+  ],
+  "requests": [
+    {
+      "path": "/api/players/8478872",
+      "query": {
+        "season": "20252026"
+      },
+      "bytes": 1349270,
+      "wall_seconds": 1.6655183748807758
+    },
+    {
+      "path": "/api/players/8478872/evidence",
+      "query": {
+        "season": "20252026",
+        "family": "goalie",
+        "strength": "ev"
+      },
+      "bytes": 188063,
+      "wall_seconds": 0.4711123330052942
+    },
+    {
+      "path": "/api/players/8478872/evidence",
+      "query": {
+        "season": "20252026",
+        "family": "goalie_evidence",
+        "strength": "ev",
+        "population": "unblocked",
+        "type": "all"
+      },
+      "bytes": 1197102,
+      "wall_seconds": 0.409361083060503
+    },
+    {
+      "path": "/api/players/8480022",
+      "query": {
+        "season": "20252026"
+      },
+      "bytes": 781772,
+      "wall_seconds": 2.328900792170316
+    },
+    {
+      "path": "/api/players/8480022/evidence",
+      "query": {
+        "season": "20252026",
+        "family": "goalie",
+        "strength": "ev"
+      },
+      "bytes": 188235,
+      "wall_seconds": 3.8856754160951823
+    },
+    {
+      "path": "/api/players/8480022/evidence",
+      "query": {
+        "season": "20252026",
+        "family": "goalie_evidence",
+        "strength": "ev",
+        "population": "unblocked",
+        "type": "all"
+      },
+      "bytes": 349553,
+      "wall_seconds": 1.6954309579450637
+    },
+    {
+      "path": "/api/players/8477361",
+      "query": {
+        "season": "20252026"
+      },
+      "bytes": 843820,
+      "wall_seconds": 0.5900450830813497
+    },
+    {
+      "path": "/api/players/8477361/evidence",
+      "query": {
+        "season": "20252026",
+        "family": "goalie",
+        "strength": "ev"
+      },
+      "bytes": 191001,
+      "wall_seconds": 0.021455750102177262
+    },
+    {
+      "path": "/api/players/8477361/evidence",
+      "query": {
+        "season": "20252026",
+        "family": "goalie_evidence",
+        "strength": "ev",
+        "population": "unblocked",
+        "type": "all"
+      },
+      "bytes": 312216,
+      "wall_seconds": 0.09405450010672212
+    },
+    {
+      "path": "/api/players/8477465",
+      "query": {
+        "season": "20252026"
+      },
+      "bytes": 1357585,
+      "wall_seconds": 2.246604874962941
+    },
+    {
+      "path": "/api/players/8477465/evidence",
+      "query": {
+        "season": "20252026",
+        "family": "goalie",
+        "strength": "ev"
+      },
+      "bytes": 188039,
+      "wall_seconds": 0.9970547079574317
+    },
+    {
+      "path": "/api/players/8477465/evidence",
+      "query": {
+        "season": "20252026",
+        "family": "goalie_evidence",
+        "strength": "ev",
+        "population": "unblocked",
+        "type": "all"
+      },
+      "bytes": 927608,
+      "wall_seconds": 2.138904833002016
+    },
+    {
+      "path": "/api/players/8470594",
+      "query": {
+        "season": "20252026"
+      },
+      "bytes": 760819,
+      "wall_seconds": 1.007240999955684
+    },
+    {
+      "path": "/api/players/8470594/evidence",
+      "query": {
+        "season": "20252026",
+        "family": "goalie",
+        "strength": "ev"
+      },
+      "bytes": 172029,
+      "wall_seconds": 0.02163741597905755
+    },
+    {
+      "path": "/api/players/8470594/evidence",
+      "query": {
+        "season": "20252026",
+        "family": "goalie_evidence",
+        "strength": "ev",
+        "population": "unblocked",
+        "type": "all"
+      },
+      "bytes": 172055,
+      "wall_seconds": 0.03540641604922712
+    },
+    {
+      "path": "/api/maps",
+      "query": {
+        "season": "20252026",
+        "players": "8478872",
+        "family": "goalie_stopping",
+        "strength": "ev",
+        "view": "effect"
+      },
+      "bytes": 342938,
+      "wall_seconds": 0.12822691607289016
+    },
+    {
+      "path": "/api/maps",
+      "query": {
+        "season": "20252026",
+        "players": "8478872",
+        "family": "goalie_evidence",
+        "strength": "ev",
+        "view": "evidence_mass",
+        "population": "unblocked",
+        "type": "all"
+      },
+      "bytes": 428478,
+      "wall_seconds": 0.05389208300039172
+    },
+    {
+      "path": "/api/maps",
+      "query": {
+        "season": "20252026",
+        "players": "8478872",
+        "family": "goalie_evidence",
+        "strength": "ev",
+        "view": "evidence_ratio",
+        "population": "unblocked",
+        "type": "all"
+      },
+      "bytes": 428438,
+      "wall_seconds": 0.08700212510302663
+    }
+  ],
+  "wall_seconds": 20.354419833049178,
+  "peak_resident_bytes": 55508992,
+  "limits": [
+    "prior accepted database binding/header reused; no fresh whole-database hash",
+    "root owns full inherited-member audit and strict startup",
+    "no frozen projection/fit/likelihood/source-corpus read, scientific reassessment, or whole-map scan"
+  ]
+}

@@ -8,6 +8,8 @@ application appendix to the [program specification](experimental-player-analysis
 
 [v1-18](v1-18-analytical-skater-sheet.md) next specifies exchange3/publication schema9: retain those numerical bodies and add structured saved spatial evidence, joined to existing adjustments. one attributed conversion of the pinned prior exchange avoids refitting/repreparing; its temporary converter is deleted after verification. normal producers/readers have one current version. this is a prospective contract; [the plan](../plan.md#current-boundary) owns the actual active version. the previous section anchor remains solely for links from completed handoffs.
 
+[v1-10](v1-10-penalties-shootiness.md) and [v1-19](v1-19-goalie-card-discovery.md) share one prospective exchange4/schema10 cutover: finite [mechanism](#mechanism-evidence-projection) and [goalie](#goalie-evidence-projection) evidence on existing payloads. reconcile that foundation before either candidate is built. implementation makes it the sole current writer/reader; the active publication remains unchanged until assigned activation. schema9 remains the delivered predecessor and historical section anchor, not a fallback.
+
 ## boundary
 
 extend python → sqlite → effect → react. publish 2023–24, 2024–25 and 2025–26; five fitting/history seasons do not imply five display seasons. retain observed facts and their separate on-ice, personal and spatial populations. one player profile supports skaters or goalies; comparisons require the same kind.
@@ -27,10 +29,10 @@ the following concrete tables use indexed primary keys below and a `payload_json
 | `analysis_method(method_id)` | `family`, `recipe_id`, `design_sha256`, `input_sha256`, `fit_seasons`, `training_cutoff`, `target`, `population`, `reference`, `limitations`, `evidence` |
 | `skater_spatial(season,player_id,strength)` | `offense_attempts_per60`, `defense_attempts_per60`, `offense_xg_per60`, `defense_xg_per60`; corresponding `*_complete` focal and `*_neutral` reference rates, four `*_relative_percent` contrasts, exact `state_weights`; `support`, `method_id` |
 | `skater_execution(season,player_id,strength)` | `finishing_goals_per100_attempts`, `setting_goals_per100_assisted_opportunities`, `avoid_block_probability`, `on_net_probability`, `recorded_stop_probability`, `conversion_probability`, paired `*_difference` fields for those four stages; fixed `reference_panel,coefficient_support,paired_evidence` below; `support`, `method_id` |
-| `skater_shootiness(season,player_id,strength)` | `probability`, `neutral_probability`, `difference`, `support`, `method_id` |
-| `skater_penalties(season,player_id)` | `drawn_per60`, `taken_per60` signed team-award contrasts; `drawn_value_per60`, `taken_value_per60`; separate `recorded_drawn`, `recorded_taken`, `recorded_served` counts/support; `support`, `method_id` |
+| `skater_shootiness(season,player_id,strength)` | `probability`, `neutral_probability`, `difference`, `support`, `method_id`; v1-10 adds closed `evidence` |
+| `skater_penalties(season,player_id)` | `drawn_per60`, `taken_per60` signed team-award contrasts; `drawn_value_per60`, `taken_value_per60`; separate `recorded_drawn`, `recorded_taken`, `recorded_served` counts/support; `support`, `method_id`; v1-10 adds closed `evidence` |
 | `skater_territory(season,player_id)` | `ice_won_goals_per_basket`, `ice_lost_goals_per_basket`; fixed `exit_offense`, `entry_offense`, `zone_retention`, `entry_prevention` records defined below; `support`, `method_id` |
-| `goalie_result(season,player_id,strength)` | `stopping_goals_per100_on_net` (already a contrast); `miss_probability`, `recorded_stop_probability`, `conversion_probability`, `recorded_reattempt_probability`, `reattempt_neutral_goal_probability`, `followup_danger`, paired `*_difference` fields for those six levels only; `support`, `method_id` |
+| `goalie_result(season,player_id,strength)` | `stopping_goals_per100_on_net` (already a contrast); `miss_probability`, `recorded_stop_probability`, `conversion_probability`, `recorded_reattempt_probability`, `reattempt_neutral_goal_probability`, `followup_danger`, paired `*_difference` fields for those six levels only; `support`, `method_id`; v1-19 adds closed `evidence` |
 | `goalie_observed(season,player_id,strength)` | `source_counts`, `on_net_evidence`, `unblocked_evidence`, `stage_evidence`, `starts`, `relief_appearances`, `unknown_start_status`, `reported_usage`, `coverage`, `games`; fixed record shapes below |
 | `value_ledger(season,player_id)` | `reference_minutes`, ten named `components`, `league_total`, `replacement_total`, fixed `penalties_combined` league/replacement grouping, `method_id` |
 | `analysis_map(season,player_id,map_kind,strength,view)` | `grid_id`, `unit`, `reference`, `cells`, `integrated_value`, `support`, `method_id` |
@@ -118,6 +120,113 @@ territory exit/entry records contain `hazard_per_second`, `one_second_probabilit
 map grids carry explicit native coordinates and physical display geometry; native 656 ids are not observed 668 ids or equal-area rectangles. the display contract below supplies physical area without inventing native footprints. stored cells are **mass**, summed directly: attempts/xg per 60 for spatial rates; goals per 100 attempts for finishing; goals per 100 assisted opportunities for setting; goals per basket for territory; goals per 100 on-net for modeled goalie stopping; goalie actual-evidence masses instead use the dedicated table below. execution maps deposit the same normalized common-panel contributions into their origin cells. density rendering divides by area and labels that conversion. `view=effect|complete`: spatial effects and complete rates are separate rows; execution/territory/stopping use effect. goalie evidence uses only `goalie_evidence_map`, with no duplicate serialization in `analysis_map`. paired panels share a scale. unavailable maps have `cells=null`, never zero fill. preserve observed versus inferred origins. complete chance rates satisfy `0<xg<=attempts`; signed contrasts have no such order constraint.
 
 adjustment `target` is `for_attempts_per60|against_attempts_per60|for_xg_per60|against_xg_per60`; exact four-group shapley allocations of the complete quantity plus baseline close to the factual prediction. chance allocations evaluate the joint count×quality model, not an independently averaged quality map. `numerical_residual` is tolerance only, not skater credit. omitted cross-component ledger interactions are a disclosed convention, not a residual to add.
+
+### shared exchange4/schema10 cutover
+
+one integrated foundation adds the three closed evidence shapes below to `goalie_result`, `skater_penalties` and `skater_shootiness`; no new table or endpoint. v1-19 owns the goalie producer/reader changes, v1-10 the mechanism changes; one integration owner reconciles schema, publisher, server and fixture edits before either candidate assembly. frontend and numerical work can proceed independently against these shapes. neither family waits for the other's fits.
+
+one temporary attributed exchange3→4 converter preserves the pinned combined real donor's catalogs/numerical bodies. enrich provided goalie rows from their hash-bound saved projections; retain pending mechanism payloads as null. the old synthetic examples have attributed, independently checked [mechanism correction](../research/mechanisms-v1-10/product/verification.md#fixture-valuation-resolution) and [coherent joint successor](../../fixtures/goalie-card-v1-19/README.md); those enumerated synthetic corrections do not permit changing real estimates. preserve originals and historical receipts. all current producers emit mandatory evidence on provided rows; pending whole rows remain null. readers reject absent evidence instead of silently upgrading it. delete the converter after verification, retaining identities and receipts. later compositors accept only the explicitly selected compatible current-schema descendant and preserve other families, rather than restarting from the original donor. no second version bump, runtime fallback or migration framework.
+
+### goalie evidence projection
+
+v1-19 copies these existing saved fields into `goalie_result.evidence`. all keys are required; the fixed array axes are part of the contract. reuse current strict scalar/hash/season validation and the original projection-local arithmetic owner.
+
+```text
+mass_record(n) = {masses: (nonnegative number|null)[n],
+                  log_masses: (finite number|null)[n]}
+goalie_result.evidence = {
+  neutral_values: {miss_probability, recorded_stop_probability,
+    conversion_probability, recorded_reattempt_probability,
+    reattempt_neutral_goal_probability, followup_danger},
+  masses: {
+    prefixes: {neutral: mass_record(4), focal: mass_record(4)},
+    continuation: {neutral: mass_record(3), focal: mass_record(3)}
+  },
+  coefficient_support: {q, r, g, h, d},
+  panels: [{panel_id, physical_state: [attacking,defending,1,1],
+    events, origins, events_sha256, arrays_sha256}]
+}
+```
+
+each neutral value is a nullable probability, not an `Estimate` or ranked field. each head record is exactly `{available:boolean,likelihood_events:nonnegative_integer,prior_only:boolean,prior_seasons:season[],reason:null|head_incomplete|actor_coefficient_unavailable}`. preserve saved flags/years/reasons without inferring extra history. prior years are unique, ordered and earlier than the result year; availability is equivalent to a null reason. panel ids/hashes/counts retain the saved contract; exactly one panel for an exact state, three for ev or pk, in the existing constituent order. defending `4v5` binds an attacking `5v4` panel. use the existing method's score/projection bindings; no duplicate manifest or self-hash field.
+
+prefix axes are `A,B,C,D = sum(u),sum(uq),sum(uqr),sum(uqrg)`; continuation axes are `W,Wh,Whd`, under the same neutral saved-shot weighting for focal and neutral. ordinary available masses equal `exp(log_mass)` within the existing tolerance and cannot increase downstream. `(null,null)` is unavailable; `(0,null)` is mathematical zero; `(0,finite_log)` is positive underflow. it is not absence. validate ratios in log space, rather than dividing underflowed display masses. probabilities/nullable dependency rules remain those of the existing projection reader.
+
+enforce the saved producer's masking rules explicitly: neutral A/B/C/D, focal A and both W are never null; empty mass is mathematical zero. focal B/C/D are null exactly when q / q+r / q+r+g actor support is unavailable. neutral Wh/Whd are null exactly for h / h+d `head_incomplete`; focal Wh/Whd are null exactly for h / h+d unavailable. both W records are identical. this prevents an invented null from masquerading as no exposure; it adds no new scientific gate or rescoring.
+
+```text
+miss = 1-B/A; recorded_stop = 1-C/B; conversion = D/C
+reattempt = Wh/W; conditional_danger = Whd/Wh; joint_danger = Whd/W
+difference = focal_level-neutral_level
+```
+
+stopping is separately `100*sum(u0*q0*(r0*g0-rG*gG))/sum(u0*q0)`. it deliberately excludes focal q. **do not validate stopping as `100*(D0-DG)/B0`**: focal prefixes contain focal q. retain the existing native stopping-map/scalar closure instead. true zero reattempt mass withholds conditional danger while permitting zero joint danger. missing heads affect only their declared dependents; the [goalie contract](v1-07-goalie-continuation.md#reference-panels-stopping-and-six-subskills) owns the six meanings.
+
+per-field aggregate support remains authoritative. dependencies are q for miss, q/r for recorded stop, q/r/g for conversion, r/g for stopping, h for reattempt and h/d for conditional/joint danger. `eligible_weight` is the neutral A/B/C/W/Wh denominator appropriate to the field; differences share that denominator. `events` is the union of contributing likelihood keys, **not their count sum**. the narrow enrichment validates equality to the accepted projection and published support; only the full producer with original key indexes verifies those unions. detached readers check available-head implications, prior flags/years and algebra, not imaginary source access. all contributing heads need current information for `current_season_information`; all need prior-only status for `prior_only`. mixed support must remain mixed. real selected-strength elapsed minutes qualify cohorts independently of reference mass.
+
+extract pure projection validation for both full and narrow readers. narrow reads check the three selected score manifests and projection hashes, method binding, purpose/year/preparation/corrected-base lineage, exact key matrix and exact inherited scalar/support/unavailable equality. full readers retain source-index checks. no preparation, score generation, coefficient/design/branch-array read or new formula implementation is needed. current `family=goalie` evidence responses already return the summary, so this object travels through the existing endpoint. required availability explanations remain in estimates/methods. both publication readers validate finite shapes, conditional closure and reference identities using existing tolerances; neither reads external artifacts at runtime.
+
+add `goalie_detail` to shared scalar/history csv evidence columns, containing the exact applicable closed object and otherwise empty. essential conditions/support/limitations appear inside pngs; detailed masses and bindings remain in selected evidence exports. this evidence is not another rank. supplied neutral values never silently fill missing focal estimates.
+
+### mechanism evidence projection
+
+[v1-10](v1-10-penalties-shootiness.md) owns the mechanism part of the shared **exchange4/schema10** cutover. add one closed `evidence` object to each existing `skater_penalties` and `skater_shootiness` payload; no table, endpoint, estimator or generic evidence registry is added. existing scalar fields remain authoritative. pending whole-family results still have null payloads. provided results may contain explicitly unavailable estimates after a failed head or missing valuation. no optional legacy evidence field or schema9 runtime fallback.
+
+use existing `Estimate`, `Support`, path/digest and finite-number validation. below, `binding={uri,sha256}` identifies a saved manifest/member without runtime file access. all object keys are required; nullable fields are explicitly listed. all years are earlier than the result year where required; arrays have unique, canonical ordered keys.
+
+```text
+coefficient_support = {
+  status: complete|failed|unavailable,
+  current_season_information: boolean, prior_only: boolean,
+  prior_kind: entry|carry|null, prior_anchor_season: season|null,
+  prior_seasons: season[], likelihood_events: nonnegative integer,
+  information_weight: nonnegative number
+}
+penalties.evidence = {
+  annual_state: binding, coefficient_support,
+  reference_id: sha256,
+  neutral_per60: positive number|null,
+  drawn_complete_per60: positive number|null,
+  taken_complete_per60: positive number|null,
+  valuation: {
+    available: boolean, reason: nonempty text|null,
+    a: nonnegative number|null, b: nonnegative number|null,
+    e_f: nonnegative number|null, e_a: nonnegative number|null,
+    T_hours: 2/60, tau_hours: nonnegative number|null, V_goals: number|null,
+    sh_support: {included_seconds: nonnegative number,
+      attempts: nonnegative integer, neutral_goal_mass: nonnegative number,
+      known_excluded_seconds: nonnegative number, unquantified_gap: boolean},
+    inputs: {ev_state: binding, st_state: binding, execution_score: binding,
+      reduction: binding}
+  }
+}
+shootiness.evidence = {
+  annual_state: binding, coefficient_support,
+  position_group: F|D|unknown,
+  reference_unit: {forwards: positive integer, defenders: positive integer},
+  reference_id: sha256,
+  states: [{strength, included_seconds: nonnegative number,
+    known_excluded_seconds: nonnegative number, unquantified_gap: boolean,
+    team_choices: nonnegative integer, personal_attempts: nonnegative integer,
+    excluded_possible_choices: nonnegative integer}]
+}
+```
+
+penalty `information_weight` is focal matched physical hours; `likelihood_events` is incident residual awards in both roles. drawing and taking share one information/prior chronology because both directed opportunity rows are retained together. both raw coefficients remain separate. the saved reader proves the same support/anchor/years for both; a mismatch is a contract failure, not permission to union unlike roles. `Support.events` equals this incident count, `eligible_weight` equals the hours, and included seconds are the same physical hours ×3600. zero-award time establishes information.
+
+shootiness states contain all seven exact strengths, including zeros. `personal_attempts≤team_choices`; sum of state `team_choices` equals coefficient `likelihood_events` and `information_weight`. candidate incidence, not shooter incidence, establishes information. `Support.included_seconds/known_excluded_seconds/unquantified_gap` equal the selected state's qualification support; `events/eligible_weight/current_season_information/prior_only/prior_seasons` describe the **pooled coefficient**. explicitly label this split in detail and exports. qualification time is not a denominator for modeled choice probability. a zero-state-time player can have pooled information but earns no state cohort minutes. incomplete possible choices remain exclusions, never synthetic negatives.
+
+`current_season_information` means positive declared information weight, even if optimization failed. for a completed head `prior_only` is its negation and `prior_kind` must be entry or carry; failed/unavailable heads have `prior_only=false`, `prior_kind/anchor=null`, empty prior years and no fitted-prior claim. for a completed entry prior, anchor is null and prior years empty; carry has a strictly earlier anchor equal to the final supported prior year. prior-only years never advance it. existing `Support` flags/years must equal the coefficient record. penalty and shootiness histories stay separate. failed head outputs use `failed_fit` with method evidence; a missing required source uses `missing_source` with source evidence. a family with no likelihood exposure uses `no_exposure`; zero focal/state exposure alone never suppresses a valid prior-only projection from a completed family.
+
+completed penalty heads require all three positive rates and close `drawn_per60=drawn_complete_per60-neutral_per60`, `taken_per60=taken_complete_per60-neutral_per60`. failed/unavailable heads have null rate evidence/estimates. the annual valuation's known input rates may survive a missing prerequisite; every non-null `b` requires positive sh exposure and `b=neutral_goal_mass/(included_seconds/3600)`, even if another input is absent. require mass≤attempts. `tau` is present iff `a` is known and obeys the stable survival equation, including `a=0`. available valuation requires all inputs and `V=(a-e_f-b+e_a)*tau`; unavailable valuation has a located reason and null `V`. valid rate contrasts survive absent valuation; value fields have `failed_fit` for a failed required fit, `no_exposure` for absent matched sh time, or `missing_source` for absent required source, with their proper evidence. enforce value closure `drawn_value_per60=drawn_per60*V`, `taken_value_per60=-taken_per60*V` independently when dependencies exist, and unavailability otherwise. `V` is signed; zero is available. `inputs.reduction` binds a separate source-reduction receipt, not the file containing this reference. the reference digest binds values, units, construction, inputs and support, not its containing file's self-hash. annual neutral/reference/valuation data must agree across repeated player rows.
+
+shootiness reference units match the attribution appendix exactly. known-position completed heads require both probabilities and their difference; unknown position keeps the declared unit but all three estimates are unavailable `missing_source`, with bound position evidence. no hypothetical forward slot is assigned. failed heads use `failed_fit`. state-specific role offsets, coefficient centers and the full reference remain in the bound annual artifact; the published probabilities need no client scoring. existing current-schema equality checks validate `difference=probability-neutral_probability`. probability fractions and percentage-point display remain distinct.
+
+both readers enforce closed shapes, finite domains, support/reference/year identity and equations using the existing `close` tolerance. the python composer additionally checks source/state reductions; typescript verifies the detached payload and repeated annual invariants. no external read occurs at startup or per request. method findings bind baseline/probe status by year and quantity; all uncertainty remains `not_estimated`.
+
+use existing selected detail/history and penalty evidence responses. expand raw-only `shootiness.<strength>.neutral_probability` to all seven strengths, without a percentile/table sort; explicitly exclude it from `analysis-discovery.ts`'s prefix-derived sortable columns. add `mechanism_detail` to the shared scalar/card csv evidence columns: the exact applicable closed evidence object, otherwise empty. evidence is not another ranked field. essential quantity/reference/support/experimental warnings appear inside pngs; detailed constants and provenance remain in the selected-detail csv. show one recorded penalty table from the descriptive owner, independently of modeled availability.
+
+the shared conversion above owns this transition; do not build a second mechanism-only schema4. synthetic provided mechanism rows need independently checked evidence in an attributed fixture successor; do not mutate the original fixture or relax real validation. current-schema results publish to a schema10 candidate through existing owners; historical serving/rollback pairs remain unchanged until separately assigned activation.
 
 ## finalized evidence and with/without
 
@@ -213,7 +322,7 @@ the [shared cohort contract](v1-14-history-cohorts-exports.md#cohort-calculation
 
 reuse `shot_origins`'656 native centers and `observed_spatial`'668 clipped rectangles/area/pooling. define `T[d(k),k]=1`, where `d(k)=observed_spatial.cell_id(native_center[k])`; require a unique containing positive-area cell. no equal-id join, native `mass/25` assumption or nearest-cell fallback. native masses stay inspectable. display mass is `K*T*native_mass`, density per100sqft is `100*display_mass/area`. already-observed 668 masses use `K` directly. this adds the existing declared 10 ft blur to model detail; it avoids inventing native Voronoi footprints. geometry inspection found all 656 centers valid, leaving 12 boundary rectangles with no atom before pooling; implementation repeats the conservation check.
 
-filled contours are a rendering of published display density, not another smoother or new statistics. use the small [d3-contour primitive](https://d3js.org/d3-contour/contour), pin its implementation dependency, explicit thresholds and linear interpolation; no whole chart framework. transpose the x-major stored id `17*xi+yi` to contour input index `xi+40*yi` with `.size([40,17])`; contour coordinates `(u,v)` map to rink `(-100+5*u,-42.5+5*v)` before display orientation. zero-pad only nonexistent outside-rink rectangles for contour closure, clip to the physical rink, and preserve actual display-cell values for readout. undefined interior ratio cells are masked as unavailable, never filled with neutral zero; exclude those cells and their interpolated connections from contour drawing. this boundary convention can affect contour appearance near boards; no contour integral becomes an authoritative scalar. raw rectangle view stays available. ratio maps use their explicit ratio values and the same display-only contour convention.
+filled contours are a rendering of published display density, not another smoother or new statistics. use the small [d3-contour primitive](https://d3js.org/d3-contour/contour), pin its implementation dependency, explicit thresholds and linear interpolation; no whole chart framework. transpose the x-major stored id `17*xi+yi` to contour input index `xi+40*yi` with `.size([40,17])`; contour coordinates `(u,v)` map to rink `(-100+5*u,-42.5+5*v)` before display orientation. zero-pad only nonexistent outside-rink rectangles for contour closure, clip to the physical rink, and preserve actual display-cell values for readout. this boundary convention can affect contour appearance near boards; no contour integral becomes an authoritative scalar. raw rectangle view stays available. v1-19 goalie ratios render the explicit published display rectangles only: undefined cells remain masked, without neutral zero fill or interpolated ratio contours. additive/model density retains the contour convention above.
 
 share effect scale across corresponding one/two-player panels: 5v5 offense/defense together, common pp/pk together; use symmetric extent from all their displayed values and legend levels at `0,±.25M,±.5M,±.75M,±M`. for exact sign symmetry, draw positive contours from density and negative contours from its negation at identical positive thresholds `.25M,.5M,.75M,M`, ascending within each sign over neutral background. matched magnitudes use matched intensity even at threshold ties; no epsilon adjustment or automatic levels. the central band denotes magnitude below `.25M`, not exact zero. all-zero panels have a neutral fill and zero legend. positive absolute maps use levels 0 through M by eighths. goalie ratio view uses fixed ±25% legend with saturation/overflow magnitude identified; it must not clip stored values. show orientation, units, reference, smoothing and numeric levels. native/model, mapped/display and paired goalie sums each close under their own invariant.
 
@@ -252,6 +361,8 @@ accepted costs: dense cards require reflow/export work; native-to-display poolin
 
 the crosswalk supplies the exact v1 row-level coverage for this family table. the inventory records additional scatter, distribution, spider, reciprocal-context and goalie-pattern views; its release mapping separates v1 card sections from later standalone work. a content reviewer checks each assigned form against its reference and our semantics, including the supplied samples. reuse existing chart primitives; no generic dashboard/card grammar is required.
 
+[v1-19](v1-19-goalie-card-discovery.md#complete-sheet-and-detail) fixes the goalie composition: six full-rink landscape maps, stopping/history, six conditional distributions, both actual paired populations, four type panels and a nonnegative danger histogram in one sheet/png. additive saving leads; the league-relative ratio is a separately labeled toggle with reversed favorable direction and undefined masks. modeled ev/pk cohorts retain current policy; exact-state values/maps/history are raw detail, not new rankings. goalies use the existing routes with kind-aware discovery/comparison. structured reference/support evidence is transported from saved projections, without fitting or changing estimates.
+
 same F/D peer groups remain default. viewing defaults: 300 included 5v5 minutes for general skater metrics; 50 relevant minutes for pp/pk; 300 included ev minutes for goalies. these are explicit product judgments, adjustable and not reliability thresholds. expose cutoffs and cohort sizes. qualify each metric using its own supported opportunity; below-cutoff values remain visible but numeric percentiles are withheld. mixed F/D comparisons retain separately labeled peer groups. prior-dominated specialties cannot borrow an unrelated minutes denominator to imply experience.
 
 observed percentiles still increase with recorded rate, including against. modeled component percentiles use the displayed quantity's declared direction. estimated rank is not reliable separation. show experimental status once prominently, units/reference locally, and expandable method/evidence; avoid repeating warning paragraphs under every number. unknown uncertainty reads “not estimated.” synthetic fixtures are separately labeled and never mixed with real players.
@@ -264,7 +375,7 @@ export a single-player png card, selected map/plot png and visible table or plot
 - effect: new `shared/player-analysis.ts`, `server/analysis-publication.ts`; extend `server/publication.ts`, `main.ts`, operator and `web/client.ts`. preserve existing observed/spatial/deployment owners.
 - frontend/content: extend the three route files, `explorer.ts`, picker/distributions and `spatial-views.tsx`; add cohesive `analysis-card.tsx`, `analysis-details.tsx`, `analysis-history.tsx` and card-specific descriptive/microstat/goalie view modules where their real compositions warrant them; retain existing context owners, with expanded reciprocal `with-without.tsx` later. extract existing svg→png conversion only for its actual second consumer.
 
-v1-06 historically cut over to schema8 only; after v1-18 integration the sole current reader accepts schema9. the active pair remains unchanged until separately assigned activation. operator validates incoming with that reader; preserve existing active bytes opaquely rather than reading them with an incompatible schema before rotation. for a cross-schema restore, stop, validate `previous.sqlite` using its matching git build, manually copy it over active and restart that build; do not call an old rotate command that tries to validate the newer active file. retain one previous database, not archived builds or a multi-schema fallback. activation remains explicitly assigned.
+v1-06 historically cut over to schema8 only; after v1-18 integration the sole current reader accepts schema9; v1-10/v1-19's shared foundation replaces it with schema10. the active pair remains unchanged until separately assigned activation. operator validates incoming with that reader; preserve existing active bytes opaquely rather than reading them with an incompatible schema before rotation. for a cross-schema restore, stop, validate `previous.sqlite` using its matching git build, manually copy it over active and restart that build; do not call an old rotate command that tries to validate the newer active file. retain one previous database, not archived builds or a multi-schema fallback. activation remains explicitly assigned.
 
 verify real source/result → sqlite → effect → table/profile/map/comparison/history/export for every required family; fixtures alone do not complete it. cover source shots excluded from fitting, personal location gaps and filters, goalie identity, zero exposure, unavailable/failed results, uncertainty, inferred credits, dressed-game on/off and with/without intersections, ledger/map closure, three-season cutoffs, synthetic isolation and prior observed facts. check detached browsing, keyboard/narrow layouts/native 200% zoom, export text, candidate rejection and ordinary restore. validate changed numerical contracts at their owner; downstream checks establish faithful transport/content, not scientific admission. record database size, build time and representative read/render costs; fix demonstrated problems without adding a service/cache framework.
 

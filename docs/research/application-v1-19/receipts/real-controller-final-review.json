@@ -1,0 +1,60 @@
+{
+  "at": "2026-11-16T10:49:42.800097+00:00",
+  "status": "clear",
+  "source_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+  "scope": "read-only pre-execution controller review; no database, api or source-corpus reads",
+  "reviewers": [
+    "goalie_navigation",
+    "goalie_card",
+    "root",
+    "goalie_evidence"
+  ],
+  "files": [
+    {
+      "path": ".tmp/v1-19/real-startup.py",
+      "sha256": "4d82e296d71b2c4c007e307766408cbf91cfa0ce2c5649d71a37a40e1cf74f84"
+    },
+    {
+      "path": ".tmp/v1-19/detached-guard.mjs",
+      "sha256": "c04d07270d288e26c1ec53801f6780b5abd7e0e5de828b8749adc5c5eba223fc"
+    },
+    {
+      "path": "app/.tmp-v1-19-nav/real-live-loader.ts",
+      "sha256": "5719a7e36a7f560ab87e5b5155fa636609aa7c78b7b269206b10e7c8d3f3d020"
+    },
+    {
+      "path": ".tmp/v1-19-browser/real-journeys.mjs",
+      "sha256": "5b78e97e00dd78c67238b5712bb9c3d52cbb623f6e2c201f8646559e52b382e8"
+    },
+    {
+      "path": ".tmp/v1-19-evidence/real-publication-reconcile.py",
+      "sha256": "53f74fd02232801063d717bda23fcbd99200ec577df29e48d0309583313c9516"
+    },
+    {
+      "path": ".tmp/v1-19-evidence/real-g14-downloads.py",
+      "sha256": "36571bebc9bef67b6de1a0f020f476c71726a2e71ef3152af438dee3957c57c1"
+    }
+  ],
+  "findings": [
+    {
+      "issue": "changed exact-state ratio selection lacked actual selected-map downloads",
+      "resolution": "temporary browser controller now downloads selected png/svg/csv and reconciles all1326rows to supplied wire map",
+      "production_change": false
+    },
+    {
+      "issue": "annual scalar iteration did not independently reject omitted or duplicated source strengths",
+      "resolution": "exact three-year history and per-person annual source strength multiset assertions",
+      "production_change": false
+    },
+    {
+      "issue": "exact/covered_all observed-history sidecars could name a different selection",
+      "resolution": "mandatory ordinary-player/year and explicit4v5/covered_all assertions",
+      "production_change": false
+    }
+  ],
+  "limits": [
+    "startup remains active; no readiness claim",
+    "javascript read/open guard and explicit readonly native sqlite path; physical mount absence is not established",
+    "real typed-loader and native browser/export/layout acceptance remain separate and unexecuted"
+  ]
+}

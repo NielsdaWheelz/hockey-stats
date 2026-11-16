@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-16T11:24:13.271480+00:00",
+  "status": "source_review_clear_actual_green_pending",
+  "base_source": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+  "file": "app/src/web/explorer.ts",
+  "patch_sha256": "1aa2d31af05307a85784a2a842f2ff2753f620737677640a1be65678e462206c",
+  "red_receipt": "duplicate-profile-diagnosis.json",
+  "author": "goalie_navigation",
+  "independent_reviewers": [
+    "root",
+    "goalie_card"
+  ],
+  "change": "record every idle canonical URL replacement in the existing exact from/to marker; remove the missing-season-only condition",
+  "scope": "one file +5/-6 including comment; no new state, cache, abstraction, numerical/api/schema change",
+  "reasoning": [
+    "all three hook callers use the same finite selector normalizers as their loaders",
+    "canonical replacement preserves the already-loaded selection",
+    "profile kind remains publication-owned",
+    "user path/player/pair/year/quantity changes do not set this exact marker and retain existing revalidation"
+  ],
+  "required_green": "final compiled native browser discovery->profile unique requests and complete navigation/download acceptance",
+  "verification_preserved": "61-case real data/render loader matrix and mechanism numerical/API matrix remain valid; their owners and contracts are unchanged",
+  "extra_cost": "one bounded node24 build and strict restart of same immutable candidate; first measured startup2097.7500235829502seconds; no publication or db rewrite"
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "kind": "shared_history_exact_body_role_controls",
+  "preserved_at_utc": "2026-11-16T12:30:15.063951+00:00",
+  "status": "passed_bounded_saved_input_renderer",
+  "source_before": {
+    "git_commit": "63b49e69102a74be440aaea3ce0484093f466ce7",
+    "app_tree": "a18f27a393229ebea8f1ed0417c9d85ac7700f70",
+    "history_sha256": "117c28d155171b5a24b9bc4e0f63992f5f73444b50734ba1d842bae37934d88d"
+  },
+  "source_after": {
+    "path": "app/src/web/analysis-history.tsx",
+    "sha256": "8fe223cf5f7f04f06b050f11c7344da12490b7eb83df9fb412965b6a32c86747",
+    "commit": "uncommitted; pending root/adversarial review"
+  },
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "scope": "actual saved Corey 8470621 penalty and ordinary ev/pk goalie API/export bodies through the production shared history renderer; in-memory transpilation and cached browser SVG-to-PNG only",
+  "red": {
+    "receipt": {
+      "source": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/red/checks.json",
+      "target": "docs/research/mechanisms-v1-10/product/history-note-role-controls-red.json",
+      "bytes": 34342,
+      "sha256": "db6ebb63bfb416c34e9f476dab466dd3416c72b1c0b71b54e46bd019279b1dae"
+    },
+    "checks": 97,
+    "failed_checks": 72,
+    "finding": "actual saved exports repeat exact method/finding statement bodies"
+  },
+  "green": {
+    "receipt": {
+      "source": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/valid-domain-final/checks.json",
+      "target": "docs/research/mechanisms-v1-10/product/history-note-role-controls-green.json",
+      "bytes": 36233,
+      "sha256": "b0ca0f50191a8e2f6a8faa9d85455766563c48cf79a2295e99b89d088077ba0c"
+    },
+    "actual_saved_input_checks": 97,
+    "targeted_valid_domain_role_checks": 13,
+    "total_checks": 110
+  },
+  "semantics": [
+    "per-annual exact body maps to all supplied role/population labels",
+    "factor only the owning selected finding whose summary exactly equals its original method limitation array joined with semicolon-space; never split a summary",
+    "non-equivalent summaries remain intact; internal semicolons retain their original statement membership",
+    "sorted role labels make equal role sets independent of incidental finding order",
+    "the existing exact labelled-text/year grouping preserves annual applicability and different role sets"
+  ],
+  "csv_preservation": {
+    "header_and_serializer_source_sha256": "4606de91f0d6eddd0f393ae127e4e9d3ac954e3652239e0251a459e5c5cfda78",
+    "header_and_serializer_source_byte_exact": true,
+    "whole_production_csv_byte_exact_for_all_three_actual_downloads": true,
+    "all_pre_note_annual_svg_text_exact": true,
+    "datum_and_support_reference_semantic_identity_unmutated": true
+  },
+  "review_correction": "empty finding summary is outside the nonempty Text contract; the proposed empty-array guard and invalid-input control were removed; no such protection is in production",
+  "artifacts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/valid-domain-final/corey.svg",
+      "bytes": 13190,
+      "sha256": "a3500ea3362fdbf76d7f539ea85d491c7c3ed5425d2cbedab3afba8389a2591d"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/valid-domain-final/corey.png",
+      "bytes": 1201080,
+      "sha256": "90f07852bdb61e5266e06fe2a84219f0c493dc5eb7be808837e883e26930ed4a",
+      "width": 1200,
+      "height": 3615
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/valid-domain-final/corey.csv",
+      "bytes": 23469,
+      "sha256": "f712b96339a71eb65a008a6db33a1fffb31f22ad4043570072383111d63f8838"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/valid-domain-final/goalie-ordinary.svg",
+      "bytes": 17029,
+      "sha256": "0dd50cbb8ff0caf91b25effdd59b059d3ad49159186e5327701404e0bcfc24b2"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/valid-domain-final/goalie-ordinary.png",
+      "bytes": 1530513,
+      "sha256": "d84fa62410ec5098e044375bc85202cc73d675d67c5d47a6545b22329840cb3e",
+      "width": 1200,
+      "height": 4189
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/valid-domain-final/goalie-ordinary.csv",
+      "bytes": 39301,
+      "sha256": "2213d75c6ae77db3d7f54d693c46c412c371a5e6f7aa05e06ba3d3c2e0e12d14"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/valid-domain-final/goalie-pk.svg",
+      "bytes": 17699,
+      "sha256": "aeefffa728e285e845527ba0493fd832490154ee122e7dfdc357f8969fbab8f8"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/valid-domain-final/goalie-pk.png",
+      "bytes": 1544408,
+      "sha256": "29d8666eef7b6be95afe2dcd7d34eac2dbf39de6b45c8832a1ff94c21cac116e",
+      "width": 1200,
+      "height": 4241
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/history-note-controls-01/valid-domain-final/goalie-pk.csv",
+      "bytes": 39290,
+      "sha256": "4149e929c8f36e36ba39ea88f234a42d145335d56cd7812beb667b856f40f3d4"
+    }
+  ],
+  "limits": [
+    "no API requests, database/source/model replay, full application build or server startup",
+    "no estimators, numerical/API matrices, CSV fields, numeric references or semantic identities changed",
+    "only historySvg production code changed; refreshed compiled application downloads/pixels remain pending",
+    "earlier red/green/intermediate controlled outputs remain original evidence; final valid-domain receipt is authoritative for this patch",
+    "temporary controller retained until final acceptance, then deleted"
+  ],
+  "controller": {
+    "path": ".tmp/v1-10/check-history-note-roles.mjs",
+    "sha256": "1597af513b66465a70ec6472dd66eaa247cfda3c974cc47a14ae24de4db22069"
+  }
+}

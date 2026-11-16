@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "kind": "independent_real_publication_boundary_review",
+  "purpose": "real",
+  "status": "pass",
+  "recorded_at_utc": "2026-11-16T10:38:37.378691+00:00",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+    "sha256": "483b1e1b98112ddabc85cf1d7794b76cccfad004962f6991402abb1d4825840e"
+  },
+  "database_bytes": 31359414272,
+  "source_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+  "app_tree": "f87c9ffc729d15265073d32b6668902a1b77e837",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "handoff": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/receipts/shared-candidate-handoff.json",
+    "sha256": "25205ec627caebb573fba210f436878efc48392e14ba1043c70d7337395b46ce",
+    "bytes": 5156
+  },
+  "publication_owner_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-publication-complete.json",
+    "sha256": "b5f8ca4511adb10c6d96baa9edaeabdabf646cba06354853290d6d19ac58e387",
+    "bytes": 2127
+  },
+  "native_verification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/verification.json",
+    "sha256": "f0e7ce78ced72b3f1ed0ef35d0515a7cf2d842f0c8aac93c748acc2c4ff49567",
+    "bytes": 14667
+  },
+  "observed": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+    "bytes": 711
+  },
+  "results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+    "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41",
+    "bytes": 24033
+  },
+  "composition": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/mechanism-composition.json",
+    "sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5",
+    "bytes": 17547
+  },
+  "checks": [
+    "supplied publication/database identities match both publisher receipts",
+    "observed selection is exactly 711 bytes with the supplied digest; candidate copy and native embedded selection match",
+    "selected results digest matches source and candidate manifest copies; composition binds that exact manifest and selected annual selection",
+    "publication source commit and its app/analysis trees match handoff and current source trees",
+    "native verification reports all four checks passed and per-season readback/conservation passed; selected mechanism families provided",
+    "publisher records native zero exit, supplied outside wall cost and resident bytes; scientific admission and activation not performed"
+  ],
+  "attribution": {
+    "native_full_verification": "publisher-owned integrity, foreign keys, complete database readback and conservation; receipt consistency independently checked here",
+    "database_digest": "native writer digest attributed to publisher; database never opened or independently rehashed by this reviewer",
+    "native_outside_wall_seconds": 22868.58,
+    "native_peak_rss_bytes": 3280093184
+  },
+  "consumed_json": [
+    {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/receipts/shared-candidate-handoff.json",
+      "sha256": "25205ec627caebb573fba210f436878efc48392e14ba1043c70d7337395b46ce",
+      "bytes": 5156
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-publication-complete.json",
+      "sha256": "b5f8ca4511adb10c6d96baa9edaeabdabf646cba06354853290d6d19ac58e387",
+      "bytes": 2127
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/verification.json",
+      "sha256": "f0e7ce78ced72b3f1ed0ef35d0515a7cf2d842f0c8aac93c748acc2c4ff49567",
+      "bytes": 14667
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+      "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+      "bytes": 711
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/selection.json",
+      "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+      "bytes": 711
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+      "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41",
+      "bytes": 24033
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/results/manifest.json",
+      "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41",
+      "bytes": 24033
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/mechanism-composition.json",
+      "sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5",
+      "bytes": 17547
+    },
+    {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/receipts/input-pins.json",
+      "sha256": "6ffd46d6d974e70635b8c22c739bb3d846e9b37c02af9f617e1e4f8561b5cb70",
+      "bytes": 4680
+    }
+  ],
+  "consumed_bytes": 93665,
+  "pending": [
+    "strict detached startup",
+    "typed api and browser acceptance",
+    "real downloads and final shared application acceptance"
+  ],
+  "scope": "small selected json receipts/manifests and git tree identities only; no database access, api/browser, build/startup, corpus/model/source campaign, production edit or scientific accuracy claim",
+  "historical_handoff": "the unstarted status and executed=false describe its earlier source handoff; the later owner receipt records publication completion"
+}

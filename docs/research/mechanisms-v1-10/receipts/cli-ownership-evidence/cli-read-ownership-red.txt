@@ -1,0 +1,81 @@
+FFFFFF
+======================================================================
+FAIL: test_cli_releases_raw_argument_after_callee_rebind (__main__.CliOwnership.test_cli_releases_raw_argument_after_callee_rebind) (family='penalties')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/v1-10/check_cli_read_ownership.py", line 67, in test_cli_releases_raw_argument_after_callee_rebind
+    self.assertTrue(self.run_family(family)['raw_released_after_rebind'])
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_cli_releases_raw_argument_after_callee_rebind (__main__.CliOwnership.test_cli_releases_raw_argument_after_callee_rebind) (family='shootiness')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/v1-10/check_cli_read_ownership.py", line 67, in test_cli_releases_raw_argument_after_callee_rebind
+    self.assertTrue(self.run_family(family)['raw_released_after_rebind'])
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_predecessor_read_is_narrow (__main__.CliOwnership.test_predecessor_read_is_narrow) (family='penalties')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/v1-10/check_cli_read_ownership.py", line 62, in test_predecessor_read_is_narrow
+    self.assertEqual(self.run_family(family)['reader'], ('fixture', family, {'narrow': True}))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('fixture', 'penalties', {}) != ('fixture', 'penalties', {'narrow': True})
+
+First differing element 2:
+{}
+{'narrow': True}
+
+- ('fixture', 'penalties', {})
++ ('fixture', 'penalties', {'narrow': True})
+?                           ++++++++++++++
+
+
+======================================================================
+FAIL: test_predecessor_read_is_narrow (__main__.CliOwnership.test_predecessor_read_is_narrow) (family='shootiness')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/v1-10/check_cli_read_ownership.py", line 62, in test_predecessor_read_is_narrow
+    self.assertEqual(self.run_family(family)['reader'], ('fixture', family, {'narrow': True}))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('fixture', 'shootiness', {}) != ('fixture', 'shootiness', {'narrow': True})
+
+First differing element 2:
+{}
+{'narrow': True}
+
+- ('fixture', 'shootiness', {})
++ ('fixture', 'shootiness', {'narrow': True})
+?                            ++++++++++++++
+
+
+======================================================================
+FAIL: test_read_cost_is_logged_without_mutating_design_resources (__main__.CliOwnership.test_read_cost_is_logged_without_mutating_design_resources) (family='penalties')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/v1-10/check_cli_read_ownership.py", line 73, in test_read_cost_is_logged_without_mutating_design_resources
+    self.assertEqual(record['resources'], {'preparation_seconds': 0.25})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'preparation_seconds': 0.25, 'input_read_wall_seconds': 3.595813177525997e-05} != {'preparation_seconds': 0.25}
+- {'input_read_wall_seconds': 3.595813177525997e-05, 'preparation_seconds': 0.25}
++ {'preparation_seconds': 0.25}
+
+======================================================================
+FAIL: test_read_cost_is_logged_without_mutating_design_resources (__main__.CliOwnership.test_read_cost_is_logged_without_mutating_design_resources) (family='shootiness')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/v1-10/check_cli_read_ownership.py", line 73, in test_read_cost_is_logged_without_mutating_design_resources
+    self.assertEqual(record['resources'], {'preparation_seconds': 0.25})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'preparation_seconds': 0.25, 'input_read_wall_seconds': 3.729178570210934e-05} != {'preparation_seconds': 0.25}
+- {'input_read_wall_seconds': 3.729178570210934e-05, 'preparation_seconds': 0.25}
++ {'preparation_seconds': 0.25}
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.361s
+
+FAILED (failures=6)

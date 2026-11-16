@@ -1,6 +1,8 @@
+import { MechanismDetail } from "./mechanism-detail";
 import { useId, useRef, useState } from "react";
 import { Link } from "react-router";
 import type { Publication, SeasonEvidence } from "../shared/observed";
+import type { Estimate } from "../shared/player-analysis";
 import { selectHistoryValue, selectLeagueValues, type AnalysisCatalogs, type AnalysisDatum, type AnalysisMetric } from "./analysis-values";
 import type { ScalarHistoryRow } from "./client";
 import type { PeerSettings } from "./explorer";
@@ -120,6 +122,17 @@ export const spatialSupportMeaning = (datum: AnalysisDatum): string =>
     : "qualifying minutes describe actual retained focal role/state time; current-season information can come from any state in the shared special-teams family, in the same focal role. pooled information does not establish current evidence for a rare state's baseline; a zero-minute exact-state estimate may use another state's information") +
   "; aggregate support does not establish current evidence for each volume, shape or quality term. spatial support reason counts are games with a located excluded segment, counted once per reason code; codes can overlap within a game. a prior-only magnitude comes from the prior; raw zero can become nonzero after annual centering, and borrowed values can remain large without current matched exposure";
 
+const supportReasonText = (support: AnalysisDatum["support"]): string => support === null
+  ? "unavailable"
+  : support.reason_counts.map(row => `${row.code}: ${row.count}`).join("; ") || "none";
+
+function uncertaintyText(value: Estimate | null, scale: number, unit: string): string {
+  if (value === null) return "unavailable";
+  const uncertainty = value.uncertainty;
+  if (uncertainty.kind === "not_estimated") return "not estimated";
+  return `${displayNumber(100 * uncertainty.level)}% interval: ${displayNumber(scale * uncertainty.lower)} to ${displayNumber(scale * uncertainty.upper)} ${unit}; method ${uncertainty.method}; conditional on ${uncertainty.conditional_on.join(", ")}`;
+}
+
 export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
   const [hasOpened, setHasOpened] = useState(false);
   return (
@@ -156,7 +169,7 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
           current-season information:{" "}
           {String(datum.support.current_season_information)}; prior seasons:{" "}
           {datum.support.prior_seasons.join(", ") || "none"}; support reasons:{" "}
-          {JSON.stringify(datum.support.reason_counts)}.
+          {supportReasonText(datum.support)}.
         </p>
       )}
       {datum.spatial_detail && <div>
@@ -174,7 +187,7 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
               <td className="numeric">{displayNumber(value.value)}</td>
               <td>{key === "relative_percent" ? "%" : datum.metric.id.includes("attempts") ? "attempts per 60 min" : "xg per 60 min"}</td>
               <td>{value.unavailable_reason ?? "none"}{value.reason_detail && `: ${value.reason_detail.explanation}`}</td>
-              <td>{value.uncertainty.kind === "not_estimated" ? "not estimated" : `${value.uncertainty.level * 100}% interval: ${displayNumber(value.uncertainty.lower)} to ${displayNumber(value.uncertainty.upper)}; ${value.uncertainty.method}; conditional on ${value.uncertainty.conditional_on.join(", ")}`}</td>
+              <td>{uncertaintyText(value, 1, key === "relative_percent" ? "%" : datum.metric.id.includes("attempts") ? "attempts per 60 min" : "xg per 60 min")}</td>
             </tr>;
             })}</tbody>
           </table>
@@ -184,6 +197,7 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
           : "this exact-state reference has weight one."}</p>
         <p>{spatialSupportMeaning(datum)}. selected spatial detail exposes structured head information and actual-context adjustments from the same publication.</p>
       </div>}
+      {datum.mechanism_detail && <MechanismDetail evidence={datum.mechanism_detail} />}
       {datum.reference_panel && (
         <div>
           <p>
@@ -288,11 +302,7 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
       ))}
       <p>
         uncertainty:{" "}
-        {JSON.stringify(
-          datum.original && "uncertainty" in datum.original
-            ? datum.original.uncertainty
-            : null,
-        )}
+        {uncertaintyText(datum.original, datum.metric.displayScale, datum.metric.displayUnit)}
         . percentile describes the published quantity, not confidence in an
         ability difference.
       </p>
@@ -364,10 +374,12 @@ export const analysisCsvHeaders = [
   "coefficient_support",
   "paired_evidence",
   "spatial_detail",
+  "mechanism_detail",
   "spatial_strength",
   "direction",
   "spatial_support_meaning",
   "method_evidence",
+  "goalie_detail",
 ] as const;
 export function analysisCsvRow(
   publication: Publication,
@@ -452,10 +464,12 @@ export function analysisCsvRow(
     JSON.stringify(datum.coefficient_support),
     JSON.stringify(datum.paired_evidence),
     JSON.stringify(datum.spatial_detail),
+    datum.mechanism_detail === null ? null : JSON.stringify(datum.mechanism_detail),
     datum.metric.publicationFamily === "spatial" ? datum.metric.id.split(".")[1] : null,
     spatialDirection(datum),
     datum.metric.publicationFamily === "spatial" ? spatialSupportMeaning(datum) : null,
     JSON.stringify(datum.methods.map(method => ({ method_id: method.method_id, evidence: method.evidence }))),
+    datum.goalie_detail === null ? null : JSON.stringify(datum.goalie_detail),
   ];
 }
 
@@ -549,7 +563,7 @@ function geometry(view: HistoryView) {
   };
 }
 
-function HistoryPlot({ view }: { readonly view: HistoryView }) {
+export function HistoryPlot({ view }: { readonly view: HistoryView }) {
   const { values, prepared, domain, x, y } = geometry(view);
   const nativeX = (index: number) => `${x(index) / 12}%`;
   const nativeY = (value: number) => 30 + ((y(value) - 70) * 130) / 220;
@@ -651,6 +665,12 @@ function historySvg(view: HistoryView): string {
   measurement.append(probe);
   document.body.append(measurement);
   try {
+    const notes = new Map<string, Set<string>>();
+    const note = (value: string, year: string) => {
+      const years = notes.get(value) ?? new Set<string>();
+      years.add(year);
+      notes.set(value, years);
+    };
     let top = 30;
     const text = (value: string, size = 23) => {
       probe.setAttribute("font-size", String(size));
@@ -804,7 +824,16 @@ function historySvg(view: HistoryView): string {
             text(`${key.replaceAll("_", " ")}: ${displayNumber(value.value)} ${key === "relative_percent" ? "%" : datum.metric.id.includes("attempts") ? "attempts per 60 min" : "xg per 60 min"}; ${value.unavailable_reason ?? "available"}${value.reason_detail ? `: ${value.reason_detail.explanation}` : ""}`, 20);
           }
         }
-        text("conditional seasonal estimate with historical borrowing and inferred blocked origins; no calibrated uncertainty", 20);
+        note("conditional seasonal estimate with historical borrowing and inferred blocked origins; no calibrated uncertainty", point.season.season);
+      }
+      if (datum.mechanism_detail) {
+        const evidence = datum.mechanism_detail;
+        note("conditional experimental mechanism; no causal credit or calibrated uncertainty; optimizer accuracy unknown", point.season.season);
+        text(`reference ${evidence.reference_id}; prior ${evidence.coefficient_support.prior_kind ?? "unavailable"}; anchor ${evidence.coefficient_support.prior_anchor_season ?? "none"}; prior-only ${evidence.coefficient_support.prior_only}`, 20);
+        if ("valuation" in evidence) {
+          text(`ordinary-minor team awards: neutral ${evidence.neutral_per60}; complete drawing ${evidence.drawn_complete_per60}; complete taking ${evidence.taken_complete_per60} per60. positive taking difference means more penalties`, 20);
+          text(`isolated-minor value ${evidence.valuation.V_goals ?? "unavailable"} goals; taking value = −taking difference × V; V can be negative. source-pooled sh circumstances differ from hypothetical ev/pp references`, 20);
+        } else text(`share of team attempts; ${evidence.reference_unit.forwards}F/${evidence.reference_unit.defenders}D unit. exact-state qualifying minutes differ from pooled seven-state candidate information; neither is observed shot share`, 20);
       }
       if (datum.reference_panel) {
         const panel = datum.reference_panel;
@@ -847,13 +876,13 @@ function historySvg(view: HistoryView): string {
         if (change) text(change);
       }
       text(
-        `support reasons: ${JSON.stringify(datum.support?.reason_counts ?? null)}; recorded reason codes: ${datum.reasonCodes.join(", ") || "none"}`,
+        `support reasons: ${supportReasonText(datum.support)}; recorded reason codes: ${datum.reasonCodes.join(", ") || "none"}`,
         20,
       );
       for (const [term, component] of Object.entries(datum.componentSupport)) {
         const support = component.support;
         text(
-          `${term.replaceAll("_", " ")}: ${support ? `${support.included_seconds ?? "unknown"} included seconds; ${support.known_excluded_seconds ?? "unknown"} excluded seconds; gap ${support.unquantified_gap}; prior-only ${support.prior_only}; inferred ${support.inferred_inputs.join(", ") || "none"}; reasons ${JSON.stringify(support.reason_counts)}` : component.reason}`,
+          `${term.replaceAll("_", " ")}: ${support ? `${support.included_seconds ?? "unknown"} included seconds; ${support.known_excluded_seconds ?? "unknown"} excluded seconds; gap ${support.unquantified_gap}; prior-only ${support.prior_only}; inferred ${support.inferred_inputs.join(", ") || "none"}; reasons ${supportReasonText(support)}` : component.reason}`,
           20,
         );
       }
@@ -865,10 +894,27 @@ function historySvg(view: HistoryView): string {
         `methods: ${datum.methods.map((m) => m.method_id).join(", ") || "unlinked"}; sources: ${datum.sources.map((s) => s.source_id).join(", ") || "unlinked"}; reference ${datum.referenceId ?? "none"}; support policy ${datum.supportPolicyId}`,
         20,
       );
-      text(
-        `method limitations: ${JSON.stringify(datum.methods.flatMap((m) => m.limitations))}; findings: ${JSON.stringify(datum.findings.map((finding) => `${finding.population}: ${finding.summary}`))}; uncertainty: ${JSON.stringify(datum.original && "uncertainty" in datum.original ? datum.original.uncertainty : null)}`,
-        20,
-      );
+      const limitations = datum.methods.flatMap(method => method.limitations);
+      const methodNotes = new Map<string, Set<string>>();
+      for (const limitation of limitations)
+        methodNotes.set(limitation, new Set(["method limitation"]));
+      if (!limitations.length) note("method limitations: none supplied", point.season.season);
+      for (const finding of datum.findings) {
+        const method = datum.methods.find(method =>
+          finding.summary === method.limitations.join("; ") &&
+          method.assessment.findings.some(entry => entry.summary === finding.summary &&
+            entry.population === finding.population && datum.metric.quantityPath !== undefined &&
+            entry.quantities.includes(datum.metric.quantityPath)));
+        for (const body of method ? method.limitations : [finding.summary]) {
+          const labels = methodNotes.get(body) ?? new Set<string>();
+          labels.add(`finding for ${finding.population}`);
+          methodNotes.set(body, labels);
+        }
+      }
+      for (const [body, labels] of methodNotes)
+        note(`${[...labels].sort().join("; ")}: ${body}`, point.season.season);
+      if (!datum.findings.length) note("findings: none supplied", point.season.season);
+      text(`uncertainty: ${uncertaintyText(datum.original, datum.metric.displayScale, datum.metric.displayUnit)}`, 20);
       for (const source of datum.sources)
         text(
           `source ${source.label} (${source.origin}, ${source.acquisition}): ${source.definition}; limitations: ${source.limitations.join("; ") || "none supplied"}`,
@@ -876,6 +922,9 @@ function historySvg(view: HistoryView): string {
         );
       text(`corpus sha-256: ${point.season.corpus_sha256}`, 18);
     }
+    text("method notes and interpretation · applicable years", 23);
+    for (const [value, years] of notes)
+      text(`${[...years].map(seasonLabel).join(", ")}: ${value}`, 20);
     text(
       `publication ${view.publication.publication_id} · ${view.publication.purpose} · generated ${view.publication.generated_at}`,
       20,
@@ -900,8 +949,10 @@ export default function AnalysisHistory({
   view,
   onScaleChange,
   seasonLink,
+  exportPending = false,
 }: {
   readonly view: HistoryView;
+  readonly exportPending?: boolean;
   readonly onScaleChange: (scale: HistoryScale) => void;
   readonly seasonLink: (season: string) => { to: string; state: unknown };
 }) {
@@ -1019,7 +1070,7 @@ export default function AnalysisHistory({
       <div className="card-actions">
         <button
           type="button"
-          disabled={status === "rendering"}
+          disabled={exportPending || status === "rendering"}
           onClick={async () => {
             if (busy.current) return;
             busy.current = true;
@@ -1043,6 +1094,7 @@ export default function AnalysisHistory({
         </button>
         <button
           type="button"
+          disabled={exportPending}
           onClick={() => {
             const snapshot = view;
             try {

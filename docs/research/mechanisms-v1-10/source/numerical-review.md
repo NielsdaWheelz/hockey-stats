@@ -1,0 +1,17 @@
+# independent numerical/state review
+
+reviewer: source/design agent, independent of numerical implementation.
+
+mathematical review found the following constructions coherent: poisson elapsed intensity with residual multiplicities and zero-award time; symmetric player role information and raw-coordinate carry; unsupported coach subblocks retaining their prior anchors; role-slot/applicable-time centers; full conditional choice normalization; reconstructed zero-sum role contrasts and their gradient; unknown-role candidate incidence and reporting transfer; hypothetical same-position units; and signed isolated-minor survival/value, including zero intensity and negative value. root's independent small-objective/gradient checks are separate evidence.
+
+initial state review withheld acceptance for dropped narrow-read probes, ignored member roles and design axes, an array binding capable of referring to a different archive, incomplete prepared/coach binding validation and unchecked probe array/head semantics. the numerical owner is repairing these at their responsible boundary. narrow readers must preserve consumed final-year diagnostic evidence without reconstructing designs or opening original sources.
+
+source-to-reference review found and requested repairs for nonexistent prepared-event clock fields, incomplete report-only/API count-gap handling, conflating the skater-choice population with ordinary goalie team responses, and failing to distinguish proved advantaged attempts from ambiguous potentially-shorthanded attempts. these are computational population defects, not scientific caveats. final closure is recorded after the repaired boundary is inspected and exercised.
+
+## repaired boundary review
+
+all listed blockers are repaired at their owners. the full reader now checks owned array identity, finite inventories/axes, exact source/year bindings, raw-coefficient history preservation and reproducible baseline/probe projections and movements. the narrow reader checks the consumed saved diagnostic, projection closure and availability without loading designs. real final-year diagnostic presence is explicit. unsupported coordinates keep their incoming raw anchor; source qualification and multiplicity-weighted counts reconcile separately. the minor reduction handles independently proved non-shorthanded attempts, possible api/report count gaps, ordinary goalie responses and missing neutral values without importing the upstream advantaged mask.
+
+`numerical-final-replay.txt` records the inspected temporary objective/gradient, annual fit/save/reload/carry and conditional unknown-role controls. `state-rejection-results.json` records nine additional independent controls: wrong member role, wrong source year, unknown manifest field, orphan diagnostic coefficients, boolean scalar, broken narrow diagnostic closure, nonfinite coefficient array, duplicate json key and zero-choice unavailability without completed coefficients. the first local replay lacked newly required canonical synthetic coverage and failed before fitting; the corrected control supplies the source contract and passes. this was a controller defect, not accepted malformed source evidence.
+
+verdict: the reviewed source/numerical/state software boundary is accepted for the ordinary fixture chain. actual ten-head integration, real minor reductions, final numerical findings and application/publication acceptance remain root-owned and are not implied by this review. numerical sensitivity and scientific support retain the specification's distinct meanings.

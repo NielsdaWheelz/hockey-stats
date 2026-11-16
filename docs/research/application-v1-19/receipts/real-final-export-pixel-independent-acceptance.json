@@ -1,0 +1,326 @@
+{
+  "reviewer": "navigation agent, independent of goalie-card implementation",
+  "status": "accepted_scoped_final_pixels_both_reported_defects_resolved",
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "scope": "actual final native downloaded png pixels and corresponding svg; five inventory case cards plus both same-kind comparison cards, local files only",
+  "earlier_red_reviews": [
+    "real-export-pixel-independent-review.json",
+    "real-comparison-pixel-independent-review.json"
+  ],
+  "artifacts": [
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-card",
+      "png": {
+        "sha256": "eaa5748a834da065e1490017867ebb662ef582869934ca2edc8606d877de8683",
+        "bytes": 1906534,
+        "width": 1200,
+        "height": 6872
+      },
+      "svg": {
+        "sha256": "0e8579890ce25da23d6753c0b9c025fdf45a79fac8f7bafc1a83e1fd6d42acd4",
+        "bytes": 88847
+      },
+      "history_axis_labels": [
+        {
+          "text": "-0.348407",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        },
+        {
+          "text": "0.649113",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        }
+      ],
+      "history_point_slots": [
+        200,
+        640,
+        1080
+      ],
+      "minimum_text_px": 18,
+      "empty_distribution_baselines": []
+    },
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/thin/goalie-card",
+      "png": {
+        "sha256": "23307a101f3e36b8f7415f7979ec5a16a33e5b54334a1d27b38f0b4571e5e344",
+        "bytes": 1959446,
+        "width": 1200,
+        "height": 6818
+      },
+      "svg": {
+        "sha256": "e7f33ee502847a0a2f1d46a468bea4475af1f3726d95fe9e0630d643ed0b4892",
+        "bytes": 73747
+      },
+      "history_axis_labels": [
+        {
+          "text": "-0.755906",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        },
+        {
+          "text": "-0.683915",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        }
+      ],
+      "history_point_slots": [
+        200,
+        640,
+        1080
+      ],
+      "minimum_text_px": 18,
+      "empty_distribution_baselines": []
+    },
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/unused/goalie-card",
+      "png": {
+        "sha256": "b007cde327de3a1be695aa37c989d33e5aabb2a1caa3741cc40c0ae738cb575f",
+        "bytes": 1762323,
+        "width": 1200,
+        "height": 6791
+      },
+      "svg": {
+        "sha256": "7686bff570e9e746ce2371209acb3db35373a8fe3a31414e3aedfde55ff7f8c0",
+        "bytes": 61233
+      },
+      "history_axis_labels": [
+        {
+          "text": "-1.49681",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        },
+        {
+          "text": "-1.35426",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        }
+      ],
+      "history_point_slots": [
+        200,
+        640,
+        1080
+      ],
+      "minimum_text_px": 18,
+      "empty_distribution_baselines": []
+    },
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/traded/goalie-card",
+      "png": {
+        "sha256": "430aa2281d6535136da56e9e29287831ffd9e1449fc220a83c7407c8da637494",
+        "bytes": 1906267,
+        "width": 1200,
+        "height": 6872
+      },
+      "svg": {
+        "sha256": "5a3b8a0707e8c1225162cfe9fb8d8cd82b5f6258cd34c258a6165004195cff6a",
+        "bytes": 86680
+      },
+      "history_axis_labels": [
+        {
+          "text": "-0.92447",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        },
+        {
+          "text": "0.069516",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        }
+      ],
+      "history_point_slots": [
+        200,
+        640,
+        1080
+      ],
+      "minimum_text_px": 18,
+      "empty_distribution_baselines": []
+    },
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/absent/goalie-card",
+      "png": {
+        "sha256": "7b9c00df2a6755e4eabafc3b5b4a42af5599f474856906e26d6374e6ee1b9308",
+        "bytes": 926545,
+        "width": 1200,
+        "height": 4304
+      },
+      "svg": {
+        "sha256": "71bb53e0001a0936eb31b2414fb13f06aafbb3248ea40beff9475888d0227aa3",
+        "bytes": 13972
+      },
+      "history_axis_labels": [
+        {
+          "text": "-0.795564",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        },
+        {
+          "text": "-0.457041",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        }
+      ],
+      "history_point_slots": [
+        200,
+        640,
+        1080
+      ],
+      "minimum_text_px": 18,
+      "empty_distribution_baselines": [
+        {
+          "x": 44.0,
+          "empty_baseline": 309.0,
+          "metadata_baseline": 336.0,
+          "gap_px": 27.0
+        },
+        {
+          "x": 44.0,
+          "empty_baseline": 891.0,
+          "metadata_baseline": 918.0,
+          "gap_px": 27.0
+        },
+        {
+          "x": 614.0,
+          "empty_baseline": 891.0,
+          "metadata_baseline": 918.0,
+          "gap_px": 27.0
+        },
+        {
+          "x": 44.0,
+          "empty_baseline": 1226.0,
+          "metadata_baseline": 1253.0,
+          "gap_px": 27.0
+        },
+        {
+          "x": 614.0,
+          "empty_baseline": 1226.0,
+          "metadata_baseline": 1253.0,
+          "gap_px": 27.0
+        },
+        {
+          "x": 44.0,
+          "empty_baseline": 1588.0,
+          "metadata_baseline": 1615.0,
+          "gap_px": 27.0
+        },
+        {
+          "x": 614.0,
+          "empty_baseline": 1588.0,
+          "metadata_baseline": 1615.0,
+          "gap_px": 27.0
+        }
+      ]
+    },
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/comparison/8478872",
+      "png": {
+        "sha256": "70e8ce45d31c42b38467c1cffe49d100c3cbaaa7748f702ee2567d65d2f8cbea",
+        "bytes": 1923465,
+        "width": 1200,
+        "height": 6927
+      },
+      "svg": {
+        "sha256": "e10596b0b6a8fc41f2aa81d2d04a2f7eca3a66752761e074a35675ac7899cff2",
+        "bytes": 85545
+      },
+      "history_axis_labels": [
+        {
+          "text": "-0.348407",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        },
+        {
+          "text": "0.649113",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        }
+      ],
+      "history_point_slots": [
+        200,
+        640,
+        1080
+      ],
+      "minimum_text_px": 18,
+      "empty_distribution_baselines": []
+    },
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/comparison/8477465",
+      "png": {
+        "sha256": "0838f5c3883e2f52da02378762bec7e1e57e0c9d4562888aa9a7e0f33507e9f3",
+        "bytes": 1919522,
+        "width": 1200,
+        "height": 6927
+      },
+      "svg": {
+        "sha256": "eb0562d6d7174386ba646a3cb7a84186087c595050314cbd1d29b97f433a9f09",
+        "bytes": 80943
+      },
+      "history_axis_labels": [
+        {
+          "text": "-0.92447",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        },
+        {
+          "text": "0.069516",
+          "x": 170,
+          "font_px": 20,
+          "anchor": "end"
+        }
+      ],
+      "history_point_slots": [
+        200,
+        640,
+        1080
+      ],
+      "minimum_text_px": 18,
+      "empty_distribution_baselines": []
+    }
+  ],
+  "resolved_findings": [
+    "embedded raw-history labels right-aligned x170 at20px with first point x200 and visible gap; three slots200/640/1080, baseline200\u21921100, final numeric/year labels within canvas",
+    "all seven absent no-finite-distribution captions now precede cohort/status metadata by27px; no doubled text; absent canvas increases120px to4304 and preserves complete footer"
+  ],
+  "content_and_geometry": [
+    "all seven actual final pngs viewed individually; no remaining concrete label collision, outer-canvas clipping or section/footer overlap observed",
+    "all five cases retain identity/annual-team text, selected core value or precise unavailable/absent state, three-season raw history, six conditioned subskill distributions, map/type/histogram sections and construction/publication footer",
+    "ordinary/thin/traded cards and pair retain six full-rink maps, four type bar pairs, unmapped/other accounting, two distinct actual populations, difficulty and histogram; unused shows the honest unavailable modeled map; absent shows precise missing-season reasons",
+    "thin support remains below cutoff without percentile; unused remains0appearances with unavailable modeled estimate; absent retains prior-year history without selected-season values",
+    "body and history axis text remain20px, essential footer18px; numerical label strings and formatter unchanged",
+    "comparison retains both annual teams, reciprocal named/id companion footer and identical corresponding displayed map legend vectors"
+  ],
+  "population_bounds_proof": {
+    "receipt": "real-stopping-history-label-bounds.json",
+    "sha256": "eb2b10da1bcfac2392394a65f56c1172d65e9d8e5f6a1032d4aff661c6544f59",
+    "axis_labels": 528,
+    "finite_domains": 264,
+    "single_point_domains": 68,
+    "published_goalie_identities": 165,
+    "current_goalies": 123,
+    "widest_label": "-0.0924557",
+    "native_menlo20_width_px": 120.41015625,
+    "minimum_current_label_left_px": 49.58984375,
+    "label_to_first_circle_clearance_px": 23,
+    "retained_without_database_reread": true
+  },
+  "limits": [
+    "scoped pixel acceptance only; full native journey was still running when review was assigned",
+    "no api/browser/database/build/publication/start operation and no production source edits in this review",
+    "prior full real loader/numerical acceptance remains separate; no matrix repeated"
+  ]
+}

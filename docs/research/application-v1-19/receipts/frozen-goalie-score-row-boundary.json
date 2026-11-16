@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "input": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/manifest.json",
+    "sha256": "219a109775d3ddb255ad40fca0082c57acfc09e371bc586de7c85b2a9afd5bb5"
+  },
+  "original_scalar_member": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/fixture-scores-final-02/20252026/goalie_result.jsonl",
+    "sha256": "a7bd59839c49bec0fd25f89a1ef3551ca7c3950259f05871397581835faa9127"
+  },
+  "output": "transient validated current rows; original files untouched",
+  "rows": 352,
+  "wall_seconds": 0.21742779086343944,
+  "boundaries": [
+    "frozen score scalar rows contain no evidence",
+    "all current rows gain exact bound saved proof",
+    "all current rows pass strict exchange4 validator",
+    "estimates/support/reasons/method copied exactly",
+    "missing proof and changed inherited estimate rejected",
+    "source member bytes/digest unchanged"
+  ],
+  "limit": "bounded frozen scalar reader/composition boundary; full all-table fixture reader measured separately"
+}

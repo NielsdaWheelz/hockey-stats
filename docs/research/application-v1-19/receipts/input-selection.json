@@ -1,0 +1,29 @@
+{
+  "selection_source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores-selection.json",
+    "sha256": "2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed"
+  },
+  "selected_displayed_annuals": {
+    "schema_version": 1,
+    "purpose": "real",
+    "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "scores": [
+      {
+        "season": "20232024",
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20232024/manifest.json",
+        "sha256": "5c75b215c50d3271ab2f4df4bc9d2dca39c26b846977dde251b0d0c39b6a25aa"
+      },
+      {
+        "season": "20242025",
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20242025/manifest.json",
+        "sha256": "c398c0cb69549e9832cc3e4ce0b330b883a1926a9ca6a9fab6e04fe7237882a2"
+      },
+      {
+        "season": "20252026",
+        "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores/20252026/manifest.json",
+        "sha256": "de378b2ee8cce1075b86d3e883bd29b64fb74fa90356a86753b9e123acfe2e5a"
+      }
+    ]
+  },
+  "read_policy": "only each selected manifest and its hash-bound projections.jsonl; no earlier annuals or original tensor/event reads"
+}

@@ -1,0 +1,71 @@
+{
+  "compiledSource": "92379be",
+  "checks": [
+    {
+      "name": "absent map reason",
+      "rows": 1,
+      "columns": 38
+    },
+    {
+      "name": "absent stages reason",
+      "rows": 1,
+      "columns": 25
+    },
+    {
+      "name": "absent games reason",
+      "rows": 1,
+      "columns": 28
+    },
+    {
+      "name": "absent tiers reason",
+      "rows": 3,
+      "columns": 28
+    },
+    {
+      "name": "absent exact history",
+      "rows": 16,
+      "columns": 70
+    },
+    {
+      "name": "absent danger reason",
+      "rows": 1,
+      "columns": 29
+    },
+    {
+      "name": "complete card envelope",
+      "rows": 56,
+      "columns": 77
+    },
+    {
+      "name": "raw exact-state scalar and history",
+      "rows": 16,
+      "columns": 70
+    },
+    {
+      "name": "defined stages",
+      "rows": 20,
+      "columns": 25
+    },
+    {
+      "name": "defined games",
+      "rows": 1,
+      "columns": 28
+    },
+    {
+      "name": "defined tiers",
+      "rows": 3,
+      "columns": 28
+    },
+    {
+      "name": "g14 annual recorded facts and reason rows",
+      "rows": 81,
+      "columns": 25
+    }
+  ],
+  "explicitTierUnits": true,
+  "threeAnnualObservedFactsOrReasons": true,
+  "immutableExportSnapshot": true,
+  "incompleteOverviewRejected": true,
+  "incompleteTypeRejected": true,
+  "rawOnlyExactStateMetadata": true
+}

@@ -1,0 +1,42 @@
+
+> build
+> react-router build && tsc -p tsconfig.json --noEmit false --outDir dist/node
+
+Using Vite Environment API
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 334 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/client/.vite/manifest.json                         4.01 kB │ gzip:  0.68 kB
+dist/client/assets/styles-C59g0L7e.css                 32.68 kB │ gzip:  6.87 kB
+dist/client/assets/compare-client-loader-tYoMoG3Y.js    0.12 kB │ gzip:  0.13 kB
+dist/client/assets/league-client-loader-CO-vwDfP.js     0.12 kB │ gzip:  0.13 kB
+dist/client/assets/player-client-loader-Jmdx-cUD.js     0.14 kB │ gzip:  0.14 kB
+dist/client/assets/root-C8vko2S1.js                     3.62 kB │ gzip:  1.65 kB
+dist/client/assets/player-main-MrByxxX0.js             18.43 kB │ gzip:  4.84 kB
+dist/client/assets/compare-main-Bn6pLMS-.js            19.06 kB │ gzip:  5.89 kB
+dist/client/assets/league-main-DypHCOkm.js             24.91 kB │ gzip:  7.60 kB
+dist/client/assets/client-CiMiBqnN.js                  41.00 kB │ gzip: 12.91 kB
+dist/client/assets/peer-distributions-D7NMnE1Z.js      47.64 kB │ gzip: 14.18 kB
+dist/client/assets/jsx-runtime-Bcb-PiJy.js            121.19 kB │ gzip: 39.78 kB
+dist/client/assets/execution-evidence-Dgz5MJnC.js     214.21 kB │ gzip: 58.51 kB
+dist/client/assets/entry.client-CimxyNE3.js           214.67 kB │ gzip: 67.16 kB
+dist/client/assets/explorer-rd4zlXJg.js               290.86 kB │ gzip: 86.47 kB
+
+✓ built in 366ms
+vite v8.3.4 building ssr environment for production...
+transforming...
+✓ 16 modules transformed.
+rendering chunks...
+
+✓ 1 asset cleaned from React Router server build.
+dist/client/assets/styles-C59g0L7e.css
+
+computing gzip size...
+dist/server/.vite/manifest.json           0.43 kB │ gzip:  0.22 kB
+dist/server/assets/styles-C59g0L7e.css   32.68 kB │ gzip:  6.87 kB
+dist/server/index.js                    188.17 kB │ gzip: 37.97 kB
+
+✓ built in 67ms
+SPA Mode: Generated dist/client/index.html

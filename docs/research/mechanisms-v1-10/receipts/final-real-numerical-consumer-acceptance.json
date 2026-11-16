@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "kind": "mechanism_final_consumer_acceptance",
+  "status": "passed",
+  "base_url": "http://127.0.0.1:3419",
+  "results": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results",
+  "database": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+  "stats": {
+    "producerRows": 22272,
+    "sqliteRows": 22272,
+    "apiRows": 22272,
+    "arithmeticRows": 22272,
+    "cohortChecks": 50112,
+    "csvChecks": 69600,
+    "profileChecks": 5,
+    "comparisonChecks": 1,
+    "mapRejections": 2,
+    "positiveTakingRankChecks": 983
+  },
+  "cases": {
+    "forward": {
+      "season": "20232024",
+      "player_id": "8470604"
+    },
+    "defense": {
+      "season": "20232024",
+      "player_id": "8470600"
+    },
+    "multi_team": {
+      "season": "20232024",
+      "player_id": "8470621"
+    },
+    "sparse": {
+      "season": "20232024",
+      "player_id": "8473473"
+    },
+    "prior_only": {
+      "season": "20242025",
+      "player_id": "8478173"
+    },
+    "zero_specialty_time": {
+      "season": "20232024",
+      "player_id": "8470600",
+      "strength": "5v3"
+    }
+  },
+  "purpose": "real",
+  "manifest_sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "unexercised_actual_cases": [],
+  "scope": "full three-season owned producer/sqlite/api inventory and actual public selectors/cohorts/history/profile/comparison; browser/download/layout acceptance separate",
+  "limits": [
+    "no source capture, design or fit replay; only selected exchange members and readonly publication",
+    "absent actual special-case categories are reported, never invented",
+    "schema/startup cost and browser/download/native zoom acceptance belong to separate root checks"
+  ]
+}

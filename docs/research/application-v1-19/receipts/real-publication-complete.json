@@ -1,0 +1,37 @@
+{
+  "at": "2026-11-16T10:35:00.490014+00:00",
+  "status": "passed_ordinary_publication",
+  "native_exit_code": 0,
+  "source_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+    "sha256": "483b1e1b98112ddabc85cf1d7794b76cccfad004962f6991402abb1d4825840e"
+  },
+  "database_bytes": 31359414272,
+  "verification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/verification.json",
+    "sha256": "f0e7ce78ced72b3f1ed0ef35d0515a7cf2d842f0c8aac93c748acc2c4ff49567"
+  },
+  "checks": {
+    "integrity": "passed",
+    "foreign_keys": "passed",
+    "read_back": "passed",
+    "per_season_conservation": "passed"
+  },
+  "cost": {
+    "wall_seconds": 22867.279455957934,
+    "peak_rss_bytes": 3280093184,
+    "consumed_bytes": 41205680672,
+    "database_bytes": 31359414272
+  },
+  "native_outside_cost": "    22868.58 real     17243.14 user      1538.68 sys\n          3280093184  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n             1149873  page reclaims\n                1425  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n             1259335  voluntary context switches\n           173441649  involuntary context switches\n     333511642494798  instructions retired\n      67217717471009  cycles elapsed\n          3323726752  peak memory footprint\n",
+  "candidate_directory": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01",
+    "regular_file_bytes": 65572432890,
+    "files": 92
+  },
+  "scientific_admission": "not_performed",
+  "strict_startup": false,
+  "activation": false
+}

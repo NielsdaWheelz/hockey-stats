@@ -12,6 +12,8 @@ import type { SeasonEvidence } from "../../shared/observed";
 import type { Person } from "../../shared/player-analysis";
 import { loadProfile } from "../client";
 import {
+  readGoalieSelection,
+  goalieSelectionSearch,
   readMapMode,
   readMapRender,
   readView,
@@ -25,6 +27,9 @@ import {
   type PeerSettings,
 } from "../explorer";
 import SpatialViews from "../spatial-views";
+import GoalieCard, { prepareGoalieCard } from "../goalie-card";
+import GoalieDetails from "../goalie-details";
+import GoalieControls from "../goalie-controls";
 import ExecutionEvidence from "../execution-evidence";
 import PeerDistributions, { PeerControls } from "../peer-distributions";
 import { microstatMetricIds, microstatComponentIds, type AnalysisMetric } from "../analysis-values";
@@ -130,8 +135,9 @@ export default function Player() {
   const location = useLocation();
   const navigation = useNavigation();
   const [search, setSearch] = useSearchParams();
-  const { view, search: viewNormalized } = readView(search);
-  const observedView = data.kind === "goalie" || view === "observed";
+  const { view, search: viewNormalized } = readView(search, data.kind);
+  viewNormalized.delete("kind");
+  const observedView = data.kind === "skater" && view === "observed";
   const { settings, search: peerNormalized } = readPeerSettings(viewNormalized);
   const { mode, search: mapNormalized } = readMapMode(peerNormalized);
   const { render, search: renderNormalized } = readMapRender(mapNormalized);
@@ -139,21 +145,26 @@ export default function Player() {
     renderNormalized,
     data.kind,
   );
-  const { scale, search: normalized } = readHistoryScale(metricNormalized, metric);
+  const goalieSelection = readGoalieSelection(metricNormalized);
+  const { scale, search: normalized } = readHistoryScale(data.kind === "goalie" ? goalieSelection.search : metricNormalized, metric);
   useCanonicalSearch(season.season, normalized);
   const leagueSearch =
     historySearch(location.state?.leagueSearch) ||
-    `?${seasonSearch("", season.season)}`;
+    `?${seasonSearch(data.kind === "goalie" ? "kind=goalie" : "", season.season)}`;
   const comparisonSearch = historySearch(location.state?.comparisonSearch);
   const viewQuery = seasonSearch("", season.season);
-  if (view !== "comparative" && data.kind === "skater")
-    viewQuery.set("view", view);
+  if (view !== "comparative") viewQuery.set("view", view);
+  if (data.kind === "goalie") {
+    viewQuery.set("kind", "goalie");
+    for (const key of ["evidenceStrength", "population", "evidenceView", "type"])
+      if (search.has(key)) viewQuery.set(key, search.get(key)!);
+  }
   viewQuery.set("metric", metric.id);
   if (scale !== "raw") viewQuery.set("history", scale);
   if (settings.specialtyMin !== 50)
     viewQuery.set("specialtyMin", String(settings.specialtyMin));
   if (mode === "absolute") viewQuery.set("map", "absolute");
-  if (view === "analytical" && render === "rectangles") viewQuery.set("render", render);
+  if ((view === "analytical" || view === "goalie") && render === "rectangles") viewQuery.set("render", render);
   if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
   if (settings.peerMin !== 300)
     viewQuery.set("peerMin", String(settings.peerMin));
@@ -259,6 +270,13 @@ export default function Player() {
   const analytical = useMemo(() => data.kind === "skater" && view === "analytical"
     ? prepareAnalyticalCards([data], settings, data.coreMaps)[0] : null,
   [data, view, settings.peers, settings.peerMin, settings.specialtyMin]);
+  const goalieCard = useMemo(() => data.kind === "goalie" ? prepareGoalieCard(data, settings, { render }) : null,
+    [data, render, settings.peerMin, settings.specialtyMin]);
+  const changeGoalieSelection = (changes: Parameters<typeof goalieSelectionSearch>[1]) => {
+    setSearch(goalieSelectionSearch(viewSearch(location, navigation.location), changes), {
+      preventScrollReset: true, state: location.state, flushSync: true,
+    });
+  };
   const comparisonQuery = new URLSearchParams(viewQuery);
   comparisonQuery.set("a", data.player_id);
   const profileLink = (playerId: string) => ({
@@ -274,11 +292,9 @@ export default function Player() {
             back to comparison
           </Link>
         )}
-        {data.kind === "skater" && (
-          <Link to={`/compare?${comparisonQuery}`} state={{ leagueSearch }}>
-            compare this player
-          </Link>
-        )}
+        <Link to={`/compare?${comparisonQuery}`} state={{ leagueSearch }}>
+          {data.kind === "goalie" ? "compare this goalie" : "compare this player"}
+        </Link>
       </nav>
       <section className="player-heading">
         <h2>{identity ? playerName(identity) : `player ${data.player_id}`}</h2>
@@ -331,6 +347,20 @@ export default function Player() {
           })}
         </nav>
       )}
+      {goalieCard && <>
+        <GoalieControls selection={goalieSelection.selection} render={render}
+          onChange={changeGoalieSelection} onRenderChange={changeRender} />
+        <PeerControls settings={settings} onChange={changePeers} metric={metric} allCutoffs />
+        {navigation.state !== "idle" && <p role="status">exports unavailable while the requested selection loads.</p>}
+        <fieldset className="goalie-export-snapshot" disabled={navigation.state !== "idle"}>
+        <GoalieCard model={goalieCard} detailLink={id => {
+          const next = seasonSearch(search, season.season);
+          next.set("metric", id);
+          return { to: `${location.pathname}?${next}`, state: location.state };
+        }} />
+        <GoalieDetails profile={data} settings={settings} render={render} />
+        </fieldset>
+      </>}
       {card && (
         <section
           className="comparative-controls"
@@ -395,7 +425,8 @@ export default function Player() {
           onRenderChange={changeRender} onModeChange={changeMode} onMetricChange={changeMetric} />
       </>}
       <PeerDistributions
-        exportValues={view === "analytical"}
+        exportPending={navigation.state !== "idle"}
+        exportValues={view === "analytical" || view === "goalie"}
         metricIds={microstats ? [...microstatMetricIds, ...microstatComponentIds] : undefined}
         showPeerControls={observedView && metric.standingPolicy !== "raw_only"}
         cohort={selectedScalar.cohort}
@@ -414,6 +445,7 @@ export default function Player() {
         />
       )}
       <AnalysisHistory
+        exportPending={navigation.state !== "idle"}
         view={{
           publication,
           metric,
@@ -427,53 +459,7 @@ export default function Player() {
           state: location.state,
         })}
       />
-      {data.kind === "goalie" ? (
-        <section className="player-history" aria-labelledby="history-heading">
-          <h3 id="history-heading">published identity across seasons</h3>
-          <div
-            className="table-scroll history-scroll"
-            tabIndex={0}
-            role="region"
-            aria-label="published identity table, scroll horizontally for all columns"
-          >
-            <table className="history-table identity-history">
-              <caption>
-                published identity; selected goalie quantities and support
-                appear above.
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col" className="identity">
-                    season
-                  </th>
-                  <th scope="col">
-                    season identity / teams / reported position
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {history.map(({ season: evidence, person: row }) => (
-                  <tr key={evidence.season}>
-                    <HistorySeason
-                      evidence={evidence}
-                      selected={evidence.season === season.season}
-                      gap={false}
-                    />
-                    {row ? (
-                      <HistoryIdentity identity={row} />
-                    ) : (
-                      <td>
-                        no published player record for{" "}
-                        {seasonLabel(evidence.season)}.
-                      </td>
-                    )}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      ) : observedView ? (
+      {observedView ? (
         <section className="player-history" aria-labelledby="history-heading">
           <h3 id="history-heading">
             recorded results across published seasons

@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "kind": "shared_history_human_text_controls",
+  "status": "passed_bounded_software",
+  "purpose": "synthetic_presentation_controls",
+  "red": "actual existing historySvg renderer failed the available-uncertainty prose assertion before implementation",
+  "checks": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/history-presentation-controls-02/checks.json",
+    "sha256": "8569ab95712af95c9ab6e4370d93902d01f17017ae2a579b0f48d63157c59731",
+    "bytes": 2627
+  },
+  "artifacts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/history-presentation-controls-02/goalie-conditional.png",
+      "sha256": "50e73eb8f31121fb6983011211c5595ce135d82b22c07699876b2b4de2a0cb21",
+      "bytes": 447806
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/history-presentation-controls-02/goalie-conditional.svg",
+      "sha256": "a421a324b38cfc0380d9b40fdfb20b57e0002aab911830fe991115e466614d56",
+      "bytes": 5258
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/history-presentation-controls-02/goalie.png",
+      "sha256": "6bdfb1f9c9ab5603e58165fc8ee7449321d485d6537aef605a5814d7144138ba",
+      "bytes": 461757
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/history-presentation-controls-02/goalie.svg",
+      "sha256": "cabe3b18468d1ea9c8c11ff073428f2e55f774ce2e951362424580d76c8d813a",
+      "bytes": 5390
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/history-presentation-controls-02/mechanism-grouped.png",
+      "sha256": "584c0b424db2dfd40ee3dfc179fa4afa1cd137392f6fa6a506f08f61636bfe05",
+      "bytes": 890822
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/history-presentation-controls-02/mechanism-grouped.svg",
+      "sha256": "9d5c7d139e58959fad2e66e9f499460baa035d27a104933ca3440187552f485f",
+      "bytes": 10297
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/history-presentation-controls-02/mechanism.png",
+      "sha256": "aea3fad452e4460c56efe06b8fced73d0691ee8037e4a1898191963f157a3c06",
+      "bytes": 407670
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/history-presentation-controls-02/mechanism.svg",
+      "sha256": "2120fbc568e7e08e73b55cc45f9ca2c739c5d3916b396151bfd24ae48aa40a16",
+      "bytes": 4704
+    }
+  ],
+  "patch": {
+    "path": ".tmp/v1-10/history-human-text.patch",
+    "sha256": "f6c0138caf94f6207d4eb1e83a1cafc6f51b6aba8a68b2dbd9554615e730003a",
+    "bytes": 11043
+  },
+  "controller": {
+    "path": ".tmp/v1-10/check-history-presentation.mjs",
+    "sha256": "eb6f867b66b6e2044590153804bcc40d95de5a6ff68be9c47516b7ffb7cd352d",
+    "bytes": 8489
+  },
+  "verification": [
+    "44 actual HTML/SVG renderer checks across mechanism and goalie available/pending/conditional interval cases",
+    "fractional uncertainty bounds scale once to percentages; per100 goal bounds retain native scale",
+    "method, conditions and interval level retained; native structured uncertainty/reasons/goalie evidence unchanged in csv",
+    "exact same caveats/findings grouped once with applicable years; unique caveats and different annual sensitivity remain associated",
+    "negative, zero and positive supplied V retain explicit signed equation and omit ambiguous opposite-signed reference",
+    "node24 typecheck passed; shared scalar csv headers/serializer source remains byte-exact"
+  ],
+  "raster_review": [
+    "shared scalar goalie conditional-interval png inspected: method/conditions,1-to3 percent interval, year-specific support/reference and synthetic footer legible and unclipped",
+    "three-year grouped mechanism png inspected: shared note lists all3 years once, unique notes and differing sensitivity retain their year labels"
+  ],
+  "scope": "temporary in-memory compilation of actual renderer only; existing cached browser; no application build, server/startup, new dependency or analysis edit",
+  "unresolved_issue": "docs/issues/history-export-repeated-method-notes.md remains open until actual final real mechanism and goalie svg/png downloads pass",
+  "csv_scope": "header/serializer source and numerical/structured evidence unchanged; corrected penalty numericReference changes semantic_identity and can change fallback numeric_reference cells, so whole CSV files are not byte-identical",
+  "root_independent_pixel_review": {
+    "status": "pass",
+    "artifacts": [
+      "goalie-conditional.png",
+      "mechanism-grouped.png"
+    ],
+    "scope": "bounded synthetic scalar renderers only; readable and unclipped units, conditions, annual support/reference, scoped shared/unique notes, signed value equation and footers; no inferential-interval acceptance or final real-download claim"
+  },
+  "independent_review": "../reviews/history-human-text-review.md",
+  "v1_19_review": "source, navigation systems and bounded actual-renderer pixels accepted through explicit root coordination; existing issue remains open for final real downloads"
+}

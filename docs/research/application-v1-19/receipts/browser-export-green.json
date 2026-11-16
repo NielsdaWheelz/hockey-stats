@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "facts": [
+    {
+      "case": "absent actual-map closed csv",
+      "headerColumns": 38,
+      "rowColumns": 38,
+      "filename": "hockey-stats-20252026-9000004-goalie-map.csv"
+    },
+    {
+      "case": "provided danger csv has no unavailable reason",
+      "rows": 100
+    }
+  ]
+}

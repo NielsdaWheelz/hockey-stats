@@ -1,0 +1,341 @@
+{
+  "status": "numerical_delivery_scope_complete",
+  "scope": "independent final saved-report and actual finite artifact hash closure; no numerical matrix, database, API, source-corpus, fit or browser campaign",
+  "blocking_numerical_findings": [],
+  "bindings": {
+    "native_final": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-native-final.json",
+      "sha256": "66ea505530a619a24a70a749b44134cbba280ec09beb00cf973594a3f0dbc248"
+    },
+    "final_native_report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/journeys.json",
+      "sha256": "75ef35aa6b864e3196a8151cbe0dda0075629c1d81527683e92031c99b2d22b1"
+    },
+    "preserved_pre_repair_native_report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/attempt-03/journeys.json",
+      "sha256": "84031b8dcf6e99ff6480c32c95fb38ab7cb70417fd9f7606f789d36255d009dd"
+    },
+    "final_ready_handoff": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-api-ready-final-handoff.json",
+      "sha256": "5496fe551846fd4dd4ef275902ad35b515454e508bd11a4b1a602cf0e8d0bec3"
+    },
+    "current_goalie_publication_reconciliation": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-goalie-publication-reconciliation.json",
+      "sha256": "511565250120dbeebb49e31bf383ce872b6f9c89b68a89bf77272051585a9966"
+    },
+    "publication_receipt_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-goalie-publication-independent-review.json",
+      "sha256": "67fb9e1e2263e39aeba8113ae2b10b83f06a2f83ab3fac9bae50bbc98a988fac"
+    },
+    "g14_reconciliation": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-g14-download-reconciliation.json",
+      "sha256": "54300e1f961b29a4615dced242336caf862bc859ebfb2daec65b36c723b99b5f"
+    },
+    "g14_file_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-g14-download-independent-review.json",
+      "sha256": "687c5bbc9145dd662c95cbe5e70121ab8169291da35e61d6ef890d3173dcbad4"
+    },
+    "shared_history_source_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/shared-history-note-role-independent-review.json",
+      "sha256": "f65cd2bd0f78e04002285398388f51f3ebd7f841f0414d78dfb8329b332b2449"
+    },
+    "native_cost": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-browser-final-journeys-cost.txt",
+      "sha256": "a995fa80ae103323659d024d2e6dafc2722e73f99c6c38a9800c7409d680f5dd"
+    }
+  },
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "app_tree": "ae488e0623a869c73ef52601198cb884065faa0d",
+  "confirmed": {
+    "final_functional_selections": 26,
+    "final_download_artifacts": 70,
+    "data_artifacts_csv_or_json": 40,
+    "all_actual_data_artifact_hashes_equal_both_native_reports": true,
+    "all_seven_g14_hashes_and_sidecars_preserve_accepted_evidence": true,
+    "g14_data_rows": 723,
+    "g14_previously_reconciled_raw_facts": 720,
+    "all_3971_source_to_db_goalie_rows_preserved_by_attributed_transport_proof": true,
+    "final_schema": 10,
+    "same_inactive_publication": true,
+    "final_native_100_and_200_png_bytes_equal": true,
+    "final_native_png_dimensions": [
+      1200,
+      6872
+    ],
+    "final_native_png_sha256": "eaa5748a834da065e1490017867ebb662ef582869934ca2edc8606d877de8683",
+    "final_native_csv_sha256": "137eba4d210f4bbd2ddc70409d168d41740795df68bbe1f822804afa3b6d55e7",
+    "page_errors": [],
+    "api_errors": []
+  },
+  "actual_checked_data_artifacts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/absent/goalie-card.csv",
+      "sha256": "b7928721e3fba4489f92b78e13c28b30a7ec40c5b87a2b2663ddb455ac83cce3",
+      "bytes": 25035
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/absent/goalie-observed-history.csv",
+      "sha256": "7a6641fb0d6672ef33360eb5afaf7e3e2d18c79ba77e7899416f951f644968ca",
+      "bytes": 98414
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/absent/published-player.json",
+      "sha256": "08061f2cb418d8606f170cfc16c094499c3a496aec044f2db11724eeca187576",
+      "bytes": 1665591
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/absent/selection.json",
+      "sha256": "4acc9fc6aef4161f5acc12f37eaea09d460aeeaed807f8c3edac2cd6c94ddc0c",
+      "bytes": 198
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-card.csv",
+      "sha256": "137eba4d210f4bbd2ddc70409d168d41740795df68bbe1f822804afa3b6d55e7",
+      "bytes": 239325
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-danger.csv",
+      "sha256": "c75bcf1d69dcccc19d54652764e4616cfb7d67d462110c57520805b158be161d",
+      "bytes": 73733
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-exact-history.csv",
+      "sha256": "e9a7ab73ac5e256d965abaf5791c4a03e9cad1356329c9ebb1a8d10aef0426c3",
+      "bytes": 208199
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-games.csv",
+      "sha256": "de8d12af46bb76124bc73662e86cfab55ef103d62bcd14374c3519dfac41d3b4",
+      "bytes": 812196
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-map.csv",
+      "sha256": "abfaa529134968a036ced54dfd14dad7f9c50a3e4b3f86c3544f02f0a1022765",
+      "bytes": 1327175
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-observed-history.csv",
+      "sha256": "868ba65fe627c4040a58205ac8541035b45ce7b294f14fb74ffc5655bdc973b7",
+      "bytes": 147177
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-stages.csv",
+      "sha256": "a01fdd8703255ed0da2772a3f8bcbb67305db0ed2fe0df599d03d54abafe56f1",
+      "bytes": 992533
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-tiers.csv",
+      "sha256": "09fd824117dda89d95eb97861fe9ab5519a4f8d198443ba2dda73c8d83297daa",
+      "bytes": 3001
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/published-player.json",
+      "sha256": "01c94efd5964a068e2d835c58ee58f6dc49c6ac4a4ec8c1345990f40c151cddb",
+      "bytes": 3042171
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/selected-history.csv",
+      "sha256": "2213d75c6ae77db3d7f54d693c46c412c371a5e6f7aa05e06ba3d3c2e0e12d14",
+      "bytes": 39301
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/selection.json",
+      "sha256": "94c3d87d88cca418aea67dd41992ef40e906848de693be58983d83fe76315909",
+      "bytes": 198
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/thin/goalie-card.csv",
+      "sha256": "bdcc15674cc4e57373d2ce613f02dd36364fded08dcbe0fd01425fb3cc901aa8",
+      "bytes": 237777
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/thin/goalie-observed-history.csv",
+      "sha256": "a3994a4500e1d2aa409755db62ad12ec05f5680ed8fadc014e1293850e8b0281",
+      "bytes": 97678
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/thin/published-player.json",
+      "sha256": "0544cda8c856e03fc9f01828fd75dc102df938afa42584a9c155615f11707dc7",
+      "bytes": 1631309
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/thin/selection.json",
+      "sha256": "1aca75cb2a6360a732201831ea742f1ea426c6d74fcfc1196839fdeb7ac81b03",
+      "bytes": 198
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/traded/goalie-card.csv",
+      "sha256": "5c01c48048af622c2107b99529c3b29f56c5b934b73fcf872c2350dc2f82e1a0",
+      "bytes": 239323
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/traded/goalie-observed-history.csv",
+      "sha256": "2f0064089a1a496bc271e1789256bdf808385f0b7428c047943d66573cc3f944",
+      "bytes": 148258
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/traded/published-player.json",
+      "sha256": "ab7769fbecee775db7c0e15a5eaf49223f928381b1110513b849d2d17b244b03",
+      "bytes": 3066163
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/traded/selection.json",
+      "sha256": "6b00ad60d3bf736d6217120a6a728ba4d51296b07fe8f754be79dece322002a2",
+      "bytes": 198
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/unused/goalie-card.csv",
+      "sha256": "4aac42ee270f4f6bb18a1a9b8fcec2315b24a049e6422b9020ccf33c530a846d",
+      "bytes": 253449
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/unused/goalie-observed-history.csv",
+      "sha256": "05615d4850edcc3047303777469b748b51317590ddc47dd1dc201580f59662d7",
+      "bytes": 97791
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/unused/published-player.json",
+      "sha256": "bda1eb4871ed2ee7f1699adb2c70f18d744f7f2490a36aa416269850e34f9c79",
+      "bytes": 1798534
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/unused/selection.json",
+      "sha256": "cbc242c24fab8a7296921e8bfbc0ad3b5c335b0d88edac7efe19c4805c5ee144",
+      "bytes": 198
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/native/1-card.csv",
+      "sha256": "137eba4d210f4bbd2ddc70409d168d41740795df68bbe1f822804afa3b6d55e7",
+      "bytes": 239325
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/native/2-card.csv",
+      "sha256": "137eba4d210f4bbd2ddc70409d168d41740795df68bbe1f822804afa3b6d55e7",
+      "bytes": 239325
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/native/narrow-card.csv",
+      "sha256": "137eba4d210f4bbd2ddc70409d168d41740795df68bbe1f822804afa3b6d55e7",
+      "bytes": 239325
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/covered_all/goalie-observed-history.csv",
+      "sha256": "d1fc905b3314f59980d07ab08a35c7415132de8ad5f4b46bf504dde1d7dec8c1",
+      "bytes": 148293
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/covered_all/goalie-tiers.csv",
+      "sha256": "b4f53c504f98f2f92880d037b4769e8930650e05d65e0b831a9267d319c052a7",
+      "bytes": 1018
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/covered_all/published-player.json",
+      "sha256": "01c94efd5964a068e2d835c58ee58f6dc49c6ac4a4ec8c1345990f40c151cddb",
+      "bytes": 3042171
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/covered_all/selection.json",
+      "sha256": "6ac4cf50650d9881cc3996292972f71d15a9eb0e75539d60ec6306eb551fa254",
+      "bytes": 212
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/goalie-exact-history.csv",
+      "sha256": "778d1d51d7fd1a1fb7fb91d3ae5397c3280ab1ba85e495f9d9067a4b5d9272ec",
+      "bytes": 198755
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/goalie-map-ratio.csv",
+      "sha256": "2ca02c065e06cc019279a170cea81d56e8d6a2cc5562cf892642cb2e2f8427b4",
+      "bytes": 1239335
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/goalie-observed-history.csv",
+      "sha256": "286d50d3b742d12d4099fba1d0673e3180a80235fe8dec99d5622d7f23c6aa86",
+      "bytes": 147593
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/published-player.json",
+      "sha256": "01c94efd5964a068e2d835c58ee58f6dc49c6ac4a4ec8c1345990f40c151cddb",
+      "bytes": 3042171
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/selected-history.csv",
+      "sha256": "4149e929c8f36e36ba39ea88f234a42d145335d56cd7812beb667b856f40f3d4",
+      "bytes": 39290
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/selection.json",
+      "sha256": "0d1dfa6bfcda90644af22400490fb0656bcff05c907d3af6cebd331621f6e0d8",
+      "bytes": 204
+    }
+  ],
+  "g14_exports": [
+    {
+      "case": "ordinary",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-observed-history.csv",
+      "sha256": "868ba65fe627c4040a58205ac8541035b45ce7b294f14fb74ffc5655bdc973b7",
+      "rows": 120
+    },
+    {
+      "case": "thin",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/thin/goalie-observed-history.csv",
+      "sha256": "a3994a4500e1d2aa409755db62ad12ec05f5680ed8fadc014e1293850e8b0281",
+      "rows": 81
+    },
+    {
+      "case": "unused",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/unused/goalie-observed-history.csv",
+      "sha256": "05615d4850edcc3047303777469b748b51317590ddc47dd1dc201580f59662d7",
+      "rows": 81
+    },
+    {
+      "case": "traded",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/traded/goalie-observed-history.csv",
+      "sha256": "2f0064089a1a496bc271e1789256bdf808385f0b7428c047943d66573cc3f944",
+      "rows": 120
+    },
+    {
+      "case": "absent",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/absent/goalie-observed-history.csv",
+      "sha256": "7a6641fb0d6672ef33360eb5afaf7e3e2d18c79ba77e7899416f951f644968ca",
+      "rows": 81
+    },
+    {
+      "case": "selection-exact",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/goalie-observed-history.csv",
+      "sha256": "286d50d3b742d12d4099fba1d0673e3180a80235fe8dec99d5622d7f23c6aa86",
+      "rows": 120
+    },
+    {
+      "case": "selection-covered_all",
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/covered_all/goalie-observed-history.csv",
+      "sha256": "d1fc905b3314f59980d07ab08a35c7415132de8ad5f4b46bf504dde1d7dec8c1",
+      "rows": 120
+    }
+  ],
+  "actual_checked_native_png_hashes": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/native/1-card.png",
+      "sha256": "eaa5748a834da065e1490017867ebb662ef582869934ca2edc8606d877de8683"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/native/2-card.png",
+      "sha256": "eaa5748a834da065e1490017867ebb662ef582869934ca2edc8606d877de8683"
+    }
+  ],
+  "attributed_native_cost": {
+    "wall_seconds": 211.42,
+    "peak_resident_bytes": 858259456,
+    "controller_wall_ms": 211235.791875,
+    "requests": 332,
+    "response_bytes": 661731719
+  },
+  "limits": [
+    "the earlier3971 saved-projection parity, inherited-member audit, database-backed transport and6492-assertion g14 reconciliation are attributed rather than repeated",
+    "the pre-repair report originally bound at exports/journeys.json is retained byte-exact at exports/attempt-03/journeys.json; historical receipts remain unchanged",
+    "hash equality closes numerical/data-export preservation through the final presentation-only repairs; changed SVG/PNG content is intentional",
+    "PNG hash and dimension checks do not certify pixel correctness; final visual/content review belongs to the assigned independent reviewers",
+    "no scientific admission, calibration/recovery claim, causal isolation, new uncertainty guarantee or activation"
+  ]
+}

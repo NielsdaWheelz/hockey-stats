@@ -1,0 +1,84 @@
+{
+  "ordinary": {
+    "player_id": "8478872",
+    "name": "Karel Vejmelka",
+    "season": "20252026",
+    "teams": [
+      {
+        "abbreviation": "UTA",
+        "id": "68"
+      }
+    ],
+    "minutes": 3064.116666666667,
+    "events": 1626,
+    "value": 0.6491125816985565,
+    "prior_only": false
+  },
+  "thin": {
+    "player_id": "8480022",
+    "name": "Michael DiPietro",
+    "season": "20252026",
+    "teams": [
+      {
+        "abbreviation": "BOS",
+        "id": "6"
+      }
+    ],
+    "minutes": 5.366666666666666,
+    "events": 2,
+    "value": -0.7199102796570515,
+    "prior_only": false
+  },
+  "unused": {
+    "player_id": "8477361",
+    "name": "Cal Petersen",
+    "season": "20252026",
+    "teams": [
+      {
+        "abbreviation": "MIN",
+        "id": "30"
+      }
+    ],
+    "minutes": 0.0,
+    "events": 0,
+    "value": null,
+    "prior_only": false
+  },
+  "traded": {
+    "player_id": "8477465",
+    "name": "Tristan Jarry",
+    "season": "20252026",
+    "teams": [
+      {
+        "abbreviation": "EDM",
+        "id": "22"
+      },
+      {
+        "abbreviation": "PIT",
+        "id": "5"
+      }
+    ],
+    "minutes": 1469.4,
+    "events": 830,
+    "value": -0.9244695612693337,
+    "prior_only": false
+  },
+  "absent": {
+    "identity": {
+      "player_id": "8470594",
+      "name": "Marc-Andre Fleury",
+      "season": "20232024",
+      "teams": [
+        {
+          "abbreviation": "MIN",
+          "id": "30"
+        }
+      ],
+      "minutes": 1789.55,
+      "events": 1056,
+      "value": -0.45704076543501204,
+      "prior_only": false
+    },
+    "selected_season": "20252026"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "reviewer": "native navigation agent, independent of goalie-card implementation",
+  "status": "changes_requested_for_history_label_overlap",
+  "scope": "two actual native comparison png downloads and their corresponding saved svg; local files only",
+  "source_commit": "63b49e6",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "artifacts": [
+    {
+      "player_id": "8478872",
+      "png": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/comparison/8478872.png",
+        "sha256": "1bcab9be7949462a5cee002156455f505421a30acab22f96f8a3008a37b3dd2b",
+        "bytes": 1923321,
+        "width": 1200,
+        "height": 6927
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/comparison/8478872.svg",
+        "sha256": "1c513c1e6de4c34a28a5b3bee27d5e8d4286de49b7440ef2a82f3906c13a2465",
+        "bytes": 85510
+      },
+      "full_rink_panels": 6,
+      "minimum_text_px": 18.0
+    },
+    {
+      "player_id": "8477465",
+      "png": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/comparison/8477465.png",
+        "sha256": "7527bc0939ec3e27391a3ffc4a605b7aa9b7cc04d411c9ae10ca0727cb5b9f37",
+        "bytes": 1920914,
+        "width": 1200,
+        "height": 6927
+      },
+      "svg": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/comparison/8477465.svg",
+        "sha256": "1bfdf1c56f547137a8c15c5297aa989fa0de11229e4b7700397a68ba4d6d2b7d",
+        "bytes": 80908
+      },
+      "full_rink_panels": 6,
+      "minimum_text_px": 18.0
+    }
+  ],
+  "accepted_checks": [
+    "both actual downloaded pngs viewed; names,2025\u201326 teams and reciprocal named/id companion footers present",
+    "six full-rink panels: modeled stopping, actual unblocked saving and four fixed type maps",
+    "four actual/expected type-bar pairs, explicit per-type unmapped counts/saving, other totals and source gaps",
+    "core ev raw stopping history retains all three annual values; all six conditional level/difference distributions and conditions remain present",
+    "corresponding six map legend vectors identical across both saved svgs; modeled and actual/type density units remain distinct",
+    "both paired populations, source versus reported counts, actual difficulty,100-bin nonnegative histogram, experimental/uncertainty/optimizer limitations and method/publication identity visible",
+    "body text20px and essential footer18px; no outer-canvas text clipping or panel/footer overlap observed"
+  ],
+  "corresponding_displayed_legends": [
+    "levels: -0.0622; -0.0467; -0.0311; -0.0156; 0; 0.0156; 0.0311; 0.0467; 0.0622",
+    "levels: -0.727; -0.545; -0.364; -0.182; 0; 0.182; 0.364; 0.545; 0.727",
+    "levels: -0.665; -0.499; -0.332; -0.166; 0; 0.166; 0.332; 0.499; 0.665",
+    "levels: -0.457; -0.342; -0.228; -0.114; 0; 0.114; 0.228; 0.342; 0.457",
+    "levels: -0.613; -0.46; -0.306; -0.153; 0; 0.153; 0.306; 0.46; 0.613",
+    "levels: -0.865; -0.649; -0.432; -0.216; 0; 0.216; 0.432; 0.649; 0.865"
+  ],
+  "finding": {
+    "owner": "app/src/web/goalie-card.tsx:1328\u20131363, goalieCardSvg embedded history gutter",
+    "problem": "extreme y-axis text overlaps the first plotted point in both actual pngs",
+    "evidence": [
+      {
+        "player_id": "8478872",
+        "label": "-0.348407",
+        "label_x": 44,
+        "label_y": 663,
+        "label_font_px": 20,
+        "point_cx": 140,
+        "point_cy": 655,
+        "point_radius": 7
+      },
+      {
+        "player_id": "8477465",
+        "label": "0.069516",
+        "label_x": 44,
+        "label_y": 521,
+        "label_font_px": 20,
+        "point_cx": 140,
+        "point_cy": 515,
+        "point_radius": 7
+      }
+    ],
+    "impact": "local chart readability defect; annual numeric values printed below the season labels remain readable, so numerical content is not lost",
+    "resolution": "reserve a real label gutter or right-align axis labels with a visible gap, preserve20px text and inspect corrected actual exports"
+  },
+  "limits": [
+    "this review does not mark the full journey or entire specification green",
+    "these are additive unblocked comparison exports; later ratio/exact-state/pending/download journeys retain their own acceptance"
+  ]
+}

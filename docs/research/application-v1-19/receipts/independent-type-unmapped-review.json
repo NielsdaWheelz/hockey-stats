@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "scope": "independent scoped type-panel unmapped annotation source/fixture contract review",
+  "runtime": "v24.21.0",
+  "source": {
+    "path": "app/src/web/goalie-card.tsx",
+    "sha256": "653ba0c501cef380f8dc21a47d4fdf86aada00366d1f932e24173799b631ce4d"
+  },
+  "selected_payloads": [
+    {
+      "view": "evidence_mass",
+      "unmapped": {
+        "goals": 3,
+        "expected_goals": 0.6000000000000001,
+        "attempts": 3
+      },
+      "unit": "goals_per100sqft"
+    },
+    {
+      "view": "evidence_ratio",
+      "unmapped": {
+        "goals": 3,
+        "expected_goals": 0.6000000000000001,
+        "attempts": 3
+      },
+      "unit": "percent"
+    }
+  ],
+  "annotation": "unmapped 3 attempts; -2.4 goals saved.",
+  "svg_dimensions": {
+    "width": 1200,
+    "height": 6116
+  },
+  "verified": [
+    "one private formatter shared by browser and complete svg export",
+    "supplied unmapped attempts remain counts; expected-minus-goals remains additive goals saved",
+    "ratio drawing mode retains the same unmapped count/saved-goal accounting and does not turn it into a ratio",
+    "missing map body guards unknown accounting instead of emitting0",
+    "allfour primary type panels have supplied annotations in accepted fixture svg/browser checks",
+    "no request/numerical/schema/export-engine change"
+  ],
+  "evidence": [
+    "type-unmapped-red.txt",
+    "card-live-green.json"
+  ],
+  "limits": [
+    "two bounded existing fixture map queries, no heavy work or broad retest",
+    "browser native pixels and final application build remain root-owned"
+  ]
+}

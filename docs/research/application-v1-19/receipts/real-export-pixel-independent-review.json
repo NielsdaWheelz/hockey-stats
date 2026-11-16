@@ -1,0 +1,219 @@
+{
+  "reviewer": "navigation agent, independent of goalie-card implementation",
+  "status": "changes_requested_for_two_local_svg_layout_defects",
+  "source_commit": "63b49e6",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "scope": "actual local downloaded png pixels and matching svg content only; all five produced inventory cases, two comparison cards and both available selected-history downloads",
+  "comparison_receipt": "real-comparison-pixel-independent-review.json",
+  "artifacts": [
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/goalie-card",
+      "png": {
+        "bytes": 1906731,
+        "sha256": "5e1a1abf024e28fe8a9e934b1d189e718d05142bf96f3dc897e41e316a140b83",
+        "width": 1200,
+        "height": 6872
+      },
+      "svg": {
+        "bytes": 88812,
+        "sha256": "a2498c947fcdfe6b234c8903a97f9cc731d9280a6253fb23f1b392f4e45d1344",
+        "width": 1200,
+        "height": 6872
+      }
+    },
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/thin/goalie-card",
+      "png": {
+        "bytes": 1959396,
+        "sha256": "aa7732a64b4216818cf83c1a760858d8850b06a48c3aa67daf6bc7a03d9f0030",
+        "width": 1200,
+        "height": 6818
+      },
+      "svg": {
+        "bytes": 73712,
+        "sha256": "1a76b2d427e6780629dddb56597171286ec6140c525ce3e001eb48e9050bc173",
+        "width": 1200,
+        "height": 6818
+      }
+    },
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/unused/goalie-card",
+      "png": {
+        "bytes": 1761932,
+        "sha256": "29e49349450b27be38db56c40050904c9bcf6988370acb9ab1547bd7fe91d4cb",
+        "width": 1200,
+        "height": 6791
+      },
+      "svg": {
+        "bytes": 61198,
+        "sha256": "1fd6eb8ad65ca8bd4f2ff017fcc33750b34e3f26ae5e96ead4f677a97a3dee70",
+        "width": 1200,
+        "height": 6791
+      }
+    },
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/traded/goalie-card",
+      "png": {
+        "bytes": 1907922,
+        "sha256": "a153ec9b22163a08b3ffe8f290d6cb8915e6adcd6643d797e5360307fa3ca1bd",
+        "width": 1200,
+        "height": 6872
+      },
+      "svg": {
+        "bytes": 86645,
+        "sha256": "b9afefb7be0e53625246df4876b6ce5cb4983e4de1a4ebe69819201cf1245802",
+        "width": 1200,
+        "height": 6872
+      }
+    },
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/absent/goalie-card",
+      "png": {
+        "bytes": 912707,
+        "sha256": "ad932afbf55d7b4784da4d7b217b35787cef7bacde0d87598067acbe02afc455",
+        "width": 1200,
+        "height": 4184
+      },
+      "svg": {
+        "bytes": 13934,
+        "sha256": "a58a9299547897740a1c57f5814deaf68b9fe7943a6453bc26480cbd728b8bf0",
+        "width": 1200,
+        "height": 4184
+      }
+    },
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/selected-history",
+      "png": {
+        "bytes": 2032140,
+        "sha256": "7536318a38f07203b2ea78eb3034347b166f1f91529c6bbad4445e8dd6657c53",
+        "width": 1200,
+        "height": 5161
+      },
+      "svg": {
+        "bytes": 22618,
+        "sha256": "16085350fa3744eb5b7b09e73455431b47345fdb78ad815ab873312b4cd883c0",
+        "width": 1200,
+        "height": 5161
+      }
+    },
+    {
+      "stem": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/selected-history",
+      "png": {
+        "bytes": 2045731,
+        "sha256": "f101640d1aaff2c41aa6d490fe75cee62070244c9396fa97f48be0844c022b94",
+        "width": 1200,
+        "height": 5213
+      },
+      "svg": {
+        "bytes": 23288,
+        "sha256": "523b31b7d2b8ad3f75536201ee7cda2d56820ae5aced2e44213606663f0d3c06",
+        "width": 1200,
+        "height": 5213
+      }
+    }
+  ],
+  "findings": [
+    {
+      "owner": "app/src/web/goalie-card.tsx:1328 and :1362\u20131363, goalieCardSvg embedded raw history",
+      "problem": "extreme y-axis label touches or overlaps first plotted point in ordinary/traded/absent cards and both comparison cards",
+      "evidence": "ordinary lower label -0.348407 starts x44 at20px and reaches the first point atcx140; traded upper label0.069516 and absent upper label-0.457041 similarly overlap; exact comparison coordinates retained in paired receipt",
+      "resolution": "right-align both axis labels in a bounded left gutter and move the first-point range enough to preserve a visible gap and the existing20px text; retain1200px canvas and all three points"
+    },
+    {
+      "owner": "app/src/web/goalie-card.tsx:1312, goalieCardSvg distribution no-domain branch",
+      "problem": "seven absent-season empty distributions draw no finite distribution and cohort/status metadata on overlapping baselines",
+      "empty_labels": [
+        {
+          "x": 44.0,
+          "y": 309.0,
+          "text": "no finite distribution"
+        },
+        {
+          "x": 44.0,
+          "y": 861.0,
+          "text": "no finite distribution"
+        },
+        {
+          "x": 614.0,
+          "y": 861.0,
+          "text": "no finite distribution"
+        },
+        {
+          "x": 44.0,
+          "y": 1166.0,
+          "text": "no finite distribution"
+        },
+        {
+          "x": 614.0,
+          "y": 1166.0,
+          "text": "no finite distribution"
+        },
+        {
+          "x": 44.0,
+          "y": 1498.0,
+          "text": "no finite distribution"
+        },
+        {
+          "x": 614.0,
+          "y": 1498.0,
+          "text": "no finite distribution"
+        }
+      ],
+      "cohort_status_labels": [
+        {
+          "x": 44.0,
+          "y": 306.0,
+          "text": "reference unavailable; n=0; \u2265? supported min; absent season; selected outsider"
+        },
+        {
+          "x": 44.0,
+          "y": 858.0,
+          "text": "reference unavailable; n=0; \u2265? supported min;"
+        },
+        {
+          "x": 614.0,
+          "y": 858.0,
+          "text": "reference unavailable; n=0; \u2265? supported min;"
+        },
+        {
+          "x": 44.0,
+          "y": 1163.0,
+          "text": "reference unavailable; n=0; \u2265? supported min;"
+        },
+        {
+          "x": 614.0,
+          "y": 1163.0,
+          "text": "reference unavailable; n=0; \u2265? supported min;"
+        },
+        {
+          "x": 44.0,
+          "y": 1495.0,
+          "text": "reference unavailable; n=0; \u2265? supported min;"
+        },
+        {
+          "x": 614.0,
+          "y": 1495.0,
+          "text": "reference unavailable; n=0; \u2265? supported min;"
+        }
+      ],
+      "cause": "bottom starts at top; text is drawn at top+30 but bottom advances only the27px wrap height; the next line is drawn at top+27,3px above the empty-state text",
+      "resolution": "advance bottom from the actual top+30 drawing baseline before adding the wrap height; no new abstraction or state needed"
+    }
+  ],
+  "accepted_checks": [
+    "each listed png viewed independently; no further concrete outer-canvas clipping, section overlap or missing required content found beyond the two reported layout defects",
+    "ordinary and traded identities, annual teams and three-season values preserved; traded has both EDM and PIT",
+    "thin support remains below cutoff and selected outsider, without a percentile; empty zero-evidence type bars and maps remain explicitly zero",
+    "unused backup has0reported appearances, unavailable minutes/appearance, no selected stopping point and the saved unavailable modeled-map reason; earlier supported history remains distinct",
+    "absent season retains known identity and prior-year history, marks selected-season absence and does not invent selected-season values",
+    "both available shared selected histories preserve annual identity, unit/display multiplier, support and reasons, method/publication/uncertainty metadata and complete bounded footer",
+    "selections/exact/selected-history is the independent core selected field goalie.pk.conversion_probability_difference; its ev/pk peer metadata is appropriate and is not an exact-state raw-only export",
+    "all saved svg dimensions agree with actual downloaded png dimensions"
+  ],
+  "limits": [
+    "no server, browser, api, database, build, publication or production-source operation during this review",
+    "selected-history filename does not establish its selected metric; metric checked from the artifact text",
+    "this scoped pixel review does not accept the unfinished native journey or entire specification",
+    "new geometry requires corrected same-candidate downloaded pixel inspection after the owner patch"
+  ]
+}

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/mechanisms-v1-10/source_checks.py", line 2, in <module>
+    from hockey_stats.mechanism_design import classify_penalty_group, repeat_state, shootiness_role, choice_population
+ModuleNotFoundError: No module named 'hockey_stats.mechanism_design'

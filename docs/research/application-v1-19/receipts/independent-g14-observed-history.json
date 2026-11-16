@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "scope": "independent bounded g14 observed history source/export review using one live published PlayerResponse",
+  "runtime": "v24.21.0",
+  "checks": 121,
+  "selectedPlayer": "9000004",
+  "strengths": [
+    "ev",
+    "pk",
+    "covered_all"
+  ],
+  "annuals": [
+    {
+      "season": "20232024",
+      "person": "9000004",
+      "teams": [
+        {
+          "id": "14",
+          "abbreviation": "TBL"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "person": "9000004",
+      "teams": [
+        {
+          "id": "7",
+          "abbreviation": "BUF"
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "person": null,
+      "teams": null
+    }
+  ],
+  "verified": [
+    "annual season/corpus/person/teams stay exact",
+    "saved source and official counts/save fractions remain separate",
+    "both paired populations copy saved values, annual methods/references/support",
+    "expected save only on_net; no computed ratios or fitted values",
+    "absent and pending annuals retain reasons and blank payloads",
+    "explicit raw units/source provenance and shared formula-safe encoding",
+    "no new requests, estimator, cohort or current-year history fallback",
+    "actual-only rows leave modeled_strength blank; actual_strength remains selected"
+  ],
+  "limits": [
+    "source and CSV contract review, not browser pixel acceptance",
+    "one existing live fixture player response; targeted in-memory mutation cases are synthetic checks"
+  ]
+}

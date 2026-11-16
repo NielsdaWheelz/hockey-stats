@@ -1,0 +1,524 @@
+{
+  "status": "failed",
+  "mode": "red",
+  "scope": "bounded actual saved-input shared-renderer control; no API/DB/model replay/full app build/startup; real rebuilt browser downloads remain separate",
+  "source_sha256": "117c28d155171b5a24b9bc4e0f63992f5f73444b50734ba1d842bae37934d88d",
+  "inputs": [
+    {
+      "name": "corey",
+      "bindings": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/history-api.json",
+          "bytes": 1945962,
+          "sha256": "ec60800ebae76856cbd088ec6ea6a3a1c7137d051d6dc9384941a101298b1f21"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/profile-history.csv",
+          "bytes": 23469,
+          "sha256": "f712b96339a71eb65a008a6db33a1fffb31f22ad4043570072383111d63f8838"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/browser-02/profile-history.svg",
+          "bytes": 14257,
+          "sha256": "60814298d9a9ea458f33b2ae211185da2dcf557311b99d0dfc4ee361f7b0015c"
+        }
+      ]
+    },
+    {
+      "name": "goalie-ordinary",
+      "bindings": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/published-player.json",
+          "bytes": 3042171,
+          "sha256": "01c94efd5964a068e2d835c58ee58f6dc49c6ac4a4ec8c1345990f40c151cddb"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/selected-history.csv",
+          "bytes": 39301,
+          "sha256": "2213d75c6ae77db3d7f54d693c46c412c371a5e6f7aa05e06ba3d3c2e0e12d14"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/cases/ordinary/selected-history.svg",
+          "bytes": 22618,
+          "sha256": "16085350fa3744eb5b7b09e73455431b47345fdb78ad815ab873312b4cd883c0"
+        }
+      ]
+    },
+    {
+      "name": "goalie-pk",
+      "bindings": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/published-player.json",
+          "bytes": 3042171,
+          "sha256": "01c94efd5964a068e2d835c58ee58f6dc49c6ac4a4ec8c1345990f40c151cddb"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/selected-history.csv",
+          "bytes": 39290,
+          "sha256": "4149e929c8f36e36ba39ea88f234a42d145335d56cd7812beb667b856f40f3d4"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/selections/exact/selected-history.svg",
+          "bytes": 23288,
+          "sha256": "523b31b7d2b8ad3f75536201ee7cda2d56820ae5aced2e44213606663f0d3c06"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "name": "corey",
+      "metric": "penalties.taken_value_per60",
+      "checks": [
+        {
+          "label": "production CSV byte-exact against actual download",
+          "passed": true
+        },
+        {
+          "label": "source datum/support/reference/semantic identity not mutated",
+          "passed": true
+        },
+        {
+          "label": "finding population retained 20232024",
+          "passed": true
+        },
+        {
+          "label": "finding population retained 20242025",
+          "passed": true
+        },
+        {
+          "label": "finding population retained 20252026",
+          "passed": true
+        },
+        {
+          "label": "actual saved SVG independently demonstrates duplicate statement bodies",
+          "passed": true
+        },
+        {
+          "label": "exact body appears once: ordinary MIN/BEN two-minute net team counts after opposing cancellation; not named-person responsibility or all penalty minutes",
+          "passed": true
+        },
+        {
+          "label": "exact body appears once: the isolated-minor value omits overlap, 5v3, regulation truncation and focal specialty skill; negative value is retained",
+          "passed": true
+        },
+        {
+          "label": "exact body appears once: source-pooled sh circumstances differ from hypothetical ev/pp references; sh goals do not terminate the opportunity",
+          "passed": true
+        },
+        {
+          "label": "exact body appears once: baseline complete; numerical sensitivity not_assessed; optimizer accuracy unknown; in-sample diagnostics are not held-out accuracy; calibrated uncertainty not estimated",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: conditional point-history borrowing; no calibrated intervals or scientific ability admission",
+          "passed": true
+        },
+        {
+          "label": "exact body appears once: baseline complete; numerical sensitivity within_budget; optimizer accuracy unknown; in-sample diagnostics are not held-out accuracy; calibrated uncertainty not estimated; maximum standardized movement 5.336368680275427e-09 and actual fitting-row movement 2.5616384711213414e-06 awards/hour; comparison budget 0.0001; maximum penalty-value movement 4.561332891749386e-10 goals/hour and 7.602221486248978e-09 goals per 1000 minutes; budgets 1e-4 and 1e-3 respectively",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: baseline complete; numerical sensitivity not_assessed; optimizer accuracy unknown; in-sample diagnostics are not held-out accuracy; calibrated uncertainty not estimated",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: baseline complete; numerical sensitivity within_budget; optimizer accuracy unknown; in-sample diagnostics are not held-out accuracy; calibrated uncertainty not estimated; maximum standardized movement 5.336368680275427e-09 and actual fitting-row movement 2.5616384711213414e-06 awards/hour; comparison budget 0.0001; maximum penalty-value movement 4.561332891749386e-10 goals/hour and 7.602221486248978e-09 goals per 1000 minutes; budgets 1e-4 and 1e-3 respectively",
+          "passed": false
+        },
+        {
+          "label": "all pre-note annual content exact against actual SVG",
+          "passed": true
+        }
+      ],
+      "duplicateBodies": [
+        "baseline complete; numerical sensitivity not_assessed; optimizer accuracy unknown; in-sample diagnostics are not held-out accuracy; calibrated uncertainty not estimated",
+        "baseline complete; numerical sensitivity within_budget; optimizer accuracy unknown; in-sample diagnostics are not held-out accuracy; calibrated uncertainty not estimated; maximum standardized movement 5.336368680275427e-09 and actual fitting-row movement 2.5616384711213414e-06 awards/hour; comparison budget 0.0001; maximum penalty-value movement 4.561332891749386e-10 goals/hour and 7.602221486248978e-09 goals per 1000 minutes; budgets 1e-4 and 1e-3 respectively"
+      ],
+      "svg_sha256": "60814298d9a9ea458f33b2ae211185da2dcf557311b99d0dfc4ee361f7b0015c",
+      "csv_sha256": "f712b96339a71eb65a008a6db33a1fffb31f22ad4043570072383111d63f8838"
+    },
+    {
+      "name": "goalie-ordinary",
+      "metric": "goalie.ev.stopping_goals_per100_on_net",
+      "checks": [
+        {
+          "label": "production CSV byte-exact against actual download",
+          "passed": true
+        },
+        {
+          "label": "source datum/support/reference/semantic identity not mutated",
+          "passed": true
+        },
+        {
+          "label": "finding population retained 20232024",
+          "passed": true
+        },
+        {
+          "label": "finding population retained 20242025",
+          "passed": true
+        },
+        {
+          "label": "finding population retained 20252026",
+          "passed": true
+        },
+        {
+          "label": "actual saved SVG independently demonstrates duplicate statement bodies",
+          "passed": true
+        },
+        {
+          "label": "exact body appears once: baseline head status: h: complete; d: complete",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: goalie execution breakdown uses paired unblocked attempts: observed successes means goals allowed; effect=(expected goals-goals allowed)/N is recorded goals saved per unblocked attempt, not isolated ability",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: evidence maps retain additive expected-minus-goal mass; ratios are nonadditive and positive means more goals allowed per expected goal than matched league",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: positively supported annual team affiliation is only a possible-participation coverage reference; missing dated goalie identities leave located gaps without invented games, starts, reported counts or listed-game denominators",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: official reported fields retain independently supported game subsets and field-specific coverage in source evidence; these splits do not establish exact-state or both-goalie totals",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: experimental seasonal point estimates, not held-out forecasts or causal isolation; no calibrated intervals",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: inherited base probabilities, saved-shot weights and generated next-danger targets retain a pre-outcome inferred setter/setup mixture; this is neither an observed pass nor a setter coefficient in h/d",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: recorded reattempt means the immediately next recorded same-team ordinary attempt within five seconds; this proxy is not tracking, passing or proven goalie rebound control",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: conditional danger learns fully neutral successor all-attempt targets on the valued positive subset; selection and base-target uncertainty are omitted",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: current information requires every contributing head to have current likelihood support; partial priors are distinct from all-head current evidence; prior-only coefficients may be evaluated",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: fixed head-specific entry/carry shrinkage, raw last-supported history and point-prior assumptions can lag changes",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: stopping-map location texture follows common shot-context weighting and the shared model; it is not independently fitted goalie-specific location coefficients",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: cross-strength coefficient information and historical borrowing are distinct from current supported role exposure, which supplies cohort minutes only",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: ev pools 5v5/4v4/3v3; pk pools goalie-perspective 4v5/3v5/3v4; reference panel masses pool before normalization, independent of actual goalie usage",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: numerical sensitivity: not assessed for this annual state; remaining optimizer accuracy is unknown; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: source counts, actual-offense/neutral-goalie paired evidence and common-panel modeled skills have different populations and references; covered-all is supported coverage, not gap-free all-situations",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: numerical sensitivity: assessed; maximum summary probability movement 1.3001512613464161e-06; remaining optimizer accuracy is unknown; no assessed summary exceeds 1e-4; maximum frozen pointwise h/d/joint probability movement 1.494934723789143e-06; no assessed frozen pointwise comparison exceeds 1e-5; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: baseline head status: h: complete; d: complete",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: goalie execution breakdown uses paired unblocked attempts: observed successes means goals allowed; effect=(expected goals-goals allowed)/N is recorded goals saved per unblocked attempt, not isolated ability",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: evidence maps retain additive expected-minus-goal mass; ratios are nonadditive and positive means more goals allowed per expected goal than matched league",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: positively supported annual team affiliation is only a possible-participation coverage reference; missing dated goalie identities leave located gaps without invented games, starts, reported counts or listed-game denominators",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: official reported fields retain independently supported game subsets and field-specific coverage in source evidence; these splits do not establish exact-state or both-goalie totals",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: experimental seasonal point estimates, not held-out forecasts or causal isolation; no calibrated intervals",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: inherited base probabilities, saved-shot weights and generated next-danger targets retain a pre-outcome inferred setter/setup mixture; this is neither an observed pass nor a setter coefficient in h/d",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: recorded reattempt means the immediately next recorded same-team ordinary attempt within five seconds; this proxy is not tracking, passing or proven goalie rebound control",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: conditional danger learns fully neutral successor all-attempt targets on the valued positive subset; selection and base-target uncertainty are omitted",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: current information requires every contributing head to have current likelihood support; partial priors are distinct from all-head current evidence; prior-only coefficients may be evaluated",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: fixed head-specific entry/carry shrinkage, raw last-supported history and point-prior assumptions can lag changes",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: stopping-map location texture follows common shot-context weighting and the shared model; it is not independently fitted goalie-specific location coefficients",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: cross-strength coefficient information and historical borrowing are distinct from current supported role exposure, which supplies cohort minutes only",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: ev pools 5v5/4v4/3v3; pk pools goalie-perspective 4v5/3v5/3v4; reference panel masses pool before normalization, independent of actual goalie usage",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: numerical sensitivity: not assessed for this annual state; remaining optimizer accuracy is unknown; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: source counts, actual-offense/neutral-goalie paired evidence and common-panel modeled skills have different populations and references; covered-all is supported coverage, not gap-free all-situations",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: numerical sensitivity: assessed; maximum summary probability movement 1.3001512613464161e-06; remaining optimizer accuracy is unknown; no assessed summary exceeds 1e-4; maximum frozen pointwise h/d/joint probability movement 1.494934723789143e-06; no assessed frozen pointwise comparison exceeds 1e-5; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+          "passed": false
+        },
+        {
+          "label": "all pre-note annual content exact against actual SVG",
+          "passed": true
+        }
+      ],
+      "duplicateBodies": [
+        "baseline head status: h: complete; d: complete",
+        "goalie execution breakdown uses paired unblocked attempts: observed successes means goals allowed; effect=(expected goals-goals allowed)/N is recorded goals saved per unblocked attempt, not isolated ability",
+        "evidence maps retain additive expected-minus-goal mass; ratios are nonadditive and positive means more goals allowed per expected goal than matched league",
+        "positively supported annual team affiliation is only a possible-participation coverage reference; missing dated goalie identities leave located gaps without invented games, starts, reported counts or listed-game denominators",
+        "official reported fields retain independently supported game subsets and field-specific coverage in source evidence; these splits do not establish exact-state or both-goalie totals",
+        "experimental seasonal point estimates, not held-out forecasts or causal isolation; no calibrated intervals",
+        "inherited base probabilities, saved-shot weights and generated next-danger targets retain a pre-outcome inferred setter/setup mixture; this is neither an observed pass nor a setter coefficient in h/d",
+        "recorded reattempt means the immediately next recorded same-team ordinary attempt within five seconds; this proxy is not tracking, passing or proven goalie rebound control",
+        "conditional danger learns fully neutral successor all-attempt targets on the valued positive subset; selection and base-target uncertainty are omitted",
+        "current information requires every contributing head to have current likelihood support; partial priors are distinct from all-head current evidence; prior-only coefficients may be evaluated",
+        "fixed head-specific entry/carry shrinkage, raw last-supported history and point-prior assumptions can lag changes",
+        "stopping-map location texture follows common shot-context weighting and the shared model; it is not independently fitted goalie-specific location coefficients",
+        "cross-strength coefficient information and historical borrowing are distinct from current supported role exposure, which supplies cohort minutes only",
+        "ev pools 5v5/4v4/3v3; pk pools goalie-perspective 4v5/3v5/3v4; reference panel masses pool before normalization, independent of actual goalie usage",
+        "numerical sensitivity: not assessed for this annual state; remaining optimizer accuracy is unknown; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+        "source counts, actual-offense/neutral-goalie paired evidence and common-panel modeled skills have different populations and references; covered-all is supported coverage, not gap-free all-situations",
+        "numerical sensitivity: assessed; maximum summary probability movement 1.3001512613464161e-06; remaining optimizer accuracy is unknown; no assessed summary exceeds 1e-4; maximum frozen pointwise h/d/joint probability movement 1.494934723789143e-06; no assessed frozen pointwise comparison exceeds 1e-5; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy"
+      ],
+      "svg_sha256": "16085350fa3744eb5b7b09e73455431b47345fdb78ad815ab873312b4cd883c0",
+      "csv_sha256": "2213d75c6ae77db3d7f54d693c46c412c371a5e6f7aa05e06ba3d3c2e0e12d14"
+    },
+    {
+      "name": "goalie-pk",
+      "metric": "goalie.pk.conversion_probability_difference",
+      "checks": [
+        {
+          "label": "production CSV byte-exact against actual download",
+          "passed": true
+        },
+        {
+          "label": "source datum/support/reference/semantic identity not mutated",
+          "passed": true
+        },
+        {
+          "label": "finding population retained 20232024",
+          "passed": true
+        },
+        {
+          "label": "finding population retained 20242025",
+          "passed": true
+        },
+        {
+          "label": "finding population retained 20252026",
+          "passed": true
+        },
+        {
+          "label": "actual saved SVG independently demonstrates duplicate statement bodies",
+          "passed": true
+        },
+        {
+          "label": "exact body appears once: baseline head status: h: complete; d: complete",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: goalie execution breakdown uses paired unblocked attempts: observed successes means goals allowed; effect=(expected goals-goals allowed)/N is recorded goals saved per unblocked attempt, not isolated ability",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: evidence maps retain additive expected-minus-goal mass; ratios are nonadditive and positive means more goals allowed per expected goal than matched league",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: positively supported annual team affiliation is only a possible-participation coverage reference; missing dated goalie identities leave located gaps without invented games, starts, reported counts or listed-game denominators",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: official reported fields retain independently supported game subsets and field-specific coverage in source evidence; these splits do not establish exact-state or both-goalie totals",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: experimental seasonal point estimates, not held-out forecasts or causal isolation; no calibrated intervals",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: inherited base probabilities, saved-shot weights and generated next-danger targets retain a pre-outcome inferred setter/setup mixture; this is neither an observed pass nor a setter coefficient in h/d",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: recorded reattempt means the immediately next recorded same-team ordinary attempt within five seconds; this proxy is not tracking, passing or proven goalie rebound control",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: conditional danger learns fully neutral successor all-attempt targets on the valued positive subset; selection and base-target uncertainty are omitted",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: current information requires every contributing head to have current likelihood support; partial priors are distinct from all-head current evidence; prior-only coefficients may be evaluated",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: fixed head-specific entry/carry shrinkage, raw last-supported history and point-prior assumptions can lag changes",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: stopping-map location texture follows common shot-context weighting and the shared model; it is not independently fitted goalie-specific location coefficients",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: cross-strength coefficient information and historical borrowing are distinct from current supported role exposure, which supplies cohort minutes only",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: ev pools 5v5/4v4/3v3; pk pools goalie-perspective 4v5/3v5/3v4; reference panel masses pool before normalization, independent of actual goalie usage",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: numerical sensitivity: not assessed for this annual state; remaining optimizer accuracy is unknown; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: source counts, actual-offense/neutral-goalie paired evidence and common-panel modeled skills have different populations and references; covered-all is supported coverage, not gap-free all-situations",
+          "passed": false
+        },
+        {
+          "label": "exact body appears once: numerical sensitivity: assessed; maximum summary probability movement 1.3001512613464161e-06; remaining optimizer accuracy is unknown; no assessed summary exceeds 1e-4; maximum frozen pointwise h/d/joint probability movement 1.494934723789143e-06; no assessed frozen pointwise comparison exceeds 1e-5; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: baseline head status: h: complete; d: complete",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: goalie execution breakdown uses paired unblocked attempts: observed successes means goals allowed; effect=(expected goals-goals allowed)/N is recorded goals saved per unblocked attempt, not isolated ability",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: evidence maps retain additive expected-minus-goal mass; ratios are nonadditive and positive means more goals allowed per expected goal than matched league",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: positively supported annual team affiliation is only a possible-participation coverage reference; missing dated goalie identities leave located gaps without invented games, starts, reported counts or listed-game denominators",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: official reported fields retain independently supported game subsets and field-specific coverage in source evidence; these splits do not establish exact-state or both-goalie totals",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: experimental seasonal point estimates, not held-out forecasts or causal isolation; no calibrated intervals",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: inherited base probabilities, saved-shot weights and generated next-danger targets retain a pre-outcome inferred setter/setup mixture; this is neither an observed pass nor a setter coefficient in h/d",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: recorded reattempt means the immediately next recorded same-team ordinary attempt within five seconds; this proxy is not tracking, passing or proven goalie rebound control",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: conditional danger learns fully neutral successor all-attempt targets on the valued positive subset; selection and base-target uncertainty are omitted",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: current information requires every contributing head to have current likelihood support; partial priors are distinct from all-head current evidence; prior-only coefficients may be evaluated",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: fixed head-specific entry/carry shrinkage, raw last-supported history and point-prior assumptions can lag changes",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: stopping-map location texture follows common shot-context weighting and the shared model; it is not independently fitted goalie-specific location coefficients",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: cross-strength coefficient information and historical borrowing are distinct from current supported role exposure, which supplies cohort minutes only",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: ev pools 5v5/4v4/3v3; pk pools goalie-perspective 4v5/3v5/3v4; reference panel masses pool before normalization, independent of actual goalie usage",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: numerical sensitivity: not assessed for this annual state; remaining optimizer accuracy is unknown; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: source counts, actual-offense/neutral-goalie paired evidence and common-panel modeled skills have different populations and references; covered-all is supported coverage, not gap-free all-situations",
+          "passed": false
+        },
+        {
+          "label": "actual duplicate reduced: numerical sensitivity: assessed; maximum summary probability movement 1.3001512613464161e-06; remaining optimizer accuracy is unknown; no assessed summary exceeds 1e-4; maximum frozen pointwise h/d/joint probability movement 1.494934723789143e-06; no assessed frozen pointwise comparison exceeds 1e-5; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+          "passed": false
+        },
+        {
+          "label": "all pre-note annual content exact against actual SVG",
+          "passed": true
+        }
+      ],
+      "duplicateBodies": [
+        "baseline head status: h: complete; d: complete",
+        "goalie execution breakdown uses paired unblocked attempts: observed successes means goals allowed; effect=(expected goals-goals allowed)/N is recorded goals saved per unblocked attempt, not isolated ability",
+        "evidence maps retain additive expected-minus-goal mass; ratios are nonadditive and positive means more goals allowed per expected goal than matched league",
+        "positively supported annual team affiliation is only a possible-participation coverage reference; missing dated goalie identities leave located gaps without invented games, starts, reported counts or listed-game denominators",
+        "official reported fields retain independently supported game subsets and field-specific coverage in source evidence; these splits do not establish exact-state or both-goalie totals",
+        "experimental seasonal point estimates, not held-out forecasts or causal isolation; no calibrated intervals",
+        "inherited base probabilities, saved-shot weights and generated next-danger targets retain a pre-outcome inferred setter/setup mixture; this is neither an observed pass nor a setter coefficient in h/d",
+        "recorded reattempt means the immediately next recorded same-team ordinary attempt within five seconds; this proxy is not tracking, passing or proven goalie rebound control",
+        "conditional danger learns fully neutral successor all-attempt targets on the valued positive subset; selection and base-target uncertainty are omitted",
+        "current information requires every contributing head to have current likelihood support; partial priors are distinct from all-head current evidence; prior-only coefficients may be evaluated",
+        "fixed head-specific entry/carry shrinkage, raw last-supported history and point-prior assumptions can lag changes",
+        "stopping-map location texture follows common shot-context weighting and the shared model; it is not independently fitted goalie-specific location coefficients",
+        "cross-strength coefficient information and historical borrowing are distinct from current supported role exposure, which supplies cohort minutes only",
+        "ev pools 5v5/4v4/3v3; pk pools goalie-perspective 4v5/3v5/3v4; reference panel masses pool before normalization, independent of actual goalie usage",
+        "numerical sensitivity: not assessed for this annual state; remaining optimizer accuracy is unknown; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy",
+        "source counts, actual-offense/neutral-goalie paired evidence and common-panel modeled skills have different populations and references; covered-all is supported coverage, not gap-free all-situations",
+        "numerical sensitivity: assessed; maximum summary probability movement 1.3001512613464161e-06; remaining optimizer accuracy is unknown; no assessed summary exceeds 1e-4; maximum frozen pointwise h/d/joint probability movement 1.494934723789143e-06; no assessed frozen pointwise comparison exceeds 1e-5; completed original baselines are retained under the diagnostic-only 0.01 percentage-point policy"
+      ],
+      "svg_sha256": "523b31b7d2b8ad3f75536201ee7cda2d56820ae5aced2e44213606663f0d3c06",
+      "csv_sha256": "4149e929c8f36e36ba39ea88f234a42d145335d56cd7812beb667b856f40f3d4"
+    }
+  ]
+}

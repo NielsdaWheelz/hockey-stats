@@ -1,0 +1,224 @@
+{
+  "at": "2026-11-15T00:39:09.494886+00:00",
+  "primary_head": "345b3a743015cbaf6f7d55c6195754cd663269f9",
+  "primary_status": " M docs/architecture.md\n M docs/brief.md\n M docs/plan.md\n M docs/product-inventory.md\n M docs/research/council.md\n M docs/roadmap.md\n M docs/specs/experimental-application.md\n M docs/specs/experimental-attribution.md\n M docs/specs/experimental-chance.md\n M docs/specs/experimental-player-analysis.md\n?? docs/issues/goalie-fixture-conditioning.md\n?? docs/issues/mechanism-fixture-valuation.md\n?? docs/specs/v1-10-penalties-shootiness.md\n?? docs/specs/v1-19-goalie-card-discovery.md\n",
+  "live_listener": "COMMAND  PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    9645 nnandal   15u  IPv4 0xc2742b6b63798716      0t0  TCP 127.0.0.1:3000 (LISTEN)\n",
+  "databases": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/previous.sqlite",
+      "bytes": 4635877376,
+      "mtime_ns": 1793080727502487829,
+      "schema": 7,
+      "publication": "eb4e31ab-a35c-4df6-be34-9bccceb4fe3d"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite",
+      "bytes": 11310997504,
+      "mtime_ns": 1793431198154070471,
+      "schema": 8,
+      "publication": "9a5b4061-f909-4c1b-b624-5729e5acb6bf"
+    }
+  ],
+  "build_files": [
+    {
+      "path": "app/dist/client/assets/client-DrnbQfYM.js",
+      "bytes": 27289,
+      "sha256": "5d4dd83bcbb6a396ff13605618b23da143cafeaa44f60448333a6e3ff6f93848"
+    },
+    {
+      "path": "app/dist/client/assets/compare-client-loader-qd0jkNh_.js",
+      "bytes": 128,
+      "sha256": "351a60527471b241f9a0568c002a074c5bbb059f1830815b09659a12cf8a68f8"
+    },
+    {
+      "path": "app/dist/client/assets/compare-main-VNo5gR4M.js",
+      "bytes": 15401,
+      "sha256": "3731e0cae377c6f9eac94c7000fa0ac47b41f7902452ad9a8ff9ace91ddf41c0"
+    },
+    {
+      "path": "app/dist/client/assets/descriptive-card-CZP7SGDv.js",
+      "bytes": 59964,
+      "sha256": "d2448b1a409994e3b41f369d9d4adcc10f58fa6a801b17ce5bc4d3bb3bad0202"
+    },
+    {
+      "path": "app/dist/client/assets/entry.client-CimxyNE3.js",
+      "bytes": 214675,
+      "sha256": "f123592f11d56cc3c499149ae7c2b8ef315cfbadf89ad6c66dd6a55ea1f22785"
+    },
+    {
+      "path": "app/dist/client/assets/explorer-BwkgQfus.js",
+      "bytes": 258675,
+      "sha256": "a9cde0349e791880fd9100d7ccd9630140e34cc128da42f2284133852b7720d3"
+    },
+    {
+      "path": "app/dist/client/assets/jsx-runtime-Bcb-PiJy.js",
+      "bytes": 121191,
+      "sha256": "124bc89765020c2632a94bba506ddbc28f0ad97a82a099ee96c4459d56a89f2e"
+    },
+    {
+      "path": "app/dist/client/assets/league-client-loader-CQ7CpLfD.js",
+      "bytes": 128,
+      "sha256": "4d67bbc47b4038c51d700c1ed25b0c58b8920c9afb7e4a2ed502597abf097dd6"
+    },
+    {
+      "path": "app/dist/client/assets/league-main-DnVjqvyt.js",
+      "bytes": 20300,
+      "sha256": "ffc2527f5689e79b979c6ce30282af9b669e6a68cb4b46013f21724443480552"
+    },
+    {
+      "path": "app/dist/client/assets/manifest-43be76d2.js",
+      "bytes": 2228,
+      "sha256": "3f3fa423e3cd98e319ada76afce09c96ef16785b00bea351127ddc206e464555"
+    },
+    {
+      "path": "app/dist/client/assets/peer-distributions-qO0Os7mj.js",
+      "bytes": 38493,
+      "sha256": "7d37afc1d0e23891a2a905405aaf089ad2d53c176a1c20d2e35c60f6b9043a7b"
+    },
+    {
+      "path": "app/dist/client/assets/player-client-loader-BgtgO6VN.js",
+      "bytes": 148,
+      "sha256": "c5188d578bfcda7d2d957c26d47b6269e65fbd65047cde1d729ca3e3d402ee8c"
+    },
+    {
+      "path": "app/dist/client/assets/player-main-DBfKCNrk.js",
+      "bytes": 24360,
+      "sha256": "d164c711dc61b1234d70a8e929c6ac76f62025916e56def0b266158bc163b0d3"
+    },
+    {
+      "path": "app/dist/client/assets/root-OsyQwkgO.js",
+      "bytes": 3627,
+      "sha256": "5fd2401c4b4dc92f4def0a3d2d07fdab01ed8cc9a0821a46bb5868599f9ee4d4"
+    },
+    {
+      "path": "app/dist/client/assets/styles-DBcIPaN6.css",
+      "bytes": 22043,
+      "sha256": "fea30479c0ea968f6e80731df6dfc37ad69025f8ab08dde7e55026dcf4d94274"
+    },
+    {
+      "path": "app/dist/client/index.html",
+      "bytes": 2114,
+      "sha256": "a24a924e0be2b27e4f3b835fb0d0899787079b82dc2323b5a472b807531d8f7c"
+    },
+    {
+      "path": "app/dist/node/operator/capture-report.js",
+      "bytes": 2610,
+      "sha256": "dfcb57ef79e1208fb4e2edcdd9967882a37fa045547e410829e25e74ffe2eb95"
+    },
+    {
+      "path": "app/dist/node/operator/capture-season-cli.js",
+      "bytes": 1981,
+      "sha256": "2f4f4446819741dd2fe71d3ba763f896036b2b24bf12d3aaa114c020ac575c72"
+    },
+    {
+      "path": "app/dist/node/operator/capture-season.js",
+      "bytes": 1333,
+      "sha256": "63c86edf02296351410f5e1d21cd5016ecadf3428d38a9a3411b2b8a25318392"
+    },
+    {
+      "path": "app/dist/node/operator/capture.js",
+      "bytes": 6014,
+      "sha256": "552447959a0da4d19bea4d40cbd9faa7e7425c24b186537742fb8e69a5e52159"
+    },
+    {
+      "path": "app/dist/node/operator/cli.js",
+      "bytes": 2047,
+      "sha256": "937cdd5e2fbb7ac830c8e5cc0f96e3e1f1dd0442f58428547f226ffd63b06146"
+    },
+    {
+      "path": "app/dist/node/operator/publication-cli.js",
+      "bytes": 5132,
+      "sha256": "e655d6633d081f8b83133b779c2850434b3c1e9a65dcaaae29662d7f3f18d7b2"
+    },
+    {
+      "path": "app/dist/node/operator/skating-capture.js",
+      "bytes": 1933,
+      "sha256": "6298efd247cc3823f6d5b544198a82a3f0fa4ff13cf9b5c55f7b6ea64cc6a15d"
+    },
+    {
+      "path": "app/dist/node/operator/skating-cli.js",
+      "bytes": 3202,
+      "sha256": "99c4b7725ef8168b684262f25dc41659fb34353b51b95e4fdd9a3d97f906e8b4"
+    },
+    {
+      "path": "app/dist/node/server/analysis-publication.js",
+      "bytes": 58397,
+      "sha256": "fd29eb2178ece0b14109821f884647a7b272eff158b0c445d1d08d3e84d9a0d1"
+    },
+    {
+      "path": "app/dist/node/server/deployment-publication.js",
+      "bytes": 3584,
+      "sha256": "d3f58438196d105b25c56fc124338f807426c09ad1c4f01e40fea590b29416b0"
+    },
+    {
+      "path": "app/dist/node/server/main.js",
+      "bytes": 8073,
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+    },
+    {
+      "path": "app/dist/node/server/observed-publication.js",
+      "bytes": 19960,
+      "sha256": "d9bba2571dac5840edc52602db83dbb6e1c0fccc2c9700a1b6f747fcee65b424"
+    },
+    {
+      "path": "app/dist/node/server/physical-schema.js",
+      "bytes": 31543,
+      "sha256": "f7aa360aeaab03cc2dafdbef6d79f48d057aa476bcb040401e6cab3153ffa4be"
+    },
+    {
+      "path": "app/dist/node/server/publication.js",
+      "bytes": 15445,
+      "sha256": "957d0706671eb0e3b42797084b94887230b61c7932313e46ae908d66819752e6"
+    },
+    {
+      "path": "app/dist/node/server/selected-publication.js",
+      "bytes": 17838,
+      "sha256": "c2a7b7f9951823062c16b0d893ad0803aecae3b0bc63d1490977e29acc8b6de3"
+    },
+    {
+      "path": "app/dist/node/server/spatial-publication.js",
+      "bytes": 19687,
+      "sha256": "b68753a324582a6d3a7f6368ea47ebf3fb67f67a6187b01e842c8d183eb72e08"
+    },
+    {
+      "path": "app/dist/node/server/sql-rows.js",
+      "bytes": 1531,
+      "sha256": "f81eb158c93737b2e1ace2aa476cfddcc3e3c1d3906c9da6cd2fcedba898aa0e"
+    },
+    {
+      "path": "app/dist/node/shared/observed.js",
+      "bytes": 14656,
+      "sha256": "240326632f648f4763858b59c4890076acc558fdec5ac2e4f6ddb95982a2bd71"
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis-selections.js",
+      "bytes": 9121,
+      "sha256": "6b047294b1ae38aeab56f4f1b23cb5d6bc56f8664b35382b1346906992e73a71"
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis.js",
+      "bytes": 99386,
+      "sha256": "02f35c055e7b51c08e7661b37a7163ab9b4b295af0b04a887c97a9a84ffb2e0d"
+    },
+    {
+      "path": "app/dist/node/shared/publication.js",
+      "bytes": 3015,
+      "sha256": "8741b38b41627e62b66fad77db6ff9e74edd3416b1e69ff7009c62d198abbfcd"
+    },
+    {
+      "path": "app/dist/server/index.js",
+      "bytes": 147163,
+      "sha256": "fd24fc29b2ef2501cad088836c8b146abf6cdbefcd6bdeb7d8f4c5e19110e8fc"
+    }
+  ],
+  "donor": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+    "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3",
+    "bytes": 23310
+  },
+  "composition": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/special-teams-composition.json",
+    "sha256": "15d14d611289a36aecca4aea24d996876055577b6157c6d5ce0d39ea982a4654",
+    "bytes": 60964
+  }
+}

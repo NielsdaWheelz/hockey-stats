@@ -153,7 +153,8 @@ export function PeerControls({
               <label htmlFor={`${id}-${cutoff}-minimum`}>
                 {cutoff} minimum peer included minutes ·{" "}
                 {allCutoffs
-                  ? cutoff === "specialty"
+                  ? metric?.kind === "goalie" ? cutoff === "specialty" ? "current supported pk goalie time" : "current supported ev goalie time"
+                    : cutoff === "specialty"
                     ? "pp and pk support, separately"
                     : "each field's matched general support"
                   : (metric?.qualificationLabel ??
@@ -326,6 +327,7 @@ export default function PeerDistributions({
   season,
   profileLink,
   exportValues = false,
+  exportPending = false,
   showPeerControls = true,
   metricIds,
 }: {
@@ -341,6 +343,7 @@ export default function PeerDistributions({
     readonly state: unknown;
   };
   readonly exportValues?: boolean;
+  readonly exportPending?: boolean;
   readonly showPeerControls?: boolean;
   readonly metricIds?: readonly AnalysisMetricId[];
 }) {
@@ -685,7 +688,7 @@ export default function PeerDistributions({
       ))}
       {exportValues && !rawOnly && (
         <div className="card-actions">
-          <button type="button" onClick={async () => {
+          <button type="button" disabled={exportPending} onClick={async () => {
             const snapshot = { cohort, metric, publication, season, players: selected.map(({ datum }) => datum.playerId) };
             try {
               const svg = distributionSvg(snapshot.cohort, snapshot.metric, snapshot.publication, snapshot.season);
@@ -696,6 +699,7 @@ export default function PeerDistributions({
           }}>download distribution png</button>
           <button
             type="button"
+            disabled={exportPending}
             onClick={() => {
               const snapshot = { publication, season, metric, rows: allRows };
               try {

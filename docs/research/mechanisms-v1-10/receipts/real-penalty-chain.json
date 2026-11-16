@@ -1,0 +1,309 @@
+{
+  "kind": "real_penalty_native_completion",
+  "recorded_at_utc": "2026-11-15T11:07:21.522950+00:00",
+  "annuals": [
+    {
+      "season": "20212022",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20212022/manifest.json",
+        "sha256": "d41c456c30bbba9d34a8ea2bf8cb1ab8ce56f37edbb007938878c193dc008712"
+      },
+      "log": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties-20212022.log",
+        "sha256": "6a385e99bb4358f6a76df3cf2e6476f05674527e78608a1fe55769f863c6a21b"
+      },
+      "status": "complete",
+      "native": {
+        "wall_seconds": 5890.16,
+        "peak_resident_bytes": 18671763456,
+        "peak_footprint_bytes": 47750509304
+      },
+      "member_bytes": 10952203159,
+      "preparation": {
+        "preparation_seconds": 5327.824599290965,
+        "input_read_wall_seconds": 1.4197552499826998
+      },
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 1176,
+        "evaluations": 1298,
+        "objective": -554.4774271466538,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 3.100378085803615e-05,
+        "achieved_gtol": false,
+        "wall_seconds": 188.12376962509006,
+        "peak_memory_bytes": 17691738112
+      },
+      "diagnostics": {
+        "kind": "in_sample_not_held_out",
+        "expected_awards": 4958.048539347861,
+        "observed_awards": 4958.0
+      }
+    },
+    {
+      "season": "20222023",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20222023/manifest.json",
+        "sha256": "017891d420672898068874b888fa3762678a15cf4e348ac52bf835d36e80c0bc"
+      },
+      "log": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties-20222023.log",
+        "sha256": "b5995a805bb234ab559428ee08f0f83312e83873d75e62a8e66fc61955947d0f"
+      },
+      "status": "complete",
+      "native": {
+        "wall_seconds": 7195.65,
+        "peak_resident_bytes": 27659681792,
+        "peak_footprint_bytes": 52306571880
+      },
+      "member_bytes": 13520676216,
+      "preparation": {
+        "preparation_seconds": 6354.217377291992
+      },
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 1205,
+        "evaluations": 1326,
+        "objective": -1144.3708814632037,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 3.6504016667941036e-05,
+        "achieved_gtol": false,
+        "wall_seconds": 303.51887862500735,
+        "peak_memory_bytes": 27659681792
+      },
+      "diagnostics": {
+        "kind": "in_sample_not_held_out",
+        "expected_awards": 5816.054225623006,
+        "observed_awards": 5816.0
+      }
+    },
+    {
+      "season": "20232024",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20232024/manifest.json",
+        "sha256": "e172684fa5d9c66b1c51721a98fb0dab5ac254e6bfc32a1e7666935ae16b39ad"
+      },
+      "log": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties-20232024.log",
+        "sha256": "b41b5828b4a8b55bc410bc0523e7e2ea6f163c511bc2879e296d20df6c2e5243"
+      },
+      "status": "complete",
+      "native": {
+        "wall_seconds": 9589.83,
+        "peak_resident_bytes": 32265371648,
+        "peak_footprint_bytes": 52628868072
+      },
+      "member_bytes": 13130689289,
+      "preparation": {
+        "preparation_seconds": 8944.70828716713
+      },
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 1166,
+        "evaluations": 1294,
+        "objective": -929.2958073127659,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 8.432459095903235e-05,
+        "achieved_gtol": false,
+        "wall_seconds": 238.02881133393385,
+        "peak_memory_bytes": 22936600576
+      },
+      "diagnostics": {
+        "kind": "in_sample_not_held_out",
+        "expected_awards": 5457.055725168341,
+        "observed_awards": 5457.0
+      }
+    },
+    {
+      "season": "20242025",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20242025/manifest.json",
+        "sha256": "1c48e9b7b2d0794fbca0ab6f1a77ad90cbe82682e740e59e3870346c98399730"
+      },
+      "log": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties-20242025.log",
+        "sha256": "c0cdf6841e55f2037988e0bd1c1e2883c42c4284b1cceec97f4b54b403082553"
+      },
+      "status": "complete",
+      "native": {
+        "wall_seconds": 6373.18,
+        "peak_resident_bytes": 36148609024,
+        "peak_footprint_bytes": 53360456128
+      },
+      "member_bytes": 13127725223,
+      "preparation": {
+        "preparation_seconds": 5824.438779333141
+      },
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 1098,
+        "evaluations": 1222,
+        "objective": -340.1297447080799,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 4.6772825860478574e-05,
+        "achieved_gtol": false,
+        "wall_seconds": 208.8061905419454,
+        "peak_memory_bytes": 36148609024
+      },
+      "diagnostics": {
+        "kind": "in_sample_not_held_out",
+        "expected_awards": 4878.051650004309,
+        "observed_awards": 4878.0
+      }
+    },
+    {
+      "season": "20252026",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20252026/manifest.json",
+        "sha256": "0a0b679f9d67fd3d856eea8be64d95ae309129018afb8e2511a949126bcfe1df"
+      },
+      "log": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties-20252026.log",
+        "sha256": "9394afda46444371dd99fb75915e468e88f33090c18c77d7deffdf7959eef29a"
+      },
+      "status": "complete",
+      "native": {
+        "wall_seconds": 6886.18,
+        "peak_resident_bytes": 33116225536,
+        "peak_footprint_bytes": 55280743664
+      },
+      "member_bytes": 13551984504,
+      "preparation": {
+        "preparation_seconds": 6291.6415266669355
+      },
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 1231,
+        "evaluations": 1358,
+        "objective": -680.1089675172462,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 3.7614178269819096e-05,
+        "achieved_gtol": false,
+        "wall_seconds": 241.58322312496603,
+        "peak_memory_bytes": 33116225536
+      },
+      "diagnostics": {
+        "kind": "in_sample_not_held_out",
+        "expected_awards": 5391.056116661885,
+        "observed_awards": 5391.0
+      }
+    }
+  ],
+  "baseline_solves": 5,
+  "diagnostic_attempts": 1,
+  "final_probe": {
+    "binding": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20252026/probe.json",
+      "sha256": "5b76ed0db4e520f095659d5a512cc65a5df6f11d3d532bb2a2efc85518f21d9e"
+    },
+    "status": "complete",
+    "solver": {
+      "converged": true,
+      "status": 0,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 2,
+      "evaluations": 6,
+      "objective": -680.1089675172493,
+      "options": {
+        "maxiter": 10000,
+        "ftol": 1e-16,
+        "gtol": 1e-07,
+        "maxcor": 10
+      },
+      "gradient_inf_norm": 4.18166263959005e-05,
+      "achieved_gtol": false,
+      "wall_seconds": 1.414241624996066,
+      "peak_memory_bytes": 33116225536
+    },
+    "comparison": {
+      "status": "within_budget",
+      "reason": null,
+      "projection_maximum": 5.336368680275427e-09,
+      "fitting_row_maximum": 2.5616384711213414e-06,
+      "worst_projection": {
+        "player_id": "8484762",
+        "strength": null,
+        "field": "taken_per60"
+      },
+      "worst_fitting_row": {
+        "axis": "time_rows",
+        "row": 2390660,
+        "source_rows": {
+          "source_rows": [
+            {
+              "game_id": "2025021060",
+              "segment_index": 110,
+              "chunk_index": 381,
+              "start_seconds": 970,
+              "end_seconds": 975,
+              "source_index": null,
+              "attacking_side": "home",
+              "attacking_players": [
+                "8473507",
+                "8475692",
+                "8477451",
+                "8478864",
+                "8480800"
+              ],
+              "defending_players": [
+                "8476931",
+                "8478057",
+                "8478443",
+                "8480870",
+                "8481582"
+              ],
+              "attacking_team_id": 30,
+              "defending_team_id": 10,
+              "repeat": "none"
+            }
+          ]
+        }
+      },
+      "budget": 0.0001,
+      "penalty_value_status": "unassessed"
+    }
+  },
+  "native_wall_seconds": 35935.0,
+  "member_bytes": 64283278391,
+  "scope": "ordinary native CLI exits and producer full rereads passed; independent full real-chain audit remains pending shooter completion; no source replay or coefficient-accuracy claim",
+  "limits": [
+    "all five baselines and final probe completed by function tolerance; requested gradient tolerance not achieved",
+    "rates within final diagnostic budget; minor-value sensitivity unassessed until matched reference",
+    "no earlier-year diagnostic or held-out accuracy; baseline remains authoritative"
+  ]
+}

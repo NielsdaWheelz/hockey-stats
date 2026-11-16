@@ -4,6 +4,8 @@ import { matchingPlayers, nameOrder, playerName, teamName } from "./presentation
 
 export default function PlayerPicker<T extends PlayerIdentity>({
   slot,
+  kind = "skater",
+  season,
   players,
   selected,
   error,
@@ -13,6 +15,8 @@ export default function PlayerPicker<T extends PlayerIdentity>({
   onClear,
 }: {
   readonly slot: "first" | "second";
+  readonly kind?: "skater" | "goalie";
+  readonly season?: string;
   readonly players: readonly T[];
   readonly selected: T | undefined;
   readonly error: string | undefined;
@@ -33,16 +37,17 @@ export default function PlayerPicker<T extends PlayerIdentity>({
     : [];
   return (
     <fieldset className="player-picker">
-      <legend>{slot} player</legend>
+      <legend>{slot} {kind}</legend>
       <p id={`${slot}-selection`} className="picker-selection">
         {selected ? (
           <>
             {playerName(selected)} · {selected.teams.map(teamName).join(" / ")} ·
             reported position {selected.reported_position ?? "unavailable"} · player{" "}
             {selected.player_id}
+            {season && "season" in selected && selected.season !== season && <span> · identity from {String(selected.season)}; absent selected season {season}</span>}
           </>
         ) : (
-          `choose ${slot} player`
+          `choose ${slot} ${kind}`
         )}
       </p>
       {error && (
@@ -50,7 +55,7 @@ export default function PlayerPicker<T extends PlayerIdentity>({
           {error}
         </p>
       )}
-      <label htmlFor={`${slot}-player-search`}>search {slot} player</label>
+      <label htmlFor={`${slot}-player-search`}>search {slot} {kind}</label>
       <input
         ref={input}
         id={`${slot}-player-search`}

@@ -193,8 +193,8 @@ export const validatePhysical = (sql: SqliteClient) =>
     yield* Effect.try(() => {
       if (JSON.stringify(integrity) !== '[{"integrity_check":"ok"}]' || foreign.length !== 0)
         throw new Error("publication integrity or foreign-key check failed");
-      if (JSON.stringify(version) !== '[{"user_version":9}]')
-        throw new Error("incompatible publication version; schema 9 is required");
+      if (JSON.stringify(version) !== '[{"user_version":10}]')
+        throw new Error("incompatible publication version; schema 10 is required");
       if (JSON.stringify(journal) !== '[{"journal_mode":"delete"}]')
         throw new Error("publication requires delete journal mode");
       const actual = tables.filter((table) => !table.name.startsWith("sqlite_"));
@@ -208,7 +208,7 @@ export const validatePhysical = (sql: SqliteClient) =>
             !(table.name in physicalSchema),
         )
       )
-        throw new Error("publication requires the fixed strict schema-9 tables");
+        throw new Error("publication requires the fixed strict schema-10 tables");
     });
     for (const [table, expected] of Object.entries(physicalSchema)) {
       const columns = yield* sql.unsafe<{
@@ -591,6 +591,9 @@ export const validateAnalysis = (
           }
           if (table === "adjustment_decomposition") decode(A.AdjustmentTarget, row.target);
           const result = resultFromRow(table, row, person.kind);
+          if (table === "goalie_result" && result.availability === "provided" &&
+              !A.validGoalieProjectionBinding(decode(A.GoalieResult, result.data), String(row.season), String(row.strength)))
+            throw new Error("goalie projection panel binding differs from selected year/strength");
           if (table === "skater_spatial" && result.availability === "provided") {
             const value = result.data as typeof A.SkaterSpatial.Type;
             const key = `${row.season}:${row.player_id}`;
@@ -804,6 +807,29 @@ export const validateAnalysis = (
         });
       }),
     );
+    const mechanismReferences = new Map<string, string>(), shooterSupport = new Map<string, string>();
+    for (const table of ["skater_penalties", "skater_shootiness"] as const) {
+      yield* forEachRow(sql, table, (row) => Effect.try(() => {
+        const result = resultFromRow(table, row);
+        if (result.availability !== "provided") return;
+        const data = result.data, evidence = data.evidence;
+        if (!A.validateMechanismSelection({season: String(row.season), strength: table === "skater_shootiness" ? String(row.strength) : null,
+            data, methods: catalogs.methods})) throw new Error("mechanism annual/method/support reference differs");
+        const annualKey = `${table}:${row.season}`;
+        const annual = JSON.stringify({annual_state: evidence.annual_state, reference_id: evidence.reference_id,
+          ...("valuation" in evidence ? {neutral_per60: evidence.neutral_per60, valuation: evidence.valuation} : {})});
+        const previous = mechanismReferences.get(annualKey);
+        if (previous !== undefined && previous !== annual) throw new Error("mechanism annual reference differs between players");
+        mechanismReferences.set(annualKey, annual);
+        if ("states" in evidence) {
+          const key = `${row.season}:${row.player_id}`, pooled = JSON.stringify({coefficient_support: evidence.coefficient_support,
+            position_group: evidence.position_group, states: evidence.states});
+          const old = shooterSupport.get(key);
+          if (old !== undefined && old !== pooled) throw new Error("shootiness pooled coefficient support differs between states");
+          shooterSupport.set(key, pooled);
+        }
+      }));
+    }
     return { people, grids };
   });
 

@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "kind": "independent_real_first_penalty_saved_audit",
+  "purpose": "real",
+  "status": "pass",
+  "season": "20212022",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20212022/manifest.json",
+    "sha256": "d41c456c30bbba9d34a8ea2bf8cb1ab8ce56f37edbb007938878c193dc008712"
+  },
+  "consumed": "manifest plus bound head/reference/support/projection/coverage json and 26,462-byte coefficient archive only; no design.json, arrays.npz, original sources, production reader, objective or solve",
+  "consumed_bytes": 11794865,
+  "checks": 59249,
+  "wall_seconds": 0.07093254197388887,
+  "peak_memory_bytes": 85819392,
+  "roster": {
+    "players": 1004,
+    "projections": 1004,
+    "raw_actor_priors": 2918,
+    "ledger": 2552,
+    "coordinates": 3273,
+    "prior_only_players": 1,
+    "unsupported_coach_subblocks": 364
+  },
+  "history": {
+    "entry": 2918,
+    "carry": 0,
+    "unsupported": 366
+  },
+  "counts": {
+    "games": 1312,
+    "qualified_awards": 4958,
+    "source_group_dispositions": {
+      "residual": 7299,
+      "cancelled": 433,
+      "unresolved": 138,
+      "outside_population": 390
+    },
+    "model_group_dispositions": {
+      "excluded": 885,
+      "included": 4945,
+      "not_applicable": 961,
+      "outside_population": 1469
+    }
+  },
+  "exposure": {
+    "physical_hours": 1041.453888888889,
+    "directed_hours": 2082.907777777778,
+    "player_slot_hours": 10414.538888888888,
+    "known_excluded_physical_hours": 6.825833333333334
+  },
+  "solver": {
+    "converged": true,
+    "status": 0,
+    "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1176,
+    "evaluations": 1298,
+    "objective": -554.4774271466538,
+    "options": {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06,
+      "maxcor": 10
+    },
+    "gradient_inf_norm": 3.100378085803615e-05,
+    "achieved_gtol": false,
+    "wall_seconds": 188.12376962509006,
+    "peak_memory_bytes": 17691738112
+  },
+  "in_sample": {
+    "kind": "in_sample_not_held_out",
+    "expected_awards": 4958.048539347861,
+    "observed_awards": 4958.0
+  },
+  "resources": {
+    "wall_seconds": 209.6041693331208,
+    "peak_memory_bytes": 17691738112,
+    "coordinates": 3273,
+    "baseline_solves": 1,
+    "diagnostic_solves": 0,
+    "preparation": {
+      "preparation_seconds": 5327.824599290965,
+      "input_read_wall_seconds": 1.4197552499826998
+    },
+    "wall_scope": "fit/projection/diagnostic before artifact writing; preparation separately reported",
+    "output_bytes": 10952203159,
+    "write_wall_seconds": 156.20850554201752
+  },
+  "member_bytes": 10952203159,
+  "native_measurements": {
+    "real_seconds": 5890.16,
+    "maximum_resident_bytes": 18671763456,
+    "peak_footprint_bytes": 47750509304,
+    "source_log": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties-20212022.log"
+  },
+  "scientific_limits": [
+    "native function-tolerance completion is not achieved gradient tolerance or coefficient accuracy",
+    "gradient infinity norm 3.100378085803615e-5 exceeds requested1e-6",
+    "earlier-year numerical sensitivity not assessed; no continuation scheduled for this annual",
+    "source membership/qualification is checked here through sealed coverage accounting, not independent source reconstruction",
+    "no calibrated player uncertainty, causal isolation or ability admission is established"
+  ]
+}

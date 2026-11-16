@@ -1,0 +1,20 @@
+{
+  "at": "2026-11-15T01:25:33.210794+00:00",
+  "agreed_by": "explicit v1-10/root user steering",
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01",
+  "candidate_count": 1,
+  "created": false,
+  "assembly_condition": "reviewed current goalie enrichment and actual selected mechanism/model/reference rows ready; no pending-mechanism alternative selected",
+  "converter_and_composition_root": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real",
+  "final_frontend": "ac2e3dd117641d12bfae4ba3f8b6b788980bca9b",
+  "frozen_analysis_tree": "054a40317b8645abbe2c9ad9899d80dfc44fbbc8",
+  "integration_owner": "v1-19 root owns final app build, strict detached runtime, goalie acceptance",
+  "mechanism_acceptance_owner": "v1-10 root/product checks same database/API/publication identity",
+  "activation": false,
+  "reaffirmed_after_first_annual_exceeded_one_hour": {
+    "at": "2026-11-15T01:59:07.761420+00:00",
+    "user_choice": "keep one combined candidate; wait for all mechanism outputs",
+    "alternative_not_selected": "earlier pending-mechanism goalie publication, repeating roughly31gb/full strict startup later",
+    "timing": "no total runtime forecast; first annual remains uninterrupted"
+  }
+}

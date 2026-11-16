@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "kind": "shared_goalie_mechanism_foundation_integration",
+  "status": "pending_supplemental_source_fix",
+  "upstream_patch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/goalie-evidence-foundation.patch",
+    "sha256": "cb9117ee3cd5a46d097834856f2dce1b7a8492145116265afd750cfa0aa54c41"
+  },
+  "upstream_reviews": [
+    {
+      "original": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-goalie-parity.json",
+        "sha256": "c42d1a8d122d0e72e7c365972dfeb9995762c29796700ce58853d4c0debbc8d7"
+      },
+      "retained": {
+        "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/v1-19-shared/real-goalie-parity.json",
+        "sha256": "c42d1a8d122d0e72e7c365972dfeb9995762c29796700ce58853d4c0debbc8d7"
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/application-v1-19/receipts/real-typed-evidence.json",
+        "sha256": "4ca1b2c262a40591bb9639b6e94c65a0e763cb0e09b58563913c66f9ea24c38c"
+      },
+      "retained": {
+        "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/v1-19-shared/real-typed-evidence.json",
+        "sha256": "4ca1b2c262a40591bb9639b6e94c65a0e763cb0e09b58563913c66f9ea24c38c"
+      }
+    }
+  ],
+  "source_scope": [
+    "analysis_publication.py",
+    "goalie_composition.py",
+    "goalie_scores.py",
+    "app/src/server/analysis-publication.ts",
+    "app/src/shared/player-analysis.ts"
+  ],
+  "local_extension": "the single temporary converter takes the explicit accepted goalie score selection and attaches only saved projection evidence; normal current readers remain exchange4/schema10",
+  "accepted_goalie_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/goalies-v1-07-20261108-01/real/scores-selection.json",
+    "sha256": "2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed"
+  },
+  "checks": [
+    {
+      "name": "node24 typecheck",
+      "status": "passed"
+    },
+    {
+      "name": "python compilation",
+      "status": "passed"
+    },
+    {
+      "name": "unsupported synthetic provided-goalie proof refusal",
+      "status": "passed",
+      "output_created": false
+    }
+  ],
+  "limits": [
+    "the3971 real-row parity and typed checks are attributed upstream checks, not rerun here",
+    "no expensive donor read, real conversion, candidate build or startup performed in this integration",
+    "older interface05 and rollback checks retain their original contract scope; the next shared fixture requires the new goalie evidence"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "kind": "mechanism_final_oracle_readiness",
+  "status": "fixture_dry_run_passed_real_execution_pending",
+  "controller": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/app/temporary-mechanisms-final.ts",
+    "sha256": "e441cc6bed3d226ee1efb6746c45000d1009d7623155954f5d69facd8ff10078"
+  },
+  "typed_controller_compilation": "passed",
+  "command": "node24 tsx --tsconfig app/tsconfig.web.json app/temporary-mechanisms-final.ts --base-url BASE --results CURRENT_EXCHANGE --database CURRENT_SQLITE --out NEW_RECEIPT",
+  "fixture_result_manifest": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/fixture-publication/results/manifest.json",
+    "sha256": "515f46a1842c326902a029f647b679656fab7c81d24901f41068046c2882a8f2"
+  },
+  "fixture_database": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/fixture-publication/player-analysis.sqlite",
+    "sha256": "2aa8284dab0582b8d4c1a4dbb08faacc3de9f4601ce3564d9479f55b424e7520",
+    "identity_source": "explicit root selection and upstream publisher receipt; no full database hash rerun"
+  },
+  "passed": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/final-oracle-01/acceptance-04.json",
+    "sha256": "a4380d092cfbc321faebaa779fe0b872733b9d7e7dea1d41c94e5050dedbc21d"
+  },
+  "earlier_receipts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/final-oracle-01/acceptance.json",
+      "sha256": "5f21c7bd036750e025218ca8fad4e126cd416c46318e2d30ea8e9dccc2fe89be"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/final-oracle-01/acceptance-02.json",
+      "sha256": "02552f5401280b0d01c8618c5355249673db758423b40d28ddf9f280325dc8d7"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/final-oracle-01/acceptance-03.json",
+      "sha256": "a4380d092cfbc321faebaa779fe0b872733b9d7e7dea1d41c94e5050dedbc21d"
+    }
+  ],
+  "oracle_corrections": [
+    "global pending families have no source/sqlite member rows; API retains explicit unavailable envelopes; real full matrices remain mandatory",
+    "browser client requires browser origin/path context before URL construction; temporary node oracle supplies only location and fetch origin, with no production edit"
+  ],
+  "limits": [
+    "fixture exercises672 explicit producer/sqlite rows and2016 API envelopes, not real capability",
+    "one available synthetic forward/sparse profile only; defense, multi-team, prior-only, zero-specialty, positive-taking ranks and comparison remain unexercised in this fixture",
+    "real run requires full three-season owned matrices, discovers actual special-case identities and checks existing consumer ranks/qualifications/exports",
+    "no publication build/startup, full database hash, original source read or permanent code change during active real fit"
+  ],
+  "final_integrated_fixture": {
+    "frontend": "92379be5ff6470ecfac0f54d2ba9f8018e3ef996",
+    "receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/final-oracle-02/acceptance.json",
+      "sha256": "a4380d092cfbc321faebaa779fe0b872733b9d7e7dea1d41c94e5050dedbc21d"
+    },
+    "publication_id": "64f000ad-9205-4217-9372-0d86d749dfe7",
+    "stats": {
+      "producerRows": 672,
+      "sqliteRows": 672,
+      "apiRows": 2016,
+      "arithmeticRows": 2,
+      "cohortChecks": 4536,
+      "csvChecks": 7,
+      "profileChecks": 1,
+      "comparisonChecks": 0,
+      "mapRejections": 2,
+      "positiveTakingRankChecks": 0
+    },
+    "node24_typecheck": "passed",
+    "scope": "same immutable fixture and final compiled app; no real capability or new publication"
+  }
+}

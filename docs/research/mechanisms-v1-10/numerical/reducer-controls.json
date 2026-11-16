@@ -1,0 +1,87 @@
+{
+  "scope": "labeled synthetic source-boundary controls using real reduction/state artifact writers and receipt reader; source qualification is supplied independently",
+  "cases": [
+    {
+      "case": "matched_and_zero_event_time",
+      "included_seconds": 120,
+      "attempts": 1,
+      "neutral_goal_mass": 0.1,
+      "available": true
+    },
+    {
+      "case": "unusable_value_masks_entire_segment",
+      "included_seconds": 60,
+      "attempts": 0,
+      "neutral_goal_mass": 0,
+      "available": true
+    },
+    {
+      "case": "proved_advantage_without_score_ignored",
+      "included_seconds": 120,
+      "attempts": 0,
+      "neutral_goal_mass": 0,
+      "available": true
+    },
+    {
+      "case": "zero_mass_positive_time",
+      "included_seconds": 120,
+      "attempts": 0,
+      "neutral_goal_mass": 0,
+      "available": true
+    },
+    {
+      "case": "zero_exposure_unavailable",
+      "included_seconds": 0,
+      "attempts": 0,
+      "neutral_goal_mass": 0,
+      "available": false
+    },
+    {
+      "case": "unresolved_api_possible_attempt",
+      "included_seconds": 60,
+      "attempts": 0,
+      "neutral_goal_mass": 0,
+      "available": true
+    },
+    {
+      "case": "unmatched_report_possible_sh",
+      "included_seconds": 60,
+      "attempts": 0,
+      "neutral_goal_mass": 0,
+      "available": true
+    },
+    {
+      "case": "proved_advantage_report_ignored",
+      "included_seconds": 120,
+      "attempts": 0,
+      "neutral_goal_mass": 0,
+      "available": true
+    },
+    {
+      "case": "goalie_is_team_response",
+      "included_seconds": 120,
+      "attempts": 1,
+      "neutral_goal_mass": 0.1,
+      "available": true
+    },
+    {
+      "case": "negative_minor_value_retained",
+      "included_seconds": 120,
+      "attempts": 1,
+      "neutral_goal_mass": 0.8,
+      "available": true
+    },
+    {
+      "case": "wrong_physical_state",
+      "status": "rejected_contract"
+    },
+    {
+      "case": "wrong_shooter_id",
+      "status": "rejected_contract"
+    },
+    {
+      "case": "wrong_outcome",
+      "status": "rejected_contract"
+    }
+  ]
+}

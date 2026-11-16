@@ -1,0 +1,182 @@
+{
+  "status": "inventory_only_nothing_deleted",
+  "worktree": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats",
+  "head": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+  "disposable": [
+    {
+      "path": ".tmp/mechanism-misconduct-controls.py",
+      "kind": "file",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "bytes": 1087
+    },
+    {
+      "path": ".tmp/mechanism-numerical-tests.py",
+      "kind": "file",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "bytes": 7250
+    },
+    {
+      "path": ".tmp/mechanism-reducer-controls.py",
+      "kind": "file",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "bytes": 6224
+    },
+    {
+      "path": ".tmp/mechanism-reducer-integration.py",
+      "kind": "file",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "bytes": 1768
+    },
+    {
+      "path": ".tmp/adversarial-v1-10",
+      "kind": "directory",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "regular_files": 8,
+      "nested_directories": 0,
+      "regular_bytes": 95263,
+      "symlinks": []
+    },
+    {
+      "path": ".tmp/mechanisms-v1-10",
+      "kind": "directory",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "regular_files": 9,
+      "nested_directories": 1,
+      "regular_bytes": 74358,
+      "symlinks": []
+    },
+    {
+      "path": ".tmp/v1-10",
+      "kind": "directory",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "regular_files": 36,
+      "nested_directories": 5,
+      "regular_bytes": 870051,
+      "symlinks": []
+    },
+    {
+      "path": ".tmp/v1-10-browser",
+      "kind": "directory",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "regular_files": 179,
+      "nested_directories": 41,
+      "regular_bytes": 19035924,
+      "symlinks": [
+        {
+          "path": ".tmp/v1-10-browser/node_modules/.bin/playwright-core",
+          "target": "../playwright-core/cli.js"
+        },
+        {
+          "path": ".tmp/v1-10-browser/node_modules/.bin/playwright",
+          "target": "../playwright/cli.js"
+        }
+      ]
+    },
+    {
+      "path": ".tmp/v1-10-operation",
+      "kind": "directory",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "regular_files": 269,
+      "nested_directories": 47,
+      "regular_bytes": 9147958,
+      "symlinks": [
+        {
+          "path": ".tmp/v1-10-operation/schema9-source/analysis/.venv",
+          "target": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv"
+        },
+        {
+          "path": ".tmp/v1-10-operation/schema9-source/app/node_modules",
+          "target": "/Users/nnandal/Documents/code/hockey-stats/app/node_modules"
+        }
+      ]
+    },
+    {
+      "path": "app/temporary-mechanism-contract.ts",
+      "kind": "file",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "bytes": 1928
+    },
+    {
+      "path": "app/temporary-mechanism-prior-render.tsx",
+      "kind": "file",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "bytes": 2110
+    },
+    {
+      "path": "app/temporary-mechanism-sign-copy.tsx",
+      "kind": "file",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "bytes": 1253
+    },
+    {
+      "path": "app/temporary-mechanisms-final.ts",
+      "kind": "file",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "bytes": 21798
+    },
+    {
+      "path": "app/node_modules",
+      "kind": "symlink",
+      "tracked_paths": [],
+      "ignore_rule": null,
+      "target": "/Users/nnandal/Documents/code/hockey-stats/app/node_modules",
+      "cleanup": "unlink only this worktree alias; never recurse into its target"
+    },
+    {
+      "path": "app/dist",
+      "kind": "directory",
+      "tracked_paths": [],
+      "ignore_rule": ".gitignore:5:app/dist/\tapp/dist",
+      "regular_files": 38,
+      "nested_directories": 8,
+      "regular_bytes": 1498719,
+      "symlinks": []
+    },
+    {
+      "path": "app/.react-router",
+      "kind": "directory",
+      "tracked_paths": [],
+      "ignore_rule": ".gitignore:6:app/.react-router/\tapp/.react-router",
+      "regular_files": 6,
+      "nested_directories": 6,
+      "regular_bytes": 9753,
+      "symlinks": []
+    }
+  ],
+  "protected": [
+    {
+      "path": "analysis/.venv",
+      "kind": "directory",
+      "tracked_paths": [],
+      "reason": "explicitly preserve environment"
+    },
+    {
+      "path": ".tmp/goalie-live-acceptance",
+      "kind": "directory",
+      "tracked_paths": [
+        ".tmp/goalie-live-acceptance/publication-held.sh",
+        ".tmp/goalie-live-acceptance/publication-launch-01.command"
+      ],
+      "reason": "two tracked inherited launch scripts; not disposable task scratch"
+    }
+  ],
+  "limits": [
+    "no external bulk scan",
+    "do not clean the v1-19 worktree",
+    "preserve all canonical fixtures/receipts/raw/fits/external outputs/primary source, dependencies and build",
+    "nested rollback source is a disposable standalone clone, not a registered worktree"
+  ]
+}

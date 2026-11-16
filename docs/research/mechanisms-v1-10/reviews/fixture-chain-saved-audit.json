@@ -1,0 +1,551 @@
+{
+  "schema_version": 1,
+  "kind": "independent_fixture_mechanism_chain_audit",
+  "purpose": "fixture",
+  "status": "pass",
+  "checks": 118419,
+  "consumed": "only manifest/head/support/projection/reference/probe json and small coefficient npz; no design arrays/json, coverage, sources, objective calls, production readers or fitting",
+  "limits": "all standardized projections and prior/ledger/centers independently reproduced; actual fitting-row maxima checked as saved finite metadata and verdict closure; shootiness worst actual choice probability movement independently reproduced from its bound candidate locator group, but exhaustive actual-row maxima not recomputed without designs; no real capability or scientific support claim",
+  "wall_seconds": 0.15006300015375018,
+  "peak_memory_bytes": 50036736,
+  "consumed_bytes": 11785620,
+  "annuals": [
+    {
+      "family": "penalties",
+      "season": "20212022",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/penalties/20212022/manifest.json",
+        "sha256": "afafc714ff86c698dd405124e402a4bfac47b8635f2f4348698bcbee0abf8133"
+      },
+      "players": 224,
+      "projections": 224,
+      "raw_actors": 980,
+      "ledger": 576,
+      "history": {
+        "entry": 980,
+        "carry": 0,
+        "unsupported": 404
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 0,
+        "never_shooting_informed": 0
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "iterations": 90,
+        "evaluations": 97,
+        "objective": -8.629637482265887,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 6.196922345269584e-07,
+        "achieved_gtol": true,
+        "wall_seconds": 0.0804344171192497,
+        "peak_memory_bytes": 945946624
+      },
+      "diagnostic": "not_assessed"
+    },
+    {
+      "family": "penalties",
+      "season": "20222023",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/penalties/20222023/manifest.json",
+        "sha256": "802d4ea41a2cef868c384b2ddbe26d5259f3482faf05b5a8af53ed329d004fb1"
+      },
+      "players": 179,
+      "projections": 179,
+      "raw_actors": 890,
+      "ledger": 890,
+      "history": {
+        "entry": 654,
+        "carry": 236,
+        "unsupported": 436
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 0,
+        "never_shooting_informed": 0
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "iterations": 168,
+        "evaluations": 183,
+        "objective": -17.10254717724858,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 7.376731378516688e-07,
+        "achieved_gtol": true,
+        "wall_seconds": 0.1297508329153061,
+        "peak_memory_bytes": 1218347008
+      },
+      "diagnostic": "not_assessed"
+    },
+    {
+      "family": "penalties",
+      "season": "20232024",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/penalties/20232024/manifest.json",
+        "sha256": "de66bf01be6356227565c41a8957f8af6aa77025cf6c89c993757d48c3e1aa97"
+      },
+      "players": 201,
+      "projections": 201,
+      "raw_actors": 934,
+      "ledger": 1192,
+      "history": {
+        "entry": 554,
+        "carry": 380,
+        "unsupported": 414
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 0,
+        "never_shooting_informed": 0
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "iterations": 161,
+        "evaluations": 170,
+        "objective": -32.74879977474419,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 8.557276118814627e-07,
+        "achieved_gtol": true,
+        "wall_seconds": 0.139316167216748,
+        "peak_memory_bytes": 977108992
+      },
+      "diagnostic": "not_assessed"
+    },
+    {
+      "family": "penalties",
+      "season": "20242025",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/penalties/20242025/manifest.json",
+        "sha256": "2df0f22cc3609bd311743a5765f18141c2566ee5042c2e7a56f01b6427ae1ee5"
+      },
+      "players": 245,
+      "projections": 245,
+      "raw_actors": 1022,
+      "ledger": 1510,
+      "history": {
+        "entry": 510,
+        "carry": 512,
+        "unsupported": 440
+      },
+      "cases": {
+        "prior_only": 19,
+        "unknown_position": 0,
+        "zero_state_time_available": 0,
+        "never_shooting_informed": 0
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "iterations": 163,
+        "evaluations": 173,
+        "objective": -44.68074281690811,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 7.57729452302916e-07,
+        "achieved_gtol": true,
+        "wall_seconds": 0.16987008298747241,
+        "peak_memory_bytes": 1227341824
+      },
+      "diagnostic": "not_assessed"
+    },
+    {
+      "family": "penalties",
+      "season": "20252026",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/penalties/20252026/manifest.json",
+        "sha256": "db3ba2e959d0f449255d2f0b227ba0cf03e375987309e793a50e34e15798ce62"
+      },
+      "players": 277,
+      "projections": 277,
+      "raw_actors": 1086,
+      "ledger": 1792,
+      "history": {
+        "entry": 406,
+        "carry": 680,
+        "unsupported": 486
+      },
+      "cases": {
+        "prior_only": 40,
+        "unknown_position": 0,
+        "zero_state_time_available": 0,
+        "never_shooting_informed": 0
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 175,
+        "evaluations": 189,
+        "objective": -33.97836632716588,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 1.2287917876552257e-06,
+        "achieved_gtol": false,
+        "wall_seconds": 0.18572691711597145,
+        "peak_memory_bytes": 1331118080
+      },
+      "diagnostic": {
+        "status": "within_budget",
+        "reason": null,
+        "projection_maximum": 2.7986960526860116e-08,
+        "fitting_row_maximum": 9.045467322721379e-06,
+        "worst_projection": {
+          "player_id": "8474013",
+          "strength": null,
+          "field": "drawn_complete_per60"
+        },
+        "worst_fitting_row": {
+          "axis": "time_rows",
+          "row": 4742,
+          "source_rows": {
+            "source_rows": [
+              {
+                "game_id": "2025020184",
+                "segment_index": 25,
+                "chunk_index": 104,
+                "start_seconds": 354,
+                "end_seconds": 355,
+                "source_index": null,
+                "attacking_side": "home",
+                "attacking_players": [
+                  "8476624",
+                  "8479576",
+                  "8480825",
+                  "8480848",
+                  "8482166"
+                ],
+                "defending_players": [
+                  "8476312",
+                  "8476455",
+                  "8478109",
+                  "8480835",
+                  "8482470"
+                ],
+                "attacking_team_id": 28,
+                "defending_team_id": 21,
+                "repeat": "none"
+              }
+            ]
+          }
+        },
+        "budget": 0.0001,
+        "penalty_value_status": "unassessed"
+      }
+    },
+    {
+      "family": "shootiness",
+      "season": "20212022",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/shootiness/20212022/manifest.json",
+        "sha256": "687f1f4c27be4867e98f27e0deed6f351a889be739978cee022024ba61e964fc"
+      },
+      "players": 224,
+      "projections": 1568,
+      "raw_actors": 224,
+      "ledger": 224,
+      "history": {
+        "entry": 224,
+        "carry": 0,
+        "unsupported": 0
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 1017,
+        "never_shooting_informed": 15
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 41,
+        "evaluations": 46,
+        "objective": 1164.9268857485283,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 1.0434940934667125e-06,
+        "achieved_gtol": false,
+        "wall_seconds": 0.006418459117412567,
+        "peak_memory_bytes": 831406080
+      },
+      "diagnostic": "not_assessed"
+    },
+    {
+      "family": "shootiness",
+      "season": "20222023",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/shootiness/20222023/manifest.json",
+        "sha256": "131791266e51edaa4c8e9545073df3997e25bbb2edfafbdf3f7a25feaa613c45"
+      },
+      "players": 179,
+      "projections": 1253,
+      "raw_actors": 179,
+      "ledger": 349,
+      "history": {
+        "entry": 125,
+        "carry": 54,
+        "unsupported": 0
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 848,
+        "never_shooting_informed": 17
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "iterations": 39,
+        "evaluations": 46,
+        "objective": 853.47223353024,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 6.378496777426079e-07,
+        "achieved_gtol": true,
+        "wall_seconds": 0.005544333951547742,
+        "peak_memory_bytes": 983334912
+      },
+      "diagnostic": "not_assessed"
+    },
+    {
+      "family": "shootiness",
+      "season": "20232024",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/shootiness/20232024/manifest.json",
+        "sha256": "3f6d59d7fdac70d685cd10977429b98a5e75514e8ce99d7bf4b95117a59f9b47"
+      },
+      "players": 201,
+      "projections": 1407,
+      "raw_actors": 201,
+      "ledger": 456,
+      "history": {
+        "entry": 107,
+        "carry": 94,
+        "unsupported": 0
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 919,
+        "never_shooting_informed": 15
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 36,
+        "evaluations": 43,
+        "objective": 1013.6429655053239,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 1.6453412250705401e-06,
+        "achieved_gtol": false,
+        "wall_seconds": 0.005677917040884495,
+        "peak_memory_bytes": 780599296
+      },
+      "diagnostic": "not_assessed"
+    },
+    {
+      "family": "shootiness",
+      "season": "20242025",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/shootiness/20242025/manifest.json",
+        "sha256": "add419dab805b14dffc694eb28fc724cc32311d22cf9b8dcf0cac821dff6ebb0"
+      },
+      "players": 245,
+      "projections": 1715,
+      "raw_actors": 245,
+      "ledger": 585,
+      "history": {
+        "entry": 129,
+        "carry": 116,
+        "unsupported": 0
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 1136,
+        "never_shooting_informed": 20
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 33,
+        "evaluations": 39,
+        "objective": 1596.8652009513567,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 4.7813615427494405e-06,
+        "achieved_gtol": false,
+        "wall_seconds": 0.007125749951228499,
+        "peak_memory_bytes": 948781056
+      },
+      "diagnostic": "not_assessed"
+    },
+    {
+      "family": "shootiness",
+      "season": "20252026",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/fixture/shootiness/20252026/manifest.json",
+        "sha256": "ec755ab5ce0f7eb1b7cd3f7715988c97387563f3bf575ec2251e3451dc22379a"
+      },
+      "players": 277,
+      "projections": 1939,
+      "raw_actors": 277,
+      "ledger": 693,
+      "history": {
+        "entry": 108,
+        "carry": 169,
+        "unsupported": 0
+      },
+      "cases": {
+        "prior_only": 0,
+        "unknown_position": 0,
+        "zero_state_time_available": 1349,
+        "never_shooting_informed": 26
+      },
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "iterations": 46,
+        "evaluations": 50,
+        "objective": 1557.7681486310207,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 7.129215316900844e-07,
+        "achieved_gtol": true,
+        "wall_seconds": 0.00880654202774167,
+        "peak_memory_bytes": 1044725760
+      },
+      "diagnostic": {
+        "status": "within_budget",
+        "reason": null,
+        "projection_maximum": 7.419929615171128e-09,
+        "fitting_row_maximum": 5.2747345935522105e-09,
+        "worst_projection": {
+          "player_id": "8484258",
+          "strength": "5v4",
+          "field": "probability"
+        },
+        "worst_fitting_row": {
+          "axis": "candidates",
+          "candidate_index": 252,
+          "choice_index": 50,
+          "choice_candidate_slot": 3,
+          "player_id": "8483506",
+          "source_rows": {
+            "source_rows": [
+              {
+                "game_id": "2025020001",
+                "source_index": 186,
+                "locator": "/attempts/186",
+                "status": "included",
+                "reason": null,
+                "strength": "5v4",
+                "attacking_side": "away",
+                "candidates": [
+                  "8476882",
+                  "8477479",
+                  "8483493",
+                  "8483506",
+                  "8484144"
+                ],
+                "known_candidates": [
+                  "8476882",
+                  "8477479",
+                  "8483493",
+                  "8483506",
+                  "8484144"
+                ],
+                "shooter_id": "8484144"
+              },
+              {
+                "game_id": "2025020001",
+                "source_index": 276,
+                "locator": "/attempts/276",
+                "status": "included",
+                "reason": null,
+                "strength": "5v4",
+                "attacking_side": "away",
+                "candidates": [
+                  "8476882",
+                  "8477479",
+                  "8483493",
+                  "8483506",
+                  "8484144"
+                ],
+                "known_candidates": [
+                  "8476882",
+                  "8477479",
+                  "8483493",
+                  "8483506",
+                  "8484144"
+                ],
+                "shooter_id": "8484144"
+              }
+            ]
+          }
+        },
+        "budget": 1e-05,
+        "penalty_value_status": null
+      }
+    }
+  ]
+}

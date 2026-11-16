@@ -1,0 +1,396 @@
+{
+  "schema_version": 1,
+  "kind": "independent_real_minor_reference_saved_audit",
+  "purpose": "real",
+  "status": "pass",
+  "checks": 6839512,
+  "consumed_bytes": 163393595,
+  "wall_seconds": 3.88325412501581,
+  "chain_audit": {
+    "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/reviews/real-chain-saved-audit.json",
+    "sha256": "311a0f5d94e62199b0753226392fbd934aed673ab962b818031b705cc8ec4198"
+  },
+  "composition": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/mechanism-composition.json",
+    "sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5"
+  },
+  "output": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+    "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41"
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/mechanisms-selection.json",
+    "sha256": "ac2d598431fab3d0eaafcd952a47588ccd9a0e60194250e4e087b2b34ccd1029"
+  },
+  "annuals": [
+    {
+      "season": "20212022",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20212022/minor-reference.json",
+        "sha256": "ac73efe1e73eab3f69d4fbe32f9d8a1d84bce3a454993a92d08892c9bcc23415"
+      },
+      "reduction": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20212022/source-reduction.json",
+        "sha256": "22fac5aaae36442c64c9aa478795015055f7e1e17492bdd087340f730bcc99f5"
+      },
+      "annual_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20212022/manifest.json",
+        "sha256": "d41c456c30bbba9d34a8ea2bf8cb1ab8ce56f37edbb007938878c193dc008712"
+      },
+      "games": 1312,
+      "unique_retained_keys": 3044,
+      "dispositions": {
+        "outside_shorthanded_population": 141104,
+        "matched_neutral": 3095,
+        "proved_nonsh_report": 140,
+        "ambiguous_potential_shorthanded": 105,
+        "unmatched_possible_sh_report": 22,
+        "neutral_score_unavailable": 3
+      },
+      "valuation": {
+        "available": true,
+        "reason": null,
+        "a": 3.783919707467226,
+        "b": 1.0206074132860627,
+        "e_f": 1.8283783932398623,
+        "e_a": 1.8283783932398623,
+        "T_hours": 0.03333333333333333,
+        "tau_hours": 0.031316820632991314,
+        "V_goals": 0.08653815546981122,
+        "sh_support": {
+          "included_seconds": 694089.0,
+          "attempts": 3044,
+          "neutral_goal_mass": 196.77566080008614,
+          "known_excluded_seconds": 15035.0,
+          "unquantified_gap": true
+        },
+        "inputs": {
+          "ev_state": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+            "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509"
+          },
+          "st_state": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-02/real/states/20212022/manifest.json",
+            "sha256": "7ec561e9c273b833339b8446d7e1a2bb6d0c422d536f72c2c534f71930e16c61"
+          },
+          "execution_score": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022/manifest.json",
+            "sha256": "37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d"
+          },
+          "reduction": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20212022/source-reduction.json",
+            "sha256": "22fac5aaae36442c64c9aa478795015055f7e1e17492bdd087340f730bcc99f5"
+          }
+        }
+      }
+    },
+    {
+      "season": "20222023",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20222023/minor-reference.json",
+        "sha256": "023f3ae56be7dfd22c6910c0cfb6f915fecf2f1b091e2501ec0835d03afca00e"
+      },
+      "reduction": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20222023/source-reduction.json",
+        "sha256": "b377343779b35891550a5b3420c75580cc44080bc594214981271676cd0f9086"
+      },
+      "annual_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20222023/manifest.json",
+        "sha256": "017891d420672898068874b888fa3762678a15cf4e348ac52bf835d36e80c0bc"
+      },
+      "games": 1312,
+      "unique_retained_keys": 3165,
+      "dispositions": {
+        "outside_shorthanded_population": 144878,
+        "matched_neutral": 3217,
+        "proved_nonsh_report": 145,
+        "ambiguous_potential_shorthanded": 50,
+        "unmatched_possible_sh_report": 8
+      },
+      "valuation": {
+        "available": true,
+        "reason": null,
+        "a": 3.5351174268889194,
+        "b": 1.0853214620308167,
+        "e_f": 1.7355507531401593,
+        "e_a": 1.7355507531401593,
+        "T_hours": 0.03333333333333333,
+        "tau_hours": 0.031444301487934985,
+        "V_goals": 0.07703212290292476,
+        "sh_support": {
+          "included_seconds": 746024.0,
+          "attempts": 3165,
+          "neutral_goal_mass": 224.90996066391057,
+          "known_excluded_seconds": 12456.0,
+          "unquantified_gap": true
+        },
+        "inputs": {
+          "ev_state": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01/manifest.json",
+            "sha256": "bdc5c2d4ed8645f5b1aa825abe06397b333ed399c2a4399eff6106dd6b98bd17"
+          },
+          "st_state": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-03/real/states/20222023/manifest.json",
+            "sha256": "2ce8f5cf777c9f252da4c053955281fea0c345a93b8b0154e8f4e24622205175"
+          },
+          "execution_score": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/manifest.json",
+            "sha256": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20"
+          },
+          "reduction": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20222023/source-reduction.json",
+            "sha256": "b377343779b35891550a5b3420c75580cc44080bc594214981271676cd0f9086"
+          }
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20232024/minor-reference.json",
+        "sha256": "9d0fd5f3727c67a40b374c7d79fe87bf0b33089927e703cce49a710ac99cf60c"
+      },
+      "reduction": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20232024/source-reduction.json",
+        "sha256": "2e14f8ed3c81e6beb7fb46d79722064f0bf97b01818b8349cf87d9574bf31007"
+      },
+      "annual_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20232024/manifest.json",
+        "sha256": "e172684fa5d9c66b1c51721a98fb0dab5ac254e6bfc32a1e7666935ae16b39ad"
+      },
+      "games": 1312,
+      "unique_retained_keys": 2980,
+      "dispositions": {
+        "outside_shorthanded_population": 151254,
+        "matched_neutral": 3013,
+        "proved_nonsh_report": 189,
+        "ambiguous_potential_shorthanded": 151,
+        "neutral_score_unavailable": 2,
+        "unmatched_possible_sh_report": 27
+      },
+      "valuation": {
+        "available": true,
+        "reason": null,
+        "a": 3.6260165390886083,
+        "b": 1.0696721319020925,
+        "e_f": 1.8228390301937205,
+        "e_a": 1.8228390301937205,
+        "T_hours": 0.03333333333333333,
+        "tau_hours": 0.03139764586854085,
+        "V_goals": 0.08026319641486722,
+        "sh_support": {
+          "included_seconds": 721740.0,
+          "attempts": 2980,
+          "neutral_goal_mass": 214.4514345775045,
+          "known_excluded_seconds": 10251.0,
+          "unquantified_gap": true
+        },
+        "inputs": {
+          "ev_state": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/manifest.json",
+            "sha256": "42bfbab911efc9a58904b5273a09545d617fd7c29a2be67203bbc55b236eff25"
+          },
+          "st_state": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261110-04/real/states/20232024/manifest.json",
+            "sha256": "465362c42c21d8e33c8db4506d15454fb79723151b03faa98409d80027f05df7"
+          },
+          "execution_score": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024/manifest.json",
+            "sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238"
+          },
+          "reduction": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20232024/source-reduction.json",
+            "sha256": "2e14f8ed3c81e6beb7fb46d79722064f0bf97b01818b8349cf87d9574bf31007"
+          }
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20242025/minor-reference.json",
+        "sha256": "ca3a9da3103b92b7599225955c7a26d94ddcceeae4bf69deaa1a0b9414401b31"
+      },
+      "reduction": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20242025/source-reduction.json",
+        "sha256": "6c7f7df7dc2f779ef052146e09ed5f614c78e34d117786ca17fde975284ed45e"
+      },
+      "annual_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20242025/manifest.json",
+        "sha256": "1c48e9b7b2d0794fbca0ab6f1a77ad90cbe82682e740e59e3870346c98399730"
+      },
+      "games": 1312,
+      "unique_retained_keys": 2525,
+      "dispositions": {
+        "unmatched_possible_sh_report": 69,
+        "outside_shorthanded_population": 147702,
+        "matched_neutral": 2587,
+        "proved_nonsh_report": 152,
+        "ambiguous_potential_shorthanded": 171
+      },
+      "valuation": {
+        "available": true,
+        "reason": null,
+        "a": 3.804326885591314,
+        "b": 0.975931065363679,
+        "e_f": 1.6793491856614797,
+        "e_a": 1.6793491856614797,
+        "T_hours": 0.03333333333333333,
+        "tau_hours": 0.031306395359723425,
+        "V_goals": 0.08854687778183556,
+        "sh_support": {
+          "included_seconds": 628985.0,
+          "attempts": 2525,
+          "neutral_goal_mass": 170.5127780966038,
+          "known_excluded_seconds": 13812.0,
+          "unquantified_gap": true
+        },
+        "inputs": {
+          "ev_state": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/manifest.json",
+            "sha256": "74f35a1c9599335279954170693f7d3add11302bc83611fe14a368322870e6eb"
+          },
+          "st_state": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-01/real/states/20242025/manifest.json",
+            "sha256": "c3d495a9f85c6d261f58d75c77976885371ee0536d6fedf8a7eba604100c186c"
+          },
+          "execution_score": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20242025/manifest.json",
+            "sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de"
+          },
+          "reduction": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20242025/source-reduction.json",
+            "sha256": "6c7f7df7dc2f779ef052146e09ed5f614c78e34d117786ca17fde975284ed45e"
+          }
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20252026/minor-reference.json",
+        "sha256": "18211cbfd6ed0f79347340bcd4dfb4e9875fc48c810e52774a788bfbf3e83b73"
+      },
+      "reduction": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20252026/source-reduction.json",
+        "sha256": "3582aabf453022120b9e5560f0b26973a4d2651389dd352d4a9fb9e6d889a750"
+      },
+      "annual_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/penalties/20252026/manifest.json",
+        "sha256": "0a0b679f9d67fd3d856eea8be64d95ae309129018afb8e2511a949126bcfe1df"
+      },
+      "games": 1312,
+      "unique_retained_keys": 2646,
+      "dispositions": {
+        "outside_shorthanded_population": 144717,
+        "matched_neutral": 2703,
+        "ambiguous_potential_shorthanded": 57,
+        "proved_nonsh_report": 162,
+        "unmatched_possible_sh_report": 9
+      },
+      "valuation": {
+        "available": true,
+        "reason": null,
+        "a": 3.672169717554966,
+        "b": 0.9477365899027707,
+        "e_f": 1.62070876347792,
+        "e_a": 1.62070876347792,
+        "T_hours": 0.03333333333333333,
+        "tau_hours": 0.031373992596813866,
+        "V_goals": 0.08547634477747443,
+        "sh_support": {
+          "included_seconds": 691458.0,
+          "attempts": 2646,
+          "neutral_goal_mass": 182.03334638360832,
+          "known_excluded_seconds": 16808.0,
+          "unquantified_gap": true
+        },
+        "inputs": {
+          "ev_state": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/manifest.json",
+            "sha256": "c74b313e2ac4ed0b1b8e09787de024b0febe7e98339879a06fb7537ff2398bab"
+          },
+          "st_state": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-02/real/states/20252026/manifest.json",
+            "sha256": "784c045cba6d591d0da736a90c13f71823f10fc933d81cd82cb1611ce90e5e13"
+          },
+          "execution_score": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026/manifest.json",
+            "sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc"
+          },
+          "reduction": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/minor-references/20252026/source-reduction.json",
+            "sha256": "3582aabf453022120b9e5560f0b26973a4d2651389dd352d4a9fb9e6d889a750"
+          }
+        }
+      }
+    }
+  ],
+  "final_penalty_diagnostic": {
+    "status": "within_budget",
+    "reason": null,
+    "rate": {
+      "status": "within_budget",
+      "reason": null,
+      "projection_maximum": 5.336368680275427e-09,
+      "fitting_row_maximum": 2.5616384711213414e-06,
+      "worst_projection": {
+        "player_id": "8484762",
+        "strength": null,
+        "field": "taken_per60"
+      },
+      "worst_fitting_row": {
+        "axis": "time_rows",
+        "row": 2390660,
+        "source_rows": {
+          "source_rows": [
+            {
+              "game_id": "2025021060",
+              "segment_index": 110,
+              "chunk_index": 381,
+              "start_seconds": 970,
+              "end_seconds": 975,
+              "source_index": null,
+              "attacking_side": "home",
+              "attacking_players": [
+                "8473507",
+                "8475692",
+                "8477451",
+                "8478864",
+                "8480800"
+              ],
+              "defending_players": [
+                "8476931",
+                "8478057",
+                "8478443",
+                "8480870",
+                "8481582"
+              ],
+              "attacking_team_id": 30,
+              "defending_team_id": 10,
+              "repeat": "none"
+            }
+          ]
+        }
+      },
+      "budget": 0.0001,
+      "penalty_value_status": "unassessed"
+    },
+    "value": {
+      "maximum_goals_per_hour": 4.561332891749386e-10,
+      "maximum_goals_per_1000_minutes": 7.602221486248978e-09,
+      "worst": {
+        "player_id": "8484762",
+        "role": "taken"
+      },
+      "goals_per_hour_budget": 0.0001,
+      "goals_per_1000_minutes_budget": 0.001,
+      "minor_reference_id": "a91b4286f897f713c67ff920e9622303defdc57cf83d6ad3f7e3bcc163ab9b14"
+    }
+  },
+  "limits": [
+    "sealed source-pool receipt closure, not fresh original-source reconstruction; no original games or score-event scan",
+    "saved neutral scalar references, survival, signed value and numerical diagnostic propagation checked independently; no production value/reduction helper reused",
+    "no design/objective reads, refit, probability reconstruction, full owned-matrix oracle, scientific accuracy or calibrated uncertainty claim"
+  ]
+}

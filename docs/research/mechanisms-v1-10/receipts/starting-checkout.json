@@ -1,0 +1,75 @@
+{
+  "branch": "implement/v1-10-penalties-shootiness",
+  "base": "345b3a743015cbaf6f7d55c6195754cd663269f9",
+  "primary_drafts": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/architecture.md",
+      "sha256": "7ebda908e8e9905076f48bedecd60521e8e0ae2a98402cd8250b956899e26785",
+      "bytes": 111646
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/plan.md",
+      "sha256": "0b866840550c4bb40b17ce2dd5ec0049933de237f51d0b5a5853d7c8e0cd375a",
+      "bytes": 173304
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/product-inventory.md",
+      "sha256": "7c1bda03dcf672261ed32b8f44c48ccea2b9cb1477f38b7bad051e198406e1e6",
+      "bytes": 63985
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/research/council.md",
+      "sha256": "055ab1049600e9ffe795833a02b5dcac8c9b7e3a0208b047cb083326638efb70",
+      "bytes": 192120
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/roadmap.md",
+      "sha256": "eb12527fe5e35b18d1d4d66deed744bff47382d42902cf2e9a3cb21595b7500c",
+      "bytes": 18491
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/experimental-application.md",
+      "sha256": "37cdb0dba87f99ea74be8475310fad8f80abc12c8f23ec744bf1d533526f22b7",
+      "bytes": 75884
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/experimental-attribution.md",
+      "sha256": "f884d8b6318621203c3678e212b7aa6683231553fb32c487fb04f2f1a0ece4bf",
+      "bytes": 43911
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/experimental-player-analysis.md",
+      "sha256": "0a1d6e06012a76ed4913c80dafb32bcf5388b82b2f3bcf1ca29be8487116ac53",
+      "bytes": 36926
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/issues/mechanism-fixture-valuation.md",
+      "sha256": "c41b2e1f6f7715b561d499f1a074768999085a04974b00ac8646d4db1495e319",
+      "bytes": 1096
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/v1-10-penalties-shootiness.md",
+      "sha256": "2c394cc3549a9ab1be3a69064ddde5f0e325896fcc2e5107eb4869d19467bbd1",
+      "bytes": 31976
+    }
+  ],
+  "primary_publications": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite",
+      "bytes": 11310997504,
+      "inode": 191950541,
+      "mtime_ns": 1793431198154070471
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/previous.sqlite",
+      "bytes": 4635877376,
+      "inode": 173454037,
+      "mtime_ns": 1793080727502487829
+    }
+  ],
+  "primary_server": {
+    "pid": 9645,
+    "port": 3000,
+    "path": "/Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/main.js"
+  }
+}

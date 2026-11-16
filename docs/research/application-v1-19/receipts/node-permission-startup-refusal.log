@@ -1,0 +1,10 @@
+[18:36:34.632] ERROR (#1): effect/sql/SqlError: Failed to open database
+    at catch (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/@effect/sql-sqlite-node/dist/SqliteClient.js:70:23) {
+  [cause]: effect/sql/SqlError/UnknownError: Failed to open database
+      at classifySqliteError (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/dist/sql/SqlError.js:489:10)
+      at classifyError (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/@effect/sql-sqlite-node/dist/SqliteClient.js:258:54)
+      at catch (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/@effect/sql-sqlite-node/dist/SqliteClient.js:71:17) {
+    [cause]: Error: Cannot load SQLite extensions when the permission model is enabled.
+        at try (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/@effect/sql-sqlite-node/dist/SqliteClient.js:66:18)
+  }
+}

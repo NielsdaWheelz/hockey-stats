@@ -1,0 +1,32 @@
+{
+  "annuals": [
+    {
+      "season": "20232024",
+      "players": 117,
+      "rows": 1287,
+      "provided": 1287,
+      "scalar_support_reason_exact": true,
+      "provided_without_proof_rejected": true,
+      "projection_sha256": "3af62e95f2f06bb0fefd8b94de6b0bac535644b51433470cfadbf5b91b202cab"
+    },
+    {
+      "season": "20242025",
+      "players": 121,
+      "rows": 1331,
+      "provided": 1331,
+      "scalar_support_reason_exact": true,
+      "provided_without_proof_rejected": true,
+      "projection_sha256": "cd06f8797311890261ff0cfafcc6ae2796683abba8ec88e232c27743bef0bfb3"
+    },
+    {
+      "season": "20252026",
+      "players": 123,
+      "rows": 1353,
+      "provided": 1353,
+      "scalar_support_reason_exact": true,
+      "provided_without_proof_rejected": true,
+      "projection_sha256": "4182f0f976b8880d117c993d8fd3306f38059b72c7fbfbcfa21ad1fdbf7c6ed1"
+    }
+  ],
+  "read_scope": "selected manifests, projection proofs, donor catalogs and goalie_result members only"
+}

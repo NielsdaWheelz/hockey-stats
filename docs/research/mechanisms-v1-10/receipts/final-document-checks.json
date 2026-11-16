@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "kind": "final_changed_document_local_link_and_consistency_check",
+  "recorded_at_utc": "2026-11-16T13:56:33.773358+00:00",
+  "status": "passed_local_links_and_current_docs_with_historical_log_whitespace",
+  "source_head": "02f318fec8392f6758be99961350d7839c0a3586",
+  "branch_diff_base": "345b3a743015cbaf6f7d55c6195754cd663269f9",
+  "scope": "current changed/new repository markdown relative to branch merge base, plus markdown referencing the four resolved issue names; owner documentation fast-forward included; stdlib inline check only, no retained controller",
+  "checked_markdown_files": 32,
+  "counts": {
+    "local_targets": 1391,
+    "markdown_anchors": 232,
+    "source_line_references": 10
+  },
+  "source_line_references": [
+    {
+      "source": "docs/research/application-v1-19/systems-review.md",
+      "target": "../../../app/src/web/goalie-evidence.tsx#L246",
+      "line_count": 746
+    },
+    {
+      "source": "docs/research/application-v1-19/systems-review.md",
+      "target": "../../../app/src/web/routes/player.tsx#L354",
+      "line_count": 779
+    },
+    {
+      "source": "docs/research/application-v1-19/systems-review.md",
+      "target": "../../../app/src/web/routes/compare.tsx#L424",
+      "line_count": 647
+    },
+    {
+      "source": "docs/research/application-v1-19/systems-review.md",
+      "target": "../../../app/src/web/peer-distributions.tsx#L691",
+      "line_count": 731
+    },
+    {
+      "source": "docs/research/application-v1-19/systems-review.md",
+      "target": "../../../app/src/web/analysis-history.tsx#L1028",
+      "line_count": 1133
+    },
+    {
+      "source": "docs/research/mechanisms-v1-10/reviews/history-human-text-review.md",
+      "target": "../../../../app/src/web/analysis-history.tsx:668",
+      "line_count": 1133
+    },
+    {
+      "source": "docs/research/mechanisms-v1-10/reviews/history-human-text-review.md",
+      "target": "../../../../app/src/web/analysis-history.tsx:129",
+      "line_count": 1133
+    },
+    {
+      "source": "docs/research/mechanisms-v1-10/reviews/history-human-text-review.md",
+      "target": "../../../../app/src/web/analysis-history.tsx:835",
+      "line_count": 1133
+    },
+    {
+      "source": "docs/research/mechanisms-v1-10/reviews/history-human-text-review.md",
+      "target": "../../../../app/src/web/analysis-values.ts:456",
+      "line_count": 1394
+    },
+    {
+      "source": "docs/research/mechanisms-v1-10/reviews/history-human-text-review.md",
+      "target": "../../../../app/src/web/analysis-values.ts:1196",
+      "line_count": 1394
+    }
+  ],
+  "skipped": {
+    "remote_or_protocol": 165,
+    "absolute_historical_or_machine_locator": 4
+  },
+  "resolved_issue_paths": [
+    "docs/issues/history-export-repeated-method-notes.md",
+    "docs/issues/goalie-profile-normalization-refetch.md",
+    "docs/issues/goalie-history-axis-overlap.md",
+    "docs/issues/goalie-empty-distribution-overlap.md"
+  ],
+  "initial_failures": [
+    {
+      "reason": "git_diff_check",
+      "exit_code": 2,
+      "output": "docs/research/application-v1-19/receipts/real-final-typecheck.log:4: new blank line at EOF.\ndocs/research/application-v1-19/receipts/real-restart-typecheck.log:4: new blank line at EOF.\n"
+    }
+  ],
+  "repairs_required": [],
+  "failures": [],
+  "document_consistency": {
+    "four_resolved_issue_files_absent": true,
+    "unique_script_count_is_49_including_converter": true,
+    "main_verification_records_49_including_converter": true,
+    "plan_has_no_pending_v1_19_fast_forward": true,
+    "plan_links_complete_owner_delivery": true,
+    "single_inactive_publication_and_final_source_recorded": true,
+    "production_app_analysis_diff_empty_vs_e0ba850": true,
+    "owner_receipt_present:real-native-final.json": true,
+    "owner_receipt_present:real-detached-startup-03-timing.json": true,
+    "owner_receipt_present:real-api-ready-final-handoff.json": true,
+    "owner_receipt_present:real-history-independent-review.json": true
+  },
+  "git_diff_check": {
+    "command": [
+      "git",
+      "diff",
+      "--check",
+      "345b3a743015cbaf6f7d55c6195754cd663269f9",
+      "--",
+      "docs"
+    ],
+    "exit_code": 2,
+    "output": "docs/research/application-v1-19/receipts/real-final-typecheck.log:4: new blank line at EOF.\ndocs/research/application-v1-19/receipts/real-restart-typecheck.log:4: new blank line at EOF.\n"
+  },
+  "files": [
+    {
+      "path": "docs/architecture.md",
+      "bytes": 112903,
+      "sha256": "b9af1fdec00af0823455f2face7190329557a5b5b0a5e7ce398541f0d7a164d1"
+    },
+    {
+      "path": "docs/brief.md",
+      "bytes": 60710,
+      "sha256": "9a157d1e7c55323c2e801b6e982ee899c790af62bbd7a74eb754d169d146814d"
+    },
+    {
+      "path": "docs/model-features.md",
+      "bytes": 31545,
+      "sha256": "78a25507e61735c8524eafd7a17dc8d04150f817c778a66cde7505bcd458514e"
+    },
+    {
+      "path": "docs/plan.md",
+      "bytes": 175573,
+      "sha256": "4fbfa21dfa020b769607279a058704ee0e479f3484ea7409ca296e86fda65ef9"
+    },
+    {
+      "path": "docs/product-inventory.md",
+      "bytes": 64958,
+      "sha256": "3473ceeb87bb3a73b00412a94265edc9f2884fab906a9c5423969740f987739c"
+    },
+    {
+      "path": "docs/research/application-v1-19/content.md",
+      "bytes": 2039,
+      "sha256": "71e94192329b7c80ada37b241c1798960bd9dac33be9c6968bba568b78f28572"
+    },
+    {
+      "path": "docs/research/application-v1-19/coverage.md",
+      "bytes": 5083,
+      "sha256": "b7946bfc0b350afdc675bd68e12c362f8862a27479df2518b1226d991a114149"
+    },
+    {
+      "path": "docs/research/application-v1-19/final-numerical-review.md",
+      "bytes": 10735,
+      "sha256": "fc9655bb7827f5ead76301842885b566cbb8bea69d38eb288b7a99d882237a15"
+    },
+    {
+      "path": "docs/research/application-v1-19/systems-review.md",
+      "bytes": 6466,
+      "sha256": "9792d764f1afb10dbed3c2c489f554ed4a470e251706c1d3e94ac0a53ef5bfae"
+    },
+    {
+      "path": "docs/research/application-v1-19/verification.md",
+      "bytes": 13038,
+      "sha256": "35b357d4b99344f0e1fc9bd097909620c39fa1a330fd1309d9fce5bcd5650282"
+    },
+    {
+      "path": "docs/research/council.md",
+      "bytes": 195570,
+      "sha256": "29c9ce2bdcb564927513a3c030c46b909e455dfc72f2b3e025011158565ea1e2"
+    },
+    {
+      "path": "docs/research/goalies-v1-07/verification.md",
+      "bytes": 159387,
+      "sha256": "53b88ac8a30a02b0258b236cc3768529d69a3690665c4bbc30cbb927e2bdb67f"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/numerical/verification.md",
+      "bytes": 9769,
+      "sha256": "c4eaf8fcf6e48d6f0063928c412b18b1e74f86d66e8f4c08ddd064a6d336eb39"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/product/content.md",
+      "bytes": 1445,
+      "sha256": "55874d703b16c27f0a237ca8c1e79d8d08235a79717b7c1edfbe69417f8aee10"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/product/verification.md",
+      "bytes": 21608,
+      "sha256": "4d3235396998c9232ef7a842f0e0c27cb40dcc3a19f83f22f0dffaf4133ff346"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/reviews/cli-design-ownership.md",
+      "bytes": 4989,
+      "sha256": "64a38cda50cc59c0643f00bd1f4df30c87c3376112aa1c05cb7293d86a2716eb"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/reviews/final-source-review.md",
+      "bytes": 5271,
+      "sha256": "82cdfe1df35abbaef62acce1640dd4893682827e94cfdbbc706b404344a52871"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/reviews/fixture-chain-saved-audit.md",
+      "bytes": 3738,
+      "sha256": "f15c60592ea8859b28d2c7b37be84c3e84619f8d323e5eb736c31e732418a508"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/reviews/history-human-text-review.md",
+      "bytes": 2380,
+      "sha256": "abd92afd9f85c2fa3a530493a58745b541caf4b0a090de0cd56d40d86e402770"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/reviews/qualification-ownership-plan-review.md",
+      "bytes": 3735,
+      "sha256": "a6b574c38439a0b6d118065bd6294c2b668dc29a90a61a30f79a33358d0db6de"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/reviews/real-first-penalty-saved-audit.md",
+      "bytes": 2897,
+      "sha256": "2aaa0202faf93d4ff043d1f65575aab9343cdbe67bb8bb9557f4f8ca4de48047"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/reviews/remaining-chain-source-review.md",
+      "bytes": 3298,
+      "sha256": "64886a80af1e0792ac6d7c2b5e2edb61f78d0de08f59a74eb53913f0b7fa9333"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/source/numerical-review.md",
+      "bytes": 3561,
+      "sha256": "00c3f4fcd369f56c077620a5afa1facc8bcf8c8e1244d8b6010d25dc492d3f00"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/source/verification.md",
+      "bytes": 3446,
+      "sha256": "d0e1455a409fd64589e4d93d10677a5394ac6d51a39087a97f3876ffb6dfc39d"
+    },
+    {
+      "path": "docs/research/mechanisms-v1-10/verification.md",
+      "bytes": 20308,
+      "sha256": "9d0e64b676546929610b821c7affed5f93e744e9ac87534e7ce217c0f09e5b69"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 18761,
+      "sha256": "463bc9188424a98f51e301e012c4bc35c17d4f7eaaa340158df7bdcf1245838f"
+    },
+    {
+      "path": "docs/specs/experimental-application.md",
+      "bytes": 83616,
+      "sha256": "959c1f4967d0bb8f11c41e239fa1ac9a6d36d34208a15dcfbb16e4ce0537c955"
+    },
+    {
+      "path": "docs/specs/experimental-attribution.md",
+      "bytes": 43911,
+      "sha256": "f884d8b6318621203c3678e212b7aa6683231553fb32c487fb04f2f1a0ece4bf"
+    },
+    {
+      "path": "docs/specs/experimental-chance.md",
+      "bytes": 32887,
+      "sha256": "c88b9188fe5ea8602396fb42da2bd34039fb2466b27ab2c7783a866edc79b93f"
+    },
+    {
+      "path": "docs/specs/experimental-player-analysis.md",
+      "bytes": 37514,
+      "sha256": "5ddb8adaa7bfda523e96d09b128c3956dfee00c2c335dd7d48ef2eaf990b2936"
+    },
+    {
+      "path": "docs/specs/v1-10-penalties-shootiness.md",
+      "bytes": 32288,
+      "sha256": "7f1f19e65db03446cb9cc7b384d1c35720f701891d376307fdd775ec452b5c8e"
+    },
+    {
+      "path": "docs/specs/v1-19-goalie-card-discovery.md",
+      "bytes": 28296,
+      "sha256": "fd6e2bf28120f927d90c688d1f30e2fed8ac727455acb4fc03824236efab936f"
+    }
+  ],
+  "limits": [
+    "repository-local targets, markdown heading/custom anchors and native source line references checked; remote URLs and absolute machine/historical locators not accessed",
+    "fenced command/path strings and frozen JSON receipt locators remain historical evidence; docs/legacy exact copies not edited or checked",
+    "no app, numerical, API, browser, build, source-data or database execution; no source edits, staging or commit",
+    "receipt records document state before subsequent root commit; it does not claim activation or scientific admission",
+    "the broad historical docs diff remains exit2 solely for the two preserved log EOF blank lines; this receipt makes no unqualified all-file whitespace pass claim"
+  ],
+  "qualifications": [
+    {
+      "finding": "branch-wide docs diff whitespace check reports two original copied typecheck logs with a final blank line",
+      "disposition": "preserved original receipt bytes; no evidence formatting rewrite; current documentation diff and all changed markdown/JSON prose pass whitespace checks",
+      "logs": [
+        {
+          "path": "docs/research/application-v1-19/receipts/real-final-typecheck.log",
+          "bytes": 89,
+          "sha256": "36de49487a44b2407d4252ebd69b7c04224469392cf8cef8b594809e014b8fdf",
+          "preserved_verbatim": true
+        },
+        {
+          "path": "docs/research/application-v1-19/receipts/real-restart-typecheck.log",
+          "bytes": 89,
+          "sha256": "36de49487a44b2407d4252ebd69b7c04224469392cf8cef8b594809e014b8fdf",
+          "preserved_verbatim": true
+        }
+      ]
+    }
+  ],
+  "current_documentation_diff_check": {
+    "command": [
+      "git",
+      "diff",
+      "--check",
+      "--",
+      "docs"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  "changed_markdown_json_diff_check": {
+    "base": "345b3a743015cbaf6f7d55c6195754cd663269f9",
+    "path_count": 180,
+    "exit_code": 0,
+    "output": ""
+  }
+}

@@ -1,0 +1,20 @@
+(node:8769) [PERM0001] SecurityWarning: The flag --allow-addons must be used with extreme caution. It could invalidate the permission model.
+(Use `node --trace-warnings ...` to show where the warning was created)
+        0.13 real         0.14 user         0.02 sys
+           108429312  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                6808  page reclaims
+                  86  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                 506  involuntary context switches
+          2148440163  instructions retired
+           744400513  cycles elapsed
+            68233512  peak memory footprint

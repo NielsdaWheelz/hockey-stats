@@ -1,0 +1,80 @@
+{
+  "at": "2026-11-16T04:12:44.003660+00:00",
+  "owner": "v1-19",
+  "explicit_release": "user/root final composition and both independent audits passed",
+  "source_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+  "analysis_tree": "319752c6c81263a0409ebd7cf156dd21724b5b6f",
+  "app_tree": "f87c9ffc729d15265073d32b6668902a1b77e837",
+  "handoff": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/docs/research/mechanisms-v1-10/receipts/shared-candidate-handoff.json",
+    "sha256": "25205ec627caebb573fba210f436878efc48392e14ba1043c70d7337395b46ce"
+  },
+  "inputs": {
+    "input_pins": {
+      "path": "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/docs/research/mechanisms-v1-10/receipts/input-pins.json",
+      "sha256": "6ffd46d6d974e70635b8c22c739bb3d846e9b37c02af9f617e1e4f8561b5cb70"
+    },
+    "original": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+      "sha256": "21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3"
+    },
+    "converted": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/exchange4-base/manifest.json",
+      "sha256": "db5d36733a93e46e3def0ab60bf498603134e06af6de00be8136c57f456c2670"
+    },
+    "results": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+      "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41"
+    },
+    "conversion": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/exchange4-base/exchange4-conversion.json",
+      "sha256": "625c6f25f7ac5d9ad55d67064693ed41d14a8451e05e76157f7bab93d869d04f"
+    },
+    "composition": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/mechanism-composition.json",
+      "sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5"
+    },
+    "selection": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/mechanisms-selection.json",
+      "sha256": "ac2d598431fab3d0eaafcd952a47588ccd9a0e60194250e4e087b2b34ccd1029"
+    },
+    "postfit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/post-fit-resources.json",
+      "sha256": "c19ceb93e2611574e14d207e9578b76a24e48cff576fc520a958cee62d6867d8"
+    }
+  },
+  "observed_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9"
+  },
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01",
+  "candidate_count": 1,
+  "publication": {
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-19",
+    "environment": {
+      "PYTHONPATH": "/Users/nnandal/Documents/code/hockey-stats-v1-19/analysis/src"
+    },
+    "argv": [
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+      "-B",
+      "-m",
+      "hockey_stats.analysis_cli",
+      "publish",
+      "--observed",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+      "--results",
+      "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results",
+      "--out",
+      "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01"
+    ]
+  },
+  "scope": [
+    "one ordinary inactive publication",
+    "final node24 build",
+    "strict detached startup3419",
+    "selected goalie acceptance"
+  ],
+  "no_other_heavy_job": "explicit root release",
+  "activation": false,
+  "primary_changes": false
+}

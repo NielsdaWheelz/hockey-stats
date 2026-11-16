@@ -1,0 +1,31 @@
+{
+  "at": "2026-11-16T12:14:28.983128+00:00",
+  "status": "resolved",
+  "issue": "goalie-profile-normalization-refetch",
+  "source_commit": "63b49e69102a74be440aaea3ce0484093f466ce7",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "causal_red": "duplicate-profile-diagnosis.json",
+  "source_review": "profile-normalization-source-review.json",
+  "native_green": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/exports/attempt-03/journeys.json",
+    "sha256": "84031b8dcf6e99ff6480c32c95fb38ab7cb70417fd9f7606f789d36255d009dd",
+    "status": "passed",
+    "discovery_profile_requests": 13,
+    "unique_paths": 13,
+    "all_journeys": 26,
+    "page_errors": [],
+    "api_errors": []
+  },
+  "preserved_behavior": [
+    "three seasons",
+    "same-kind comparison",
+    "all five actual cases",
+    "core/actual population/type/mode controls",
+    "back/forward",
+    "native100/200 downloads"
+  ],
+  "separate_open_findings": [
+    "goalie-history-axis-overlap",
+    "goalie-empty-distribution-overlap"
+  ]
+}

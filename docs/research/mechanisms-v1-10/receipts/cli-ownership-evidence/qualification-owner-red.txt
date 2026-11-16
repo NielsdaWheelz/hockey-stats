@@ -1,0 +1,23 @@
+.FF
+======================================================================
+FAIL: test_no_players_fallback (__main__.QualificationOwner.test_no_players_fallback) (family='penalties')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/v1-10/check_qualification_owner.py", line 30, in test_no_players_fallback
+    with self.assertRaises(KeyError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: KeyError not raised
+
+======================================================================
+FAIL: test_no_players_fallback (__main__.QualificationOwner.test_no_players_fallback) (family='shootiness')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/.codex-work2/worktrees/296c/hockey-stats/.tmp/v1-10/check_qualification_owner.py", line 30, in test_no_players_fallback
+    with self.assertRaises(KeyError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: KeyError not raised
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

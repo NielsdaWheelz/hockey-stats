@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "family": "penalties",
+      "players": 224,
+      "time_rows": 13080,
+      "event_rows": 16,
+      "awards": 16.0,
+      "physical_hours": 5.841111111111111
+    },
+    {
+      "family": "shootiness",
+      "players": 224,
+      "choices": 768,
+      "candidates": 3818
+    }
+  ],
+  "wall_seconds": 35.84024895913899,
+  "peak_memory_bytes": 945094656
+}

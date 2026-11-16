@@ -1,0 +1,201 @@
+{
+  "at": "2026-11-16T13:38:05.885509+00:00",
+  "status": "completed",
+  "source_commit": "e0ba850409bc5c5eceb89aeb085812779bcf9995",
+  "authorization": "user explicitly required deletion of campaign tests/controllers and unused test-only dependencies after verification",
+  "removed": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.temporary-v1-19",
+      "regular_files": 3,
+      "regular_file_bytes": 59275
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19-browser",
+      "regular_files": 1267,
+      "regular_file_bytes": 82115678
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19-evidence",
+      "regular_files": 15,
+      "regular_file_bytes": 946857
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/app/.tmp-v1-19-nav",
+      "regular_files": 4,
+      "regular_file_bytes": 28483
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/detached-real-03-audit.jsonl",
+      "regular_files": 1,
+      "regular_file_bytes": 103083
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/real-startup-02.py",
+      "regular_files": 1,
+      "regular_file_bytes": 3381
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/detached-guard.mjs",
+      "regular_files": 1,
+      "regular_file_bytes": 2065
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/check-csv-columns.ts",
+      "regular_files": 1,
+      "regular_file_bytes": 454
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/real-startup-03.py",
+      "regular_files": 1,
+      "regular_file_bytes": 3381
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/final-numerical-variants.ts",
+      "regular_files": 1,
+      "regular_file_bytes": 4162
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/goalie-evidence-foundation-final.patch",
+      "regular_files": 1,
+      "regular_file_bytes": 35640
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/check-real-schema.ts",
+      "regular_files": 1,
+      "regular_file_bytes": 1617
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/final-fixture-overview.json",
+      "regular_files": 1,
+      "regular_file_bytes": 139308
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/node_modules",
+      "regular_files": 0,
+      "regular_file_bytes": 0
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/check-real-parity.py",
+      "regular_files": 1,
+      "regular_file_bytes": 2278
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/foundation-index",
+      "regular_files": 1,
+      "regular_file_bytes": 526186
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/operation.py",
+      "regular_files": 1,
+      "regular_file_bytes": 3685
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/detached-fixture-audit.jsonl",
+      "regular_files": 1,
+      "regular_file_bytes": 112444
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/geometry-check.ts",
+      "regular_files": 1,
+      "regular_file_bytes": 965
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/real-startup.py",
+      "regular_files": 1,
+      "regular_file_bytes": 3369
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/goalie-evidence-supplemental.patch",
+      "regular_files": 1,
+      "regular_file_bytes": 13784
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/final-native-download-check.py",
+      "regular_files": 1,
+      "regular_file_bytes": 5534
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/detached-real-02-audit.jsonl",
+      "regular_files": 1,
+      "regular_file_bytes": 123907
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/goalie-evidence-foundation.patch",
+      "regular_files": 1,
+      "regular_file_bytes": 31265
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/goalie-svg-layout.patch",
+      "regular_files": 1,
+      "regular_file_bytes": 1505
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/rollback",
+      "regular_files": 12,
+      "regular_file_bytes": 58339025
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/stage-fixture.py",
+      "regular_files": 1,
+      "regular_file_bytes": 1444
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/evidence-schema-check.ts",
+      "regular_files": 1,
+      "regular_file_bytes": 3183
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/fixture-overview.json",
+      "regular_files": 1,
+      "regular_file_bytes": 139308
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/profile-normalization.patch",
+      "regular_files": 1,
+      "regular_file_bytes": 1119
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/detached-real-audit.jsonl",
+      "regular_files": 1,
+      "regular_file_bytes": 82981
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/final-fixture-check.py",
+      "regular_files": 1,
+      "regular_file_bytes": 7270
+    }
+  ],
+  "removed_task_roots": 32,
+  "removed_regular_files": 1327,
+  "removed_regular_file_bytes": 142842636,
+  "empty_task_stdout_logs_removed": [
+    "docs/research/application-v1-19/receipts/real-browser-journeys-02.log",
+    "docs/research/application-v1-19/receipts/real-browser-journeys.log"
+  ],
+  "retained": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/fixture-publication",
+      "role": "explicitly protected immutable fixture publication"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/.tmp/v1-19/fixture-results",
+      "role": "attributed coherent fixture publication input"
+    }
+  ],
+  "production_dependencies": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-19/app/node_modules",
+    "symlink_target": "/Users/nnandal/Documents/code/hockey-stats/app/node_modules",
+    "retained_consumer": "current app build and ordinary future serving; primary dependencies unchanged, not a test-only package"
+  },
+  "other_protected_paths": [
+    ".tmp/goalie-live-acceptance",
+    "canonical fixtures/goalie-card-v1-19",
+    "external real candidate/results/fits/captures/actual export examples",
+    "primary build, port3000 and active/previous databases"
+  ],
+  "remaining_campaign_tests": 0,
+  "application_test_dependencies_added": false,
+  "final_guard_audit": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/detached-read-audit-final.jsonl",
+  "runtime_intentionally_stopped": true,
+  "activation": false
+}

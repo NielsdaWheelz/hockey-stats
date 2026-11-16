@@ -1,0 +1,42 @@
+
+> build
+> react-router build && tsc -p tsconfig.json --noEmit false --outDir dist/node
+
+Using Vite Environment API
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 335 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/client/.vite/manifest.json                         4.01 kB │ gzip:  0.68 kB
+dist/client/assets/styles-BzbvWfJl.css                 32.74 kB │ gzip:  6.89 kB
+dist/client/assets/compare-client-loader-DgMaW9kW.js    0.12 kB │ gzip:  0.13 kB
+dist/client/assets/league-client-loader-D2oSUb9n.js     0.12 kB │ gzip:  0.13 kB
+dist/client/assets/player-client-loader-BMqvIsvi.js     0.14 kB │ gzip:  0.14 kB
+dist/client/assets/root-B952OqwB.js                     3.62 kB │ gzip:  1.64 kB
+dist/client/assets/player-main-BO6iDrxu.js             18.71 kB │ gzip:  4.93 kB
+dist/client/assets/compare-main-Bo8W16Q3.js            19.32 kB │ gzip:  5.97 kB
+dist/client/assets/league-main-CiJoIZuN.js             24.91 kB │ gzip:  7.59 kB
+dist/client/assets/client-CNAemyth.js                  41.13 kB │ gzip: 12.95 kB
+dist/client/assets/peer-distributions-yTQFMCTD.js      53.76 kB │ gzip: 15.63 kB
+dist/client/assets/jsx-runtime-Bcb-PiJy.js            121.19 kB │ gzip: 39.78 kB
+dist/client/assets/entry.client-CimxyNE3.js           214.67 kB │ gzip: 67.16 kB
+dist/client/assets/execution-evidence-TBA5GPjZ.js     229.38 kB │ gzip: 61.45 kB
+dist/client/assets/explorer-DepfGSIC.js               290.89 kB │ gzip: 86.50 kB
+
+✓ built in 413ms
+vite v8.3.4 building ssr environment for production...
+transforming...
+✓ 16 modules transformed.
+rendering chunks...
+
+✓ 1 asset cleaned from React Router server build.
+dist/client/assets/styles-BzbvWfJl.css
+
+computing gzip size...
+dist/server/.vite/manifest.json           0.43 kB │ gzip:  0.22 kB
+dist/server/assets/styles-BzbvWfJl.css   32.74 kB │ gzip:  6.89 kB
+dist/server/index.js                    188.21 kB │ gzip: 38.00 kB
+
+✓ built in 74ms
+SPA Mode: Generated dist/client/index.html

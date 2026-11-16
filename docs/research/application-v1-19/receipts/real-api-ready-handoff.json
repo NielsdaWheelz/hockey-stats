@@ -1,0 +1,240 @@
+{
+  "at": "2026-11-16T11:12:58.030439+00:00",
+  "status": "ready",
+  "base_url": "http://127.0.0.1:3419",
+  "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+  "publication": {
+    "publication_id": "21630954-ad5f-4763-9abc-4e9ba859e615",
+    "kind": "player_analysis",
+    "schema_version": 10,
+    "purpose": "real",
+    "generated_at": "2026-11-16T07:00:25.391179Z",
+    "population_version": "matched_attempts_v2",
+    "personal_population_version": "matched_personal_credits_v2",
+    "spatial_population_version": "matched_unblocked_locations_v2",
+    "spatial_display_version": "rect5_gaussian10_v1",
+    "git_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+    "families": [
+      {
+        "season": "20232024",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "execution",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "goalie",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "penalties",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "shootiness",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "spatial",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "execution",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "goalie",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "penalties",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "shootiness",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "spatial",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "execution",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "goalie",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "penalties",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "shootiness",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "spatial",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      }
+    ]
+  },
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/application-v1-19-20261114-01/real/candidate-01/player-analysis.sqlite",
+    "sha256": "483b1e1b98112ddabc85cf1d7794b76cccfad004962f6991402abb1d4825840e",
+    "bytes": 31359414272,
+    "digest_owner": "ordinary native publication writer; no repeated database hash"
+  },
+  "results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+    "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41"
+  },
+  "source_commit": "4b17ac7f71cccc2bc4b0bc37bf86a6625d0640db",
+  "app_tree": "f87c9ffc729d15265073d32b6668902a1b77e837",
+  "startup_seconds": 2097.7500235829502,
+  "pids": {
+    "wrapper": 47651,
+    "time": 47657,
+    "node": 47658
+  },
+  "readiness_log_line": "[03:11:01.113] INFO (#1): Listening on http://127.0.0.1:3419",
+  "identity_request": {
+    "url": "http://127.0.0.1:3419/api/league?season=20252026&kind=goalie&family=overview",
+    "bytes": 7020892,
+    "wall_seconds": 4.0478863751050085,
+    "sha256": "24eadef86c3ec89bbe928d6ea97605c2cfece362f4c9e33d15b654fecfe0d237"
+  },
+  "guard": {
+    "records": 527,
+    "intentional_denials": [
+      {
+        "operation": "readFileSync",
+        "path": "/Volumes/Expansion/hockey-stats/runs/spatial-st-v1-09-20261112-03/real/results/manifest.json",
+        "allowed": false
+      }
+    ],
+    "unexpected_denials": 0,
+    "scope": "javascript reads/opens plus explicit readonly native sqlite database; no physical drive absence claim"
+  },
+  "heavy_release": true,
+  "mechanism_acceptance_handoff": true,
+  "activation": false
+}

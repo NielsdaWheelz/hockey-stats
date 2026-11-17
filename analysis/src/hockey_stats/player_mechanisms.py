@@ -63,18 +63,34 @@ def _adjoint(design, residual, kind):
                            getattr(design,'context_'+kind).T@residual))
 
 
-def penalty_objective(beta, design, mean, precision, log_rate):
-    """poisson process likelihood: event multiplicities are counts, never hours."""
+def scalar_intensity_objective(beta, design, mean, precision, log_rate, exposure):
+    """poisson intensity with explicit caller-owned exposure units."""
     with np.errstate(over='raise',invalid='raise'):
         time_eta = log_rate+_linear(design,beta,'time')
         event_eta = log_rate+_linear(design,beta,'event')
         intensity = np.exp(time_eta)
-        residual = design.exposure_hours*intensity
+        residual = exposure*intensity
         delta = beta-mean
         value = float(np.sum(residual)-np.dot(design.event_counts,event_eta)+.5*np.dot(precision*delta,delta))
         gradient = _adjoint(design,residual,'time')-_adjoint(design,design.event_counts,'event')+precision*delta
-    require(math.isfinite(value) and np.isfinite(gradient).all(),'nonfinite penalty objective/gradient')
+    require(np.all(intensity>0) and math.isfinite(value) and np.isfinite(gradient).all(),
+            'nonfinite or nonpositive scalar intensity/objective/gradient')
     return value,gradient
+
+
+def penalty_objective(beta, design, mean, precision, log_rate):
+    """poisson process likelihood: event multiplicities are counts, never hours."""
+    return scalar_intensity_objective(beta,design,mean,precision,log_rate,design.exposure_hours)
+
+
+def actor_prior(last, season, entry_sd, carry_sd):
+    """last-supported raw coordinates supply one entry-or-carry prior."""
+    gap=None if last is None else int(season[:4])-int(last['season'][:4])
+    require(gap is None or gap>0,'actor history is not strictly earlier')
+    mean=0. if last is None else last['coefficient']
+    precision=1/entry_sd**2 if gap is None else 1/(carry_sd**2*gap)
+    require(math.isfinite(mean) and math.isfinite(precision) and precision>0,'invalid actor prior')
+    return mean,precision,gap
 
 
 def _choice_logits(beta, design, start, end):
@@ -184,10 +200,7 @@ def annual_priors(design, family, ledger):
         last = previous.get(_actor_key(column))
         player = column['block'].endswith('_player')
         entry,carry = ((.5,.2) if family=='shootiness' else (.25,.1) if player else (.1,.05))
-        gap = None if last is None else int(design.season[:4])-int(last['season'][:4])
-        require(gap is None or gap>0,'mechanism history is not strictly earlier')
-        mean[index] = 0. if last is None else last['coefficient']
-        precision[index] = 1/entry**2 if gap is None else 1/(carry**2*gap)
+        mean[index],precision[index],gap = actor_prior(last,design.season,entry,carry)
         info = support[index]
         rows.append(dict(index=index,block=column['block'],id=str(column['id']),subblock=column['subblock'],
             **info,current_season_information=info['information_weight']>0 or info['likelihood_events']>0,

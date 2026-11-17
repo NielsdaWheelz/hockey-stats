@@ -21,7 +21,7 @@ def main(argv=None) -> int:
     facts.add_argument("--observed", required=True, action=Once, metavar="FILE")
     facts.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     fit = commands.add_parser("fit", allow_abbrev=False)
-    fit.add_argument("--family", required=True, choices=("execution", "spatial", "spatial-st", "goalie", "penalties", "shootiness"), action=Once)
+    fit.add_argument("--family", required=True, choices=("execution", "spatial", "spatial-st", "goalie", "penalties", "shootiness", "territory"), action=Once)
     fit.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
     fit.add_argument("--coaches", action=Once, metavar="FILE")
     fit.add_argument("--valued", action=Once, metavar="DIRECTORY")
@@ -37,7 +37,7 @@ def main(argv=None) -> int:
     score.add_argument("--valued", action=Once, metavar="DIRECTORY")
     score.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     summarize = commands.add_parser("summarize", allow_abbrev=False)
-    summarize.add_argument("--family", required=True, choices=("execution", "spatial", "spatial-st", "goalie", "mechanisms"), action=Once)
+    summarize.add_argument("--family", required=True, choices=("execution", "spatial", "spatial-st", "goalie", "mechanisms", "territory"), action=Once)
     summarize.add_argument("--prepared", action=Once, metavar="DIRECTORY")
     summarize.add_argument("--facts", action=Once, metavar="DIRECTORY")
     summarize.add_argument("--scores", action=Once, metavar="FILE")
@@ -57,7 +57,7 @@ def main(argv=None) -> int:
             fit.error(f"{args.family} fit requires --coaches")
         if args.family in ("spatial", "spatial-st", "goalie") and args.valued is None:
             fit.error(f"{args.family} fit requires --valued")
-        if args.family in ("execution", "penalties", "shootiness") and args.valued is not None:
+        if args.family in ("execution", "penalties", "shootiness", "territory") and args.valued is not None:
             fit.error(f"{args.family} fit does not accept --valued")
         if args.family != "spatial-st" and args.basis is not None:
             fit.error(f"{args.family} fit does not accept --basis")
@@ -75,6 +75,7 @@ def main(argv=None) -> int:
             "execution": ("prepared", "facts", "scores"),
             "goalie": ("prepared", "results", "scores"),
             "mechanisms": ("results", "states"),
+            "territory": ("results", "states"),
         }[args.family]
         forbidden = {
             "spatial": ("prepared", "facts", "scores"),
@@ -82,6 +83,7 @@ def main(argv=None) -> int:
             "execution": ("results", "states", "product_admission"),
             "goalie": ("facts", "states", "product_admission"),
             "mechanisms": ("prepared", "facts", "scores", "product_admission"),
+            "territory": ("prepared", "facts", "scores", "product_admission"),
         }[args.family]
         for flag in forbidden:
             if getattr(args, flag) is not None:
@@ -91,7 +93,7 @@ def main(argv=None) -> int:
                 summarize.error(f"{args.family} summarize requires --{flag}")
 
     try:
-        if args.command == "fit" and args.family in ("spatial-st", "penalties", "shootiness"):
+        if args.command == "fit" and args.family in ("spatial-st", "penalties", "shootiness", "territory"):
             from .chance_cli import output_path
 
             roots = []
@@ -111,6 +113,35 @@ def main(argv=None) -> int:
 
             manifest = build_factual_results(Path(args.prepared), Path(args.observed), Path(args.out))
             print(f"factual results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
+        elif args.command == "fit" and args.family == "territory":
+            from .analysis_data import read_prepared
+            from .artifacts import require
+            from .captures import strict_json
+            from .territory_design import prepare_territory
+            from .territory import fit_territory
+            from .territory_state import read_territory_state
+
+            started = perf_counter()
+            manifest = strict_json((Path(args.prepared) / "manifest.json").read_bytes())
+            require(type(manifest) is dict and manifest.get("purpose") in ("real", "fixture"), "invalid prepared manifest purpose")
+            purpose = manifest["purpose"]
+            prepared = read_prepared(args.prepared, purpose)
+            seasons = [row["season"] for row in prepared["seasons"]]
+            require(args.season in seasons, "territory season is not selected in preparation")
+            require((args.previous is None) == (args.season == seasons[0]),
+                    "territory first selected year requires no predecessor; later years require --previous")
+            previous = read_territory_state(args.previous, purpose, narrow=True) if args.previous is not None else None
+            if previous is not None:
+                require(previous.manifest["season"] == seasons[seasons.index(args.season)-1], "territory predecessor differs from preceding selected season")
+                require(all(head["status"] == "complete" for head in previous.heads.values()), "territory predecessor is incomplete")
+            read_seconds = perf_counter()-started
+            design = prepare_territory(prepared, args.coaches, args.season)
+            design.resources["input_read_wall_seconds"] = read_seconds
+            state = fit_territory(design, previous, Path(args.out), final_year=args.season == seasons[-1])
+            print(str(state.path))
+            if any(head["status"] != "complete" for head in state.heads.values()):
+                print("territory family incomplete", file=sys.stderr)
+                return 1
         elif args.command == "fit" and args.family in ("penalties", "shootiness"):
             from .analysis_data import read_prepared
             from .artifacts import require
@@ -260,6 +291,11 @@ def main(argv=None) -> int:
 
             manifest = compose_special_teams(Path(args.results), Path(args.states), Path(args.out))
             print(f"special-teams results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
+        elif args.command == "summarize" and args.family == "territory":
+            from .mechanism_composition import compose_territory
+
+            manifest = compose_territory(Path(args.results), Path(args.states), Path(args.out))
+            print(f"territory results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
         elif args.command == "summarize" and args.family == "mechanisms":
             from .mechanism_composition import compose_mechanisms
 

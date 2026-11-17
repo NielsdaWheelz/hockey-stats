@@ -463,21 +463,53 @@ def _rates_from_logits(log_volume,shape_logits,quality_logits):
 
 def evaluate_rates(design,predictors, *, state=None):
     """evaluate all three heads jointly; never clip positive physical rates."""
-    v=np.asarray(predictors['volume'])
-    s=np.asarray(predictors['shape'])
-    q=np.asarray(predictors['quality'])
     offsets=design.annual_offsets
     if _is_st(design):
         require(state is not None, 'special-teams projection requires an exact physical state')
         offsets = {name:np.asarray(offsets[name])[state] for name in ('r','pi','qbar')}
-        log_rate = np.log(offsets['r'])
-    else:
-        log_rate = math.log(offsets['r'])
+    return evaluate_rate_context(design.basis, offsets, predictors)
+
+
+def evaluate_rate_context(basis, offsets, predictors):
+    """joint positive rates from the fitted basis, offsets and three predictors."""
+    v=np.asarray(predictors['volume'])
+    s=np.asarray(predictors['shape'])
+    q=np.asarray(predictors['quality'])
+    log_rate = math.log(offsets['r']) if np.ndim(offsets['r'])==0 else np.log(offsets['r'])
     eta=log_rate+v[...,0]
-    shape=np.log(offsets['pi'])+s@design.basis.T
+    shape=np.log(offsets['pi'])+s@basis.T
     qbar=np.asarray(offsets['qbar'])
-    quality_eta=np.log(qbar)-np.log1p(-qbar)+q[...,:1]+q[...,1:]@design.basis.T
+    quality_eta=np.log(qbar)-np.log1p(-qbar)+q[...,:1]+q[...,1:]@basis.T
     return _rates_from_logits(eta,shape,quality_eta)
+
+
+def project_successor_panel(context):
+    """replace one neutral slot; both role blocks use their own-team starts."""
+    from .elapsed_design import STARTS, AGES
+
+    axes = {column['name']:index for index,column in enumerate(context.columns) if column['kind']=='context'}
+    moments = {axis['name']:axis for axis in context.transforms}
+    require(len(moments)==len(context.transforms), 'duplicate successor context transforms')
+    neutral = evaluate_rate_context(context.basis,context.offsets,context.reference)
+    complete = np.empty((2,4,6,656))
+    for side,role in enumerate(('attacking','defending')):
+        names = [f'{role}:start_age:{start}:{age}' for start in STARTS for age in AGES]
+        require(all(name in axes and name in moments for name in names), 'incomplete successor start-age context')
+        require(all(moments[name]['scale']==1 for name in names), 'successor categorical scale is not one')
+        indices = [axes[name] for name in names]
+        means = np.asarray([moments[name]['location'] for name in names])
+        require(np.isfinite(means).all() and np.all(means>=0) and abs(math.fsum(means)-1)<1e-9,
+                'successor raw role means do not form one slot')
+        for start_index,start in enumerate(('defensive','neutral','offensive','on_the_fly')):
+            for age_index,age in enumerate(AGES[:-1]):
+                delta = -means/5
+                delta[names.index(f'{role}:start_age:{start}:{age}')] += 1/5
+                predictors = {head:context.reference[head]+delta@context.coefficients[head][indices] for head in HEADS}
+                complete[side,start_index,age_index] = evaluate_rate_context(context.basis,context.offsets,predictors)[1]
+    return dict(neutral_xg=neutral[1],complete_xg=complete,contrast_xg=complete-neutral[1],
+                ev_state=context.binding,units='xg_mass_per_hour_per_cell',
+                axes=dict(side=['for','against'],start=['DZ','NZ','OZ','on_the_fly'],age=[0,10,20,40,60,90],cells=656),
+                resources=context.resources)
 
 
 def spatial_shapley(coalitions):

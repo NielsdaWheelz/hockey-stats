@@ -66,6 +66,112 @@ class SavedSpatialEvidence:
     coefficient_support: list
 
 
+@dataclass(frozen=True)
+class SpatialStartContext:
+    binding: dict
+    basis: np.ndarray
+    offsets: dict
+    columns: tuple
+    transforms: tuple
+    coefficients: dict
+    reference: dict
+    resources: dict
+
+
+def read_spatial_start_context(path, purpose):
+    """read bound coefficients/context and only the basis array, without replay."""
+    began = perf_counter()
+    root = Path(path).resolve(strict=True)
+    manifest_path = root/'manifest.json' if root.is_dir() else root
+    root = manifest_path.parent
+    manifest = read_json(manifest_path)
+    _closed(manifest,MANIFEST_KEYS,'spatial successor manifest')
+    _finite(manifest,'spatial successor manifest')
+    require(manifest_path.name=='manifest.json' and manifest['schema_version']==1 and manifest['kind']=='spatial_state'
+            and manifest['purpose']==purpose and purpose in ('real','fixture') and manifest['recipe']==RECIPE
+            and manifest['recipe_id']=='experimental-v1', 'invalid successor ev state')
+    _season(manifest['season'])
+    digest(manifest['design_identity'])
+    for name in ('prepared','coaches','valued'):
+        _binding(manifest[name],name)
+        require(manifest[name].get('purpose')==purpose, 'successor ev input purpose differs')
+    members = {}
+    for member in manifest['files']:
+        _closed(member,('role','path','sha256'),'spatial successor member')
+        digest(member['sha256'])
+        require(member['path'] not in members,'duplicate spatial successor member')
+        members[member['path']] = member
+    byte_count = manifest_path.stat().st_size
+    def checked(name, role):
+        nonlocal byte_count
+        require(name in members and members[name]['role']==role, 'unbound spatial successor member: '+name)
+        member = _member(root,name)
+        require(identity(member)['sha256']==members[name]['sha256'], 'spatial successor member digest differs: '+name)
+        byte_count += member.stat().st_size
+        return member
+    document = read_json(checked('design.json','design'))
+    _closed(document,('schema_version','kind','definition','arrays','array_digest'),'spatial successor design')
+    _finite(document,'spatial successor design')
+    require(document['schema_version']==1 and document['kind']=='spatial_design','successor requires ev design')
+    definition = document['definition']
+    for name in ('purpose','season','prepared','coaches','valued','training_cutoff'):
+        require(definition[name]==manifest[name], 'successor design lineage differs: '+name)
+    require(definition['transforms']['design_sha256']==manifest['design_identity']
+            and definition['basis_identity']==manifest['basis_identity'] and definition['recipe']==DESIGN_RECIPE,
+            'successor design identity differs')
+    columns = tuple(definition['columns'])
+    transforms = tuple(definition['transforms']['axes'])
+    require([col for col in columns if col['kind']=='context']==[dict(kind='context',name=axis['name']) for axis in CONTEXT_AXES]
+            and [axis['name'] for axis in transforms]==[axis['name'] for axis in CONTEXT_AXES],
+            'successor context axes differ')
+    require('design.npz' in members and members['design.npz']['role']=='design_arrays','unbound successor basis archive')
+    # hashing this archive would stream excluded elapsed/event arrays. the basis
+    # has its own array digest, checked below; np.load decompresses only this member.
+    with np.load(_member(root,'design.npz'),allow_pickle=False) as archive:
+        basis = archive['basis']
+    _validate_basis(basis,manifest['basis_identity'])
+    require(document['arrays']['basis']==dict(shape=[656,40],dtype=basis.dtype.str),'successor basis axes differ')
+    byte_count += basis.nbytes
+    reference = read_json(checked('reference.json','reference'))
+    _finite(reference,'spatial successor reference')
+    reference_body = {key:value for key,value in reference.items() if key!='sha256'}
+    require(reference['sha256']==hashlib.sha256(json.dumps(reference_body,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest(),
+            'successor reference digest differs')
+    require(reference['basis_identity']==manifest['basis_identity'] and reference['annual_offsets']==definition['annual_offsets']
+            and reference['player_slots_per_role']==5 and reference['units']=='per_hour', 'successor reference differs')
+    offsets = definition['annual_offsets']
+    require(type(offsets['r']) in (int,float) and offsets['r']>0
+            and np.asarray(offsets['pi']).shape==(656,) and np.all(np.asarray(offsets['pi'])>0)
+            and abs(math.fsum(offsets['pi'])-1)<1e-9 and np.asarray(offsets['qbar']).shape==(656,)
+            and np.all((np.asarray(offsets['qbar'])>0)&(np.asarray(offsets['qbar'])<1)), 'invalid successor rate offsets')
+    require([item.get('head') for item in manifest['heads']]==list(HEADS),'successor head axes differ')
+    coefficients, predictors = {}, {}
+    for descriptor in manifest['heads']:
+        head = descriptor['head']
+        _closed(descriptor,('head','status','arrays'),'successor head descriptor')
+        require(descriptor['status']=='complete','successor requires completed spatial heads')
+        metadata = read_json(checked(f'heads/{head}.json','head_metadata'))
+        _closed(metadata,HEAD_KEYS,'successor head metadata')
+        _finite(metadata,'successor head metadata')
+        require(metadata['head']==head and metadata['status']=='complete' and not metadata['reasons']
+                and metadata['solver']['converged'] is True,'successor spatial baseline incomplete')
+        arrays = _read_arrays(checked(f'heads/{head}.npz','head_arrays'),descriptor['arrays'])
+        width = {'volume':1,'shape':40,'quality':41}[head]
+        flat = arrays['coefficients']
+        count = len(columns)*width
+        require(set(arrays)=={'coefficients'} and flat.shape==(count+(8 if head=='volume' else 0),), 'successor coefficient axes differ')
+        coefficients[head] = flat[:count].reshape(len(columns),width)
+        require(metadata['reference_predictor']==reference['heads'][head]['predictor']
+                and metadata['centers']==reference['heads'][head]['centers'], 'successor saved reference/head differs')
+        predictors[head] = np.asarray(metadata['reference_predictor'])
+        vector = np.asarray(reference['heads'][head]['vector'])
+        require(vector.shape==(len(columns),) and predictors[head].shape==(width,)
+                and np.allclose(vector@coefficients[head],predictors[head],atol=1e-12,rtol=1e-12),
+                'successor neutral reference transfer differs')
+    return SpatialStartContext(dict(identity(manifest_path),season=manifest['season'],purpose=purpose),basis,offsets,
+        columns,transforms,coefficients,predictors,dict(read_wall_seconds=perf_counter()-began,read_bytes=byte_count))
+
+
 def read_saved_spatial_evidence(path, expected_purpose, *, expected_family='ev', expected_recipe=None):
     """read only bound saved evidence; source locators are provenance, never io."""
     from . import analysis_publication as publication

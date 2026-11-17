@@ -1,6 +1,6 @@
 # territory and successor value — v1-11
 
-status: implementation and verification in progress. the user assigned the entire [specification](../../specs/v1-11-territory-successor-value.md) on 2026-11-16. the [plan](../../plan.md#current-boundary) owns assignment. four of ten real baseline heads are accepted; the third annual is running. actual fixture browser acceptance passes; real successor composition, publication and browser acceptance remain pending. no activation or scientific admission follows. sections below retain earlier checkpoints and their stated scopes.
+status: implementation and verification in progress. the user assigned the entire [specification](../../specs/v1-11-territory-successor-value.md) on 2026-11-16. the [plan](../../plan.md#current-boundary) owns assignment. six of ten real baseline heads are accepted; the fourth annual is running. actual fixture browser acceptance passes; real successor composition, publication and browser acceptance remain pending. no activation or scientific admission follows. sections below retain earlier checkpoints and their stated scopes.
 
 ## source and operation
 
@@ -24,7 +24,7 @@ external run root: `/Volumes/Expansion/hockey-stats/runs/territory-v1-11-2026111
 
 ## acceptance still required
 
-the six remaining real baseline heads and two final attempts; real separate/joint sensitivity propagation and five exact annual/reference bindings; three complete real key matrices with byte-preserved inherited facts/numerical bodies; one inactive schema11 candidate and ordinary strict startup; real table/profile/comparison/detail/history/csv/png acceptance at narrow and native 200% layouts; final preservation checks; campaign-test/controller deletion and scoped cleanup. first-year costs/in-sample accounting and isolated schema-paired rollback now pass within their recorded scopes. v1-12 still owns the ten-term ledger and whole-card totals.
+the four remaining real baseline heads and two final attempts; real separate/joint sensitivity propagation and five exact annual/reference bindings; three complete real key matrices with byte-preserved inherited facts/numerical bodies; one inactive schema11 candidate and ordinary strict startup; real table/profile/comparison/detail/history/csv/png acceptance at narrow and native 200% layouts; final preservation checks; campaign-test/controller deletion and scoped cleanup. first-year costs/in-sample accounting and isolated schema-paired rollback now pass within their recorded scopes. v1-12 still owns the ten-term ledger and whole-card totals.
 
 inherited optimizer uncertainty, interpolation and terminal-proxy error, missed out-and-back movement, fixed substitution, conditional censoring, common survival and the successor-slot approximation remain limitations. software completion would not admit a scientific model.
 
@@ -90,3 +90,11 @@ whole-command wall time is 4,865.81seconds, including preparation, two solves, w
 both baseline heads complete by relative function tolerance; gradient infinity norms `0.0054110367297003446` and `0.001420699753213371` exceed `1e-6`. coefficient accuracy and earlier-year sensitivity remain unknown. whole-command wall time is 5,848.40seconds, peak resident/footprint bytes 15,222,767,616 / 16,733,548,880, within 64gb. preparation is 5,677.224177seconds; head fitting 3.779886seconds includes native solves of 1.488291/1.547053seconds, and writing is 80.272302seconds. output members total 3,244,424,938bytes, excluding the manifest. [the separate acceptance command](receipts/20222023-saved-acceptance.log) takes 52.39native seconds (51.501373internal) and peaks at 12,725,567,488resident bytes. these remain measured command/artifact scopes, not physical i/o measurements or runtime forecasts.
 
 [the third annual dispatch](receipts/20232024-launch.json) selects `20232024-01` and its separate log with the exact accepted second-year predecessor. only that annual command is running; real references, composition, publication and product acceptance remain pending.
+
+## third real annual — 2026-11-17
+
+[the native command](receipts/20232024-native-command.json), [saved acceptance](receipts/20232024-saved-acceptance.json) and [independent review](reviews/20232024-saved-acceptance-review.json) pass. manifest `17ee9596b157c1248424e2380b277630828c7b2cb676a2d41dd98e415072ba58` binds the completed second annual. 924 skaters have 3,696 coordinates; 126,449 distinct crossings and 2,968,419 physical known-path seconds reconcile. each head has 266 entry and 1,712 carried prior coordinates, retaining 694 historical coordinates. refreshed coordinates differ correctly: 1,924 entry and 1,925 exit. raw-history mean/precision/anchor checks pass and nuisance source support is available.
+
+both heads complete by function tolerance with gradient infinity norms `0.002618590806922682` / `0.0013440984925402171`, above `1e-6`; coefficient accuracy and earlier-year sensitivity remain unknown. whole-command wall time is 6,156.91seconds; peak resident/footprint bytes 14,384,988,160 / 16,612,880,648 remain within 64gb. preparation is 6,015.663424seconds; head fitting 3.367789seconds includes native solves of 1.360113/1.367565seconds; writing is 60.335175seconds. output members total 3,117,882,248bytes, excluding the manifest. [separate acceptance](receipts/20232024-saved-acceptance.log) takes 50.06native seconds (49.205865internal) and peaks at 12,241,108,992resident bytes. no physical-i/o, held-out calibration or coefficient-accuracy claim follows.
+
+[the fourth annual dispatch](receipts/20242025-launch.json) selects `20242025-01`, its separate log and this exact completed predecessor. real successor panels/references, composition, candidate and product acceptance remain pending.

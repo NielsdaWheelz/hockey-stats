@@ -1,0 +1,22 @@
+{
+  "audit": "/Users/nnandal/Documents/code/hockey-stats-v1-11/docs/research/territory-v1-11/product/detached-02/audit.jsonl",
+  "probe": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+  "denied": [
+    "/Volumes",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-11/analysis",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks",
+    "/Users/nnandal/Documents/code/hockey-stats-local"
+  ],
+  "allowedFiles": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-11/.scratch/v1-11/fixture-candidate-03/player-analysis.sqlite",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-independent/detached/guard.cjs",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-11/app/package.json"
+  ],
+  "allowedRoots": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-11/app/dist",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-11/app/node_modules",
+    "/Users/nnandal/Documents/code/hockey-stats/app/node_modules",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-independent/detached"
+  ]
+}

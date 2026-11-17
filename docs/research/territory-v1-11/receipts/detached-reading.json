@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "kind": "territory_detached_reading_check",
+  "status": "passed; independently reviewed by root",
+  "purpose": "fixture",
+  "source_commit": "aa1e762c2867f61d631c376ff0956bf63812d4e3",
+  "runtime": "node24.21.0, normal strict startup and readonly publication owner",
+  "candidate": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/.scratch/v1-11/fixture-candidate-03/player-analysis.sqlite",
+    "sha256": "8312c1dd24cc782abbd2f3a746e4c6ce290e2b0d4e7af0de2689dfb1f0f789d5",
+    "bytes": 29360128,
+    "mtime_ns": "1794900113706913284"
+  },
+  "startup_wall_seconds": 1.251,
+  "public_js_fs_guard": {
+    "intentional_probe": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "intentional_probe_denied": true,
+    "unexpected_denials": 0,
+    "allowed": "explicit candidate SQLite file, app build, app package metadata, node dependencies and the temporary preload bootstrap",
+    "original_input_denial": "all /Volumes paths and all non-allowlisted source/preparation/fit/reference paths denied lexically before original fs operation; no existence/stat probe of originals",
+    "method_scope": "public path-based read/open/stat/access/realpath/directory/stream/watch methods on node:fs and fs.promises; synchronized builtin ESM exports",
+    "native_scope": "module-loader internal/native/kernel I/O is not fully intercepted; SQLite opens the explicit supplied readonly database through its normal owner"
+  },
+  "apis": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 2114,
+      "sha256": "ea4176d3b4a0e8e47ede7fd7db67ff4d444dea0ef9db06ffa6150d8192b62add",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/players/9000001?season=20232024",
+      "status": 200,
+      "bytes": 2114,
+      "sha256": "ea4176d3b4a0e8e47ede7fd7db67ff4d444dea0ef9db06ffa6150d8192b62add",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/api/league?season=20232024&kind=skater&family=observed&strength=5v5",
+      "status": 200,
+      "bytes": 168348,
+      "sha256": "3279025adc15d0b7b597d68569e6c35e09308656a74147ba7d2bd837e7f2c8df",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200,
+      "bytes": 291615,
+      "sha256": "c408bffc3c7ae2e8451ee2d54232332cf39880350ea5910c831bcef1e2241ef6",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/api/league?season=20232024&kind=skater&family=territory",
+      "status": 200,
+      "bytes": 138156,
+      "sha256": "8536ea74e07d7abb249dd60a8610751055e34621d35161a1ab9fe5782d53c4ab",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/api/players/9000001?season=20232024",
+      "status": 200,
+      "bytes": 217111,
+      "sha256": "c61e27c2f96bf4daacb57798e9d891ed7625cb1ba37ab4ab81ba87ff9027a625",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/api/maps?season=20232024&players=9000001&family=ice_won&strength=5v5&view=effect",
+      "status": 200,
+      "bytes": 222764,
+      "sha256": "4ec900bf8669223a12ac308310e1d4fa0de7499bd7f16dad59d6bbdebaa7a1fe",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/api/maps?season=20232024&players=9000001&family=ice_lost&strength=5v5&view=effect",
+      "status": 200,
+      "bytes": 224739,
+      "sha256": "8530c3bd30259c780ce1406e109436f4b8d1aec0cd7356f7759c0913d336a790",
+      "cache_control": "no-store"
+    }
+  ],
+  "data_preservation": {
+    "database_before_equals_after": true,
+    "hash_and_nanosecond_mtime": true
+  },
+  "operation": {
+    "port": 3113,
+    "port_free_after": true,
+    "exit": {
+      "exitCode": 130,
+      "signal": null,
+      "forced": false
+    },
+    "termination": "controller sent SIGTERM after successful requests; NodeRuntime returned130; no forced kill"
+  },
+  "limits": [
+    "source independence under this finite JavaScript guard and representative APIs only",
+    "not physical HDD absence, a complete native/kernel I/O audit or all possible runtime behavior",
+    "no primary3000, root3111 or original-data/HDD accesses requested by this controller"
+  ],
+  "earlier_attempt": {
+    "path": "product/detached-01/receipt.json",
+    "status": "driver failed on observed API request without required strength=5v5; guard/startup/HTML already passed; original failed receipt/log retained"
+  },
+  "run_receipt": "product/detached-02/receipt.json",
+  "implementation_and_controllers": [
+    {
+      "path": ".territory-independent/detached/guard.cjs",
+      "sha256": "d07d2c7c2543af28f76590a80c99c141b76c020e453e0523c1db6b46c7051d70"
+    },
+    {
+      "path": ".territory-independent/detached/check.mjs",
+      "sha256": "55227da460d911ee0eeb2e5eb212b9ca110641e02097d8d9f7f7633eec8eef0a"
+    },
+    {
+      "path": "app/dist/node/server/main.js",
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis.js",
+      "sha256": "b00e2137d847cf38535eae996e3893ec03e92c159fe0811071c383bbd28e5966"
+    },
+    {
+      "path": "app/dist/node/server/analysis-publication.js",
+      "sha256": "d20b61fdc6be7a00cee678099549b407ef641524d4e299ee0d0950763a3e8906"
+    }
+  ],
+  "temporary_disposition": "preload/controller/configs are campaign-only and deleted at final cleanup; no product guard/framework or dependency added",
+  "independent_root_review": "checked ordinary startup/API receipts, explicit intentional-only denial, scoped native limitations and unchanged database identity; no stronger physical-isolation claim"
+}

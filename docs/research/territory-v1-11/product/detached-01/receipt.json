@@ -1,0 +1,130 @@
+{
+  "scope": "source independence through selected public JavaScript fs API guard; not physical HDD absence or complete native/kernel I/O audit; SQLite opens explicit readonly candidate through normal owner",
+  "command": [
+    "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "--require",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-independent/detached/guard.cjs",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-11/app/dist/node/server/main.js",
+    "--publication",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-11/.scratch/v1-11/fixture-candidate-03/player-analysis.sqlite",
+    "--port",
+    "3113"
+  ],
+  "node_version": "v24.21.0",
+  "candidate_before": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/.scratch/v1-11/fixture-candidate-03/player-analysis.sqlite",
+    "sha256": "8312c1dd24cc782abbd2f3a746e4c6ce290e2b0d4e7af0de2689dfb1f0f789d5",
+    "bytes": 29360128,
+    "mtime_ns": "1794900113706913280"
+  },
+  "build_entry": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/app/dist/node/server/main.js",
+    "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05",
+    "bytes": 8073,
+    "mtime_ns": "1794905195556172800"
+  },
+  "config": {
+    "audit": "/Users/nnandal/Documents/code/hockey-stats-v1-11/docs/research/territory-v1-11/product/detached-01/audit.jsonl",
+    "probe": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "denied": [
+      "/Volumes",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-11/analysis",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks",
+      "/Users/nnandal/Documents/code/hockey-stats-local"
+    ],
+    "allowedFiles": [
+      "/Users/nnandal/Documents/code/hockey-stats-v1-11/.scratch/v1-11/fixture-candidate-03/player-analysis.sqlite",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-independent/detached/guard.cjs",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-11/app/package.json"
+    ],
+    "allowedRoots": [
+      "/Users/nnandal/Documents/code/hockey-stats-v1-11/app/dist",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-11/app/node_modules",
+      "/Users/nnandal/Documents/code/hockey-stats/app/node_modules",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-independent/detached"
+    ]
+  },
+  "apis": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 2114,
+      "sha256": "ea4176d3b4a0e8e47ede7fd7db67ff4d444dea0ef9db06ffa6150d8192b62add",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/players/9000001?season=20232024",
+      "status": 200,
+      "bytes": 2114,
+      "sha256": "ea4176d3b4a0e8e47ede7fd7db67ff4d444dea0ef9db06ffa6150d8192b62add",
+      "cache_control": "no-store"
+    }
+  ],
+  "startup_wall_seconds": 1.249,
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: /api/league?season=20232024&kind=skater&family=observed {\"_tag\":\"InvalidSelection\",\"message\":\"invalid strength\"}\n\n400 !== 200\n",
+  "process_exit": {
+    "exitCode": 130,
+    "signal": null,
+    "forced": false
+  },
+  "candidate_after": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/.scratch/v1-11/fixture-candidate-03/player-analysis.sqlite",
+    "sha256": "8312c1dd24cc782abbd2f3a746e4c6ce290e2b0d4e7af0de2689dfb1f0f789d5",
+    "bytes": 29360128,
+    "mtime_ns": "1794900113706913280"
+  },
+  "port_free": true,
+  "audit": [
+    {
+      "event": "denied",
+      "method": "fs.readFileSync",
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "intentional": true
+    },
+    {
+      "event": "guard_ready",
+      "probeDenied": true,
+      "public_path_methods": [
+        "readFile",
+        "readFileSync",
+        "stat",
+        "statSync",
+        "lstat",
+        "lstatSync",
+        "access",
+        "accessSync",
+        "realpath",
+        "realpathSync",
+        "exists",
+        "existsSync",
+        "readlink",
+        "readlinkSync",
+        "open",
+        "openSync",
+        "opendir",
+        "opendirSync",
+        "readdir",
+        "readdirSync",
+        "createReadStream",
+        "watch",
+        "watchFile"
+      ],
+      "scope": "public javascript fs read/path APIs; module-loader internals, native/kernel I/O and SQLite native opens are not intercepted"
+    },
+    {
+      "event": "exit",
+      "code": 130,
+      "allowed_calls": {
+        "fs.realpathSync": 1690,
+        "fs.readFileSync": 265,
+        "fs.openSync": 260,
+        "fs.promises.stat": 1,
+        "fs.stat": 2,
+        "fs.createReadStream": 2,
+        "fs.open": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "kind": "territory_drive_disconnect",
+  "status": "paused_at_user_request",
+  "observation_source": "root operator observations before ejection; this local handoff performs no further external reads or execution",
+  "launch_receipt": "docs/research/territory-v1-11/receipts/real-conversion-launch.json",
+  "source_commit": "efe463b03ea79183f0a2f0982038ec0c18c0a687",
+  "converter_sha256": "1534f9787487d181bd1667cdfb68bdb39562433e4d397fa525a8388814ce2a32",
+  "source_results_sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41",
+  "donor_composition_sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5",
+  "conversion": {
+    "out": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/exchange5-base",
+    "python_pid": 43084,
+    "time_pid": 43083,
+    "wrapper_pid": 43077,
+    "requested_signal": "SIGINT",
+    "poll_session": 61621,
+    "observed_session_exit_code": 130,
+    "exit_code_file": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-exchange5-conversion-01.exit-code",
+    "observed_exit_code_file_value": 130,
+    "interrupted_at": "convert_exchange5.py:189 read_results(out); goalie spatial validation/cell_id; KeyboardInterrupt",
+    "copied_directory_and_metadata_existed": true,
+    "strict_readback_completed": false,
+    "accepted": false,
+    "defect_inferred": false,
+    "native_interrupted_costs": {
+      "real_seconds": 959.46,
+      "user_seconds": 334.26,
+      "sys_seconds": 8.29,
+      "maximum_resident_bytes": 179765248,
+      "peak_footprint_bytes": 157385328
+    }
+  },
+  "disconnect": {
+    "exact_owned_pids_absent": [43084, 43083, 43077],
+    "volume_handle_command": "lsof +f -- /Volumes/Expansion",
+    "volume_handle_exit_code": 1,
+    "volume_handles_found": false,
+    "fresh_volume_identifier": "disk6s1",
+    "fresh_parent_disk": "disk6",
+    "external": true,
+    "ejectable": true,
+    "eject_command": "diskutil eject /dev/disk6",
+    "eject_exit_code": 0,
+    "eject_stdout": "Disk /dev/disk6 ejected",
+    "volume_path_exists_after_eject": false,
+    "safe_to_unplug": true,
+    "force_used": false,
+    "unrelated_processes_killed": false
+  },
+  "preserved": {
+    "accepted_annual_states": 5,
+    "accepted_baseline_heads": 10,
+    "accepted_final_diagnostic_attempts": 2,
+    "partial_conversion_artifacts": true,
+    "temporary_controls": true,
+    "launch_history_unchanged": true
+  },
+  "not_begun": ["real composition", "real candidate"],
+  "resume": "after explicit resume and reconnection, inspect the saved directory and receipts and finish required strict validation; do not rerun conversion over the existing copied directory or refit accepted annuals",
+  "assigned_work_complete": false
+}

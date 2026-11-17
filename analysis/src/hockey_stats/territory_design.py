@@ -39,7 +39,7 @@ _RECIPE_DEFINITION = dict(version='territory-v1-11-1',
     context=[axis['name'] for axis in CONTEXT_AXES],
     priors=dict(player_entry_sd=.25, player_carry_sd=.10, coach_entry_sd=.10, coach_carry_sd=.05, context_sd=1, intercept_sd=2,
                 history='per head and role; last positive risk; carry sd multiplied by sqrt(year gap); no age drift'),
-    paths='source-order corroborated live anchors; linear home-attack x; split blue lines, memberships, contexts; conflicting clock anchors invalidate adjacent bridges; unknown flat blue line; left-limit crossings',
+    paths='source-order corroborated live anchors; linear home-attack x; split blue lines, memberships, contexts; conflicting clock anchors within the same supported continuous live span invalidate adjacent bridges; episode and source/report reset barriers separate conflict groups; unknown flat blue line; left-limit crossings',
     masks='mechanism_membership identity/strength union once; no ordinary-attempt/value/location-imputation masks; source/report reset barriers',
     nuisance='terminal carry only to first known stopping reset; coalesced individual ages; skater-slot risk; same-clock checked 5v5 restart; unknown outcomes censored',
     smoothing=dict(w_d='(count+.5)/(seconds+30)', h='(ended+.5)/(decidable+1)', R='(count+.5)/(row_total+1.5)', starts='unsmoothed'),
@@ -167,10 +167,20 @@ def territory_paths(game, membership):
         dispositions.append(dict(source_index=source['source_index'], usable_anchor=bool(anchor_valid),
             reason=None if valid else 'source_clock_order_or_frame_unresolved', territory_reasons=sorted(set(reasons))))
     conflicts = set()
-    clock_groups = {}
+    clock_groups = []
     for anchor in anchors:
-        clock_groups.setdefault((anchor['period'], anchor['seconds']), []).append(anchor)
-    for group in clock_groups.values():
+        previous = clock_groups[-1][-1] if clock_groups else None
+        same_span = previous is not None and all(anchor[key] == previous[key] for key in ('period', 'seconds', 'episode'))
+        if same_span:
+            same_span = previous['kind'] != 'goal' and anchor['kind'] != 'faceoff' and not any(
+                previous['position'] < pos < anchor['position'] for pos, _, _ in barriers)
+        if same_span:
+            same_span = not any((row['period_number'] is None or row['period_number'] == anchor['period']) and
+                (row['elapsed_seconds'] is None or row['elapsed_seconds'] == anchor['seconds']) for row in report_barriers)
+        if not same_span:
+            clock_groups.append([])
+        clock_groups[-1].append(anchor)
+    for group in clock_groups:
         if len({row['x'] for row in group}) > 1:
             conflicts.update(row['position'] for row in group)
     movement, exclusions = [], []
@@ -190,7 +200,11 @@ def territory_paths(game, membership):
         if reason is None and not children:
             reason = 'strength_or_membership_barrier'
         if reason:
-            exclusions.append(dict(left=left['source_index'], right=right['source_index'], seconds=max(0, right['seconds']-left['seconds']), reason=reason))
+            exclusion = dict(left=left['source_index'], right=right['source_index'], seconds=max(0, right['seconds']-left['seconds']), reason=reason)
+            if reason == 'different_live_span_or_nonpositive_time':
+                backward = right['period'] < left['period'] or right['period'] == left['period'] and right['seconds'] < left['seconds']
+                exclusion['territory_reasons'] = ['clock_unresolved'] if backward else []
+            exclusions.append(exclusion)
             continue
         duration, distance = right['seconds']-left['seconds'], right['x']-left['x']
         blue = [left['seconds']+(x-left['x'])*duration/distance for x in (-25, 25)
@@ -244,13 +258,13 @@ def territory_paths(game, membership):
     nuisance.sort(key=lambda row: (row['period_number'], row['start_seconds']))
     reason_mapping = {
         'contradictory_equal_clock_anchors': ['conflicting_anchors'],
-        'different_live_span_or_nonpositive_time': ['clock_unresolved'],
         'source_reset_or_unknown_barrier': ['event_kind_unresolved'],
         'report_only_reset_or_unknown_barrier': ['report_barrier_unresolved'],
         'strength_or_membership_barrier': ['membership_or_horizon_unavailable'],
         'positive_duration_on_blue_line': ['zone_unavailable']}
     for row in exclusions:
-        row['territory_reasons'] = reason_mapping[row['reason']]
+        if row['reason'] != 'different_live_span_or_nonpositive_time':
+            row['territory_reasons'] = reason_mapping[row['reason']]
     for row in dispositions:
         if any(anchor['source_index'] == row['source_index'] and anchor['position'] in conflicts for anchor in anchors):
             row['territory_reasons'] = sorted(set(row['territory_reasons']) | {'conflicting_anchors'})

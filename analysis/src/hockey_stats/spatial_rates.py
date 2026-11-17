@@ -487,6 +487,7 @@ def project_successor_panel(context):
     """replace one neutral slot; both role blocks use their own-team starts."""
     from .elapsed_design import STARTS, AGES
 
+    began = perf_counter()
     axes = {column['name']:index for index,column in enumerate(context.columns) if column['kind']=='context'}
     moments = {axis['name']:axis for axis in context.transforms}
     require(len(moments)==len(context.transforms), 'duplicate successor context transforms')
@@ -506,10 +507,14 @@ def project_successor_panel(context):
                 delta[names.index(f'{role}:start_age:{start}:{age}')] += 1/5
                 predictors = {head:context.reference[head]+delta@context.coefficients[head][indices] for head in HEADS}
                 complete[side,start_index,age_index] = evaluate_rate_context(context.basis,context.offsets,predictors)[1]
-    return dict(neutral_xg=neutral[1],complete_xg=complete,contrast_xg=complete-neutral[1],
+    contrast = complete-neutral[1]
+    return dict(neutral_xg=neutral[1],complete_xg=complete,contrast_xg=contrast,
                 ev_state=context.binding,units='xg_mass_per_hour_per_cell',
                 axes=dict(side=['for','against'],start=['DZ','NZ','OZ','on_the_fly'],age=[0,10,20,40,60,90],cells=656),
-                resources=context.resources)
+                resources=dict(context.resources,panel_projection_wall_seconds=perf_counter()-began,
+                    panel_array_bytes=neutral[1].nbytes+complete.nbytes+contrast.nbytes,
+                    peak_process_resident_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+                    projection_scope='one-slot spatial panel only; peak memory is process high-water, not incremental allocation'))
 
 
 def spatial_shapley(coalitions):

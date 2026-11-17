@@ -373,9 +373,11 @@ def compose_territory(current_results,selection_path,output):
         ev=read_json(Path(item['ev_state']['path']))
         require(ev['season']==item['season'] and ev['purpose']==selection['purpose'] and ev['prepared']['sha256']==selection['prepared']['sha256'],
                 'territory ev annual lineage differs')
+        prefix={(year['season'],year['ev_state']['sha256']) for year in selection['years'] if year['season']<=item['season']}
         inherited[item['season']]=[method for method in existing.catalogs['method'].values() if method['family']=='spatial'
-            and method['fit_seasons'] and method['fit_seasons'][-1]==item['season'] and any(value['role']=='annual_state'
-            and value['sha256']==item['ev_state']['sha256'] and value['seasons']==[item['season']] for value in method['inputs'])]
+            and method['fit_seasons'] and method['fit_seasons'][-1]==item['season'] and prefix <= {
+                (value['seasons'][0],value['sha256']) for value in method['inputs']
+                if value['role']=='annual_state' and len(value['seasons'])==1}]
         if item['season'] in existing.manifest['seasons']:
             require(inherited[item['season']],'territory selected ev differs from donor accepted spatial lineage')
     require(set(existing.manifest['seasons'])<=set(annuals),'territory selection omits a published annual')

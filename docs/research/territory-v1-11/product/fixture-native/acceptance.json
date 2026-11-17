@@ -1,5 +1,5 @@
 {
-  "status": "passed_actual_fixture_browser_controls; independent_root_pixel_review_pending",
+  "status": "passed_actual_fixture_browser_and_native200_controls_with_independent_root_pixel_review",
   "publication_id": "59615882-2e59-476d-bbb3-e6ed9e1546cb",
   "purpose": "fixture",
   "normal": {
@@ -130,7 +130,58 @@
   "limits": [
     "synthetic singleplayer reference and retained historical synthetic ledger, no real territory capability or scientific admission",
     "real F/D,traded,thinrole,prioronly and absentyear matrix remains separate",
-    "map-warning sentence refined after these artifacts; final source needs targeted rebuilt map content proof",
     "temporary tests/controllers/dependency cleanup follows complete acceptance"
-  ]
+  ],
+  "independent_root_pixel_review": "root reports normal/narrow/native raw captures and actual card/map PNGs readable",
+  "resolved_issue": {
+    "name": "territory-synthetic-lost-map",
+    "resolution": "corrected converter and paired validators; candidate03 actual two-map downloads and native200/layout/pixel checks pass",
+    "failure_evidence": [
+      "normal-02/map-1.csv",
+      "normal-03/browser-receipt.json"
+    ],
+    "issue_record": "resolved record already removed by integration owner; evidence retained here"
+  },
+  "targeted_final_copy_verification": {
+    "source_commit": "aeeeda4",
+    "purpose": "clarify interpolation misses movement while nuisance carry can mislocate puck",
+    "normal_receipt": "map-copy-normal-02/receipt.json",
+    "native_receipt": "map-copy-native200-01/receipt.json",
+    "checks": [
+      {
+        "file": "ice_won.csv",
+        "sha256": "1b0b94c755da02cd0ea0864cb6fc0dd7618b9ce00c3634f0cc3e86570de63b85",
+        "normal_native_bytes_equal": true,
+        "all_fields_except_refined_warning_equal_prior_accepted_csv": true
+      },
+      {
+        "file": "ice_won.png",
+        "sha256": "bce29e75a4792221a66248acc4cf026d53fb0cf29e1005a7a0f3120ab24fcc8d",
+        "normal_native_bytes_equal": true,
+        "size": [
+          1200,
+          2016
+        ],
+        "pixels_equal": true
+      },
+      {
+        "file": "ice_lost.csv",
+        "sha256": "5e43a34f65a3c14499d837f8673d648242837414c99c498fe3dec259fdf994ef",
+        "normal_native_bytes_equal": true,
+        "all_fields_except_refined_warning_equal_prior_accepted_csv": true
+      },
+      {
+        "file": "ice_lost.png",
+        "sha256": "50ac71f53499d707c15afda80c456234a14a537752a6c05b01de842a4ad173e8",
+        "normal_native_bytes_equal": true,
+        "size": [
+          1200,
+          1989
+        ],
+        "pixels_equal": true
+      }
+    ],
+    "content_check": "actual native PNG downloads plus exported SVG text normalized across wrapped text nodes; exact units/proxy/uncertainty phrase verified",
+    "earlier_driver_failure": "map-copy-normal-01 rawXML substring assertion failed because phrase wraps across text nodes; actual download/failedreceipt retained"
+  }
 }

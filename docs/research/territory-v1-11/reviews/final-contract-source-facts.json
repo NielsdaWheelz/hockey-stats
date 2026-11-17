@@ -1,0 +1,695 @@
+{
+  "scope": "fresh local read-only production/spec review and bounded source controls; no hdd reads, fits, publication or startup",
+  "source_before": "ae9a7dc",
+  "source_after_sha256": "5be6e938860a14aca117088206c80098adf556f8c053a0bc6c7e20302314ea87",
+  "controller_sha256": "a60ccc73ffa09c816c9fe43946f15fdc06c9caa7d10f3ca90857c0f630ad70d8",
+  "exact_control": {
+    "expected_physical_seconds": 20,
+    "expected_crossings": [
+      13.125,
+      26.25
+    ],
+    "expected_slot_seconds": 200,
+    "expected_whistle_incidences": 10,
+    "expected_team_restart_pairs": 2,
+    "old_result_physical_seconds": 0,
+    "repaired_result": "all assertions passed"
+  },
+  "original_capture_deltas": [
+    {
+      "before": {
+        "game_id": "2025020001",
+        "input_path": ".territory-checks/game.json",
+        "input_sha256": "f5c2ecf8caadbba8f4c064d09bffb49b182580ad62a378fa70345c5d863f68e0",
+        "physical_seconds": 2273.0,
+        "crossings": 116,
+        "conflict_sources": [
+          66,
+          67,
+          73,
+          74,
+          90,
+          91,
+          136,
+          137,
+          293,
+          294,
+          320,
+          321
+        ],
+        "terminal_tails": 50,
+        "terminal_lags": [
+          {
+            "period_number": 1,
+            "anchor_source_index": 2,
+            "stop_source_index": 3,
+            "seconds": 12
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 7,
+            "stop_source_index": 8,
+            "seconds": 2
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 10,
+            "stop_source_index": 11,
+            "seconds": 1
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 12,
+            "stop_source_index": 13,
+            "seconds": 15
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 15,
+            "stop_source_index": 16,
+            "seconds": 1
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 18,
+            "stop_source_index": 19,
+            "seconds": 2
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 24,
+            "stop_source_index": 25,
+            "seconds": 17
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 31,
+            "stop_source_index": 32,
+            "seconds": 3
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 44,
+            "stop_source_index": 45,
+            "seconds": 1
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 47,
+            "stop_source_index": 48,
+            "seconds": 2
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 49,
+            "stop_source_index": 50,
+            "seconds": 19
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 52,
+            "stop_source_index": 53,
+            "seconds": 15
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 62,
+            "stop_source_index": 63,
+            "seconds": 3
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 79,
+            "stop_source_index": 80,
+            "seconds": 6
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 94,
+            "stop_source_index": 95,
+            "seconds": 11
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 101,
+            "stop_source_index": 102,
+            "seconds": 2
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 106,
+            "stop_source_index": 107,
+            "seconds": 1
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 109,
+            "stop_source_index": 110,
+            "seconds": 2
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 128,
+            "stop_source_index": 129,
+            "seconds": 17
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 147,
+            "stop_source_index": 148,
+            "seconds": 10
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 153,
+            "stop_source_index": 154,
+            "seconds": 9
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 156,
+            "stop_source_index": 157,
+            "seconds": 2
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 164,
+            "stop_source_index": 165,
+            "seconds": 2
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 172,
+            "stop_source_index": 173,
+            "seconds": 2
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 175,
+            "stop_source_index": 176,
+            "seconds": 2
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 180,
+            "stop_source_index": 181,
+            "seconds": 2
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 189,
+            "stop_source_index": 190,
+            "seconds": 2
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 206,
+            "stop_source_index": 207,
+            "seconds": 40
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 209,
+            "stop_source_index": 210,
+            "seconds": 2
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 219,
+            "stop_source_index": 220,
+            "seconds": 2
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 223,
+            "stop_source_index": 224,
+            "seconds": 5
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 227,
+            "stop_source_index": 228,
+            "seconds": 2
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 231,
+            "stop_source_index": 232,
+            "seconds": 1
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 239,
+            "stop_source_index": 240,
+            "seconds": 1
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 243,
+            "stop_source_index": 244,
+            "seconds": 18
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 255,
+            "stop_source_index": 256,
+            "seconds": 14
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 262,
+            "stop_source_index": 263,
+            "seconds": 31
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 266,
+            "stop_source_index": 267,
+            "seconds": 1
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 268,
+            "stop_source_index": 270,
+            "seconds": 27
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 297,
+            "stop_source_index": 298,
+            "seconds": 3
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 300,
+            "stop_source_index": 301,
+            "seconds": 2
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 309,
+            "stop_source_index": 310,
+            "seconds": 2
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 312,
+            "stop_source_index": 313,
+            "seconds": 2
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 314,
+            "stop_source_index": 315,
+            "seconds": 8
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 316,
+            "stop_source_index": 317,
+            "seconds": 6
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 325,
+            "stop_source_index": 326,
+            "seconds": 2
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 332,
+            "stop_source_index": 333,
+            "seconds": 7
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 336,
+            "stop_source_index": 337,
+            "seconds": 2
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 339,
+            "stop_source_index": 340,
+            "seconds": 2
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 343,
+            "stop_source_index": 344,
+            "seconds": 3
+          }
+        ],
+        "path_slot_seconds": 26190.0,
+        "whistles": 440,
+        "restart_pairs": 88,
+        "start_counts": [
+          97,
+          135,
+          96,
+          336
+        ]
+      },
+      "after": {
+        "game_id": "2025020001",
+        "physical_seconds": 2406.0,
+        "crossings": 122,
+        "conflict_sources": [
+          320,
+          321
+        ],
+        "terminal_tails": 53,
+        "path_slot_seconds": 27680.0,
+        "whistles": 500,
+        "restart_pairs": 100,
+        "start_counts": [
+          97,
+          135,
+          96,
+          351
+        ]
+      }
+    },
+    {
+      "before": {
+        "game_id": "2024020001",
+        "input_path": ".territory-checks/equal-clock-original/game.json",
+        "input_sha256": "a15063e2cb44278eba886100ff43dc81b0087312a4923b1ab60ce6f3eab858a2",
+        "physical_seconds": 2109.0,
+        "crossings": 86,
+        "conflict_sources": [
+          56,
+          57,
+          61,
+          62,
+          92,
+          93,
+          103,
+          104,
+          118,
+          119,
+          144,
+          145,
+          276,
+          277,
+          296,
+          297,
+          332,
+          333
+        ],
+        "terminal_tails": 42,
+        "terminal_lags": [
+          {
+            "period_number": 1,
+            "anchor_source_index": 8,
+            "stop_source_index": 9,
+            "seconds": 10
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 13,
+            "stop_source_index": 14,
+            "seconds": 1
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 33,
+            "stop_source_index": 34,
+            "seconds": 9
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 38,
+            "stop_source_index": 39,
+            "seconds": 2
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 47,
+            "stop_source_index": 48,
+            "seconds": 3
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 63,
+            "stop_source_index": 64,
+            "seconds": 2
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 67,
+            "stop_source_index": 68,
+            "seconds": 31
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 70,
+            "stop_source_index": 71,
+            "seconds": 4
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 85,
+            "stop_source_index": 86,
+            "seconds": 2
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 89,
+            "stop_source_index": 90,
+            "seconds": 1
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 96,
+            "stop_source_index": 97,
+            "seconds": 2
+          },
+          {
+            "period_number": 1,
+            "anchor_source_index": 120,
+            "stop_source_index": 121,
+            "seconds": 16
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 123,
+            "stop_source_index": 124,
+            "seconds": 14
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 131,
+            "stop_source_index": 132,
+            "seconds": 2
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 150,
+            "stop_source_index": 151,
+            "seconds": 1
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 157,
+            "stop_source_index": 158,
+            "seconds": 7
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 170,
+            "stop_source_index": 171,
+            "seconds": 2
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 183,
+            "stop_source_index": 184,
+            "seconds": 10
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 193,
+            "stop_source_index": 194,
+            "seconds": 18
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 203,
+            "stop_source_index": 204,
+            "seconds": 9
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 209,
+            "stop_source_index": 210,
+            "seconds": 2
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 223,
+            "stop_source_index": 224,
+            "seconds": 20
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 230,
+            "stop_source_index": 231,
+            "seconds": 8
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 232,
+            "stop_source_index": 233,
+            "seconds": 9
+          },
+          {
+            "period_number": 2,
+            "anchor_source_index": 234,
+            "stop_source_index": 235,
+            "seconds": 11
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 238,
+            "stop_source_index": 239,
+            "seconds": 16
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 242,
+            "stop_source_index": 243,
+            "seconds": 3
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 247,
+            "stop_source_index": 248,
+            "seconds": 27
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 260,
+            "stop_source_index": 261,
+            "seconds": 8
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 272,
+            "stop_source_index": 273,
+            "seconds": 2
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 280,
+            "stop_source_index": 281,
+            "seconds": 2
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 298,
+            "stop_source_index": 299,
+            "seconds": 5
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 302,
+            "stop_source_index": 303,
+            "seconds": 8
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 308,
+            "stop_source_index": 309,
+            "seconds": 8
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 310,
+            "stop_source_index": 311,
+            "seconds": 7
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 316,
+            "stop_source_index": 317,
+            "seconds": 3
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 318,
+            "stop_source_index": 319,
+            "seconds": 9
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 321,
+            "stop_source_index": 322,
+            "seconds": 2
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 328,
+            "stop_source_index": 329,
+            "seconds": 8
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 337,
+            "stop_source_index": 338,
+            "seconds": 3
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 342,
+            "stop_source_index": 343,
+            "seconds": 21
+          },
+          {
+            "period_number": 3,
+            "anchor_source_index": 346,
+            "stop_source_index": 347,
+            "seconds": 9
+          }
+        ],
+        "path_slot_seconds": 24460.0,
+        "whistles": 360,
+        "restart_pairs": 72,
+        "start_counts": [
+          63,
+          111,
+          76,
+          361
+        ]
+      },
+      "after": {
+        "game_id": "2024020001",
+        "physical_seconds": 2215.0,
+        "crossings": 90,
+        "conflict_sources": [
+          61,
+          62,
+          103,
+          104,
+          118,
+          119,
+          276,
+          277,
+          332,
+          333
+        ],
+        "terminal_tails": 43,
+        "path_slot_seconds": 25590.0,
+        "whistles": 410,
+        "restart_pairs": 82,
+        "start_counts": [
+          63,
+          111,
+          76,
+          363
+        ]
+      }
+    }
+  ],
+  "vocabulary": "known forward/reset and same-clock zero-duration nonbridges retain original exclusion but no invented clock-failure code"
+}

@@ -1,0 +1,14 @@
+{
+  "scope": "metadata-only integration of actual compose admission branch with I/O boundary stubs; no source/numerical/live acceptance",
+  "controller_sha256": "2357734087621c4431fe0d8398ffba9f7c5fad4b45bce29831aab02395cd421e",
+  "implementation_sha256": "e4f6e2d67f8a495dc56872f988a9a26a6ba7fd757e6575d2cf22e37c87d88094",
+  "red_source": "aeeeda4",
+  "red": "wrong selected 20212022 or 20222023 ev sha reached the owned-row conflict stop instead of a lineage rejection",
+  "green": [
+    "exact five-year selected prefix admitted to controlled owned-row stop",
+    "wrong oldest ev sha rejected",
+    "wrong second ev sha rejected",
+    "two matching methods whose union covers the prefix but neither individually covers it rejected"
+  ],
+  "external_reads": 0
+}

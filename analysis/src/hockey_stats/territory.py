@@ -266,15 +266,17 @@ def _fit_territory_head(design,head,incoming,*,initial=None,tightened=False):
     result=dict(status='unavailable' if risk==0 else 'failed',reasons=['no_exposure'] if risk==0 else [],
         priors=priors,ledger=list(incoming),centers=None,reference=None,objective=None,solver=None,diagnostics=None)
     if risk==0:return result,None
-    log_rate=log((events+.5)/(risk+30));options=CONTINUATION if tightened else SOLVER;began=perf_counter()
+    log_rate=log((events+.5)/(risk+30));options=CONTINUATION if tightened else SOLVER
     objective=lambda b:territory_objective(b,head,mean,precision,log_rate)
     try:
+        began=perf_counter()
         beta,solver=solve_logistic(objective,mean if initial is None else initial,**options)
+        solver_wall_seconds=perf_counter()-began
         for prior in priors:
             if prior['prior_only']:beta[prior['index']]=prior['mean']
         value,gradient=objective(beta)
         solver.update(options=options,gradient_inf_norm=float(np.max(abs(gradient))),
-            achieved_gtol=bool(np.max(abs(gradient))<=options['gtol']),wall_seconds=perf_counter()-began,
+            achieved_gtol=bool(np.max(abs(gradient))<=options['gtol']),wall_seconds=solver_wall_seconds,
             peak_memory_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
         result.update(solver=solver,objective=dict(penalized_loss=value,gradient_inf_norm=solver['gradient_inf_norm']))
         if not solver['converged']:
@@ -357,7 +359,11 @@ def fit_territory(design,previous,output,*,final_year=False):
     if design.purpose=='real':
         require((design.season=='20212022')==(predecessor is None),'real territory chronology differs')
         require(not final_year or design.season=='20252026','territory diagnostics require final annual')
+    validation_wall_seconds=perf_counter()-began
+    compression_began=perf_counter()
     design=replace(design,heads={name:_compress_head(design.heads[name]) for name in HEADS})
+    compression_wall_seconds=perf_counter()-compression_began
+    fit_began=perf_counter()
     heads={};coefficients={};probes={}
     for name in HEADS:
         incoming=[] if predecessor is None else predecessor.heads[name]['ledger']
@@ -368,12 +374,22 @@ def fit_territory(design,previous,output,*,final_year=False):
             else:
                 probe_head,probe_beta=_fit_territory_head(design,design.heads[name],incoming,initial=beta,tightened=True)
                 probes[name]=dict(head=probe_head,coefficients=probe_beta,reason=None)
+    fit_wall_seconds=perf_counter()-fit_began
     projection_began=perf_counter();projections,support=project_hazards(design,heads,coefficients)
-    resources=dict(fit_wall_seconds=perf_counter()-began,peak_memory_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+    hazard_projection_wall_seconds=perf_counter()-projection_began
+    solver_wall_seconds=dict(
+        baseline={name:None if heads[name]['solver'] is None else heads[name]['solver']['wall_seconds'] for name in HEADS},
+        diagnostic={name:None if name not in probes or probes[name]['head'] is None or probes[name]['head']['solver'] is None
+            else probes[name]['head']['solver']['wall_seconds'] for name in HEADS})
+    resources=dict(validation_wall_seconds=validation_wall_seconds,compression_wall_seconds=compression_wall_seconds,
+        fit_wall_seconds=fit_wall_seconds,solver_wall_seconds=solver_wall_seconds,
+        hazard_projection_wall_seconds=hazard_projection_wall_seconds,wall_seconds_before_writing=perf_counter()-began,
+        peak_memory_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        peak_memory_scope='process high-water sampled after hazard projection; includes preparation and earlier stages; later write/readback peaks excluded',
+        solver_wall_scope='native solve_logistic call only; excludes prior construction, final gradient evaluation, centering and diagnostics',
         baseline_solves=sum(heads[name]['status']!='unavailable' for name in HEADS),
         diagnostic_solves=sum(probe['head'] is not None for probe in probes.values()),preparation=design.resources,
-        hazard_projection_wall_seconds=perf_counter()-projection_began,
-        wall_scope='fit and hazard projection; preparation and artifact writing separately reported')
+        wall_scope='validation, compression, head fitting and hazard projection timed separately; native solver time is nested within head fitting; preparation and artifact writing separately reported')
     return write_territory_state(Path(output),design,predecessor,heads,coefficients,probes,projections,support,resources)
 
 

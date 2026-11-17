@@ -1,0 +1,49 @@
+{
+  "status": "passed_bounded_independent_history_and_cohort_review",
+  "checks": [
+    "five annual actual small fit/read boundaries",
+    "independent literal entry/carry player/coach priors and expanded objective/gradient",
+    "role/head-specific raw ledgers across absent year",
+    "positive-risk zero-event support refresh; zero-risk prior-only no refresh",
+    "entry or carry only; no extra level penalty",
+    "raw coefficient centering invariance",
+    "all annual skaters receive all four roles including all-zero/unknown-position",
+    "all six ranked fields qualify from301known-pathminutes with zeroexitrole risk",
+    "unknown F/D estimated but unranked; four hazards raw-only"
+  ],
+  "scope_limits": [
+    "synthetic reduced designs and direct TS selector/cohort inputs; no real annual or scientific acceptance",
+    "no new real source preparation or HDD access",
+    "temporary test code follows campaign deletion after full acceptance"
+  ],
+  "code_bindings": [
+    {
+      "path": "analysis/src/hockey_stats/territory.py",
+      "sha256": "39e6befb697a156712e6f4394329bf1ae0761d60a47e5df625abbed7aaeef441"
+    },
+    {
+      "path": "analysis/src/hockey_stats/territory_state.py",
+      "sha256": "842bbd36c85d45c616819300569e9d7b2630965b6d78b9f30781ac647130b775"
+    },
+    {
+      "path": "analysis/src/hockey_stats/player_mechanisms.py",
+      "sha256": "0e8b409c1d795c6f7c26091772be374bf01722e9501ee6b0825d805f5e68306b"
+    },
+    {
+      "path": "app/src/web/analysis-values.ts",
+      "sha256": "c9565082ebd02dbeec42a5bcab0077d115d5402adf6e9654066ee9b7cc13ca06"
+    },
+    {
+      "path": "app/src/web/analysis-cohorts.ts",
+      "sha256": "6a3677232a86233dc2197d6b032b0615d92692e14b54f5d6b6bc060a137eacbe"
+    },
+    {
+      "path": ".tmp-territory-numerics/history.py",
+      "sha256": "27f6c2fdc5ad2764cf9ebd66ba8859190e93d44e2a4838c6b3690f4879c81553"
+    },
+    {
+      "path": ".tmp-territory-numerics/cohort.ts",
+      "sha256": "f21f2cfffc35dc31ee144e361aa48b8a674ee44bda14b3240df776a096db065b"
+    }
+  ]
+}

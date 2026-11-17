@@ -1,0 +1,195 @@
+{
+  "kind": "composition_acceptance_fixture_check",
+  "status": "passed_fixture_entrypoint",
+  "controller": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/accept_composition.py",
+    "sha256": "f1025d27420dccf7c01cb431346947d0c5294e0e2b8373ec21307f0c5d4c8494"
+  },
+  "controller_check": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/check_composition_acceptance.py",
+    "sha256": "eee44fd07eaa5665c27de954a3a17c20193f33c8b3c2ae5e082acccf6801e713"
+  },
+  "scope": "actual local converter CLI \u2192 normal territory composition CLI reusing saved reference \u2192 strict current read and full acceptance entrypoint",
+  "construction": {
+    "kind": "synthetic_conversion_lineage_control",
+    "construction": "schema4 metadata control over the existing captured-game pending fixture; no historical exchange4 provenance claimed",
+    "source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/e2e-v3/donor/manifest.json",
+      "sha256": "b4e573afb19eb157dbf66d1a1d6554462f8abced9fa2dd3c2881be3e6aab11db"
+    },
+    "numerical": "existing corrected native one-game territory state and separately labeled synthetic spatial panel; no refit or reprojection"
+  },
+  "green": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/checked-valid-03.json",
+    "sha256": "1153b92f5d11d9d241c3e3337beb92e31d75cd0c540e04c2e2fc2c432810f842"
+  },
+  "counts": {
+    "20252026": {
+      "skater_territory": 36,
+      "analysis_map": 72
+    }
+  },
+  "negative_controls": [
+    {
+      "name": "unchecked-donor-composition",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/does-not-exist.json'"
+    },
+    {
+      "name": "changed-original-selection",
+      "error": "InputContractError: conversion changed original selection bindings"
+    },
+    {
+      "name": "neutral-duration",
+      "error": "published shift reference differs from saved projection/accepted frequencies"
+    },
+    {
+      "name": "successor-goals",
+      "error": "published successor G/A reference differs"
+    },
+    {
+      "name": "accepted-start-frequency",
+      "error": "published shift reference differs from saved projection/accepted frequencies"
+    },
+    {
+      "name": "reference-uri",
+      "error": "published state/prepared/reference/panel/ev binding differs"
+    },
+    {
+      "name": "nonfinite-reference",
+      "error": "saved neutral/successor reference is nonfinite"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/convert_exchange5.py",
+        "--source",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/synthetic-original4",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/converted5",
+        "--expected-sha",
+        "e654dd144f216483b672adcdd09b462898826ac6c32da7afedd51bdc151cdfd2"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"output\": {\"uri\": \"/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/converted5/manifest.json\", \"sha256\": \"34422c361fdc987b8af55a013ff33b65030aad20ec3cbc7cd96dc37c0a929f1d\"}, \"inherited_members\": 13, \"repaired_territory_members\": []}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "summarize",
+        "--family",
+        "territory",
+        "--results",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/converted5",
+        "--states",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/selection.json",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/results"
+      ],
+      "exit_code": 0,
+      "stdout": "territory results: fixture; /Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/results/manifest.json\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/accept_composition.py",
+        "--results",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/results",
+        "--donor",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/converted5",
+        "--selection",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/selection.json",
+        "--conversion",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/converted5/exchange5-conversion.json",
+        "--pins",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/pins.json",
+        "--annual-receipt",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/annual-fixture-acceptance-scoped.json",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/checked-valid-03.json"
+      ],
+      "exit_code": 0,
+      "stdout": "accepted_composition /Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/checked-valid-03.json\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/accept_composition.py",
+        "--results",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/results",
+        "--donor",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/converted5",
+        "--selection",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/selection.json",
+        "--conversion",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/converted5/exchange5-conversion.json",
+        "--pins",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/wrong-pins.json",
+        "--annual-receipt",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/annual-fixture-acceptance-scoped.json",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/checked-unchecked-donor-composition-03.json"
+      ],
+      "exit_code": 1,
+      "stdout": "failed /Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/checked-unchecked-donor-composition-03.json\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/accept_composition.py",
+        "--results",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/results",
+        "--donor",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/converted5",
+        "--selection",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/selection.json",
+        "--conversion",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/wrong-conversion.json",
+        "--pins",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/pins.json",
+        "--annual-receipt",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/annual-fixture-acceptance-scoped.json",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/checked-changed-original-selection-03.json"
+      ],
+      "exit_code": 1,
+      "stdout": "failed /Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/composition-main-fixture/checked-changed-original-selection-03.json\n",
+      "stderr": ""
+    }
+  ],
+  "boundary_controls": [
+    {
+      "name": "zero-on-the-fly",
+      "status": "accepted",
+      "counts": {
+        "20252026": {
+          "skater_territory": 36,
+          "analysis_map": 72
+        }
+      }
+    },
+    {
+      "name": "risk-aggregation-roundoff",
+      "status": "accepted",
+      "counts": {
+        "20252026": {
+          "skater_territory": 36,
+          "analysis_map": 72
+        }
+      }
+    }
+  ],
+  "real_gate": "NOT_RUN",
+  "limits": [
+    "one captured local game, one annual, synthetic spatial panel and explicit synthetic exchange4 lineage metadata",
+    "five real annual states, historical real donor conversion/composition and whole-command resource acceptance remain root-owned and NOT_RUN here",
+    "no fitting, source replay, numerical reprojection, /Volumes reads, publication or startup"
+  ]
+}

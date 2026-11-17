@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "kind": "territory_real_composition_controller_review",
+  "at": "2026-11-17T10:20:50.517975+00:00",
+  "status": "controller_cleared",
+  "real_five_year_gate": "NOT_RUN",
+  "final_real_acceptance": "pending",
+  "scope": "independent source review and inspection of the local fixture proof only; no controller/model execution, external artifact read, hdd access, fitting, projection, publication or startup by this reviewer",
+  "controller": {
+    "path": ".territory-checks/accept_composition.py",
+    "sha256": "f1025d27420dccf7c01cb431346947d0c5294e0e2b8373ec21307f0c5d4c8494",
+    "temporary": true
+  },
+  "fixture_proof": {
+    "path": ".territory-checks/composition-main-fixture/proof-reviewed.json",
+    "sha256": "640f8965a61f5871e84f0f14f055a8aae39c72b1571618180474c088bf9ac618",
+    "retained_copy": "docs/research/territory-v1-11/receipts/composition-controller-fixture.json",
+    "copy_policy": "root retains the exact reviewed proof bytes"
+  },
+  "reviewed_source": true,
+  "closed_original_findings": [
+    "the pinned donor-composition receipt is checked by digest, kind, purpose and exact original exchange4 output",
+    "original exchange4 and converted exchange5 retain the same purpose, seasons, observed bindings and preparation identity, alongside unchanged family/catalogue descriptors",
+    "published finite reference, neutral role and coefficient-history evidence is directly joined to saved baseline metadata, native arrays, support rows and accepted nuisance summaries; full uri/hash bindings are checked"
+  ],
+  "closed_false_failures": [
+    "zero on-the-fly starts accept the specified null mixture; zone counts close to the on-the-fly count",
+    "independently aggregated fsum/numpy risk totals use existing close tolerance; copied numbers, counts and native arrays retain exact comparisons"
+  ],
+  "fixture": {
+    "status": "passed_fixture_entrypoint",
+    "path": "actual local converter CLI to normal territory composition CLI reusing a saved reference to the full acceptance entrypoint",
+    "counts": {
+      "20252026": {
+        "skater_territory": 36,
+        "analysis_map": 72
+      }
+    },
+    "negative_controls": 7,
+    "valid_boundary_controls": 2,
+    "construction": "one corrected captured-game annual state, an explicitly synthetic spatial panel and synthetic exchange4 lineage metadata",
+    "limits": [
+      "the synthetic conversion metadata does not establish historical real exchange4 provenance",
+      "the zero-on-the-fly boundary is a clearly labeled detached synthetic metadata control, not source or fitted-model evidence",
+      "no numerical refit or reprojection was required by this controller verification"
+    ]
+  },
+  "unresolved_controller_findings": [],
+  "pending": [
+    "all five accepted real annual states and exact predecessor/input/reference bindings",
+    "historical real donor conversion and full real composition/preservation controller run in the sole heavy slot",
+    "whole-command resource acceptance, inactive candidate/startup, real application/download/pixel acceptance and final cleanup"
+  ],
+  "excluded_claims": [
+    "no real five-year composition acceptance",
+    "no external artifact verification by this reviewer",
+    "no scientific admission",
+    "no activation",
+    "no v1-12 ledger completion"
+  ]
+}

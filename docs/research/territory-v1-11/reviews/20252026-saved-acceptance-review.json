@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "kind": "territory_annual_and_chain_local_receipt_review",
+  "at": "2026-11-17T16:39:26.297419+00:00",
+  "season": "20252026",
+  "status": "cleared_for_conversion_and_composition",
+  "final_real_acceptance": "pending",
+  "scope": "independent review of the final local native/saved-acceptance receipts, saved log/exit-code and four prior annual receipts/reviews only; no external state/source read, hdd access, model execution or heavy command",
+  "receipts": [
+    {
+      "path": "docs/research/territory-v1-11/receipts/20252026-native-command.json",
+      "sha256": "29f61fe8c572dc1b72e3027e9cefa3523a8aaebd6a2c23ea9dc4c914c639139e"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/20252026-saved-acceptance.json",
+      "sha256": "fdf3b7750b7f15ad7c08a7be7513ce04c13ebef4a48b20184a18778ad0b5adee"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/20252026-saved-acceptance.log",
+      "sha256": "881068454d7dd0a33daeb06e735c4072b307af6344f3cbdc678cd8c920e82fcd"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/20252026-saved-acceptance.exit-code",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/20212022-saved-acceptance.json",
+      "sha256": "420d922149ab733affbba8feb490ce4ca2b43c3bc2022ebfb4de94d5295a412f"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/20222023-saved-acceptance.json",
+      "sha256": "53dfcaf00826f158f92ed15385ec88ac63b8348236b6adead4cda4b09d86e410"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/20232024-saved-acceptance.json",
+      "sha256": "611d4d1b1349cdb2e2cc1a3b8ae42a21734df5921fe1e03f63ec9bd666bb0d53"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/20242025-saved-acceptance.json",
+      "sha256": "38931b190599d2e837cde9e0424c26b2e6c5042da54185e3028d5a41e840be6b"
+    },
+    {
+      "path": "docs/research/territory-v1-11/reviews/20212022-saved-acceptance-review.json",
+      "sha256": "115a8c5f8ae11a3bbd56a73a7e6744cb85545967cc7c2af65cc2f27f26d864e9"
+    },
+    {
+      "path": "docs/research/territory-v1-11/reviews/20222023-saved-acceptance-review.json",
+      "sha256": "769e2e76a4a160a6c7f0ab824d317eb85ff29c51f5438123a9812d47b2481c8d"
+    },
+    {
+      "path": "docs/research/territory-v1-11/reviews/20232024-saved-acceptance-review.json",
+      "sha256": "1e188716ca152c474431902b1abdd012033e7c222e162fbc100822984da05a8f"
+    },
+    {
+      "path": "docs/research/territory-v1-11/reviews/20242025-saved-acceptance-review.json",
+      "sha256": "8f3099b6d2c9c2d3d7f0d5efa3cdf4d2b8c634499259e7163428b28bf7359cfe"
+    }
+  ],
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01/manifest.json",
+    "sha256": "b6ec47eff0f7ea4e2d19c075503111cc080e965d85fe1423978db57edc889c04"
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20242025-01/manifest.json",
+    "sha256": "a75de96b3ba021864be7e185c2e540959d9225e3c83b84ee0f64e0b3975c5fce",
+    "season": "20242025",
+    "purpose": "real",
+    "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3"
+  },
+  "source_commit": "008197e221cb869a41c440561daf20cf905ad1b6",
+  "source_clean": true,
+  "common_pins": {
+    "path": "docs/research/territory-v1-11/receipts/input-pins.json",
+    "sha256": "06c3188fc3b2edfcfa2930a9c002f0ac23dae5b43bb14b16ba68cacb7553edea"
+  },
+  "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3",
+  "findings": [],
+  "execution": {
+    "baselines_complete": 10,
+    "sole_final_continuations_complete": 2,
+    "baseline_options": {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06,
+      "maxcor": 10
+    },
+    "continuation_options": {
+      "maxiter": 10000,
+      "ftol": 1e-16,
+      "gtol": 1e-07,
+      "maxcor": 10
+    },
+    "all_native_optimizer_statuses_zero": true,
+    "all_achieved_gtol": false,
+    "no_rescues_scope": "recorded annual counters and exact frozen recipe/options contain only the ten prescribed baselines and two sole final continuations; no rescue solve or recipe change is reported",
+    "final_native_exit_code": 0,
+    "final_native_exit_capture": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01.exit-code",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "final_native_exit_scope": "ordinary shell captured the native time/fit-command return status after strict readback; independent of tool polling",
+    "saved_acceptance_exit_code": 0,
+    "fourth_outer_exit_code": null,
+    "fourth_normal_completion": "inferred",
+    "fourth_operator_limit": {
+      "native_exit_code": null,
+      "scope": "direct tool exit result unavailable: post-exit write_stdin returned Unknown process id 63700; no exit code is fabricated",
+      "normal_completion": "inferred",
+      "reported_completion_evidence": [
+        "both owned processes absent",
+        "final normal CLI state-path marker after strict readback",
+        "complete native time footer with no nonzero/signal marker"
+      ],
+      "evidence_scope": "root observations retained in the local native receipt; original external log/processes were not inspected by this reviewer",
+      "saved_acceptance_exit_code": 0,
+      "saved_acceptance_exit_scope": "root-reported observed controller completion, with successful retained acceptance receipt/log"
+    }
+  },
+  "annual_chain": [
+    {
+      "season": "20212022",
+      "state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20212022-repaired-01/manifest.json",
+        "sha256": "1c4c45a7fe8afe76dbcb2811ecacec540a90848875adbe780b111047adb38db3"
+      },
+      "previous": null,
+      "pins": {
+        "path": "docs/research/territory-v1-11/receipts/input-pins.json",
+        "sha256": "06c3188fc3b2edfcfa2930a9c002f0ac23dae5b43bb14b16ba68cacb7553edea"
+      },
+      "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3",
+      "skaters": 1004,
+      "player_role_coordinates": 4016,
+      "baseline_solves": 2,
+      "diagnostic_solves": 0,
+      "gradient_inf_norm": {
+        "entry": 0.006900648985214034,
+        "exit": 0.0013128877894378992
+      },
+      "history": {
+        "entry": {
+          "entry_coordinates": 2138,
+          "carry_coordinates": 0,
+          "refreshed_coordinates": 2084,
+          "retained_history_coordinates": 0
+        },
+        "exit": {
+          "entry_coordinates": 2138,
+          "carry_coordinates": 0,
+          "refreshed_coordinates": 2084,
+          "retained_history_coordinates": 0
+        }
+      }
+    },
+    {
+      "season": "20222023",
+      "state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20222023-01/manifest.json",
+        "sha256": "890a6a560896f58aef8fd6ebf7c1dfe696c0df25ecab228b5c9324b64eeb7269"
+      },
+      "previous": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20212022-repaired-01/manifest.json",
+        "sha256": "1c4c45a7fe8afe76dbcb2811ecacec540a90848875adbe780b111047adb38db3",
+        "season": "20212022",
+        "purpose": "real",
+        "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3"
+      },
+      "pins": {
+        "path": "docs/research/territory-v1-11/receipts/input-pins.json",
+        "sha256": "06c3188fc3b2edfcfa2930a9c002f0ac23dae5b43bb14b16ba68cacb7553edea"
+      },
+      "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3",
+      "skaters": 951,
+      "player_role_coordinates": 3804,
+      "baseline_solves": 2,
+      "diagnostic_solves": 0,
+      "gradient_inf_norm": {
+        "entry": 0.0054110367297003446,
+        "exit": 0.001420699753213371
+      },
+      "history": {
+        "entry": {
+          "entry_coordinates": 328,
+          "carry_coordinates": 1704,
+          "refreshed_coordinates": 1968,
+          "retained_history_coordinates": 406
+        },
+        "exit": {
+          "entry_coordinates": 328,
+          "carry_coordinates": 1704,
+          "refreshed_coordinates": 1968,
+          "retained_history_coordinates": 406
+        }
+      }
+    },
+    {
+      "season": "20232024",
+      "state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20232024-01/manifest.json",
+        "sha256": "17ee9596b157c1248424e2380b277630828c7b2cb676a2d41dd98e415072ba58"
+      },
+      "previous": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20222023-01/manifest.json",
+        "sha256": "890a6a560896f58aef8fd6ebf7c1dfe696c0df25ecab228b5c9324b64eeb7269",
+        "season": "20222023",
+        "purpose": "real",
+        "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3"
+      },
+      "pins": {
+        "path": "docs/research/territory-v1-11/receipts/input-pins.json",
+        "sha256": "06c3188fc3b2edfcfa2930a9c002f0ac23dae5b43bb14b16ba68cacb7553edea"
+      },
+      "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3",
+      "skaters": 924,
+      "player_role_coordinates": 3696,
+      "baseline_solves": 2,
+      "diagnostic_solves": 0,
+      "gradient_inf_norm": {
+        "entry": 0.002618590806922682,
+        "exit": 0.0013440984925402171
+      },
+      "history": {
+        "entry": {
+          "entry_coordinates": 266,
+          "carry_coordinates": 1712,
+          "refreshed_coordinates": 1924,
+          "retained_history_coordinates": 694
+        },
+        "exit": {
+          "entry_coordinates": 266,
+          "carry_coordinates": 1712,
+          "refreshed_coordinates": 1925,
+          "retained_history_coordinates": 694
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20242025-01/manifest.json",
+        "sha256": "a75de96b3ba021864be7e185c2e540959d9225e3c83b84ee0f64e0b3975c5fce"
+      },
+      "previous": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20232024-01/manifest.json",
+        "sha256": "17ee9596b157c1248424e2380b277630828c7b2cb676a2d41dd98e415072ba58",
+        "season": "20232024",
+        "purpose": "real",
+        "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3"
+      },
+      "pins": {
+        "path": "docs/research/territory-v1-11/receipts/input-pins.json",
+        "sha256": "06c3188fc3b2edfcfa2930a9c002f0ac23dae5b43bb14b16ba68cacb7553edea"
+      },
+      "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3",
+      "skaters": 920,
+      "player_role_coordinates": 3680,
+      "baseline_solves": 2,
+      "diagnostic_solves": 0,
+      "gradient_inf_norm": {
+        "entry": 0.0025800888237498976,
+        "exit": 0.0007303980035085547
+      },
+      "history": {
+        "entry": {
+          "entry_coordinates": 240,
+          "carry_coordinates": 1730,
+          "refreshed_coordinates": 1892,
+          "retained_history_coordinates": 946
+        },
+        "exit": {
+          "entry_coordinates": 240,
+          "carry_coordinates": 1730,
+          "refreshed_coordinates": 1892,
+          "retained_history_coordinates": 947
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01/manifest.json",
+        "sha256": "b6ec47eff0f7ea4e2d19c075503111cc080e965d85fe1423978db57edc889c04"
+      },
+      "previous": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20242025-01/manifest.json",
+        "sha256": "a75de96b3ba021864be7e185c2e540959d9225e3c83b84ee0f64e0b3975c5fce",
+        "season": "20242025",
+        "purpose": "real",
+        "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3"
+      },
+      "pins": {
+        "path": "docs/research/territory-v1-11/receipts/input-pins.json",
+        "sha256": "06c3188fc3b2edfcfa2930a9c002f0ac23dae5b43bb14b16ba68cacb7553edea"
+      },
+      "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3",
+      "skaters": 940,
+      "player_role_coordinates": 3760,
+      "baseline_solves": 2,
+      "diagnostic_solves": 2,
+      "gradient_inf_norm": {
+        "entry": 0.006535115347764375,
+        "exit": 0.006950097576867003
+      },
+      "history": {
+        "entry": {
+          "entry_coordinates": 244,
+          "carry_coordinates": 1766,
+          "refreshed_coordinates": 1952,
+          "retained_history_coordinates": 1130
+        },
+        "exit": {
+          "entry_coordinates": 244,
+          "carry_coordinates": 1766,
+          "refreshed_coordinates": 1952,
+          "retained_history_coordinates": 1131
+        }
+      }
+    }
+  ],
+  "final_annual": {
+    "skaters": 940,
+    "player_role_coordinates": 3760,
+    "physical_known_seconds": 3031262.9999999977,
+    "crossings": {
+      "total": 128660,
+      "entry": 70577,
+      "exit": 58083
+    },
+    "history": {
+      "entry": {
+        "entry_coordinates": 244,
+        "carry_coordinates": 1766,
+        "refreshed_coordinates": 1952,
+        "retained_history_coordinates": 1130
+      },
+      "exit": {
+        "entry_coordinates": 244,
+        "carry_coordinates": 1766,
+        "refreshed_coordinates": 1952,
+        "retained_history_coordinates": 1131
+      }
+    },
+    "history_scope": "refreshed1952 each; retained entry1130 and exit1131",
+    "nuisance_source_supported": true,
+    "baselines": {
+      "entry": {
+        "status": "complete",
+        "gradient_inf_norm": 0.006535115347764375,
+        "achieved_gtol": false
+      },
+      "exit": {
+        "status": "complete",
+        "gradient_inf_norm": 0.006950097576867003,
+        "achieved_gtol": false
+      }
+    },
+    "diagnostics": {
+      "entry": {
+        "status": "complete",
+        "gradient_inf_norm": 0.001564181749788071,
+        "achieved_gtol": false,
+        "iterations": 25,
+        "evaluations": 28
+      },
+      "exit": {
+        "status": "complete",
+        "gradient_inf_norm": 0.0003085626813835868,
+        "achieved_gtol": false,
+        "iterations": 34,
+        "evaluations": 39
+      }
+    }
+  },
+  "costs": {
+    "native_wall_seconds": 6215.75,
+    "native_maximum_resident_bytes": 15985344512,
+    "native_peak_memory_footprint_bytes": 17384272712,
+    "memory_envelope_bytes": 64000000000,
+    "within_envelope": true,
+    "preparation_wall_seconds": 6062.056127374992,
+    "head_fit_wall_seconds": 4.767290291842073,
+    "nested_native_solver_wall_seconds": {
+      "baseline": {
+        "entry": 1.513642332982272,
+        "exit": 1.4468384159263223
+      },
+      "diagnostic": {
+        "entry": 0.1452257081400603,
+        "exit": 0.22110458300448954
+      }
+    },
+    "hazard_projection_wall_seconds": 0.7631163750775158,
+    "writing_wall_seconds": 58.31458325008862,
+    "input_metadata_read_wall_seconds": 0.6393537919502705,
+    "output_member_bytes": 3216712556,
+    "accounted_artifact_bytes": 3308246008,
+    "acceptance_native_wall_seconds": 62.81,
+    "acceptance_internal_wall_seconds": 61.879556874977425,
+    "acceptance_process_peak_bytes": 12619825152,
+    "scope": "whole final fit command includes preparation, two baselines, both sole diagnostic attempts, writing, strict readback and overhead; solver times are nested within head fitting. input-read timing covers metadata. acceptance timing/peak belongs to a separate process. logical artifact bytes are a named subtotal; physical I/O and incremental allocation remain unmeasured"
+  },
+  "disposition": "all ten baseline heads and both sole continuations satisfy recorded solver-completion and independent saved-state criteria; proceed to the single attributed real exchange4-to5 conversion and five-year reference/composition command",
+  "limits": [
+    "all twelve solvers completed by function tolerance with unmet requested gradient tolerances; coefficient accuracy remains unknown",
+    "earlier-year sensitivity remains unassessed; final separate/joint propagation and sensitivity budgets remain unassessed until real references are built",
+    "no real successor panel/reference, conversion, composition, inactive candidate or product acceptance is established here",
+    "the fourth outer command exit code remains unavailable; checked completed optimizer states retain qualification",
+    "no held-out calibration/recovery, scientific admission, activation or v1-12 ledger/totals completion is claimed"
+  ]
+}

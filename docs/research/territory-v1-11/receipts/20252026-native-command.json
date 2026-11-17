@@ -1,0 +1,83 @@
+{
+  "status": "saved_acceptance_pending",
+  "at": "2026-11-17T16:31:24.126958+00:00",
+  "season": "20252026",
+  "native_session_id": 13028,
+  "native_exit_code": 0,
+  "native_exit_scope": "ordinary shell captured the native time/fit-command return status after strict readback; independent of tool polling",
+  "exit_code_capture": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01.exit-code",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01/manifest.json",
+    "sha256": "b6ec47eff0f7ea4e2d19c075503111cc080e965d85fe1423978db57edc889c04"
+  },
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01.log",
+    "sha256": "09ffe9d1402363eb575608ed1fa3b41deb8d525862945d5e23244a105ac84752"
+  },
+  "implementation": {
+    "git_commit": "008197e221cb869a41c440561daf20cf905ad1b6",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20242025-01/manifest.json",
+    "sha256": "a75de96b3ba021864be7e185c2e540959d9225e3c83b84ee0f64e0b3975c5fce",
+    "season": "20242025",
+    "purpose": "real",
+    "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3"
+  },
+  "resources": {
+    "wall_seconds": 6215.75,
+    "user_seconds": 5712.78,
+    "system_seconds": 31.74,
+    "peak_resident_bytes": 15985344512,
+    "peak_memory_footprint_bytes": 17384272712,
+    "memory_envelope_bytes": 64000000000,
+    "within_envelope": true,
+    "scope": "whole native fit command including preparation, two baseline solves, both diagnostic attempts, writing and strict readback; not incremental allocation",
+    "physical_io_bytes": null
+  },
+  "phases": {
+    "validation_wall_seconds": 14.179604000179097,
+    "compression_wall_seconds": 5.226127916947007,
+    "fit_wall_seconds": 4.767290291842073,
+    "solver_wall_seconds": {
+      "baseline": {
+        "entry": 1.513642332982272,
+        "exit": 1.4468384159263223
+      },
+      "diagnostic": {
+        "entry": 0.1452257081400603,
+        "exit": 0.22110458300448954
+      }
+    },
+    "hazard_projection_wall_seconds": 0.7631163750775158,
+    "wall_seconds_before_writing": 24.93614566605538,
+    "peak_memory_bytes": 7591804928,
+    "peak_memory_scope": "process high-water sampled after hazard projection; includes preparation and earlier stages; later write/readback peaks excluded",
+    "solver_wall_scope": "native solve_logistic call only; excludes prior construction, final gradient evaluation, centering and diagnostics",
+    "baseline_solves": 2,
+    "diagnostic_solves": 2,
+    "preparation": {
+      "preparation_seconds": 6062.056127374992,
+      "preparation_peak_resident_bytes": 7472381952,
+      "preparation_memory_scope": "process high-water mark through single-pass source preparation; not incremental allocation",
+      "input_read_wall_seconds": 0.6393537919502705
+    },
+    "wall_scope": "validation, compression, head fitting and hazard projection timed separately; native solver time is nested within head fitting; preparation and artifact writing separately reported",
+    "write_wall_seconds": 58.31458325008862,
+    "output_bytes": 3216712556
+  },
+  "limits": [
+    "native exit0 does not itself establish saved acceptance or coefficient accuracy",
+    "baseline/diagnostic solver completion does not certify gradient tolerance",
+    "unchanged frozen008197e producer; no rescue solves or changed numerical recipe",
+    "successor projection, sensitivity budgets and product acceptance remain separate"
+  ]
+}

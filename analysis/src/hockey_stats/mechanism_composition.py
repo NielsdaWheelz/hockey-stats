@@ -121,67 +121,11 @@ def compose_mechanisms(existing_results, selection_path, output):
     source_binding = identity(existing.directory/'manifest.json')
     require(selection['source_results'] == source_binding, 'selected current-schema mechanism donor differs')
     require(selection['prepared']['sha256'] == existing.manifest['prepared_sha256'], 'mechanism donor preparation differs')
-    conversion_path = existing.directory/'exchange4-conversion.json'
-    descendant_binding = None
-    converted_binding = source_binding
-    if not conversion_path.exists():
-        descendant_path = existing.directory/'goalie-composition.json'
-        descendant = strict_json(descendant_path.read_bytes())
-        publication.fields(descendant,('schema_version','kind','source_results','selection','output','inherited_members','goalie_members',
-                                      'source_families','output_families','preserved','resources'))
-        require(descendant['schema_version'] == 1 and descendant['kind'] == 'goalie-composition'
-                and descendant['output'] == source_binding and descendant['output_families'] == existing.manifest['families'],
-                'selected current-schema goalie descendant receipt differs')
-        converted_binding = descendant['source_results']
-        require(identity(Path(converted_binding['path'])) == converted_binding, 'selected goalie descendant parent differs')
-        converted = strict_json(Path(converted_binding['path']).read_bytes())
-        require(converted['schema_version'] == 4 and converted['purpose'] == selection['purpose'], 'goalie parent is not current exchange')
-        require(all(existing.manifest[key] == converted[key] for key in ('purpose','seasons','observed_bindings','prepared_sha256')),
-                'goalie descendant changed the inherited population')
-        inherited = {(record['season'],record['family']):record for record in converted['families'] if record['family'] != 'goalie'}
-        require(all(inherited[record['season'],record['family']] == record for record in existing.manifest['families'] if record['family'] != 'goalie'),
-                'goalie descendant changed an unrelated family')
-        require(existing.manifest['catalogs']['people'] == converted['catalogs']['people'], 'goalie descendant changed person identities')
-        for name,key,catalog in (('sources','source_id','source'),('methods','method_id','method'),('supports','support_id','support')):
-            member = converted['catalogs'][name]
-            path = publication.member_path(Path(converted_binding['path']).parent,member)
-            require(identity(path)['sha256'] == member['sha256'], 'goalie parent catalog digest differs')
-            with path.open('rb') as stream:
-                for line in stream:
-                    original = strict_json(line)
-                    require(existing.catalogs[catalog].get(original[key]) == original, 'goalie descendant changed inherited catalog evidence')
-        conversion_path = Path(converted_binding['path']).parent/'exchange4-conversion.json'
-        descendant_binding = identity(descendant_path)
-    conversion = strict_json(conversion_path.read_bytes())
-    publication.fields(conversion,('schema_version','kind','purpose','source_results','output','policy','synthetic_checked_facts','goalie_scores','goalie_projections','inherited_members'))
-    require(conversion['schema_version'] == 1 and conversion['kind'] == 'attributed_exchange4_conversion'
-            and conversion['purpose'] == selection['purpose'], 'invalid exchange4 donor conversion receipt')
-    if selection['purpose'] == 'real':
-        require(conversion['source_results']['sha256'] == '21de98fb8538632296a00e0650c9005f4a267b6a75bd6e09d541864f6f3836c3',
-                'exchange4 donor is not the pinned complete g/ev/st successor')
-    if selection['purpose'] == 'real':
-        require(conversion['goalie_scores'] is not None and conversion['goalie_scores']['sha256'] == '2964f2c8c4ef5e060017db76533484fd8f2096e15f51a963af13ebcb6475fbed',
-                'exchange4 donor goalie evidence selection differs')
-        require(identity(Path(conversion['goalie_scores']['path'])) == conversion['goalie_scores'], 'exchange4 goalie evidence selection binding differs')
-        require([item['season'] for item in conversion['goalie_projections']] == existing.manifest['seasons'], 'exchange4 goalie evidence years differ')
-    require(identity(Path(conversion['source_results']['path'])) == conversion['source_results'], 'original exchange3 donor binding differs')
-    require(conversion['output'] == converted_binding, 'exchange4 donor conversion does not bind the selected current donor')
-    conversion_binding = identity(conversion_path)
-    for item in conversion['goalie_projections']:
-        publication.fields(item,('season','score','projection','rows','provided_rows','source_member','output_member'))
-        publication.season(item['season'])
-        for key in ('score','projection'):
-            publication.fields(item[key],('path','sha256'))
-            publication.text(item[key]['path'])
-            publication.digest(item[key]['sha256'])
-        for key in ('rows','provided_rows'):
-            publication.number(item[key],minimum=0,integer=True)
-        require(item['provided_rows'] <= item['rows'], 'converted goalie provided row count differs')
-        for key in ('source_member','output_member'):
-            publication.fields(item[key],('path','sha256','rows'))
-            publication.text(item[key]['path'])
-            publication.digest(item[key]['sha256'])
-            require(item[key]['rows'] == item['rows'], 'converted goalie member row count differs')
+    for record in existing.manifest['families']:
+        if record['family'] in ('penalties','shootiness') and record['availability'] == 'provided':
+            table = 'skater_penalties' if record['family'] == 'penalties' else 'skater_shootiness'
+            require(all(row['result']['availability'] == 'not_computed' for row in existing.rows(record['tables'][table],table,record['family'])),
+                    'conflicting computed mechanism rows in donor')
     annuals = {}
     for item in selection['years']:
         year = item['season']
@@ -208,10 +152,6 @@ def compose_mechanisms(existing_results, selection_path, output):
         family,year = record['family'],record['season']
         if family not in ('penalties','shootiness'):
             continue
-        table = 'skater_penalties' if family == 'penalties' else 'skater_shootiness'
-        if record['availability'] == 'provided':
-            require(all(row['result']['availability'] == 'not_computed' for row in existing.rows(record['tables'][table],table,family)),
-                    'conflicting computed mechanism rows in donor')
         published = {player for (season,player),person in existing.people.items() if season == year and person['kind'] == 'skater'}
         state = annuals[year][family]
         require(published <= {row['player_id'] for row in state.support}
@@ -264,9 +204,230 @@ def compose_mechanisms(existing_results, selection_path, output):
     publication.read_results(output,'manifest.json.incomplete')
     (output/'manifest.json.incomplete').rename(output/'manifest.json')
     write_json(output/'mechanism-composition.json',dict(schema_version=1,kind='mechanism_composition',purpose=selection['purpose'],
-        source_results=source_binding,source_conversion=conversion_binding,source_descendant=descendant_binding,selection=identity(Path(selection_path).resolve()),output=identity(output/'manifest.json'),
+        source_results=source_binding,selection=identity(Path(selection_path).resolve()),output=identity(output/'manifest.json'),
         minor_references=minor_references,minor_reference_bindings=minor_bindings,diagnostics=diagnostics,resources=dict(wall_seconds=perf_counter()-began,
             output_member_bytes=sum((output/member['path']).stat().st_size for member in [*manifest['catalogs'].values(),
                 *(member for record in manifest['families'] for member in record['tables'].values())])),
         preserved='all unrelated table members copied byte-for-byte; catalog records preserved; no ledger or territory estimate completed'))
+    return manifest
+
+
+def _territory_nuisance_coverage(raw):
+    from collections import Counter
+    from math import ceil,fsum
+    import numpy as np
+    from .territory_evidence import REASONS
+    risk=np.asarray(raw['risk_seconds']);decidable=np.asarray(raw['decidable_whistles'])
+    restart=np.asarray(raw['restart_counts']);lags=sorted(raw['terminal_lags'])
+    censored=Counter(row['reason'] for game in raw['games'] for row in game['exclusions'] if row['kind']=='censored_endpoint')
+    require(set(censored)<=set(REASONS),'territory censored endpoint lacks a declared reason mapping')
+    prior_cells=[dict(process=process,zone=zone,age_lower=age)
+        for process,denominator in (('w',risk),('d',risk),('h',decidable))
+        for z,zone in enumerate(('D','N','O')) for b,age in enumerate((0,10,20,40,60,90)) if denominator[z,b]==0]
+    return dict(path_slot_seconds=raw['path_slot_seconds'],terminal_carry_slot_seconds=raw['terminal_carry_slot_seconds'],
+        whistle_risk_slot_seconds=fsum(risk.ravel()),whistle_incidences=int(np.asarray(raw['whistles']).sum()),
+        live_end_risk_slot_seconds=fsum(risk.ravel()),live_end_incidences=int(np.asarray(raw['live_endings']).sum()),
+        decidable_whistle_trials=int(decidable.sum()),ended_whistle_trials=int(np.asarray(raw['ended_whistles']).sum()),
+        restart_pairs=int(restart.sum()),start_counts=[int(v) for v in raw['start_counts']],
+        on_the_fly_zone_counts=[int(v) for v in raw['on_the_fly_zone_counts']],terminal_tails=len(lags),
+        terminal_lag_seconds=None if not lags else dict(p50=lags[ceil(.5*len(lags))-1],p90=lags[ceil(.9*len(lags))-1],
+            p99=lags[ceil(.99*len(lags))-1],max=lags[-1]),
+        censored_endpoints=[dict(reason=reason,count=count) for reason,count in sorted(censored.items())],
+        prior_only_cells=prior_cells,prior_only_restart_rows=[zone for z,zone in enumerate(('D','N','O')) if restart[z].sum()==0])
+
+
+def _territory_datum(value,status,method,person):
+    if value is not None:return estimate(float(value))
+    reason='failed_fit' if status=='failed' else 'no_exposure' if status=='unavailable' else 'missing_source'
+    datum=estimate(None,reason=reason,explanation='inferred territory prerequisite unavailable: '+reason)
+    datum['reason_detail']['evidence']=[dict(kind='method',id=method),*person['source']]
+    return datum
+
+
+def _territory_rows(year,state,reference,people,method_id):
+    from .territory import ROLES
+    from .territory_evidence import reference_body,reference_digest
+    from .artifacts import json_values
+    baseline=reference['variants']['baseline'];computed=baseline['successor_available'];shift_computed=baseline['shift_available']
+    hazards={row['player_id']:row for row in state.projections};support={row['player_id']:row for row in state.support}
+    values={row['player_id']:row for row in baseline.get('values',[])}
+    annual=identity(state.path/'manifest.json');manifest=reference['manifest']
+    bind=lambda value:dict(uri=value['path'],sha256=value['sha256'])
+    coverage=_territory_nuisance_coverage(state.design.nuisance)
+    scalar_rows=[];map_rows=[];reference_id=None
+    from .observed_spatial import cells
+    geometry=cells()
+    for person in people:
+        player=person['player_id'];require(player in hazards and player in support,'published skater lacks territory state coordinates')
+        selected=support[player];qualification=selected['qualification'];seconds=qualification['included_seconds']
+        gap=any(game['unquantified_gap'] for game in state.coverage['games'])
+        role_evidence={};role_data={};coefficient_rows=[]
+        for role in ROLES:
+            coefficient=selected['roles'][role]
+            coefficient=dict(status=coefficient['status'],current_season_information=coefficient['current_season_information'],
+                prior_only=coefficient['prior_only'],prior_kind=coefficient['prior_kind'],prior_anchor_season=coefficient['prior_anchor_season'],
+                prior_seasons=coefficient['prior_seasons'],likelihood_events=coefficient['crossings'],information_weight=coefficient['risk_seconds'])
+            coefficient_rows.append(coefficient)
+            role_support=dict(included_seconds=seconds,events=coefficient['likelihood_events'],eligible_weight=coefficient['information_weight'],
+                known_excluded_seconds=None,unquantified_gap=gap,reason_counts=[],inferred_inputs=sorted(['territory']+
+                    (['historical_borrowing'] if coefficient['prior_seasons'] else [])),current_season_information=coefficient['current_season_information'],
+                prior_only=coefficient['prior_only'],prior_seasons=coefficient['prior_seasons'])
+            saved=hazards[player]['roles'][role]
+            hazard_key='opponent_exit_hazard_per_second' if role=='zone_retention' else 'opponent_entry_hazard_per_second' if role=='entry_prevention' else 'hazard_per_second'
+            role_data[role]={hazard_key:_territory_datum(saved['hazard_per_second'],saved['status'],method_id,person),
+                'one_second_probability':_territory_datum(saved['one_second_probability'],saved['status'],method_id,person),'support':role_support}
+            role_evidence[role]=dict(coefficient_support=coefficient,neutral_hazard_per_second=saved['neutral_hazard_per_second'],
+                neutral_one_second_probability=saved['neutral_one_second_probability'])
+        prior_years=sorted({year for row in coefficient_rows for year in row['prior_seasons']})
+        main_support=dict(included_seconds=seconds,events=qualification['crossings'],eligible_weight=seconds,
+            known_excluded_seconds=None,unquantified_gap=gap,reason_counts=[],inferred_inputs=sorted(['territory']+
+                (['historical_borrowing'] if prior_years else [])),
+            current_season_information=all(row['current_season_information'] for row in coefficient_rows),
+            prior_only=all(row['status']=='complete' and row['prior_only'] for row in coefficient_rows),prior_seasons=prior_years)
+        shift=None;successor=None
+        if shift_computed:
+            neutral=baseline['neutral'];value=values[player];nuisance=baseline['nuisance']
+            shift=dict(initial_start_probabilities=nuisance['start_probabilities'],initial_on_the_fly_zone_probabilities=nuisance['on_the_fly_zone_mixture'],
+                neutral_end_probabilities=neutral['end_probabilities'],focal_end_probabilities=value['end_probabilities'],
+                end_difference=value['end_probability_difference'],neutral_occupancy_seconds=neutral['bin_occupancy_seconds'],
+                mean_shift_seconds=neutral['mean_shift_seconds'],shifts_per_1000_minutes=neutral['shifts_per_1000_minutes'],
+                survival_at_90=neutral['survival_at_90'],tail_time_fraction=neutral['tail_time_fraction'])
+        if computed:
+            G=baseline['successor_reference'];successor=dict(for_goals_per_shift=G['G'][0],against_goals_per_shift=G['G'][1],
+                for_absolute_terms_goals_per_shift=G['absolute_term_scales'][0],against_absolute_terms_goals_per_shift=G['absolute_term_scales'][1])
+        status='failed' if any(head['status']=='failed' for head in state.heads.values()) else 'unavailable' if any(head['status']=='unavailable' for head in state.heads.values()) else 'complete'
+        reason=None if computed else manifest['panel_problem'] or baseline['reason']
+        evidence=json_values(dict(annual_state=bind(annual),prepared=bind(state.manifest['prepared']),qualification_seconds=seconds,roles=role_evidence,
+            nuisance_coverage=coverage,shift_reference=dict(available=shift_computed,reason=None if shift_computed else reason,receipt=bind(identity(reference['path'])),data=shift),
+            successor_reference=dict(available=computed,reason=reason,ev_state=bind(manifest['ev_state']),
+                panel=None if manifest['panel'] is None else bind(manifest['panel']),data=successor)))
+        evidence['reference_id']=reference_digest(reference_body(evidence,year,state.manifest['purpose'],'territory-v1-11-1'))
+        if reference_id is None:reference_id=evidence['reference_id']
+        require(reference_id==evidence['reference_id'],'territory common reference varies across players')
+        data=dict(**role_data,support=main_support,method_id=method_id,evidence=evidence)
+        for side,field in enumerate(('ice_won_goals_per_basket','ice_lost_goals_per_basket')):
+            data[field]=_territory_datum(values[player]['values'][side] if computed else None,status,method_id,person)
+        scalar_rows.append(dict(season=year,player_id=player,result=dict(availability='provided',explanation=None,data=data)))
+        for side,kind in enumerate(('ice_won','ice_lost')):
+            scalar=data['ice_won_goals_per_basket' if side==0 else 'ice_lost_goals_per_basket'];native=values[player]['maps'][side] if computed else None
+            display=None
+            if native is not None:
+                mass=publication.native_display_mass(native)
+                display=[dict(cell_id=cell['cell_id'],mass=float(value),density_per100sqft=float(100*value/cell['area_sqft']))
+                    for cell,value in zip(geometry,mass,strict=True)]
+            map_rows.append(dict(season=year,player_id=player,map_kind=kind,strength='5v5',view='effect',result=dict(availability='provided',explanation=None,
+                data=dict(grid_id='native656',unit='goals_per_basket',reference='neutral five-player unit; successor goals per 1000 5v5 minutes; inferred territory',
+                    cells=None if native is None else [dict(cell_id=i,value=float(value)) for i,value in enumerate(native)],display_cells=display,
+                    integrated_value=scalar['value'],unavailable_reason=scalar['unavailable_reason'],reason_detail=scalar['reason_detail'],
+                    support=main_support,method_id=method_id))))
+    map_rows.sort(key=lambda row:tuple(row[key] for key in publication.KEYS['analysis_map']))
+    return scalar_rows,map_rows,reference_id
+
+
+def _territory_method(year,state,annuals,selection,reference,reference_id,inherited_methods):
+    years=[season for season in annuals if season<=year];manifest=reference['manifest']
+    inputs=[dict(role='annual_state',sha256=identity(annuals[season].path/'manifest.json')['sha256'],seasons=[season]) for season in years]
+    inputs.extend(dict(role=role,sha256=binding['sha256'],seasons=[year]) for role,binding in
+        (('prepared',selection['prepared']),('coaches',selection['coaches']),('source_results',selection['source_results']),
+         ('ev_state',manifest['ev_state']),('successor_panel',manifest['panel']),('derivation',identity(reference['path']))) if binding is not None)
+    inputs.append(dict(role='territory_reference',sha256=reference_id,seasons=[year]))
+    bindings=[identity(state.path/'manifest.json'),selection['prepared'],selection['coaches'],manifest['ev_state'],identity(reference['path'])]
+    if manifest['panel'] is not None:bindings.append(manifest['panel'])
+    evidence=[dict(uri=binding['path'],sha256=binding['sha256']) for binding in bindings]
+    evidence.append(dict(uri='urn:territory-reference:'+reference_id,sha256=reference_id))
+    for inherited in inherited_methods:
+        for binding in inherited['evidence']:
+            if binding not in evidence:evidence.append(binding)
+    summary=('baseline '+','.join(name+':'+head['status'] for name,head in state.heads.items())+
+        '; sensitivity '+str(reference['diagnostics'])+'; optimizer accuracy unknown; uncertainty not estimated')
+    population='genuine 5v5 between-anchor known-path participation; viewing qualification uses its union, role likelihood uses zone-specific seconds'
+    return dict(method_id=f'territory-v1-11-{year}',family='territory',purpose=selection['purpose'],recipe_id='territory-v1-11-1',
+        design_sha256=hashlib.sha256(publication.json_bytes(state.manifest['design_identity'])).hexdigest(),
+        input_sha256=hashlib.sha256(publication.json_bytes(inputs)).hexdigest(),fit_seasons=years,training_cutoff=state.manifest['training_cutoff'],
+        target='four inferred conditional movement subskills and successor-start chance-value footprint',population=population,
+        reference='five neutral players per side, neutral residual coaches and zero centered context; replace one successor slot; 1000 5v5 minutes',
+        limitations=['linear interpolation misses out-and-back movement; block contacts are not release locations; no tracked entries or possession',
+            'terminal carry to a supported whistle is a labeled nuisance proxy and can mislocate the puck; transition fitting excludes tails',
+            'fixed substitution, ignorable 5v5 censoring, shared neutral survival and one-slot successor approximation are assumptions',
+            'positive ice lost is more successor goals against; four movement subskills are not extra ledger terms; no causal isolation',
+            'last-supported raw point-history borrowing omits prior uncertainty',summary,
+            *dict.fromkeys(limit for inherited in inherited_methods for limit in inherited['limitations'])],
+        evidence=evidence,inputs=inputs,reference_id='neutral-unit-territory-successor-v1',support_policy_id='territory-known-path-union-role-risk-v1',
+        assessment=dict(status='experimental',findings=[dict(quantities=sorted(field for field in publication.QUANTITY_PATHS if field.startswith('skater_territory.')),
+            population=population,summary=summary,evidence=evidence)]))
+
+
+def compose_territory(current_results,selection_path,output):
+    """fill territory serially, retaining only compact annual history metadata."""
+    from .territory_state import (read_territory_selection,read_territory_state,write_territory_reference,read_territory_reference)
+    from .spatial_state import read_spatial_start_context
+    from .spatial_rates import project_successor_panel
+    from .chance_cli import read_json
+    began=perf_counter();existing=publication.read_results(Path(current_results))
+    selection=read_territory_selection(selection_path,existing.manifest['purpose']);source=identity(existing.directory/'manifest.json')
+    require(selection['source_results']==source and selection['prepared']['sha256']==existing.manifest['prepared_sha256'],
+            'territory current donor/preparation selection differs')
+    annuals={};inherited={}
+    for item in selection['years']:
+        annuals[item['season']]=read_territory_state(item['territory_state']['path'],selection['purpose'],narrow=True)
+        ev=read_json(Path(item['ev_state']['path']))
+        require(ev['season']==item['season'] and ev['purpose']==selection['purpose'] and ev['prepared']['sha256']==selection['prepared']['sha256'],
+                'territory ev annual lineage differs')
+        inherited[item['season']]=[method for method in existing.catalogs['method'].values() if method['family']=='spatial'
+            and method['fit_seasons'] and method['fit_seasons'][-1]==item['season'] and any(value['role']=='annual_state'
+            and value['sha256']==item['ev_state']['sha256'] and value['seasons']==[item['season']] for value in method['inputs'])]
+        if item['season'] in existing.manifest['seasons']:
+            require(inherited[item['season']],'territory selected ev differs from donor accepted spatial lineage')
+    require(set(existing.manifest['seasons'])<=set(annuals),'territory selection omits a published annual')
+    for record in existing.manifest['families']:
+        if record['family']!='territory':continue
+        if record['availability']=='provided':
+            for table,member in record['tables'].items():
+                require(all(row['result']['availability']=='not_computed' for row in existing.rows(member,table,'territory')),
+                    'territory donor conflicts with already-computed owned rows')
+    output=output_path(str(output),[str(existing.directory),str(Path(selection_path).resolve())])
+    if selection['purpose']=='real':require(output.is_relative_to('/Volumes/Expansion/hockey-stats'),'real territory outputs must be external')
+    output.mkdir()
+    manifest=deepcopy(existing.manifest);manifest['producer']=implementation_identity();methods=dict(existing.catalogs['method'])
+    territorial={record['season']:record for record in manifest['families'] if record['family']=='territory'}
+    for record in manifest['families']:
+        if record['family']=='territory':continue
+        for member in record['tables'].values():publication.copy_result_member(existing.directory,member,output)
+    key_counts={};reference_bindings={};reference_costs={}
+    for item in selection['years']:
+        year=item['season'];state=read_territory_state(item['territory_state']['path'],selection['purpose'])
+        if item['successor_reference'] is None:
+            panel=None;panel_problem=None
+            try:
+                context=read_spatial_start_context(item['ev_state']['path'],selection['purpose'])
+                panel=project_successor_panel(context)
+                del context
+            except FileNotFoundError as error:
+                # absent saved spatial members withhold value, preserving a valid shift process.
+                panel_problem=f'saved successor spatial member unavailable: {error}'
+            reference=write_territory_reference(output/(year+'-reference'),state,panel,ev_binding=item['ev_state'],panel_problem=panel_problem)
+            del panel
+        else:reference=read_territory_reference(item['successor_reference']['path'],state,item['ev_state'])
+        reference_bindings[year]=identity(reference['path']);reference_costs[year]=reference['manifest']['resources']
+        if year in territorial:
+            method_id=f'territory-v1-11-{year}'
+            people=sorted((person for (season,_),person in existing.people.items() if season==year and person['kind']=='skater'),key=lambda p:p['player_id'])
+            scalars,maps,reference_id=_territory_rows(year,state,reference,people,method_id)
+            method=_territory_method(year,state,annuals,selection,reference,reference_id,inherited[year])
+            require(method_id not in methods,'territory method identity conflicts');methods[method_id]=method
+            territorial[year].update(availability='provided',explanation=None,tables={
+                'skater_territory':publication.write_result_member(output,year+'-territory.jsonl',scalars,'skater_territory'),
+                'analysis_map':publication.write_result_member(output,year+'-territory-maps.jsonl',maps,'analysis_map')})
+            key_counts[year]=dict(skater_territory=len(scalars),analysis_map=len(maps))
+            del scalars,maps
+        del state,reference
+    for name in ('people','sources','supports'):publication.copy_result_member(existing.directory,manifest['catalogs'][name],output)
+    manifest['catalogs']['methods']=publication.write_result_member(output,'methods.jsonl',sorted(methods.values(),key=lambda row:row['method_id']),'methods')
+    write_json(output/'manifest.json.incomplete',manifest);publication.read_results(output,'manifest.json.incomplete')
+    (output/'manifest.json.incomplete').rename(output/'manifest.json')
+    write_json(output/'territory-composition.json',dict(schema_version=1,kind='territory_composition',purpose=selection['purpose'],source_results=source,
+        selection=identity(Path(selection_path).resolve()),output=identity(output/'manifest.json'),key_counts=key_counts,
+        annuals=[dict(season=item['season'],territory_state=item['territory_state'],ev_state=item['ev_state'],successor_reference=reference_bindings[item['season']])
+            for item in selection['years']],resources=dict(wall_seconds=perf_counter()-began,annual_references=reference_costs),
+        preserved='all inherited numerical/factual table members copied byte-for-byte; catalogs retained; no ledger completion'))
     return manifest

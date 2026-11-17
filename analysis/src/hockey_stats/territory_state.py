@@ -383,3 +383,155 @@ def read_territory_selection(path,purpose):
             require({field:predecessor[field] for field in ('path','sha256')}==previous,'territory selection skips exact predecessor')
         previous=item['territory_state']
     return selection
+
+
+def write_territory_reference(root,state,panel,*,ev_binding=None,panel_problem=None):
+    """derive baseline and sole saved diagnostics once; fits remain immutable."""
+    from .territory import project_territory,compare_territory_variants
+    import resource
+    began=perf_counter();root=Path(root).resolve();root.mkdir(parents=True,exist_ok=False)
+    annual=identity(state.path/'manifest.json')
+    panel_binding=None
+    require((panel is None)==(type(panel_problem) is str and bool(panel_problem.strip())),
+            'missing territory panel requires a located reason')
+    if panel is not None:
+        array_names=('neutral_xg','complete_xg','contrast_xg')
+        panel_arrays=write_arrays(root,'panel.npz',{key:np.asarray(panel[key]) for key in array_names})
+        actual_ev_binding={key:panel['ev_state'][key] for key in ('path','sha256')}
+        require(ev_binding is None or ev_binding==actual_ev_binding,'territory panel explicit ev binding differs')
+        ev_binding=actual_ev_binding
+        panel_doc=dict(schema_version=1,kind='territory_successor_panel',purpose=state.manifest['purpose'],season=state.manifest['season'],
+            ev_state=ev_binding,units=panel['units'],axes=panel['axes'],arrays=panel_arrays,resources=panel['resources'],implementation=implementation())
+        write_json(root/'panel.json',panel_doc);panel_binding=identity(root/'panel.json')
+    require_fields(ev_binding,('path','sha256'),'territory projection ev binding');require_state_reference(ev_binding,'territory projection ev binding')
+    variants={};diagnostics={}
+    for variant in ('baseline','entry','exit','joint') if state.probes else ('baseline',):
+        result=project_territory(state,panel,variant=variant);variants[variant]=result
+        if variant!='baseline':diagnostics[variant]=compare_territory_variants(state,variants['baseline'],result)
+    if not state.probes:diagnostics=dict(status='unassessed',reason='earlier_annual')
+    records={}
+    for variant,result in variants.items():
+        document={key:value for key,value in result.items() if key not in ('values','nuisance','successor_reference')}
+        reference=result.get('successor_reference')
+        document['successor_reference']=None if reference is None else {key:value for key,value in reference.items() if key!='contrast'}
+        value_arrays=None
+        if result['shift_available']:
+            fields_to_save=('end_probabilities','end_probability_difference')
+            if result['successor_available']:fields_to_save=(*fields_to_save,'maps','values','raw_G_values','raw_G_allowance','map_sum_allowance')
+            value_arrays=write_arrays(root,variant+'-values.npz',{key:np.stack([row[key] for row in result['values']])
+                for key in fields_to_save})
+        document['players']=[row['player_id'] for row in result.get('values',[])]
+        document['values_arrays']=value_arrays
+        write_json(root/(variant+'.json'),json_values(document));records[variant]=identity(root/(variant+'.json'))
+    manifest=dict(schema_version=1,kind='territory_successor_reference',purpose=state.manifest['purpose'],season=state.manifest['season'],
+        annual_state=annual,ev_state=ev_binding,panel=panel_binding,panel_problem=panel_problem,projections=records,diagnostics=json_values(diagnostics),
+        resources=dict(projection_wall_seconds=perf_counter()-began,output_bytes=sum(path.stat().st_size for path in root.iterdir()),
+            peak_memory_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss),implementation=implementation())
+    write_json(root/'reference.json',manifest)
+    return dict(path=root/'reference.json',manifest=manifest,panel=panel,variants=variants,diagnostics=diagnostics)
+
+
+def read_territory_reference(path,state,ev_binding):
+    """reuse an exact projection; validate native accounting without source replay."""
+    from .artifacts import linked_path
+    from .territory import successor_reference,successor_value,project_hazards
+    path=Path(path).resolve(strict=True);document=read_json(path)
+    require_fields(document,('schema_version','kind','purpose','season','annual_state','ev_state','panel','panel_problem','projections','diagnostics',
+        'resources','implementation'),'territory successor reference')
+    require(type(document['schema_version']) is int and document['schema_version']==1 and document['kind']=='territory_successor_reference'
+        and document['purpose']==state.manifest['purpose'] and document['season']==state.manifest['season']
+        and document['annual_state']==identity(state.path/'manifest.json') and document['ev_state']==ev_binding,
+            'territory successor reference lineage differs')
+    panel=None
+    require((document['panel'] is None)==(type(document['panel_problem']) is str and bool(document['panel_problem'].strip())),
+            'territory saved panel unavailable reason differs')
+    if document['panel'] is not None:
+        panel_doc=read_json(linked_path(document['panel']))
+        require_fields(panel_doc,('schema_version','kind','purpose','season','ev_state','units','axes','arrays','resources','implementation'),
+            'territory successor panel')
+        require(type(panel_doc['schema_version']) is int and panel_doc['schema_version']==1 and panel_doc['kind']=='territory_successor_panel' and panel_doc['ev_state']==ev_binding
+            and panel_doc['purpose']==document['purpose'] and panel_doc['season']==document['season'],
+                'territory successor panel lineage differs')
+        require(panel_doc['units']=='xg_mass_per_hour_per_cell' and panel_doc['axes']==dict(side=['for','against'],
+            start=['DZ','NZ','OZ','on_the_fly'],age=[0,10,20,40,60,90],cells=656),'territory panel units/axes differ')
+        panel=dict(**{key:panel_doc[key] for key in ('ev_state','units','axes','resources')},
+            **_read_arrays(panel_doc['arrays'],path.parent/'panel.npz'))
+        require(set(panel)=={'neutral_xg','complete_xg','contrast_xg','ev_state','units','axes','resources'},'territory successor panel arrays differ')
+        require(panel['neutral_xg'].shape==(656,) and panel['complete_xg'].shape==panel['contrast_xg'].shape==(2,4,6,656)
+            and np.all(panel['neutral_xg']>0) and np.all(panel['complete_xg']>0)
+            and np.allclose(panel['complete_xg']-panel['neutral_xg'],panel['contrast_xg'],rtol=1e-9,atol=1e-9),
+                'territory successor panel domains/arithmetic differ')
+    variants={}
+    expected_variants=('baseline','entry','exit','joint') if state.probes else ('baseline',)
+    require(set(document['projections'])==set(expected_variants),'territory successor diagnostic variant set differs')
+    for name,binding in document['projections'].items():
+        result=read_json(linked_path(binding));_finite(result)
+        require(type(result['shift_available']) is bool and type(result['successor_available']) is bool
+            and (not result['successor_available'] or result['shift_available']), 'territory projection availability flags differ')
+        if result['shift_available']:
+            require_fields(result,('status','reason','variant','shift_available','successor_available','hazards','support','neutral','successor_reference','players','values_arrays'),
+                'completed territory projection')
+            require(result['variant']==name and result['players']==list(state.design.players),'territory projection player/variant axes differ')
+            projected_heads=dict(state.heads);projected_coefficients=dict(state.coefficients)
+            for head in HEADS:
+                if name in (head,'joint'):
+                    projected_heads[head]=state.probes[head]['head'];projected_coefficients[head]=state.probes[head]['coefficients']
+            expected_hazards,expected_support=project_hazards(state.design,projected_heads,projected_coefficients)
+            require(result['hazards']==expected_hazards and result['support']==expected_support,'territory projected hazard/support metadata differs')
+            neutral=result['neutral']
+            require_fields(neutral,('end_probabilities','bin_occupancy_seconds','mean_shift_seconds','shifts_per_1000_minutes',
+                'survival_at_90','tail_time_fraction'),'territory neutral shift projection')
+            end=np.asarray(neutral['end_probabilities']);occupancy=np.asarray(neutral['bin_occupancy_seconds'])
+            require(end.shape==(4,) and np.isfinite(end).all() and np.all((end>=0)&(end<=1)) and close(float(end.sum()),1.)
+                and occupancy.shape==(6,) and np.isfinite(occupancy).all() and np.all(occupancy>=0),'territory neutral shift probability/time domains differ')
+            for seconds,width in zip(occupancy[:5],(10,10,20,20,30),strict=True):
+                require(seconds<=width or close(float(seconds),width),'territory occupancy exceeds finite age bin')
+            mean=neutral['mean_shift_seconds'];n0=neutral['shifts_per_1000_minutes']
+            require_number(mean,'territory neutral mean',low=0);require_number(n0,'territory neutral workload',low=0)
+            require(mean>0 and n0>0 and close(float(occupancy.sum()),mean) and close(n0,60000/mean)
+                and close(neutral['tail_time_fraction'],float(occupancy[5]/mean)),'territory neutral duration/workload arithmetic differs')
+            require_number(neutral['survival_at_90'],'territory neutral survival',low=0,high=1)
+            require_number(neutral['tail_time_fraction'],'territory neutral tail fraction',low=0,high=1)
+            arrays=_read_arrays(result.pop('values_arrays'),path.parent/(name+'-values.npz'))
+            expected_shapes=dict(end_probabilities=(4,),end_probability_difference=(4,))
+            if result['successor_available']:
+                expected_shapes.update(maps=(2,656),values=(2,),raw_G_values=(2,),raw_G_allowance=(2,),map_sum_allowance=(2,))
+            require(set(arrays)==set(expected_shapes),'territory projection value fields differ')
+            for key,shape in expected_shapes.items():
+                require(arrays[key].shape==(len(state.design.players),*shape),'territory projection native axes differ')
+            reference=None
+            if result['successor_available']:
+                require(panel is not None and result['status']=='complete' and result['reason'] is None,'territory complete successor prerequisite differs')
+                reference=successor_reference(result['neutral'],panel)
+                require_fields(result['successor_reference'],('G_maps','G','absolute_term_scales'),'territory successor numerical projection')
+                for key in ('G_maps','G','absolute_term_scales'):
+                    require(np.asarray(result['successor_reference'][key]).shape==reference[key].shape
+                        and np.allclose(reference[key],result['successor_reference'][key],rtol=1e-9,atol=1e-9),
+                        'territory saved successor reference arithmetic differs')
+            else:require(result['status']=='unavailable' and result['reason'] and result['successor_reference'] is None,'territory unavailable successor reason differs')
+            values=[]
+            for index,player in enumerate(result.pop('players')):
+                focal=dict(end_probabilities=arrays['end_probabilities'][index])
+                require(np.all((focal['end_probabilities']>=0)&(focal['end_probabilities']<=1))
+                    and close(float(focal['end_probabilities'].sum()),1.),'territory focal probability domain differs')
+                checked=(successor_value(result['neutral'],focal,reference) if reference is not None else
+                    dict(end_probabilities=focal['end_probabilities'],end_probability_difference=np.asarray(focal['end_probabilities'])-np.asarray(result['neutral']['end_probabilities'])))
+                for key in expected_shapes:
+                    require(np.allclose(checked[key],arrays[key][index],rtol=1e-9,atol=1e-9),'territory saved native accounting differs')
+                values.append(dict(player_id=player,season=document['season'],**{key:arrays[key][index] for key in expected_shapes}))
+            result['values']=values;result['successor_reference']=reference
+        else:
+            expected=('status','reason','variant','shift_available','successor_available','successor_reference','players','values_arrays')
+            if result['status']=='unavailable':expected=(*expected,'hazards','support')
+            require_fields(result,expected,'unavailable territory projection')
+            require(result['variant']==name and result['status'] in ('unavailable','unassessed')
+                and result['successor_reference'] is None and result['values_arrays'] is None and result['players']==[],
+                    'invalid unavailable territory projection')
+            result.pop('values_arrays');result.pop('players')
+        result['nuisance']=smooth_nuisance(state.design.nuisance);variants[name]=result
+    from .territory import compare_territory_variants
+    expected_diagnostics=({name:compare_territory_variants(state,variants['baseline'],variants[name]) for name in expected_variants if name!='baseline'}
+        if state.probes else dict(status='unassessed',reason='earlier_annual'))
+    require(document['diagnostics']==json_values(expected_diagnostics),'territory diagnostic receipt differs from saved variants')
+    _finite(document)
+    return dict(path=path,manifest=document,panel=panel,variants=variants,diagnostics=document['diagnostics'])

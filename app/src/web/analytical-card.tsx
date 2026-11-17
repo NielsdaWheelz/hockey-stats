@@ -263,6 +263,7 @@ const cautions = [
   "reference execution: virtual neutral shooter, inferred setter and goalie. complete maps insert one focal player, not actual deployment.",
   "workload: 1,000 5v5 / 100 pp / 100 pk min. pp/pk use league-time mixtures; specialty time may be hypothetical or prior-only.",
   "attempt integrals differ from xg insets. positive against is more against; positive taking contrasts are more penalties.",
+  "inferred territory: successor goals per 1,000 5v5 min; positive ice lost is more against. interpolated movement and terminal-zone proxy; fixed substitution/common survival; uncertainty not estimated.",
   "10ft pooling and contours do not establish fine-scale reliability. aggregate support need not inform every head.",
 ];
 

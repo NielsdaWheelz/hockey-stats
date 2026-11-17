@@ -1,3 +1,4 @@
+import { TerritoryDetail, territoryEvidenceCsvHeaders, territoryEvidenceCsvRows } from "./territory-detail";
 import { MechanismDetail } from "./mechanism-detail";
 import { useId, useState } from "react";
 import type { Estimate, SkaterPenalties } from "../shared/player-analysis";
@@ -1160,10 +1161,7 @@ export default function AnalyticalDetails({
       <section>
         <h3>inferred territory subskills</h3>
         <p>
-          inferred territory is not tracked entries or exits. transition
-          probability differs from opponent-transition avoidance; hazards stay
-          in per-second units. ice-won / ice-lost map values use their declared
-          basket; ledger contributions have separate workload and units.
+          inferred movement probabilities condition on one second; they are not competing-event outcomes. ice won and ice lost use the same 1,000 5v5 minutes as their future ledger terms. positive ice lost means more successor goals against.
         </p>
         {!territory ? (
           <p>{families.territory.explanation}</p>
@@ -1171,9 +1169,17 @@ export default function AnalyticalDetails({
           <>
             <p>
               ice won {estimateText(territory.ice_won_goals_per_basket)}; ice
-              lost {estimateText(territory.ice_lost_goals_per_basket)} goals per
-              declared basket.
+              lost {estimateText(territory.ice_lost_goals_per_basket)} successor goals per
+              1,000 5v5 minutes.
             </p>
+            <TerritoryDetail evidence={territory.evidence} />
+            <button type="button" onClick={() => {
+              try {
+                downloadCsv(territoryEvidenceCsvHeaders, territoryEvidenceCsvRows(territory.evidence),
+                  `hockey-stats-${profile.season.season}-${profile.player_id}-territory-evidence.csv`);
+                setStatus("territory evidence csv prepared");
+              } catch { setStatus("territory evidence export failed; retry the download"); }
+            }}>download territory reference evidence csv</button>
             <div
               className="table-scroll"
               tabIndex={0}

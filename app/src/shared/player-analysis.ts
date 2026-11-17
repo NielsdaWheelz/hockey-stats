@@ -449,6 +449,10 @@ export const Method = Schema.Struct({
         "opportunity_panel",
         "source_results",
         "predecessor",
+        "ev_state",
+        "derivation",
+        "successor_panel",
+        "territory_reference",
       ]),
       sha256: Digest,
       seasons: Schema.Array(Season).check(Schema.makeFilter(sortedStrings)),
@@ -1611,6 +1615,357 @@ export const validateMechanismSelection = (value: {
   }
   return true;
 };
+export const stableSum = (values: readonly number[]): number => {
+  let sum = 0,
+    correction = 0;
+  for (const value of values) {
+    const next = sum + value;
+    correction +=
+      Math.abs(sum) >= Math.abs(value)
+        ? sum - next + value
+        : value - next + sum;
+    sum = next;
+  }
+  return sum + correction;
+};
+const mapMassCloses = (
+  native: readonly { readonly value: number }[],
+  display: readonly { readonly mass: number }[],
+  total: number,
+  territory: boolean,
+): boolean => {
+  if (!territory)
+    return (
+      close(
+        native.reduce((sum, row) => sum + row.value, 0),
+        total,
+      ) &&
+      close(
+        display.reduce((sum, row) => sum + row.mass, 0),
+        total,
+      )
+    );
+  const allowance =
+    64 * 2 ** -52 * stableSum(native.map((row) => Math.abs(row.value)));
+  return [
+    stableSum(native.map((row) => row.value)),
+    stableSum(display.map((row) => row.mass)),
+  ].every(
+    (sum) =>
+      Number.isFinite(sum) &&
+      Math.abs(sum - total) <=
+        1e-9 + 1e-9 * Math.max(Math.abs(sum), Math.abs(total)) + allowance,
+  );
+};
+export const territoryRoles = [
+  "exit_offense",
+  "entry_offense",
+  "zone_retention",
+  "entry_prevention",
+] as const;
+const territoryZones = ["D", "N", "O"] as const;
+const territoryAges = [0, 10, 20, 40, 60, 90] as const;
+const finiteVector = (length: number) =>
+  Schema.Array(Schema.Finite).check(
+    Schema.makeFilter((v) => v.length === length),
+  );
+const nonnegativeVector = (length: number) =>
+  Schema.Array(Rate).check(Schema.makeFilter((v) => v.length === length));
+const probabilityVector = (length: number) =>
+  Schema.Array(Probability).check(
+    Schema.makeFilter(
+      (v) =>
+        v.length === length &&
+        close(
+          v.reduce((a, b) => a + b, 0),
+          1,
+        ),
+    ),
+  );
+const countVector = (length: number) =>
+  Schema.Array(Count).check(Schema.makeFilter((v) => v.length === length));
+const territoryReason = Schema.Literals([
+  "event_kind_unresolved",
+  "source_order_unresolved",
+  "clock_unresolved",
+  "orientation_unresolved",
+  "conflicting_anchors",
+  "report_barrier_unresolved",
+  "membership_or_horizon_unavailable",
+  "identity_conflict",
+  "strength_conflict",
+  "outside_five_on_five",
+  "period_or_game_end",
+  "restart_unproved",
+  "restart_clock_mismatch",
+  "shift_endpoint_unresolved",
+  "shift_age_unavailable",
+  "zone_unavailable",
+]);
+const territoryRoleEvidence = Schema.Struct({
+  coefficient_support: mechanismCoefficientSupport,
+  neutral_hazard_per_second: Schema.NullOr(Rate.check(Schema.isGreaterThan(0))),
+  neutral_one_second_probability: Schema.NullOr(Probability),
+});
+export const TerritoryEvidence = Schema.Struct({
+  annual_state: Receipt,
+  prepared: Receipt,
+  reference_id: Digest,
+  qualification_seconds: Rate,
+  roles: Schema.Struct({
+    exit_offense: territoryRoleEvidence,
+    entry_offense: territoryRoleEvidence,
+    zone_retention: territoryRoleEvidence,
+    entry_prevention: territoryRoleEvidence,
+  }),
+  nuisance_coverage: Schema.Struct({
+    path_slot_seconds: Rate,
+    terminal_carry_slot_seconds: Rate,
+    whistle_risk_slot_seconds: Rate,
+    whistle_incidences: Count,
+    live_end_risk_slot_seconds: Rate,
+    live_end_incidences: Count,
+    decidable_whistle_trials: Count,
+    ended_whistle_trials: Count,
+    restart_pairs: Count,
+    start_counts: countVector(4),
+    on_the_fly_zone_counts: countVector(3),
+    terminal_tails: Count,
+    terminal_lag_seconds: Schema.NullOr(
+      Schema.Struct({ p50: Rate, p90: Rate, p99: Rate, max: Rate }),
+    ),
+    censored_endpoints: Schema.Array(
+      Schema.Struct({ reason: territoryReason, count: Count }),
+    ),
+    prior_only_cells: Schema.Array(
+      Schema.Struct({
+        process: Schema.Literals(["w", "d", "h"]),
+        zone: Schema.Literals(territoryZones),
+        age_lower: Schema.Literals(territoryAges),
+      }),
+    ),
+    prior_only_restart_rows: Schema.Array(Schema.Literals(territoryZones)),
+  }),
+  shift_reference: Schema.Struct({
+    available: Schema.Boolean,
+    reason: Schema.NullOr(Text),
+    receipt: Receipt,
+    data: Schema.NullOr(
+      Schema.Struct({
+        initial_start_probabilities: probabilityVector(4),
+        initial_on_the_fly_zone_probabilities: Schema.NullOr(
+          probabilityVector(3),
+        ),
+        neutral_end_probabilities: probabilityVector(4),
+        focal_end_probabilities: probabilityVector(4),
+        end_difference: finiteVector(4),
+        neutral_occupancy_seconds: nonnegativeVector(6),
+        mean_shift_seconds: Rate.check(Schema.isGreaterThan(0)),
+        shifts_per_1000_minutes: Rate.check(Schema.isGreaterThan(0)),
+        survival_at_90: Probability,
+        tail_time_fraction: Probability,
+      }),
+    ),
+  }),
+  successor_reference: Schema.Struct({
+    available: Schema.Boolean,
+    reason: Schema.NullOr(Text),
+    ev_state: Receipt,
+    panel: Schema.NullOr(Receipt),
+    data: Schema.NullOr(
+      Schema.Struct({
+        for_goals_per_shift: finiteVector(4),
+        against_goals_per_shift: finiteVector(4),
+        for_absolute_terms_goals_per_shift: nonnegativeVector(4),
+        against_absolute_terms_goals_per_shift: nonnegativeVector(4),
+      }),
+    ),
+  }),
+}).check(
+  Schema.makeFilter((e) => {
+    const c = e.nuisance_coverage,
+      shift = e.shift_reference,
+      s = e.shift_reference.data,
+      successor = e.successor_reference,
+      g = successor.data;
+    if (
+      [
+        c.terminal_carry_slot_seconds,
+        c.whistle_risk_slot_seconds,
+        c.live_end_risk_slot_seconds,
+      ].some(
+        (x) => x > c.path_slot_seconds && !close(x, c.path_slot_seconds),
+      ) ||
+      c.ended_whistle_trials > c.decidable_whistle_trials ||
+      c.decidable_whistle_trials > c.whistle_incidences ||
+      c.on_the_fly_zone_counts.reduce((a, b) => a + b, 0) !==
+        c.start_counts[3] ||
+      (c.terminal_lag_seconds === null) !== (c.terminal_tails === 0)
+    )
+      return false;
+    const lag = c.terminal_lag_seconds;
+    if (
+      lag !== null &&
+      !(lag.p50 <= lag.p90 && lag.p90 <= lag.p99 && lag.p99 <= lag.max)
+    )
+      return false;
+    const reasons = c.censored_endpoints.map((x) => x.reason);
+    if (!sortedStrings(reasons)) return false;
+    const cells = c.prior_only_cells.map(
+      (x) =>
+        ["w", "d", "h"].indexOf(x.process) * 18 +
+        territoryZones.indexOf(x.zone) * 6 +
+        territoryAges.indexOf(x.age_lower),
+    );
+    if (
+      cells.some((x, i) => i > 0 && x <= cells[i - 1]) ||
+      JSON.stringify(c.prior_only_restart_rows) !==
+        JSON.stringify(
+          territoryZones.filter((z) => c.prior_only_restart_rows.includes(z)),
+        )
+    )
+      return false;
+    for (const ref of [shift, successor])
+      if (
+        ref.available
+          ? ref.data === null || ref.reason !== null
+          : ref.data !== null || ref.reason === null
+      )
+        return false;
+    if (
+      shift.available &&
+      (!territoryRoles.every(
+        (role) => e.roles[role].coefficient_support.status === "complete",
+      ) ||
+        Math.min(
+          c.whistle_risk_slot_seconds,
+          c.live_end_risk_slot_seconds,
+          c.decidable_whistle_trials,
+          c.restart_pairs,
+          c.start_counts.reduce((a, b) => a + b, 0),
+        ) <= 0)
+    )
+      return false;
+    if (successor.available && (!shift.available || successor.panel === null))
+      return false;
+    if (s !== null) {
+      const total = c.start_counts.reduce((a, b) => a + b, 0),
+        mean = s.mean_shift_seconds;
+      if (
+        !s.initial_start_probabilities.every((p, i) =>
+          close(p, c.start_counts[i] / total),
+        ) ||
+        (s.initial_on_the_fly_zone_probabilities === null) !==
+          (c.start_counts[3] === 0) ||
+        (s.initial_on_the_fly_zone_probabilities !== null &&
+          !s.initial_on_the_fly_zone_probabilities.every((p, i) =>
+            close(p, c.on_the_fly_zone_counts[i] / c.start_counts[3]),
+          )) ||
+        !close(
+          s.end_difference.reduce((a, b) => a + b, 0),
+          0,
+        ) ||
+        !s.end_difference.every((d, i) =>
+          close(
+            d,
+            s.focal_end_probabilities[i] - s.neutral_end_probabilities[i],
+          ),
+        ) ||
+        s.neutral_occupancy_seconds
+          .slice(0, 5)
+          .some(
+            (x, i) =>
+              x >
+              [10, 10, 20, 20, 30][i] + 1e-9 + 1e-9 * [10, 10, 20, 20, 30][i],
+          ) ||
+        !close(
+          s.neutral_occupancy_seconds.reduce((a, b) => a + b, 0),
+          mean,
+        ) ||
+        !close(s.shifts_per_1000_minutes, 60000 / mean) ||
+        !close(s.tail_time_fraction, s.neutral_occupancy_seconds[5] / mean)
+      )
+        return false;
+    }
+    if (
+      g !== null &&
+      ![g.for_goals_per_shift, g.against_goals_per_shift].every((v, side) =>
+        v.every(
+          (x, i) =>
+            Math.abs(x) <=
+            [
+              g.for_absolute_terms_goals_per_shift,
+              g.against_absolute_terms_goals_per_shift,
+            ][side][i],
+        ),
+      )
+    )
+      return false;
+    return true;
+  }),
+);
+export type TerritoryEvidence = typeof TerritoryEvidence.Type;
+export const territoryReferenceBody = (
+  e: TerritoryEvidence,
+  season: string,
+  purpose: string,
+  recipe_id: string,
+) => {
+  const shift = e.shift_reference.data;
+  const common =
+    shift === null
+      ? null
+      : Object.fromEntries(
+          Object.entries(shift).filter(
+            ([key]) =>
+              !["focal_end_probabilities", "end_difference"].includes(key),
+          ),
+        );
+  return {
+    schema_tag: "territory-evidence-v1-11-1",
+    season,
+    purpose,
+    recipe_id,
+    annual_state: e.annual_state,
+    prepared: e.prepared,
+    ev_state: e.successor_reference.ev_state,
+    panel: e.successor_reference.panel,
+    neutral_role_levels: Object.fromEntries(
+      territoryRoles.map((role) => [
+        role,
+        {
+          neutral_hazard_per_second: e.roles[role].neutral_hazard_per_second,
+          neutral_one_second_probability:
+            e.roles[role].neutral_one_second_probability,
+        },
+      ]),
+    ),
+    nuisance_coverage: e.nuisance_coverage,
+    common_shift_data: common,
+    successor_data: e.successor_reference.data,
+  };
+};
+export const territoryDigestRepresentation = (value: unknown): unknown => {
+  if (typeof value === "number") {
+    if (!Number.isFinite(value))
+      throw new Error("nonfinite territory digest input");
+    const bytes = new Uint8Array(8);
+    new DataView(bytes.buffer).setFloat64(0, value === 0 ? 0 : value, false);
+    return [
+      "f64",
+      Array.from(bytes, (x) => x.toString(16).padStart(2, "0")).join(""),
+    ];
+  }
+  if (Array.isArray(value)) return value.map(territoryDigestRepresentation);
+  if (value !== null && typeof value === "object")
+    return Object.fromEntries(
+      Object.entries(value)
+        .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
+        .map(([key, item]) => [key, territoryDigestRepresentation(item)]),
+    );
+  return value;
+};
+
 const transition = Schema.Struct({
   hazard_per_second: NonnegativeEstimate,
   one_second_probability: ProbabilityEstimate,
@@ -1620,7 +1975,10 @@ const transition = Schema.Struct({
     (value) =>
       value.one_second_probability.value === null ||
       (value.hazard_per_second.value !== null &&
-        close(value.one_second_probability.value, 1 - Math.exp(-value.hazard_per_second.value))),
+        close(
+          value.one_second_probability.value,
+          -Math.expm1(-value.hazard_per_second.value),
+        )),
   ),
 );
 const exitAvoidance = Schema.Struct({
@@ -1660,9 +2018,133 @@ export const SkaterTerritory = Schema.Struct({
   entry_offense: transition,
   zone_retention: exitAvoidance,
   entry_prevention: entryAvoidance,
+  evidence: TerritoryEvidence,
   support: Support,
   method_id: Text,
-});
+}).check(
+  Schema.makeFilter((data) => {
+    const e = data.evidence,
+      s = data.support,
+      coefficients = territoryRoles.map(
+        (role) => e.roles[role].coefficient_support,
+      );
+    if (
+      !s.inferred_inputs.includes("territory") ||
+      s.included_seconds !== e.qualification_seconds ||
+      s.eligible_weight !== e.qualification_seconds ||
+      s.current_season_information !==
+        coefficients.every((c) => c.current_season_information) ||
+      s.prior_only !==
+        coefficients.every((c) => c.status === "complete" && c.prior_only) ||
+      JSON.stringify(s.prior_seasons) !==
+        JSON.stringify(
+          [...new Set(coefficients.flatMap((c) => c.prior_seasons))].sort(),
+        ) ||
+      s.events === null ||
+      s.events < Math.max(...coefficients.map((c) => c.likelihood_events)) ||
+      s.events > coefficients.reduce((n, c) => n + c.likelihood_events, 0)
+    )
+      return false;
+    for (const role of territoryRoles) {
+      const row = data[role],
+        neutral = e.roles[role],
+        c = neutral.coefficient_support;
+      const hazard =
+        "hazard_per_second" in row
+          ? row.hazard_per_second
+          : "opponent_exit_hazard_per_second" in row
+            ? row.opponent_exit_hazard_per_second
+            : row.opponent_entry_hazard_per_second;
+      const complete = c.status === "complete",
+        avoidance = role === "zone_retention" || role === "entry_prevention";
+      if (
+        !row.support.inferred_inputs.includes("territory") ||
+        !mechanismSupportMatches(row.support, c) ||
+        row.support.included_seconds !== e.qualification_seconds ||
+        !mechanismEstimateMatches(hazard, complete, c.status) ||
+        !mechanismEstimateMatches(
+          row.one_second_probability,
+          complete,
+          c.status,
+        ) ||
+        (neutral.neutral_hazard_per_second !== null) !== complete ||
+        (neutral.neutral_one_second_probability !== null) !== complete
+      )
+        return false;
+      if (
+        complete &&
+        (!(hazard.value! > 0) ||
+          !close(
+            row.one_second_probability.value!,
+            avoidance ? Math.exp(-hazard.value!) : -Math.expm1(-hazard.value!),
+          ) ||
+          !close(
+            neutral.neutral_one_second_probability!,
+            avoidance
+              ? Math.exp(-neutral.neutral_hazard_per_second!)
+              : -Math.expm1(-neutral.neutral_hazard_per_second!),
+          ))
+      )
+        return false;
+    }
+    if (
+      e.roles.exit_offense.neutral_hazard_per_second !==
+        e.roles.zone_retention.neutral_hazard_per_second ||
+      e.roles.entry_offense.neutral_hazard_per_second !==
+        e.roles.entry_prevention.neutral_hazard_per_second
+    )
+      return false;
+    for (const [side, estimate] of [
+      ["for", data.ice_won_goals_per_basket],
+      ["against", data.ice_lost_goals_per_basket],
+    ] as const) {
+      if (
+        estimate.uncertainty.kind !== "not_estimated" ||
+        (estimate.value !== null) !== e.successor_reference.available
+      )
+        return false;
+      const shift = e.shift_reference.data,
+        g = e.successor_reference.data;
+      if (shift !== null && g !== null) {
+        const values =
+          side === "for" ? g.for_goals_per_shift : g.against_goals_per_shift;
+        const scales =
+          side === "for"
+            ? g.for_absolute_terms_goals_per_shift
+            : g.against_absolute_terms_goals_per_shift;
+        const expected =
+          shift.shifts_per_1000_minutes *
+          stableSum(
+            shift.end_difference.map((d, i) => (d === 0 ? 0 : d * values[i])),
+          );
+        const allowance =
+          64 *
+          2 ** -52 *
+          shift.shifts_per_1000_minutes *
+          stableSum(
+            shift.end_difference.map((d, i) => Math.abs(d) * scales[i]),
+          );
+        if (
+          !Number.isFinite(expected) ||
+          !Number.isFinite(allowance) ||
+          Math.abs(estimate.value! - expected) >
+            1e-9 +
+              1e-9 * Math.max(Math.abs(estimate.value!), Math.abs(expected)) +
+              allowance
+        )
+          return false;
+      } else {
+        const reason = coefficients.some((c) => c.status === "failed")
+          ? "failed_fit"
+          : coefficients.some((c) => c.status === "unavailable")
+            ? "no_exposure"
+            : "missing_source";
+        if (estimate.unavailable_reason !== reason) return false;
+      }
+    }
+    return true;
+  }),
+);
 const goalieFields = {
   stopping_goals_per100_on_net: Estimate,
   miss_probability: ProbabilityEstimate,
@@ -2116,13 +2598,11 @@ export const AnalysisMap = Schema.Struct({
         value.integrated_value !== null &&
         value.unavailable_reason === null &&
         value.reason_detail === null &&
-        close(
-          value.cells.reduce((sum, row) => sum + row.value, 0),
+        mapMassCloses(
+          value.cells,
+          value.display_cells,
           value.integrated_value,
-        ) &&
-        close(
-          value.display_cells.reduce((sum, row) => sum + row.mass, 0),
-          value.integrated_value,
+          value.unit === "goals_per_basket",
         ),
   ),
 );

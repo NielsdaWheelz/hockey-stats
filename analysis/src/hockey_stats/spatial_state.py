@@ -169,7 +169,8 @@ def read_spatial_start_context(path, purpose):
                 and np.allclose(vector@coefficients[head],predictors[head],atol=1e-12,rtol=1e-12),
                 'successor neutral reference transfer differs')
     return SpatialStartContext(dict(identity(manifest_path),season=manifest['season'],purpose=purpose),basis,offsets,
-        columns,transforms,coefficients,predictors,dict(read_wall_seconds=perf_counter()-began,read_bytes=byte_count))
+        columns,transforms,coefficients,predictors,dict(read_wall_seconds=perf_counter()-began,bound_input_bytes=byte_count,
+            byte_scope='bound metadata/coefficient member sizes plus decompressed basis; hashing/parsing reread metadata; physical io unmeasured'))
 
 
 def read_saved_spatial_evidence(path, expected_purpose, *, expected_family='ev', expected_recipe=None):

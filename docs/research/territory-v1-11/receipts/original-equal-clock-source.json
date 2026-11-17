@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "kind": "original_equal_clock_territory_witness",
+  "purpose": "fixture",
+  "game_id": "2024020001",
+  "code": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/analysis/src/hockey_stats/territory_design.py",
+    "sha256": "0991f51738aac931d05c579a3949838442a8556c5f287d94fa62e4a9f83b8a47"
+  },
+  "controller": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-checks/equal_clock_verify.py",
+    "sha256": "ed9153d992d4f374edffa1b75bf66cbd702621e111c185ffa40d928265cd5524"
+  },
+  "capture_bundle": "fixtures/captures/2024020001",
+  "capture_bindings": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/boxscore/body.bin",
+      "sha256": "d50f382736f89d76305ba3b9ac7c0c4963696734581c571a7d95d5b47d5a7d04"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/boxscore/capture.json",
+      "sha256": "86619111e40183a95b4ecca2682e3a02b892e1ae5399c0a1729de55c4639171c"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/game-summary/body.bin",
+      "sha256": "6f65b462c54ee0f824856b28c73824ae7b2d1aeddf856dbb9c2c16c490d9d823"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/game-summary/capture.json",
+      "sha256": "bb5ede239d239bd6aec68daa918a4e5aa1338c2a428ee9f6fa90e4da877cb566"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/landing/body.bin",
+      "sha256": "c1477ab83d09b941cdfbf0f688b12ade156714d00443f2368ce93c5ea44c2d4b"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/landing/capture.json",
+      "sha256": "b41323281b5e644f12231a49a1538a4d4fd199f9c02c0e89b930d87b25ccb472"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/play-by-play/body.bin",
+      "sha256": "a0dfedbfe384c7d988d44aeb72bd3555138a5ef4ddc89375cbccfbee8e178bfe"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/play-by-play/capture.json",
+      "sha256": "aec817781f1c77836407ad245f201f8be490e3b2de094f25d5f20e3b829b947a"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/play-report/body.bin",
+      "sha256": "32c9a8bfd35aa48a475d44b9c15da6e762c201b16c6fb26da932a33538d4bd69"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/play-report/capture.json",
+      "sha256": "3909ebad3416651373af3168bcbfae43d8b2366fe4a88b7dd1a7efb10be8b7ab"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/right-rail/body.bin",
+      "sha256": "e022102d3eaddcbb9003587f9b00c72973553ebc5a7fb2513a4814e0b79d5f70"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/right-rail/capture.json",
+      "sha256": "1ba99038af21a8d068223e81ae5214536ac92b9fcfb37b19bb4a3f93680bdf8e"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/shifts/body.bin",
+      "sha256": "84a5b19f63aa9b0618c202cc5237c90e0fdcde5bfb6562208093da1315db8cdf"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/fixtures/captures/2024020001/shifts/capture.json",
+      "sha256": "a27ba85a71bed764bba7dc6de12a1331a81672d07535d9f998e343c3f1371361"
+    }
+  ],
+  "raw_locators": [
+    "/plays/332",
+    "/plays/333"
+  ],
+  "independent_anchor_facts": [
+    {
+      "source_index": 332,
+      "period": 3,
+      "seconds": 1040,
+      "home_attack_x": 42,
+      "sort_order": 832,
+      "kind": "block_contact"
+    },
+    {
+      "source_index": 333,
+      "period": 3,
+      "seconds": 1040,
+      "home_attack_x": 45,
+      "sort_order": 833,
+      "kind": "block_contact"
+    }
+  ],
+  "excluded_adjacent_pairs": [
+    {
+      "left": 331,
+      "right": 332,
+      "seconds": 111,
+      "reason": "contradictory_equal_clock_anchors",
+      "territory_reasons": [
+        "conflicting_anchors"
+      ]
+    },
+    {
+      "left": 332,
+      "right": 333,
+      "seconds": 0,
+      "reason": "contradictory_equal_clock_anchors",
+      "territory_reasons": [
+        "conflicting_anchors"
+      ]
+    },
+    {
+      "left": 333,
+      "right": 335,
+      "seconds": 8,
+      "reason": "contradictory_equal_clock_anchors",
+      "territory_reasons": [
+        "conflicting_anchors"
+      ]
+    }
+  ],
+  "witness_interval": {
+    "period": 3,
+    "start_seconds": 929,
+    "end_seconds": 1048,
+    "candidate_elapsed_seconds": 119,
+    "genuine_five_on_five_native_seconds": 106,
+    "outside_five_on_five_seconds": 13,
+    "movement_seconds": 0,
+    "directed_risk_seconds": 0,
+    "role_slot_seconds": 0,
+    "crossings": 0,
+    "nuisance_seconds": 0,
+    "terminal_carry_seconds": 0,
+    "censored_endpoint": {
+      "kind": "censored_endpoint",
+      "period_number": 3,
+      "seconds": 1048,
+      "reason": "membership_or_horizon_unavailable"
+    }
+  },
+  "whole_game": {
+    "known_path_physical_seconds": 2109.0,
+    "zone_seconds": [
+      633.0349890001012,
+      389.7900362977767,
+      1086.1749747021222
+    ],
+    "directed_entry_seconds": 779.5800725955534,
+    "directed_exit_seconds": 1719.2099637022234,
+    "player_slot_seconds": 21090.0,
+    "crossings": 86,
+    "nuisance_path_slot_seconds": 24460.0,
+    "known_age_slot_seconds": 24459.999999999996,
+    "unknown_age_slot_seconds": 0.0
+  },
+  "limits": [
+    "both anchors are recorded block contacts, not release locations",
+    "adjacent candidate 333 to 335 crosses the goal reset; goal334 lacks ordinary physical-action proof and is not a usable movement anchor",
+    "native 6v5 from1035 independently excludes part of the bracket; this witness does not prove119 seconds of counterfactual5v5 risk",
+    "one already named original capture only; no witness search, acquisition, HDD read, fit or production source change"
+  ]
+}

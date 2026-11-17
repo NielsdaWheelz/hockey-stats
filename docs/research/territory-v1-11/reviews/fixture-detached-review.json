@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "scope": "local synthetic attributed successor; no real conversion or publication acceptance",
+  "source_manifest_sha256": "a425b2d01ed8bb786bab31b2a8cc65dd74aa9b1157caa0b176bdd45c72927624",
+  "successor_manifest_sha256": "35dacfbffd7d591c6d3c6e4cd56e82a7e45bb4bef2428e0950198a6601aaefa6",
+  "preserved_table_members": 47,
+  "changed_owned_members": [
+    "20232024-territory-skater_territory.jsonl",
+    "20232024-territory-analysis_map.jsonl"
+  ],
+  "inherited_catalog_bodies": "all preserved; one attributed territory method added",
+  "detached_controls": {
+    "python_passed": 21,
+    "typescript_passed": 21,
+    "actual_reference_digest": "matches",
+    "regressions": [
+      "missing main/role inference marking rejected",
+      "duration within declared close accepted; material excess rejected"
+    ]
+  },
+  "earlier_audit_error": "initial comparison used mechanisms fixture instead of receipt-declared goalie fixture; failed assertion retained in conversation; corrected audit follows explicit donor",
+  "implementation_files": [
+    {
+      "path": "analysis/src/hockey_stats/territory_evidence.py",
+      "sha256": "0ba7ad357ac2c0215a47450fe0e4b088bed7c20a730f3a6b6fb5c3b3acd29093"
+    },
+    {
+      "path": "app/src/shared/player-analysis.ts",
+      "sha256": "0261d63e71542473d3287e25536c919312899a8f07a4d7d8877ea711ee67b2d5"
+    },
+    {
+      "path": "app/src/server/analysis-publication.ts",
+      "sha256": "7a2ea0aaf320fa93e86a50e10928cbcfb7916d0912023a0a1b098a0c0b6db3af"
+    }
+  ],
+  "later_scope_correction": {
+    "problem": "initial converter review did not prove two provided maps; old pending ice_lost was skipped",
+    "old_review_scope": "inherited member preservation and closed detached arithmetic only; no full synthetic capability acceptance",
+    "corrected_manifest_sha256": "94871ae8e593dd6d73df3e337a5092419cfcb166383297d121105de85bcf301e",
+    "corrected_owned_keys": [
+      "20232024/9000001/skater_territory",
+      "20232024/9000001/ice_won",
+      "20232024/9000001/ice_lost"
+    ],
+    "independent_check": "both maps provided with656native/668displaycells and opposite signs; all other pending territory rows unchanged",
+    "actual_download_acceptance": "pending corrected fixture candidate"
+  }
+}

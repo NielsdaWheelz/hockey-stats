@@ -53,7 +53,13 @@ def mechanism_recipe(family, design_recipe):
     return dict(**body,sha256=body_digest(body))
 
 
-def _linear(design, beta, kind):
+def scalar_predictor(design, beta, kind):
+    """predict on ``time`` or ``event`` rows using the declared coefficient axis.
+
+    X_kind holds the sparse intercept/actor prefix; context_kind holds the
+    dense context suffix. beta uses that same concatenated order. exposure
+    and its units belong to the caller and do not enter this predictor.
+    """
     actor = getattr(design,'X_'+kind)
     return np.asarray(actor@beta[:actor.shape[1]]).ravel()+getattr(design,'context_'+kind)@beta[actor.shape[1]:]
 
@@ -66,8 +72,8 @@ def _adjoint(design, residual, kind):
 def scalar_intensity_objective(beta, design, mean, precision, log_rate, exposure):
     """poisson intensity with explicit caller-owned exposure units."""
     with np.errstate(over='raise',invalid='raise'):
-        time_eta = log_rate+_linear(design,beta,'time')
-        event_eta = log_rate+_linear(design,beta,'event')
+        time_eta = log_rate+scalar_predictor(design,beta,'time')
+        event_eta = log_rate+scalar_predictor(design,beta,'event')
         intensity = np.exp(time_eta)
         residual = exposure*intensity
         delta = beta-mean
@@ -404,7 +410,7 @@ def _fit_head(design,family,incoming,*,initial=None,tightened=False):
         projections,support,reference,centers=project_mechanism(design,family,head,coefficients)
         head['centers'],head['reference']=centers,reference
         if family=='penalties':
-            expected=float(np.dot(design.exposure_hours,np.exp(log_rate+_linear(design,coefficients,'time'))))
+            expected=float(np.dot(design.exposure_hours,np.exp(log_rate+scalar_predictor(design,coefficients,'time'))))
             head['diagnostics']=dict(kind='in_sample_not_held_out',expected_awards=expected,observed_awards=float(design.event_counts.sum()))
         else:
             probability=shooter_probabilities(coefficients,design)
@@ -443,10 +449,10 @@ def compare_mechanism_probe(design,family,baseline,probe,baseline_rows,probe_row
                 movement=abs(left[key]-right[key])
                 if movement>maximum:maximum,worst=movement,dict(player_id=left['player_id'],strength=left.get('strength'),field=key)
     if family=='penalties':
-        before=np.exp(baseline['head']['reference']['log_rate']+_linear(design,baseline['arrays']['coefficients'],'time'))
-        after=np.exp(probe['head']['reference']['log_rate']+_linear(design,probe['arrays']['coefficients'],'time'))
-        event_before=np.exp(baseline['head']['reference']['log_rate']+_linear(design,baseline['arrays']['coefficients'],'event'))
-        event_after=np.exp(probe['head']['reference']['log_rate']+_linear(design,probe['arrays']['coefficients'],'event'))
+        before=np.exp(baseline['head']['reference']['log_rate']+scalar_predictor(design,baseline['arrays']['coefficients'],'time'))
+        after=np.exp(probe['head']['reference']['log_rate']+scalar_predictor(design,probe['arrays']['coefficients'],'time'))
+        event_before=np.exp(baseline['head']['reference']['log_rate']+scalar_predictor(design,baseline['arrays']['coefficients'],'event'))
+        event_after=np.exp(probe['head']['reference']['log_rate']+scalar_predictor(design,probe['arrays']['coefficients'],'event'))
         movements=np.concatenate((abs(before-after),abs(event_before-event_after)))
     else:
         movements=abs(shooter_probabilities(baseline['arrays']['coefficients'],design)-shooter_probabilities(probe['arrays']['coefficients'],design))

@@ -16,7 +16,7 @@ from .artifacts import require
 from .captures import InputContractError
 from .chance import solve_logistic
 from .player_mechanisms import (SOLVER, CONTINUATION, body_digest, actor_prior,
-    scalar_intensity_objective, _linear)
+    scalar_intensity_objective, scalar_predictor)
 
 HEADS=('entry','exit')
 ROLES=('entry_offense','entry_prevention','exit_offense','zone_retention')
@@ -121,8 +121,10 @@ def shift_process(Q,w,d,h,R,initial):
     mean=fsum(occupancy)
     require(isfinite(mean) and mean>0 and np.all((end>=0)&(end<=1)) and close(fsum(end),1.)
         and 0<=survival_at_90<=1 and 0<=occupancy[5]/mean<=1,'shift absorption/time does not close')
+    n0=60000/mean
+    require(isfinite(n0) and n0>0,'nonfinite reference shift workload')
     return dict(end_probabilities=end,bin_occupancy_seconds=np.asarray(occupancy),mean_shift_seconds=mean,
-        shifts_per_1000_minutes=60000/mean,survival_at_90=survival_at_90,tail_time_fraction=occupancy[5]/mean)
+        shifts_per_1000_minutes=n0,survival_at_90=survival_at_90,tail_time_fraction=occupancy[5]/mean)
 
 
 def stable_successor_map(difference,omega,contrast):
@@ -175,6 +177,7 @@ def successor_value(neutral,focal,reference):
     for side in range(2):
         scalar=fsum(maps[side]);raw_value=n0*fsum(float(difference[z])*float(reference['G'][side,z]) for z in range(4) if difference[z]!=0)
         allowance=64*2.**-52*n0*fsum(abs(float(difference[z]))*float(reference['absolute_term_scales'][side,z]) for z in range(4))
+        require(all(isfinite(value) for value in (scalar,raw_value,allowance)),'nonfinite successor scalar/accounting allowance')
         require(abs(scalar-raw_value)<=1e-9+1e-9*max(abs(scalar),abs(raw_value))+allowance,'raw-G successor accounting differs')
         values.append(scalar);raw.append(raw_value);allowances.append(allowance)
         map_allowances.append(64*2.**-52*fsum(abs(maps[side])))
@@ -231,8 +234,8 @@ def center_head(design,head,beta,log_rate):
         for center in centers:
             indices=groups[(center['block'],center['subblock'])]
             offset+=np.asarray(matrix[:,indices].sum(axis=1)).ravel()*center['mean']
-        before=_linear(head,beta,kind)
-        after=_linear(head,centered,kind)+offset
+        before=scalar_predictor(head,beta,kind)
+        after=scalar_predictor(head,centered,kind)+offset
         require(np.allclose(before,after,rtol=1e-12,atol=1e-12),'territory centering changes factual prediction')
     return centers,dict(log_rate=log_rate,neutral_predictor=eta,neutral_per_second=neutral,
         units='crossings_per_second',player_slots_per_side=5,context='zero centered context; neutral residual coaches'),centered
@@ -282,7 +285,7 @@ def _fit_territory_head(design,head,incoming,*,initial=None,tightened=False):
             if prior['current_season_information']:
                 ledger[_actor_key(prior)]=dict(block=prior['block'],id=prior['id'],subblock=prior['subblock'],
                     coefficient=float(beta[prior['index']]),season=design.season,support_seasons=prior['prior_seasons']+[design.season])
-        predicted=np.exp(log_rate+_linear(head,beta,'time'))
+        predicted=np.exp(log_rate+scalar_predictor(head,beta,'time'))
         require(np.isfinite(predicted).all() and np.all(predicted>0),'invalid fitted territory hazards')
         zones={zone:dict(zone=zone,directed_risk_seconds=0.,observed_crossings=0,expected_crossings=0.) for zone in range(3)}
         for row,key in enumerate(head.time_keys):
@@ -384,22 +387,51 @@ def project_territory(state,successor_panel,*,variant='baseline'):
             if variant not in (name,'joint'):continue
             probe=state.probes.get(name)
             if probe is None or probe['head'] is None or probe['head']['status']!='complete' or probe['coefficients'] is None:
-                return dict(status='unassessed',reason=f'{name}_diagnostic_incomplete',variant=variant)
+                return dict(status='unassessed',reason=f'{name}_diagnostic_incomplete',variant=variant,
+                    shift_available=False,successor_available=False)
             heads[name]=probe['head'];coefficients[name]=probe['coefficients']
     rows,support=project_hazards(design,heads,coefficients)
     nuisance=smooth_nuisance(design.nuisance)
     if not all(heads[name]['status']=='complete' for name in HEADS) or nuisance['status']!='complete':
-        return dict(status='unavailable',reason='incomplete_movement_or_shift_reference',variant=variant,hazards=rows,support=support,nuisance=nuisance)
+        return dict(status='unavailable',reason='incomplete_movement_or_shift_reference',variant=variant,
+            shift_available=False,successor_available=False,hazards=rows,support=support,nuisance=nuisance)
     neutral_hazards=[]
     for name in ('exit','entry','exit','entry'):
         neutral_hazards.append(center_head(design,design.heads[name],coefficients[name],heads[name]['reference']['log_rate'])[1]['neutral_per_second'])
     process=lambda hazards:shift_process(movement_generator(hazards),nuisance['w'],nuisance['d'],nuisance['h'],nuisance['R'],nuisance['initial_zone_probabilities'])
-    neutral=process(neutral_hazards);reference=successor_reference(neutral,successor_panel);values=[]
+    try:
+        neutral=process(neutral_hazards)
+    except (InputContractError,FloatingPointError,OverflowError,ValueError,np.linalg.LinAlgError) as error:
+        return dict(status='unavailable',reason=f'neutral_shift_process_invalid:{type(error).__name__}:{error}',variant=variant,
+            shift_available=False,successor_available=False,hazards=rows,support=support,nuisance=nuisance)
+    reference=None;reason='successor_panel_unavailable'
+    if successor_panel is not None:
+        try:
+            reference=successor_reference(neutral,successor_panel);reason=None
+        except (InputContractError,FloatingPointError,OverflowError,ValueError) as error:
+            reason=f'successor_panel_invalid:{type(error).__name__}:{error}'
+    shift_values=[]
     order=('exit_offense','entry_offense','zone_retention','entry_prevention')
     for row in rows:
-        focal=process([row['roles'][role]['hazard_per_second'] for role in order])
-        values.append(dict(player_id=row['player_id'],season=design.season,**successor_value(neutral,focal,reference)))
-    return dict(status='complete',variant=variant,hazards=rows,support=support,nuisance=nuisance,
+        try:
+            focal=process([row['roles'][role]['hazard_per_second'] for role in order])
+        except (InputContractError,FloatingPointError,OverflowError,ValueError,np.linalg.LinAlgError) as error:
+            return dict(status='unavailable',reason=f"focal_shift_process_invalid:{row['player_id']}:{type(error).__name__}:{error}",variant=variant,
+                shift_available=False,successor_available=False,hazards=rows,support=support,nuisance=nuisance)
+        shift_values.append(dict(player_id=row['player_id'],season=design.season,end_probabilities=focal['end_probabilities'],
+            end_probability_difference=np.asarray(focal['end_probabilities'])-np.asarray(neutral['end_probabilities'])))
+    values=shift_values
+    if reference is not None:
+        projected=[]
+        try:
+            for row in shift_values:
+                projected.append(dict(player_id=row['player_id'],season=design.season,
+                    **successor_value(neutral,row,reference)))
+            values=projected
+        except (InputContractError,FloatingPointError,OverflowError,ValueError) as error:
+            reference=None;reason=f"successor_value_invalid:{row['player_id']}:{type(error).__name__}:{error}"
+    return dict(status='complete' if reference is not None else 'unavailable',reason=reason,variant=variant,
+        shift_available=True,successor_available=reference is not None,hazards=rows,support=support,nuisance=nuisance,
         neutral=neutral,successor_reference=reference,values=values)
 
 
@@ -412,21 +444,23 @@ def compare_territory_variants(state,baseline,variant):
         if variant['variant'] not in (name,'joint'):continue
         head=state.design.heads[name];probe=state.probes[name]
         for kind in ('time','event'):
-            before=np.exp(state.heads[name]['reference']['log_rate']+_linear(head,state.coefficients[name],kind))
-            after=np.exp(probe['head']['reference']['log_rate']+_linear(head,probe['coefficients'],kind))
+            before=np.exp(state.heads[name]['reference']['log_rate']+scalar_predictor(head,state.coefficients[name],kind))
+            after=np.exp(probe['head']['reference']['log_rate']+scalar_predictor(head,probe['coefficients'],kind))
             hazards.extend(3600*abs(before-after));probabilities.extend(abs(np.exp(-before)-np.exp(-after)))
     for left,right in zip(baseline['hazards'],variant['hazards'],strict=True):
         require(left['player_id']==right['player_id'],'diagnostic hazard player axis differs')
         for role in ROLES:
             hazards.append(3600*abs(left['roles'][role]['hazard_per_second']-right['roles'][role]['hazard_per_second']))
             probabilities.append(abs(left['roles'][role]['one_second_probability']-right['roles'][role]['one_second_probability']))
+            hazards.append(3600*abs(left['roles'][role]['neutral_hazard_per_second']-right['roles'][role]['neutral_hazard_per_second']))
+            probabilities.append(abs(left['roles'][role]['neutral_one_second_probability']-right['roles'][role]['neutral_one_second_probability']))
     values=[];map_l1=[]
     probabilities.extend(abs(np.asarray(baseline['neutral']['end_probabilities'])-np.asarray(variant['neutral']['end_probabilities'])))
     for left,right in zip(baseline['values'],variant['values'],strict=True):
         require(left['player_id']==right['player_id'],'diagnostic value player axis differs')
         probabilities.extend(abs(np.asarray(left['end_probabilities'])-np.asarray(right['end_probabilities'])))
         values.extend(abs(left['values']-right['values']))
-        map_l1.extend(np.sum(abs(left['maps']-right['maps']),axis=1))
+        map_l1.extend(fsum(abs(row)) for row in left['maps']-right['maps'])
     maxima=[max(items,default=0.) for items in (hazards,probabilities,values,map_l1)]
     require(all(isfinite(v) for v in maxima),'nonfinite territory diagnostic comparison')
     return dict(status='within_budget' if all(v<=limit for v,limit in zip(maxima,(1e-4,1e-5,1e-3,1e-3),strict=True)) else 'exceeded',

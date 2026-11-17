@@ -1,0 +1,67 @@
+{
+  "status": "implemented_fixture_render_and_csv_checks_pass; live_acceptance_not_run",
+  "scope": "territory web component and shared scalar/history transport; browser controller prepared only",
+  "runtime_verified": "node24.21.0 for final SSR and detached checks",
+  "red": "initial missing territory-detail module",
+  "green": [
+    "finite closed-evidence rendering",
+    "field-specific missing shift/successor reasons preserved",
+    "four successor-start, eight value, six occupancy and21coverage rows",
+    "prior/censor control adds three rows for42total",
+    "single shared detail/history renderer",
+    "ten existing territory metrics retained; rank direction unchanged",
+    "CSV exports retain closed territory_detail; nonterritory leaves blank",
+    "card/map/history export prose includes commonworkload, proxy and unestimateduncertainty"
+  ],
+  "driver_failures": [
+    "root-level tsx initially could not resolve react; corrected NODE_PATH=app/node_modules",
+    "root-level tsx initially used classic JSX; corrected --tsconfig app/tsconfig.web.json",
+    "one npm typecheck launched from repository root instead of app; corrected --prefix app"
+  ],
+  "not_run": [
+    "actual browser/UI/native zoom",
+    "native actual csv/png downloads and pixel review",
+    "real source-to-screen matrices",
+    "campaign test deletion after all acceptance"
+  ],
+  "controller": {
+    "path": ".territory-independent/browser-check.mjs",
+    "syntax_check": "node24 passes",
+    "test_only_dependency": ".territory-independent/browser/node_modules/playwright",
+    "browser_started": false
+  },
+  "files": [
+    {
+      "path": "app/src/web/territory-detail.tsx",
+      "sha256": "32b4f61a8c5716b27982fb24f23609b6ba27ebf4a5f547bc24c97c627731de95"
+    },
+    {
+      "path": "app/src/web/analysis-values.ts",
+      "sha256": "3a1eec44b650cf509c1ecd947e8377b046df19dbb313b79cf097159da552a3a0"
+    },
+    {
+      "path": "app/src/web/analysis-history.tsx",
+      "sha256": "4dd0c2dd3ef446e027504cd44138a51f0bac734fca004515eb13834ac266719f"
+    },
+    {
+      "path": "app/src/web/analytical-details.tsx",
+      "sha256": "f5cd7f231b6ba56da663577a74009a7f4d09e7287a89802041e2e673940da8b8"
+    },
+    {
+      "path": "app/src/web/analytical-card.tsx",
+      "sha256": "9baa715181524b8a93ad1bb95c850ace10661b3039507742bfca57e735d46fa0"
+    },
+    {
+      "path": "app/src/web/analytical-map.tsx",
+      "sha256": "bd1f3fca2b76b21513d31973802536ff34514d80dfd0e578be9523d01249c791"
+    },
+    {
+      "path": ".territory-independent/application-check.tsx",
+      "sha256": "3602d6e4cdab7ebabdb8e6edbd5f082061479b6f616642e6e8ce1f82a54b495c"
+    },
+    {
+      "path": ".territory-independent/browser-check.mjs",
+      "sha256": "c12bf9ab404a19c54fa1909835053e7a4de0c1700d823f9e0060f20e92363053"
+    }
+  ]
+}

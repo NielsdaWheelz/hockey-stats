@@ -1,4 +1,4 @@
-// fixed schema-10 storage contract; changes require coordinated writer/reader review.
+// fixed schema-11 storage contract; changes require coordinated writer/reader review.
 export const physicalSchema = {
   adjustment_decomposition: {
     columns: [

@@ -373,7 +373,7 @@ def validate_catalog(table, row, purpose, catalogs, prepared):
         require(type(row["inputs"]) is list, "missing method inputs")
         for item in row["inputs"]:
             fields(item, ("role", "sha256", "seasons"))
-            require(item["role"] in ("prepared", "coaches", "annual_state", "opportunity_panel", "source_results", "predecessor"), "invalid method input role")
+            require(item["role"] in ("prepared", "coaches", "annual_state", "opportunity_panel", "source_results", "predecessor", "ev_state", "derivation", "successor_panel", "territory_reference"), "invalid method input role")
             digest(item["sha256"])
             strings(item["seasons"], ordered=True)
             for year in item["seasons"]:
@@ -1159,7 +1159,11 @@ def _map(value, row, catalogs):
         number(item['value'], minimum=0 if row['view'] == 'complete' else None)
         native.append(item['value'])
     number(value['integrated_value'])
-    require(close(sum(native), value['integrated_value']), 'native map mass differs')
+    territory = row['map_kind'] in ('ice_won','ice_lost')
+    allowance = 64*2**-52*math.fsum(abs(item) for item in native) if territory else 0.
+    native_sum = math.fsum(native) if territory else sum(native)
+    require(abs(native_sum-value['integrated_value'])<=1e-9+1e-9*max(abs(native_sum),abs(value['integrated_value']))+allowance,
+            'native map mass differs')
     geometry = cells()
     expected = native_display_mass(native)
     require(type(value['display_cells']) is list and len(value['display_cells']) == 668, 'wrong display map length')
@@ -1169,7 +1173,9 @@ def _map(value, row, catalogs):
         number(item['mass'])
         number(item['density_per100sqft'])
         require(close(item['mass'], float(mass)) and close(item['density_per100sqft'], 100*item['mass']/shape['area_sqft']), 'display map transport differs')
-    require(close(sum(item['mass'] for item in value['display_cells']), value['integrated_value']), 'display mass differs')
+    display_sum = math.fsum(item['mass'] for item in value['display_cells']) if territory else sum(item['mass'] for item in value['display_cells'])
+    require(abs(display_sum-value['integrated_value'])<=1e-9+1e-9*max(abs(display_sum),abs(value['integrated_value']))+allowance,
+            'display mass differs')
 
 
 def _evidence_mass(value, *, cell=False):
@@ -1687,7 +1693,7 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
                 if key == 'puck_management_xga_saved_per100_plays':
                     require(item['numerator'] is None and item['denominator'] is not None and item['denominator'] > 0 and item['construction'] == 'source_modeled', 'source estimate bases differ')
     elif table == 'skater_territory':
-        fields(value, ('ice_won_goals_per_basket','ice_lost_goals_per_basket','exit_offense','entry_offense','zone_retention','entry_prevention','support','method_id'))
+        fields(value, ('ice_won_goals_per_basket','ice_lost_goals_per_basket','exit_offense','entry_offense','zone_retention','entry_prevention','support','method_id','evidence'))
         for key in ('ice_won_goals_per_basket','ice_lost_goals_per_basket'):
             estimate(value[key], catalogs)
         support(value['support'])
@@ -1703,6 +1709,8 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
                 require(item[hazard]['value'] is not None, 'transition probability lacks hazard')
                 expected = math.exp(-item[hazard]['value']) if key in ('zone_retention','entry_prevention') else -math.expm1(-item[hazard]['value'])
                 require(close(item['one_second_probability']['value'],expected), 'transition probability differs')
+        from .territory_evidence import validate as validate_territory_evidence
+        validate_territory_evidence(value,row)
     elif table == 'goalie_observed':
         _goalie_summary(value, catalogs)
         _actual_selection(value['actual_states'],row['strength'])
@@ -2157,12 +2165,32 @@ def _validate_spatial_map_mixtures(scalars, maps):
                         require(close(cell[measure],expected), 'common spatial map differs from exact-state mixture')
 
 
+def _check_territory_map(scalar, mapped, kind):
+    """territory scalar and map are two presentations of one saved quantity."""
+    if scalar['availability'] != 'provided':
+        require(mapped['availability'] == 'not_computed', 'territory map is computed without its scalar row')
+        return
+    require(mapped['availability'] == 'provided', 'territory map is pending beside a computed scalar row')
+    source, target = scalar['data'], mapped['data']
+    estimate = source[kind+'_goals_per_basket']
+    require(target['method_id'] == source['method_id'] and target['support'] == source['support'],
+            'territory map/scalar method or support differs')
+    require((target['cells'] is not None) == (estimate['value'] is not None),
+            'territory map/scalar availability differs')
+    if estimate['value'] is None:
+        require(target['integrated_value'] is None and target['unavailable_reason'] == estimate['unavailable_reason']
+                and target['reason_detail'] == estimate['reason_detail'], 'territory map/scalar unavailable reason differs')
+    else:
+        require(target['integrated_value'] is not None and close(target['integrated_value'], estimate['value']),
+                'territory map/scalar integral differs')
+
+
 def read_results(directory: Path, manifest_name='manifest.json') -> Results:
     """validate one named complete or staged manifest and all result members."""
     directory = directory.resolve(strict=True)
     manifest = strict_json((directory/manifest_name).read_bytes())
     fields(manifest,('schema_version','kind','purpose','seasons','observed_bindings','prepared_sha256','producer','catalogs','families'))
-    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 4 and manifest['kind'] == 'player_analysis_results' and manifest['purpose'] in ('real','fixture'), 'invalid result manifest')
+    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 5 and manifest['kind'] == 'player_analysis_results' and manifest['purpose'] in ('real','fixture'), 'invalid result manifest')
     strings(manifest['seasons'],ordered=True)
     require(manifest['seasons'] and set(manifest['seasons']) <= set(SEASONS) and (manifest['purpose'] != 'real' or manifest['seasons'] == list(SEASONS)), 'invalid display seasons')
     require(type(manifest['observed_bindings']) is list and len(manifest['observed_bindings']) == len(manifest['seasons']), 'missing observed bindings')
@@ -2204,10 +2232,12 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:
         fields(family['tables'],FAMILY_TABLES[family['family']] if family['availability'] == 'provided' else ())
         require(family['availability'] != 'provided' or manifest['prepared_sha256'] is not None, 'provided family lacks prepared identity')
         inventory.append((family['season'],family['family']))
-        spatial, spatial_rows, reference_weights = {}, {}, {}
+        spatial, spatial_rows, reference_weights, territory = {}, {}, {}, {}
         tables = family['tables']
         if family['family'] == 'spatial':
             tables = sorted(tables, key=lambda table: (table != 'skater_spatial', table))
+        elif family['family'] == 'territory':
+            tables = sorted(tables, key=lambda table: table != 'skater_territory')
         for table in tables:
             member = family['tables'][table]
             path = member_path(directory,member)
@@ -2218,6 +2248,14 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:
                 require(row['season'] == family['season'], 'row season differs from family')
                 if table in ('skater_penalties','skater_shootiness') and row['result']['availability'] == 'provided':
                     _mechanism_binding(table,row['result']['data'],row,catalogs,mechanism_references)
+                if table == 'skater_territory' and row['result']['availability'] == 'provided':
+                    from .territory_evidence import validate_binding
+                    validate_binding(row['result']['data'],row,catalogs,mechanism_references)
+                if family['family'] == 'territory':
+                    if table == 'skater_territory':
+                        territory[row['player_id']] = row['result']
+                    else:
+                        _check_territory_map(territory[row['player_id']], row['result'], row['map_kind'])
                 if family['family'] == 'spatial' and table != 'analysis_map':
                     spatial.setdefault(table,{})[tuple(row[key] for key in KEYS[table])] = row['result']
                 if family['family'] == 'spatial' and table == 'skater_spatial' and row['result']['availability'] == 'provided':
@@ -2292,7 +2330,7 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
     fields(catalogs,('people','sources','methods','supports'))
     require(not output.exists() and not output.is_symlink(), 'result output exists')
     output.mkdir()
-    manifest = dict(schema_version=4,kind='player_analysis_results',**selection,producer=implementation_identity(),catalogs={},families=[])
+    manifest = dict(schema_version=5,kind='player_analysis_results',**selection,producer=implementation_identity(),catalogs={},families=[])
     def member(path, rows, table):
         return write_result_member(output,path,rows,table)
     for family in family_rows:
@@ -2589,6 +2627,9 @@ def check_results(connection, results):
     for table in ('skater_penalties','skater_shootiness'):
         for row in connection.execute(f"SELECT * FROM {table} WHERE availability='provided'"):
             _mechanism_binding(table,stored_result(row)['data'],row,results.catalogs,mechanism_references)
+    from .territory_evidence import validate_binding
+    for row in connection.execute("SELECT * FROM skater_territory WHERE availability='provided'"):
+        validate_binding(stored_result(row)['data'],row,results.catalogs,mechanism_references)
 
 
 def _check_spatial_evidence(connection, catalogs):
@@ -2678,7 +2719,17 @@ def _check_intervals(connection):
 
 
 def _check_maps(connection):
+    for scalar in connection.execute('SELECT * FROM skater_territory'):
+        maps = connection.execute("SELECT * FROM analysis_map WHERE season=? AND player_id=? AND map_kind IN ('ice_won','ice_lost')",
+                                  (scalar['season'],scalar['player_id'])).fetchall()
+        require({row['map_kind'] for row in maps} == {'ice_won','ice_lost'} and len(maps) == 2
+                and all(row['strength'] == '5v5' and row['view'] == 'effect' for row in maps), 'territory map pair is missing')
+        source = stored_result(scalar)
+        for mapped in maps:
+            _check_territory_map(source, stored_result(mapped), mapped['map_kind'])
     for row in connection.execute("SELECT * FROM analysis_map WHERE availability='provided'"):
+        if row['map_kind'] in ('ice_won','ice_lost'):
+            continue
         payload = strict_json(row['payload_json'].encode())
         if payload['integrated_value'] is None:
             continue
@@ -2688,17 +2739,11 @@ def _check_maps(connection):
         elif row['map_kind'] in ('finishing','setting'):
             table = 'skater_execution'
             field = 'finishing_goals_per100_attempts' if row['map_kind'] == 'finishing' else 'setting_goals_per100_assisted_opportunities'
-        elif row['map_kind'] in ('ice_won','ice_lost'):
-            table = 'skater_territory'
-            field = row['map_kind']+'_goals_per_basket'
         else:
             table = 'goalie_result'
             field = 'stopping_goals_per100_on_net'
-        sql = f'SELECT payload_json,availability,method_id FROM {table} WHERE season=? AND player_id=?'
-        args = (row['season'],row['player_id'])
-        if table != 'skater_territory':
-            sql += ' AND strength=?'
-            args += (row['strength'],)
+        sql = f'SELECT payload_json,availability,method_id FROM {table} WHERE season=? AND player_id=? AND strength=?'
+        args = (row['season'],row['player_id'],row['strength'])
         scalar = connection.execute(sql,args).fetchone()
         require(scalar is not None and scalar['availability'] == 'provided', 'available map has no scalar')
         scalar_payload = strict_json(scalar['payload_json'].encode())

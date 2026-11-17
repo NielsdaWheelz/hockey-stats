@@ -1,0 +1,91 @@
+{
+  "mode": "native200",
+  "base": "http://127.0.0.1:3111",
+  "downloads": [
+    {
+      "name": "card.csv",
+      "suggested": "hockey-stats-20232024-9000001-analytical.csv",
+      "bytes": 187331,
+      "sha256": "e6d5ebdb7f086cb418519f52479846f12c6fd3df46c1660602bfcf783216623d"
+    },
+    {
+      "name": "territory-detail.csv",
+      "suggested": "hockey-stats-20232024-9000001-territory-evidence.csv",
+      "bytes": 7114,
+      "sha256": "0e2b9c1c5f491f22e140724eb67231dff11387afe7618d405a806eeef1c65880"
+    },
+    {
+      "name": "card.png",
+      "suggested": "hockey-stats-20232024-9000001-analytical.png",
+      "bytes": 815746,
+      "sha256": "39b5b8d327b75c54b46c5a3920f89b4c6cece878ac46eeb27d74f65ceea6c295"
+    },
+    {
+      "name": "map-0.csv",
+      "suggested": "hockey-stats-20232024-9000001-ice_won-5v5-effect-map.csv",
+      "bytes": 1773527,
+      "sha256": "f9a1382cc35b485079d5464bdbb7e5f0657b386e3c722de0d74e371de7afb70d"
+    },
+    {
+      "name": "map-0.png",
+      "suggested": "hockey-stats-20232024-9000001-ice_won-5v5-effect-map.png",
+      "bytes": 286780,
+      "sha256": "71b2e84dd18d7a8ba67da8173fe5758ca4417b7ee32845962102bba1e6860fb3"
+    },
+    {
+      "name": "map-1.csv",
+      "suggested": "hockey-stats-20232024-9000001-ice_lost-5v5-effect-map.csv",
+      "bytes": 1604574,
+      "sha256": "ae6f22c4fa6e5ab33a53b5e33fc3ffbedb33610a2802f28026e07d8d145ced71"
+    },
+    {
+      "name": "map-1.png",
+      "suggested": "hockey-stats-20232024-9000001-ice_lost-5v5-effect-map.png",
+      "bytes": 278927,
+      "sha256": "a2309635b0209b0afa0ef7642ef8d86711a9c414d4eeebe662b955c788ad61a5"
+    },
+    {
+      "name": "history.csv",
+      "suggested": "hockey-stats-9000001-territory.ice_lost_goals_per_basket-20232024-20252026-history.csv",
+      "bytes": 10411,
+      "sha256": "ba5a92746d784cc4116623fafc09015563a3c0a8e157dea38c5addd9839de36f"
+    },
+    {
+      "name": "history.png",
+      "suggested": "hockey-stats-9000001-territory.ice_lost_goals_per_basket-20232024-20252026-history-raw.png",
+      "bytes": 890489,
+      "sha256": "c9304d1666d2a6706948be9a385ac436a61f49336d8547d1779af774ea85ee9b"
+    }
+  ],
+  "screenshots": [
+    "native200-detail.png",
+    "native200-comparison.png"
+  ],
+  "checks": [
+    "native downloads:10 territory card fields, finite reference rows, both maps, history and essential png content"
+  ],
+  "errors": [],
+  "nativeZoomSetting": "2",
+  "discoveryHeaders": [
+    "player",
+    "season teams",
+    "position",
+    "included observed 5v5 min",
+    "exit offense one second probability",
+    "entry offense one second probability",
+    "zone retention one second probability",
+    "entry prevention one second probability",
+    "ice won successor value desc.",
+    "ice lost successor value"
+  ],
+  "geometry": {
+    "innerWidth": 640,
+    "innerHeight": 428,
+    "outerWidth": 1280,
+    "outerHeight": 1000,
+    "dpr": 4,
+    "clientWidth": 632,
+    "scrollWidth": 632
+  },
+  "status": "passed"
+}

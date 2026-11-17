@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "kind": "territory_real_acceptance_controller_review",
+  "at": "2026-11-17T09:29:00.199223+00:00",
+  "status": "reviewed_not_real_run",
+  "final_real_acceptance": "pending",
+  "scope": "independent source review of the two temporary controllers only; local fixture receipt inspection; no controller execution, hdd access, real-state read, runtime startup, browser or network operation by this reviewer",
+  "controllers": [
+    {
+      "path": ".territory-checks/accept_annual.py",
+      "sha256": "3dd1c7b283f152351fa30123a99d107fdbf10c86ea9c6249a409fd4e29b86a0e",
+      "temporary": true
+    },
+    {
+      "path": ".territory-independent/real-browser-check.mjs",
+      "sha256": "cf57d765adf8bfd28519831e144956d0ca62d46a45f3d1442a9e37dbd2ad32ca",
+      "temporary": true
+    }
+  ],
+  "corrected_findings": [
+    "raw-G browser comparison used naive summation and canceled G scales; now uses stable raw and first-max-active pivot contractions with the declared unrebased A allowance",
+    "history csv accepted incorrect present-year values beside correct evidence; now compares annual values, availability, reasons, evidence and publication/player identities",
+    "map csv accepted permuted or redistributed cells preserving the integral; now compares native and display values, ids, coordinates and bounds to candidate HTTP data",
+    "display row count permitted duplicate cells; now requires 668 unique display ids and the exact total row count",
+    "map metadata identity and accounting labels were incompletely checked; now compares season, publication, units, method, reference and support",
+    "reference csv permitted invalid-side or mislabeled start/age rows; now checks exact axes, units, coverage values, prior-only cells/restart rows and censor counts",
+    "card/discovery row counts permitted substitution of wrong metrics; now requires the exact ten-field and six-field matrices",
+    "annual receipt named an incomplete listed-file subtotal total unique logical inputs; now labels accounted artifact bytes and explicitly excludes other metadata/runtime reads"
+  ],
+  "unresolved_controller_findings": [],
+  "reviewed_scope_limits": [
+    "accepted_baselines covers checked saved baselines, chronology, history and accounting; native whole-command resource costs, source replay, successor propagation and composition are separate",
+    "recorded producer commit does not independently establish the clean frozen checkout; root launch evidence owns that binding",
+    "acceptance-process memory is cumulative high-water; listed bytes are a bounded artifact subtotal; physical I/O and incremental allocation remain unknown",
+    "browser selection validation checks explicit metadata and actual API support; thinness justification and unavailable-case census remain evidence-bound root selections",
+    "actual map cell sign counts do not constrain scalar direction or prove rendered sign colors; unobserved signs remain separately labeled synthetic coverage"
+  ],
+  "root_obligations": [
+    "use the sole heavy slot for the five real annual checks; establish ten completed baselines, two final attempts, exact input/predecessor/frozen-source bindings, first-year measured costs and the 64gb envelope",
+    "complete and independently verify real successor diagnostics, composition preservation, one inactive schema11 candidate, ordinary strict startup and detached reading",
+    "bind the actual candidate UUID/URL and bounded F/D, thin-role and traded selections; use actual prior-only, absent-year and partial-missing examples when present, evidence-bound unavailable dispositions and labeled synthetic controls otherwise",
+    "run the browser controller in normal and native200 modes; preserve failed attempts, native csv/png downloads and narrow layouts",
+    "independently inspect screenshot and downloaded PNG pixels for content, essential units, common workload, proxy/uncertainty language, both-sign colors, full-rink orientation, clipping and readable normal/narrow/native200 layouts",
+    "complete schema-paired rollback and primary/frozen-evidence preservation; delete temporary controllers and unused test-only dependencies only after full acceptance"
+  ],
+  "excluded_claims": [
+    "no completed real acceptance",
+    "no model admission",
+    "no v1-12 ledger/totals completion",
+    "no activation"
+  ]
+}

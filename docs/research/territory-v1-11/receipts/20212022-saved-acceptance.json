@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "kind": "territory_annual_saved_acceptance",
+  "purpose": "real",
+  "season": "20212022",
+  "status": "accepted_baselines",
+  "at": "2026-11-17T09:29:39.288858+00:00",
+  "pins": {
+    "path": "docs/research/territory-v1-11/receipts/input-pins.json",
+    "sha256": "06c3188fc3b2edfcfa2930a9c002f0ac23dae5b43bb14b16ba68cacb7553edea"
+  },
+  "limits": [
+    "saved-state computational checks; no raw game replay, fitting or source acquisition",
+    "in-sample expected counts are diagnostics, not calibration/recovery evidence",
+    "solver completion and a function-tolerance exit do not certify coefficient accuracy or gtolerance",
+    "native resource scopes are copied verbatim; outer command timing owns later write/readback peaks",
+    "recorded producer commit is checked; the launch receipt owns the clean frozen-source identity",
+    "accepted baselines do not certify the 64gb whole-command envelope; outer command measurements own that claim",
+    "live-ending counts retain saved source reductions; exact event-level reconstruction is covered by bounded source controls",
+    "successor propagation, sensitivity budgets, composition, website and model admission are separate"
+  ],
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20212022-repaired-01/manifest.json",
+    "sha256": "1c4c45a7fe8afe76dbcb2811ecacec540a90848875adbe780b111047adb38db3"
+  },
+  "implementation": {
+    "git_commit": "008197e221cb869a41c440561daf20cf905ad1b6",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "resources": {
+    "validation_wall_seconds": 14.166371583938599,
+    "compression_wall_seconds": 4.265315208118409,
+    "fit_wall_seconds": 3.344184000045061,
+    "solver_wall_seconds": {
+      "baseline": {
+        "entry": 1.3717280419077724,
+        "exit": 1.3847613339312375
+      },
+      "diagnostic": {
+        "entry": null,
+        "exit": null
+      }
+    },
+    "hazard_projection_wall_seconds": 0.8188325839582831,
+    "wall_seconds_before_writing": 22.594708249904215,
+    "peak_memory_bytes": 7288651776,
+    "peak_memory_scope": "process high-water sampled after hazard projection; includes preparation and earlier stages; later write/readback peaks excluded",
+    "solver_wall_scope": "native solve_logistic call only; excludes prior construction, final gradient evaluation, centering and diagnostics",
+    "baseline_solves": 2,
+    "diagnostic_solves": 0,
+    "preparation": {
+      "preparation_seconds": 4720.90195637499,
+      "preparation_peak_resident_bytes": 7288651776,
+      "preparation_memory_scope": "process high-water mark through single-pass source preparation; not incremental allocation",
+      "input_read_wall_seconds": 2.3225571250077337
+    },
+    "wall_scope": "validation, compression, head fitting and hazard projection timed separately; native solver time is nested within head fitting; preparation and artifact writing separately reported",
+    "write_wall_seconds": 69.78629816719331,
+    "output_bytes": 2846783755
+  },
+  "heads": {
+    "entry": {
+      "status": "complete",
+      "reasons": [],
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 272,
+        "evaluations": 304,
+        "objective": 284799.37551819405,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 0.006900648985214034,
+        "achieved_gtol": false,
+        "wall_seconds": 1.3717280419077724,
+        "peak_memory_bytes": 7288651776
+      },
+      "objective": {
+        "penalized_loss": 284799.37551819405,
+        "gradient_inf_norm": 0.006900648985214034
+      }
+    },
+    "exit": {
+      "status": "complete",
+      "reasons": [],
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 254,
+        "evaluations": 284,
+        "objective": 277454.9930591859,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 0.0013128877894378992,
+        "achieved_gtol": false,
+        "wall_seconds": 1.3847613339312375,
+        "peak_memory_bytes": 7288651776
+      },
+      "objective": {
+        "penalized_loss": 277454.9930591859,
+        "gradient_inf_norm": 0.0013128877894378992
+      }
+    }
+  },
+  "diagnostics": {},
+  "accounting": {
+    "physical_seconds": 3102979.999999997,
+    "zone_seconds": [
+      1164156.1750788796,
+      703629.8805487107,
+      1235193.9443724072
+    ],
+    "player_slot_seconds": 31029799.99999997,
+    "distinct_crossings": 131390,
+    "heads": {
+      "entry": {
+        "directed_seconds": 1407259.7610974202,
+        "observed_crossings": 71994,
+        "expected_crossings": 71994.01063810383,
+        "zone_support": [
+          {
+            "zone": 0,
+            "directed_risk_seconds": 0.0,
+            "observed_crossings": 0,
+            "expected_crossings": 0.0
+          },
+          {
+            "zone": 1,
+            "directed_risk_seconds": 1407259.7610973606,
+            "observed_crossings": 71994,
+            "expected_crossings": 71994.01063809985
+          },
+          {
+            "zone": 2,
+            "directed_risk_seconds": 0.0,
+            "observed_crossings": 0,
+            "expected_crossings": 0.0
+          }
+        ],
+        "minimum_hazard_per_second": 0.022453044605408926,
+        "maximum_hazard_per_second": 0.14796884536581156
+      },
+      "exit": {
+        "directed_seconds": 2399350.11945129,
+        "observed_crossings": 59396,
+        "expected_crossings": 59396.005225870096,
+        "zone_support": [
+          {
+            "zone": 0,
+            "directed_risk_seconds": 1164156.1750789026,
+            "observed_crossings": 29664,
+            "expected_crossings": 29663.900680391616
+          },
+          {
+            "zone": 1,
+            "directed_risk_seconds": 0.0,
+            "observed_crossings": 0,
+            "expected_crossings": 0.0
+          },
+          {
+            "zone": 2,
+            "directed_risk_seconds": 1235193.9443724162,
+            "observed_crossings": 29732,
+            "expected_crossings": 29732.104545480783
+          }
+        ],
+        "minimum_hazard_per_second": 0.008489357057665705,
+        "maximum_hazard_per_second": 0.066489729928681
+      }
+    },
+    "nuisance": {
+      "source_supported": true,
+      "support_reasons": [],
+      "path_slot_seconds": 35652920.0,
+      "known_age_slot_seconds": 34935361.99999999,
+      "unknown_age_slot_seconds": 717558.0,
+      "terminal_carry_slot_seconds": 4623120.0,
+      "terminal_tails": 42682,
+      "terminal_lag_seconds": {
+        "p50": 6,
+        "p90": 28,
+        "p99": 61,
+        "max": 256
+      },
+      "whistle_incidences": 471269,
+      "live_end_incidences": 453081,
+      "decidable_whistle_trials": 471269,
+      "ended_whistle_trials": 240897,
+      "restart_pairs": 96220,
+      "start_counts": [
+        83971,
+        131268,
+        89519,
+        454062
+      ],
+      "on_the_fly_zone_counts": [
+        167336,
+        111028,
+        175698
+      ],
+      "censored_endpoints": {
+        "membership_or_horizon_unavailable": 20345,
+        "period_or_game_end": 3947,
+        "report_barrier_unresolved": 1476,
+        "restart_unproved": 371,
+        "shift_age_unavailable": 5585
+      }
+    }
+  },
+  "players": 1004,
+  "coordinates": 4016,
+  "history": {
+    "entry": {
+      "entry_coordinates": 2138,
+      "carry_coordinates": 0,
+      "refreshed_coordinates": 2084,
+      "retained_history_coordinates": 0
+    },
+    "exit": {
+      "entry_coordinates": 2138,
+      "carry_coordinates": 0,
+      "refreshed_coordinates": 2084,
+      "retained_history_coordinates": 0
+    }
+  },
+  "io": {
+    "state_manifest_bytes": 348244,
+    "state_bound_member_bytes": 2846783755,
+    "preparation_and_coach_manifest_bytes": 57975500,
+    "annual_people_bytes": 29582647,
+    "predecessor_metadata_bytes": 0,
+    "physical_io_bytes": null,
+    "physical_io_scope": "not measured; logical unique bound bytes are not read-call bytes or physical disk traffic",
+    "logical_accounted_artifact_bytes": 2934690146,
+    "accounted_artifact_scope": "subtotal of displayed artifact components; excludes pins, preparation selection and other metadata/runtime reads"
+  },
+  "previous": null,
+  "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3",
+  "acceptance_wall_seconds": 46.308365459088236,
+  "acceptance_memory": {
+    "process_high_water_bytes": 11167055872,
+    "incremental_allocation_bytes": null,
+    "scope": "cumulative high-water of this acceptance process; not incremental allocation or the producer command peak"
+  }
+}

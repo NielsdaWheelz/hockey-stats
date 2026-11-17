@@ -1,0 +1,63 @@
+{
+  "status": "native_exit_zero_saved_acceptance_pending",
+  "at": "2026-11-17T09:29:38.937605+00:00",
+  "season": "20212022",
+  "native_session_id": 27348,
+  "exit_code": 0,
+  "source_commit": "008197e221cb869a41c440561daf20cf905ad1b6",
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20212022-repaired-01/manifest.json",
+    "sha256": "1c4c45a7fe8afe76dbcb2811ecacec540a90848875adbe780b111047adb38db3"
+  },
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20212022-repaired-01.log",
+    "sha256": "da03da1690d03310bf2bc1a2d01c69be885463dc5166ac3cf352ea74c444f283"
+  },
+  "resources": {
+    "wall_seconds": 4865.81,
+    "user_seconds": 4464.16,
+    "system_seconds": 22.52,
+    "maximum_resident_bytes": 14294597632,
+    "peak_memory_footprint_bytes": 14353378056,
+    "memory_envelope_bytes": 64000000000,
+    "within_envelope": true,
+    "scope": "whole native command including preparation, both baseline solves, write and strict readback; not incremental allocation",
+    "physical_io_bytes": null
+  },
+  "phases": {
+    "validation_wall_seconds": 14.166371583938599,
+    "compression_wall_seconds": 4.265315208118409,
+    "fit_wall_seconds": 3.344184000045061,
+    "solver_wall_seconds": {
+      "baseline": {
+        "entry": 1.3717280419077724,
+        "exit": 1.3847613339312375
+      },
+      "diagnostic": {
+        "entry": null,
+        "exit": null
+      }
+    },
+    "hazard_projection_wall_seconds": 0.8188325839582831,
+    "wall_seconds_before_writing": 22.594708249904215,
+    "peak_memory_bytes": 7288651776,
+    "peak_memory_scope": "process high-water sampled after hazard projection; includes preparation and earlier stages; later write/readback peaks excluded",
+    "solver_wall_scope": "native solve_logistic call only; excludes prior construction, final gradient evaluation, centering and diagnostics",
+    "baseline_solves": 2,
+    "diagnostic_solves": 0,
+    "preparation": {
+      "preparation_seconds": 4720.90195637499,
+      "preparation_peak_resident_bytes": 7288651776,
+      "preparation_memory_scope": "process high-water mark through single-pass source preparation; not incremental allocation",
+      "input_read_wall_seconds": 2.3225571250077337
+    },
+    "wall_scope": "validation, compression, head fitting and hazard projection timed separately; native solver time is nested within head fitting; preparation and artifact writing separately reported",
+    "write_wall_seconds": 69.78629816719331,
+    "output_bytes": 2846783755
+  },
+  "limits": [
+    "solver-completed experimental baseline is not coefficient-accuracy or model-admission evidence",
+    "all earlier-year sensitivity remains unassessed",
+    "kernel block counters do not establish physical i/o bytes"
+  ]
+}

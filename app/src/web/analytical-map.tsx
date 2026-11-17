@@ -332,7 +332,7 @@ export function prepareAnalyticalMap(
 
 const analyticalMapSupport = (model: AnalyticalMapModel): string =>
   model.support
-    ? `${model.support.included_seconds === null ? "unknown" : displayNumber(model.support.included_seconds / 60)} included min; ${model.support.prior_only ? "prior-only hypothetical estimate" : model.support.current_season_information ? "some current focal information" : "no current focal information"}; ${model.support.known_excluded_seconds === null ? "unknown" : displayNumber(model.support.known_excluded_seconds / 60)} excluded min; ${model.support.unquantified_gap ? "unquantified gaps" : "declared included population"}`
+    ? `${model.support.included_seconds === null ? "unknown" : displayNumber(model.support.included_seconds / 60)} included min; ${model.support.prior_only ? "prior-only hypothetical estimate" : model.support.current_season_information ? "some current focal information" : "mixed or no current information"}; ${model.support.known_excluded_seconds === null ? "unknown" : displayNumber(model.support.known_excluded_seconds / 60)} excluded min; ${model.support.unquantified_gap ? "unquantified gaps" : "declared included population"}`
     : (model.reason ?? "map support unavailable");
 
 function legendMeaning(model: AnalyticalMapModel): string {

@@ -2133,6 +2133,31 @@ export const SkaterTerritory = Schema.Struct({
               allowance
         )
           return false;
+        let pivot = -1;
+        for (let index = 0; index < shift.end_difference.length; index++) {
+          const weight = shift.end_difference[index];
+          if (
+            weight !== 0 &&
+            (pivot === -1 || Math.abs(weight) > Math.abs(shift.end_difference[pivot]))
+          )
+            pivot = index;
+        }
+        const centeredTerms: number[] = [];
+        for (let index = 0; index < shift.end_difference.length; index++) {
+          const weight = shift.end_difference[index];
+          if (weight !== 0 && index !== pivot)
+            centeredTerms.push(weight * (values[index] - values[pivot]));
+        }
+        const centeredExpected =
+          pivot === -1 ? 0 : shift.shifts_per_1000_minutes * stableSum(centeredTerms);
+        if (
+          !Number.isFinite(centeredExpected) ||
+          Math.abs(estimate.value! - centeredExpected) >
+            1e-9 +
+              1e-9 * Math.max(Math.abs(estimate.value!), Math.abs(centeredExpected)) +
+              allowance
+        )
+          return false;
       } else {
         const reason = coefficients.some((c) => c.status === "failed")
           ? "failed_fit"

@@ -239,7 +239,7 @@ const name = (model: AnalyticalCardModel) =>
       ? `${playerName(model.historicalPerson)} · historical identity`
       : `player ${model.playerId}`;
 const supportText = (entry: AnalyticalCardModel["supports"][number]) =>
-  `${entry.key} · ${entry.population} · included/excluded min ${entry.support.included_seconds === null ? "unknown" : displayNumber(entry.support.included_seconds / 60)}/${entry.support.known_excluded_seconds === null ? "unknown" : displayNumber(entry.support.known_excluded_seconds / 60)} · ${entry.support.prior_only ? "prior-only / hypothetical" : entry.support.current_season_information ? "some current focal information" : "no current focal information"}${entry.support.unquantified_gap ? "; unquantified gaps" : ""}`;
+  `${entry.key} · ${entry.population} · included/excluded min ${entry.support.included_seconds === null ? "unknown" : displayNumber(entry.support.included_seconds / 60)}/${entry.support.known_excluded_seconds === null ? "unknown" : displayNumber(entry.support.known_excluded_seconds / 60)} · ${entry.support.prior_only ? "prior-only / hypothetical" : entry.support.current_season_information ? "some current focal information" : "mixed or no current information"}${entry.support.unquantified_gap ? "; unquantified gaps" : ""}`;
 
 function supportPopulation(metric: AnalysisMetricId): string {
   const [family, strength, field] = metric.split(".");

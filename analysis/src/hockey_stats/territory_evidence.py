@@ -259,6 +259,15 @@ def validate(data, row):
             require(math.isfinite(expected) and math.isfinite(allowance) and actual is not None
                 and abs(actual-expected)<=1e-9+1e-9*max(abs(actual),abs(expected))+allowance,
                 'territory basket value does not close with declared raw-term allowance')
+            active = [index for index,weight in enumerate(d) if weight]
+            centered_expected = 0.
+            if active:
+                pivot = max(active,key=lambda index:abs(d[index]))
+                centered_expected = n0*math.fsum(d[index]*(values[index]-values[pivot])
+                    for index in active if index!=pivot)
+            require(math.isfinite(centered_expected)
+                and abs(actual-centered_expected)<=1e-9+1e-9*max(abs(actual),abs(centered_expected))+allowance,
+                'territory basket value does not close with stable zero-sum contraction')
     for field in ('ice_won_goals_per_basket','ice_lost_goals_per_basket'):
         estimate = data[field]
         require(estimate['uncertainty']['kind']=='not_estimated' and (estimate['value'] is not None)==successor['available'],

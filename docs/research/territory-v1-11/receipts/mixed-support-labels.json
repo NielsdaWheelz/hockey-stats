@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "kind": "territory_mixed_support_label_repair",
+  "status": "green; independent root review pending",
+  "problem": "main territory current-season information requires all four roles; both aggregate flags false can retain some supported roles, so denying current information was false",
+  "change": "existing card/map support prose now uses mixed or no current information for false/false, matching goalie evidence wording; prior-only/current branches unchanged",
+  "source_case": {
+    "purpose": "synthetic",
+    "season": "20242025",
+    "player_id": "01",
+    "qualification_seconds": 18060.0,
+    "current_season_information": false,
+    "prior_only": false,
+    "role_information": {
+      "entry_offense": 18060.0,
+      "entry_prevention": 18060.0,
+      "exit_offense": 0.0,
+      "zone_retention": 0.0
+    }
+  },
+  "red": [
+    "actual SSR card fails expected mixed wording before edit",
+    "exact pre-fix HEAD browser component and actual card/map PNG exports fail expected mixed wording; artifacts under product/mixed-support/red"
+  ],
+  "green": [
+    "actual public card/map HTML render for mixed,prior-only,current support",
+    "actual six native PNG downloads and wrapped SVG text checks for those branches",
+    "prior-only/current card/map PNG bytes and decoded pixels match exact pre-fix source",
+    "refactor review confirms two literal replacements within existing shared render/export helpers; no new helper or policy",
+    "post-review SSR and node24 typecheck pass"
+  ],
+  "temporary_driver_failure": "first esbuild setup could not resolve root-relative react package; explicit app/node_modules resolution corrected before observed red; no product change",
+  "scope": "bounded public-component render/export controls with existing synthetic support input and explicit synthetic zero map; no source-to-screen, model, publication, native200 matrix or real-data acceptance claimed",
+  "runtime": "node24.21.0 and native Chrome",
+  "head_before_fix": "008197e221cb869a41c440561daf20cf905ad1b6",
+  "code": [
+    {
+      "path": "app/src/web/analytical-card.tsx",
+      "sha256": "3fb9b43ba187e699b1c187bad3f5d2ae1e47675d6b99db31b7f3c559e276d3b6"
+    },
+    {
+      "path": "app/src/web/analytical-map.tsx",
+      "sha256": "a8b06cf8846b09bf7389e4f66334c5ce0308e9e5adfac99fe98ddc573f7d8e6d"
+    }
+  ],
+  "controllers": [
+    {
+      "path": ".territory-independent/mixed-support/check.tsx",
+      "sha256": "52ac723eeb1fd01fdda1342ee2ae3e528b5fa42e2a0625b2f09163a5e1eca8f8"
+    },
+    {
+      "path": ".territory-independent/mixed-support/browser.mjs",
+      "sha256": "b214f741813a6380b0a96f4e315fd4e5715ac45bd8303df054fe2e8ee8200a42"
+    },
+    {
+      "path": ".territory-independent/mixed-support/entry.tsx",
+      "sha256": "88d1fc8a3232acc95a5e02c4d0a69878f69f9fbf4d2025faa327056134509838"
+    },
+    {
+      "path": ".territory-independent/mixed-support/cases.json",
+      "sha256": "18f3108357f321d903d17f9f61ea5243df498a7fb6bba0126cc99ad141e4b50f"
+    },
+    {
+      "path": ".territory-independent/mixed-support/models.ts",
+      "sha256": "6bc23657aebd470ae4cc523eaeea69ee86a7f34f1cf97c71b37dbccc78cb5393"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/research/territory-v1-11/product/mixed-support/green/mixed-card.png",
+      "sha256": "db85a939b5cd3cb848f738b11af8447b724814675519bd8d4ca4e1014743bce9",
+      "dimensions": [
+        1200,
+        1110
+      ]
+    },
+    {
+      "path": "docs/research/territory-v1-11/product/mixed-support/green/mixed-map.png",
+      "sha256": "5494295f760c05590f890e6fa7d9edaaef964d630eed80fb66c54a41c91c2026",
+      "dimensions": [
+        1200,
+        1719
+      ]
+    },
+    {
+      "path": "docs/research/territory-v1-11/product/mixed-support/green/prior-card.png",
+      "sha256": "2b4f563e4905cfd356ba6e871c709e010a2e8da2827b6b792e9985a78d1ab3ee",
+      "dimensions": [
+        1200,
+        1110
+      ]
+    },
+    {
+      "path": "docs/research/territory-v1-11/product/mixed-support/green/prior-map.png",
+      "sha256": "16ed81f18db38cb9deb253e6a61c0c9a03dc428aefc6ff6c27609faa98284273",
+      "dimensions": [
+        1200,
+        1719
+      ]
+    },
+    {
+      "path": "docs/research/territory-v1-11/product/mixed-support/green/current-card.png",
+      "sha256": "9212c69457724ee82e7bfb4f6161c053a0cf15d2183052e9f755985e68fc91cb",
+      "dimensions": [
+        1200,
+        1110
+      ]
+    },
+    {
+      "path": "docs/research/territory-v1-11/product/mixed-support/green/current-map.png",
+      "sha256": "a95a3810935f550ad6264e66fb4e00c61c8e2e1e596d087b0beb469d767e375f",
+      "dimensions": [
+        1200,
+        1719
+      ]
+    }
+  ],
+  "cleanup": "all temporary controllers retained until full campaign acceptance; no product dependency added"
+}

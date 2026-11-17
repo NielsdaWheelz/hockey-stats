@@ -1,0 +1,57 @@
+{
+  "mode": "current-green",
+  "scope": "synthetic public card/map component rendering and native export controls; no source/model/publication acceptance",
+  "downloads": [
+    {
+      "filename": "mixed-card.png",
+      "bytes": 269249,
+      "sha256": "db85a939b5cd3cb848f738b11af8447b724814675519bd8d4ca4e1014743bce9"
+    },
+    {
+      "filename": "mixed-map.png",
+      "bytes": 169918,
+      "sha256": "5494295f760c05590f890e6fa7d9edaaef964d630eed80fb66c54a41c91c2026"
+    },
+    {
+      "filename": "prior-card.png",
+      "bytes": 269525,
+      "sha256": "2b4f563e4905cfd356ba6e871c709e010a2e8da2827b6b792e9985a78d1ab3ee"
+    },
+    {
+      "filename": "prior-map.png",
+      "bytes": 170233,
+      "sha256": "16ed81f18db38cb9deb253e6a61c0c9a03dc428aefc6ff6c27609faa98284273"
+    },
+    {
+      "filename": "current-card.png",
+      "bytes": 269123,
+      "sha256": "9212c69457724ee82e7bfb4f6161c053a0cf15d2183052e9f755985e68fc91cb"
+    },
+    {
+      "filename": "current-map.png",
+      "bytes": 169294,
+      "sha256": "a95a3810935f550ad6264e66fb4e00c61c8e2e1e596d087b0beb469d767e375f"
+    }
+  ],
+  "cases": [
+    {
+      "name": "mixed",
+      "html": true,
+      "card_png": true,
+      "map_png": true
+    },
+    {
+      "name": "prior",
+      "html": true,
+      "card_png": true,
+      "map_png": true
+    },
+    {
+      "name": "current",
+      "html": true,
+      "card_png": true,
+      "map_png": true
+    }
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "kind": "territory_annual_saved_acceptance",
+  "purpose": "real",
+  "season": "20242025",
+  "status": "accepted_baselines",
+  "at": "2026-11-17T14:41:30.297766+00:00",
+  "pins": {
+    "path": "docs/research/territory-v1-11/receipts/input-pins.json",
+    "sha256": "06c3188fc3b2edfcfa2930a9c002f0ac23dae5b43bb14b16ba68cacb7553edea"
+  },
+  "limits": [
+    "saved-state computational checks; no raw game replay, fitting or source acquisition",
+    "in-sample expected counts are diagnostics, not calibration/recovery evidence",
+    "solver completion and a function-tolerance exit do not certify coefficient accuracy or gtolerance",
+    "native resource scopes are copied verbatim; outer command timing owns later write/readback peaks",
+    "recorded producer commit is checked; the launch receipt owns the clean frozen-source identity",
+    "accepted baselines do not certify the 64gb whole-command envelope; outer command measurements own that claim",
+    "live-ending counts retain saved source reductions; exact event-level reconstruction is covered by bounded source controls",
+    "successor propagation, sensitivity budgets, composition, website and model admission are separate"
+  ],
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20242025-01/manifest.json",
+    "sha256": "a75de96b3ba021864be7e185c2e540959d9225e3c83b84ee0f64e0b3975c5fce"
+  },
+  "implementation": {
+    "git_commit": "008197e221cb869a41c440561daf20cf905ad1b6",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "resources": {
+    "validation_wall_seconds": 15.334762207930908,
+    "compression_wall_seconds": 5.311240082839504,
+    "fit_wall_seconds": 3.8201735420152545,
+    "solver_wall_seconds": {
+      "baseline": {
+        "entry": 1.4969244999811053,
+        "exit": 1.5546746670734137
+      },
+      "diagnostic": {
+        "entry": null,
+        "exit": null
+      }
+    },
+    "hazard_projection_wall_seconds": 0.9144224589690566,
+    "wall_seconds_before_writing": 25.380606333026662,
+    "peak_memory_bytes": 7829962752,
+    "peak_memory_scope": "process high-water sampled after hazard projection; includes preparation and earlier stages; later write/readback peaks excluded",
+    "solver_wall_scope": "native solve_logistic call only; excludes prior construction, final gradient evaluation, centering and diagnostics",
+    "baseline_solves": 2,
+    "diagnostic_solves": 0,
+    "preparation": {
+      "preparation_seconds": 5821.14387787506,
+      "preparation_peak_resident_bytes": 7780663296,
+      "preparation_memory_scope": "process high-water mark through single-pass source preparation; not incremental allocation",
+      "input_read_wall_seconds": 0.5597259579226375
+    },
+    "wall_scope": "validation, compression, head fitting and hazard projection timed separately; native solver time is nested within head fitting; preparation and artifact writing separately reported",
+    "write_wall_seconds": 72.29947587498464,
+    "output_bytes": 3131117300
+  },
+  "heads": {
+    "entry": {
+      "status": "complete",
+      "reasons": [],
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 252,
+        "evaluations": 278,
+        "objective": 272581.90730541886,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 0.0025800888237498976,
+        "achieved_gtol": false,
+        "wall_seconds": 1.4969244999811053,
+        "peak_memory_bytes": 7800782848
+      },
+      "objective": {
+        "penalized_loss": 272581.90730541886,
+        "gradient_inf_norm": 0.0025800888237498976
+      }
+    },
+    "exit": {
+      "status": "complete",
+      "reasons": [],
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 246,
+        "evaluations": 274,
+        "objective": 266045.06026197626,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "gradient_inf_norm": 0.0007303980035085547,
+        "achieved_gtol": false,
+        "wall_seconds": 1.5546746670734137,
+        "peak_memory_bytes": 7817101312
+      },
+      "objective": {
+        "penalized_loss": 266045.06026197626,
+        "gradient_inf_norm": 0.0007303980035085547
+      }
+    }
+  },
+  "diagnostics": {},
+  "accounting": {
+    "physical_seconds": 2931597.0000000005,
+    "zone_seconds": [
+      1113655.8946681789,
+      670896.2503097055,
+      1147044.855022116
+    ],
+    "player_slot_seconds": 29315970.000000004,
+    "distinct_crossings": 126036,
+    "heads": {
+      "entry": {
+        "directed_seconds": 1341792.5006194091,
+        "observed_crossings": 68909,
+        "expected_crossings": 68908.99849707719,
+        "zone_support": [
+          {
+            "zone": 0,
+            "directed_risk_seconds": 0.0,
+            "observed_crossings": 0,
+            "expected_crossings": 0.0
+          },
+          {
+            "zone": 1,
+            "directed_risk_seconds": 1341792.50061935,
+            "observed_crossings": 68909,
+            "expected_crossings": 68908.9984970801
+          },
+          {
+            "zone": 2,
+            "directed_risk_seconds": 0.0,
+            "observed_crossings": 0,
+            "expected_crossings": 0.0
+          }
+        ],
+        "minimum_hazard_per_second": 0.02412839387905631,
+        "maximum_hazard_per_second": 0.11041250313742948
+      },
+      "exit": {
+        "directed_seconds": 2260700.749690295,
+        "observed_crossings": 57127,
+        "expected_crossings": 57127.00701773806,
+        "zone_support": [
+          {
+            "zone": 0,
+            "directed_risk_seconds": 1113655.8946681733,
+            "observed_crossings": 28582,
+            "expected_crossings": 28581.931469279876
+          },
+          {
+            "zone": 1,
+            "directed_risk_seconds": 0.0,
+            "observed_crossings": 0,
+            "expected_crossings": 0.0
+          },
+          {
+            "zone": 2,
+            "directed_risk_seconds": 1147044.8550221154,
+            "observed_crossings": 28545,
+            "expected_crossings": 28545.075548460234
+          }
+        ],
+        "minimum_hazard_per_second": 0.009348162606480357,
+        "maximum_hazard_per_second": 0.07084459611134881
+      }
+    },
+    "nuisance": {
+      "source_supported": true,
+      "support_reasons": [],
+      "path_slot_seconds": 34603020.0,
+      "known_age_slot_seconds": 34153905.000000015,
+      "unknown_age_slot_seconds": 449115.0,
+      "terminal_carry_slot_seconds": 5287050.0,
+      "terminal_tails": 50443,
+      "terminal_lag_seconds": {
+        "p50": 5,
+        "p90": 27,
+        "p99": 60,
+        "max": 145
+      },
+      "whistle_incidences": 469677,
+      "live_end_incidences": 436745,
+      "decidable_whistle_trials": 469677,
+      "ended_whistle_trials": 237343,
+      "restart_pairs": 95190,
+      "start_counts": [
+        83355,
+        127391,
+        87447,
+        437473
+      ],
+      "on_the_fly_zone_counts": [
+        155407,
+        112744,
+        169322
+      ],
+      "censored_endpoints": {
+        "membership_or_horizon_unavailable": 20546,
+        "period_or_game_end": 3906,
+        "report_barrier_unresolved": 1857,
+        "restart_unproved": 390,
+        "shift_age_unavailable": 4383
+      }
+    }
+  },
+  "players": 920,
+  "coordinates": 3680,
+  "history": {
+    "entry": {
+      "entry_coordinates": 240,
+      "carry_coordinates": 1730,
+      "refreshed_coordinates": 1892,
+      "retained_history_coordinates": 946
+    },
+    "exit": {
+      "entry_coordinates": 240,
+      "carry_coordinates": 1730,
+      "refreshed_coordinates": 1892,
+      "retained_history_coordinates": 947
+    }
+  },
+  "io": {
+    "state_manifest_bytes": 348570,
+    "state_bound_member_bytes": 3131117300,
+    "preparation_and_coach_manifest_bytes": 57975500,
+    "annual_people_bytes": 29198486,
+    "predecessor_metadata_bytes": 3761557,
+    "physical_io_bytes": null,
+    "physical_io_scope": "not measured; logical unique bound bytes are not read-call bytes or physical disk traffic",
+    "logical_accounted_artifact_bytes": 3222401413,
+    "accounted_artifact_scope": "subtotal of displayed artifact components; excludes pins, preparation selection and other metadata/runtime reads"
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20232024-01/manifest.json",
+    "sha256": "17ee9596b157c1248424e2380b277630828c7b2cb676a2d41dd98e415072ba58",
+    "season": "20232024",
+    "purpose": "real",
+    "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3"
+  },
+  "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3",
+  "acceptance_wall_seconds": 57.120095249963924,
+  "acceptance_memory": {
+    "process_high_water_bytes": 12269240320,
+    "incremental_allocation_bytes": null,
+    "scope": "cumulative high-water of this acceptance process; not incremental allocation or the producer command peak"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "status": "cleared_behavior_preserving_refactor",
+  "at": "2026-11-17T10:06:27.234450+00:00",
+  "reviewer": "/root/final_contract_review",
+  "root_diff_review": "only unreachable prepared-label shortcut removed; geometry/mirror/gates unchanged",
+  "source": "analysis/src/hockey_stats/territory_design.py",
+  "source_sha256": "77884564214ebfe231d5004b0096112792dfe704d1ae840c068972b31bee0087",
+  "frozen_source_sha256": "5be6e938860a14aca117088206c80098adf556f8c053a0bc6c7e20302314ea87",
+  "frozen_commit": "008197e221cb869a41c440561daf20cf905ad1b6",
+  "recipe_unchanged": true,
+  "checks": 14,
+  "evidence": [
+    {
+      "path": "docs/research/territory-v1-11/receipts/dead-start-zone-red.json",
+      "sha256": "6e67f3750dfd8542766ee2793b0d5e23a7b62f7c937ddf6c4ffadc465224324a"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/dead-start-zone-green.json",
+      "sha256": "044463f308d1e91671d14769863beec937bc2e665f3a4cfb82e9c4e181f007f8"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/dead-start-zone-red.log",
+      "sha256": "0798210c217df48e11196eb8877a62ac23a7e8a1651f91d5a4aa4da61bd6b1a8"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/dead-start-zone-green.log",
+      "sha256": "a42e83a34bc5a4096344df84e54597e22ef608fd065bfcb4dd4eeea2c2d073ce"
+    }
+  ],
+  "scope": "current authoritative prepared producer plus bounded local controls, including complete path/nuisance equality; not arbitrary handcrafted alternate zone-label compatibility",
+  "red_scope": "all behavioral equivalence checks already passed before refactor; the red failure is the intended structural dead-code-presence assertion, not a newly discovered behavioral defect",
+  "frozen_fit_qualification": "unchanged; frozen producer and expensive states retained, no fit rerun required by this equivalent cleanup",
+  "temporary_controller": {
+    "sha256": "c3df05827f213f8340e3b90e042516f6ef96b551e08521e7b271fe8cf4f0fb02",
+    "removed_after_green": true
+  },
+  "not_run": [
+    "external source reads",
+    "fit",
+    "scientific admission"
+  ]
+}

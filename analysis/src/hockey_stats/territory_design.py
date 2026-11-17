@@ -408,13 +408,10 @@ def nuisance_statistics(game, paths, membership):
             event_index = _value(shift['start'], 'event_source_index')
             event = by_source.get(event_index)
             if event_index in checked_starts and event is not None and event['source']['elapsed_seconds'] == clock:
-                own_zone = _value(shift['start'], 'zone')
-                zone = ZONES.index(own_zone) if own_zone in ZONES else None
-                if zone is None:
-                    x = _value(event['geometry'], 'x_ft')
-                    zone = _zone(x) if x is not None else None
-                    if zone is not None and side == 'away':
-                        zone = 2-zone
+                x = _value(event['geometry'], 'x_ft')
+                zone = _zone(x) if x is not None else None
+                if zone is not None and side == 'away':
+                    zone = 2-zone
         elif len(right) == 1 and kind == 'on_the_fly':
             live = [row for row in paths['nuisance'] if row['period_number'] == period and row['start_seconds'] <= clock < row['end_seconds']]
             if len(live) == 1:

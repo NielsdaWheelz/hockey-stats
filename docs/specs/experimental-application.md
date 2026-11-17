@@ -10,6 +10,8 @@ application appendix to the [program specification](experimental-player-analysis
 
 [v1-10](v1-10-penalties-shootiness.md) and [v1-19](v1-19-goalie-card-discovery.md) share one prospective exchange4/schema10 cutover: finite [mechanism](#mechanism-evidence-projection) and [goalie](#goalie-evidence-projection) evidence on existing payloads. reconcile that foundation before either candidate is built. implementation makes it the sole current writer/reader; the active publication remains unchanged until assigned activation. schema9 remains the delivered predecessor and historical section anchor, not a fallback.
 
+[v1-11](v1-11-territory-successor-value.md) next specifies exchange5/schema11, adding mandatory [territory evidence](#territory-evidence-projection) on its existing payload. one attributed exchange4 conversion preserves inherited numerical bodies; all current writers/readers cut over together. completed source versions and serving/rollback pairs retain their identities. no old runtime fallback, new table or activation follows.
+
 ## boundary
 
 extend python → sqlite → effect → react. publish 2023–24, 2024–25 and 2025–26; five fitting/history seasons do not imply five display seasons. retain observed facts and their separate on-ice, personal and spatial populations. one player profile supports skaters or goalies; comparisons require the same kind.
@@ -31,7 +33,7 @@ the following concrete tables use indexed primary keys below and a `payload_json
 | `skater_execution(season,player_id,strength)` | `finishing_goals_per100_attempts`, `setting_goals_per100_assisted_opportunities`, `avoid_block_probability`, `on_net_probability`, `recorded_stop_probability`, `conversion_probability`, paired `*_difference` fields for those four stages; fixed `reference_panel,coefficient_support,paired_evidence` below; `support`, `method_id` |
 | `skater_shootiness(season,player_id,strength)` | `probability`, `neutral_probability`, `difference`, `support`, `method_id`; v1-10 adds closed `evidence` |
 | `skater_penalties(season,player_id)` | `drawn_per60`, `taken_per60` signed team-award contrasts; `drawn_value_per60`, `taken_value_per60`; separate `recorded_drawn`, `recorded_taken`, `recorded_served` counts/support; `support`, `method_id`; v1-10 adds closed `evidence` |
-| `skater_territory(season,player_id)` | `ice_won_goals_per_basket`, `ice_lost_goals_per_basket`; fixed `exit_offense`, `entry_offense`, `zone_retention`, `entry_prevention` records defined below; `support`, `method_id` |
+| `skater_territory(season,player_id)` | `ice_won_goals_per_basket`, `ice_lost_goals_per_basket`; fixed `exit_offense`, `entry_offense`, `zone_retention`, `entry_prevention` records defined below; `support`, `method_id`; v1-11 adds closed `evidence` |
 | `goalie_result(season,player_id,strength)` | `stopping_goals_per100_on_net` (already a contrast); `miss_probability`, `recorded_stop_probability`, `conversion_probability`, `recorded_reattempt_probability`, `reattempt_neutral_goal_probability`, `followup_danger`, paired `*_difference` fields for those six levels only; `support`, `method_id`; v1-19 adds closed `evidence` |
 | `goalie_observed(season,player_id,strength)` | `source_counts`, `on_net_evidence`, `unblocked_evidence`, `stage_evidence`, `starts`, `relief_appearances`, `unknown_start_status`, `reported_usage`, `coverage`, `games`; fixed record shapes below |
 | `value_ledger(season,player_id)` | `reference_minutes`, ten named `components`, `league_total`, `replacement_total`, fixed `penalties_combined` league/replacement grouping, `method_id` |
@@ -227,6 +229,76 @@ both readers enforce closed shapes, finite domains, support/reference/year ident
 use existing selected detail/history and penalty evidence responses. expand raw-only `shootiness.<strength>.neutral_probability` to all seven strengths, without a percentile/table sort; explicitly exclude it from `analysis-discovery.ts`'s prefix-derived sortable columns. add `mechanism_detail` to the shared scalar/card csv evidence columns: the exact applicable closed evidence object, otherwise empty. evidence is not another ranked field. essential quantity/reference/support/experimental warnings appear inside pngs; detailed constants and provenance remain in the selected-detail csv. show one recorded penalty table from the descriptive owner, independently of modeled availability.
 
 the shared conversion above owns this transition; do not build a second mechanism-only schema4. synthetic provided mechanism rows need independently checked evidence in an attributed fixture successor; do not mutate the original fixture or relax real validation. current-schema results publish to a schema10 candidate through existing owners; historical serving/rollback pairs remain unchanged until separately assigned activation.
+
+### territory evidence projection
+
+v1-11 adds one closed `skater_territory.evidence` object. reuse `binding`, `coefficient_support`, `Estimate` and `Support` above; information weight here is **role-specific likelihood seconds**. all fields are required. the four role keys are `exit_offense,entry_offense,zone_retention,entry_prevention`; fixed axes are zones `D,N,O`, start types `DZ,NZ,OZ,on_the_fly`, age lower bounds `0,10,20,40,60,90`. counts are nonnegative integers; seconds/weights finite nonnegative; distribution entries lie in `[0,1]`. a null data record has a located unavailable reason. this is finite detached explanation, not a generic evidence store.
+
+```text
+territory.evidence = {
+  annual_state: binding, prepared: binding, reference_id: sha256,
+  qualification_seconds: number,
+  roles: {each_role: {
+    coefficient_support,
+    neutral_hazard_per_second: positive number|null,
+    neutral_one_second_probability: probability|null
+  }},
+  nuisance_coverage: {
+    path_slot_seconds, terminal_carry_slot_seconds,
+    whistle_risk_slot_seconds, whistle_incidences,
+    live_end_risk_slot_seconds, live_end_incidences,
+    decidable_whistle_trials, ended_whistle_trials, restart_pairs,
+    start_counts: count[4], on_the_fly_zone_counts: count[3],
+    terminal_tails: count,
+    terminal_lag_seconds: null|{p50,p90,p99,max},
+    censored_endpoints: [{reason: territory_reason,count}],
+    prior_only_cells: [{process: w|d|h, zone, age_lower}],
+    prior_only_restart_rows: zone[]
+  },
+  shift_reference: {
+    available: boolean, reason: nonempty text|null, receipt: binding,
+    data: null|{
+      initial_start_probabilities: probability[4],
+      initial_on_the_fly_zone_probabilities: probability[3]|null,
+      neutral_end_probabilities: probability[4],
+      focal_end_probabilities: probability[4], end_difference: number[4],
+      neutral_occupancy_seconds: number[6],
+      mean_shift_seconds: positive number,
+      shifts_per_1000_minutes: positive number,
+      survival_at_90: probability, tail_time_fraction: probability
+    }
+  },
+  successor_reference: {
+    available: boolean, reason: nonempty text|null,
+    ev_state: binding, panel: binding|null,
+    data: null|{
+      for_goals_per_shift: number[4], against_goals_per_shift: number[4],
+      for_absolute_terms_goals_per_shift: nonnegative number[4],
+      against_absolute_terms_goals_per_shift: nonnegative number[4]
+    }
+  }
+}
+```
+
+`qualification_seconds` is the union of known **transition-path** 5v5 participation time; every role and main `Support.included_seconds` equals it. the existing 300-minute F/D viewing rule therefore does not become 300 zone minutes. each role's `eligible_weight` equals its coefficient information weight, and `events` equals its crossing count; zero-crossing risk establishes information. main `eligible_weight` is qualification seconds and `events` is the distinct crossing-key union. role information/history need not coincide. main current-information is the conjunction of four positive role-risk indicators; main prior-only is the conjunction of four completed prior-only roles; mixed cases can have both false. main prior years are the union from completed territory roles; inherited spatial history/limits remain attached through their method/reference, not fabricated territorial information.
+
+coefficient status and history follow the mechanism rules, with independent entry/exit role support. no aggregate head exposure is `unavailable/no_exposure`, not a prior-only fitted population. failed heads retain source information but no completed-prior claim. a completed head supplies both its role hazards/probabilities and matching neutral evidence even when shift/value references fail. failed and unavailable heads have null dependent focal/neutral values and their proper estimate reasons. a complete neutral entry/exit hazard is shared by its two directions; defense avoidance uses `exp(-q)`, offense crossing uses `-expm1(-q)`. validate these equations, not probabilities reconstructed from rounded display.
+
+nuisance coverage is annual, unrounded and includes censored outcomes; `ended≤decidable≤whistle_incidences`, each risk/carry duration is bounded by path-slot time. terminal lag is per physical carried tail, not multiplied by skaters or teams; use nearest-rank p50/p90/p99, null iff no tails; require ordered nonnegative quantiles≤max. on-the-fly counts sum to its start count. prior-only cells/rows correspond to zero respective denominators in the bound saved nuisance record; they are distinct from observed zero events. keys are unique and ordered by the declared process/zone/age axes. no unavailable observation is recorded as zero. fixed support counters may be zero when their observed population is empty; unquantified exclusions remain in method/source coverage.
+
+`territory_reason` is the closed union `event_kind_unresolved|source_order_unresolved|clock_unresolved|orientation_unresolved|conflicting_anchors|report_barrier_unresolved|membership_or_horizon_unavailable|identity_conflict|strength_conflict|outside_five_on_five|period_or_game_end|restart_unproved|restart_clock_mismatch|shift_endpoint_unresolved|shift_age_unavailable|zone_unavailable`. reuse identical existing reason meanings. saved dispositions retain original reasons/locators and their mapping; count each known endpoint once per applicable reason, ordered lexically. reasons may overlap, so their sum is not an endpoint total. no count is invented for an unlocatable gap.
+
+for both reference objects, `available` iff data is nonnull and reason is null; otherwise data is null and reason nonempty. available shift reference requires both completed heads and the source-supported nuisance reference. all its data fields are then present, except the on-the-fly mixture may be null iff its start probability/count is zero. initial frequencies match normalized start counts; a nonnull on-the-fly mixture matches normalized zone counts. end distributions sum to one; difference equals focal minus neutral and sums to zero. occupancy sums to mean duration, each finite-bin occupancy is at most that bin's width, `shifts_per_1000_minutes=60000/mean_shift_seconds`, and tail fraction equals final-bin occupancy divided by that mean. `receipt` binds the separate derivation/disposition artifact even when unavailable.
+
+successor reference requires an available shift reference plus the exact accepted ev state and valid bound spatial panel; a saved panel may exist while G is unavailable. missing/failed dependencies have `data=null` with reason, never zero G. its four for/against values are **signed per-shift contrasts**, not nonnegative complete rates. the eight absolute term scales follow the numerical contract and bound each absolute G; they support floating-point accounting, not uncertainty intervals. missing spatial input may leave the shift reference and movement subskills available. unavailable shift reference withholds both basket values; unavailable successor reference does likewise. failed required fits use `failed_fit`, absent head/risk uses `no_exposure`, absent source/reference support uses `missing_source`, all with proper method/source evidence. unapplied/pending whole families remain null payloads. mathematical zero remains available.
+
+annual neutral hazards/probabilities, nuisance coverage, initial and neutral-end distributions, occupancy/duration/n0/tail, successor G/scales and bindings are identical across repeated rows. focal end/difference, qualification and role histories are player-specific. compute numerical `reference_id` over canonical json `{schema_tag,season,purpose,recipe_id,annual_state,prepared,ev_state,panel,neutral_role_levels,nuisance_coverage,common_shift_data,successor_data}`, with explicit nulls; `common_shift_data` omits focal end/difference. exclude the derivation/composition receipt binding and its own digest to avoid cycles. this numerical digest is **not** the semantic `Method.reference_id` used by history/cohorts. selected method inputs/evidence must bind that digest and all state/preparation/panel/receipt identities, season and purpose. a well-shaped hash alone is insufficient. mark inferred territory in support/method metadata; mixed aggregate prior flags still show role-level dependence.
+
+for each available basket value require `n0*sum_z end_difference[z]*G_side[z]`; use the stable zero-sum contraction and raw-term accounting allowance specified by the numerical owner. native-cell detail can retain a small contrast lost when huge G values are rounded to scalars; the allowance must use unrebased absolute term scales, not canceled scalar terms. map mass sums to that value, with **goals per 1,000 5v5 minutes** as unit. positive ice lost means more successor goals against. v1-12 negates it exactly once; no further workload multiplier or four extra subskill contributions. the two maps show successor chance-value geography, not crossing locations or a puck-possession heatmap.
+
+the numerical producer/composer verifies saved bindings, nuisance denominators, numerical construction and source reconciliation. python publication and typescript reading enforce the detached closed shapes, domains, chronology, support, repeated annual references, availability and finite scalar/probability/value equations under declared construction tolerances. no generator solve, spatial evaluation, source replay or external artifact read occurs at publication validation/startup/request. native `2×4×6×656` panels and generators stay in saved artifacts, not every overview row. baseline/probe outcomes and inherited optimizer limitations remain method evidence; intervals remain `not_estimated`.
+
+one finite renderer serves analytical detail and shared selected-field/history evidence: distinguish initial starts from neutral/focal **successor** starts, then show their difference and G values, reference duration, qualification versus risk, proxy coverage and prior status. add `territory_detail` to existing scalar/history/analytical csv evidence columns; non-territory fields leave it empty. explicit detail exports retain four successor-start rows, eight side/start G rows, six occupancy rows and declared coverage/prior cells, without another metric registry or sortable pseudo-field. pngs retain units, reference, inferred/proxy meaning and uncertainty limits. all other fields/maps/cohorts/exports reuse their current owners.
 
 ## finalized evidence and with/without
 

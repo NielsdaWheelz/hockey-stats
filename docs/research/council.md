@@ -1,5 +1,9 @@
 # council synthesis
 
+## storage and ledger-specification delivery — 2026-11-18
+
+the user assigned merge and cleanup. exact reviewed cleanup/source and v1-12 documentation inputs are preserved in commit `c1abb4e`; current sequencing now uses the shared input-location owner. delivery checks reconcile all 41 reviewed source files, the three authoritative specification documents and both opus review files. the 38 serving files, both local publication file identities and all three sampled service responses remain exact; the same listener continues. the external candidate path is unavailable during delivery, so its earlier preservation receipt remains the evidence and no fresh external validation is claimed. no numerical work, candidate rebuild or activation follows. v1-12 implementation/execution remain unassigned.
+
 ## v1-12 merged-input and opus review — 2026-11-18
 
 the [ledger handoff](../specs/v1-12-value-ledger.md) now pins accepted v1-11 `ec5349f1`, incorporates permanent storage locations and retains the user's common workload, league headline and complete-group depth policy. two native source/product reviews and an independent opus 5.5 review plus targeted second pass are recorded in the [specification review](value-v1-12/specification-review.md). no new user preference is needed; implementation/execution remain unassigned.

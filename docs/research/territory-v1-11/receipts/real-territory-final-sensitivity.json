@@ -1,0 +1,191 @@
+{
+  "status": "verified_saved_sensitivity",
+  "purpose": "real",
+  "reference": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20252026-reference/reference.json",
+    "sha256": "010a9dc3c24d0ba434c8cdcd57af786e3d0ca32b42df1b18a5dc92cfae566c50"
+  },
+  "fitting_rows": {
+    "entry": {
+      "time": {
+        "rows": 289752,
+        "hazard_per_hour": 0.0009648549132657003,
+        "probability": 2.556400177359007e-07
+      },
+      "event": {
+        "rows": 68924,
+        "hazard_per_hour": 0.0009648549132657003,
+        "probability": 2.556400177359007e-07
+      }
+    },
+    "exit": {
+      "time": {
+        "rows": 319717,
+        "hazard_per_hour": 0.0007117206354767536,
+        "probability": 1.9102458875869055e-07
+      },
+      "event": {
+        "rows": 56945,
+        "hazard_per_hour": 0.0007117206354767536,
+        "probability": 1.9102458875869055e-07
+      }
+    }
+  },
+  "comparisons": {
+    "entry": {
+      "status": "exceeded",
+      "measured": {
+        "hazard_per_hour": 0.0009648549132657003,
+        "probability": 2.556400177359007e-07,
+        "value_goals": 4.7226672172939743e-07,
+        "map_l1_goals": 4.7228422187380443e-07,
+        "mean_shift_seconds": 9.499167674675846e-09,
+        "tail_time_fraction": 8.574065415989374e-11
+      },
+      "reported": {
+        "status": "exceeded",
+        "reason": null,
+        "hazard_per_hour": 0.0009648549132657003,
+        "probability": 2.5564001771005707e-07,
+        "value_goals": 4.7226672172939743e-07,
+        "map_l1_goals": 4.7228422187380443e-07,
+        "mean_shift_seconds": 9.499167674675846e-09,
+        "tail_time_fraction": 8.574065415989374e-11
+      },
+      "roster_hazard_per_hour": 0.0008016764430296419,
+      "roster_probability": 2.11254739722333e-07,
+      "absorption_probability": 1.6459763468867905e-07
+    },
+    "exit": {
+      "status": "exceeded",
+      "measured": {
+        "hazard_per_hour": 0.0007117206354767536,
+        "probability": 2.1056963980803367e-07,
+        "value_goals": 7.453155702157044e-07,
+        "map_l1_goals": 7.453356805119796e-07,
+        "mean_shift_seconds": 8.305605092573387e-10,
+        "tail_time_fraction": 2.2348539512051513e-10
+      },
+      "reported": {
+        "status": "exceeded",
+        "reason": null,
+        "hazard_per_hour": 0.0007117206354767536,
+        "probability": 2.1056963980803367e-07,
+        "value_goals": 7.453155702157044e-07,
+        "map_l1_goals": 7.453356805119796e-07,
+        "mean_shift_seconds": 8.305605092573387e-10,
+        "tail_time_fraction": 2.2348539512051513e-10
+      },
+      "roster_hazard_per_hour": 0.0005637801819141641,
+      "roster_probability": 1.5236674697632901e-07,
+      "absorption_probability": 2.1056963980803367e-07
+    },
+    "joint": {
+      "status": "exceeded",
+      "measured": {
+        "hazard_per_hour": 0.0009648549132657003,
+        "probability": 2.684649096501568e-07,
+        "value_goals": 9.474566132136597e-07,
+        "map_l1_goals": 9.47489712094611e-07,
+        "mean_shift_seconds": 1.0329735289360542e-08,
+        "tail_time_fraction": 3.0922604234151496e-10
+      },
+      "reported": {
+        "status": "exceeded",
+        "reason": null,
+        "hazard_per_hour": 0.0009648549132657003,
+        "probability": 2.684649096501568e-07,
+        "value_goals": 9.474566132136597e-07,
+        "map_l1_goals": 9.47489712094611e-07,
+        "mean_shift_seconds": 1.0329735289360542e-08,
+        "tail_time_fraction": 3.0922604234151496e-10
+      },
+      "roster_hazard_per_hour": 0.0008016764430296419,
+      "roster_probability": 2.11254739722333e-07,
+      "absorption_probability": 2.684649096501568e-07
+    }
+  },
+  "budgets": {
+    "hazard_per_hour": 0.0001,
+    "probability": 1e-05,
+    "value_goals": 0.001,
+    "map_l1_goals": 0.001
+  },
+  "comparison_absolute_roundoff": {
+    "hazard_per_hour": 1e-11,
+    "probability": 2e-15
+  },
+  "unique_bound_file_bytes": 310743208,
+  "bound_files": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20252026-reference/reference.json",
+      "sha256": "010a9dc3c24d0ba434c8cdcd57af786e3d0ca32b42df1b18a5dc92cfae566c50"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20252026-reference/baseline.json",
+      "sha256": "db062cd8ab8f0c05c56c0590a9abb5a6f09b84bf32882c4e24f2abdb94aecbac"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20252026-reference/entry.json",
+      "sha256": "f3fc039b5d54975185689c3005fff38e7d23d1f9430924b8544d5a2c717cc64d"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20252026-reference/exit.json",
+      "sha256": "66d681b41907e8229d8a75081d34a5482df1d6ed875ddd68f944c22e781b69a3"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20252026-reference/joint.json",
+      "sha256": "2b71d20390137312940deffd1755395a81e4f0cd5b12edd1f2009ae3926fac44"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01/manifest.json",
+      "sha256": "b6ec47eff0f7ea4e2d19c075503111cc080e965d85fe1423978db57edc889c04"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01/heads.json",
+      "sha256": "d4c16731077ba42751f0cc0b32ce8b87987b03cd90d446c4a204a6a3e8432cf3"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01/numerical.json",
+      "sha256": "f04eb2f56eb811b69ebfd29996b0cb257c53476ac24323585845968625aa33ff"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01/coefficients.npz",
+      "sha256": "75e9caf970407a5c8afc3751e8fb558bffa2b26bb51a350737dcbe87cd018ce2"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01/entry-design.npz",
+      "sha256": "8ba5c7df3cd4251e7392581fdc61809d792eec5acdea4567a2bc3831d6495bb2"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01/entry-probe.npz",
+      "sha256": "3623e67aff9879198cb48abcfd748473780c62ce157a673a0e65cccd064e3f20"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01/exit-design.npz",
+      "sha256": "8f6e814ea64aa5a65f25cdba96f8a446003d27fe8595288906c3e1da4905f852"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01/exit-probe.npz",
+      "sha256": "2171e560dbc040d6428e0b262eaab0d3259a715825070a50b989423cc14349c7"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20252026-reference/baseline-values.npz",
+      "sha256": "c68c972983c408836e213efc05f015be77c0092b453d727cf017027d2df26583"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20252026-reference/entry-values.npz",
+      "sha256": "db149fe531f0087d81c9fa83c26eb892e1610a1e37af8d653457798c9fb2d309"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20252026-reference/exit-values.npz",
+      "sha256": "04bf1ab8c3d31f530660674b8e6b676c5583337d38f133bae1c4aea940a7a6f1"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20252026-reference/joint-values.npz",
+      "sha256": "6764540645f830df5475107cead5b1acc7a2f21291dd8583751d4dc429038c7c"
+    }
+  ],
+  "wall_seconds": 2.7775692911818624,
+  "scope": "saved coefficient predictions and saved variant differences only; no fit, source replay, panel construction or shift/value reprojection; logical bound bytes are not physical i/o"
+}

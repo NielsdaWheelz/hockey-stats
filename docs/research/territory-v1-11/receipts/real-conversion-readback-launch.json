@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "kind": "territory_exchange5_readback_launch",
+  "at": "2026-11-17T21:40:45-08:00",
+  "status": "running_readback",
+  "source_commit": "d00ed838ccb7a61ebb689104035350c1f3aa14b3",
+  "analysis_tree": "1d9eb354ffdd501aa448a3412ef004aac4c89e65",
+  "checker": {
+    "path": ".territory-checks/accept_interrupted_conversion.py",
+    "sha256": "3cbee23d3ca5b8af20b8c46038e2d8f2ca2068da2fe516e1f587f8021719142b"
+  },
+  "mount": "/Volumes/Expansion",
+  "observed_volume_identifier": "disk5s1",
+  "source_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+    "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41"
+  },
+  "donor_composition": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/mechanism-composition.json",
+    "sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5"
+  },
+  "target": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/exchange5-base",
+  "process": {
+    "python_pid": 32045,
+    "time_pid": 32044,
+    "wrapper_pid": 32038
+  },
+  "prior_converter_exit_code": 130,
+  "matched_inherited_member_descriptors": 85,
+  "log": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-exchange5-readback-01.log",
+  "exit_code_capture": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-exchange5-readback-01.exit-code",
+  "scope": "validate the saved converted exchange in place. compare pinned donor metadata, then run the normal strict reader and check pending territory rows. the saved output and original exit130 record are read only. no conversion, fitting, composition or publication in this command."
+}

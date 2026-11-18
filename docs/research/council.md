@@ -2,7 +2,7 @@
 
 ## storage and ledger-specification delivery — 2026-11-18
 
-the user assigned merge and cleanup. exact reviewed cleanup/source and v1-12 documentation inputs are preserved in commit `c1abb4e`; current sequencing now uses the shared input-location owner. delivery checks reconcile all 41 reviewed source files, the three authoritative specification documents and both opus review files. the 38 serving files, both local publication file identities and all three sampled service responses remain exact; the same listener continues. the external candidate path is unavailable during delivery, so its earlier preservation receipt remains the evidence and no fresh external validation is claimed. no numerical work, candidate rebuild or activation follows. v1-12 implementation/execution remain unassigned.
+the user-assigned merge and cleanup is delivered in [pr #66](https://github.com/NielsdaWheelz/hockey-stats/pull/66), merge `3cc2479`, with the checked source tree and successful security check. exact reviewed cleanup/source and v1-12 documentation inputs are preserved in commit `c1abb4e`; current sequencing now uses the shared input-location owner. delivery checks reconcile all 41 reviewed source files, the three authoritative specification documents and both opus review files. the 38 serving files, both local publication file identities and all three sampled service responses remain exact; the same listener continues. the external candidate path is unavailable during delivery, so its earlier preservation receipt remains the evidence and no fresh external validation is claimed. no numerical work, candidate rebuild or activation follows. v1-12 implementation/execution remain unassigned.
 
 ## v1-12 merged-input and opus review — 2026-11-18
 

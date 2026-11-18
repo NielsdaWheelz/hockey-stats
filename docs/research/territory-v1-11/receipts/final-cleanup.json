@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "kind": "territory_temporary_control_cleanup",
+  "status": "passed",
+  "at": "2026-11-18T15:45:20.988590+00:00",
+  "accepted_source": "521e6d26eb43699376c1ac77b4b4d15ac60c8510",
+  "analysis_tree": "1d9eb354ffdd501aa448a3412ef004aac4c89e65",
+  "final_app_tree": "ceb3093a106908f968ad89b4f1f9e5b6eb448289",
+  "real_browser_app_tree": "5d4a41c4993fb765e1ed5e396125e37db2ea8d09",
+  "removed_paths": [
+    ".scratch/v1-11",
+    ".territory-checks",
+    ".territory-independent",
+    ".tmp-territory-composition",
+    ".tmp-territory-numerics",
+    "app/.scratch",
+    "app/.react-router",
+    "app/dist",
+    "analysis/src/hockey_stats/__pycache__",
+    "app/node_modules"
+  ],
+  "controller_hashes": [
+    {
+      "path": ".scratch/v1-11/cli-arguments.py",
+      "sha256": "f13ac13d960484da7e79fede056e5d38d237d64431e1adbc86a09de9b190f5ec"
+    },
+    {
+      "path": ".scratch/v1-11/composition-resume/check-saved-sensitivity.py",
+      "sha256": "a13379e93c9b583e6d28ce63470eab4c3b116044f0004231104409cbc0fc668f"
+    },
+    {
+      "path": ".scratch/v1-11/product-resume/check-distribution.mjs",
+      "sha256": "286cdac0844942bef3e5695ad1de9cfcdfd0c4300d698a8612ae0727f27b0178"
+    },
+    {
+      "path": ".scratch/v1-11/product-resume/check-partial.mjs",
+      "sha256": "c01b7ef9ee66d68c4f02d3fac1db8e845b9cf82ebfcdb36262d3909c23325eed"
+    },
+    {
+      "path": ".scratch/v1-11/product-resume/detached-config.py",
+      "sha256": "5199d7fa93f285cb2e2b0aac31426c39a4b272031b8161a624b2ba999662571e"
+    },
+    {
+      "path": ".scratch/v1-11/product-resume/real-browser-check.mjs",
+      "sha256": "9f58d18fec8d39f6d52971e2a85962f8bd65df2dc05c62ad02f0d37a011cda40"
+    },
+    {
+      "path": ".scratch/v1-11/product-resume/select-candidate.py",
+      "sha256": "fda5d36acdcc012b117f7af8b16a1b3170e12aee6e52e4c6ed7e1f7b102e7602"
+    },
+    {
+      "path": ".scratch/v1-11/remove-format-churn.cjs",
+      "sha256": "4fd9d31b0d8365fd72ed1048f37c84e014cc0b4a1383fb73dbbc7381ecb30385"
+    },
+    {
+      "path": ".scratch/v1-11/spatial-panel-check.py",
+      "sha256": "84b192f407af83a599144100da2a376fb833166ef23ef08d45532a679ecb3f24"
+    },
+    {
+      "path": ".territory-checks/accept_annual.py",
+      "sha256": "3dd1c7b283f152351fa30123a99d107fdbf10c86ea9c6249a409fd4e29b86a0e"
+    },
+    {
+      "path": ".territory-checks/accept_composition.py",
+      "sha256": "f1025d27420dccf7c01cb431346947d0c5294e0e2b8373ec21307f0c5d4c8494"
+    },
+    {
+      "path": ".territory-checks/accept_interrupted_conversion.py",
+      "sha256": "3cbee23d3ca5b8af20b8c46038e2d8f2ca2068da2fe516e1f587f8021719142b"
+    },
+    {
+      "path": ".territory-checks/check_composition_acceptance.py",
+      "sha256": "eee44fd07eaa5665c27de954a3a17c20193f33c8b3c2ae5e082acccf6801e713"
+    },
+    {
+      "path": ".territory-checks/check_composition_boundaries.py",
+      "sha256": "eaaed73ca35813125f2650fca36adeb7e095b89e73cb595db5dd15be7a27b7dc"
+    },
+    {
+      "path": ".territory-checks/check_composition_main.py",
+      "sha256": "c36b0d910c5852499a23401d5845e8b39648a4262f74880115bf6ab2762be6e5"
+    },
+    {
+      "path": ".territory-checks/convert_exchange5.py",
+      "sha256": "1534f9787487d181bd1667cdfb68bdb39562433e4d397fa525a8388814ce2a32"
+    },
+    {
+      "path": ".territory-checks/current_admission.py",
+      "sha256": "753ff6227f5fbe64b573e1d63e9e7688b0c576d6e355713148eb3e526cd66c6d"
+    },
+    {
+      "path": ".territory-checks/design.py",
+      "sha256": "8d49f419a2aa39e113a513a994a4bbdbb6f4b4870f0483acbd829f6074e06341"
+    },
+    {
+      "path": ".territory-checks/e2e_donor.py",
+      "sha256": "3f9d5bbc9b525d90be73492aae519575fe6afc5b82d49373657e6726b1999bbd"
+    },
+    {
+      "path": ".territory-checks/e2e_donor_v3.py",
+      "sha256": "49fcca0d0b3bc0df9baff78a1082bacf2fe7258c1cea7cf1de46c64001117550"
+    },
+    {
+      "path": ".territory-checks/e2e_inputs.py",
+      "sha256": "fe236cee6881bd60456dea06aa850635f5191f14f653bbe03a2a8c2c6db0b2dd"
+    },
+    {
+      "path": ".territory-checks/e2e_verify.py",
+      "sha256": "1cafaeb6a4b55dc18317baaa4c575d905201e46761f9d200e58d6aa7828bc2e7"
+    },
+    {
+      "path": ".territory-checks/e2e_verify_v3.py",
+      "sha256": "21853e6f610a6e9b2da84f6e3e7052eb6ab1bb8305da36f9c83f8e07edb146dd"
+    },
+    {
+      "path": ".territory-checks/equal_clock_original.py",
+      "sha256": "de4411eed0f43d7063d9633b5ef0e84787302238e50f54632265ebf5ee1b5c56"
+    },
+    {
+      "path": ".territory-checks/equal_clock_verify.py",
+      "sha256": "ed9153d992d4f374edffa1b75bf66cbd702621e111c185ffa40d928265cd5524"
+    },
+    {
+      "path": ".territory-checks/map_contract.py",
+      "sha256": "4ed7216faf24326ab29609b2df59a67bc2391d784d3c8fad7a5fe0ea74748a4d"
+    },
+    {
+      "path": ".territory-checks/original.py",
+      "sha256": "08be26f216b1df793c5693e2ee3aeeddbe287e9240a168f9bb448590fa3321f6"
+    },
+    {
+      "path": ".territory-checks/reset_dispositions.py",
+      "sha256": "c1cbb77823a1b9c038c0822531355bac956493cc67a6f0216ff332c088ce2ce6"
+    },
+    {
+      "path": ".territory-checks/rollback_pair.py",
+      "sha256": "f55a0b3c5f844e0d5abd7df1293b6a5d8052a82e6584eab5962112822f87d429"
+    },
+    {
+      "path": ".territory-checks/source.py",
+      "sha256": "f5e858207a8cdf328f2f3d4e1a8fddde33ea9022b954829d844e4879ba2f9ac3"
+    },
+    {
+      "path": ".territory-checks/source_reset_repair_verify.py",
+      "sha256": "f7bbc665dd5c186cd945ec6d6fb90d1def206a2e17341b926e54d40c69dc5c29"
+    },
+    {
+      "path": ".territory-independent/application-check.tsx",
+      "sha256": "3602d6e4cdab7ebabdb8e6edbd5f082061479b6f616642e6e8ce1f82a54b495c"
+    },
+    {
+      "path": ".territory-independent/browser-check.mjs",
+      "sha256": "e01aebc4a54b52eda5ee0b6677f1468087fa19d1b4e2d1320cb66231dd832af2"
+    },
+    {
+      "path": ".territory-independent/detached-check.py",
+      "sha256": "7bb95af22385c71b6f8825842b164fc88438f3c282784b71a61f7377c4fb268f"
+    },
+    {
+      "path": ".territory-independent/detached-check.ts",
+      "sha256": "60b9d1e00fe4acc6c342b1d62f999065ddd85115dacdfb411a8d935ec0c3b2ef"
+    },
+    {
+      "path": ".territory-independent/detached/check.mjs",
+      "sha256": "55227da460d911ee0eeb2e5eb212b9ca110641e02097d8d9f7f7633eec8eef0a"
+    },
+    {
+      "path": ".territory-independent/detached/guard.cjs",
+      "sha256": "d07d2c7c2543af28f76590a80c99c141b76c020e453e0523c1db6b46c7051d70"
+    },
+    {
+      "path": ".territory-independent/final-ev-lineage.py",
+      "sha256": "2357734087621c4431fe0d8398ffba9f7c5fad4b45bce29831aab02395cd421e"
+    },
+    {
+      "path": ".territory-independent/final-reset-conflict.py",
+      "sha256": "a60ccc73ffa09c816c9fe43946f15fdc06c9caa7d10f3ca90857c0f630ad70d8"
+    },
+    {
+      "path": ".territory-independent/final-scalar-contraction.py",
+      "sha256": "0a926041ff1cf507e26a4d453004f5434a79c22778252bf04e04a02f0af2ebaa"
+    },
+    {
+      "path": ".territory-independent/final-scalar-contraction.ts",
+      "sha256": "5fd3e056b61e4f7bc1a62d6071d3cc1179b316b96328f2934081017e4c428845"
+    },
+    {
+      "path": ".territory-independent/final-scalar-residual-credit.py",
+      "sha256": "31875b5302d0a13a95862124a64e19e2b2881ac8241d1208ae246355a49ed43f"
+    },
+    {
+      "path": ".territory-independent/final-scalar-residual-credit.ts",
+      "sha256": "92e87fbfe564b408bec86e14d858bd3e8c1eecd4da4e6b455a901bd63c05fef5"
+    },
+    {
+      "path": ".territory-independent/fit-check.py",
+      "sha256": "d0ebb5321cd714d9b119e9ab2a9a1f87c5852b819c0cd7a6ad8986d7bcb2750d"
+    },
+    {
+      "path": ".territory-independent/map-copy-check.mjs",
+      "sha256": "07513f71c633c295789bcaab6038814e774d55e9020e2ab751d517106d238fbd"
+    },
+    {
+      "path": ".territory-independent/mixed-support/browser.mjs",
+      "sha256": "b214f741813a6380b0a96f4e315fd4e5715ac45bd8303df054fe2e8ee8200a42"
+    },
+    {
+      "path": ".territory-independent/mixed-support/check.tsx",
+      "sha256": "52ac723eeb1fd01fdda1342ee2ae3e528b5fa42e2a0625b2f09163a5e1eca8f8"
+    },
+    {
+      "path": ".territory-independent/mixed-support/entry.tsx",
+      "sha256": "88d1fc8a3232acc95a5e02c4d0a69878f69f9fbf4d2025faa327056134509838"
+    },
+    {
+      "path": ".territory-independent/mixed-support/models.ts",
+      "sha256": "6bc23657aebd470ae4cc523eaeea69ee86a7f34f1cf97c71b37dbccc78cb5393"
+    },
+    {
+      "path": ".territory-independent/native-zoom-inspect.mjs",
+      "sha256": "5ffa159162a7777e57f4fb1124af1802b205c3cd0277df384660455373bf35eb"
+    },
+    {
+      "path": ".territory-independent/numerical-check.py",
+      "sha256": "03964decf228761d796eae098b99a4e2f5d0c27beb621ce9a40c1e20efaab4fd"
+    },
+    {
+      "path": ".territory-independent/real-browser-check.mjs",
+      "sha256": "cf57d765adf8bfd28519831e144956d0ca62d46a45f3d1442a9e37dbd2ad32ca"
+    },
+    {
+      "path": ".territory-independent/reference-check.py",
+      "sha256": "fd05643c1a97b991b4fe0ae370f13f77674db0b24803488a6edbd8fc77dec66e"
+    },
+    {
+      "path": ".territory-independent/restore-web.py",
+      "sha256": "1df8853ef1f42788af969703220c20b8bbf84fc843db5869ea3a78283e23be6e"
+    },
+    {
+      "path": ".territory-independent/source-check.py",
+      "sha256": "f2530299ee52cfb593f3997cc8c2a252d64569f3760ee17f1b814025143ea9b0"
+    },
+    {
+      "path": ".territory-independent/web-before-restore/analysis-history.tsx",
+      "sha256": "38c82e935f6d2fc444c48e9415e89ef722528d0d1447364268a69771032bf2f6"
+    },
+    {
+      "path": ".territory-independent/web-before-restore/analysis-values.ts",
+      "sha256": "1d78763f1df1709b32090b673bcbadeb8ff5603a6916a6a3b2a7e10f535cd0c1"
+    },
+    {
+      "path": ".territory-independent/web-before-restore/analytical-details.tsx",
+      "sha256": "3d59d2aae7794941e3649fc58834b73d09e2fa54f768aa4972dc843bf410bb39"
+    },
+    {
+      "path": ".territory-independent/web-semantic-check.cjs",
+      "sha256": "c8ae2cf07d3390ff94858e42c1b7eb97d8282411f0a511352a38c74ca1da7f19"
+    },
+    {
+      "path": ".tmp-territory-composition/check.py",
+      "sha256": "a698b1669a127439686a46a09e17e76224f28922e3fccc03bbafc13a71800c8f"
+    },
+    {
+      "path": ".tmp-territory-composition/failures.py",
+      "sha256": "2069aba84a93b34bbdff7a2a94d5a95469d625cd16c798d37bcde57dc497cde3"
+    },
+    {
+      "path": ".tmp-territory-composition/red.py",
+      "sha256": "d8ecd38083497646b993627ffe8c908535d31385230c5cd6202c3eef366a622a"
+    },
+    {
+      "path": ".tmp-territory-numerics/check.py",
+      "sha256": "9d79fef3aa2e4b95d3f01e9e367783e0f024d62a8835006c3e7aa83f6245671b"
+    },
+    {
+      "path": ".tmp-territory-numerics/cohort.ts",
+      "sha256": "f21f2cfffc35dc31ee144e361aa48b8a674ee44bda14b3240df776a096db065b"
+    },
+    {
+      "path": ".tmp-territory-numerics/fit.py",
+      "sha256": "bd6186d0187391ed1da0e94aa2e8f2459a44490e6066a9f0f1ca0cde8676aaee"
+    },
+    {
+      "path": ".tmp-territory-numerics/history.py",
+      "sha256": "27f6c2fdc5ad2764cf9ebd66ba8859190e93d44e2a4838c6b3690f4879c81553"
+    },
+    {
+      "path": ".tmp-territory-numerics/resources.py",
+      "sha256": "8d54d0822e3b4bc34ab848059fe9e84f784dec6c90e9e168ba509e540bad753e"
+    },
+    {
+      "path": ".tmp-territory-numerics/shared_refactor.py",
+      "sha256": "16a4c33741d955075d5fb4e69c66f0957769b828f206aaf26a6f8519f480088f"
+    },
+    {
+      "path": "app/.scratch/territory-digest.ts",
+      "sha256": "1a55b69a1359bdf5de7db88404c9e5980cdbc29e19f5e671514e768341c7f407"
+    },
+    {
+      "path": "app/.scratch/territory-schema.ts",
+      "sha256": "2bd28d63e21404f2003c7d57bc4cf25c2711c8eda5e9ebedab9258060cd9ec7b"
+    }
+  ],
+  "unlinked_dependency_alias_target": "/Users/nnandal/Documents/code/hockey-stats/app/node_modules",
+  "shared_dependency_target_present": true,
+  "ports_free": [
+    3111,
+    3112,
+    3113,
+    3114
+  ],
+  "scope": "temporary campaign controllers, attributed converter, browser dependency and profiles, disposable rollback and fixture candidates, and local build output. retained original capture fixtures, checked facts, actual downloads and evidence receipts, frozen producer checkouts and every external real artifact."
+}

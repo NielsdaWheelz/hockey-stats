@@ -4,6 +4,7 @@ from collections import Counter
 import hashlib
 from pathlib import Path
 
+from .input_locations import input_path
 from .captures import read_capture, strict_json
 from .corpus_inputs import IDENTITY_FIELDS, require
 from .interpret import game_identity, clock_seconds
@@ -43,15 +44,16 @@ def _bound_sources(document, consumed):
         path = Path(bound["capture_path"])
         require(path.name == "capture.json" and path.parent.name == source, path, "contradictory capture locator")
         capture = read_capture(path.parent.parent, source)
-        require(capture.capture_path == path.resolve(), path, "capture locator differs")
+        physical = input_path(path)
+        require(capture.capture_path == physical, path, "capture locator differs")
         require((capture.requested_at, capture.http_status, capture.body_sha256)
                 == (bound["requested_at"], bound["http_status"], bound["body_sha256"]),
                 path, "capture differs from frozen input")
         promised = bound["requested_at"] is not None or bound["body_sha256"] is not None or bound["status"] == "parsed"
-        require(not promised or path.is_file(), path, "promised capture receipt is missing")
+        require(not promised or physical.is_file(), path, "promised capture receipt is missing")
         require(capture.requested_game_id in (None, document["game"]["game_id"]), path, "capture game identity differs")
-        if path.is_file():
-            consumed.append(dict(kind="scoring-credit-capture", path=str(path), sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
+        if physical.is_file():
+            consumed.append(dict(kind="scoring-credit-capture", path=str(path), sha256=hashlib.sha256(physical.read_bytes()).hexdigest()))
         if capture.body_sha256 is not None:
             consumed.append(dict(kind="scoring-credit-body", path=str(path.parent / "body.bin"), sha256=capture.body_sha256))
         references[source] = dict(source=source, capture_path=str(path), body_sha256=capture.body_sha256)

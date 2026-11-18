@@ -16,6 +16,7 @@ from typing import TYPE_CHECKING, TypedDict
 import numpy as np
 from scipy import sparse
 
+from .input_locations import input_path, same_input_reference
 from .artifacts import (
     clean_implementation,
     digest,
@@ -704,7 +705,7 @@ def read_history_source_slice(result_ref: ArtifactReference | Path | str) -> His
     if isinstance(result_ref, (Path, str)):
         from .chance_cli import identity
 
-        result_path = Path(result_ref).resolve(strict=True)
+        result_path = input_path(result_ref, strict=True)
         result_ref = identity(result_path)
         result = _selected_artifact_metadata(read_json(result_path), "attribution_history_result", 1)
     else:
@@ -1309,13 +1310,15 @@ def read_resolution_source_slice(
         cell = tuple(document[name] for name in ("family", "population", "law"))
         require(cell in allowed and cell not in controls and document["purpose"] == purpose
                 and document["prepared"] == result["prepared"] and document["protocol"] == result["protocol"]
-                and document["source_result"] == source.reference
+                and same_input_reference(document["source_result"], source.reference)
                 and document["source_producer"] == source.result["implementation"]
                 and document["geometry"] == prepared["geometry"] and document["split"] == split
                 and document["prior_variances"] == variances and document["basis_columns"]["11"] == list(range(11))
                 and document["current_player_ids"] == players and document["union_player_ids"] == union
-                and document["consumed"] == dict(prepared=result["prepared"], protocol=result["protocol"],
-                    source_result=source.reference, arrays=document["arrays"]["arrays"])
+                and document["consumed"].keys() == {"prepared", "protocol", "source_result", "arrays"}
+                and all(same_input_reference(document["consumed"][key], value) for key, value in
+                    dict(prepared=result["prepared"], protocol=result["protocol"],
+                         source_result=source.reference, arrays=document["arrays"]["arrays"]).items())
                 and reference in result["consumed"].values()
                 and document["nomination"] is None and document["admission"] == "not_admitted" and document["handoff"] is None,
                 "duplicate, foreign or mismatched selected eleven-mode control")
@@ -2114,7 +2117,7 @@ def _read_arrays(path: Path, shapes: dict) -> dict[str, np.ndarray]:
 
 def read_revision_prepared(path: Path | str) -> dict:
     """read schema 2 only; source schema 1 is an explicitly bound control."""
-    document = read_json(Path(path).resolve(strict=True))
+    document = read_json(input_path(path, strict=True))
     require(
         type(document) is dict
         and type(document.get("schema_version")) is int
@@ -2213,7 +2216,7 @@ def read_recovery_prepared(path: Path | str) -> dict:
     if document["purpose"] == "research":
         require(document["implementation"] == protocol["implementation"],
                 "recovery preparation producer differs from frozen model")
-        require(Path(path).resolve(strict=True).is_relative_to(Path(protocol["output_root"]))
+        require(input_path(path, strict=True).is_relative_to(input_path(protocol["output_root"]))
                 and Path(protocol["output_root"]).is_relative_to(Path("/Volumes/Expansion/hockey-stats/runs")),
                 "research preparation escaped frozen external output root")
     linked_path(document["basis"])
@@ -2462,7 +2465,7 @@ def read_empirical_source(result_ref: ArtifactReference, basis_ref: ArtifactRefe
                     for row in selection["corpora"]),
             "empirical date corpus is absent from the frozen source selection")
     corpus_inputs = []
-    corpus, inventory, _ = load_corpus(Path(corpus_ref["path"]).resolve(strict=True), corpus_inputs)
+    corpus, inventory, _ = load_corpus(input_path(corpus_ref["path"], strict=True), corpus_inputs)
     require(corpus_inputs[0]["sha256"] == corpus_ref["sha256"]
             and corpus["reference"]["requested_season"] == RESEARCH_SEASONS[-1]
             and len(inventory) == 1312, "empirical final date corpus digest or admitted inventory differs")
@@ -2612,7 +2615,7 @@ def read_empirical_fixture(path: Path | str) -> EmpiricalSource:
     from .attribution import decode_shape_basis
     from .chance_cli import identity
 
-    path = Path(path).resolve(strict=True)
+    path = input_path(path, strict=True)
     document = read_json(path)
     require(document["kind"] == "attribution_empirical_fixture" and document["schema_version"] == 1
             and document["purpose"] == "fixture_exercise" and len(document["years"]) == 3
@@ -2620,7 +2623,7 @@ def read_empirical_fixture(path: Path | str) -> EmpiricalSource:
             "empirical fixture requires three explicit synthetic counted seasons")
 
     def reference(value):
-        return dict(path=str((path.parent/value["path"]).resolve(strict=True)), sha256=value["sha256"])
+        return dict(path=str(input_path(path.parent/value["path"], strict=True)), sha256=value["sha256"])
 
     for value in document["sources"].values():
         linked_path(reference(value))
@@ -2908,7 +2911,7 @@ def read_complete_fixture(path):
     from .attribution import decode_shape_basis
     from .chance_cli import identity
 
-    path = Path(path).resolve(strict=True)
+    path = input_path(path, strict=True)
     document = read_json(path)
     require(
         document["kind"] == "attribution_complete_fixture"
@@ -2920,7 +2923,7 @@ def read_complete_fixture(path):
 
     def ref(value):
         return dict(
-            path=str((path.parent / value["path"]).resolve(strict=True)),
+            path=str(input_path(path.parent / value["path"], strict=True)),
             sha256=value["sha256"],
         )
 
@@ -3568,7 +3571,7 @@ def exact_shape_reuse_proofs(original_trainings, corrected_trainings, fit_docume
 
 def _fixture_reference(reference, root):
     return dict(
-        path=str((root / reference["path"]).resolve(strict=True)),
+        path=str(input_path(root / reference["path"], strict=True)),
         sha256=reference["sha256"],
     )
 
@@ -3757,7 +3760,7 @@ def read_context_fixture(path):
     from .artifacts import rows
     from .chance_cli import identity
 
-    path = Path(path).resolve(strict=True)
+    path = input_path(path, strict=True)
     document = read_json(path)
     require(document["kind"] == "attribution_context_fixture" and document["schema_version"] == 1
             and document["purpose"] == "fixture_exercise" and len(document["years"]) == 5
@@ -3765,7 +3768,7 @@ def read_context_fixture(path):
     def ref(value):
         require(set(value) == {"path", "sha256"} and not Path(value["path"]).is_absolute(),
                 "fixture reference requires a declared relative path and sha256")
-        return dict(path=str((path.parent/value["path"]).resolve(strict=True)), sha256=value["sha256"])
+        return dict(path=str(input_path(path.parent/value["path"], strict=True)), sha256=value["sha256"])
     basis_ref = ref(document["basis"]["arrays"])
     with np.load(linked_path(basis_ref), allow_pickle=False) as data:
         basis = decode_shape_basis({name: data[name] for name in data.files}, basis_sha256=document["basis"]["basis_sha256"])

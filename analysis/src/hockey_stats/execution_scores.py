@@ -11,6 +11,7 @@ from time import perf_counter
 
 import numpy as np
 
+from .input_locations import input_path
 from .artifacts import (
     decode_jsonl_line, digest, implementation, json_line, read_jsonl, require,
     require_count, require_fields, require_number, require_season_label, write_json, write_jsonl,
@@ -303,7 +304,8 @@ def write_execution_scores(prepared, coaches, state, output):
     from .execution_state import read_execution_state
 
     started = perf_counter()
-    prepared_manifest = read_json(Path(prepared) / 'manifest.json' if Path(prepared).is_dir() else Path(prepared))
+    prepared_path = input_path(prepared, strict=True)
+    prepared_manifest = read_json(prepared_path / 'manifest.json' if prepared_path.is_dir() else prepared_path)
     require(type(prepared_manifest) is dict and prepared_manifest.get('purpose') in ('real', 'fixture'), 'invalid prepared manifest purpose')
     purpose = prepared_manifest['purpose']
     prepared = read_prepared(prepared, purpose)
@@ -311,7 +313,7 @@ def write_execution_scores(prepared, coaches, state, output):
     require(state.usage == 'annual' and all(state.heads[h]['status'] == 'complete' for h in HEADS), 'scoring requires a complete annual state')
     season = state.manifest['season']
     input_seconds = perf_counter() - started
-    output = output_path(str(output), [str(prepared.directory), str(Path(coaches).resolve().parent), str(state.path.parent)])
+    output = output_path(str(output), [str(prepared.directory), str(input_path(coaches).parent), str(state.path.parent)])
     began = perf_counter()
     design = execution.prepare_execution(prepared, coaches, RECIPE, season)
     design_seconds = perf_counter() - began
@@ -445,7 +447,7 @@ class ExecutionScores:
 def read_execution_scores(path, expected_purpose, *, physical_state=None):
     """validate saved internal relationships only; provenance locators are never reopened."""
     try:
-        path = Path(path).resolve(strict=True)
+        path = input_path(path, strict=True)
         path = path / 'manifest.json' if path.is_dir() else path
         require(path.name == 'manifest.json', 'execution scores locator must be manifest.json')
         require(physical_state is None or all(type(value) is int for value in physical_state)

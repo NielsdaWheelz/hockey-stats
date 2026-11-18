@@ -5,6 +5,7 @@ import hashlib
 from pathlib import Path
 from time import perf_counter
 
+from .input_locations import input_path, same_input_reference
 from . import analysis_publication as publication
 from .artifacts import implementation_identity, require, write_json
 from .captures import strict_json
@@ -119,7 +120,7 @@ def compose_mechanisms(existing_results, selection_path, output):
     existing = publication.read_results(Path(existing_results))
     selection = read_mechanism_selection(selection_path,existing.manifest['purpose'])
     source_binding = identity(existing.directory/'manifest.json')
-    require(selection['source_results'] == source_binding, 'selected current-schema mechanism donor differs')
+    require(same_input_reference(selection['source_results'], source_binding), 'selected current-schema mechanism donor differs')
     require(selection['prepared']['sha256'] == existing.manifest['prepared_sha256'], 'mechanism donor preparation differs')
     for record in existing.manifest['families']:
         if record['family'] in ('penalties','shootiness') and record['availability'] == 'provided':
@@ -139,7 +140,7 @@ def compose_mechanisms(existing_results, selection_path, output):
                 require(all(state.manifest['coaches'][key] == value for key,value in selection['coaches'].items()), 'mechanism annual coaches differ')
             annuals[year][family] = state
         for name in ('ev_state','st_state'):
-            manifest = strict_json(Path(item[name]['path']).read_bytes())
+            manifest = strict_json(input_path(item[name]['path'], strict=True).read_bytes())
             require(manifest['season'] == year and manifest['prepared']['sha256'] == selection['prepared']['sha256']
                     and manifest['valued']['sha256'] == item['execution_score']['sha256'], 'minor input numerical lineage differs')
         for family in ('ev','st'):
@@ -365,7 +366,7 @@ def compose_territory(current_results,selection_path,output):
     from .chance_cli import read_json
     began=perf_counter();existing=publication.read_results(Path(current_results))
     selection=read_territory_selection(selection_path,existing.manifest['purpose']);source=identity(existing.directory/'manifest.json')
-    require(selection['source_results']==source and selection['prepared']['sha256']==existing.manifest['prepared_sha256'],
+    require(same_input_reference(selection['source_results'],source) and selection['prepared']['sha256']==existing.manifest['prepared_sha256'],
             'territory current donor/preparation selection differs')
     annuals={};inherited={}
     for item in selection['years']:

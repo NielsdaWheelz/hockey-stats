@@ -10,6 +10,7 @@ import resource
 import subprocess
 import time
 
+from .input_locations import input_path
 from .captures import InputContractError, strict_json
 from .interpret import Interpretation
 
@@ -115,7 +116,7 @@ def decode_jsonl_line(path, number, line):
 
 
 def read_jsonl(path):
-    with path.open('rb') as source:
+    with input_path(path, strict=True).open('rb') as source:
         for number, line in enumerate(source, 1):
             yield decode_jsonl_line(path, number, line)
 
@@ -155,7 +156,7 @@ def absolute_path(value):
         isinstance(value, str) and Path(value).is_absolute(),
         "artifact paths must be absolute",
     )
-    return Path(value).resolve(strict=True)
+    return input_path(value, strict=True)
 
 
 def linked_path(reference):
@@ -188,7 +189,7 @@ def resources(started):
 
 
 def rows(path):
-    with path.open(encoding="utf-8") as source:
+    with input_path(path).open(encoding="utf-8") as source:
         for index, line in enumerate(source):
             try:
                 value = strict_json(line.encode())
@@ -254,7 +255,7 @@ def read_artifact(path: Path | str, kind: str, *, expected_schema: int = 3) -> d
     from .chance_cli import read_json
 
     require(type(expected_schema) is int and expected_schema in (1, 3, 4, 5), "unsupported artifact schema")
-    document = read_json(Path(path).resolve(strict=True))
+    document = read_json(input_path(path, strict=True))
     require(isinstance(document, dict) and type(document.get("schema_version")) is int
             and document["schema_version"] == expected_schema and document.get("kind") == kind
             and document.get("purpose") in ("research", "fixture_exercise"),

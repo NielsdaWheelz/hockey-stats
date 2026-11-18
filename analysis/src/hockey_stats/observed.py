@@ -9,6 +9,7 @@ import re
 from itertools import combinations, product
 from typing import Literal
 
+from .input_locations import input_path
 from .corpus_inputs import (
     array, integer, load_corpus, object_fields, read_document, require,
     schema, text, validate_envelope, validate_provenance,
@@ -737,7 +738,7 @@ def aggregate(corpus_path: Path | str, purpose: Purpose, expected_season: str, e
             "observed", "expected canonical consecutive-year season")
     require(type(expected_sha256) is str and re.fullmatch(r"[0-9a-f]{64}", expected_sha256),
             "observed", "expected lowercase sha256")
-    path = Path(corpus_path).resolve(strict=True)
+    path = input_path(corpus_path, strict=True)
     inputs = []
     corpus, inventory, ledger = load_corpus(path, inputs)
     season = corpus["reference"]["requested_season"]

@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import sys
 
+from .input_locations import input_path
 from .artifacts import implementation_identity, write_json
 from .captures import InputContractError, strict_json
 from .cli import Once
@@ -14,13 +15,13 @@ from .cli import Once
 
 def read_json(path: Path) -> object:
     try:
-        return strict_json(path.read_bytes())
+        return strict_json(input_path(path, strict=True).read_bytes())
     except ValueError as error:
         raise InputContractError(f"{path}: invalid finite json: {error}") from error
 
 
 def identity(path: Path) -> dict:
-    with path.open("rb") as source:
+    with input_path(path, strict=True).open("rb") as source:
         digest = hashlib.file_digest(source, "sha256").hexdigest()
     return {"path": str(path), "sha256": digest}
 
@@ -41,7 +42,7 @@ def output_path(value: str, roots: list[str]) -> Path:
             f"{parent}: output parent must be an existing directory"
         )
     output = parent / output.name
-    if any(output.is_relative_to(Path(root)) for root in roots):
+    if any(output.is_relative_to(input_path(root)) for root in roots):
         raise InputContractError(f"{output}: output must be outside input directories")
     return output
 
@@ -72,10 +73,8 @@ def main() -> int:
         import numpy
         import scipy
 
-        selection = Path(args.selection).resolve(strict=True)
-        auxiliary = Path(args.config if args.command == "fit" else args.model).resolve(
-            strict=True
-        )
+        selection = Path(args.selection).absolute()
+        auxiliary = input_path(args.config if args.command == "fit" else args.model, strict=True)
         prepared = prepare(selection)
         output = output_path(
             args.out,
@@ -116,7 +115,7 @@ def main() -> int:
             )
             resume, resumed_from = None, None
             if args.resume is not None:
-                checkpoint_path = Path(args.resume).resolve(strict=True)
+                checkpoint_path = input_path(args.resume, strict=True)
                 document = read_json(checkpoint_path)
                 if (
                     not isinstance(document, dict)

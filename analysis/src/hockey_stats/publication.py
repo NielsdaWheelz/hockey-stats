@@ -16,6 +16,7 @@ import sys
 import time
 import uuid
 
+from .input_locations import input_path
 from .artifacts import implementation_identity, linked_path, require, write_json
 from .captures import strict_json
 from . import analysis_publication as analysis
@@ -295,7 +296,7 @@ def _validate_personal(metrics, on_ice, loc):
 
 def read_selection(selection_path):
     """decode the bounded publication selection, independently of research selections."""
-    path = Path(selection_path).resolve(strict=True)
+    path = input_path(selection_path, strict=True)
     data = path.read_bytes()
     value = strict_json(data)
     require(type(value) is dict and set(value) == {"schema_version", "purpose", "corpora"},
@@ -650,7 +651,7 @@ def build_publication(selection_path: Path, results_path: Path, output: Path) ->
                 "corpus_sha256": result.corpus_sha256,
                 "coverage": {key: value for key, value in result.coverage.items() if key not in ("unassigned_games", "reason_game_counts")},
                 "spatial_coverage": result.spatial_coverage, "checks": checks})
-            consumed_bytes += sum(Path(row["path"]).stat().st_size for row in result.receipt["consumed"])
+            consumed_bytes += sum(input_path(row["path"], strict=True).stat().st_size for row in result.receipt["consumed"])
             del result, tables, rows, season_verification
         with connection:
             analysis.insert_results(connection,results)

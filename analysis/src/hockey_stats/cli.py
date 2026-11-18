@@ -9,6 +9,7 @@ import stat
 import sys
 import time
 
+from .input_locations import input_path
 from .artifacts import implementation_identity, write_json
 from .captures import InputContractError
 from .interpret import GameDocument, interpret_game
@@ -71,7 +72,7 @@ def invoke(reconstruct: bool = False) -> int:
     parser.add_argument("--out", required=True, action=Once, metavar="FILE")
     args = parser.parse_args()
     try:
-        directory = Path(args.capture).resolve(strict=True)
+        directory = input_path(args.capture, strict=True)
         if not stat.S_ISDIR(directory.stat().st_mode):
             raise InputContractError(f"{directory}: capture must be an existing directory; select a capture directory")
         output = Path(args.out).absolute()
@@ -158,8 +159,8 @@ def corpus_main() -> int:
     from .references import interpret_references
 
     try:
-        reference = Path(args.reference).resolve(strict=True)
-        games = Path(args.games).resolve(strict=True)
+        reference = input_path(args.reference, strict=True)
+        games = input_path(args.games, strict=True)
         for root in (reference, games):
             if not stat.S_ISDIR(root.stat().st_mode):
                 raise InputContractError(f"{root}: input must be an existing directory")
@@ -296,8 +297,8 @@ def features_main() -> int:
         import numpy
         import scipy
 
-        selection = Path(args.selection).resolve(strict=True)
-        config_path = Path(args.config).resolve(strict=True)
+        selection = input_path(args.selection, strict=True)
+        config_path = input_path(args.config, strict=True)
         config = validate_config(read_json(config_path))
         prepared = prepare(selection)
         output = output_path(args.out, prepared["input_roots"] + [str(selection.parent), str(config_path.parent)])

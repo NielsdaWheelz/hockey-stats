@@ -8,6 +8,7 @@ import math
 from pathlib import Path
 import re
 
+from .input_locations import input_path
 
 SOURCES = ("play-by-play", "boxscore", "shifts", "game-summary", "play-report", "landing")
 REFERENCE_SOURCES = ("season-summary", "season-games", "skater-bios", "goalie-bios")
@@ -124,7 +125,7 @@ def _read_capture(directory: Path, source: str, *, reference: bool,
     InputContractError, while filesystem failures propagate as OSError.
     """
     receipt = SkatingCapture if skating else ReferenceCapture if reference else Capture
-    path = (directory / source / "capture.json").resolve()
+    path = input_path(directory / source / "capture.json")
     try:
         metadata_bytes = path.read_bytes()
     except FileNotFoundError as error:
@@ -247,7 +248,7 @@ def _read_capture(directory: Path, source: str, *, reference: bool,
     require(type(length) is int and length >= 0, "body.bytes must be a nonnegative integer")
     require(isinstance(digest, str) and re.fullmatch(r"[0-9a-f]{64}", digest) is not None,
             "body.sha256 must be a lowercase sha-256 digest")
-    body_path = directory / source / "body.bin"
+    body_path = path.parent / "body.bin"
     try:
         body_bytes = body_path.read_bytes()
     except FileNotFoundError as error:

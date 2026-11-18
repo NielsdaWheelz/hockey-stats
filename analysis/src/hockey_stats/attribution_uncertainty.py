@@ -8,6 +8,7 @@ import time
 
 import numpy as np
 
+from .input_locations import input_path, same_input_reference
 from .artifacts import digest, linked_path, ordered_array_digest, require, resources
 from .attribution_data import RevisionPopulation
 from .captures import InputContractError
@@ -135,7 +136,7 @@ def exact_duplicate_groups(populations: dict, seasons: list[str], *, benchmarks:
 def load_native_04b_refit_inputs(prepared: Path | str) -> RefitInputs:
     from .attribution_data import load_grouped_population, read_revision_prepared
 
-    path = Path(prepared).resolve(strict=True)
+    path = input_path(prepared, strict=True)
     document = read_revision_prepared(path)
     protocol = read_json(linked_path(document["protocol"]))
     populations = {(benchmark, season): load_grouped_population(path, benchmark, season)
@@ -446,7 +447,7 @@ def summarize_native_04b_refits(prepared: Path | str, fits: Path | str, ranges: 
     from .attribution import read_native_04b_fits
 
     inputs = load_native_04b_refit_inputs(prepared)
-    fit_reference = identity(Path(fits).resolve(strict=True))
+    fit_reference = identity(input_path(fits, strict=True))
     _, states = read_native_04b_fits(fits)
     requests = native_04b_projection_requests(states, inputs.document["pairs"], inputs.document["target_season"])
     request_sha = request_identity(requests)
@@ -460,10 +461,11 @@ def summarize_native_04b_refits(prepared: Path | str, fits: Path | str, ranges: 
     draw_values, error_ids, scale_count, unresolved, inherited = {}, [], 0, 0, 0
     requested_ids = set()
     for range_path in ranges:
-        document = read_json(Path(range_path).resolve(strict=True))
+        document = read_json(input_path(range_path, strict=True))
         require(type(document["schema_version"]) is int and document["schema_version"] == 2
                 and document["kind"] == "attribution_refit_range" and document["purpose"] == inputs.document["purpose"]
-                and document["prepared"] == inputs.reference and document["fits"] == fit_reference
+                and same_input_reference(document["prepared"], inputs.reference)
+                and same_input_reference(document["fits"], fit_reference)
                 and document["protocol"] == inputs.document["protocol"]
                 and document["request_sha256"] == request_sha and document["requests"] == requests,
                 "refit range identity differs from requested assessment")

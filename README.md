@@ -19,6 +19,10 @@ the product direction is settled: interpretable, history-informed estimates of 5
 
 the long-term goal is to replicate hockeyviz's player-card and component-analysis capabilities and jfresh's player cards, built piece by piece. [card references](docs/research/player-card-references.md) record the distinction between that destination and the initial target.
 
+## local storage
+
+code lives in this repository. retained local data and evidence live under `~/Documents/hockey-stats`; bulk inputs and expensive outputs remain under `/Volumes/Expansion/hockey-stats`. [storage and historical locators](docs/storage.md) records the exact layout, reader contract and current serving path. new task worktrees belong under `~/Documents/code/.worktrees/hockey-stats/` and contain no uniquely retained output.
+
 ## private observed results
 
 the localhost-only website shows included recorded 5v5 results: personal shots on goal, goals and primary assists alongside team attempts while on ice. each population has its own matched time, rates and coverage. search/sort the league table, filter by reported position, listed season team and minimum included minutes, then open a compact observed profile, inspect peer distributions and game evidence, or compare two players. spatial views add matched recorded unblocked attempts for/against, shown against the included league average or as absolute rates. these observed quantities remain unadjusted. separately labeled experimental execution estimates and reference xg are available in the active schema8 publication; their activation does not establish scientific admission. comparative cards place the five recorded rates among explicitly selected peers; higher percentile always means a higher recorded rate, including opponent attempts. [observed-results contract](docs/specs/05a-observed-website.md) · [05a verification](docs/research/observed-05a/verification.md) · [comparison contract](docs/specs/05b-observed-comparison.md) · [05b verification](docs/research/observed-05b/verification.md) · [explorer contract](docs/specs/05c-player-explorer.md) · [05c verification](docs/research/observed-05c/verification.md) · [descriptive-card contract](docs/specs/05d-descriptive-cards.md) · [05d verification](docs/research/observed-05d/verification.md) · [spatial contract](docs/specs/05e-spatial-views.md) · [05e verification](docs/research/observed-05e/verification.md) · [comparative-card contract](docs/specs/05f-comparative-observed-cards.md) · [05f verification](docs/research/observed-05f/verification.md)
@@ -38,7 +42,7 @@ node --version
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /absolute/schema-8-candidate/player-analysis.sqlite --port 3067
+npm run serve -- --publication /absolute/schema-11-candidate/player-analysis.sqlite --port 3067
 ```
 
 to review another revision, build a separate checkout with the pinned node path above and serve it on a separate port:
@@ -48,10 +52,10 @@ cd /absolute/review-checkout/app
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /absolute/schema-8-candidate/player-analysis.sqlite --port 3067
+npm run serve -- --publication /absolute/schema-11-candidate/player-analysis.sqlite --port 3067
 ```
 
-open `http://127.0.0.1:3067/`. this revision reads schema 8 only. the active schema-8 publication and previous schema-7 rollback are tracked in [the current activation record](docs/research/execution-v1-06/activation.md), with their compatible builds. the normal application serves the local active database at `http://localhost:3000/`. use a separately built checkout and unused port to inspect another schema-8 candidate without replacing the active files. only its sqlite file is needed for browsing. rebuild compatible applications from git; no archived build is needed.
+open `http://127.0.0.1:3067/`. current source reads schema 11 only; the running schema-8 service still uses its unchanged compatible compiled build. build candidate reviews in a separate checkout. the active schema-8 publication and previous schema-7 rollback are tracked in [the current activation record](docs/research/execution-v1-06/activation.md), with their compatible builds. the normal application serves the local active database at `http://localhost:3000/`. use a separately built checkout and unused port to inspect another schema-8 candidate without replacing the active files. only its sqlite file is needed for browsing. rebuild compatible applications from git; no archived build is needed.
 
 the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python and external network are unnecessary for browsing. the selected sqlite file must remain accessible; an external drive is needed only when that file is stored there. stop it with ctrl-c before replacing the publication. no lan host option is provided.
 
@@ -84,7 +88,7 @@ the peer minute cutoff is a viewing rule, not evidence of reliability. each elig
 development’s api uses port 3000, so stop its existing server before that development workflow; separate built-candidate review leaves it running. development uses two terminals, each in `app/` with the pinned node executable first:
 
 ```sh
-npm run dev:api -- --publication /absolute/schema-8-candidate/player-analysis.sqlite
+npm run dev:api -- --publication /absolute/schema-11-candidate/player-analysis.sqlite
 ```
 
 ```sh
@@ -138,18 +142,18 @@ the typed api has five endpoints:
 for an explicitly assigned activation, check the candidate, stop serving, then copy/rotate explicitly:
 
 ```sh
-npm run publication -- check --candidate /absolute/schema-8-candidate/player-analysis.sqlite
-npm run publication -- activate --candidate /absolute/schema-8-candidate/player-analysis.sqlite --directory /absolute/publication
+npm run publication -- check --candidate /absolute/schema-11-candidate/player-analysis.sqlite
+npm run publication -- activate --candidate /absolute/schema-11-candidate/player-analysis.sqlite --directory /absolute/publication
 npm run serve -- --publication /absolute/publication/active.sqlite
 ```
 
-activation validates an exclusive incoming copy and reports its digest. it preserves an existing active file as opaque predecessor bytes and reports that byte identity; an incompatible predecessor is checked using its matching git build. exactly one `previous.sqlite` remains. to restore a schema-8 previous publication, stop serving, run the following, restart and reload:
+activation validates an exclusive incoming copy and reports its digest. it preserves an existing active file as opaque predecessor bytes and reports that byte identity; an incompatible predecessor is checked using its matching git build. exactly one `previous.sqlite` remains. to restore a schema-11 previous publication with current source, stop serving, run the following, restart and reload:
 
 ```sh
 npm run publication -- restore --directory /absolute/publication
 ```
 
-a cross-schema previous file requires the manual procedure below. the current source reads schema **8** only; it retains the authoritative observed reducers and their population/display versions. building/checking a candidate does not activate it, admit a model or complete real player cards. current pages present the supported observed journeys and [checked experimental execution views](docs/research/execution-v1-06/verification.md); direct goalie profiles show identity/history and the explicit unfinished-presentation message.
+a cross-schema previous file requires the manual procedure below. the current source reads schema **11** only; it retains the authoritative observed reducers and their population/display versions. building/checking a candidate does not activate it, admit a model or complete real player cards. the currently active schema-8 pages present the supported observed journeys and [checked experimental execution views](docs/research/execution-v1-06/verification.md); direct goalie profiles show identity/history and the explicit unfinished-presentation message.
 
 ### manual cross-version cutover and rollback
 

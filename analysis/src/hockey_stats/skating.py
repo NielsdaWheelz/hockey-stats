@@ -14,6 +14,7 @@ from pathlib import Path
 import re
 import sys
 
+from .input_locations import input_path
 from .artifacts import implementation_identity, require, write_json
 from .captures import InputContractError, read_reference_capture, read_skating_capture, skating_url, strict_json
 from .references import BIO_SKATER_SOURCE_FIELDS
@@ -65,13 +66,13 @@ def _timestamp(value):
 
 def _json(path):
     try:
-        return strict_json(path.read_bytes())
+        return strict_json(input_path(path, strict=True).read_bytes())
     except (ValueError, UnicodeError) as error:
         raise InputContractError(f"{path}: invalid finite unique-key json: {error}") from error
 
 
 def _hash(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    return hashlib.sha256(input_path(path, strict=True).read_bytes()).hexdigest()
 
 
 def _key(row):
@@ -246,7 +247,7 @@ def _validate(document, selection, expected_purpose):
             _text(row["receipt_path"], "receipt path")
             base = Path(document["selection"]["original_path"]).parent
             expected = Path(os.path.abspath(base / capture["directory"] / ("edge-skating-" + row["kind"]) / "capture.json"))
-            require(Path(row["receipt_path"]) == expected, "capture receipt path differs from original selection base")
+            require(input_path(row["receipt_path"]) == input_path(expected), "capture receipt path differs from original selection base")
             require(row["http_status"] is None or type(row["http_status"]) is int and 100 <= row["http_status"] <= 599, "invalid http status")
             if row["state"] == "captured":
                 require(row["http_status"] is not None and row["failure"] is None, "captured row needs status and null failure")
@@ -421,7 +422,7 @@ def _census(rows, seasons, captures, references, observations, contracts):
 
 def read_skating(path, expected_purpose):
     """validate compact facts and evidence links without opening original roots."""
-    path = Path(path).resolve(strict=True)
+    path = input_path(path, strict=True)
     document = _json(path)
     require(isinstance(document, dict) and isinstance(document.get("selection"), dict), "missing compact selection")
     link = document["selection"]
@@ -506,8 +507,8 @@ def _inspect_detail(body, request_id):
 
 def bind_skating(selection_path, output):
     """validate original selected evidence, then write one exclusive compact result."""
-    original = Path(selection_path).resolve(strict=True)
-    original_bytes = original.read_bytes()
+    original = Path(selection_path).absolute()
+    original_bytes = input_path(original, strict=True).read_bytes()
     selection = _selection(_json(original))
     base = original.parent
     output = Path(output).resolve()

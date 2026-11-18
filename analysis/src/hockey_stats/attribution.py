@@ -18,6 +18,7 @@ import numpy as np
 from scipy.linalg import cho_solve, eigh, solve_triangular
 from scipy.optimize import minimize, minimize_scalar
 
+from .input_locations import input_path
 from .artifacts import (
     artifact, clean_implementation, digest, implementation, linked_path, load_arrays,
     ordered_array_digest, read_artifact, require, resources,
@@ -2343,7 +2344,7 @@ def compare_negative_rates(candidate: AnnualState, native_04b: AnnualState, nati
 
 def read_control_annual(path: Path | str) -> ControlAnnual:
     """the only schema-1 path: read an immutable corrected scientific control."""
-    document = read_json(Path(path).resolve(strict=True))
+    document = read_json(input_path(path, strict=True))
     require(
         type(document["schema_version"]) is int
         and document["schema_version"] == 1
@@ -2519,7 +2520,7 @@ def read_control_annual(path: Path | str) -> ControlAnnual:
 
 def read_native_04b_annual(path: Path | str) -> AnnualState:
     """read schema 2 exclusively; block priors must match the preceding state."""
-    document = read_json(Path(path).resolve(strict=True))
+    document = read_json(input_path(path, strict=True))
     require(
         type(document["schema_version"]) is int
         and document["schema_version"] == 2
@@ -2879,7 +2880,7 @@ def validate_pooling_probe(probe: dict, state: AnnualState) -> bool:
 
 def read_pooling_source(path: Path | str) -> PoolingSource:
     """validate one fixed synthetic preparation before consuming annual states."""
-    path = Path(path).resolve(strict=True)
+    path = input_path(path, strict=True)
     prepared = read_artifact(path, "attribution_pooling_prepared", expected_schema=4)
     protocol = read_artifact(linked_path(prepared["protocol"]), "attribution_pooling_protocol", expected_schema=4)
     require(prepared["purpose"] == protocol["purpose"]
@@ -3059,7 +3060,7 @@ def write_pooling_annual(
     source, protocol, basis = context.prepared, context.protocol, context.basis
     statistics = statistics if isinstance(statistics, PoolingStatistics) else read_pooling_statistics(statistics, context)
     original = pooling_population(context, statistics, population, law, outer, state.season)
-    previous_path = None if previous is None else Path(previous).resolve(strict=True)
+    previous_path = None if previous is None else input_path(previous, strict=True)
     require(previous_path is not None or previous_state is None, "initial annual cannot supply a preceding state")
     prior = previous_state if previous_state is not None else (
         None if previous_path is None else read_pooling_annual(previous_path, source=context, statistics=statistics))
@@ -3825,7 +3826,7 @@ def write_recovery_annual(
     resolution_check: dict | None = None,
 ) -> dict:
     """write schema 3 with separate source preparation and model protocol bindings."""
-    prepared_path = Path(prepared).resolve(strict=True)
+    prepared_path = input_path(prepared, strict=True)
     document, source, protocol = _recovery_source(prepared_path)
     require(source_kind == "recorded" and state.source_protocol_sha256 == source["protocol"]["sha256"]
             and state.model_protocol_sha256 == document["model_protocol"]["sha256"],
@@ -3844,7 +3845,7 @@ def write_recovery_annual(
                 and np.array_equal(state.response_counts, references["response_counts"])
                 and (state.p is None or np.array_equal(state.p, references["p"])),
                 "recorded annual original source references differ")
-    previous_path = Path(previous).resolve(strict=True) if previous is not None else None
+    previous_path = input_path(previous, strict=True) if previous is not None else None
     output = output_path(str(out), [str(prepared_path.parent),
                                   *([str(previous_path.parent)] if previous_path else [])])
     require(output.is_relative_to(Path(protocol["output_root"]).resolve()),
@@ -3893,7 +3894,7 @@ def write_recovery_annual(
 
 def read_recovery_annual(path: Path | str) -> AnnualState:
     """schema 3 exclusively; source and chronological model contracts are independent."""
-    document = read_json(Path(path).resolve(strict=True))
+    document = read_json(input_path(path, strict=True))
     require(type(document.get("schema_version")) is int and document["schema_version"] == 3
             and document.get("kind") == "attribution_recovery_annual" and document.get("source_kind") == "recorded",
             "expected recovery annual state")
@@ -4139,7 +4140,7 @@ def bounded_shape_resolution_check(
 
 def read_native_04b_fits(path: Path | str) -> tuple[dict, dict[tuple[str, str], AnnualState]]:
     """consume exactly the manifest's states; never infer a completed directory."""
-    document = read_json(Path(path).resolve(strict=True))
+    document = read_json(input_path(path, strict=True))
     require(
         type(document["schema_version"]) is int
         and document["schema_version"] == 2

@@ -11,10 +11,12 @@ import time
 
 import numpy as np
 
+from .input_locations import input_path, same_input_reference
 from .artifacts import (
     agrees, clean_implementation, implementation, linked_path, require, resources, write_json,
 )
 from .chance_cli import identity, output_path, read_json
+from .chance_data import selection_locations
 from .chance_features import PREPARATION_IDENTITY
 
 
@@ -40,16 +42,13 @@ def source_identities(prepared):
 def validate_prepared_selection(prepared, selection):
     """bind a supplied native preparation to the actual selection bytes."""
     reference = identity(selection)
-    require([value for value in prepared["inputs"] if value["kind"] == "selection"] ==
-            [dict(kind="selection", **reference)], "prepared selection identity mismatch")
+    selected = [value for value in prepared["inputs"] if value["kind"] == "selection"]
+    require(len(selected) == 1 and same_input_reference(selected[0], dict(kind="selection", **reference)),
+            "prepared selection identity mismatch")
     document = read_json(selection)
-    for corpus in document["corpora"]:
-        corpus["path"] = str((selection.parent / corpus["path"]).resolve(strict=True))
-    document["history_corpora"] = [
-        str((selection.parent / path).resolve(strict=True))
-        for path in document["history_corpora"]
-    ]
-    require(prepared["selection"] == document and prepared["purpose"] == document["purpose"] and
+    require(selection_locations(prepared["selection"], selection.parent, strict=True)
+            == selection_locations(document, selection.parent, strict=True)
+            and prepared["purpose"] == document["purpose"] and
             prepared["preparation_identity"] == PREPARATION_IDENTITY,
             "prepared selection content or preparation identity mismatch")
 
@@ -89,10 +88,10 @@ def fit_prepared(args, prepared, *, started=None):
 
     if started is None:
         started = time.monotonic()
-    selection = Path(args.selection).resolve(strict=True)
-    cohort_path = Path(args.cohort).resolve(strict=True)
-    config_path = Path(args.config).resolve(strict=True)
-    protocol = Path(args.protocol).resolve(strict=True)
+    selection = Path(args.selection).absolute()
+    cohort_path = input_path(args.cohort, strict=True)
+    config_path = input_path(args.config, strict=True)
+    protocol = input_path(args.protocol, strict=True)
     validate_prepared_selection(prepared, selection)
     cohort = validate_cohort(read_json(cohort_path), prepared)
     require(cohort["quantity"] == args.quantity, "training cohort quantity mismatch")
@@ -132,11 +131,9 @@ def selection_reference(cohort):
             {"schema_version", "purpose", "corpora", "history_corpora"} and
             type(selected["schema_version"]) is int and selected["schema_version"] == 2 and
             selected["purpose"] == cohort["purpose"], "invalid native cohort selection")
-    for entry in selected["corpora"]:
-        entry["path"] = str((path.parent / entry["path"]).resolve(strict=True))
-    selected["history_corpora"] = [str((path.parent / value).resolve(strict=True))
-                                  for value in selected["history_corpora"]]
-    require(selected == cohort["selection"], "consumed selection differs from cohort selection")
+    base = Path(reference["path"]).parent
+    require(selection_locations(selected, base, strict=True) == selection_locations(cohort["selection"], base, strict=True),
+            "consumed selection differs from cohort selection")
     return reference
 
 

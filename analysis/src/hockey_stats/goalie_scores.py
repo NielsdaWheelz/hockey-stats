@@ -11,6 +11,7 @@ from time import perf_counter
 import numpy as np
 from scipy.special import expit, log_expit, logsumexp
 
+from .input_locations import input_path, same_input_reference
 from .artifacts import (
     digest, implementation, json_line, read_jsonl, require, require_count,
     require_fields, require_number, require_season_label, write_json, write_jsonl,
@@ -947,18 +948,19 @@ def score_goalie(state, prepared, coaches, annual_execution_scores, output):
     from .goalie_state import GoalieState, read_goalie_state, read_goalie_probe
     started=perf_counter()
     if not isinstance(state,GoalieState):
-        header=read_json(Path(state)/'manifest.json' if Path(state).is_dir() else Path(state))
+        state_path=input_path(state,strict=True)
+        header=read_json(state_path/'manifest.json' if state_path.is_dir() else state_path)
         require(type(header) is dict and header.get('purpose') in ('real','fixture'),'invalid goalie state manifest purpose')
         state=read_goalie_state(state,header['purpose'])
     require(state.usage=='annual','goalie scores require the original annual baseline')
     if not isinstance(prepared,PreparedManifest):
         prepared=read_prepared(prepared,state.manifest['purpose'])
-    output=output_path(str(output),[str(prepared.directory),str(state.path.parent),str(Path(coaches).resolve().parent)])
+    output=output_path(str(output),[str(prepared.directory),str(state.path.parent),str(input_path(coaches).parent)])
     if state.manifest['purpose']=='real':
         require(output.is_relative_to('/Volumes/Expansion/hockey-stats'),'expensive real outputs must be external')
     design=prepare_goalie_scoring(prepared,coaches,annual_execution_scores,state.manifest['season'])
     for name in ('prepared','coaches','base_state','base_scores'):
-        require(state.manifest[name]==getattr(design,name),'goalie scoring '+name+' binding differs')
+        require(same_input_reference(state.manifest[name],getattr(design,name)),'goalie scoring '+name+' binding differs')
     require(list(design.targets)==state.coverage['targets'],'goalie scoring target replay differs from fitted targets')
     source=goalie_source_season(prepared,design.season,list(design.source_games))
     base_state,base_scores=design.execution_state,design.execution_scores
@@ -1069,7 +1071,7 @@ def read_goalie_projection_evidence(score_manifest,expected_binding):
     from .execution_design import RECIPE as BASE_RECIPE
     require_fields(expected_binding,('season','purpose','prepared_sha256','score_sha256','method','base_method','player_ids'),
                    'goalie projection selection')
-    path=Path(score_manifest).resolve(strict=True)
+    path=input_path(score_manifest, strict=True)
     path=path/'manifest.json' if path.is_dir() else path
     require(path.name=='manifest.json','goalie projection locator must be manifest.json')
     digest(expected_binding['score_sha256']);digest(expected_binding['prepared_sha256'])
@@ -1134,7 +1136,7 @@ def read_goalie_projection_evidence(score_manifest,expected_binding):
 def read_goalie_scores(path,expected_purpose):
     """read and validate only members contained in this annual score artifact."""
     try:
-        path=Path(path).resolve(strict=True)
+        path=input_path(path, strict=True)
         path=path/'manifest.json' if path.is_dir() else path
         require(path.name=='manifest.json','goalie scores locator must be manifest.json')
         return _validate_scores(path,read_json(path),expected_purpose)

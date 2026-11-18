@@ -6,6 +6,7 @@ from itertools import groupby
 from pathlib import Path
 from time import perf_counter
 
+from .input_locations import input_path
 from . import analysis_publication as publication
 from .analysis_data import read_prepared
 from .artifacts import implementation_identity, require, resources, write_json
@@ -19,7 +20,7 @@ ACCEPTED_SCORES_SHA256 = '588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e
 def _annuals(selection_path, existing, prepared, base_scores):
     from .goalie_scores import read_goalie_scores
 
-    selection = strict_json(Path(selection_path).read_bytes())
+    selection = strict_json(input_path(selection_path, strict=True).read_bytes())
     publication.fields(selection,('schema_version','purpose','prepared_sha256','scores'))
     require(type(selection['schema_version']) is int and selection['schema_version'] == 1
             and selection['purpose'] == existing.manifest['purpose']
@@ -35,7 +36,7 @@ def _annuals(selection_path, existing, prepared, base_scores):
     require(set(existing.manifest['seasons']) <= set(years), 'goalie scores omit a displayed season')
     annuals = {}
     for selected in selection['scores']:
-        path = Path(selected['path'])
+        path = input_path(selected['path'], strict=True)
         path = path/'manifest.json' if path.is_dir() else path
         require(identity(path)['sha256'] == selected['sha256'], 'selected goalie score digest differs')
         annual = read_goalie_scores(path,selection['purpose'])
@@ -91,7 +92,7 @@ def compose_goalie(prepared, combined_results, annual_goalie_scores, output):
     if existing.manifest['purpose'] == 'real':
         selection_path = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores-selection.json')
         require(identity(selection_path)['sha256'] == ACCEPTED_SCORES_SHA256, 'accepted execution selection digest differs')
-        base_scores = {row['season']:row['sha256'] for row in strict_json(selection_path.read_bytes())['scores']}
+        base_scores = {row['season']:row['sha256'] for row in strict_json(input_path(selection_path, strict=True).read_bytes())['scores']}
     selection,annuals = _annuals(annual_goalie_scores,existing,prepared,base_scores)
     require(not any(output.is_relative_to(root) for root in
         [existing.directory,prepared.directory,*[annual.path.parent for annual in annuals.values()]]), 'goalie output must be outside input directories')

@@ -13,6 +13,7 @@ import numpy as np
 from scipy.sparse import csr_matrix
 from scipy.special import logsumexp
 
+from .input_locations import input_path
 from .analysis_data import (PreparedManifest, read_prepared, read_prepared_game,
                             read_prepared_people)
 from .analysis_context import shift_start_precedes_event
@@ -196,7 +197,7 @@ class ExecutionSources:
 
 
 def _sha(path):
-    with Path(path).open("rb") as source:
+    with input_path(path, strict=True).open("rb") as source:
         return hashlib.file_digest(source, "sha256").hexdigest()
 
 
@@ -811,15 +812,15 @@ def prepare_execution_sources(base_prepared, coaches, season, *, game_reducer=No
     prepared_identity = {"path": str(prepared.directory / "manifest.json"),
                          "sha256": _sha(prepared.directory / "manifest.json")}
     _require(isinstance(coaches, (str, Path)), "coaches must be its explicit artifact path")
-    coach_path = Path(coaches).resolve()
+    coach_path = input_path(coaches, strict=True)
     coach_data = read_coaches(coach_path, purpose)
     seasons = tuple(row["season"] for row in prepared["seasons"])
     _require(season in seasons, "execution season not selected")
     _require(all(int(b[:4]) == int(a[:4]) + 1 for a, b in zip(seasons, seasons[1:])), "fixture execution seasons must be consecutive")
     selected = next(row for row in prepared["seasons"] if row["season"] == season)
-    prepared_corpora = {(row["path"], row["sha256"]) for row in prepared["inputs"] if row["kind"] == "corpus"}
+    prepared_corpora = {(input_path(row["path"]), row["sha256"]) for row in prepared["inputs"] if row["kind"] == "corpus"}
     coach_corpora = [row for row in coach_data["corpora"] if row["season"] == season]
-    _require(len(coach_corpora) == 1 and (coach_corpora[0]["corpus_manifest"], coach_corpora[0]["sha256"]) in prepared_corpora,
+    _require(len(coach_corpora) == 1 and (input_path(coach_corpora[0]["corpus_manifest"]), coach_corpora[0]["sha256"]) in prepared_corpora,
              "prepared/coach current-season source corpus differs")
     people = {str(_value(person, "player_id")): person for person in read_prepared_people(prepared, season)["people"]}
     coaches_by_game = {row["game_id"]: row for row in coach_data["games"] if row["season"] == season}

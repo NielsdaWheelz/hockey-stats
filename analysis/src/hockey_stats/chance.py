@@ -13,6 +13,7 @@ import scipy
 from scipy.optimize import minimize
 from scipy.special import expit, log_expit, logsumexp
 
+from .input_locations import input_path
 from .artifacts import implementation_identity
 from .captures import InputContractError, strict_json
 from .shot_origins import cell_id, forward_kernel, grid, posterior, mirror_cell_representatives
@@ -2060,7 +2061,7 @@ def prepare_component_fit(attempts, config, metadata, *, quantity, design, train
     else:
         try:
             _validate_identity(membership)
-            captured = Path(membership["path"]).read_bytes()
+            captured = input_path(membership["path"], strict=True).read_bytes()
             if hashlib.sha256(captured).hexdigest() != membership["sha256"] or strict_json(captured) != training_cohort:
                 raise ValueError("external cohort bytes or content disagree")
         except (OSError, KeyError, TypeError, ValueError) as error:

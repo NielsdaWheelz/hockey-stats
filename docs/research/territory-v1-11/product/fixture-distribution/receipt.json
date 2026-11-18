@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "purpose": "fixture",
+  "scope": "actual native distribution exports through ordinary strict schema11 application startup; no real candidate or external reads",
+  "fixture": {
+    "publication_id": "59615882-2e59-476d-bbb3-e6ed9e1546cb",
+    "database_sha256": "8312c1dd24cc782abbd2f3a746e4c6ce290e2b0d4e7af0de2689dfb1f0f789d5",
+    "season": "20232024",
+    "player_id": "9000001"
+  },
+  "application": {
+    "runtime": "node24.21.0 and installed chrome",
+    "path": "app/src/web/peer-distributions.tsx",
+    "sha256": "64d74fb0c2959d8a8ba06680bd88405daf354ddea7f9b0122483b0e7dd0125c8",
+    "notes_owner": "app/src/web/territory-detail.tsx",
+    "notes_owner_sha256": "32b4f61a8c5716b27982fb24f23609b6ba27ebf4a5f547bc24c97c627731de95",
+    "port": 3114,
+    "port_free_after": true
+  },
+  "red": [
+    {
+      "stage": "before shared territory notes",
+      "exit_code": 1,
+      "assertion": "AssertionError [ERR_ASSERTION]: terminal-zone proxy",
+      "actual_png_sha256": "23018d6fa67440f0863207c3b1073b390384656a5bcf72348e2b026fb877db4b"
+    },
+    {
+      "stage": "with territory notes and before neutral zero inclusion",
+      "exit_code": 1,
+      "assertion": "AssertionError [ERR_ASSERTION]: zero effect belongs only on signed successor contrasts",
+      "actual_png_sha256": "b5221ffb3367e15c1d6194a441d45ff138b44ddd618d46f62397d3659e42fc30"
+    }
+  ],
+  "green": {
+    "normal": {"css_width": 1280, "outer_width": 1280, "device_pixel_ratio": 2},
+    "native_200_percent": {"setting": "chrome://settings/appearance #zoomLevel=2", "css_width": 640, "outer_width": 1280, "device_pixel_ratio": 4},
+    "ice_lost": {
+      "published_value": -0.04844992564161141,
+      "neutral_zero_line": "rendered within the plot and labeled in both modes",
+      "csv": {"path": "ice-lost.csv", "sha256": "ad2f0f679ccd3a17027efcc70f901f1900ee3c01956b5bcda902ad73415a3c18", "identical_bytes": ["both red stages", "normal", "native200"]},
+      "png": {"path": "ice-lost.png", "sha256": "46f61f2e986688310eb21ac769bad9642c643700dcd14ab2f0487f4d08dff5b1", "identical_bytes": ["normal", "native200"]}
+    },
+    "ice_won": {
+      "published_value": 0.04844992564161141,
+      "neutral_zero_line": "rendered within the plot and labeled",
+      "actual_png_sha256": "96f1946f82b2e40c6344e69e8e474eb21062b82807d8a7c06069f1131cca2b24"
+    },
+    "exit_offense_one_second_probability": {
+      "published_value": 0.11307956328284248,
+      "neutral_zero_line": "absent",
+      "actual_png_sha256": "7471172b46b427a5353ccea61b844270aa6cb2a73e4adb8cfdcc4b0335797f5d"
+    },
+    "content": ["workload and units", "labeled terminal-zone proxy", "higher ice lost is adverse", "uncertainty not estimated"],
+    "pixel_review": "owner and root inspected the final ice-lost raster for a visible zero line, legible notes and intact geometry"
+  },
+  "limits": [
+    "one synthetic selected player below the rank cutoff; real peer values and raw against percentile direction remain real-candidate checks",
+    "temporary browser controls and the browser dependency remain in use until real acceptance"
+  ]
+}

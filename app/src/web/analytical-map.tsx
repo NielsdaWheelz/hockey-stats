@@ -675,7 +675,9 @@ function analyticalMapSvg(
       : []),
     `reference: ${model.reference ?? "unavailable"}`,
     analyticalMapSupport(model),
-    `${model.availability}: ${model.reason ?? "published output"}; native/display data in csv; 10ft pooling and linear contour interpolation imply no measured subcell precision.`,
+    `${model.availability}: ${model.reason ?? "published output"}; ${model.integral === null
+      ? "csv preserves metadata only."
+      : "native/display data in csv; 10ft pooling and linear contour interpolation imply no measured subcell precision."}`,
     "experimental estimate; calibrated player uncertainty is unknown.",
     ...(model.view === "complete"
       ? [

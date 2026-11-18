@@ -1,0 +1,76 @@
+{
+  "status": "passed with diagnostic prose readability finding",
+  "publication_id": "10da3c69-183d-4704-8990-68e3a62ab2bb",
+  "scope": "independent inspection of saved normal/narrow pixels, normal receipt, 23 actual download hashes and both native cell sums; no runtime, external source read or model execution",
+  "normal_files": [
+    {
+      "name": "ice_won.png",
+      "sha256": "b57692a1baeba3649fea3c2857ce474ba1063c24f627f559cefb63e3a85d7cf8"
+    },
+    {
+      "name": "ice_lost.png",
+      "sha256": "7e5e5b6134717d8c8a46f5491a03459bfca4968554b143f452a82852194ee8ab"
+    },
+    {
+      "name": "primary-card.png",
+      "sha256": "cdfb86babd1679f697455e3e895e39abb5a8471abb9f5453b1c46defc18de4d8"
+    },
+    {
+      "name": "primary-history.png",
+      "sha256": "a179ef6bf8c87b97f50cfa4ad21310469b934b4e09439057e12fa1094f6a6051"
+    },
+    {
+      "name": "ice_lost-distribution.png",
+      "sha256": "fefb17767cb9d33a88e51b5c6e6cd8c4e7b6d80598162682d0b31c6c3305653b"
+    },
+    {
+      "name": "forward-profile.png",
+      "sha256": "0d591ae8181c0c539b3676a117279392ba5918f486900d485ec35d72aa53baf7"
+    },
+    {
+      "name": "comparison.png",
+      "sha256": "270338dfbb16832b9d4c1f5901bdd0ae56bfc2cc03a6198926e5da0090875587"
+    },
+    {
+      "name": "narrow-detail.png",
+      "sha256": "df9161204cd6b65c209c182b5bf593f2ceed4232f15898dfcf8a761169198910"
+    },
+    {
+      "name": "narrow-discovery.png",
+      "sha256": "4e24707ef7ce3c1395fcfeffb68a035343d93513eedf9d994113e4c8d59f8657"
+    },
+    {
+      "name": "narrow-comparison.png",
+      "sha256": "e8ca9c4bcbb2ffb9b9a546d254c26caff6c8e9034d6a7c7dc91c08094adc5c7a"
+    }
+  ],
+  "coordinate_review": {
+    "ice_won": {
+      "native_extreme_mass": -0.0002522579633535244,
+      "native_xy": [
+        82,
+        0
+      ],
+      "visible": "blue lobe by upper attacking goal",
+      "native_sum": -0.003855552563339484
+    },
+    "ice_lost": {
+      "native_extreme_mass": 0.00039278773829359685,
+      "native_xy": [
+        82,
+        0
+      ],
+      "visible": "red adverse lobe by lower defended goal under 180-degree view",
+      "native_sum": 0.004615062550477663
+    },
+    "native_rows_per_map": 656
+  },
+  "pixel_findings": [
+    "both maps show complete rinks, signed palettes, common workload, proxy and unknown uncertainty",
+    "narrow controls wrap; evidence table focus and horizontal scroll visible; no page overflow",
+    "analytical card retains pending ledger separately from the territory detail, with readable method boundaries",
+    "history keeps signs and all three years",
+    "distribution labels neutral zero, adverse sign and 418 forward peers"
+  ],
+  "presentation_issue": "real final-year finding is Python dict repr instead of concise prose in map, distribution, and history exports and comparison detail; displayed verdict and numeric content are correct"
+}

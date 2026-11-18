@@ -1,0 +1,437 @@
+{
+  "status": "passed",
+  "purpose": "real",
+  "base": "http://127.0.0.1:3111",
+  "mode": "native200",
+  "selection": {
+    "purpose": "real",
+    "publication_id": "10da3c69-183d-4704-8990-68e3a62ab2bb",
+    "selection_evidence": "{\"absent_year_candidates\": 1024, \"checked_primary_map_signs\": [{\"id\": \"8476460\", \"signs\": {\"ice_lost\": {\"negative\": 8, \"positive\": 648}, \"ice_won\": {\"negative\": 647, \"positive\": 9}}}, {\"id\": \"8478402\", \"signs\": {\"ice_lost\": {\"negative\": 532, \"positive\": 124}, \"ice_won\": {\"negative\": 192, \"positive\": 464}}}, {\"id\": \"8478398\", \"signs\": {\"ice_lost\": {\"negative\": 8, \"positive\": 648}, \"ice_won\": {\"negative\": 644, \"positive\": 12}}}, {\"id\": \"8477492\", \"signs\": {\"ice_lost\": {\"negative\": 484, \"positive\": 172}, \"ice_won\": {\"negative\": 209, \"positive\": 447}}}, {\"id\": \"8478864\", \"signs\": {\"ice_lost\": {\"negative\": 647, \"positive\": 9}, \"ice_won\": {\"negative\": 8, \"positive\": 648}}}, {\"id\": \"8478550\", \"signs\": {\"ice_lost\": {\"negative\": 92, \"positive\": 564}, \"ice_won\": {\"negative\": 499, \"positive\": 157}}}, {\"id\": \"8480039\", \"signs\": {\"ice_lost\": {\"negative\": 9, \"positive\": 647}, \"ice_won\": {\"negative\": 655, \"positive\": 1}}}, {\"id\": \"8484801\", \"signs\": {\"ice_lost\": {\"negative\": 449, \"positive\": 207}, \"ice_won\": {\"negative\": 313, \"positive\": 343}}}], \"composition_manifest_sha256\": \"ec5349f1f019a9ccfbac908be26dd34b350f26085a890904b6048de0da1d2829\", \"named_provided_territory_rows\": 2784, \"partial_missing_cases\": 0, \"prior_only_cases\": 11, \"provided_territory_rows\": 2784, \"publication_receipt_database_sha256\": \"cb62bc166d9cdad8bd8df69ef563f83ca31b56cc5a7544aeffd27eb6d16505ba\", \"published_sqlite\": \"/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/candidate-01/player-analysis.sqlite\", \"roster_identities\": 1196, \"season_count\": 3, \"selection_scope\": \"read-only published season/person/territory rows and up to eight indexed primary map pairs; no original source witnesses\"}",
+    "primary": "forward",
+    "comparison": "defense",
+    "cases": [
+      {
+        "label": "forward",
+        "season": "20252026",
+        "player_id": "8476460",
+        "display_name": "Mark Scheifele",
+        "selection_reason": "known-path 5v5 seconds 66374.0; both computed maps; native cell signs {'ice_lost': {'positive': 648, 'negative': 8}, 'ice_won': {'positive': 9, 'negative': 647}}",
+        "covers": [
+          "forward"
+        ],
+        "territory_availability": "provided"
+      },
+      {
+        "label": "defense",
+        "season": "20252026",
+        "player_id": "8480800",
+        "display_name": "Quinn Hughes",
+        "selection_reason": "same-season defense comparison; known-path 5v5 seconds 77748.0",
+        "covers": [
+          "defense"
+        ],
+        "territory_availability": "provided"
+      },
+      {
+        "label": "thin",
+        "season": "20242025",
+        "player_id": "8482802",
+        "display_name": "Carter Mazur",
+        "selection_reason": "minimum positive information weight in named published role records: 3.8581081081081265 seconds",
+        "covers": [
+          "thin_role"
+        ],
+        "territory_availability": "provided",
+        "thin_role": {
+          "role": "zone_retention",
+          "information_weight": 3.8581081081081265
+        }
+      },
+      {
+        "label": "traded",
+        "season": "20252026",
+        "player_id": "8480800",
+        "display_name": "Quinn Hughes",
+        "selection_reason": "published team affiliations: [{'abbreviation': 'VAN', 'id': '23'}, {'abbreviation': 'MIN', 'id': '30'}]",
+        "covers": [
+          "traded"
+        ],
+        "territory_availability": "provided"
+      },
+      {
+        "label": "prior-only",
+        "season": "20242025",
+        "player_id": "8478173",
+        "display_name": "Hayden Hodgson",
+        "selection_reason": "published role coefficient has no current-year risk",
+        "covers": [
+          "prior_only"
+        ],
+        "territory_availability": "provided",
+        "prior_only_roles": [
+          "exit_offense",
+          "entry_offense",
+          "zone_retention",
+          "entry_prevention"
+        ]
+      },
+      {
+        "label": "absent",
+        "season": "20232024",
+        "player_id": "8473604",
+        "display_name": "Jonathan Toews",
+        "selection_reason": "historical identity from 20252026; no person row in selected 20232024",
+        "covers": [
+          "absent_year"
+        ],
+        "territory_availability": "absent"
+      }
+    ],
+    "unavailable_cases": [
+      {
+        "case": "partial_missing",
+        "reason": "no movement-only row with both successor values unavailable in 2784 named provided person-years",
+        "evidence": "selection_evidence in this saved explicit candidate selection"
+      }
+    ],
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11/.scratch/v1-11/product-resume/real-selection.json",
+    "sha256": "3fd49eaf68a370e7c3b838879493890bab4a5792c147dae0d00bb5a4cbf79330"
+  },
+  "scope": "actual browser and native downloads through the explicit candidate HTTP APIs; runtime source independence is checked separately; no model admission or physical I/O audit",
+  "coverage": [
+    {
+      "case": "forward",
+      "label": "forward",
+      "scope": "real candidate",
+      "status": "checked"
+    },
+    {
+      "case": "defense",
+      "label": "defense",
+      "scope": "real candidate",
+      "status": "checked"
+    },
+    {
+      "case": "thin_role",
+      "label": "thin",
+      "scope": "real candidate",
+      "status": "checked"
+    },
+    {
+      "case": "traded",
+      "label": "traded",
+      "scope": "real candidate",
+      "status": "checked"
+    },
+    {
+      "case": "prior_only",
+      "label": "prior-only",
+      "scope": "real candidate",
+      "status": "checked"
+    },
+    {
+      "case": "absent_year",
+      "label": "absent",
+      "scope": "real candidate",
+      "status": "checked"
+    },
+    {
+      "case": "partial_missing",
+      "reason": "no movement-only row with both successor values unavailable in 2784 named provided person-years",
+      "evidence": "selection_evidence in this saved explicit candidate selection",
+      "scope": "not available in selected real candidate; no real acceptance claimed",
+      "status": "not_run"
+    }
+  ],
+  "downloads": [
+    {
+      "name": "discovery.csv",
+      "suggested": "territory-20252026-10da3c69-183d-4704-8990-68e3a62ab2bb.csv",
+      "bytes": 112683931,
+      "sha256": "84b6f885e288ec1ee9b835b176f5d6c46dec5a6f0516143c4a90d6ae7b866a20"
+    },
+    {
+      "name": "forward-card.csv",
+      "suggested": "hockey-stats-20252026-8476460-analytical.csv",
+      "bytes": 398543,
+      "sha256": "a30572033f9a46ce071a47aa8646a0d56771e5b70a501b79b279ff88f43bdaa3"
+    },
+    {
+      "name": "defense-card.csv",
+      "suggested": "hockey-stats-20252026-8480800-analytical.csv",
+      "bytes": 401076,
+      "sha256": "31e727c6426f401cdc7a6e167e135f5671a8e9a9ff94168dca5fa05754f53111"
+    },
+    {
+      "name": "thin-card.csv",
+      "suggested": "hockey-stats-20242025-8482802-analytical.csv",
+      "bytes": 317649,
+      "sha256": "98ee71651adcf7ec1abaee5780767fc9c43d7e581bf1c4ec0a7a5b60ff4e1446"
+    },
+    {
+      "name": "traded-card.csv",
+      "suggested": "hockey-stats-20252026-8480800-analytical.csv",
+      "bytes": 401076,
+      "sha256": "31e727c6426f401cdc7a6e167e135f5671a8e9a9ff94168dca5fa05754f53111"
+    },
+    {
+      "name": "prior-only-card.csv",
+      "suggested": "hockey-stats-20242025-8478173-analytical.csv",
+      "bytes": 320736,
+      "sha256": "482318101a91e3b836e249c05ff1da21c4985e3ee51d9970a3cc636ab00c03fe"
+    },
+    {
+      "name": "prior-only-history.csv",
+      "suggested": "hockey-stats-8478173-territory.ice_won_goals_per_basket-20232024-20252026-history.csv",
+      "bytes": 35923,
+      "sha256": "c2e0395d514be872eb6f5c5c96302687dc89402fe156e314de9bfd6fba94ebcc"
+    },
+    {
+      "name": "absent-card.csv",
+      "suggested": "hockey-stats-20232024-8473604-analytical.csv",
+      "bytes": 57810,
+      "sha256": "8f5bb68d7a1d09e5119dce66140b20d85b98b13545d1ebce1b8c1367b53441f3"
+    },
+    {
+      "name": "absent-history.csv",
+      "suggested": "hockey-stats-8473604-territory.ice_won_goals_per_basket-20232024-20252026-history.csv",
+      "bytes": 22708,
+      "sha256": "205ee2c2d08352ef9771eac5b63e3faf0061752385792f447f315f68ae3458b5"
+    },
+    {
+      "name": "primary-reference.csv",
+      "suggested": "hockey-stats-20252026-8476460-territory-evidence.csv",
+      "bytes": 8120,
+      "sha256": "0eabda5b270cfc019c18f0f67dbb71a1380a598bd07372ca1c38944978b229cc"
+    },
+    {
+      "name": "primary-card.png",
+      "suggested": "hockey-stats-20252026-8476460-analytical.png",
+      "bytes": 1087305,
+      "sha256": "cdfb86babd1679f697455e3e895e39abb5a8471abb9f5453b1c46defc18de4d8"
+    },
+    {
+      "name": "ice_won.csv",
+      "suggested": "hockey-stats-20252026-8476460-ice_won-5v5-effect-map.csv",
+      "bytes": 3055928,
+      "sha256": "6cf37738a21f0040226b3050b27c6f14a544465702cc1ff0dc1cab680295c38b"
+    },
+    {
+      "name": "ice_won.png",
+      "suggested": "hockey-stats-20252026-8476460-ice_won-5v5-effect-map.png",
+      "bytes": 437819,
+      "sha256": "b57692a1baeba3649fea3c2857ce474ba1063c24f627f559cefb63e3a85d7cf8"
+    },
+    {
+      "name": "ice_lost.csv",
+      "suggested": "hockey-stats-20252026-8476460-ice_lost-5v5-effect-map.csv",
+      "bytes": 3046001,
+      "sha256": "fbd65fa6e7a2b2d1fd59e42bf29f6a87527dad067f56df0e03679b7398fbdd0f"
+    },
+    {
+      "name": "ice_lost.png",
+      "suggested": "hockey-stats-20252026-8476460-ice_lost-5v5-effect-map.png",
+      "bytes": 448241,
+      "sha256": "7e5e5b6134717d8c8a46f5491a03459bfca4968554b143f452a82852194ee8ab"
+    },
+    {
+      "name": "primary-history.csv",
+      "suggested": "hockey-stats-8476460-territory.ice_lost_goals_per_basket-20232024-20252026-history.csv",
+      "bytes": 48506,
+      "sha256": "40ea16e190ffecfb995702f499598d90589ec4086f9e9ba117620b53bab7466b"
+    },
+    {
+      "name": "primary-history.png",
+      "suggested": "hockey-stats-8476460-territory.ice_lost_goals_per_basket-20232024-20252026-history-raw.png",
+      "bytes": 1865459,
+      "sha256": "a179ef6bf8c87b97f50cfa4ad21310469b934b4e09439057e12fa1094f6a6051"
+    },
+    {
+      "name": "ice_lost-distribution.csv",
+      "suggested": "hockey-stats-8476460-territory.ice_lost_goals_per_basket-20252026-distribution.csv",
+      "bytes": 8263198,
+      "sha256": "e6e71da1e85d5e679dac79b6ddc87720ee93a2a4a674be01d03af555aa389d95"
+    },
+    {
+      "name": "ice_lost-distribution.png",
+      "suggested": "hockey-stats-8476460-territory.ice_lost_goals_per_basket-20252026-distribution.png",
+      "bytes": 532463,
+      "sha256": "fefb17767cb9d33a88e51b5c6e6cd8c4e7b6d80598162682d0b31c6c3305653b"
+    },
+    {
+      "name": "comparison-forward.csv",
+      "suggested": "hockey-stats-20252026-8476460-analytical.csv",
+      "bytes": 398543,
+      "sha256": "a30572033f9a46ce071a47aa8646a0d56771e5b70a501b79b279ff88f43bdaa3"
+    },
+    {
+      "name": "comparison-forward.png",
+      "suggested": "hockey-stats-20252026-8476460-analytical-with-8480800.png",
+      "bytes": 1093229,
+      "sha256": "77133b1629c0349e0d60ace9e0a8ff34a6687b3b6c936b31d762940c3bfadf34"
+    },
+    {
+      "name": "comparison-defense.csv",
+      "suggested": "hockey-stats-20252026-8480800-analytical.csv",
+      "bytes": 401076,
+      "sha256": "31e727c6426f401cdc7a6e167e135f5671a8e9a9ff94168dca5fa05754f53111"
+    },
+    {
+      "name": "comparison-defense.png",
+      "suggested": "hockey-stats-20252026-8480800-analytical-with-8476460.png",
+      "bytes": 1091967,
+      "sha256": "35d5884237cb335a4b1b49029769cbf35f827e0c6bdc0054e40d23723417ea46"
+    }
+  ],
+  "screenshots": [
+    "discovery.png",
+    "forward-profile.png",
+    "defense-profile.png",
+    "thin-profile.png",
+    "traded-profile.png",
+    "prior-only-profile.png",
+    "absent-profile.png",
+    "ice_won-map.png",
+    "ice_lost-map.png",
+    "comparison.png"
+  ],
+  "errors": [],
+  "native_zoom_setting": "2",
+  "discovery_headers": [
+    "player",
+    "season teams",
+    "position",
+    "included observed 5v5 min",
+    "exit offense one second probability",
+    "entry offense one second probability",
+    "zone retention one second probability",
+    "entry prevention one second probability",
+    "ice won successor value desc.",
+    "ice lost successor value"
+  ],
+  "geometry": [
+    {
+      "name": "discovery",
+      "innerWidth": 640,
+      "innerHeight": 428,
+      "outerWidth": 1280,
+      "dpr": 4,
+      "clientWidth": 640,
+      "scrollWidth": 640
+    },
+    {
+      "name": "forward",
+      "innerWidth": 640,
+      "innerHeight": 428,
+      "outerWidth": 1280,
+      "dpr": 4,
+      "clientWidth": 640,
+      "scrollWidth": 640
+    },
+    {
+      "name": "defense",
+      "innerWidth": 640,
+      "innerHeight": 428,
+      "outerWidth": 1280,
+      "dpr": 4,
+      "clientWidth": 640,
+      "scrollWidth": 640
+    },
+    {
+      "name": "thin",
+      "innerWidth": 640,
+      "innerHeight": 428,
+      "outerWidth": 1280,
+      "dpr": 4,
+      "clientWidth": 640,
+      "scrollWidth": 640
+    },
+    {
+      "name": "traded",
+      "innerWidth": 640,
+      "innerHeight": 428,
+      "outerWidth": 1280,
+      "dpr": 4,
+      "clientWidth": 640,
+      "scrollWidth": 640
+    },
+    {
+      "name": "prior-only",
+      "innerWidth": 640,
+      "innerHeight": 428,
+      "outerWidth": 1280,
+      "dpr": 4,
+      "clientWidth": 640,
+      "scrollWidth": 640
+    },
+    {
+      "name": "absent",
+      "innerWidth": 640,
+      "innerHeight": 428,
+      "outerWidth": 1280,
+      "dpr": 4,
+      "clientWidth": 640,
+      "scrollWidth": 640
+    },
+    {
+      "name": "ice_won",
+      "innerWidth": 640,
+      "innerHeight": 428,
+      "outerWidth": 1280,
+      "dpr": 4,
+      "clientWidth": 640,
+      "scrollWidth": 640
+    },
+    {
+      "name": "ice_lost",
+      "innerWidth": 640,
+      "innerHeight": 428,
+      "outerWidth": 1280,
+      "dpr": 4,
+      "clientWidth": 640,
+      "scrollWidth": 640
+    },
+    {
+      "name": "comparison",
+      "innerWidth": 640,
+      "innerHeight": 428,
+      "outerWidth": 1280,
+      "dpr": 4,
+      "clientWidth": 640,
+      "scrollWidth": 640
+    }
+  ],
+  "reference_accounting": [
+    {
+      "kind": "ice_won",
+      "scalar": -0.003855552563339484,
+      "raw_G": -0.003855552563338908,
+      "centered_G": -0.003855552563339484,
+      "absolute_term_allowance": 2.2277542608767814e-15
+    },
+    {
+      "kind": "ice_lost",
+      "scalar": 0.004615062550477663,
+      "raw_G": 0.004615062550476734,
+      "centered_G": 0.004615062550477663,
+      "absolute_term_allowance": 2.3688563316270724e-15
+    }
+  ],
+  "native_sign_coverage": [
+    {
+      "kind": "ice_won",
+      "positive": 9,
+      "negative": 647,
+      "zero": 0,
+      "status": "both signs observed in actual map"
+    },
+    {
+      "kind": "ice_lost",
+      "positive": 648,
+      "negative": 8,
+      "zero": 0,
+      "status": "both signs observed in actual map"
+    }
+  ],
+  "ice_lost_distribution_ranked_peers": 418
+}

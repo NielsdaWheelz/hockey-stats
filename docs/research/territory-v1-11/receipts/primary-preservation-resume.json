@@ -1,0 +1,121 @@
+{
+  "status": "passed",
+  "primary_port": 3000,
+  "primary_listener_pid": 9645,
+  "checked_paths": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/architecture.md",
+      "bytes": 114576,
+      "mtime_ns": 1794898564992709357,
+      "inode": 259140943,
+      "sha256": "4af50504451510eab3363f3ff2456263babc22c2d4788911f76d6a32c8dd5d29"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/brief.md",
+      "bytes": 61834,
+      "mtime_ns": 1794898564992315185,
+      "inode": 259140944,
+      "sha256": "b1801853501a619da3b28a3ef468e70933d1dcb84d906e3801c652a1e57d19e5"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/issues/historical-artifact-relocation.md",
+      "bytes": 3931,
+      "mtime_ns": 1794980599449069473,
+      "inode": 141017994,
+      "sha256": "d56da40bbe7fe8668a5b6dd3bded86e0ceb9fca51fcc6a1131f92b315fcef337"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/model-features.md",
+      "bytes": 32279,
+      "mtime_ns": 1794859762438752553,
+      "inode": 259140945,
+      "sha256": "c4b75211e988366232c9dfb73b2ced793bcf2d295be0c27dea86c5e1e065ad48"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/plan.md",
+      "bytes": 178650,
+      "mtime_ns": 1794898564993046069,
+      "inode": 259140946,
+      "sha256": "57b56275d6672f11ba1cedd1f44b8fc9e76ff6dc02523e68792b894784acdb43"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/product-inventory.md",
+      "bytes": 65968,
+      "mtime_ns": 1794899060860849012,
+      "inode": 259140947,
+      "sha256": "5909a91a58df10e24656ebb7619b7830627e0784dfd5acbce81d86677f08d969"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/research/council.md",
+      "bytes": 201996,
+      "mtime_ns": 1794899217979673035,
+      "inode": 259141107,
+      "sha256": "4cbaa2753e4d69959eaeeb1a37136eafd7c076b6fdad86e3e074617aa08c7d20"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/roadmap.md",
+      "bytes": 20331,
+      "mtime_ns": 1794898564993172863,
+      "inode": 259141214,
+      "sha256": "46816e9c77eea802de664d9b30b4186874b89172032795f0773d2b4313841c70"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/experimental-application.md",
+      "bytes": 108567,
+      "mtime_ns": 1794899106846766477,
+      "inode": 259141215,
+      "sha256": "bd2aec4678f4e0a036ac55919a530523c5cee3e7f8169a5ca2be33ca44095d42"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/experimental-attribution.md",
+      "bytes": 50379,
+      "mtime_ns": 1794899217979262322,
+      "inode": 259141216,
+      "sha256": "4365c4eefa57d25f64a25e645799347d312796d6349bcb29de772c2bceb50f05"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/experimental-player-analysis.md",
+      "bytes": 39234,
+      "mtime_ns": 1794899060860546675,
+      "inode": 259141218,
+      "sha256": "83e9f2f5c36f8c85c25a8ff7d9b0335584b5ef0163b25d938324a790e7be9866"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/v1-11-territory-successor-value.md",
+      "bytes": 31302,
+      "mtime_ns": 1794860206598861740,
+      "inode": 259597960,
+      "sha256": "4643e5f170065f60377fdda8d8299c5d9d534946aed1e2484450f86e56b09f3b"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/v1-12-value-ledger.md",
+      "bytes": 23913,
+      "mtime_ns": 1794899217979069278,
+      "inode": 260259915,
+      "sha256": "31c7a4f9161c1dd23bae50e51d159fdc2ae7d658bfbd68831ec02c4516ffff00"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite",
+      "bytes": 11310997504,
+      "mtime_ns": 1793431198154070471,
+      "inode": 191950541
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/previous.sqlite",
+      "bytes": 4635877376,
+      "mtime_ns": 1793080727502487829,
+      "inode": 173454037
+    }
+  ],
+  "frozen_producer_checkouts": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11-producer",
+      "commit": "ae9a7dcc6f6e60c5d8021542f8e968b1b73132b2"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-11-producer-02",
+      "commit": "008197e221cb869a41c440561daf20cf905ad1b6"
+    }
+  ],
+  "scope": "compared against the resume snapshot. primary local drafts include independent edits from before resume. active and previous db preservation checked by inode, byte size and nanosecond mtime. active service stayed on the same process."
+}

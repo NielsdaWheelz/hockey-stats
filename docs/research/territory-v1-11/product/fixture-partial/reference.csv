@@ -1,0 +1,47 @@
+"row_type","quantity","start","side","age_lower","value","unit","initial_probability","neutral_end_probability","focal_end_probability","end_difference","reference_id","support","unavailable_reason"
+"successor_start","start_distribution","DZ",,,,"probability",0.14285714285714285,0.15958502395054097,0.14746188186878537,-0.012123142081755606,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","[97,135,96,351]",
+"successor_value","start_contrast","DZ","for",,,"goals_per_shift",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,"explicit synthetic control: successor spatial panel absent"
+"successor_value","start_contrast","DZ","against",,,"goals_per_shift",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,"explicit synthetic control: successor spatial panel absent"
+"successor_start","start_distribution","NZ",,,,"probability",0.19882179675994108,0.10120528334098423,0.10002815319871605,-0.0011771301422681818,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","[97,135,96,351]",
+"successor_value","start_contrast","NZ","for",,,"goals_per_shift",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,"explicit synthetic control: successor spatial panel absent"
+"successor_value","start_contrast","NZ","against",,,"goals_per_shift",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,"explicit synthetic control: successor spatial panel absent"
+"successor_start","start_distribution","OZ",,,,"probability",0.14138438880706922,0.14451057105008996,0.15278819471828256,0.008277623668192596,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","[97,135,96,351]",
+"successor_value","start_contrast","OZ","for",,,"goals_per_shift",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,"explicit synthetic control: successor spatial panel absent"
+"successor_value","start_contrast","OZ","against",,,"goals_per_shift",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,"explicit synthetic control: successor spatial panel absent"
+"successor_start","start_distribution","on_the_fly",,,,"probability",0.5169366715758469,0.5946991216583849,0.5997217702142161,0.005022648555831233,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","[97,135,96,351]",
+"successor_value","start_contrast","on_the_fly","for",,,"goals_per_shift",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,"explicit synthetic control: successor spatial panel absent"
+"successor_value","start_contrast","on_the_fly","against",,,"goals_per_shift",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,"explicit synthetic control: successor spatial panel absent"
+"survival_occupancy","neutral_occupancy",,,0,9.847393463908826,"seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"survival_occupancy","neutral_occupancy",,,10,9.14167112656169,"seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"survival_occupancy","neutral_occupancy",,,20,14.056789568525257,"seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"survival_occupancy","neutral_occupancy",,,40,6.31918510271103,"seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"survival_occupancy","neutral_occupancy",,,60,2.2900707925485793,"seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"survival_occupancy","neutral_occupancy",,,90,1.0964874009495134,"seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"nuisance_coverage","path_slot_seconds",,,,27680,"slot_seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"nuisance_coverage","terminal_carry_slot_seconds",,,,3620,"slot_seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"nuisance_coverage","whistle_risk_slot_seconds",,,,27680.000000000015,"slot_seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"nuisance_coverage","whistle_incidences",,,,500,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"nuisance_coverage","live_end_risk_slot_seconds",,,,27680.000000000015,"slot_seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"nuisance_coverage","live_end_incidences",,,,351,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"nuisance_coverage","decidable_whistle_trials",,,,500,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"nuisance_coverage","ended_whistle_trials",,,,271,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"nuisance_coverage","restart_pairs",,,,100,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"nuisance_coverage","terminal_tails",,,,53,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c",,
+"nuisance_coverage","start_count","DZ",,,97,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","new supported coalesced shifts",
+"nuisance_coverage","start_count","NZ",,,135,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","new supported coalesced shifts",
+"nuisance_coverage","start_count","OZ",,,96,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","new supported coalesced shifts",
+"nuisance_coverage","start_count","on_the_fly",,,351,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","new supported coalesced shifts",
+"nuisance_coverage","on_the_fly_zone_count","D",,,111,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","same supported on-the-fly starts",
+"nuisance_coverage","on_the_fly_zone_count","N",,,98,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","same supported on-the-fly starts",
+"nuisance_coverage","on_the_fly_zone_count","O",,,142,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","same supported on-the-fly starts",
+"nuisance_coverage","terminal_lag_p50",,,,2,"seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","per physical carried tail; nearest-rank quantiles",
+"nuisance_coverage","terminal_lag_p90",,,,17,"seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","per physical carried tail; nearest-rank quantiles",
+"nuisance_coverage","terminal_lag_p99",,,,40,"seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","per physical carried tail; nearest-rank quantiles",
+"nuisance_coverage","terminal_lag_max",,,,40,"seconds",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","per physical carried tail; nearest-rank quantiles",
+"prior_only_cell","h","D",,90,,"prior_only",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","zero observed denominator",
+"prior_only_cell","h","N",,60,,"prior_only",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","zero observed denominator",
+"prior_only_cell","h","N",,90,,"prior_only",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","zero observed denominator",
+"prior_only_cell","h","O",,90,,"prior_only",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","zero observed denominator",
+"censored_endpoint","membership_or_horizon_unavailable",,,,15,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","reasons may overlap",
+"censored_endpoint","period_or_game_end",,,,3,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","reasons may overlap",
+"censored_endpoint","report_barrier_unresolved",,,,2,"count",,,,,"d6840504e6157147d0764752f283e1008643a475f4990cf0a6bc095617f5397c","reasons may overlap",

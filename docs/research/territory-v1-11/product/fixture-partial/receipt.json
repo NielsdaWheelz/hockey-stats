@@ -1,0 +1,122 @@
+{
+  "status": "passed",
+  "purpose": "fixture",
+  "publication_id": "f85f3ba8-f2f7-4ee6-bf3f-152f8501628f",
+  "results_manifest_sha256": "a336ed268e49d0f7b4484fb251e48a6cf94ab8d05e717e20928b964be1c02048",
+  "database_sha256": "a5791207e2693427f64f78885971120dfb804f80987d81d53df5f1ba0021f3ad",
+  "player": "8473419",
+  "season": "20252026",
+  "successor_unavailable_reason": "explicit synthetic control: successor spatial panel absent",
+  "retained_role_probabilities": {
+    "exit_offense": 0.03125007395632255,
+    "entry_offense": 0.05601629327486832,
+    "zone_retention": 0.9721016431619461,
+    "entry_prevention": 0.9506273615027906
+  },
+  "files": [
+    {
+      "path": "ice_won-map.csv",
+      "bytes": 2194,
+      "sha256": "66e9737b868b39ebc6690b2a4047937c4d406a63957f81ba4674657aa36cd810",
+      "retained": true
+    },
+    {
+      "path": "ice_won-map.png",
+      "bytes": 275785,
+      "sha256": "92c13208ee23bb61349a285d175ceecb834058c734853c63064e32b615775687",
+      "retained": true
+    },
+    {
+      "path": "ice_lost-map.csv",
+      "bytes": 2195,
+      "sha256": "996067e5ee38aa6a73349d28bb39b5e89c1fc90c29aa7d4cde489deffee5e988",
+      "retained": false
+    },
+    {
+      "path": "card.csv",
+      "bytes": 168734,
+      "sha256": "110a793a940af5e95fec39280db867580c1cc050a8f81e778b4b170d5a61ea41",
+      "retained": false
+    },
+    {
+      "path": "reference.csv",
+      "bytes": 7947,
+      "sha256": "c4118a24b22d69424be44fe037e361a7c36a56fb60b27341c0fdf99253b577c2",
+      "retained": true
+    },
+    {
+      "path": "history.csv",
+      "bytes": 13353,
+      "sha256": "3bc6242977981f4ce4189552038f96bf25bac127edefb1b94ba1e008af3acb2b",
+      "retained": false
+    }
+  ],
+  "schema_version": 1,
+  "scope": "local application control using the original one-game fixture and explicitly absent synthetic successor spatial panel; no real player estimate, new fitting or external reads",
+  "publication": {
+    "observed_selection_sha256": "9bd5bb0a1566080c1665a0cfc21ffe62ca6a7dc80be5166676ea455a84c5c986",
+    "original_game": "2025020001",
+    "checks": {
+      "integrity": "passed",
+      "foreign_keys": "passed",
+      "read_back": "passed",
+      "per_season_conservation": "passed"
+    },
+    "cost": {
+      "wall_seconds": 1.1222979580052197,
+      "peak_rss_bytes": 141426688,
+      "consumed_bytes": 12932396,
+      "database_bytes": 6979584
+    },
+    "strict_startup_port": 3114,
+    "port_free_after": true
+  },
+  "checks": [
+    "actual schema11 api and native browser connect to the explicit fixture publication",
+    "all four movement probabilities are finite and all eight movement values survive in the analytical card csv; both successor scalars are missing_source",
+    "four start/end rows and six occupancy rows retain values; eight contrast rows have empty values with the declared missing-panel reason",
+    "both map api results retain support and reason without integral or cells; both downloaded map csv files contain one metadata row, with no invented coordinates or mass",
+    "the history csv retains unavailable status, missing_source and closed evidence for the selected year",
+    "actual green map png declares metadata only, retains the fixture label, workload, terminal proxy and uncertainty, and has no rink body"
+  ],
+  "exporter": {
+    "path": "app/src/web/analytical-map.tsx",
+    "sha256": "ecb731f61555ea8ff608f0fc5cb33e02170d83f7f1f8e9c1e13730ceb182463f",
+    "red": {
+      "exit_code": 1,
+      "assertion": "AssertionError [ERR_ASSERTION]: unavailable map png must say csv preserves metadata only",
+      "native_download_sha256": "488e70c455a276cf6a05153fc480fd30e516ed4e749d1793986cb64005816a89"
+    },
+    "green": {
+      "exit_code": 0,
+      "label": "csv preserves metadata only",
+      "native_download": "ice_won-map.png"
+    },
+    "available_control": {
+      "evidence": "../fixture-native/map-copy-normal-02/receipt.json",
+      "same_actual_csv_and_png_bytes": [
+        {
+          "name": "ice_won.csv",
+          "bytes": 1798702,
+          "sha256": "1b0b94c755da02cd0ea0864cb6fc0dd7618b9ce00c3634f0cc3e86570de63b85"
+        },
+        {
+          "name": "ice_won.png",
+          "bytes": 290444,
+          "sha256": "bce29e75a4792221a66248acc4cf026d53fb0cf29e1005a7a0f3120ab24fcc8d"
+        },
+        {
+          "name": "ice_lost.csv",
+          "bytes": 1629749,
+          "sha256": "5e43a34f65a3c14499d837f8673d648242837414c99c498fe3dec259fdf994ef"
+        },
+        {
+          "name": "ice_lost.png",
+          "bytes": 282763,
+          "sha256": "50ac71f53499d707c15afda80c456234a14a537752a6c05b01de842a4ad173e8"
+        }
+      ]
+    }
+  },
+  "initial_attempt": "driver expected api envelope status provided as map drawing status; actual application correctly displayed unavailable; driver corrected without a production change"
+}

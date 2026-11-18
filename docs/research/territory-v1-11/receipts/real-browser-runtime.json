@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "kind": "territory_real_browser_runtime",
+  "status": "passed",
+  "publication_id": "10da3c69-183d-4704-8990-68e3a62ab2bb",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/candidate-01/player-analysis.sqlite",
+    "sha256": "cb62bc166d9cdad8bd8df69ef563f83ca31b56cc5a7544aeffd27eb6d16505ba"
+  },
+  "app_tree": "5d4a41c4993fb765e1ed5e396125e37db2ea8d09",
+  "startup": {
+    "at": "2026-11-18T06:39:17-08:00",
+    "port": 3111,
+    "pid": 62104,
+    "time_pid": 62096,
+    "state": "launched",
+    "guard": {
+      "path": ".territory-independent/detached/guard.cjs",
+      "sha256": "d07d2c7c2543af28f76590a80c99c141b76c020e453e0523c1db6b46c7051d70"
+    },
+    "database_before": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/candidate-01/player-analysis.sqlite",
+      "device": 16777240,
+      "inode": 511506,
+      "bytes": 31894360064,
+      "mtime_ns": 1795010642936363889
+    },
+    "scope": "normal strict startup with scoped original-input path denial and explicit candidate database allowlist"
+  },
+  "ready_local_time": "07:29:18.501",
+  "startup_approximate_seconds": 3001.5,
+  "runtime_seconds": 3561.65,
+  "maximum_resident_bytes": 2401927168,
+  "native_session_exit_code": 130,
+  "stop": "operator SIGTERM to verified owned pid 62104 after both browser runs",
+  "port3111_free_after": true,
+  "primary_listener_pid": 9645,
+  "database_identity_unchanged": true,
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/runtime.log",
+    "sha256": "7dba62dbef4fd44738d165bc12c6522f7b3e5397c1ea81215adc50df8ee808f4",
+    "bytes": 41791
+  },
+  "path_audit": {
+    "path": "docs/research/territory-v1-11/product/real/fs-audit.jsonl",
+    "sha256": "6457b06e40d0f6ba3a260447e3a68291ceddc98da8e8802b7b87c353618c2da8",
+    "bytes": 794
+  },
+  "scoped_detached_check": "one intentional denial and zero unexpected denials in public javascript filesystem path APIs. native readonly sqlite used the exact external candidate. physical hdd absence and native/kernel I/O are outside this proof.",
+  "downloads_root": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/downloads",
+  "byte_identical_downloads": 23,
+  "discovery_csv_bytes": 112683931,
+  "screenshots": {
+    "normal": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/normal/discovery.png",
+        "sha256": "7950246671382e03189341b8725b3182b98e8ff591fa0fcb811d4b69ab816232",
+        "bytes": 306585
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/normal/narrow-discovery.png",
+        "sha256": "4e24707ef7ce3c1395fcfeffb68a035343d93513eedf9d994113e4c8d59f8657",
+        "bytes": 159308
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/normal/narrow-detail.png",
+        "sha256": "df9161204cd6b65c209c182b5bf593f2ceed4232f15898dfcf8a761169198910",
+        "bytes": 209007
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/normal/narrow-comparison.png",
+        "sha256": "e8ca9c4bcbb2ffb9b9a546d254c26caff6c8e9034d6a7c7dc91c08094adc5c7a",
+        "bytes": 218744
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/normal/ice_won-map.png",
+        "sha256": "e01905cc1b56082adc103d117e23d86460b63e13eb3f11dacd1aec5edd43c3d4",
+        "bytes": 529587
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/normal/ice_lost-map.png",
+        "sha256": "dac21afbe2bfb05ffe562e81cc233974478e2486ce26e90b61293e4c2b0f2df1",
+        "bytes": 537210
+      }
+    ],
+    "native200": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/native200/discovery.png",
+        "sha256": "cf2d313f8292a61a13a5bcb7d2ec9abc0e29305891433772e72b4611a0f58809",
+        "bytes": 187889
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/native200/forward-profile.png",
+        "sha256": "c18344df400208e7a3e06df0828bcfdabca9c9221800ddaac1b554c5b9e02619",
+        "bytes": 264904
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/native200/comparison.png",
+        "sha256": "4d2ea6f69d616bc86cfabc97cd0d0b2b4318c545fce5a53049b8df924741e891",
+        "bytes": 264402
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/native200/ice_won-map.png",
+        "sha256": "4b6d3cabf89140b70b91b8c547cf73728fecfe3973bb4a6e5b53d8ece4711efa",
+        "bytes": 312292
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/product-acceptance/native200/ice_lost-map.png",
+        "sha256": "580527b2bbe810a9c145c8666baaec94a8c8876c77e7c56b817a0e632b2bcc5f",
+        "bytes": 312270
+      }
+    ]
+  },
+  "independent_pixel_review": {
+    "path": "docs/research/territory-v1-11/product/real/independent-pixel-review.json",
+    "sha256": "43a9f90e60144614967d388ce638244fabbb829000e7b90e861219b055683e97",
+    "bytes": 2869
+  }
+}

@@ -1,0 +1,9 @@
+[00:50:06.690] INFO (#1): Listening on http://127.0.0.1:3113
+[00:50:06.709] INFO (#1763) http.span=6ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 200 }
+[00:50:06.714] INFO (#1764) http.span=2ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/', 'http.status': 200 }
+[00:50:06.715] INFO (#1765) http.span=0ms: Sent HTTP response {
+  'http.method': 'GET',
+  'http.url': '/players/9000001',
+  'http.status': 200
+}
+[00:50:06.716] INFO (#1766) http.span=0ms: Sent HTTP response { 'http.method': 'GET', 'http.url': '/api/league', 'http.status': 400 }

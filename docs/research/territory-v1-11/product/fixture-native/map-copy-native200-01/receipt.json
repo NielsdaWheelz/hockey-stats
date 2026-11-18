@@ -1,0 +1,33 @@
+{
+  "mode": "native200",
+  "downloads": [
+    {
+      "name": "ice_won.csv",
+      "bytes": 1798702,
+      "sha256": "1b0b94c755da02cd0ea0864cb6fc0dd7618b9ce00c3634f0cc3e86570de63b85"
+    },
+    {
+      "name": "ice_won.png",
+      "bytes": 290444,
+      "sha256": "bce29e75a4792221a66248acc4cf026d53fb0cf29e1005a7a0f3120ab24fcc8d"
+    },
+    {
+      "name": "ice_lost.csv",
+      "bytes": 1629749,
+      "sha256": "5e43a34f65a3c14499d837f8673d648242837414c99c498fe3dec259fdf994ef"
+    },
+    {
+      "name": "ice_lost.png",
+      "bytes": 282763,
+      "sha256": "50ac71f53499d707c15afda80c456234a14a537752a6c05b01de842a4ad173e8"
+    }
+  ],
+  "status": "passed",
+  "geometry": {
+    "innerWidth": 640,
+    "outerWidth": 1280,
+    "dpr": 4,
+    "clientWidth": 632,
+    "scrollWidth": 632
+  }
+}

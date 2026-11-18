@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "kind": "territory_composition_launch",
+  "at": "2026-11-17T22:42:21-08:00",
+  "status": "running",
+  "source_commit": "e5ceb35f63c90989c0e6bdddf801f0da71ef44bd",
+  "analysis_tree": "1d9eb354ffdd501aa448a3412ef004aac4c89e65",
+  "source_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/exchange5-base/manifest.json",
+    "sha256": "d84b5fca56a25d5253d76f48672b8496e4bb72b3a71c5226a53e61d3217c6dc6"
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/territory-selection.json",
+    "sha256": "7427f74cc70fca567eec8eb84074d666ae76a44b58a84fc6cc48c876631dc214"
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results",
+  "selected_seasons": [
+    "20212022",
+    "20222023",
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "display_seasons": [
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "process": {
+    "python_pid": 57872,
+    "time_pid": 57871,
+    "wrapper_pid": 57864
+  },
+  "log": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-territory-composition-01.log",
+  "exit_code_capture": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-territory-composition-01.exit-code",
+  "scope": "normal summarize command with only saved annual states and accepted spatial states for successor reference construction. all five successor references are derived here. composition and product acceptance remain pending."
+}

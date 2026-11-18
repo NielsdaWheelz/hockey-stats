@@ -1,0 +1,18 @@
+{
+  "status": "launched_not_completed",
+  "at": "2026-11-17T16:44:36.848943+00:00",
+  "source_commit": "efe463b03ea79183f0a2f0982038ec0c18c0a687",
+  "converter_sha256": "1534f9787487d181bd1667cdfb68bdb39562433e4d397fa525a8388814ce2a32",
+  "source_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+    "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41"
+  },
+  "donor_composition": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/mechanism-composition.json",
+    "sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5"
+  },
+  "out": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/exchange5-base",
+  "log": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-exchange5-conversion-01.log",
+  "exit_code_capture": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-exchange5-conversion-01.exit-code",
+  "notes": "sole attributed current real exchange4 conversion; strict current5 readback; no territory values invented; no upstream producer or fit rerun; not completion"
+}

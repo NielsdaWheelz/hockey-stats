@@ -239,7 +239,7 @@ const name = (model: AnalyticalCardModel) =>
       ? `${playerName(model.historicalPerson)} · historical identity`
       : `player ${model.playerId}`;
 const supportText = (entry: AnalyticalCardModel["supports"][number]) =>
-  `${entry.key} · ${entry.population} · included/excluded min ${entry.support.included_seconds === null ? "unknown" : displayNumber(entry.support.included_seconds / 60)}/${entry.support.known_excluded_seconds === null ? "unknown" : displayNumber(entry.support.known_excluded_seconds / 60)} · ${entry.support.prior_only ? "prior-only / hypothetical" : entry.support.current_season_information ? "some current focal information" : "no current focal information"}${entry.support.unquantified_gap ? "; unquantified gaps" : ""}`;
+  `${entry.key} · ${entry.population} · included/excluded min ${entry.support.included_seconds === null ? "unknown" : displayNumber(entry.support.included_seconds / 60)}/${entry.support.known_excluded_seconds === null ? "unknown" : displayNumber(entry.support.known_excluded_seconds / 60)} · ${entry.support.prior_only ? "prior-only / hypothetical" : entry.support.current_season_information ? "some current focal information" : "mixed or no current information"}${entry.support.unquantified_gap ? "; unquantified gaps" : ""}`;
 
 function supportPopulation(metric: AnalysisMetricId): string {
   const [family, strength, field] = metric.split(".");
@@ -263,6 +263,7 @@ const cautions = [
   "reference execution: virtual neutral shooter, inferred setter and goalie. complete maps insert one focal player, not actual deployment.",
   "workload: 1,000 5v5 / 100 pp / 100 pk min. pp/pk use league-time mixtures; specialty time may be hypothetical or prior-only.",
   "attempt integrals differ from xg insets. positive against is more against; positive taking contrasts are more penalties.",
+  "inferred territory: successor goals per 1,000 5v5 min; positive ice lost is more against. interpolated movement and terminal-zone proxy; fixed substitution/common survival; uncertainty not estimated.",
   "10ft pooling and contours do not establish fine-scale reliability. aggregate support need not inform every head.",
 ];
 

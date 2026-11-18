@@ -134,6 +134,7 @@ export type AnalysisDatum = {
   readonly paired_evidence: Execution["paired_evidence"] | null;
   readonly spatial_detail: SpatialDetail | null;
   readonly mechanism_detail: Shootiness["evidence"] | Penalties["evidence"] | null;
+  readonly territory_detail: Territory["evidence"] | null;
   readonly goalie_detail: Goalie["evidence"] | null;
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
@@ -189,6 +190,7 @@ type SelectedValue = {
   readonly paired_evidence?: Execution["paired_evidence"];
   readonly spatial_detail?: SpatialDetail;
   readonly mechanism_detail?: Shootiness["evidence"] | Penalties["evidence"];
+  readonly territory_detail?: Territory["evidence"];
   readonly goalie_detail?: Goalie["evidence"];
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
@@ -252,6 +254,7 @@ const definition = (
     : metric.unit === "xg_per60" ? "xg per 60 min"
     : metric.unit === "penalties_per60" ? "penalties per 60 min"
     : metric.unit === "goals_per60" ? "goals per 60 min"
+    : metric.unit === "goals_per_basket" && metric.publicationFamily === "territory" ? "successor goals per 1,000 5v5 min"
     : metric.unit === "per_second" ? "per second"
     : metric.unit === "per60" ? "per 60 min"
     : metric.unit === "xga_saved_per100_plays" ? "xga saved per 100 plays"
@@ -467,18 +470,19 @@ const territory = [
     id: `territory.${field}`,
     quantityPath: `skater_territory.${field}`,
     group: "territory",
-    label: title(field),
+    label: field === "ice_won_goals_per_basket" ? "ice won successor value" : "ice lost successor value",
     unit: "goals_per_basket",
-    population: "territory opportunities",
-    qualificationLabel: "territory support",
+    population: "known-path genuine 5v5 participation",
+    numericReference: "five neutral skaters per side, neutral residual coaches and zero centered context; one focal slot",
+    qualificationLabel: "known-path 5v5 participation",
     select: inputs => fromResult(
       inputs.territory,
-      data => estimate(
+      data => ({...estimate(
         data[field],
         data.support,
         data.method_id,
         "territory.support.included_seconds"
-      )
+      ), territory_detail: data.evidence})
     )
   })),
   ...(["exit_offense", "entry_offense", "zone_retention", "entry_prevention"] as const).map(field => definition({
@@ -489,18 +493,18 @@ const territory = [
     group: "territory",
     label: `${title(field)} one second probability`,
     unit: "fraction",
-    population: `territory ${title(field)} opportunities`,
-    qualificationLabel: `territory ${title(field)} support`,
+    population: `known-path genuine 5v5 participation; role-specific ${title(field)} risk`,
+    qualificationLabel: "known-path 5v5 participation",
     numericReference: field === "zone_retention" || field === "entry_prevention"
-      ? "one second opponent-transition avoidance probability" : "one second transition probability",
+      ? "one second opponent-transition avoidance in the declared neutral unit" : "one second crossing in the declared neutral unit",
     select: inputs => fromResult(
       inputs.territory,
-      data => estimate(
+      data => ({...estimate(
         data[field].one_second_probability,
         data[field].support,
         data.method_id,
         `territory.${field}.support.included_seconds`
-      )
+      ), territory_detail: data.evidence})
     )
   })),
   ...(["exit_offense", "entry_offense", "zone_retention", "entry_prevention"] as const).map(field => {
@@ -515,15 +519,15 @@ const territory = [
       group: "territory",
       label: `${title(field)} ${title(hazard)}`,
       unit: "per_second",
-      population: `territory ${title(field)} opportunities`,
-      qualificationLabel: `territory ${title(field)} support`,
+      population: `known-path genuine 5v5 participation; role-specific ${title(field)} risk`,
+      qualificationLabel: "known-path 5v5 participation",
       numericReference: "published transition hazard; not reconstructed from rounded probability",
       select: inputs => fromResult(inputs.territory, data => {
         const transition = data[field];
         const value = "hazard_per_second" in transition ? transition.hazard_per_second
           : "opponent_exit_hazard_per_second" in transition ? transition.opponent_exit_hazard_per_second
           : transition.opponent_entry_hazard_per_second;
-        return estimate(value, transition.support, data.method_id, `territory.${field}.support.included_seconds`);
+        return {...estimate(value, transition.support, data.method_id, `territory.${field}.support.included_seconds`), territory_detail: data.evidence};
       }),
     });
   }),
@@ -988,7 +992,7 @@ const ledger = (["league", "replacement"] as const).flatMap(reference =>
             : term === "setting"
               ? "5v5 setting assisted-opportunity support"
               : term === "ice_won" || term === "ice_lost"
-                ? "territory support"
+                ? "known-path 5v5 participation"
                 : "modeled penalty support",
     construction: "model_valued",
     numericReference: reference === "league" ? "published league reference" : "published replacement reference",
@@ -1237,6 +1241,7 @@ function datum(
     paired_evidence: selected.paired_evidence ?? null,
     spatial_detail: selected.spatial_detail ?? null,
     mechanism_detail: selected.mechanism_detail ?? null,
+    territory_detail: selected.territory_detail ?? null,
     goalie_detail: selected.goalie_detail ?? null,
     qualificationSeconds: selected.qualificationSeconds,
     qualificationBasis: selected.qualificationBasis,

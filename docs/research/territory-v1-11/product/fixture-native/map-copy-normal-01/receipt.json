@@ -1,0 +1,24 @@
+{
+  "mode": "normal",
+  "downloads": [
+    {
+      "name": "ice_won.csv",
+      "bytes": 1798702,
+      "sha256": "1b0b94c755da02cd0ea0864cb6fc0dd7618b9ce00c3634f0cc3e86570de63b85"
+    },
+    {
+      "name": "ice_won.png",
+      "bytes": 290444,
+      "sha256": "bce29e75a4792221a66248acc4cf026d53fb0cf29e1005a7a0f3120ab24fcc8d"
+    }
+  ],
+  "status": "failed",
+  "geometry": {
+    "innerWidth": 1280,
+    "outerWidth": 1280,
+    "dpr": 2,
+    "clientWidth": 1265,
+    "scrollWidth": 1265
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(svg.includes('nuisance terminal-zone carry can mislocate the puck')&&svg.includes('1,000 5v5 min')&&svg.includes('uncertainty is not estimated'))\n"
+}

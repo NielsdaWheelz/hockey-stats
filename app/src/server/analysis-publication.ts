@@ -193,8 +193,10 @@ export const validatePhysical = (sql: SqliteClient) =>
     yield* Effect.try(() => {
       if (JSON.stringify(integrity) !== '[{"integrity_check":"ok"}]' || foreign.length !== 0)
         throw new Error("publication integrity or foreign-key check failed");
-      if (JSON.stringify(version) !== '[{"user_version":10}]')
-        throw new Error("incompatible publication version; schema 10 is required");
+      if (JSON.stringify(version) !== '[{"user_version":11}]')
+        throw new Error(
+          "incompatible publication version; schema 11 is required",
+        );
       if (JSON.stringify(journal) !== '[{"journal_mode":"delete"}]')
         throw new Error("publication requires delete journal mode");
       const actual = tables.filter((table) => !table.name.startsWith("sqlite_"));
@@ -208,7 +210,7 @@ export const validatePhysical = (sql: SqliteClient) =>
             !(table.name in physicalSchema),
         )
       )
-        throw new Error("publication requires the fixed strict schema-10 tables");
+        throw new Error("publication requires the fixed strict schema-11 tables");
     });
     for (const [table, expected] of Object.entries(physicalSchema)) {
       const columns = yield* sql.unsafe<{
@@ -830,6 +832,81 @@ export const validateAnalysis = (
         }
       }));
     }
+    const territoryReferences = new Map<string, string>();
+    yield* forEachRow(sql, "skater_territory", (row) =>
+      Effect.try(() => {
+        const result = resultFromRow("skater_territory", row);
+        if (result.availability !== "provided") return;
+        const data = result.data,
+          e = data.evidence,
+          method = catalogs.methods[data.method_id],
+          year = String(row.season);
+        if (
+          method === undefined ||
+          method.family !== "territory" ||
+          method.recipe_id !== "territory-v1-11-1"
+        )
+          throw new Error("territory method family/recipe differs");
+        const body = A.territoryReferenceBody(
+          e,
+          year,
+          method.purpose,
+          method.recipe_id,
+        );
+        const hash = createHash("sha256")
+          .update(JSON.stringify(A.territoryDigestRepresentation(body)))
+          .digest("hex");
+        if (e.reference_id !== hash)
+          throw new Error("territory numerical reference digest differs");
+        if (
+          !method.inputs.some(
+            (input) =>
+              input.role === "territory_reference" &&
+              input.sha256 === e.reference_id &&
+              input.seasons.length === 1 &&
+              input.seasons[0] === year,
+          ) ||
+          !method.evidence.some((binding) => binding.sha256 === e.reference_id)
+        )
+          throw new Error("territory method lacks numerical reference binding");
+        const bindings = [
+          ["annual_state", e.annual_state],
+          ["prepared", e.prepared],
+          ["ev_state", e.successor_reference.ev_state],
+          ["derivation", e.shift_reference.receipt],
+          ...(e.successor_reference.panel === null
+            ? []
+            : ([["successor_panel", e.successor_reference.panel]] as const)),
+        ] as const;
+        for (const [role, binding] of bindings) {
+          if (
+            !method.evidence.some(
+              (b) => b.uri === binding.uri && b.sha256 === binding.sha256,
+            ) ||
+            !method.inputs.some(
+              (input) =>
+                input.role === role &&
+                input.sha256 === binding.sha256 &&
+                input.seasons.includes(year),
+            )
+          )
+            throw new Error("territory method reference binding differs");
+        }
+        if (
+          A.territoryRoles.some((role) =>
+            e.roles[role].coefficient_support.prior_seasons.some(
+              (prior) => prior >= year || !method.fit_seasons.includes(prior),
+            ),
+          )
+        )
+          throw new Error("territory prior outside method years");
+        const fixed = JSON.stringify(canonical(body)),
+          previous = territoryReferences.get(year);
+        if (previous !== undefined && previous !== fixed)
+          throw new Error("territory annual reference differs between players");
+        territoryReferences.set(year, fixed);
+      }),
+    );
     return { people, grids };
   });
 
@@ -1153,6 +1230,30 @@ export const validateCrossRecords = (
        AND EXISTS(SELECT 1 FROM skater_spatial c WHERE c.season=m.season AND c.player_id=m.player_id
                   AND c.strength IN ('pp','pk') AND c.availability='provided') LIMIT 1`,
       "computed specialty scalar lacks its required provided map");
+    yield* forEachRow(sql,"skater_territory",row => Effect.gen(function* () {
+      const summary = yield* Effect.try(() => resultFromRow("skater_territory",row));
+      const maps = yield* sql.unsafe<Record<string,unknown>>(
+        "SELECT * FROM analysis_map WHERE season=? AND player_id=? AND map_kind IN ('ice_won','ice_lost') AND strength='5v5' AND view='effect'",
+        [String(row.season),String(row.player_id)],
+      );
+      yield* Effect.try(() => {
+        if (maps.length!==2 || new Set(maps.map(map=>map.map_kind)).size!==2)
+          throw new Error("territory scalar lacks its two map rows");
+        for (const mapRow of maps) {
+          const map = resultFromRow("analysis_map",mapRow);
+          if (map.availability!==summary.availability)
+            throw new Error("territory scalar/map availability differs");
+          if (map.availability!=="provided" || summary.availability!=="provided") continue;
+          const scalar = mapRow.map_kind==="ice_won" ? summary.data.ice_won_goals_per_basket : summary.data.ice_lost_goals_per_basket;
+          const value = map.data;
+          if (value.method_id!==summary.data.method_id || JSON.stringify(canonical(value.support))!==JSON.stringify(canonical(summary.data.support)) ||
+              (value.cells!==null)!==(scalar.value!==null) || value.unavailable_reason!==scalar.unavailable_reason ||
+              (scalar.value===null && JSON.stringify(canonical(value.reason_detail))!==JSON.stringify(canonical(scalar.reason_detail))) ||
+              (scalar.value===null ? value.integrated_value!==null : value.integrated_value===null || !close(value.integrated_value,scalar.value)))
+            throw new Error("territory map support, availability or scalar closure differs");
+        }
+      });
+    }));
     yield* forEachRow(sql, "analysis_map", (row) =>
       Effect.gen(function* () {
         const result = yield* Effect.try(() => resultFromRow("analysis_map", row));

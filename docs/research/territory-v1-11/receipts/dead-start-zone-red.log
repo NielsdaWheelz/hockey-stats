@@ -1,0 +1,7 @@
+source path controls passed
+nuisance count/censoring controls passed
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-11/.territory-independent/dead-start-zone.py", line 117, in <module>
+    if '--require-removed' in sys.argv: assert removed, 'dead prepared-label shortcut remains'
+                                               ^^^^^^^
+AssertionError: dead prepared-label shortcut remains

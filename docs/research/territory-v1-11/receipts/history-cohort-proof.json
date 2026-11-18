@@ -1,0 +1,498 @@
+{
+  "kind": "territory_history_cohort_proof",
+  "at": "2026-11-17T07:37:48.983395+00:00",
+  "scope": "synthetic five-annual numerical/interface integration; not source, real-annual or scientific acceptance",
+  "status": "green; independent review pending",
+  "checks": [
+    {
+      "command": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        ".tmp-territory-numerics/history.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.8353818750474602,
+      "stdout": "five annual fits/readbacks; literal player/coach entry/carry priors, absent/prior-only history, zero-event refresh, unknown/all-zero coordinates and raw/reporting invariance passed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "app/node_modules/tsx/dist/cli.mjs",
+        ".tmp-territory-numerics/cohort.ts"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.2970093749463558,
+      "stdout": "actual selectors/cohorts: all six ranked territory fields share 301 known-path minutes; zero exit risk still qualifies; unknown F/D stays modeled but unranked; four hazards remain raw-only\n",
+      "stderr": ""
+    }
+  ],
+  "controllers": {
+    ".tmp-territory-numerics/history.py": "27f6c2fdc5ad2764cf9ebd66ba8859190e93d44e2a4838c6b3690f4879c81553",
+    ".tmp-territory-numerics/cohort.ts": "f21f2cfffc35dc31ee144e361aa48b8a674ee44bda14b3240df776a096db065b"
+  },
+  "implementation": {
+    "analysis/src/hockey_stats/territory.py": "39e6befb697a156712e6f4394329bf1ae0761d60a47e5df625abbed7aaeef441",
+    "analysis/src/hockey_stats/territory_state.py": "842bbd36c85d45c616819300569e9d7b2630965b6d78b9f30781ac647130b775",
+    "analysis/src/hockey_stats/player_mechanisms.py": "0e8b409c1d795c6f7c26091772be374bf01722e9501ee6b0825d805f5e68306b",
+    "analysis/src/hockey_stats/mechanism_composition.py": "6ee76863e49ac0527e70ea07bcfa4fb804cb3b95fbccc72dedf55c39a1f9bd0a",
+    "app/src/web/analysis-values.ts": "c9565082ebd02dbeec42a5bcab0077d115d5402adf6e9654066ee9b7cc13ca06",
+    "app/src/web/analysis-cohorts.ts": "6a3677232a86233dc2197d6b032b0615d92692e14b54f5d6b6bc060a137eacbe"
+  },
+  "independent_oracle": "literal entry/carry sd and gap formulas; manually counted actor risk/events; literal dense Poisson loss/gradient and prior; explicit expected ledger years; manual role-slot centers and factual predictor reconstruction",
+  "facts": {
+    "scope": "synthetic five-annual integration; no source/scientific/real acceptance",
+    "annuals": [
+      {
+        "season": "20212022",
+        "focus": {
+          "entry": {
+            "attacking_player": {
+              "prior_anchor": null,
+              "precision": 16.0,
+              "risk": 60.0,
+              "last": "20212022",
+              "prior_mean": 0.0,
+              "raw": 0.009423960412994637,
+              "reported": 0.009153857622330296
+            },
+            "defending_player": {
+              "prior_anchor": null,
+              "precision": 16.0,
+              "risk": 60.0,
+              "last": "20212022",
+              "prior_mean": 0.0,
+              "raw": -0.008883754831665954,
+              "reported": -0.009153857622330295
+            }
+          },
+          "exit": {
+            "attacking_player": {
+              "prior_anchor": null,
+              "precision": 16.0,
+              "risk": 120.0,
+              "last": "20212022",
+              "prior_mean": 0.0,
+              "raw": 0.0008660334361492813,
+              "reported": 0.0
+            },
+            "defending_player": {
+              "prior_anchor": null,
+              "precision": 16.0,
+              "risk": 0.0,
+              "last": null,
+              "prior_mean": 0.0,
+              "raw": 0.0,
+              "reported": -0.0008660334361492813
+            }
+          }
+        },
+        "coach_c1": {
+          "entry": {
+            "attacking_coach": {
+              "prior_anchor": null,
+              "precision": 99.99999999999999,
+              "risk": 60.0,
+              "prior_mean": 0.0,
+              "last": "20212022"
+            },
+            "defending_coach": {
+              "prior_anchor": null,
+              "precision": 99.99999999999999,
+              "risk": 60.0,
+              "prior_mean": 0.0,
+              "last": "20212022"
+            }
+          },
+          "exit": {
+            "attacking_coach": {
+              "prior_anchor": null,
+              "precision": 99.99999999999999,
+              "risk": 120.0,
+              "prior_mean": 0.0,
+              "last": "20212022"
+            },
+            "defending_coach": {
+              "prior_anchor": null,
+              "precision": 99.99999999999999,
+              "risk": 0.0,
+              "prior_mean": 0.0,
+              "last": null
+            }
+          }
+        }
+      },
+      {
+        "season": "20222023",
+        "focus": {
+          "entry": {
+            "attacking_player": {
+              "prior_anchor": "20212022",
+              "precision": 99.99999999999999,
+              "risk": 0.0,
+              "last": "20212022",
+              "prior_mean": 0.009423960412994637,
+              "raw": 0.009423960412994637,
+              "reported": 0.011585158452290864
+            },
+            "defending_player": {
+              "prior_anchor": "20212022",
+              "precision": 99.99999999999999,
+              "risk": 0.0,
+              "last": "20212022",
+              "prior_mean": -0.008883754831665954,
+              "raw": -0.008883754831665954,
+              "reported": -0.008628621436614812
+            }
+          },
+          "exit": {
+            "attacking_player": {
+              "prior_anchor": "20212022",
+              "precision": 99.99999999999999,
+              "risk": 0.0,
+              "last": "20212022",
+              "prior_mean": 0.0008660334361492813,
+              "raw": 0.0008660334361492813,
+              "reported": 0.011981143342341568
+            },
+            "defending_player": {
+              "prior_anchor": null,
+              "precision": 16.0,
+              "risk": 130.0,
+              "last": "20222023",
+              "prior_mean": 0.0,
+              "raw": -0.011115109906192286,
+              "reported": 0.0
+            }
+          }
+        },
+        "coach_c1": {
+          "entry": {
+            "attacking_coach": {
+              "prior_anchor": "20212022",
+              "precision": 399.99999999999994,
+              "risk": 0.0,
+              "prior_mean": 0.0015078352990879457,
+              "last": "20212022"
+            },
+            "defending_coach": {
+              "prior_anchor": "20212022",
+              "precision": 399.99999999999994,
+              "risk": 0.0,
+              "prior_mean": -0.0014213906573884607,
+              "last": "20212022"
+            }
+          },
+          "exit": {
+            "attacking_coach": {
+              "prior_anchor": "20212022",
+              "precision": 399.99999999999994,
+              "risk": 0.0,
+              "prior_mean": 0.0001385692112801094,
+              "last": "20212022"
+            },
+            "defending_coach": {
+              "prior_anchor": null,
+              "precision": 99.99999999999999,
+              "risk": 130.0,
+              "prior_mean": 0.0,
+              "last": "20222023"
+            }
+          }
+        }
+      },
+      {
+        "season": "20232024",
+        "focus": {},
+        "coach_c1": {
+          "entry": {
+            "attacking_coach": {
+              "prior_anchor": "20212022",
+              "precision": 199.99999999999997,
+              "risk": 0.0,
+              "prior_mean": 0.0015078352990879457,
+              "last": "20212022"
+            },
+            "defending_coach": {
+              "prior_anchor": "20212022",
+              "precision": 199.99999999999997,
+              "risk": 0.0,
+              "prior_mean": -0.0014213906573884607,
+              "last": "20212022"
+            }
+          },
+          "exit": {
+            "attacking_coach": {
+              "prior_anchor": "20212022",
+              "precision": 199.99999999999997,
+              "risk": 0.0,
+              "prior_mean": 0.0001385692112801094,
+              "last": "20212022"
+            },
+            "defending_coach": {
+              "prior_anchor": "20222023",
+              "precision": 399.99999999999994,
+              "risk": 0.0,
+              "prior_mean": -0.0017784155324724101,
+              "last": "20222023"
+            }
+          }
+        }
+      },
+      {
+        "season": "20242025",
+        "focus": {
+          "entry": {
+            "attacking_player": {
+              "prior_anchor": "20212022",
+              "precision": 33.33333333333333,
+              "risk": 18060.0,
+              "last": "20242025",
+              "prior_mean": 0.009423960412994637,
+              "raw": 0.006002579440594563,
+              "reported": 0.007864521765728888
+            },
+            "defending_player": {
+              "prior_anchor": "20212022",
+              "precision": 33.33333333333333,
+              "risk": 18060.0,
+              "last": "20242025",
+              "prior_mean": -0.008883754831665954,
+              "raw": -0.011795912041371504,
+              "reported": -0.009874894165913192
+            }
+          },
+          "exit": {
+            "attacking_player": {
+              "prior_anchor": "20212022",
+              "precision": 33.33333333333333,
+              "risk": 0.0,
+              "last": "20212022",
+              "prior_mean": 0.0008660334361492813,
+              "raw": 0.0008660334361492813,
+              "reported": 0.0014487813115225444
+            },
+            "defending_player": {
+              "prior_anchor": "20222023",
+              "precision": 49.99999999999999,
+              "risk": 0.0,
+              "last": "20222023",
+              "prior_mean": -0.011115109906192286,
+              "raw": -0.011115109906192286,
+              "reported": -0.01106140393410963
+            }
+          }
+        },
+        "coach_c1": {
+          "entry": {
+            "attacking_coach": {
+              "prior_anchor": "20212022",
+              "precision": 133.33333333333331,
+              "risk": 18060.0,
+              "prior_mean": 0.0015078352990879457,
+              "last": "20242025"
+            },
+            "defending_coach": {
+              "prior_anchor": "20212022",
+              "precision": 133.33333333333331,
+              "risk": 18060.0,
+              "prior_mean": -0.0014213906573884607,
+              "last": "20242025"
+            }
+          },
+          "exit": {
+            "attacking_coach": {
+              "prior_anchor": "20212022",
+              "precision": 133.33333333333331,
+              "risk": 0.0,
+              "prior_mean": 0.0001385692112801094,
+              "last": "20212022"
+            },
+            "defending_coach": {
+              "prior_anchor": "20222023",
+              "precision": 199.99999999999997,
+              "risk": 0.0,
+              "prior_mean": -0.0017784155324724101,
+              "last": "20222023"
+            }
+          }
+        }
+      },
+      {
+        "season": "20252026",
+        "focus": {
+          "entry": {
+            "attacking_player": {
+              "prior_anchor": "20242025",
+              "precision": 99.99999999999999,
+              "risk": 0.0,
+              "last": "20242025",
+              "prior_mean": 0.006002579440594563,
+              "raw": 0.006002579440594563,
+              "reported": 0.00919053780518514
+            },
+            "defending_player": {
+              "prior_anchor": "20242025",
+              "precision": 99.99999999999999,
+              "risk": 0.0,
+              "last": "20242025",
+              "prior_mean": -0.011795912041371504,
+              "raw": -0.011795912041371504,
+              "reported": -0.00990703159543322
+            }
+          },
+          "exit": {
+            "attacking_player": {
+              "prior_anchor": "20212022",
+              "precision": 24.999999999999996,
+              "risk": 160.0,
+              "last": "20252026",
+              "prior_mean": 0.0008660334361492813,
+              "raw": -0.006772659275263077,
+              "reported": -0.0038474212692101335
+            },
+            "defending_player": {
+              "prior_anchor": "20222023",
+              "precision": 33.33333333333333,
+              "risk": 0.0,
+              "last": "20222023",
+              "prior_mean": -0.011115109906192286,
+              "raw": -0.011115109906192286,
+              "reported": -0.009151727217441875
+            }
+          }
+        },
+        "coach_c1": {
+          "entry": {
+            "attacking_coach": {
+              "prior_anchor": "20242025",
+              "precision": 399.99999999999994,
+              "risk": 0.0,
+              "prior_mean": 0.0006524888764648592,
+              "last": "20242025"
+            },
+            "defending_coach": {
+              "prior_anchor": "20242025",
+              "precision": 399.99999999999994,
+              "risk": 0.0,
+              "prior_mean": -0.0021494308631624407,
+              "last": "20242025"
+            }
+          },
+          "exit": {
+            "attacking_coach": {
+              "prior_anchor": "20212022",
+              "precision": 99.99999999999999,
+              "risk": 160.0,
+              "prior_mean": 0.0001385692112801094,
+              "last": "20252026"
+            },
+            "defending_coach": {
+              "prior_anchor": "20222023",
+              "precision": 133.33333333333331,
+              "risk": 0.0,
+              "prior_mean": -0.0017784155324724101,
+              "last": "20222023"
+            }
+          }
+        }
+      }
+    ],
+    "centering_changed_reporting_only": [
+      [
+        "20212022",
+        "entry"
+      ],
+      [
+        "20212022",
+        "exit"
+      ],
+      [
+        "20222023",
+        "entry"
+      ],
+      [
+        "20222023",
+        "exit"
+      ],
+      [
+        "20232024",
+        "entry"
+      ],
+      [
+        "20232024",
+        "exit"
+      ],
+      [
+        "20242025",
+        "entry"
+      ],
+      [
+        "20242025",
+        "exit"
+      ],
+      [
+        "20252026",
+        "entry"
+      ],
+      [
+        "20252026",
+        "exit"
+      ]
+    ],
+    "final_focus_ledgers": {
+      "entry": {
+        "attacking_player": {
+          "coefficient": 0.006002579440594563,
+          "season": "20242025",
+          "support_seasons": [
+            "20212022",
+            "20242025"
+          ]
+        },
+        "defending_player": {
+          "coefficient": -0.011795912041371504,
+          "season": "20242025",
+          "support_seasons": [
+            "20212022",
+            "20242025"
+          ]
+        }
+      },
+      "exit": {
+        "attacking_player": {
+          "coefficient": -0.006772659275263077,
+          "season": "20252026",
+          "support_seasons": [
+            "20212022",
+            "20252026"
+          ]
+        },
+        "defending_player": {
+          "coefficient": -0.011115109906192286,
+          "season": "20222023",
+          "support_seasons": [
+            "20222023"
+          ]
+        }
+      }
+    }
+  },
+  "assertions": [
+    "ten actual completed small baseline heads and strict saved readbacks",
+    "entry roles retain independent raw coordinates while sharing source-valid neutral risk years",
+    "exit offense and retention have distinct last-supported years through one absent annual",
+    "positive exposure with zero crossings refreshes support; zero exposure and absence do not",
+    "player sd .25 entry and .10*sqrt(gap) carry; coach .10 entry and .05*sqrt(gap) carry; no extra level penalty",
+    "all four coordinates exist for every identified actor including active unknown F/D and all-zero-risk unknown actor",
+    "role-slot centering changes reporting only; factual predictions and raw future carry are preserved",
+    "actual TS selectors and cohorts use 301 known-path minutes for all six ranked territory fields despite zero exit risk",
+    "unknown F/D remains modeled but outside position cohorts; four hazard columns stay raw-only"
+  ],
+  "controller_corrections": [
+    "initial manual coach schedule accidentally exposed c1 in an intended prior-only year; expected-year assertion caught it and test fixture was corrected",
+    "initial direct-family response did not match actual overview selector contract; control was corrected to exercise the existing overview owner"
+  ],
+  "production_changes": "none in this acceptance step",
+  "temporary_disposition": "retain until independent review/campaign acceptance, then delete controllers and generated synthetic inputs",
+  "node_version": "v24.21.0"
+}

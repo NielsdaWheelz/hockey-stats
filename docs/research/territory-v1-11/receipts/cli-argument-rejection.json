@@ -1,0 +1,160 @@
+{
+  "scope": "parser-only; no source reads or output writes",
+  "cases": [
+    {
+      "arguments": [
+        "fit",
+        "--family",
+        "territory",
+        "--prepared",
+        "fixture",
+        "--season",
+        "20212022",
+        "--out",
+        "unused"
+      ],
+      "exit_code": 2,
+      "reason": "hockey-stats-analysis fit: error: territory fit requires --coaches"
+    },
+    {
+      "arguments": [
+        "fit",
+        "--family",
+        "territory",
+        "--prepared",
+        "fixture",
+        "--season",
+        "20212022",
+        "--out",
+        "unused",
+        "--coaches",
+        "fixture",
+        "--valued",
+        "fixture"
+      ],
+      "exit_code": 2,
+      "reason": "hockey-stats-analysis fit: error: territory fit does not accept --valued"
+    },
+    {
+      "arguments": [
+        "fit",
+        "--family",
+        "territory",
+        "--prepared",
+        "fixture",
+        "--season",
+        "20212022",
+        "--out",
+        "unused",
+        "--coaches",
+        "fixture",
+        "--basis",
+        "fixture"
+      ],
+      "exit_code": 2,
+      "reason": "hockey-stats-analysis fit: error: territory fit does not accept --basis"
+    },
+    {
+      "arguments": [
+        "fit",
+        "--family",
+        "territory",
+        "--prepared",
+        "fixture",
+        "--season",
+        "20212022",
+        "--out",
+        "unused",
+        "--family",
+        "territory"
+      ],
+      "exit_code": 2,
+      "reason": "hockey-stats-analysis fit: error: --family must occur exactly once"
+    },
+    {
+      "arguments": [
+        "fit",
+        "--family",
+        "territory",
+        "--prepared",
+        "fixture",
+        "--season",
+        "20212022",
+        "--out",
+        "unused",
+        "--season",
+        "20222023"
+      ],
+      "exit_code": 2,
+      "reason": "hockey-stats-analysis fit: error: --season must occur exactly once"
+    },
+    {
+      "arguments": [
+        "summarize",
+        "--family",
+        "territory",
+        "--results",
+        "fixture",
+        "--states",
+        "fixture.json",
+        "--out",
+        "unused",
+        "--prepared",
+        "fixture"
+      ],
+      "exit_code": 2,
+      "reason": "hockey-stats-analysis summarize: error: territory summarize does not accept --prepared"
+    },
+    {
+      "arguments": [
+        "summarize",
+        "--family",
+        "territory",
+        "--results",
+        "fixture",
+        "--states",
+        "fixture.json",
+        "--out",
+        "unused",
+        "--scores",
+        "fixture"
+      ],
+      "exit_code": 2,
+      "reason": "hockey-stats-analysis summarize: error: territory summarize does not accept --scores"
+    },
+    {
+      "arguments": [
+        "summarize",
+        "--family",
+        "territory",
+        "--results",
+        "fixture",
+        "--states",
+        "fixture.json",
+        "--out",
+        "unused",
+        "--product-admission",
+        "fixture"
+      ],
+      "exit_code": 2,
+      "reason": "hockey-stats-analysis summarize: error: territory summarize does not accept --product-admission"
+    },
+    {
+      "arguments": [
+        "summarize",
+        "--family",
+        "territory",
+        "--results",
+        "fixture",
+        "--states",
+        "fixture.json",
+        "--out",
+        "unused",
+        "--states",
+        "duplicate.json"
+      ],
+      "exit_code": 2,
+      "reason": "hockey-stats-analysis summarize: error: --states must occur exactly once"
+    }
+  ]
+}

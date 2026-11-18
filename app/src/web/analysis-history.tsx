@@ -1,3 +1,4 @@
+import { TerritoryDetail, territoryNotes } from "./territory-detail";
 import { MechanismDetail } from "./mechanism-detail";
 import { useId, useRef, useState } from "react";
 import { Link } from "react-router";
@@ -198,6 +199,7 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
         <p>{spatialSupportMeaning(datum)}. selected spatial detail exposes structured head information and actual-context adjustments from the same publication.</p>
       </div>}
       {datum.mechanism_detail && <MechanismDetail evidence={datum.mechanism_detail} />}
+      {datum.territory_detail && <TerritoryDetail evidence={datum.territory_detail} />}
       {datum.reference_panel && (
         <div>
           <p>
@@ -380,6 +382,7 @@ export const analysisCsvHeaders = [
   "spatial_support_meaning",
   "method_evidence",
   "goalie_detail",
+  "territory_detail",
 ] as const;
 export function analysisCsvRow(
   publication: Publication,
@@ -470,6 +473,7 @@ export function analysisCsvRow(
     datum.metric.publicationFamily === "spatial" ? spatialSupportMeaning(datum) : null,
     JSON.stringify(datum.methods.map(method => ({ method_id: method.method_id, evidence: method.evidence }))),
     datum.goalie_detail === null ? null : JSON.stringify(datum.goalie_detail),
+    datum.territory_detail === null ? null : JSON.stringify(datum.territory_detail),
   ];
 }
 
@@ -834,6 +838,11 @@ function historySvg(view: HistoryView): string {
           text(`ordinary-minor team awards: neutral ${evidence.neutral_per60}; complete drawing ${evidence.drawn_complete_per60}; complete taking ${evidence.taken_complete_per60} per60. positive taking difference means more penalties`, 20);
           text(`isolated-minor value ${evidence.valuation.V_goals ?? "unavailable"} goals; taking value = −taking difference × V; V can be negative. source-pooled sh circumstances differ from hypothetical ev/pp references`, 20);
         } else text(`share of team attempts; ${evidence.reference_unit.forwards}F/${evidence.reference_unit.defenders}D unit. exact-state qualifying minutes differ from pooled seven-state candidate information; neither is observed shot share`, 20);
+      }
+      if (datum.territory_detail) {
+        for (const line of territoryNotes(datum.territory_detail)) text(line, 20);
+        const shift = datum.territory_detail.shift_reference.data;
+        if (shift) text(`successor ends: neutral ${shift.neutral_end_probabilities.join(", ")}; focal ${shift.focal_end_probabilities.join(", ")}; difference ${shift.end_difference.join(", ")}`, 20);
       }
       if (datum.reference_panel) {
         const panel = datum.reference_panel;

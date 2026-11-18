@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "kind": "territory_exchange5_readback",
+  "status": "accepted_conversion",
+  "at": "2026-11-18T06:41:29.577190+00:00",
+  "original_converter_exit_code": 130,
+  "source_commit": "efe463b03ea79183f0a2f0982038ec0c18c0a687",
+  "converter_sha256": "1534f9787487d181bd1667cdfb68bdb39562433e4d397fa525a8388814ce2a32",
+  "source_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/manifest.json",
+    "sha256": "143b7e068ae8b4135442bc349d6aa5b9c426bd0f6b2eb565df1f1b7c69928c41"
+  },
+  "donor_composition": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/mechanisms-v1-10-20261114-01/real/results/mechanism-composition.json",
+    "sha256": "684fe0c02beecc10bc3d4d19f616ad039e4ff186ed84ca67ae91d6fc652c84b5"
+  },
+  "output": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/exchange5-base/manifest.json",
+    "sha256": "d84b5fca56a25d5253d76f48672b8496e4bb72b3a71c5226a53e61d3217c6dc6"
+  },
+  "conversion": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/exchange5-base/exchange5-conversion.json",
+    "sha256": "498e989e2bff611ce1c6325356a27ae0cbe4d94cca516668546fc2ea08f6d875"
+  },
+  "inherited_members": 85,
+  "inherited_rows": 38071694,
+  "pending_territory_rows": 0,
+  "wall_seconds": 3644.321803542087,
+  "native_exit_code": 0,
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-exchange5-readback-01.log",
+    "sha256": "548e021430ebe28184cc4a963a108b518361545cbe022b6406ba0691c2f3da6a"
+  },
+  "exit_code_capture": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-exchange5-readback-01.exit-code",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "native_costs": {
+    "real_seconds": 3644.82,
+    "user_seconds": 3397.15,
+    "sys_seconds": 71.6,
+    "maximum_resident_bytes": 577634304,
+    "peak_footprint_bytes": 586662824
+  }
+}

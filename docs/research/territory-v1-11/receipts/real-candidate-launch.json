@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "kind": "territory_candidate_launch",
+  "status": "running",
+  "at": "2026-11-18T01:48:48-08:00",
+  "source_commit": "da384cdbd27b64239e7bf9106e540d8ae3f0682d",
+  "analysis_tree": "1d9eb354ffdd501aa448a3412ef004aac4c89e65",
+  "app_tree": "5d4a41c4993fb765e1ed5e396125e37db2ea8d09",
+  "results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/manifest.json",
+    "sha256": "ec5349f1f019a9ccfbac908be26dd34b350f26085a890904b6048de0da1d2829"
+  },
+  "observed": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9"
+  },
+  "composition_acceptance": {
+    "path": "docs/research/territory-v1-11/receipts/real-territory-composition-acceptance.json",
+    "sha256": "a01211c03aec37e14deedd9cc99077f314306fcac196f5df57f42c1f8f4abcba"
+  },
+  "final_sensitivity": {
+    "path": "docs/research/territory-v1-11/receipts/real-territory-final-sensitivity.json",
+    "sha256": "0285a7111d5e6d39da307d64bae440e087b1234a291313467ad06ebf7cc8c966"
+  },
+  "composition_acceptance_native_log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-territory-composition-acceptance-01.log",
+    "sha256": "632ffc750c06648b319b41de80593dd31500f0643c98967f4c90bff7815e4482"
+  },
+  "sensitivity_native_log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-territory-sensitivity-01.log",
+    "sha256": "98655e5d6f96d69bc75dcbba15cdeb4a04b627c9f65ad8c68c43bfc1a3a769ad"
+  },
+  "sensitivity_checker": {
+    "path": ".scratch/v1-11/composition-resume/check-saved-sensitivity.py",
+    "sha256": "a13379e93c9b583e6d28ce63470eab4c3b116044f0004231104409cbc0fc668f"
+  },
+  "panel_costs": [
+    {
+      "season": "20212022",
+      "read_wall_seconds": 33.29404600011185,
+      "bound_input_bytes": 1434057848,
+      "byte_scope": "bound metadata/coefficient member sizes plus decompressed basis; hashing/parsing reread metadata; physical io unmeasured",
+      "panel_projection_wall_seconds": 0.007959708804264665,
+      "panel_array_bytes": 509056,
+      "peak_process_resident_bytes": 15634464768,
+      "projection_scope": "one-slot spatial panel only; peak memory is process high-water, not incremental allocation"
+    },
+    {
+      "season": "20222023",
+      "read_wall_seconds": 41.0054114589002,
+      "bound_input_bytes": 1757609903,
+      "byte_scope": "bound metadata/coefficient member sizes plus decompressed basis; hashing/parsing reread metadata; physical io unmeasured",
+      "panel_projection_wall_seconds": 0.008634292054921389,
+      "panel_array_bytes": 509056,
+      "peak_process_resident_bytes": 15634464768,
+      "projection_scope": "one-slot spatial panel only; peak memory is process high-water, not incremental allocation"
+    },
+    {
+      "season": "20232024",
+      "read_wall_seconds": 31.520574250025675,
+      "bound_input_bytes": 1729669477,
+      "byte_scope": "bound metadata/coefficient member sizes plus decompressed basis; hashing/parsing reread metadata; physical io unmeasured",
+      "panel_projection_wall_seconds": 0.004454291891306639,
+      "panel_array_bytes": 509056,
+      "peak_process_resident_bytes": 18387156992,
+      "projection_scope": "one-slot spatial panel only; peak memory is process high-water, not incremental allocation"
+    },
+    {
+      "season": "20242025",
+      "read_wall_seconds": 29.56260637496598,
+      "bound_input_bytes": 1722917380,
+      "byte_scope": "bound metadata/coefficient member sizes plus decompressed basis; hashing/parsing reread metadata; physical io unmeasured",
+      "panel_projection_wall_seconds": 0.004789707949385047,
+      "panel_array_bytes": 509056,
+      "peak_process_resident_bytes": 18539020288,
+      "projection_scope": "one-slot spatial panel only; peak memory is process high-water, not incremental allocation"
+    },
+    {
+      "season": "20252026",
+      "read_wall_seconds": 31.626038416055962,
+      "bound_input_bytes": 1758215240,
+      "byte_scope": "bound metadata/coefficient member sizes plus decompressed basis; hashing/parsing reread metadata; physical io unmeasured",
+      "panel_projection_wall_seconds": 0.004598834086209536,
+      "panel_array_bytes": 509056,
+      "peak_process_resident_bytes": 18539020288,
+      "projection_scope": "one-slot spatial panel only; peak memory is process high-water, not incremental allocation"
+    }
+  ],
+  "target": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/candidate-01",
+  "log": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-candidate-01.log",
+  "exit_code_capture": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-candidate-01.exit-code",
+  "process": {
+    "python_pid": 11291,
+    "time_pid": 11290
+  },
+  "scope": "one ordinary inactive schema11 candidate with inherited observed evidence and accepted exchange5 composition. no activation or scientific admission."
+}

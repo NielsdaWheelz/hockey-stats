@@ -1,0 +1,221 @@
+{
+  "status": "equivalent",
+  "cleanup_removed": false,
+  "frozen_commit": "008197e",
+  "current_source_sha256": "5be6e938860a14aca117088206c80098adf556f8c053a0bc6c7e20302314ea87",
+  "frozen_source_sha256": "5be6e938860a14aca117088206c80098adf556f8c053a0bc6c7e20302314ea87",
+  "controller_sha256": "c3df05827f213f8340e3b90e042516f6ef96b551e08521e7b271fe8cf4f0fb02",
+  "prepared_capture_sha256": "f5c2ecf8caadbba8f4c064d09bffb49b182580ad62a378fa70345c5d863f68e0",
+  "prepared_label_counts": {
+    "neutral": 148,
+    "None": 441,
+    "defensive": 138,
+    "offensive": 124
+  },
+  "checks": [
+    {
+      "case": "checked-faceoff--26",
+      "path_sha256": "8d28b404e29770de954d9db27d5dc91f37c02ba147ed51bc108fe31baab5e216",
+      "nuisance_sha256": "390c18570c648830384002c289610ffeb18f78e66b9d495c048f5a0ee0cceef1",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "case": "checked-faceoff-0",
+      "path_sha256": "8d28b404e29770de954d9db27d5dc91f37c02ba147ed51bc108fe31baab5e216",
+      "nuisance_sha256": "a6d14299d058dd8370f2e812fdcbe8e4ffffbad6ee529e8a3d8e7941469a9e4e",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        0,
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "case": "checked-faceoff-26",
+      "path_sha256": "8d28b404e29770de954d9db27d5dc91f37c02ba147ed51bc108fe31baab5e216",
+      "nuisance_sha256": "ad61bf43d4637b760d38c205395e7b7fe2f27496df2aa11eefa87c4d2f29f893",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "case": "checked-faceoff--25",
+      "path_sha256": "8d28b404e29770de954d9db27d5dc91f37c02ba147ed51bc108fe31baab5e216",
+      "nuisance_sha256": "19ff8f404f2383350e36e5bc7cace7d8d9de1dae72458d766b0d83f6a6d34e54",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": "checked-faceoff-25",
+      "path_sha256": "8d28b404e29770de954d9db27d5dc91f37c02ba147ed51bc108fe31baab5e216",
+      "nuisance_sha256": "19ff8f404f2383350e36e5bc7cace7d8d9de1dae72458d766b0d83f6a6d34e54",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": "checked-faceoff-None",
+      "path_sha256": "d631e496b9bf1867ef378e080bc97ca95a806c6a72005d99013b499cf6c347e9",
+      "nuisance_sha256": "19ff8f404f2383350e36e5bc7cace7d8d9de1dae72458d766b0d83f6a6d34e54",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": "checked-start",
+      "path_sha256": "8d28b404e29770de954d9db27d5dc91f37c02ba147ed51bc108fe31baab5e216",
+      "nuisance_sha256": "88b18052cf8cbcb5c55033574b0521809ff1733dd1619a2cadfbfee2a2ae09e0",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": "same-clock",
+      "path_sha256": "a3724c3fd9fb8dcb6b09e9fcd0a9ddcd065ec3f751bc8e6a39250d17e01269b8",
+      "nuisance_sha256": "32682f4c69f0dc9d9aa5450811b7d872b1ae533942f137818eb648e44eb7c321",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": "included-membership",
+      "path_sha256": "8d28b404e29770de954d9db27d5dc91f37c02ba147ed51bc108fe31baab5e216",
+      "nuisance_sha256": "cea280e1a1a2a0cd78d943279af2890b36421a008ab29da00e9259efff6b117b",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": "genuine-five",
+      "path_sha256": "8d28b404e29770de954d9db27d5dc91f37c02ba147ed51bc108fe31baab5e216",
+      "nuisance_sha256": "cea280e1a1a2a0cd78d943279af2890b36421a008ab29da00e9259efff6b117b",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": "unique-right",
+      "path_sha256": "8d28b404e29770de954d9db27d5dc91f37c02ba147ed51bc108fe31baab5e216",
+      "nuisance_sha256": "cea280e1a1a2a0cd78d943279af2890b36421a008ab29da00e9259efff6b117b",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": "focal-membership",
+      "path_sha256": "8d28b404e29770de954d9db27d5dc91f37c02ba147ed51bc108fe31baab5e216",
+      "nuisance_sha256": "1ea6c2cc7e7f9a4fb702d74a42a0927328b4a2294da1882d6b112e9ba49ea87b",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": "known-age",
+      "path_sha256": "8d28b404e29770de954d9db27d5dc91f37c02ba147ed51bc108fe31baab5e216",
+      "nuisance_sha256": "5d099eacb0852954c326cc192ffe638f0fea425b3bce338f970ef1d09ff12319",
+      "physical_movement_seconds": 7.0,
+      "crossings": 2,
+      "path_slot_seconds": 200.0,
+      "start_counts": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": "original-local-2025020001",
+      "path_sha256": "9ba3cf3549c02748295674308780dc13882b8b45b6b6a7628c9d2b2fb16d60e1",
+      "nuisance_sha256": "17357b15971027ea50c09c9f6ea56bebd8002e86358011ce3d6d503271bd5b3a",
+      "physical_movement_seconds": 2406.0,
+      "crossings": 122,
+      "path_slot_seconds": 27680.0,
+      "start_counts": [
+        97,
+        135,
+        96,
+        351
+      ]
+    }
+  ],
+  "recipe_unchanged": true,
+  "scope": "current authoritative prepared producer and bounded local controls; not arbitrary handcrafted DZ/NZ/OZ prepared payloads",
+  "not_run": [
+    "external reads",
+    "fit",
+    "annual rerun",
+    "scientific admission"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "kind": "territory_cost_scope_fixture_checks",
+  "at": "2026-11-17T08:01:22.780825+00:00",
+  "scope": "bounded synthetic native solves and corrected original-capture fixture; no real annual execution",
+  "status": "green; independently reviewed",
+  "red": "resources.py failed with KeyError validation_wall_seconds before instrumentation",
+  "green": [
+    {
+      "command": "PYTHONPATH=analysis/src python .tmp-territory-numerics/resources.py",
+      "exit_code": 0,
+      "output": "fit, two diagnostic solves, immutable state roundtrip and four successor variants passed\nseparate validation/compression/native-solver/head-fit/hazard-projection cost scopes, bytes/process peak and exact numerical preservation passed"
+    },
+    {
+      "command": "PYTHONPATH=analysis/src python .tmp-territory-composition/check.py",
+      "exit_code": 0,
+      "output": "independent movement/shift/value partial availability passed\nreference save/reuse, detached scalar evidence/method binding, two maps per skater passed: 36 72"
+    },
+    {
+      "command": "PYTHONPATH=analysis/src python .tmp-territory-composition/failures.py",
+      "exit_code": 0,
+      "output": "invalid neutral/focal shift process and successor contraction retain independent outputs"
+    }
+  ],
+  "unchanged_numeric_oracle": {
+    "commit": "aeeeda4252bfd2795fe4db57c2e1a9719f3fb5ca",
+    "exact": [
+      "baseline coefficients",
+      "diagnostic coefficients",
+      "priors",
+      "raw ledgers",
+      "reporting centers",
+      "reference predictors",
+      "objective and gradient records",
+      "in-sample diagnostics",
+      "hazard projections",
+      "support",
+      "recipe"
+    ]
+  },
+  "fixture_resource_facts": {
+    "validation_wall_seconds": 0.0009304999839514494,
+    "compression_wall_seconds": 0.0001422502100467682,
+    "fit_wall_seconds": 0.002377666998654604,
+    "solver_wall_seconds": {
+      "baseline": {
+        "entry": 0.0006604590453207493,
+        "exit": 0.0004767079371958971
+      },
+      "diagnostic": {
+        "entry": 9.320792742073536e-05,
+        "exit": 6.870809011161327e-05
+      }
+    },
+    "hazard_projection_wall_seconds": 0.0004119998775422573,
+    "wall_seconds_before_writing": 0.0038642920553684235,
+    "peak_memory_bytes": 86212608,
+    "peak_memory_scope": "process high-water sampled after hazard projection; includes preparation and earlier stages; later write/readback peaks excluded",
+    "solver_wall_scope": "native solve_logistic call only; excludes prior construction, final gradient evaluation, centering and diagnostics",
+    "baseline_solves": 2,
+    "diagnostic_solves": 2,
+    "preparation": {},
+    "wall_scope": "validation, compression, head fitting and hazard projection timed separately; native solver time is nested within head fitting; preparation and artifact writing separately reported",
+    "write_wall_seconds": 0.018126000184565783,
+    "output_bytes": 129077
+  },
+  "corrected_capture_fixture": {
+    "prepared": ".territory-checks/e2e-v2/prepared",
+    "coaches": ".territory-checks/e2e-v2/coaches/coaches.json",
+    "physical_known_seconds": 2406,
+    "crossings": 122,
+    "source_recipe_sha256": "6a633bdf414ba4fef4ed375bc2884e348edbb9f0f3587249dc4300efadca0678",
+    "fit_recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3"
+  },
+  "scope_contract": {
+    "validation": "compact design and predecessor validation",
+    "compression": "both source-qualified scalar designs",
+    "head_fit": "priors, native solves, final numerical checks, centering and in-sample diagnostics; excludes final hazard projection",
+    "native_solver": "solve_logistic call only; nested in head-fit scope",
+    "hazard_projection": "final all-roster hazard and support projection",
+    "peak": "process high-water sampled after hazard projection; includes preparation and earlier phases; later artifact write/readback peaks excluded",
+    "bytes": "existing writer declared artifact member bytes; root outer command owns completed tree/process totals"
+  },
+  "controllers": {
+    ".tmp-territory-numerics/resources.py": "8d54d0822e3b4bc34ab848059fe9e84f784dec6c90e9e168ba509e540bad753e",
+    ".tmp-territory-composition/check.py": "a698b1669a127439686a46a09e17e76224f28922e3fccc03bbafc13a71800c8f",
+    ".tmp-territory-composition/failures.py": "2069aba84a93b34bbdff7a2a94d5a95469d625cd16c798d37bcde57dc497cde3"
+  },
+  "implementation": {
+    "analysis/src/hockey_stats/territory.py": "b7edfb84b2d74afaa0b20904f47f5b7352859587d566179a9b6c7eefe78953fe",
+    "analysis/src/hockey_stats/territory_design.py": "7d084c4617a08290bcf34b8e8262cf40ecdc0f35ace468d183f647d13128d3f6"
+  },
+  "production_change": "plain counters/resource metadata in territory.py only; no equation, prior, solver option, source policy or numerical arithmetic change",
+  "temporary_disposition": "retain for independent review; delete with the campaign controllers after final acceptance",
+  "independent_review": {
+    "reviewer": "/root/final_contract_review",
+    "verdict": "cleared",
+    "check": "resources.py independently rerun against aeeeda4 exact numerical oracle",
+    "scope": "plain performance boundaries, nested native solver timings, cumulative process peak and later write/readback peak exclusion; no arithmetic or policy change"
+  }
+}

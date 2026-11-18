@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "kind": "territory_map_contract",
+  "purpose": "fixture",
+  "red": "old exchange02 accepted a computed ice-lost scalar beside a pending map; the new integration assertion failed before the repair",
+  "green": [
+    "current exchange reader rejects old stage02 missing map",
+    "detached read-only candidate02 database rejects missing map",
+    "fixed stage03 full synthetic pair accepted",
+    "actual full cli composition accepted",
+    "actual partial cli composition retains valid shift and movement but unavailable value/map bodies"
+  ],
+  "code": {
+    "path": "analysis/src/hockey_stats/analysis_publication.py",
+    "sha256": "9fe6945a959cba958a94314eab6878b5cdba857336d7d96c145653107d365f6e"
+  },
+  "controller": {
+    "path": ".territory-checks/map_contract.py",
+    "sha256": "4ed7216faf24326ab29609b2df59a67bc2391d784d3c8fad7a5fe0ea74748a4d"
+  },
+  "preserved_failed_inputs": [
+    {
+      "path": ".scratch/v1-11/fixture-results-02/manifest.json",
+      "sha256": "5e9b9505dac7f61ac93de6a7be3e04f3f00db48d2ed0896d04bb4c5432b61647"
+    }
+  ],
+  "checked_current_inputs": [
+    {
+      "path": ".scratch/v1-11/fixture-results-03/manifest.json",
+      "sha256": "af3b7635735882c1e2c5e88c5e426532ccf76d9d5ead321bac2072b37bf883df"
+    },
+    {
+      "path": ".territory-checks/e2e-v2/results/manifest.json",
+      "sha256": "c2a81a85336a3604c2c613cb8bc9d06378f741150dbef166962937a3833e48fe"
+    },
+    {
+      "path": ".territory-checks/e2e-v2/partial-results/manifest.json",
+      "sha256": "3b0e84553fa1645b38ce82ddbe161e8e5365ea698131549064b07f6147e5d7b4"
+    }
+  ],
+  "scope": "same strict cross-record checks reused at exchange and SQL publication boundaries; no source/model calculation, publication build, primary mutation or HDD read"
+}

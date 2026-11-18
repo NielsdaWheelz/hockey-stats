@@ -1,0 +1,33 @@
+{
+  "mode": "native200",
+  "base": "http://127.0.0.1:3111",
+  "downloads": [],
+  "screenshots": [
+    "native200-failure.png"
+  ],
+  "checks": [],
+  "errors": [],
+  "discoveryHeaders": [
+    "player",
+    "season teams",
+    "position",
+    "included observed 5v5 min",
+    "exit offense one second probability",
+    "entry offense one second probability",
+    "zone retention one second probability",
+    "entry prevention one second probability",
+    "ice won successor value desc.",
+    "ice lost successor value"
+  ],
+  "geometry": {
+    "innerWidth": 1280,
+    "innerHeight": 857,
+    "outerWidth": 1280,
+    "outerHeight": 1000,
+    "dpr": 2,
+    "clientWidth": 1265,
+    "scrollWidth": 1265
+  },
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: native zoom must change CSS viewport geometry"
+}

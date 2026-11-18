@@ -1,0 +1,92 @@
+{
+  "status": "passed_bounded_source_numerical_state_review",
+  "scope": "fixture source and mathematical software acceptance before first real annual; no real annual, projection reference, publication or live acceptance",
+  "files": [
+    {
+      "path": "analysis/src/hockey_stats/territory_design.py",
+      "sha256": "0991f51738aac931d05c579a3949838442a8556c5f287d94fa62e4a9f83b8a47"
+    },
+    {
+      "path": "analysis/src/hockey_stats/territory.py",
+      "sha256": "cce0783881732af562a35780af269a81c12f93009981ffdbb232c06e18c2465d"
+    },
+    {
+      "path": "analysis/src/hockey_stats/territory_state.py",
+      "sha256": "10c7b685184859756efc532bef5a830b31baf9ecf5a8820fb5b8216aa7fdb97f"
+    },
+    {
+      "path": "analysis/src/hockey_stats/player_mechanisms.py",
+      "sha256": "ffdcef45bb99079feb1703bed9c085983788734a81043f8063c6860e05295357"
+    },
+    {
+      "path": ".territory-independent/source-check.py",
+      "sha256": "f2530299ee52cfb593f3997cc8c2a252d64569f3760ee17f1b814025143ea9b0"
+    },
+    {
+      "path": ".territory-independent/numerical-check.py",
+      "sha256": "03964decf228761d796eae098b99a4e2f5d0c27beb621ce9a40c1e20efaab4fd"
+    },
+    {
+      "path": ".territory-independent/fit-check.py",
+      "sha256": "d0ebb5321cd714d9b119e9ab2a9a1f87c5852b819c0cd7a6ad8986d7bcb2750d"
+    }
+  ],
+  "original_witness": {
+    "game": "2025020001",
+    "source_indices": [
+      23,
+      24,
+      25,
+      26
+    ],
+    "crossing_seconds": [
+      138.43,
+      141.93
+    ],
+    "lineup_splits": [
+      139,
+      140
+    ],
+    "physical_seconds": 7,
+    "directed_entry_seconds": 7,
+    "directed_exit_seconds": 3.5,
+    "participant_slot_seconds": 70,
+    "terminal_carry_seconds": 17,
+    "restart_pairs": 2
+  },
+  "fixture_annual": {
+    "skaters": 36,
+    "physical_known_seconds": 2273,
+    "entry_crossings": 62,
+    "exit_crossings": 54,
+    "baseline_heads_completed": 2,
+    "final_diagnostic_attempts_completed": 2,
+    "propagated_variants": [
+      "entry",
+      "exit",
+      "joint"
+    ]
+  },
+  "independent_controls": [
+    "scalar piecewise age-bin survival and absorption with differing zone hazards",
+    "same-zone nonending whistle self-events",
+    "probability domain rejection",
+    "huge unused start and common start cancellation",
+    "original source crossing/membership/tail/restart reconstruction",
+    "strict full-state fitted-prior/ledger/center/objective replay",
+    "narrow reader with missing source archive",
+    "map/scalar and probability-difference closure",
+    "annual manifest immutability"
+  ],
+  "repairs": [
+    "strict probability domains in shift_process",
+    "narrow carry reads only consumed small metadata",
+    "strict prior/ledger/centering/objective and baseline/probe solver validation"
+  ],
+  "limits": [
+    "fixture input adapters label original source subset fixture",
+    "generic original synthetic fit control became invalid under tightened recipe and remains recorded as failed",
+    "no exhaustive source census or scientific admission",
+    "real costs, annual chain, reference and website candidate remain required"
+  ]
+}

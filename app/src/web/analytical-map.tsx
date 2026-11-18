@@ -84,7 +84,7 @@ const unitLabels: Readonly<Record<typeof MapUnit.Type, string>> = {
   xg_per60: "xg/60 min",
   goals_per100_attempts: "goals/100 attempts",
   goals_per100_assisted_opportunities: "goals/100 setup opportunities",
-  goals_per_basket: "goals/declared basket",
+  goals_per_basket: "successor goals/1,000 5v5 min",
   goals_per100_on_net: "goals/100 on-net attempts",
 };
 const mapUnits: Readonly<Record<ModelResponse["family"], typeof MapUnit.Type>> =
@@ -298,12 +298,19 @@ export function prepareAnalyticalMap(
     reference: data?.reference ?? null,
     support: data?.support ?? null,
     methodId: data?.method_id ?? null,
-    warnings:
-      method?.assessment.findings
+    warnings: [
+      ...(response.family === "ice_won" || response.family === "ice_lost"
+        ? [
+            "inferred successor chance-value geography, not crossing locations or possession. interpolation misses out-and-back movement; nuisance terminal-zone carry can mislocate the puck.",
+            "common workload: 1,000 5v5 minutes, already applied. one neutral successor slot; fixed substitution and common neutral survival. uncertainty is not estimated.",
+          ]
+        : []),
+      ...(method?.assessment.findings
         .filter((finding) =>
           finding.quantities.includes(quantity[response.family]),
         )
-        .map((finding) => finding.summary) ?? [],
+        .map((finding) => finding.summary) ?? []),
+    ],
     unit,
     unitLabel: unitLabels[unit],
     densityUnit: response.scale.unit,
@@ -325,7 +332,7 @@ export function prepareAnalyticalMap(
 
 const analyticalMapSupport = (model: AnalyticalMapModel): string =>
   model.support
-    ? `${model.support.included_seconds === null ? "unknown" : displayNumber(model.support.included_seconds / 60)} included min; ${model.support.prior_only ? "prior-only hypothetical estimate" : model.support.current_season_information ? "some current focal information" : "no current focal information"}; ${model.support.known_excluded_seconds === null ? "unknown" : displayNumber(model.support.known_excluded_seconds / 60)} excluded min; ${model.support.unquantified_gap ? "unquantified gaps" : "declared included population"}`
+    ? `${model.support.included_seconds === null ? "unknown" : displayNumber(model.support.included_seconds / 60)} included min; ${model.support.prior_only ? "prior-only hypothetical estimate" : model.support.current_season_information ? "some current focal information" : "mixed or no current information"}; ${model.support.known_excluded_seconds === null ? "unknown" : displayNumber(model.support.known_excluded_seconds / 60)} excluded min; ${model.support.unquantified_gap ? "unquantified gaps" : "declared included population"}`
     : (model.reason ?? "map support unavailable");
 
 function legendMeaning(model: AnalyticalMapModel): string {
@@ -668,7 +675,9 @@ function analyticalMapSvg(
       : []),
     `reference: ${model.reference ?? "unavailable"}`,
     analyticalMapSupport(model),
-    `${model.availability}: ${model.reason ?? "published output"}; native/display data in csv; 10ft pooling and linear contour interpolation imply no measured subcell precision.`,
+    `${model.availability}: ${model.reason ?? "published output"}; ${model.integral === null
+      ? "csv preserves metadata only."
+      : "native/display data in csv; 10ft pooling and linear contour interpolation imply no measured subcell precision."}`,
     "experimental estimate; calibrated player uncertainty is unknown.",
     ...(model.view === "complete"
       ? [

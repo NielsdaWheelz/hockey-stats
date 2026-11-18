@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "kind": "territory_annual_local_receipt_review",
+  "at": "2026-11-17T12:59:37.315866+00:00",
+  "season": "20232024",
+  "status": "cleared_for_next_annual",
+  "final_real_acceptance": "pending",
+  "scope": "independent review of the selected local native/saved-acceptance receipts, acceptance log and prior local clearance only; no external state or source read, hdd access, fitting or heavy command",
+  "receipts": [
+    {
+      "path": "docs/research/territory-v1-11/receipts/20232024-native-command.json",
+      "sha256": "175b7403bbd3ade51d1429d3adab870a01664837f7e91eaa65da68d57205f4a8"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/20232024-saved-acceptance.json",
+      "sha256": "611d4d1b1349cdb2e2cc1a3b8ae42a21734df5921fe1e03f63ec9bd666bb0d53"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/20232024-saved-acceptance.log",
+      "sha256": "c8b68d01ae863fb58806bccd4e45d6a1390dc59dc71e727c0b519c5bfd1d1d05"
+    },
+    {
+      "path": "docs/research/territory-v1-11/reviews/20222023-saved-acceptance-review.json",
+      "sha256": "769e2e76a4a160a6c7f0ab824d317eb85ff29c51f5438123a9812d47b2481c8d"
+    }
+  ],
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20232024-01/manifest.json",
+    "sha256": "17ee9596b157c1248424e2380b277630828c7b2cb676a2d41dd98e415072ba58"
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20222023-01/manifest.json",
+    "sha256": "890a6a560896f58aef8fd6ebf7c1dfe696c0df25ecab228b5c9324b64eeb7269",
+    "season": "20222023",
+    "purpose": "real",
+    "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3"
+  },
+  "source_commit": "008197e221cb869a41c440561daf20cf905ad1b6",
+  "source_clean": true,
+  "findings": [],
+  "checked_facts": {
+    "purpose": "real",
+    "skaters": 924,
+    "player_role_coordinates": 3696,
+    "baselines_complete": 2,
+    "diagnostic_attempts": 0,
+    "total_baselines_accepted_through_this_annual": 6,
+    "solver_statuses": {
+      "entry": 0,
+      "exit": 0
+    },
+    "termination": "both completed by relative function tolerance",
+    "gradient_inf_norm": {
+      "entry": 0.002618590806922682,
+      "exit": 0.0013440984925402171
+    },
+    "achieved_gtol": {
+      "entry": false,
+      "exit": false
+    },
+    "crossings": {
+      "total": 126449,
+      "entry": 69317,
+      "exit": 57132
+    },
+    "physical_known_seconds": 2968419.000000002,
+    "history": {
+      "entry": {
+        "entry_coordinates": 266,
+        "carry_coordinates": 1712,
+        "refreshed_coordinates": 1924,
+        "retained_history_coordinates": 694
+      },
+      "exit": {
+        "entry_coordinates": 266,
+        "carry_coordinates": 1712,
+        "refreshed_coordinates": 1925,
+        "retained_history_coordinates": 694
+      }
+    },
+    "history_scope": "head-specific raw entry/carry/retention; refreshed entry1924 and exit1925, retained694 each",
+    "nuisance_source_supported": true,
+    "accounting": "physical/directed/player-slot time, crossing counts, nuisance risk and start counts reconcile; manual entry/carry and retained-history oracle passed"
+  },
+  "costs": {
+    "native_wall_seconds": 6156.91,
+    "native_maximum_resident_bytes": 14384988160,
+    "native_peak_memory_footprint_bytes": 16612880648,
+    "memory_envelope_bytes": 64000000000,
+    "within_envelope": true,
+    "preparation_wall_seconds": 6015.663424249971,
+    "head_fit_wall_seconds": 3.3677888331003487,
+    "nested_native_solver_wall_seconds": {
+      "entry": 1.3601134167984128,
+      "exit": 1.3675650840159506
+    },
+    "hazard_projection_wall_seconds": 0.7237695420626551,
+    "writing_wall_seconds": 60.33517500013113,
+    "input_metadata_read_wall_seconds": 0.6004087089095265,
+    "output_member_bytes": 3117882248,
+    "accounted_artifact_bytes": 3208952206,
+    "acceptance_native_wall_seconds": 50.06,
+    "acceptance_internal_wall_seconds": 49.20586462505162,
+    "acceptance_process_peak_bytes": 12241108992,
+    "scope": "whole fit command includes preparation, two baselines, writing, strict readback and overhead; solver time is nested within head fitting. input-read timing covers metadata, not all prepared-game parsing. acceptance timing/peak belongs to a separate process. logical artifact bytes are a named subtotal; physical I/O and incremental allocation remain unmeasured"
+  },
+  "disposition": "the native receipt retains its saved-acceptance-pending phase; the successful saved receipt/log closes that phase. the fourth annual must bind the exact accepted manifest above",
+  "limits": [
+    "function-tolerance completion does not establish achieved gradient tolerance or coefficient accuracy",
+    "in-sample expected/observed diagnostics are not calibration or recovery evidence",
+    "four real baselines, two final diagnostic attempts and all real successor references/products remain pending; earlier sensitivity is unassessed",
+    "no completed five-year execution, scientific admission, activation or v1-12 ledger/totals completion is claimed"
+  ]
+}

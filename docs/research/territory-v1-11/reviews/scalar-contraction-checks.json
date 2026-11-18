@@ -1,0 +1,116 @@
+{
+  "scope": "detached scalar validation only; no external reference binding, native panel reconstruction, hdd reads or numerical accuracy claim",
+  "base_commit": "008197e221cb869a41c440561daf20cf905ad1b6",
+  "production_files": [
+    {
+      "path": "analysis/src/hockey_stats/territory_evidence.py",
+      "before_sha256": "0ba7ad357ac2c0215a47450fe0e4b088bed7c20a730f3a6b6fb5c3b3acd29093",
+      "after_sha256": "7cd379b50750667d16e773448fdac17669bc2adea753cc11ed37ba60b22da85a"
+    },
+    {
+      "path": "app/src/shared/player-analysis.ts",
+      "before_sha256": "4890c41183ad9d1835ec32bdcdba5ec18370e2622053ad3b3191521b26522e15",
+      "after_sha256": "beead41564fcaee45dc1937101377a18caed99bc9273f62c113f413338f393a5"
+    }
+  ],
+  "controllers": [
+    {
+      "path": ".territory-independent/final-scalar-contraction.py",
+      "sha256": "0a926041ff1cf507e26a4d453004f5434a79c22778252bf04e04a02f0af2ebaa",
+      "temporary": true
+    },
+    {
+      "path": ".territory-independent/final-scalar-contraction.ts",
+      "sha256": "5fd3e056b61e4f7bc1a62d6071d3cc1179b316b96328f2934081017e4c428845",
+      "temporary": true
+    },
+    {
+      "path": ".territory-independent/final-scalar-residual-credit.py",
+      "sha256": "31875b5302d0a13a95862124a64e19e2b2881ac8241d1208ae246355a49ed43f",
+      "temporary": true
+    },
+    {
+      "path": ".territory-independent/final-scalar-residual-credit.ts",
+      "sha256": "92e87fbfe564b408bec86e14d858bd3e8c1eecd4da4e6b455a901bd63c05fef5",
+      "temporary": true
+    }
+  ],
+  "negative_control": {
+    "neutral": [
+      0.1,
+      0.2,
+      0.3,
+      0.4
+    ],
+    "focal": [
+      0.2,
+      0.2,
+      0.2,
+      0.4000000005
+    ],
+    "difference": [
+      0.1,
+      0.0,
+      -0.09999999999999998,
+      4.999999858590343e-10
+    ],
+    "difference_sum": 5.000000136146099e-10,
+    "G": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "A": [
+      200.0,
+      200.0,
+      200.0,
+      200.0
+    ],
+    "first_max_active_pivot": 0,
+    "shifts_per_basket": 980.7692307692305,
+    "raw_residual_credit": 4.9038461893755245e-05,
+    "pivot_value": 0.0,
+    "raw_term_allowance": 5.575027632978353e-10,
+    "before": {
+      "python": "accepted (red)",
+      "typescript": "accepted (red)"
+    },
+    "after": {
+      "python": "rejected with stable zero-sum contraction",
+      "typescript": "rejected by SkaterTerritory (green)"
+    }
+  },
+  "unchanged_controls": [
+    {
+      "case": "unused huge zero-weight start",
+      "python": "accept",
+      "typescript": "accept"
+    },
+    {
+      "case": "common huge G with ordinary binary residual",
+      "python": "accept",
+      "typescript": "accept"
+    },
+    {
+      "case": "common huge G with excessive raw residual",
+      "python": "reject raw identity",
+      "typescript": "reject"
+    },
+    {
+      "case": "all-zero difference",
+      "python": "accept exact zero",
+      "typescript": "accept exact zero"
+    }
+  ],
+  "positive_results": [
+    "fixtures/territory-v1-11/results",
+    ".territory-checks/e2e-v3/results",
+    ".territory-checks/e2e-v3/partial-results"
+  ],
+  "shared_fixture": "SkaterTerritoryResult strict decoder: one provided fixture and existing mutation controls passed",
+  "node_version": "24.21.0",
+  "typecheck": "npm run typecheck passed",
+  "diff_check": "passed",
+  "fitting_code_changed": false
+}

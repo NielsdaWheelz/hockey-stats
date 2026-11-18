@@ -49,7 +49,7 @@ const Producer = Schema.Struct({
 const PublicationRow = Schema.Struct({
   prepared_sha256: Schema.NullOr(A.Digest),
   id: Schema.Literal(1),
-  schema_version: Schema.Literal(10),
+  schema_version: Schema.Literal(11),
   kind: Schema.Literal("player_analysis"),
   publication_id: A.Publication.fields.publication_id,
   purpose: A.Purpose,
@@ -135,7 +135,7 @@ export const publicationLayer = (filename: string) =>
       const metadata = yield* Effect.try(() =>
         decode(A.Publication, {
           publication_id: stored.publication_id,
-          schema_version: 10,
+          schema_version: 11,
           kind: stored.kind,
           purpose: stored.purpose,
           generated_at: stored.generated_at,
@@ -395,4 +395,8 @@ export const publicationLayer = (filename: string) =>
           readContext(sql, selection, { envelope, person, known, readSummary }),
       } satisfies PublicationReader;
     }),
-  ).pipe(Layer.provide(SqliteClient.layer({ filename, readonly: true, disableWAL: true })));
+  ).pipe(
+    Layer.provide(
+      SqliteClient.layer({ filename, readonly: true, disableWAL: true }),
+    ),
+  );

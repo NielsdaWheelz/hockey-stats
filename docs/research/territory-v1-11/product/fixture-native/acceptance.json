@@ -1,0 +1,187 @@
+{
+  "status": "passed_actual_fixture_browser_and_native200_controls_with_independent_root_pixel_review",
+  "publication_id": "59615882-2e59-476d-bbb3-e6ed9e1546cb",
+  "purpose": "fixture",
+  "normal": {
+    "receipt": "normal-05/browser-receipt.json",
+    "geometry": {
+      "innerWidth": 1280,
+      "innerHeight": 857,
+      "outerWidth": 1280,
+      "outerHeight": 1000,
+      "dpr": 2,
+      "clientWidth": 1265,
+      "scrollWidth": 1265
+    }
+  },
+  "native200": {
+    "receipt": "native200-02/browser-receipt.json",
+    "geometry": {
+      "innerWidth": 640,
+      "innerHeight": 428,
+      "outerWidth": 1280,
+      "outerHeight": 1000,
+      "dpr": 4,
+      "clientWidth": 632,
+      "scrollWidth": 632
+    },
+    "setting": "actual chrome://settings/appearance #zoomLevel=2"
+  },
+  "checks": [
+    "table\u2192profile\u2192analyticaldetail\u2192comparison",
+    "six territory discovery columns",
+    "10 existing territory scalar/hazard/probability csv rows with closed evidence",
+    "four start/end/difference rows, eight successor G rows, six occupancy rows and full nuisance coverage",
+    "two provided maps, 656 native cells each, opposite signs and exact scalar/native closure",
+    "actual nine downloads per phase",
+    "375px document width and keyboard-scrollable evidence table",
+    "native200 viewport/DPR proof; raw CDP surface screenshots",
+    "all five CSV and four PNG downloads byte-identical normal/native; PNG decoded pixels identical"
+  ],
+  "compared_downloads": [
+    {
+      "file": "card.csv",
+      "bytes_equal": true,
+      "sha256": "e6d5ebdb7f086cb418519f52479846f12c6fd3df46c1660602bfcf783216623d"
+    },
+    {
+      "file": "territory-detail.csv",
+      "bytes_equal": true,
+      "sha256": "0e2b9c1c5f491f22e140724eb67231dff11387afe7618d405a806eeef1c65880"
+    },
+    {
+      "file": "card.png",
+      "bytes_equal": true,
+      "sha256": "39b5b8d327b75c54b46c5a3920f89b4c6cece878ac46eeb27d74f65ceea6c295",
+      "size": [
+        1200,
+        3006
+      ],
+      "decoded_pixels_equal": true
+    },
+    {
+      "file": "map-0.csv",
+      "bytes_equal": true,
+      "sha256": "f9a1382cc35b485079d5464bdbb7e5f0657b386e3c722de0d74e371de7afb70d"
+    },
+    {
+      "file": "map-0.png",
+      "bytes_equal": true,
+      "sha256": "71b2e84dd18d7a8ba67da8173fe5758ca4417b7ee32845962102bba1e6860fb3",
+      "size": [
+        1200,
+        1989
+      ],
+      "decoded_pixels_equal": true
+    },
+    {
+      "file": "map-1.csv",
+      "bytes_equal": true,
+      "sha256": "ae6f22c4fa6e5ab33a53b5e33fc3ffbedb33610a2802f28026e07d8d145ced71"
+    },
+    {
+      "file": "map-1.png",
+      "bytes_equal": true,
+      "sha256": "a2309635b0209b0afa0ef7642ef8d86711a9c414d4eeebe662b955c788ad61a5",
+      "size": [
+        1200,
+        1962
+      ],
+      "decoded_pixels_equal": true
+    },
+    {
+      "file": "history.csv",
+      "bytes_equal": true,
+      "sha256": "ba5a92746d784cc4116623fafc09015563a3c0a8e157dea38c5addd9839de36f"
+    },
+    {
+      "file": "history.png",
+      "bytes_equal": true,
+      "sha256": "c9304d1666d2a6706948be9a385ac436a61f49336d8547d1779af774ea85ee9b",
+      "size": [
+        1200,
+        3146
+      ],
+      "decoded_pixels_equal": true
+    }
+  ],
+  "earlier_attempts": [
+    {
+      "path": "normal-01",
+      "status": "driver_failed; inspected before navigation completion"
+    },
+    {
+      "path": "normal-02",
+      "status": "controller superficially passed but disqualified; missing computed lost map escaped weak availability check"
+    },
+    {
+      "path": "normal-03",
+      "status": "product_red; strengthened check rejects absent lost map"
+    },
+    {
+      "path": "normal-04",
+      "status": "driver_failed; read header list before table ready"
+    },
+    {
+      "path": "native200-01",
+      "status": "driver_failed; Chrome ignored scalar profile preference and remained100percent"
+    }
+  ],
+  "limits": [
+    "synthetic singleplayer reference and retained historical synthetic ledger, no real territory capability or scientific admission",
+    "real F/D,traded,thinrole,prioronly and absentyear matrix remains separate",
+    "temporary tests/controllers/dependency cleanup follows complete acceptance"
+  ],
+  "independent_root_pixel_review": "root reports normal/narrow/native raw captures and actual card/map PNGs readable",
+  "resolved_issue": {
+    "name": "territory-synthetic-lost-map",
+    "resolution": "corrected converter and paired validators; candidate03 actual two-map downloads and native200/layout/pixel checks pass",
+    "failure_evidence": [
+      "normal-02/map-1.csv",
+      "normal-03/browser-receipt.json"
+    ],
+    "issue_record": "resolved record already removed by integration owner; evidence retained here"
+  },
+  "targeted_final_copy_verification": {
+    "source_commit": "aeeeda4",
+    "purpose": "clarify interpolation misses movement while nuisance carry can mislocate puck",
+    "normal_receipt": "map-copy-normal-02/receipt.json",
+    "native_receipt": "map-copy-native200-01/receipt.json",
+    "checks": [
+      {
+        "file": "ice_won.csv",
+        "sha256": "1b0b94c755da02cd0ea0864cb6fc0dd7618b9ce00c3634f0cc3e86570de63b85",
+        "normal_native_bytes_equal": true,
+        "all_fields_except_refined_warning_equal_prior_accepted_csv": true
+      },
+      {
+        "file": "ice_won.png",
+        "sha256": "bce29e75a4792221a66248acc4cf026d53fb0cf29e1005a7a0f3120ab24fcc8d",
+        "normal_native_bytes_equal": true,
+        "size": [
+          1200,
+          2016
+        ],
+        "pixels_equal": true
+      },
+      {
+        "file": "ice_lost.csv",
+        "sha256": "5e43a34f65a3c14499d837f8673d648242837414c99c498fe3dec259fdf994ef",
+        "normal_native_bytes_equal": true,
+        "all_fields_except_refined_warning_equal_prior_accepted_csv": true
+      },
+      {
+        "file": "ice_lost.png",
+        "sha256": "50ac71f53499d707c15afda80c456234a14a537752a6c05b01de842a4ad173e8",
+        "normal_native_bytes_equal": true,
+        "size": [
+          1200,
+          1989
+        ],
+        "pixels_equal": true
+      }
+    ],
+    "content_check": "actual native PNG downloads plus exported SVG text normalized across wrapped text nodes; exact units/proxy/uncertainty phrase verified",
+    "earlier_driver_failure": "map-copy-normal-01 rawXML substring assertion failed because phrase wraps across text nodes; actual download/failedreceipt retained"
+  }
+}

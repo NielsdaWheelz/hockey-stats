@@ -1,0 +1,103 @@
+{
+  "kind": "territory_numerics_fixture_checks",
+  "at": "2026-11-17T07:21:22.642662+00:00",
+  "scope": "temporary controls and original single-game fixture; not real annual acceptance",
+  "status": "green; independent reference/composition sign-off pending",
+  "commands": [
+    {
+      "command": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        ".tmp-territory-numerics/check.py"
+      ],
+      "controller_sha256": "9d79fef3aa2e4b95d3f01e9e367783e0f024d62a8835006c3e7aa83f6245671b",
+      "exit_code": 0,
+      "wall_seconds": 0.3070945830550045,
+      "stdout": "independent process, self-restart, tail, stable cancellation and objective checks passed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        ".tmp-territory-numerics/fit.py"
+      ],
+      "controller_sha256": "bd6186d0187391ed1da0e94aa2e8f2459a44490e6066a9f0f1ca0cde8676aaee",
+      "exit_code": 0,
+      "wall_seconds": 0.6986336668487638,
+      "stdout": "fit, two diagnostic solves, immutable state roundtrip and four successor variants passed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        ".tmp-territory-composition/check.py"
+      ],
+      "controller_sha256": "d52159411604e5ac6ad1e259cf3e1173267921c8b3d9a95c1d94cd5af8c8efac",
+      "exit_code": 0,
+      "wall_seconds": 4.762972832890227,
+      "stdout": "independent movement/shift/value partial availability passed\nreference save/reuse, detached scalar evidence/method binding, two maps per skater passed: 36 72\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        ".tmp-territory-composition/failures.py"
+      ],
+      "controller_sha256": "5b0a0240fd8fef492d21643857057f3ab63b07f48ddd00f10548dc8c69a98b51",
+      "exit_code": 0,
+      "wall_seconds": 0.4216574998572469,
+      "stdout": "invalid neutral/focal shift process and successor contraction retain independent outputs\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        ".tmp-territory-numerics/shared_refactor.py"
+      ],
+      "controller_sha256": "16a4c33741d955075d5fb4e69c66f0957769b828f206aaf26a6f8519f480088f",
+      "exit_code": 0,
+      "wall_seconds": 0.3039747499860823,
+      "stdout": "public scalar predictor hard cut preserves exact factual time/event predictions, hours/seconds objectives and gradients, penalty wrapper and both recipes\n",
+      "stderr": ""
+    }
+  ],
+  "red_witnesses": [
+    "initial pure integration import failed because territory module was absent",
+    "initial composition entry point import failed because compose_territory was absent",
+    "obsolete synthetic fit fixture failed after exact source recipe validation; fixture corrected to declared context contract",
+    "original captured source risk 26190.000000000015 versus path-slot 26190.0 exposed strict detached time bound; repaired with declared close tolerance",
+    "reviewed ae9a7dc projection function raised on controlled invalid reference process; revised projection preserves independent movement",
+    "public scalar_predictor import failed before the explicit interface hard cut; exact reviewed old/new numerical equality then passed"
+  ],
+  "independent_construction_controls": {
+    "constant_ending_hazard_per_second": 0.03,
+    "analytic_mean_seconds": 33.333333333333336,
+    "analytic_live_end_probability": 0.3333333333333333,
+    "analytic_survival_at_90": "exp(-2.7)",
+    "cancellation_G": [
+      1,
+      2,
+      0,
+      1e+20
+    ],
+    "cancellation_d": [
+      0.1,
+      -0.1,
+      0,
+      0
+    ],
+    "expected_raw_contraction": -0.1
+  },
+  "boundaries": {
+    "real_annuals": "not_run_by_this_agent",
+    "real_composition": "not_run",
+    "publication": "not_run",
+    "browser_and_downloads": "not_run",
+    "retained_temporary_tests": "pending independent review and campaign acceptance; then delete"
+  },
+  "files": {
+    "analysis/src/hockey_stats/territory.py": "39e6befb697a156712e6f4394329bf1ae0761d60a47e5df625abbed7aaeef441",
+    "analysis/src/hockey_stats/territory_state.py": "842bbd36c85d45c616819300569e9d7b2630965b6d78b9f30781ac647130b775",
+    "analysis/src/hockey_stats/mechanism_composition.py": "6ee76863e49ac0527e70ea07bcfa4fb804cb3b95fbccc72dedf55c39a1f9bd0a",
+    "analysis/src/hockey_stats/player_mechanisms.py": "0e8b409c1d795c6f7c26091772be374bf01722e9501ee6b0825d805f5e68306b"
+  }
+}

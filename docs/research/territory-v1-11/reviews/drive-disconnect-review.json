@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "kind": "territory_drive_disconnect_local_review",
+  "at": "2026-11-17T17:05:34.492734+00:00",
+  "status": "cleared",
+  "scope": "local receipt/prose review of the reported stop and successful eject only; no external reads, process/handle/disk checks, runtime work or model execution by this reviewer",
+  "evidence": [
+    {
+      "path": "docs/research/territory-v1-11/receipts/drive-disconnect.json",
+      "sha256": "28f1aab689646687b5aade87ce11e238224f72c342ad8c08a6f22012985b6aa7"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/real-conversion-launch.json",
+      "sha256": "0e08d68b44389b56480131f45e57a934de0d46d56bc17f9b1ac30a43b61f168d"
+    },
+    {
+      "path": "docs/plan.md",
+      "sha256": "22fafda0bb182e95c642a72235c84721772792a1fd21f5f947e55381221eec19"
+    },
+    {
+      "path": "docs/research/territory-v1-11/verification.md",
+      "sha256": "61f5518ec717abf39f18078f3a61985b571ddaccb981f4db0e0185a62346b905"
+    }
+  ],
+  "findings": [],
+  "conclusions": [
+    "root observed the exact owned converter stop with session and exit-code130; copied metadata does not establish completed strict validation",
+    "successful normal eject of freshly identified disk6 and absent mount path support safe unplug; these are retained root observations",
+    "conversion is incomplete and unaccepted; interruption establishes no computational defect",
+    "five accepted annual states, ten baseline heads and two sole diagnostic attempts remain preserved",
+    "original assigned goal remains pending and paused at user request; no execution until explicit resume",
+    "launch history, partial conversion artifacts and temporary controls remain intact; no completed-spec or model-admission claim"
+  ],
+  "limits": [
+    "this review does not independently re-observe ejection or inspect the unmounted disk",
+    "real reference/composition, inactive candidate, application acceptance and final cleanup remain pending"
+  ]
+}

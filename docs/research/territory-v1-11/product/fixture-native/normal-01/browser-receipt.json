@@ -1,0 +1,12 @@
+{
+  "mode": "normal",
+  "base": "http://127.0.0.1:3111",
+  "downloads": [],
+  "screenshots": [
+    "normal-failure.png"
+  ],
+  "checks": [],
+  "errors": [],
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: inferred territory subskills"
+}

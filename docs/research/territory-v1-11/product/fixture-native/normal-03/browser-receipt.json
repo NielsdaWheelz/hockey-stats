@@ -1,0 +1,58 @@
+{
+  "mode": "normal",
+  "base": "http://127.0.0.1:3111",
+  "downloads": [
+    {
+      "name": "card.csv",
+      "suggested": "hockey-stats-20232024-9000001-analytical.csv",
+      "bytes": 187331,
+      "sha256": "fa2e039d7303ca18a7476c022e02c01f931552e2ace62a7c9998f5a53b94e03a"
+    },
+    {
+      "name": "territory-detail.csv",
+      "suggested": "hockey-stats-20232024-9000001-territory-evidence.csv",
+      "bytes": 7114,
+      "sha256": "0e2b9c1c5f491f22e140724eb67231dff11387afe7618d405a806eeef1c65880"
+    },
+    {
+      "name": "card.png",
+      "suggested": "hockey-stats-20232024-9000001-analytical.png",
+      "bytes": 814502,
+      "sha256": "dfaf92f6853297ae8cbb984b99d3c2d6656403510bfe51316a5beae756ab1a85"
+    },
+    {
+      "name": "map-0.csv",
+      "suggested": "hockey-stats-20232024-9000001-ice_won-5v5-effect-map.csv",
+      "bytes": 1773527,
+      "sha256": "9e5a8c53341243814296d47b7b97e5e75cbdf6a3b88f2dd677aecd487d8b2f2b"
+    },
+    {
+      "name": "map-0.png",
+      "suggested": "hockey-stats-20232024-9000001-ice_won-5v5-effect-map.png",
+      "bytes": 285862,
+      "sha256": "ab3be900de37cd04aeab0a7560a77852e565124a74c00856ac681a8a8c3a5038"
+    },
+    {
+      "name": "map-1.csv",
+      "suggested": "hockey-stats-20232024-9000001-ice_lost-5v5-effect-map.csv",
+      "bytes": 975,
+      "sha256": "e3dc7406d6747a39be314810dd66ae11d9f81bcdbcc49b21cf8ed1a5f0c38964"
+    }
+  ],
+  "screenshots": [
+    "normal-failure.png"
+  ],
+  "checks": [],
+  "errors": [],
+  "geometry": {
+    "innerWidth": 1280,
+    "innerHeight": 857,
+    "outerWidth": 1280,
+    "outerHeight": 1000,
+    "dpr": 2,
+    "clientWidth": 1265,
+    "scrollWidth": 1265
+  },
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(rows.every(r=>r.map_kind===kind&&r.availability==='provided'))\n"
+}

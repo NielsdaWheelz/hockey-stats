@@ -1,0 +1,16 @@
+{
+  "status": "launched_not_completed",
+  "at": "2026-11-17T09:33:22.677920+00:00",
+  "season": "20222023",
+  "source_commit": "008197e221cb869a41c440561daf20cf905ad1b6",
+  "producer": "/Users/nnandal/Documents/code/hockey-stats-v1-11-producer-02",
+  "source_sha256": "5be6e938860a14aca117088206c80098adf556f8c053a0bc6c7e20302314ea87",
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20212022-repaired-01/manifest.json",
+    "sha256": "1c4c45a7fe8afe76dbcb2811ecacec540a90848875adbe780b111047adb38db3"
+  },
+  "out": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20222023-01",
+  "log": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20222023-01.log",
+  "native_session_id": 29058,
+  "notes": "explicit completed prior annual; independent local-receipt clearance before dispatch; one heavy command; no completion or coefficient-accuracy claim"
+}

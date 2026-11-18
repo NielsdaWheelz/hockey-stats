@@ -28,6 +28,7 @@ import {
 } from "./analysis-history";
 import { downloadBlob, downloadCsv, svgPng } from "./export";
 import { fixtureNotice } from "./presentation";
+import { territoryNotes } from "./territory-detail";
 
 export function PeerControls({
   settings,
@@ -247,6 +248,7 @@ function distributionRows(group: AnalysisPeerGroup): readonly AnalysisRow[] {
 
 const zeroEffect = (metric: AnalysisMetric) =>
   metric.publicationFamily === "spatial" || metric.publicationFamily === "ledger" ||
+  (metric.publicationFamily === "territory" && metric.unit === "goals_per_basket") ||
   metric.publicationFamily === "penalties" || metric.id.endsWith("difference") ||
   metric.id.includes("finishing_goals_per100") || metric.id.includes("setting_goals_per100") ||
   metric.id.includes("stopping_goals_per100");
@@ -312,6 +314,8 @@ export function distributionSvg(cohort: AnalysisCohort, metric: AnalysisMetric, 
       text(`method ${method.method_id}; recipe ${method.recipe_id}; reference ${method.reference_id}; support ${method.support_policy_id}`);
     }
     for (const finding of datum.findings) text(finding.summary);
+    if (datum.territory_detail)
+      for (const note of territoryNotes(datum.territory_detail)) text(note);
   }
   text(`publication ${publication.publication_id}; season ${season.season}; calibrated uncertainty unknown; exact values/support retained in distribution csv`);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="${y+30}" viewBox="0 0 1200 ${y+30}" font-family="system-ui,sans-serif" fill="#242b2d"><rect width="1200" height="${y+30}" fill="#fbfaf6"/>${parts.join("")}</svg>`;

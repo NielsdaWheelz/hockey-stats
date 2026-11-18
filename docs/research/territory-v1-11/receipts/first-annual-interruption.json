@@ -1,0 +1,25 @@
+{
+  "status": "interrupted_source_unqualified",
+  "season": "20212022",
+  "source_commit": "ae9a7dc",
+  "exit_code": 130,
+  "reason": "equal-clock conflict grouping crossed corroborated episode/reset boundaries; source correctness repair required",
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20212022.log",
+    "sha256": "2907773cb971a81022eeb5c4b78edf928f1ca144ecc30fb3f196796ad842b3a3"
+  },
+  "output_path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20212022",
+  "output_exists": false,
+  "phase": "prepare_territory -> read_prepared_game -> strict_json; captured KeyboardInterrupt stack",
+  "baseline_heads": 0,
+  "diagnostic_attempts": 0,
+  "resources": {
+    "wall_seconds": 3566.16,
+    "user_seconds": 3288.68,
+    "system_seconds": 15.5,
+    "peak_resident_bytes": 5268471808,
+    "peak_footprint_bytes": 5235298744,
+    "scope": "interrupted command including input/preparation; not completed annual or isolated phase cost; physical io unknown"
+  },
+  "preservation": "original log retained; no completed fit overwritten; repaired execution requires a fresh output path"
+}

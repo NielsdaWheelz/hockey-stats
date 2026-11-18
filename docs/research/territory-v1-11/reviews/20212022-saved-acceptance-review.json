@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "kind": "territory_annual_local_receipt_review",
+  "at": "2026-11-17T09:33:34.783559+00:00",
+  "season": "20212022",
+  "status": "cleared_for_next_annual",
+  "final_real_acceptance": "pending",
+  "scope": "retained result of the completed independent review of local command/saved-acceptance receipts and the reviewed controller; no new review, external state read, hdd access or heavy command",
+  "receipts": [
+    {
+      "path": "docs/research/territory-v1-11/receipts/20212022-native-command.json",
+      "sha256": "a882e1768a94db4c5d9ad0a51785223ec106555531851279c19cd8ec2ff4a24f"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/20212022-saved-acceptance.json",
+      "sha256": "420d922149ab733affbba8feb490ce4ca2b43c3bc2022ebfb4de94d5295a412f"
+    }
+  ],
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20212022-repaired-01/manifest.json",
+    "sha256": "1c4c45a7fe8afe76dbcb2811ecacec540a90848875adbe780b111047adb38db3"
+  },
+  "source_commit": "008197e221cb869a41c440561daf20cf905ad1b6",
+  "source_clean": true,
+  "reviewed_controller": {
+    "path": ".territory-checks/accept_annual.py",
+    "sha256": "3dd1c7b283f152351fa30123a99d107fdbf10c86ea9c6249a409fd4e29b86a0e"
+  },
+  "findings": [],
+  "checked_facts": {
+    "purpose": "real",
+    "previous": null,
+    "skaters": 1004,
+    "player_role_coordinates": 4016,
+    "baselines_complete": 2,
+    "diagnostic_attempts": 0,
+    "solver_statuses": {
+      "entry": 0,
+      "exit": 0
+    },
+    "termination": "both completed by function tolerance",
+    "gradient_inf_norm": {
+      "entry": 0.006900648985214034,
+      "exit": 0.0013128877894378992
+    },
+    "achieved_gtol": {
+      "entry": false,
+      "exit": false
+    },
+    "crossings": {
+      "total": 131390,
+      "entry": 71994,
+      "exit": 59396
+    },
+    "nuisance_source_supported": true,
+    "accounting": "physical, directed, player-slot, nuisance known/unknown-age risk and start counts reconcile"
+  },
+  "costs": {
+    "native_wall_seconds": 4865.81,
+    "native_maximum_resident_bytes": 14294597632,
+    "native_peak_memory_footprint_bytes": 14353378056,
+    "memory_envelope_bytes": 64000000000,
+    "within_envelope": true,
+    "preparation_wall_seconds": 4720.90195637499,
+    "head_fit_wall_seconds": 3.344184000045061,
+    "nested_native_solver_wall_seconds": {
+      "entry": 1.3717280419077724,
+      "exit": 1.3847613339312375
+    },
+    "hazard_projection_wall_seconds": 0.8188325839582831,
+    "writing_wall_seconds": 69.78629816719331,
+    "input_metadata_read_wall_seconds": 2.3225571250077337,
+    "acceptance_process_peak_bytes": 11167055872,
+    "scope": "whole command includes preparation, fitting, writing, strict readback and overhead; solver time is nested within head fitting; input-read timing covers the metadata boundary rather than all prepared-game reads/parsing; acceptance peak belongs to a separate process; physical I/O and incremental allocation remain unmeasured"
+  },
+  "disposition": "the native receipt preserves its earlier saved-acceptance-pending phase; the later accepted_baselines receipt closes that phase. the next annual must bind the exact accepted manifest above",
+  "limits": [
+    "solver completion does not establish achieved gradient tolerance, coefficient accuracy, calibration or recovery",
+    "earlier-year sensitivity remains unassessed; final-year diagnostic attempts and successor propagation remain separate",
+    "this receipt does not establish completed five-year execution, real composition, candidate/application acceptance or model admission",
+    "no activation or v1-12 ledger/totals completion is claimed"
+  ]
+}

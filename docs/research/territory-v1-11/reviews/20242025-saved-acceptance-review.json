@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "kind": "territory_annual_local_receipt_review",
+  "at": "2026-11-17T14:46:14.392672+00:00",
+  "season": "20242025",
+  "status": "cleared_for_next_annual",
+  "final_real_acceptance": "pending",
+  "scope": "independent review of the selected local native/saved-acceptance receipts, acceptance log and prior local clearance only; no external state or source read, hdd access, fitting or heavy command",
+  "receipts": [
+    {
+      "path": "docs/research/territory-v1-11/receipts/20242025-native-command.json",
+      "sha256": "ee704d5a59db129b64d5306d4cdc6731a4a543a12af30d839941bd6c584c3cd6"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/20242025-saved-acceptance.json",
+      "sha256": "38931b190599d2e837cde9e0424c26b2e6c5042da54185e3028d5a41e840be6b"
+    },
+    {
+      "path": "docs/research/territory-v1-11/receipts/20242025-saved-acceptance.log",
+      "sha256": "7ac6132221f629ee02c7c957e6f24ba29829d027ae795b495bac861c48500b06"
+    },
+    {
+      "path": "docs/research/territory-v1-11/reviews/20232024-saved-acceptance-review.json",
+      "sha256": "1e188716ca152c474431902b1abdd012033e7c222e162fbc100822984da05a8f"
+    }
+  ],
+  "state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20242025-01/manifest.json",
+    "sha256": "a75de96b3ba021864be7e185c2e540959d9225e3c83b84ee0f64e0b3975c5fce"
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20232024-01/manifest.json",
+    "sha256": "17ee9596b157c1248424e2380b277630828c7b2cb676a2d41dd98e415072ba58",
+    "season": "20232024",
+    "purpose": "real",
+    "recipe_sha256": "5353df16751c5ce7e7361870bdba784c510039cdaff0b065b711a51e7006b0b3"
+  },
+  "source_commit": "008197e221cb869a41c440561daf20cf905ad1b6",
+  "source_clean": true,
+  "findings": [],
+  "operator_limit": {
+    "native_exit_code": null,
+    "scope": "direct tool exit result unavailable: post-exit write_stdin returned Unknown process id 63700; no exit code is fabricated",
+    "normal_completion": "inferred",
+    "reported_completion_evidence": [
+      "both owned processes absent",
+      "final normal CLI state-path marker after strict readback",
+      "complete native time footer with no nonzero/signal marker"
+    ],
+    "evidence_scope": "root observations retained in the local native receipt; original external log/processes were not inspected by this reviewer",
+    "saved_acceptance_exit_code": 0,
+    "saved_acceptance_exit_scope": "root-reported observed controller completion, with successful retained acceptance receipt/log"
+  },
+  "acceptance_rationale": "the spec requires solver-completed baseline heads. both saved native optimizer statuses are zero and complete; independent full strict saved-state validation passed hashes, fitted losses, chronology, histories and projection/accounting checks. that establishes these baselines despite unavailable outer tool status. no outer exit code is inferred or fabricated, and no completed fit is rerun to replace that transport observation",
+  "checked_facts": {
+    "purpose": "real",
+    "skaters": 920,
+    "player_role_coordinates": 3680,
+    "baselines_complete": 2,
+    "diagnostic_attempts": 0,
+    "total_baselines_accepted_through_this_annual": 8,
+    "solver_statuses": {
+      "entry": 0,
+      "exit": 0
+    },
+    "termination": "both completed by relative function tolerance",
+    "gradient_inf_norm": {
+      "entry": 0.0025800888237498976,
+      "exit": 0.0007303980035085547
+    },
+    "achieved_gtol": {
+      "entry": false,
+      "exit": false
+    },
+    "crossings": {
+      "total": 126036,
+      "entry": 68909,
+      "exit": 57127
+    },
+    "physical_known_seconds": 2931597.0000000005,
+    "history": {
+      "entry": {
+        "entry_coordinates": 240,
+        "carry_coordinates": 1730,
+        "refreshed_coordinates": 1892,
+        "retained_history_coordinates": 946
+      },
+      "exit": {
+        "entry_coordinates": 240,
+        "carry_coordinates": 1730,
+        "refreshed_coordinates": 1892,
+        "retained_history_coordinates": 947
+      }
+    },
+    "history_scope": "head-specific raw entry/carry/retention; refreshed1892 each, retained entry946 and exit947",
+    "nuisance_source_supported": true,
+    "accounting": "physical/directed/player-slot time, crossing counts, nuisance risk and start counts reconcile; manual entry/carry and retained-history oracle passed"
+  },
+  "costs": {
+    "native_wall_seconds": 5981.71,
+    "native_maximum_resident_bytes": 13893746688,
+    "native_peak_memory_footprint_bytes": 15868931808,
+    "memory_envelope_bytes": 64000000000,
+    "within_envelope": true,
+    "preparation_wall_seconds": 5821.14387787506,
+    "head_fit_wall_seconds": 3.8201735420152545,
+    "nested_native_solver_wall_seconds": {
+      "entry": 1.4969244999811053,
+      "exit": 1.5546746670734137
+    },
+    "hazard_projection_wall_seconds": 0.9144224589690566,
+    "writing_wall_seconds": 72.29947587498464,
+    "input_metadata_read_wall_seconds": 0.5597259579226375,
+    "output_member_bytes": 3131117300,
+    "accounted_artifact_bytes": 3222401413,
+    "acceptance_native_wall_seconds": 58.11,
+    "acceptance_internal_wall_seconds": 57.120095249963924,
+    "acceptance_process_peak_bytes": 12269240320,
+    "scope": "whole fit command includes preparation, two baselines, writing, strict readback and overhead; solver time is nested within head fitting. input-read timing covers metadata, not all prepared-game parsing. acceptance timing/peak belongs to a separate process. logical artifact bytes are a named subtotal; physical I/O and incremental allocation remain unmeasured"
+  },
+  "disposition": "the fifth annual must bind the exact accepted manifest above; direct outer fit exit status remains unavailable and does not invalidate the independently checked completed state",
+  "limits": [
+    "function-tolerance completion does not establish achieved gradient tolerance or coefficient accuracy",
+    "in-sample expected/observed diagnostics are not calibration or recovery evidence",
+    "two real baselines, two final diagnostic attempts and all real successor references/products remain pending; earlier sensitivity is unassessed",
+    "no completed five-year execution, scientific admission, activation or v1-12 ledger/totals completion is claimed"
+  ]
+}

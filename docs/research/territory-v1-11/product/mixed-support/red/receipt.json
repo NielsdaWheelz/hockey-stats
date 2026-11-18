@@ -1,0 +1,19 @@
+{
+  "mode": "exact-head-red",
+  "scope": "synthetic public card/map component rendering and native export controls; no source/model/publication acceptance",
+  "downloads": [
+    {
+      "filename": "mixed-card.png",
+      "bytes": 269592,
+      "sha256": "019510efed916c1bd7fe8777124ab44f341f5efa66290784598c672f72b54a69"
+    },
+    {
+      "filename": "mixed-map.png",
+      "bytes": 169633,
+      "sha256": "bf66c9de50b867ec0da46becef6c539fda924848384a1c23d43d8c5eaecfcebb"
+    }
+  ],
+  "cases": [],
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: mixed html/PNG support"
+}

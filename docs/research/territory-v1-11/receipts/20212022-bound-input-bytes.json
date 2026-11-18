@@ -1,0 +1,26 @@
+{
+  "season": "20212022",
+  "status": "measured_logical_bound_artifact_sizes",
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "coaches": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+  },
+  "annual_prepared_members": {
+    "game": {
+      "members": 1312,
+      "bytes": 63680984808
+    },
+    "people": {
+      "members": 1,
+      "bytes": 29582647
+    }
+  },
+  "unique_accounted_files": 1315,
+  "logical_bound_input_bytes": 63768542955,
+  "scope": "selected annual prepared members plus prepared/coaches metadata bindings, measured by file size after completed fitting; excludes preparation selection and runtime/dependency metadata; not read-call bytes or physical i/o",
+  "physical_io_bytes": null
+}

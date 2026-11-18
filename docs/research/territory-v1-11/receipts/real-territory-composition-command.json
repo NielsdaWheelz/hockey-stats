@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "kind": "territory_composition",
+  "purpose": "real",
+  "source_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/exchange5-base/manifest.json",
+    "sha256": "d84b5fca56a25d5253d76f48672b8496e4bb72b3a71c5226a53e61d3217c6dc6"
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/territory-selection.json",
+    "sha256": "7427f74cc70fca567eec8eb84074d666ae76a44b58a84fc6cc48c876631dc214"
+  },
+  "output": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/manifest.json",
+    "sha256": "ec5349f1f019a9ccfbac908be26dd34b350f26085a890904b6048de0da1d2829"
+  },
+  "key_counts": {
+    "20232024": {
+      "skater_territory": 924,
+      "analysis_map": 1848
+    },
+    "20242025": {
+      "skater_territory": 920,
+      "analysis_map": 1840
+    },
+    "20252026": {
+      "skater_territory": 940,
+      "analysis_map": 1880
+    }
+  },
+  "annuals": [
+    {
+      "season": "20212022",
+      "territory_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20212022-repaired-01/manifest.json",
+        "sha256": "1c4c45a7fe8afe76dbcb2811ecacec540a90848875adbe780b111047adb38db3"
+      },
+      "ev_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+        "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509"
+      },
+      "successor_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20212022-reference/reference.json",
+        "sha256": "b8c8cf71eb945a33b11df9c2746bb8d18497fa2643e83c9ad79fb56f8d7b13c7"
+      }
+    },
+    {
+      "season": "20222023",
+      "territory_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20222023-01/manifest.json",
+        "sha256": "890a6a560896f58aef8fd6ebf7c1dfe696c0df25ecab228b5c9324b64eeb7269"
+      },
+      "ev_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-complete-01/manifest.json",
+        "sha256": "bdc5c2d4ed8645f5b1aa825abe06397b333ed399c2a4399eff6106dd6b98bd17"
+      },
+      "successor_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20222023-reference/reference.json",
+        "sha256": "11f3282955a6bd5b233073ddd0e918fd95e30992bb57f4ff9fc44182f79078cb"
+      }
+    },
+    {
+      "season": "20232024",
+      "territory_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20232024-01/manifest.json",
+        "sha256": "17ee9596b157c1248424e2380b277630828c7b2cb676a2d41dd98e415072ba58"
+      },
+      "ev_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/manifest.json",
+        "sha256": "42bfbab911efc9a58904b5273a09545d617fd7c29a2be67203bbc55b236eff25"
+      },
+      "successor_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20232024-reference/reference.json",
+        "sha256": "b79cbbba40bb98d535f841e2f9172c92d7ae1a5b5b4e29c5029108e2475e1bfc"
+      }
+    },
+    {
+      "season": "20242025",
+      "territory_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20242025-01/manifest.json",
+        "sha256": "a75de96b3ba021864be7e185c2e540959d9225e3c83b84ee0f64e0b3975c5fce"
+      },
+      "ev_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/manifest.json",
+        "sha256": "74f35a1c9599335279954170693f7d3add11302bc83611fe14a368322870e6eb"
+      },
+      "successor_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20242025-reference/reference.json",
+        "sha256": "09d1a0a64681b810320caa2ae71a8c9059baee5207d755a099abae4b64f2a58c"
+      }
+    },
+    {
+      "season": "20252026",
+      "territory_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/20252026-01/manifest.json",
+        "sha256": "b6ec47eff0f7ea4e2d19c075503111cc080e965d85fe1423978db57edc889c04"
+      },
+      "ev_state": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/manifest.json",
+        "sha256": "c74b313e2ac4ed0b1b8e09787de024b0febe7e98339879a06fb7537ff2398bab"
+      },
+      "successor_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/20252026-reference/reference.json",
+        "sha256": "010a9dc3c24d0ba434c8cdcd57af786e3d0ca32b42df1b18a5dc92cfae566c50"
+      }
+    }
+  ],
+  "resources": {
+    "wall_seconds": 7993.320148417028,
+    "annual_references": {
+      "20212022": {
+        "projection_wall_seconds": 14.355971249984577,
+        "output_bytes": 14793468,
+        "peak_memory_bytes": 15634464768
+      },
+      "20222023": {
+        "projection_wall_seconds": 15.375240459106863,
+        "output_bytes": 14179360,
+        "peak_memory_bytes": 15634464768
+      },
+      "20232024": {
+        "projection_wall_seconds": 10.556423208210617,
+        "output_bytes": 13862371,
+        "peak_memory_bytes": 18387156992
+      },
+      "20242025": {
+        "projection_wall_seconds": 10.256328708026558,
+        "output_bytes": 13864867,
+        "peak_memory_bytes": 18539020288
+      },
+      "20252026": {
+        "projection_wall_seconds": 38.42112537496723,
+        "output_bytes": 55292780,
+        "peak_memory_bytes": 18539020288
+      }
+    }
+  },
+  "preserved": "all inherited numerical/factual table members copied byte-for-byte; catalogs retained; no ledger completion",
+  "status": "completed_awaiting_independent_acceptance",
+  "at": "2026-11-18T08:55:35.340517+00:00",
+  "native_exit_code": 0,
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-territory-composition-01.log",
+    "sha256": "b4875f4fa5c6cdd3ad77c3a448cd9cd65532847b70214f6a0403af9316b89e42"
+  },
+  "exit_code_capture": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-territory-composition-01.exit-code",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "producer_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/territory-composition.json",
+    "sha256": "1448e109c44edd553ad64b4f5c9d675dba5109f615ffc99518adb2c4247fa5c9"
+  },
+  "native_costs": {
+    "real_seconds": 7994.17,
+    "user_seconds": 6923.03,
+    "sys_seconds": 149.56,
+    "maximum_resident_bytes": 18539020288,
+    "peak_footprint_bytes": 18431325816
+  },
+  "independent_acceptance_launch": {
+    "at": "2026-11-18T00:56:41-08:00",
+    "checker": {
+      "path": ".territory-checks/accept_composition.py",
+      "sha256": "f1025d27420dccf7c01cb431346947d0c5294e0e2b8373ec21307f0c5d4c8494"
+    },
+    "log": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-territory-composition-acceptance-01.log",
+    "exit_code_capture": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-territory-composition-acceptance-01.exit-code",
+    "receipt": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/territory-composition-acceptance-01.json"
+  }
+}

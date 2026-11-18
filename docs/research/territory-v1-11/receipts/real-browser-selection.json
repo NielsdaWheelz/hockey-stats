@@ -1,0 +1,92 @@
+{
+  "purpose": "real",
+  "publication_id": "10da3c69-183d-4704-8990-68e3a62ab2bb",
+  "selection_evidence": "{\"absent_year_candidates\": 1024, \"checked_primary_map_signs\": [{\"id\": \"8476460\", \"signs\": {\"ice_lost\": {\"negative\": 8, \"positive\": 648}, \"ice_won\": {\"negative\": 647, \"positive\": 9}}}, {\"id\": \"8478402\", \"signs\": {\"ice_lost\": {\"negative\": 532, \"positive\": 124}, \"ice_won\": {\"negative\": 192, \"positive\": 464}}}, {\"id\": \"8478398\", \"signs\": {\"ice_lost\": {\"negative\": 8, \"positive\": 648}, \"ice_won\": {\"negative\": 644, \"positive\": 12}}}, {\"id\": \"8477492\", \"signs\": {\"ice_lost\": {\"negative\": 484, \"positive\": 172}, \"ice_won\": {\"negative\": 209, \"positive\": 447}}}, {\"id\": \"8478864\", \"signs\": {\"ice_lost\": {\"negative\": 647, \"positive\": 9}, \"ice_won\": {\"negative\": 8, \"positive\": 648}}}, {\"id\": \"8478550\", \"signs\": {\"ice_lost\": {\"negative\": 92, \"positive\": 564}, \"ice_won\": {\"negative\": 499, \"positive\": 157}}}, {\"id\": \"8480039\", \"signs\": {\"ice_lost\": {\"negative\": 9, \"positive\": 647}, \"ice_won\": {\"negative\": 655, \"positive\": 1}}}, {\"id\": \"8484801\", \"signs\": {\"ice_lost\": {\"negative\": 449, \"positive\": 207}, \"ice_won\": {\"negative\": 313, \"positive\": 343}}}], \"composition_manifest_sha256\": \"ec5349f1f019a9ccfbac908be26dd34b350f26085a890904b6048de0da1d2829\", \"named_provided_territory_rows\": 2784, \"partial_missing_cases\": 0, \"prior_only_cases\": 11, \"provided_territory_rows\": 2784, \"publication_receipt_database_sha256\": \"cb62bc166d9cdad8bd8df69ef563f83ca31b56cc5a7544aeffd27eb6d16505ba\", \"published_sqlite\": \"/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/candidate-01/player-analysis.sqlite\", \"roster_identities\": 1196, \"season_count\": 3, \"selection_scope\": \"read-only published season/person/territory rows and up to eight indexed primary map pairs; no original source witnesses\"}",
+  "primary": "forward",
+  "comparison": "defense",
+  "cases": [
+    {
+      "label": "forward",
+      "season": "20252026",
+      "player_id": "8476460",
+      "display_name": "Mark Scheifele",
+      "selection_reason": "known-path 5v5 seconds 66374.0; both computed maps; native cell signs {'ice_lost': {'positive': 648, 'negative': 8}, 'ice_won': {'positive': 9, 'negative': 647}}",
+      "covers": [
+        "forward"
+      ],
+      "territory_availability": "provided"
+    },
+    {
+      "label": "defense",
+      "season": "20252026",
+      "player_id": "8480800",
+      "display_name": "Quinn Hughes",
+      "selection_reason": "same-season defense comparison; known-path 5v5 seconds 77748.0",
+      "covers": [
+        "defense"
+      ],
+      "territory_availability": "provided"
+    },
+    {
+      "label": "thin",
+      "season": "20242025",
+      "player_id": "8482802",
+      "display_name": "Carter Mazur",
+      "selection_reason": "minimum positive information weight in named published role records: 3.8581081081081265 seconds",
+      "covers": [
+        "thin_role"
+      ],
+      "territory_availability": "provided",
+      "thin_role": {
+        "role": "zone_retention",
+        "information_weight": 3.8581081081081265
+      }
+    },
+    {
+      "label": "traded",
+      "season": "20252026",
+      "player_id": "8480800",
+      "display_name": "Quinn Hughes",
+      "selection_reason": "published team affiliations: [{'abbreviation': 'VAN', 'id': '23'}, {'abbreviation': 'MIN', 'id': '30'}]",
+      "covers": [
+        "traded"
+      ],
+      "territory_availability": "provided"
+    },
+    {
+      "label": "prior-only",
+      "season": "20242025",
+      "player_id": "8478173",
+      "display_name": "Hayden Hodgson",
+      "selection_reason": "published role coefficient has no current-year risk",
+      "covers": [
+        "prior_only"
+      ],
+      "territory_availability": "provided",
+      "prior_only_roles": [
+        "exit_offense",
+        "entry_offense",
+        "zone_retention",
+        "entry_prevention"
+      ]
+    },
+    {
+      "label": "absent",
+      "season": "20232024",
+      "player_id": "8473604",
+      "display_name": "Jonathan Toews",
+      "selection_reason": "historical identity from 20252026; no person row in selected 20232024",
+      "covers": [
+        "absent_year"
+      ],
+      "territory_availability": "absent"
+    }
+  ],
+  "unavailable_cases": [
+    {
+      "case": "partial_missing",
+      "reason": "no movement-only row with both successor values unavailable in 2784 named provided person-years",
+      "evidence": "selection_evidence in this saved explicit candidate selection"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "kind": "territory_candidate_command",
+  "status": "inactive_candidate_built",
+  "at": "2026-11-18T14:32:25.149240+00:00",
+  "publication_id": "10da3c69-183d-4704-8990-68e3a62ab2bb",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/candidate-01/player-analysis.sqlite",
+    "sha256": "cb62bc166d9cdad8bd8df69ef563f83ca31b56cc5a7544aeffd27eb6d16505ba"
+  },
+  "results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/results/manifest.json",
+    "sha256": "ec5349f1f019a9ccfbac908be26dd34b350f26085a890904b6048de0da1d2829"
+  },
+  "analysis_tree": "1d9eb354ffdd501aa448a3412ef004aac4c89e65",
+  "app_tree": "5d4a41c4993fb765e1ed5e396125e37db2ea8d09",
+  "verification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/candidate-01/verification.json",
+    "sha256": "3f9ffaf19f9366944a374f136ca5b64fdae3ed9dbfc5561db7d0a1ee819e3d20"
+  },
+  "checks": {
+    "integrity": "passed",
+    "foreign_keys": "passed",
+    "read_back": "passed",
+    "per_season_conservation": "passed"
+  },
+  "producer": {
+    "git_commit": "1a7a7b0d4dd4181f44df62b0921e0e39eb16c075",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "spatial_consumed_fields": [
+      "interpreted.events.reported_x",
+      "interpreted.events.reported_y",
+      "interpreted.events.home_team_defending_side",
+      "reconstruction.events.attacking_x",
+      "reconstruction.events.attacking_y",
+      "reconstruction.events.coordinate_status"
+    ],
+    "sqlite_version": "3.54.1"
+  },
+  "native_exit_code": 0,
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-candidate-01.log",
+    "sha256": "67da24e995da2192086705d23e51a550d8f9c7e5fbc0ab79ef3e1c2aac1737ac"
+  },
+  "exit_code_capture": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real-candidate-01.exit-code",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "costs": {
+    "wall_seconds": 17016.45591395814,
+    "peak_rss_bytes": 3336372224,
+    "consumed_bytes": 41736325560,
+    "database_bytes": 31894360064
+  },
+  "native_costs": {
+    "real_seconds": 17017.13,
+    "user_seconds": 12950.76,
+    "sys_seconds": 885.48,
+    "maximum_resident_bytes": 3336372224,
+    "peak_footprint_bytes": 3313634208
+  },
+  "real_browser_selection": {
+    "path": "docs/research/territory-v1-11/receipts/real-browser-selection.json",
+    "sha256": "3fd49eaf68a370e7c3b838879493890bab4a5792c147dae0d00bb5a4cbf79330"
+  },
+  "strict_startup": {
+    "at": "2026-11-18T06:39:17-08:00",
+    "port": 3111,
+    "pid": 62104,
+    "time_pid": 62096,
+    "state": "launched",
+    "guard": {
+      "path": ".territory-independent/detached/guard.cjs",
+      "sha256": "d07d2c7c2543af28f76590a80c99c141b76c020e453e0523c1db6b46c7051d70"
+    },
+    "database_before": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/territory-v1-11-20261116-01/real/candidate-01/player-analysis.sqlite",
+      "device": 16777240,
+      "inode": 511506,
+      "bytes": 31894360064,
+      "mtime_ns": 1795010642936363889
+    },
+    "scope": "normal strict startup with scoped original-input path denial and explicit candidate database allowlist"
+  }
+}

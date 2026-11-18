@@ -5,6 +5,7 @@ import hashlib
 import re
 from pathlib import Path
 
+from .input_locations import input_path
 from .captures import InputContractError, REFERENCE_SOURCES, SOURCES, strict_json
 from .corpus import STATUSES
 from .interpret import (
@@ -70,7 +71,7 @@ def _number(value, location):
 
 def read_document(path, kind, inputs):
     try:
-        data = path.read_bytes()
+        data = input_path(path, strict=True).read_bytes()
         value = strict_json(data)
     except (OSError, ValueError) as error:
         raise InputContractError(f"{path}: {error}") from error

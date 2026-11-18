@@ -8,6 +8,7 @@ import resource
 import sys
 import time
 
+from .input_locations import input_path
 from . import analysis_records as records
 from .artifacts import implementation_identity, write_json
 from .captures import (
@@ -58,14 +59,14 @@ class PreparedManifest(dict):
 
 def _read(path):
     try:
-        return strict_json(path.read_bytes())
+        return strict_json(input_path(path, strict=True).read_bytes())
     except (OSError, ValueError) as error:
         raise InputContractError(f"{path}: {error}") from error
 
 
 def _sha(path):
     try:
-        with path.open("rb") as source:
+        with input_path(path, strict=True).open("rb") as source:
             return hashlib.file_digest(source, "sha256").hexdigest()
     except OSError as error:
         raise InputContractError(f"{path}: {error}") from error
@@ -143,7 +144,7 @@ def _bind_sources(bound_inputs, identity, consumed, *, reference=False):
             actual_identity in (None, identity), str(path), "receipt identity differs"
         )
         records.require(
-            capture.capture_path == path.resolve()
+            capture.capture_path == input_path(path)
             and (capture.requested_at, capture.http_status, capture.body_sha256)
             == (bound["requested_at"], bound["http_status"], bound["body_sha256"]),
             str(path),
@@ -155,13 +156,13 @@ def _bind_sources(bound_inputs, identity, consumed, *, reference=False):
             or bound["status"] != "unavailable"
         )
         records.require(
-            not promised or path.is_file(), str(path), "promised receipt is missing"
+            not promised or input_path(path).is_file(), str(path), "promised receipt is missing"
         )
-        if path.is_file():
+        if input_path(path).is_file():
             consumed.append(
                 dict(
                     kind="reference-capture" if reference else "source-capture",
-                    path=str(path.resolve()),
+                    path=str(path),
                     sha256=_sha(path),
                 )
             )
@@ -169,7 +170,7 @@ def _bind_sources(bound_inputs, identity, consumed, *, reference=False):
             consumed.append(
                 dict(
                     kind="reference-body" if reference else "source-body",
-                    path=str((path.parent / "body.bin").resolve()),
+                    path=str(path.parent / "body.bin"),
                     sha256=capture.body_sha256,
                 )
             )
@@ -556,8 +557,8 @@ def prepare_analysis(selection_path, output):
     from .analysis_context import game_summary
 
     started = time.monotonic()
-    selection_path = Path(selection_path).resolve(strict=True)
-    selection_bytes = selection_path.read_bytes()
+    selection_path = Path(selection_path).absolute()
+    selection_bytes = input_path(selection_path, strict=True).read_bytes()
     selection = _selection(strict_json(selection_bytes))
     output = Path(output).resolve()
     records.require(not output.exists(), str(output), "output directory already exists")
@@ -579,9 +580,7 @@ def prepare_analysis(selection_path, output):
     summaries = {}
     selected = []
     for selection_row in selection["seasons"]:
-        path = (selection_path.parent / selection_row["corpus_manifest"]).resolve(
-            strict=True
-        )
+        path = input_path(selection_path.parent / selection_row["corpus_manifest"], strict=True)
         records.require(
             _sha(path) == selection_row["sha256"],
             str(path),
@@ -589,8 +588,8 @@ def prepare_analysis(selection_path, output):
         )
         if selection["purpose"] == "real":
             records.require(
-                (str(path), selection_row["sha256"])
-                == REAL_CORPORA[selection_row["season"]],
+                (path, selection_row["sha256"])
+                == (input_path(REAL_CORPORA[selection_row["season"]][0]), REAL_CORPORA[selection_row["season"]][1]),
                 str(path),
                 "real input differs from frozen 03n corpus identity",
             )
@@ -664,7 +663,7 @@ def prepare_analysis(selection_path, output):
         if ledger["output_path"] is None:
             summaries[gid] = None
             continue
-        path = (season["path"].parent / ledger["output_path"]).resolve(strict=True)
+        path = input_path(season["path"].parent / ledger["output_path"], strict=True)
         envelope = read_document(path, "game", consumed)
         input_ref = dict(path=str(path), sha256=consumed[-1]["sha256"])
         if ledger["status"] == "reconstructed":
@@ -881,6 +880,7 @@ def prepare_analysis(selection_path, output):
 
 
 def _member_path(directory, member):
+    directory = input_path(directory, strict=True)
     path = Path(member)
     records.require(
         bool(member)
@@ -982,7 +982,10 @@ def _validate_manifest(manifest, directory, selection):
             expected_path, expected_hash = REAL_CORPORA[chosen["season"]]
             records.require(
                 chosen["sha256"] == expected_hash
-                and identities.get(expected_path) == expected_hash,
+                and (identities.get(expected_path) == expected_hash
+                     or any(item["kind"] == "corpus" and item["sha256"] == expected_hash
+                            and input_path(item["path"]) == input_path(expected_path)
+                            for item in manifest["inputs"])),
                 "manifest/inputs",
                 "real provenance differs from frozen 03n identity",
             )
@@ -1000,7 +1003,7 @@ def _validate_manifest(manifest, directory, selection):
 
 def read_prepared(path, expected_purpose):
     """validate completion and selection without reopening original inputs."""
-    path = Path(path).resolve()
+    path = input_path(path)
     directory = path if path.is_dir() else path.parent
     manifest = _read(path / "manifest.json" if path.is_dir() else path)
     records.require(

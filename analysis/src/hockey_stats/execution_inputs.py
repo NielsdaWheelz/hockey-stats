@@ -7,6 +7,7 @@ from pathlib import Path
 import numpy as np
 from scipy.sparse import csr_matrix
 
+from .input_locations import input_path
 from .artifacts import json_values, require, write_json
 from .captures import strict_json
 from .execution_design import ExecutionPredictor, SetterCandidate, origin_law
@@ -99,7 +100,7 @@ def write_u_bundle(output, design, *, actors, initial, metadata, selector, probe
 
 def load_u_bundle(path):
     """restore the canonical objective inputs without any source or feature pass."""
-    path = Path(path).resolve(strict=True)
+    path = input_path(path, strict=True)
     root = path.parent
     manifest = strict_json(path.read_bytes())
     require(manifest['schema_version'] == 1 and manifest['kind'] == 'execution-u-input-bundle', 'wrong u input bundle kind/version')

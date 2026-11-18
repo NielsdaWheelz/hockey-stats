@@ -6,6 +6,7 @@ import hashlib
 from math import fsum
 from pathlib import Path
 
+from .input_locations import input_path
 from . import analysis_publication as publication
 from .analysis_data import read_prepared, read_prepared_game
 from .artifacts import require, write_json
@@ -62,7 +63,7 @@ def check_reference_xg_correction(original, corrected):
     publication.fields(evidence, ('uri', 'sha256'))
     path = Path(evidence['uri'])
     require(path.is_absolute() and _sha(path) == evidence['sha256'], 'reference-xg correction receipt digest differs')
-    receipt = strict_json(path.read_bytes())
+    receipt = strict_json(input_path(path, strict=True).read_bytes())
     publication.fields(receipt, ('schema_version', 'kind', 'donor', 'changes', 'unchanged'))
     require(type(receipt['schema_version']) is int and receipt['schema_version'] == 1
             and receipt['kind'] == 'reference_xg_population_correction', 'invalid reference-xg correction receipt')
@@ -70,7 +71,7 @@ def check_reference_xg_correction(original, corrected):
     donor_path = Path(receipt['donor']['uri'])
     require(donor_path.is_absolute() and donor_path.name == 'manifest.json'
             and _sha(donor_path) == receipt['donor']['sha256'], 'reference-xg donor manifest digest differs')
-    donor = strict_json(donor_path.read_bytes())
+    donor = strict_json(input_path(donor_path, strict=True).read_bytes())
     member = donor['catalogs']['methods']
     method_bytes = publication.member_path(donor_path.parent, member).read_bytes()
     require(hashlib.sha256(method_bytes).hexdigest() == member['sha256'], 'reference-xg donor method digest differs')
@@ -105,8 +106,8 @@ def correct_reference_xg_metadata(existing_results, output):
     if all(meaning == _REFERENCE_XG_TEXT for meaning in meanings):
         require(all(method['evidence'][-1] == methods[0]['evidence'][-1] for method in methods), 'reference-xg correction receipts differ')
         for method in methods:
-            receipt = strict_json(Path(method['evidence'][-1]['uri']).read_bytes())
-            donor = strict_json(Path(receipt['donor']['uri']).read_bytes())
+            receipt = strict_json(input_path(method['evidence'][-1]['uri'], strict=True).read_bytes())
+            donor = strict_json(input_path(receipt['donor']['uri'], strict=True).read_bytes())
             member = donor['catalogs']['methods']
             originals = [strict_json(line) for line in publication.member_path(Path(receipt['donor']['uri']).parent, member).read_bytes().splitlines()]
             original = next(row for row in originals if row['method_id'] == method['method_id'])
@@ -131,7 +132,7 @@ def correct_reference_xg_metadata(existing_results, output):
 
 
 def _sha(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    return hashlib.sha256(input_path(path, strict=True).read_bytes()).hexdigest()
 
 
 def _rows(facts, year, family, table):
@@ -460,7 +461,7 @@ def compose_results(prepared, factual_results, scores_selection, output):
     corpus_hashes = {r['season']:r['sha256'] for r in prepared_selection['seasons']}
     require(all(corpus_hashes.get(r['season']) == r['corpus_sha256'] for r in facts.manifest['observed_bindings']),
             'factual/prepared observed corpus binding differs')
-    selection = strict_json(Path(scores_selection).read_bytes())
+    selection = strict_json(input_path(scores_selection, strict=True).read_bytes())
     publication.fields(selection,('schema_version','purpose','prepared_sha256','scores'))
     require(type(selection['schema_version']) is int and selection['schema_version'] == 1 and selection['purpose'] == purpose
             and selection['prepared_sha256'] == prepared_sha, 'score selection purpose/preparation differs')

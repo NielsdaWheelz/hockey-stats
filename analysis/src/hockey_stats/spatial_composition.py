@@ -6,6 +6,7 @@ import hashlib
 from pathlib import Path
 from time import perf_counter
 
+from .input_locations import input_path, same_input_reference
 from . import analysis_publication as publication
 from .artifacts import implementation_identity, require, write_json
 from .captures import strict_json
@@ -85,7 +86,7 @@ def _product_admission(path, selection_path, purpose):
     if path is None:
         return None
     path = Path(path).absolute()
-    document = strict_json(path.read_bytes())
+    document = strict_json(input_path(path, strict=True).read_bytes())
     publication.fields(document, ('schema_version', 'kind', 'purpose', 'decision', 'season', 'selection', 'baseline',
         'original_precision', 'policy', 'consequence_result', 'consequence_review', 'optimizer_accuracy', 'content_warning',
         'actual_context_review', 'actual_context_warnings'))
@@ -107,12 +108,12 @@ def _product_admission(path, selection_path, purpose):
         publication.fields(reference, ('path', 'sha256', 'status') if name in precision['comparisons'] else ('path', 'sha256'))
         publication.digest(reference['sha256'])
         require(type(reference['path']) is str and Path(reference['path']).is_absolute(), 'spatial admission reference must be absolute')
-        target = Path(reference['path'])
+        target = input_path(reference['path'], strict=True)
         require(target.is_file() and identity(target)['sha256'] == reference['sha256'], 'spatial admission evidence digest differs')
         if name in precision['comparisons']:
             require(reference['status'] in ('passed', 'failed'), 'invalid original spatial head precision status')
         evidence.append(dict(uri=reference['path'], sha256=reference['sha256']))
-    require(document['selection'] == identity(Path(selection_path).absolute()), 'spatial admission selection differs')
+    require(same_input_reference(document['selection'],identity(Path(selection_path).absolute())), 'spatial admission selection differs')
     require(precision['status'] == ('passed' if all(r['status'] == 'passed' for r in precision['comparisons'].values()) else 'failed'),
             'original spatial aggregate precision status differs')
     return dict(season=document['season'], warning=document['content_warning'], baseline=document['baseline'],
@@ -123,7 +124,7 @@ def _product_admission(path, selection_path, purpose):
 def _states(selection_path, results, admission=None, *, family='ev'):
     from .spatial_state import SavedSpatialEvidence, read_spatial_state
 
-    selection = strict_json(Path(selection_path).read_bytes())
+    selection = strict_json(input_path(selection_path, strict=True).read_bytes())
     require(family == 'st' or (admission is not None) == (results.manifest['purpose'] == 'real'),
             'spatial product admission purpose differs')
     publication.fields(selection, ('schema_version', 'purpose', 'prepared_sha256', 'states'))
@@ -136,7 +137,7 @@ def _states(selection_path, results, admission=None, *, family='ev'):
         publication.fields(item, ('season', 'path', 'sha256'))
         publication.digest(item['sha256'])
         require(item['season'] in YEARS and type(item['path']) is str and Path(item['path']).is_absolute(), 'invalid spatial annual selection')
-        path = Path(item['path'])
+        path = input_path(item['path'], strict=True)
         path = path / 'manifest.json' if path.is_dir() else path
         require(identity(path)['sha256'] == item['sha256'], 'spatial annual manifest digest differs')
         state = read_spatial_state(path, selection['purpose'], expected_family=family)
@@ -151,7 +152,7 @@ def _states(selection_path, results, admission=None, *, family='ev'):
                 members = {member['path']: member for member in manifest['files']}
                 for name, reference in [('baseline', admission['baseline']), *admission['precision']['comparisons'].items()]:
                     member = 'probes/baseline.json' if name == 'baseline' else f'probes/{name}-comparison.json'
-                    require(member in members and reference['path'] == str(state.path / member)
+                    require(member in members and input_path(reference['path']) == state.path / member
                             and reference['sha256'] == members[member]['sha256'], 'spatial admission probe binding differs')
                     if name != 'baseline':
                         require(reference['status'] == probes['heads'][name]['status'], 'spatial admission original head status differs')
@@ -178,7 +179,7 @@ def _states(selection_path, results, admission=None, *, family='ev'):
         before, after = annuals[left], annuals[right]
         previous = after.manifest['previous']
         require(previous is not None and previous['sha256'] == identity(before.path / 'manifest.json')['sha256']
-                and Path(previous['path']).resolve() == (before.path / 'manifest.json').resolve(), 'spatial state history chain differs')
+                and input_path(previous['path']) == (before.path / 'manifest.json').resolve(), 'spatial state history chain differs')
         require(all(after.manifest[key] == before.manifest[key] for key in ('recipe_id', 'recipe', 'basis_identity')), 'spatial recipe/basis differs between years')
         require(all(after.manifest[key]['sha256'] == before.manifest[key]['sha256'] for key in ('prepared', 'coaches')), 'spatial preparation/coaches differ between years')
         if family == 'st':
@@ -680,7 +681,7 @@ def _compose_results(existing_results, state_selection, output, *, family, produ
 def complete_results(result_dir, expected_donor_sha256, state_selection, product_admission):
     """finish one saved exchange additively, without reloading model states."""
     started = perf_counter()
-    directory = Path(result_dir).resolve(strict=True)
+    directory = input_path(result_dir, strict=True)
     donor_path = directory / 'manifest.json.incomplete'
     new_methods = directory / 'methods-complete-01.jsonl'
     staging = directory / 'manifest-complete-01.json.incomplete'
@@ -697,7 +698,7 @@ def complete_results(result_dir, expected_donor_sha256, state_selection, product
     require(all(manifest[k] == source[k] for k in ('purpose', 'seasons', 'observed_bindings', 'prepared_sha256')),
             'donor and accepted source identity differs')
     admission = _product_admission(product_admission, state_selection, 'real')
-    selection = strict_json(Path(state_selection).read_bytes())
+    selection = strict_json(input_path(state_selection, strict=True).read_bytes())
     publication.fields(selection, ('schema_version', 'purpose', 'prepared_sha256', 'states'))
     require(selection['schema_version'] == 1 and selection['purpose'] == 'real'
             and selection['prepared_sha256'] == manifest['prepared_sha256']
@@ -706,7 +707,7 @@ def complete_results(result_dir, expected_donor_sha256, state_selection, product
     for item in selection['states']:
         publication.fields(item, ('season', 'path', 'sha256'))
         publication.digest(item['sha256'])
-        path = Path(item['path'])
+        path = input_path(item['path'], strict=True)
         require(path.is_absolute() and path.name == 'manifest.json' and identity(path)['sha256'] == item['sha256'],
                 'saved annual manifest identity differs')
         header = strict_json(path.read_bytes())
@@ -718,8 +719,8 @@ def complete_results(result_dir, expected_donor_sha256, state_selection, product
         annuals[item['season']] = _AnnualProjection(path.parent, header, [], {}, [], None, None)
     for left, right in zip(YEARS, YEARS[1:]):
         before, after = annuals[left], annuals[right]
-        require(after.manifest['previous'] == dict(season=left, path=str(before.path / 'manifest.json'),
-                sha256=identity(before.path / 'manifest.json')['sha256'], purpose='real', usage='annual'), 'saved history differs')
+        require(same_input_reference(after.manifest['previous'],dict(season=left, path=str(before.path / 'manifest.json'),
+                sha256=identity(before.path / 'manifest.json')['sha256'], purpose='real', usage='annual')), 'saved history differs')
         require(all(after.manifest[k] == before.manifest[k] for k in ('recipe_id','recipe','basis_identity'))
                 and all(after.manifest[k]['sha256'] == before.manifest[k]['sha256'] for k in ('prepared','coaches')),
                 'saved annual recipe or preparation differs')
@@ -728,7 +729,7 @@ def complete_results(result_dir, expected_donor_sha256, state_selection, product
     members = {r['path']: r for r in last.manifest['files']}
     for name, reference in [('baseline', admission['baseline']), *admission['precision']['comparisons'].items()]:
         member = 'probes/baseline.json' if name == 'baseline' else f'probes/{name}-comparison.json'
-        require(member in members and reference['path'] == str(last.path / member)
+        require(member in members and input_path(reference['path']) == last.path / member
                 and reference['sha256'] == members[member]['sha256'], 'saved admission probe identity differs')
         if name != 'baseline':
             require(strict_json((last.path / member).read_bytes())['status'] == reference['status'], 'saved probe status differs')

@@ -9,6 +9,7 @@ from pathlib import Path
 
 import numpy as np
 
+from .input_locations import input_path
 from .artifacts import clean_implementation, digest, require, require_fields, write_arrays, write_json
 from .captures import InputContractError
 from .chance_cli import identity, read_json
@@ -497,7 +498,7 @@ def read_goalie_probe(state,head):
 
 def read_goalie_state(path,expected_purpose):
     """check saved axes/targets/history; provenance paths are not reopened."""
-    path=Path(path).resolve(strict=True)
+    path=input_path(path, strict=True)
     path=path/'manifest.json' if path.is_dir() else path
     require(path.name=='manifest.json','goalie state locator must be manifest.json')
     return _read_goalie_state(path,read_json(path),expected_purpose)

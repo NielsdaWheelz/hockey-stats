@@ -14,6 +14,7 @@ from time import perf_counter
 import numpy as np
 from scipy.special import logsumexp
 
+from .input_locations import input_path, same_input_reference
 from .artifacts import require
 from .captures import InputContractError
 from .chance import solve_logistic
@@ -531,7 +532,7 @@ def reduce_minor_reference(prepared,execution_score,ev_saved,st_saved,*,output):
     from .spatial_rates import ST_RECIPE
     from .spatial_state import SavedSpatialEvidence,read_saved_spatial_evidence
     if not isinstance(prepared,PreparedManifest):
-        p=Path(prepared);purpose=read_json(p/'manifest.json' if p.is_dir() else p)['purpose'];prepared=read_prepared(p,purpose)
+        p=input_path(prepared,strict=True);purpose=read_json(p/'manifest.json' if p.is_dir() else p)['purpose'];prepared=read_prepared(p,purpose)
     purpose=prepared['purpose']
     scores=execution_score if isinstance(execution_score,ExecutionScores) else read_execution_scores(execution_score,purpose)
     season=scores.manifest['season']
@@ -541,12 +542,12 @@ def reduce_minor_reference(prepared,execution_score,ev_saved,st_saved,*,output):
     require(selected is not None,'minor reference prepared season absent')
     expected_prepared=dict(purpose=purpose,**identity(prepared.directory/'manifest.json'),
                           members=[r for r in prepared['files'] if r['season']==season])
-    require(scores.manifest['prepared']==expected_prepared,'minor reference score preparation differs')
+    require(same_input_reference(scores.manifest['prepared'],expected_prepared),'minor reference score preparation differs')
     score_binding=identity(scores.path)
     for saved in (ev,st):
         require(saved.manifest['season']==season and saved.manifest['purpose']==purpose
-            and saved.manifest['prepared']==expected_prepared,'minor reference saved annual lineage differs')
-        require({k:saved.manifest['valued'][k] for k in ('path','sha256')}==score_binding,'minor reference saved score lineage differs')
+            and same_input_reference(saved.manifest['prepared'],expected_prepared),'minor reference saved annual lineage differs')
+        require(same_input_reference({k:saved.manifest['valued'][k] for k in ('path','sha256')},score_binding),'minor reference saved score lineage differs')
     def neutral(saved,role,strength=None):
         values=[r['values'][role]['xg']['neutral'] for r in saved.projections if strength is None or r.get('strength')==strength]
         require(values,'minor reference saved neutral projection absent')

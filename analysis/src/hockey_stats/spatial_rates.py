@@ -16,6 +16,7 @@ from time import perf_counter
 import numpy as np
 from scipy.special import expit, log_expit, logsumexp
 
+from .input_locations import input_path
 from .artifacts import implementation, ordered_array_digest, require
 from .chance import solve_logistic
 from .chance_cli import identity
@@ -995,7 +996,7 @@ def _annual_design(design, previous_state, *, basis_source=None):
     if special and basis_source is not None:
         from .spatial_state import read_spatial_basis
         from .chance_cli import read_json
-        path=Path(basis_source).resolve()
+        path=input_path(basis_source,strict=True)
         if path.is_dir(): path=path/'manifest.json'
         basis,basis_identity=read_spatial_basis(path)
         source_manifest=read_json(path)
@@ -1033,7 +1034,7 @@ def fit_spatial(design, previous_state, output, *, basis_source=None, final_year
         roots=[str(Path(getattr(design,name)['path']).parent) for name in ('prepared','coaches','valued')]
         if previous_state is not None:roots.append(str(previous_state.path))
         if basis_source is not None:
-            basis_path=Path(basis_source).resolve()
+            basis_path=input_path(basis_source,strict=True)
             roots.append(str(basis_path if basis_path.is_dir() else basis_path.parent))
         output=output_path(str(output),roots)
     design=_annual_design(design,previous_state,basis_source=basis_source)
@@ -1061,7 +1062,7 @@ def fit_spatial(design, previous_state, output, *, basis_source=None, final_year
 def complete_spatial(design, previous_state, source, output, *, expected_files, expected_inputs):
     """complete preserved ordinary heads; no solve, refill or numerical continuation."""
     from .spatial_state import read_completed_spatial_heads, copy_completed_spatial_heads
-    began=perf_counter();source=Path(source).resolve();output=Path(output).resolve()
+    began=perf_counter();source=input_path(source,strict=True);output=Path(output).resolve()
     require(previous_state is not None,'completed spatial heads require an accepted predecessor')
     require(not output.exists() and output!=source and not output.is_relative_to(source),'spatial completion output already exists or overlaps its source')
     if design.purpose=='real': require(output.is_relative_to('/Volumes/Expansion/hockey-stats'),'expensive real outputs must be external')

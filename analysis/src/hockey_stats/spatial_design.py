@@ -11,6 +11,7 @@ from time import perf_counter
 import numpy as np
 from scipy.sparse import csr_matrix, vstack
 
+from .input_locations import input_path, same_input_reference
 from .analysis_data import PreparedManifest, read_prepared, read_prepared_game, read_prepared_people
 from .artifacts import ordered_array_digest, require
 from .attribution import build_shape_basis
@@ -366,13 +367,13 @@ def prepare_spatial(prepared, coaches, valued, season, *, family='ev'):
     recipe = ST_RECIPE if family == 'st' else RECIPE
     started = perf_counter()
     if not isinstance(prepared, PreparedManifest):
-        path = Path(prepared)
+        path = input_path(prepared, strict=True)
         purpose = read_json(path / 'manifest.json' if path.is_dir() else path)['purpose']
         prepared = read_prepared(path, purpose)
     purpose = prepared['purpose']
     selected = next((row for row in prepared['seasons'] if row['season'] == season), None)
     require(selected is not None, 'spatial season not selected in preparation')
-    coach_path = Path(coaches).resolve()
+    coach_path = input_path(coaches, strict=True)
     coach_data = read_coaches(coach_path, purpose)
     coach_games = {row['game_id']: row for row in coach_data['games'] if row['season'] == season}
     require(set(selected['selected_game_ids']) <= set(coach_games), 'coaches omit selected prepared games')
@@ -382,7 +383,7 @@ def prepare_spatial(prepared, coaches, valued, season, *, family='ev'):
     scores = valued if isinstance(valued, ExecutionScores) else read_execution_scores(valued, purpose, physical_state=(5, 5, 1, 1) if family == 'ev' else (5, 4, 1, 1))
     require(scores.manifest['season'] == season and scores.manifest['purpose'] == purpose,
             'spatial valued season/purpose differs')
-    require(scores.manifest['prepared'] == prepared_ref and scores.manifest['coaches'] == coach_ref,
+    require(same_input_reference(scores.manifest['prepared'], prepared_ref) and same_input_reference(scores.manifest['coaches'], coach_ref),
             'spatial preparation/coach bindings differ from execution targets')
     states = [(*counts, 1, 1) for counts in ST_ROLE_COUNTS] if family == 'st' else [(5, 5, 1, 1)]
     targets = {}

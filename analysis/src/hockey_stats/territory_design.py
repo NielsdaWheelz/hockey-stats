@@ -13,6 +13,7 @@ from time import perf_counter
 import numpy as np
 from scipy.sparse import csr_matrix
 
+from .input_locations import input_path
 from .analysis_data import read_prepared_game
 from .artifacts import require
 from .chance_cli import identity, read_json
@@ -451,7 +452,7 @@ def prepare_territory(prepared, coaches, season):
     """stream each selected game once into both heads and annual nuisance counts."""
     started = perf_counter()
     prepared, selected, players, facts, prepared_ref = _prepared_inputs(prepared, season)
-    coach_path = Path(coaches).resolve()
+    coach_path = input_path(coaches, strict=True)
     coach_data = read_coaches(coach_path, prepared['purpose'])
     coach_games = {row['game_id']: row for row in coach_data['games'] if row['season'] == season}
     require(set(selected['selected_game_ids']) <= set(coach_games), 'coaches omit selected territory games')

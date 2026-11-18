@@ -12,6 +12,7 @@ from time import perf_counter
 import numpy as np
 from scipy.sparse import csr_matrix
 
+from .input_locations import input_path
 from .artifacts import digest, ordered_array_digest, require, rows, write_arrays, write_json
 from .captures import InputContractError
 from .chance_cli import identity, read_json
@@ -81,7 +82,7 @@ class SpatialStartContext:
 def read_spatial_start_context(path, purpose):
     """read bound coefficients/context and only the basis array, without replay."""
     began = perf_counter()
-    root = Path(path).resolve(strict=True)
+    root = input_path(path, strict=True)
     manifest_path = root/'manifest.json' if root.is_dir() else root
     root = manifest_path.parent
     manifest = read_json(manifest_path)
@@ -177,7 +178,7 @@ def read_saved_spatial_evidence(path, expected_purpose, *, expected_family='ev',
     """read only bound saved evidence; source locators are provenance, never io."""
     from . import analysis_publication as publication
 
-    root = Path(path).resolve(strict=True)
+    root = input_path(path, strict=True)
     if root.is_file():
         require(root.name == 'manifest.json','expected spatial manifest')
         root = root.parent
@@ -476,7 +477,7 @@ def _member(root,value):
 
 def read_spatial_basis(path):
     """read one checked basis member, retaining the archive's declared provenance."""
-    root = Path(path).resolve(strict=True)
+    root = input_path(path, strict=True)
     manifest_path = root / 'manifest.json' if root.is_dir() else root
     manifest = read_json(manifest_path)
     _closed(manifest, MANIFEST_KEYS, 'basis donor manifest')
@@ -906,7 +907,7 @@ def validate_head(metadata, arrays, design):
 
 def read_completed_spatial_heads(source, design, incoming, expected_files):
     """read pinned ordinary components against the rebuilt design and accepted history."""
-    source=Path(source).resolve();names=[f'heads/{head}{suffix}' for head in HEADS for suffix in ('.json','.npz')]
+    source=input_path(source, strict=True);names=[f'heads/{head}{suffix}' for head in HEADS for suffix in ('.json','.npz')]
     require(type(expected_files) is dict and set(expected_files)==set(names),'completed spatial head inventory differs')
     require(set(incoming)==set(HEADS),'completed spatial incoming heads differ')
     heads,arrays,files={},{},[]
@@ -935,7 +936,7 @@ def read_completed_spatial_heads(source, design, incoming, expected_files):
 def copy_completed_spatial_heads(source, output, files):
     folder=Path(output)/'heads';folder.mkdir()
     for member in files:
-        original=Path(member['path']);require(original.parent==Path(source)/'heads','completed spatial source locator differs')
+        original=input_path(member['path'],strict=True);require(original.parent==input_path(source,strict=True)/'heads','completed spatial source locator differs')
         destination=folder/original.name
         with original.open('rb') as src,destination.open('xb') as dst:shutil.copyfileobj(src,dst)
         require(identity(destination)['sha256']==member['sha256'],'copied spatial head bytes differ')
@@ -1099,7 +1100,7 @@ def _validate_special_teams_adjustments(state):
 
 
 def read_spatial_state(path,expected_purpose, *, expected_family='ev'):
-    root=Path(path).resolve(strict=True)
+    root=input_path(path, strict=True)
     if root.is_file():require(root.name=='manifest.json','expected spatial manifest');root=root.parent
     require(expected_family in ('ev', 'st'), 'invalid expected spatial family')
     st = expected_family == 'st'

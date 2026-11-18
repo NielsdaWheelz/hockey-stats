@@ -7,6 +7,7 @@ from time import perf_counter
 import numpy as np
 from scipy.sparse import csr_matrix
 
+from .input_locations import input_path, same_input_reference
 from .artifacts import (require,require_fields,require_number,require_season_label,digest,
     write_json,write_jsonl,write_arrays,load_arrays,ordered_array_digest,json_values,rows,implementation)
 from .chance_cli import identity,read_json
@@ -224,7 +225,7 @@ def _validate_head(head,manifest,name,*,diagnostic=False):
 def _read_arrays(document,member):
     require_fields(document,('arrays','array_shapes'),'territory array descriptor')
     require_fields(document['arrays'],('path','sha256'),'territory array binding')
-    require(document['arrays']==identity(member),'territory array descriptor member differs')
+    require(same_input_reference(document['arrays'],identity(member)),'territory array descriptor member differs')
     for row in document['array_shapes']:require_fields(row,('name','shape','dtype'),'territory array axis')
     return load_arrays(document)
 
@@ -251,7 +252,7 @@ def _validate_fitted(design,name,head,beta,incoming):
 
 
 def read_territory_state(path,purpose,*,narrow=False):
-    path=Path(path).resolve(strict=True);path=path/'manifest.json' if path.is_dir() else path
+    path=input_path(path, strict=True);path=path/'manifest.json' if path.is_dir() else path
     manifest=read_json(path);require_fields(manifest,MANIFEST_KEYS,'territory manifest')
     require(type(manifest['schema_version']) is int and manifest['schema_version']==1 and manifest['kind']=='territory_state'
         and manifest['purpose']==purpose and purpose in ('real','fixture'),'territory schema/kind/purpose differs')
@@ -398,7 +399,7 @@ def write_territory_reference(root,state,panel,*,ev_binding=None,panel_problem=N
         array_names=('neutral_xg','complete_xg','contrast_xg')
         panel_arrays=write_arrays(root,'panel.npz',{key:np.asarray(panel[key]) for key in array_names})
         actual_ev_binding={key:panel['ev_state'][key] for key in ('path','sha256')}
-        require(ev_binding is None or ev_binding==actual_ev_binding,'territory panel explicit ev binding differs')
+        require(ev_binding is None or same_input_reference(ev_binding,actual_ev_binding),'territory panel explicit ev binding differs')
         ev_binding=actual_ev_binding
         panel_doc=dict(schema_version=1,kind='territory_successor_panel',purpose=state.manifest['purpose'],season=state.manifest['season'],
             ev_state=ev_binding,units=panel['units'],axes=panel['axes'],arrays=panel_arrays,resources=panel['resources'],implementation=implementation())
@@ -435,12 +436,13 @@ def read_territory_reference(path,state,ev_binding):
     """reuse an exact projection; validate native accounting without source replay."""
     from .artifacts import linked_path
     from .territory import successor_reference,successor_value,project_hazards
-    path=Path(path).resolve(strict=True);document=read_json(path)
+    path=input_path(path, strict=True);document=read_json(path)
     require_fields(document,('schema_version','kind','purpose','season','annual_state','ev_state','panel','panel_problem','projections','diagnostics',
         'resources','implementation'),'territory successor reference')
     require(type(document['schema_version']) is int and document['schema_version']==1 and document['kind']=='territory_successor_reference'
         and document['purpose']==state.manifest['purpose'] and document['season']==state.manifest['season']
-        and document['annual_state']==identity(state.path/'manifest.json') and document['ev_state']==ev_binding,
+        and same_input_reference(document['annual_state'],identity(state.path/'manifest.json'))
+        and same_input_reference(document['ev_state'],ev_binding),
             'territory successor reference lineage differs')
     panel=None
     require((document['panel'] is None)==(type(document['panel_problem']) is str and bool(document['panel_problem'].strip())),
@@ -449,7 +451,7 @@ def read_territory_reference(path,state,ev_binding):
         panel_doc=read_json(linked_path(document['panel']))
         require_fields(panel_doc,('schema_version','kind','purpose','season','ev_state','units','axes','arrays','resources','implementation'),
             'territory successor panel')
-        require(type(panel_doc['schema_version']) is int and panel_doc['schema_version']==1 and panel_doc['kind']=='territory_successor_panel' and panel_doc['ev_state']==ev_binding
+        require(type(panel_doc['schema_version']) is int and panel_doc['schema_version']==1 and panel_doc['kind']=='territory_successor_panel' and same_input_reference(panel_doc['ev_state'],ev_binding)
             and panel_doc['purpose']==document['purpose'] and panel_doc['season']==document['season'],
                 'territory successor panel lineage differs')
         require(panel_doc['units']=='xg_mass_per_hour_per_cell' and panel_doc['axes']==dict(side=['for','against'],

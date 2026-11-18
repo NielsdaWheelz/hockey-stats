@@ -6,6 +6,7 @@ import sqlite3
 import sys
 from time import perf_counter
 
+from .input_locations import input_path
 from .captures import InputContractError
 from .cli import Once
 
@@ -100,7 +101,7 @@ def main(argv=None) -> int:
             for name in ("prepared", "coaches", "valued", "previous", "basis"):
                 value = getattr(args, name)
                 if value is not None:
-                    path = Path(value).resolve()
+                    path = input_path(value)
                     roots.append(str(path if path.is_dir() else path.parent))
             output_path(args.out, roots)
         if args.command == "prepare":
@@ -122,7 +123,7 @@ def main(argv=None) -> int:
             from .territory_state import read_territory_state
 
             started = perf_counter()
-            manifest = strict_json((Path(args.prepared) / "manifest.json").read_bytes())
+            manifest = strict_json(input_path(Path(args.prepared) / "manifest.json", strict=True).read_bytes())
             require(type(manifest) is dict and manifest.get("purpose") in ("real", "fixture"), "invalid prepared manifest purpose")
             purpose = manifest["purpose"]
             prepared = read_prepared(args.prepared, purpose)
@@ -151,7 +152,7 @@ def main(argv=None) -> int:
             from .player_mechanisms import fit_mechanism
 
             started = perf_counter()
-            manifest = strict_json((Path(args.prepared) / "manifest.json").read_bytes())
+            manifest = strict_json(input_path(Path(args.prepared) / "manifest.json", strict=True).read_bytes())
             require(type(manifest) is dict and manifest.get("purpose") in ("real", "fixture"), "invalid prepared manifest purpose")
             purpose = manifest["purpose"]
             prepared = read_prepared(args.prepared, purpose)
@@ -182,7 +183,7 @@ def main(argv=None) -> int:
             from .goalie_state import read_goalie_state
 
             started = perf_counter()
-            manifest = strict_json((Path(args.prepared) / "manifest.json").read_bytes())
+            manifest = strict_json(input_path(Path(args.prepared) / "manifest.json", strict=True).read_bytes())
             require(type(manifest) is dict and manifest.get("purpose") in ("real", "fixture"), "invalid prepared manifest purpose")
             purpose = manifest["purpose"]
             prepared = read_prepared(args.prepared, purpose)
@@ -209,7 +210,7 @@ def main(argv=None) -> int:
             from .spatial_state import read_spatial_state
 
             started = perf_counter()
-            manifest = strict_json((Path(args.prepared) / "manifest.json").read_bytes())
+            manifest = strict_json(input_path(Path(args.prepared) / "manifest.json", strict=True).read_bytes())
             require(type(manifest) is dict and manifest.get("purpose") in ("real", "fixture"), "invalid prepared manifest purpose")
             prepared = read_prepared(args.prepared, manifest["purpose"])
             seasons = [row["season"] for row in prepared["seasons"]]
@@ -227,7 +228,7 @@ def main(argv=None) -> int:
                 require(int(previous.manifest["season"][:4]) + 1 == int(args.season[:4]), "spatial predecessor is not consecutive")
                 require(all(previous.heads[head]["status"] == "complete" for head in ("volume", "shape", "quality")), "spatial predecessor is incomplete")
                 for name, path in (("prepared", Path(args.prepared) / "manifest.json"), ("coaches", Path(args.coaches))):
-                    with path.open("rb") as source:
+                    with input_path(path, strict=True).open("rb") as source:
                         require(previous.manifest[name]["sha256"] == hashlib.file_digest(source, "sha256").hexdigest(), f"spatial predecessor {name} binding differs")
             read_seconds = perf_counter() - started
             design = prepare_spatial(prepared, Path(args.coaches), Path(args.valued), args.season, family=family)
@@ -251,7 +252,7 @@ def main(argv=None) -> int:
             from .captures import strict_json
             from .execution import (prepare_execution, fit_execution_year, read_execution_state, RECIPE)
             read_started = perf_counter()
-            manifest = strict_json((Path(args.prepared) / "manifest.json").read_bytes())
+            manifest = strict_json(input_path(Path(args.prepared) / "manifest.json", strict=True).read_bytes())
             require(type(manifest) is dict and manifest.get("purpose") in ("real", "fixture"), "invalid prepared manifest purpose")
             purpose = manifest["purpose"]
             prepared = read_prepared(args.prepared, purpose)

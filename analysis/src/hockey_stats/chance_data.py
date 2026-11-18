@@ -40,6 +40,7 @@ import json
 import re
 from pathlib import Path
 
+from .input_locations import input_path
 from .captures import InputContractError
 from .corpus import STATUSES
 from .corpus_inputs import (
@@ -528,6 +529,17 @@ def prepare_game_attempts(envelope, envelope_path, inventory_entry):
     }
 
 
+def selection_locations(selection, base=Path(), *, strict=False):
+    """compare declared corpus locators without changing saved selection content."""
+    return {
+        **selection,
+        "corpora": [{**row, "path": str(input_path(base / row["path"], strict=strict))}
+                    for row in selection["corpora"]],
+        "history_corpora": [str(input_path(base / value, strict=strict))
+                            for value in selection["history_corpora"]],
+    }
+
+
 def prepare(selection_path):
     """assemble target facts once; history adds strictly earlier evidence only."""
     return _prepare(selection_path, include_features=True)
@@ -544,7 +556,7 @@ def _prepare(selection_path, *, include_features):
         from .feature_data import prepare_game, prepare_missing_game
         from .feature_history import prepare_history
 
-    path = Path(selection_path).resolve()
+    path = Path(selection_path).absolute()
     inputs = []
     selection = read_document(path, "selection", inputs)
     schema(selection, str(path), 2, ("purpose", "corpora", "history_corpora"))
@@ -562,7 +574,7 @@ def _prepare(selection_path, *, include_features):
                  "unexpected corpus selection fields")
         text(selected["path"], loc + "/path")
         require(bool(selected["path"]), loc, "empty corpus path")
-        corpus_path = str((path.parent / selected["path"]).resolve())
+        corpus_path = str(input_path(path.parent / selected["path"]))
         ids = array(selected["game_ids"], loc + "/game_ids")
         require(bool(ids), loc, "nonempty explicit game_ids required")
         for gid in ids:
@@ -577,7 +589,7 @@ def _prepare(selection_path, *, include_features):
         loc = f"{path}/history_corpora/{i}"
         text(value, loc)
         require(bool(value), loc, "empty history corpus path")
-        corpus_path = str((path.parent / value).resolve())
+        corpus_path = str(input_path(path.parent / value))
         require(corpus_path not in history_paths, loc, "duplicate history corpus path")
         history_paths.append(corpus_path)
     require(include_features or not history_paths, f"{path}/history_corpora",
@@ -635,7 +647,7 @@ def _prepare(selection_path, *, include_features):
             chosen_reference_signature = reference_signature
             envelope, envelope_path, signature = None, None, (status,)
             if status == "reconstructed":
-                envelope_path = (corpus_path.parent / row["output_path"]).resolve()
+                envelope_path = input_path(corpus_path.parent / row["output_path"])
                 input_roots.add(str(envelope_path.parent))
                 if envelope_path in seen_paths:
                     continue

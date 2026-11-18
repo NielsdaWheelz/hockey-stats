@@ -11,6 +11,7 @@ from time import perf_counter
 
 import numpy as np
 
+from .input_locations import input_path
 from .artifacts import implementation, linked_path, ordered_array_digest, require, write_json
 from .chance_cli import identity
 from .execution import _metadata, _probability_comparison
@@ -96,7 +97,7 @@ def qualify_u_bundle(bundle, result, output):
 def assemble_u_repair(repair_path, output):
     """assemble only a qualified saved repair; never fit, compare or rebuild inputs."""
     read_started = perf_counter()
-    repair_path = Path(repair_path).resolve(strict=True)
+    repair_path = input_path(repair_path, strict=True)
     report = json.loads(repair_path.read_text())
     require(report['status'] == 'qualified' and report['eligible_endpoint'] is True
             and report['assembly_performed'] is False, 'u repair is not qualified for assembly')

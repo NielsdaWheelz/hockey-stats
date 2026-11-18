@@ -7,11 +7,13 @@ import hashlib
 import json
 from pathlib import Path
 
+from .input_locations import input_path, same_input_reference
 from .captures import InputContractError, strict_json
 from .chance_features import (
     PREPARATION_IDENTITY, FeatureUnavailableError, encode_stage_inputs,
     requirement_reason_prefix, stage_design,
 )
+from .chance_data import selection_locations
 from .chance_targets import QUANTITIES, DECOMPOSITION_QUANTITIES, component_target, recorded_on_net
 
 SOURCE_STATUSES = ("eligible", "out_of_scope", "unavailable")
@@ -233,6 +235,13 @@ def validate_cohort_document(cohort):
     return cohort
 
 
+def _same_sources(left, right):
+    """compare declared sources in order; only known locator fields may relocate."""
+    return (len(left["inputs"]) == len(right["inputs"])
+            and all(same_input_reference(a, b) for a, b in zip(left["inputs"], right["inputs"]))
+            and selection_locations(left["selection"]) == selection_locations(right["selection"]))
+
+
 def validate_cohort(cohort, prepared):
     """bind exact source order, identities and dispositions to current prepared facts."""
     validate_cohort_document(cohort)
@@ -240,7 +249,8 @@ def validate_cohort(cohort, prepared):
         prepared, quantity=cohort["quantity"],
         required_families=cohort["definition"]["required_families"],
     )
-    if cohort != expected:
+    if (any(cohort[field] != expected[field] for field in cohort if field not in ("selection", "inputs"))
+            or not _same_sources(cohort, expected)):
         raise InputContractError("component cohort differs from prepared identities or membership")
     return cohort
 
@@ -248,9 +258,9 @@ def validate_cohort(cohort, prepared):
 def source_outcome_counts(prepared, cohort):
     """count actual source goals within the explicit target-applicable membership."""
     validate_cohort_document(cohort)
-    if any(cohort[field] != prepared[field] for field in (
-        "purpose", "selection", "inputs", "preparation_identity", "game_dates",
-    )):
+    if (any(cohort[field] != prepared[field] for field in (
+            "purpose", "preparation_identity", "game_dates"))
+            or not _same_sources(cohort, prepared)):
         raise InputContractError("outcome audit prepared identities differ from cohort")
     seasons = {game["game_id"]: game["season"] for game in prepared["games"]}
     records = {
@@ -558,7 +568,9 @@ def validate_target_audit_document(audit, cohort):
             or audit["quantity"] not in DECOMPOSITION_QUANTITIES
             or cohort["definition"] != _definition([])
             or any(audit[field] != cohort[field] for field in
-                   ("purpose", "quantity", "inputs", "preparation_identity"))
+                   ("purpose", "quantity", "preparation_identity"))
+            or len(audit["inputs"]) != len(cohort["inputs"])
+            or any(not same_input_reference(a, b) for a, b in zip(audit["inputs"], cohort["inputs"]))
         ):
             raise ValueError("target audit schema/cohort identity disagrees")
         for reference in (audit["selection"], audit["cohort"]):
@@ -569,11 +581,10 @@ def validate_target_audit_document(audit, cohort):
                 or any(c not in "0123456789abcdef" for c in reference["sha256"])
             ):
                 raise ValueError("invalid target audit identity reference")
-        if [value for value in audit["inputs"] if value["kind"] == "selection"] != [
-            dict(kind="selection", **audit["selection"])
-        ]:
+        selected = [value for value in audit["inputs"] if value["kind"] == "selection"]
+        if len(selected) != 1 or not same_input_reference(selected[0], dict(kind="selection", **audit["selection"])):
             raise ValueError("target audit selection differs from native input identity")
-        captured = Path(audit["cohort"]["path"]).read_bytes()
+        captured = input_path(audit["cohort"]["path"], strict=True).read_bytes()
         if (
             hashlib.sha256(captured).hexdigest() != audit["cohort"]["sha256"]
             or strict_json(captured) != cohort

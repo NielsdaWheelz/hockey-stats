@@ -8,6 +8,7 @@ from time import perf_counter
 import numpy as np
 from scipy.sparse import csr_matrix
 
+from .input_locations import input_path, same_input_reference
 from .artifacts import (digest, ordered_array_digest, require, require_fields, require_number,
     require_season_label, write_arrays, load_arrays, write_json, write_jsonl, rows, json_values, linked_path, implementation)
 from .chance_cli import identity, read_json
@@ -189,7 +190,7 @@ def _read_design(root,expected_identity):
     require(type(document['schema_version']) is int and document['schema_version']==1 and document['family'] in ('penalties','shootiness'),'invalid mechanism design schema/family')
     require(body_digest(document)==expected_identity,'mechanism design identity differs')
     archive=document['arrays'];require_fields(archive,('arrays','array_shapes'),'mechanism array contract')
-    require(archive['arrays']==identity(root/'arrays.npz'),'mechanism design array binding differs from owned member')
+    require(same_input_reference(archive['arrays'],identity(root/'arrays.npz')),'mechanism design array binding differs from owned member')
     for shape in archive['array_shapes']:
         require_fields(shape,('name','shape','dtype'),'mechanism saved array shape')
         require(type(shape['name']) is str and type(shape['dtype']) is str and type(shape['shape']) is list
@@ -487,7 +488,7 @@ def _validate_comparison(comparison,family,baseline_rows,probe_rows):
 
 
 def _read_mechanism_state(path,purpose,family,*,narrow=False):
-    root=Path(path).resolve(strict=True)
+    root=input_path(path, strict=True)
     if root.is_file():require(root.name=='manifest.json','expected mechanism manifest');root=root.parent
     manifest=read_json(root/'manifest.json');require_fields(manifest,MANIFEST_KEYS,'mechanism manifest')
     require_finite_state(manifest,'mechanism manifest')
@@ -665,7 +666,7 @@ def _read_mechanism_selection(path,purpose):
 def _read_minor_reference(path,purpose,season,*,expected_inputs=None):
     """validate a saved valuation and its separate matched-source receipt."""
     from .player_mechanisms import minor_value
-    path=Path(path).resolve(strict=True)
+    path=input_path(path, strict=True)
     value=read_json(path)
     require_fields(value,('schema_version','kind','purpose','season','valuation','construction','reference_id'),'minor reference')
     require_finite_state(value,'minor reference')

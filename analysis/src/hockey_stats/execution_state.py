@@ -15,6 +15,7 @@ import sys
 
 import numpy as np
 
+from .input_locations import input_path
 from .artifacts import digest, linked_path, require, require_fields, write_arrays, write_json
 from .captures import InputContractError
 from .chance_cli import identity, output_path, read_json
@@ -68,6 +69,7 @@ def require_state_reference(value, label):
 
 def state_member_path(root, value):
     """resolve one canonical file member contained in an existing artifact root."""
+    root = input_path(root, strict=True)
     require(type(value) is str and bool(value), 'invalid member path')
     part = Path(value)
     require(not part.is_absolute() and part.as_posix() == value
@@ -596,7 +598,7 @@ def read_coefficient_arrays(path, contract):
     """read the named finite float64 coefficient arrays under the saved contract."""
     require(type(contract) is dict and set(contract) == {'coefficients'}, 'invalid array contract')
     try:
-        with np.load(path, allow_pickle=False) as saved:
+        with np.load(input_path(path, strict=True), allow_pickle=False) as saved:
             require(saved.files == list(contract), 'array names/order differ')
             arrays = {name: saved[name] for name in saved.files}
     except (ValueError, TypeError, KeyError) as error:
@@ -827,7 +829,7 @@ def write_execution_state(output, manifest, heads, arrays, coverage, *, probes=N
 
 def _read_execution_state(path, expected_purpose):
     """read only saved members; input references never cause source reads."""
-    path = Path(path).resolve(strict=True)
+    path = input_path(path, strict=True)
     if path.is_dir():
         path = path / 'manifest.json'
     require(path.name == 'manifest.json', 'execution completion locator must be manifest.json')

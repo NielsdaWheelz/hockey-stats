@@ -12,6 +12,7 @@ import time
 from typing import Literal, TypedDict
 from urllib.parse import urlsplit
 
+from .input_locations import input_path
 from .artifacts import implementation_identity, require, write_json
 from .captures import InputContractError, read_supplemental_capture, strict_json
 from .chance_cli import identity, output_path, read_json
@@ -221,7 +222,7 @@ def _selection(document, original_path, purpose):
                 _game_id(gid, season)
             require(len(set(game_ids)) == len(game_ids), 'duplicate selected game')
         if purpose == 'real':
-            require((str(manifest), row['sha256']) == REAL_CORPORA[season], 'real corpus identity differs')
+            require((input_path(manifest), row['sha256']) == (input_path(REAL_CORPORA[season][0]), REAL_CORPORA[season][1]), 'real corpus identity differs')
         require(type(row['captures']) is list and bool(row['captures']), 'capture dispositions must be nonempty')
         dispositions = {}
         for disposition in row['captures']:
@@ -516,9 +517,9 @@ def _coverage(games, purpose, seasons):
 def bind_coaches(selection_path: Path | str, identity_path: Path | str, output: Path | str) -> Path:
     """validate original evidence once and write a new detached dated-coach artifact."""
     started = time.monotonic()
-    selection_path = Path(selection_path).resolve(strict=True)
-    identity_path = Path(identity_path).resolve(strict=True)
-    selection_bytes = selection_path.read_bytes()
+    selection_path = Path(selection_path).absolute()
+    identity_path = input_path(identity_path, strict=True)
+    selection_bytes = input_path(selection_path, strict=True).read_bytes()
     identity_bytes = identity_path.read_bytes()
     selection = read_json(selection_path)
     require(type(selection) is dict and type(selection.get('purpose')) is str, 'selection purpose missing')
@@ -644,7 +645,7 @@ def _validate_source(source, disposition, selection_path):
                 and source['explanation'] == disposition['not_acquired_reason'] + ': ' + disposition['explanation'], 'unacquired source contradicts selection')
         return
     require(capture_status != 'not_acquired', 'selected capture cannot be unacquired')
-    require(source['capture_path'] == str(_path(selected['directory'], selection_path.parent)/'right-rail'/'capture.json')
+    require(input_path(source['capture_path']) == input_path(_path(selected['directory'], selection_path.parent)/'right-rail'/'capture.json')
             and source['receipt_sha256'] == selected['receipt_sha256'], 'source receipt link differs from selection')
     _absolute(source['capture_path'])
     _digest(source['receipt_sha256'])
@@ -767,7 +768,7 @@ def _validate_artifact(document, selection, table, coverage):
 def read_coaches(coaches_path: Path | str, expected_purpose: Purpose) -> Coaches:
     """validate a detached artifact; external corpora and source captures stay unopened."""
     require(type(expected_purpose) is str and expected_purpose in ('real', 'fixture'), 'invalid expected purpose')
-    path = Path(coaches_path).resolve(strict=True)
+    path = input_path(coaches_path, strict=True)
     document = read_json(path)
     require(type(document) is dict and document.get('purpose') == expected_purpose, 'coaches purpose differs from consumer')
     members = {}

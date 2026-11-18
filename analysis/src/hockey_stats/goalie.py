@@ -9,6 +9,7 @@ from time import perf_counter
 import numpy as np
 from scipy.special import expit
 
+from .input_locations import same_input_reference
 from .artifacts import implementation, linked_path, require, resources
 from .analysis_data import PreparedManifest
 from .chance_cli import identity, output_path
@@ -91,7 +92,7 @@ def prepare_goalie_scoring(prepared, coaches, annual_execution_scores, season):
     require(scores.manifest['season'] == season and scores.manifest['purpose'] == prepared['purpose'],
             'goalie base-score season/purpose differs')
     source = prepare_execution_sources(prepared, coaches, season, game_reducer=reduce_goalie_game)
-    require(scores.manifest['prepared'] == source.prepared and scores.manifest['coaches'] == source.coaches,
+    require(same_input_reference(scores.manifest['prepared'], source.prepared) and same_input_reference(scores.manifest['coaches'], source.coaches),
             'goalie preparation/coaches differ from base scores')
     # fit/score bind the base manifest explicitly; detached state readers never reopen it.
     base = scores.manifest['state']

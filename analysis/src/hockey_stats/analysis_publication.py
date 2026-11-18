@@ -10,6 +10,7 @@ from pathlib import Path
 import re
 import shutil
 
+from .input_locations import input_path
 from .artifacts import digest, implementation_identity, require, write_json
 from .captures import strict_json
 
@@ -2084,6 +2085,7 @@ class Results:
 
 
 def member_path(directory, member):
+    directory = input_path(directory, strict=True)
     fields(member,('path','sha256','rows'))
     digest(member['sha256'])
     number(member['rows'],minimum=0,integer=True)
@@ -2187,7 +2189,7 @@ def _check_territory_map(scalar, mapped, kind):
 
 def read_results(directory: Path, manifest_name='manifest.json') -> Results:
     """validate one named complete or staged manifest and all result members."""
-    directory = directory.resolve(strict=True)
+    directory = input_path(directory, strict=True)
     manifest = strict_json((directory/manifest_name).read_bytes())
     fields(manifest,('schema_version','kind','purpose','seasons','observed_bindings','prepared_sha256','producer','catalogs','families'))
     require(type(manifest['schema_version']) is int and manifest['schema_version'] == 5 and manifest['kind'] == 'player_analysis_results' and manifest['purpose'] in ('real','fixture'), 'invalid result manifest')

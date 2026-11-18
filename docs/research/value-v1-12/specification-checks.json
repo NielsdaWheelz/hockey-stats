@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-18",
+  "scope": "specification only",
+  "status": "passed",
+  "git_head": "f0d9debe3961ac6c21512b982eca0379963e016d",
+  "local_links_and_anchors_checked": 108,
+  "source_files_unchanged": 132,
+  "head_unchanged": true,
+  "whitespace": "passed",
+  "review_model": "claude opus 5.5",
+  "raw_reviews": {
+    "specification-opus-initial.md": "fb8b14a617f98845e7f797fdbf7056797409da6da403b946e01a5dfd9c905181",
+    "specification-opus-final.md": "8716a3e263a7c19ea7fc05b743719f43bf8f3097bf43a7d537f358fee2b0eba4"
+  },
+  "documents": {
+    "docs/specs/v1-12-value-ledger.md": "1268cfa75e00efe573148239fcadd52e47967fb41e770bba505f7fe93e3a449e",
+    "docs/specs/experimental-application.md": "c87b117870cf2f19376699dabe1505b9854397c0c7dfd573323856f05519c8cc",
+    "docs/specs/experimental-attribution.md": "5476d4ef076872d799f3f1408fd0ccaa5aa98b956a2db00528817958a25e9ea2"
+  },
+  "limits": [
+    "receipt pins were inspected; no external scientific artifact revalidation",
+    "no implementation, numerical execution, application build/test or activation",
+    "four pre-existing historical absolute links elsewhere in plan were unavailable during a wider scan; they are outside these changed sections and remain frozen"
+  ]
+}

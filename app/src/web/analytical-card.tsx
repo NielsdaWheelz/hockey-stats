@@ -37,7 +37,7 @@ import {
   prepareAnalyticalMap,
   type AnalyticalMapModel,
 } from "./analytical-map";
-import { ledgerPresentation } from "./ledger-presentation";
+import { ledgerCoverage, ledgerInteractions, ledgerLimits, ledgerPresentation, ledgerWorkload } from "./ledger-presentation";
 import { csvText, downloadBlob, svgPng } from "./export";
 import { playerName, seasonLabel, teamName } from "./presentation";
 
@@ -462,12 +462,7 @@ export function prepareAnalyticalCards(
     const visibleFields = fields.filter(
       (field) => field.slotId !== "i22" && field.slotId !== "i23",
     );
-    const constructionFields = ledgerPresentation.flatMap(([, term, detail]) =>
-      field(`ledger.${term}.league_goals`).row.datum.value === null
-        ? []
-        : [field(detail)],
-    );
-    const methodFields = [...visibleFields, ...constructionFields];
+    const methodFields = visibleFields;
     const methods = [
       ...new Map(
         methodFields
@@ -775,8 +770,7 @@ export default function AnalyticalCard({
       <section className="analytical-accounting">
         <h4>ten supplied contributions and league total</h4>
         <p>
-          1,000 5v5 / 100 pp / 100 pk minutes · favorable goals per common
-          workload. connecting lines mean addition.
+          {ledgerWorkload}. {ledgerLimits}
         </p>
         <div className="analytical-ledger">
           {model.ledger.map((term) => (
@@ -800,14 +794,13 @@ export default function AnalyticalCard({
             <strong>{disposition(model.total.row)}</strong>
           </p>
           <p>
-            replacement-relative total{" "}
+            {label("replacement-relative total", "ledger.replacement_total")}{" "}
             <strong>{disposition(model.replacement.row)}</strong>
           </p>
         </div>
-        <p>
-          supplied totals only; a missing component withholds its total.
-          replacement component values remain in detail/csv.
-        </p>
+        <p>{ledgerCoverage(model.replacement.row.datum)}</p>
+        <p>{ledgerInteractions}</p>
+        {detailLink && <p><Link {...detailLink("ledger.league_total")}>ledger construction and replacement depth</Link></p>}
       </section>
       {mapPair(model.maps.slice(2))}
       <footer>
@@ -1135,6 +1128,10 @@ function analyticalCardSvg(model: AnalyticalCardModel): string {
   mapPair(model.maps.slice(2));
   text("construction, support and limitations", 44, y, 22, 'font-weight="700"');
   y += 30;
+  const coverage = ledgerCoverage(model.replacement.row.datum);
+  if (coverage) y += wrap(coverage, 44, y, 1112, 18) + 1;
+  y += wrap(ledgerLimits, 44, y, 1112, 18) + 1;
+  y += wrap(ledgerInteractions, 44, y, 1112, 18) + 1;
   for (const line of cautions) y += wrap(line, 44, y, 1112, 18) + 1;
   for (const panel of model.maps.filter(
     (panel) => panel.map.strength === "pp" || panel.map.strength === "pk",

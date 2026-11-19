@@ -540,13 +540,18 @@ def _setter_prior(game, attempt, state, people, history):
     if not candidates:
         return (SetterCandidate(None, "none", .2), SetterCandidate(None, "unknown", .8)), True
     shooter_role = _role(people.get(str(shooter), {}))
-    weights = {actor: (2. if shooter_role == "F" else 3. if shooter_role == "D" else 1.)
-               if _role(people[str(actor)]) == "F" else 1. for actor in sorted(candidates)}
+    weights = {actor: setter_role_weight(shooter_role, _role(people[str(actor)])) for actor in sorted(candidates)}
     total = sum(weights.values())
     result = [SetterCandidate(None, "none", .2)]
     for actor, weight in weights.items():
         result.append(SetterCandidate(str(actor), "goalie" if actor in goalie_candidates or _role(people[str(actor)]) == "G" else "skater", .8 * weight / total))
     return tuple(result), True
+
+
+def setter_role_weight(shooter_role, setter_role):
+    if setter_role == "F":
+        return 2. if shooter_role == "F" else 3. if shooter_role == "D" else 1.
+    return 1.
 
 
 def build_head_design(head, predictors, labels, people, source_actors=None):

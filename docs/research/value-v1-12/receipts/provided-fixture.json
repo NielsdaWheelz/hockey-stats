@@ -1,0 +1,43 @@
+{
+  "purpose": "fixture",
+  "schema_version": 1,
+  "kind": "provided_ledger_cutover_acceptance",
+  "publication_id": "a17e4e57-8bea-43c9-b187-b2d00adce55b",
+  "original_manifest_sha256": "94871ae8e593dd6d73df3e337a5092419cfcb166383297d121105de85bcf301e",
+  "successor_manifest_sha256": "15dc322745470d288e21121ad96514033c04a45842b746a54dcd7132c9d74296",
+  "candidate_sha256": "557d452a8d75f8d5bd55ea3baae552d4c686bd9ac5523699fcd59561ee60b2b6",
+  "candidate_bytes": 29446144,
+  "unchanged_members": 50,
+  "unchanged_method_bodies": 15,
+  "owned_fixture_rows": 2,
+  "api_bytes": {
+    "20232024": {
+      "overview": 300833,
+      "detail": 94537,
+      "ledger_summary": 4456
+    },
+    "20242025": {
+      "overview": 304189,
+      "detail": 90971,
+      "ledger_summary": 5443
+    },
+    "20252026": {
+      "overview": 293766,
+      "detail": 59803
+    }
+  },
+  "profile_bytes": 229983,
+  "checked": [
+    "retained original bytes",
+    "attributed successor",
+    "strict python publish",
+    "detached compiled node with fixture and external reads denied",
+    "rebound ledger rejected",
+    "exact scalar equality across detail/profile/history/overview",
+    "pending focal with provided reference",
+    "pending family",
+    "unrelated selectors rejected",
+    "finite partial league terms",
+    "missing totals and unknown depth"
+  ]
+}

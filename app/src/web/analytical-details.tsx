@@ -791,6 +791,7 @@ export default function AnalyticalDetails({
 }) {
   const id = useId();
   const [status, setStatus] = useState("");
+  if (metric.publicationFamily === "ledger") return <AnnualComponents profile={profile} />;
   const families = profile.detail.families;
   if ("availability" in families || families.kind !== "skater")
     return (

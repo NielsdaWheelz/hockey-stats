@@ -1047,27 +1047,30 @@ def _read_member(manifest, kind, season=None, game_id=None):
     return value
 
 
+def _record_objects(value):
+    """Visit object records in source order without retaining an object graph in a closure."""
+    pending = [value]
+    while pending:
+        item = pending.pop()
+        if isinstance(item, dict):
+            yield item
+            pending.extend(reversed(item.values()))
+        elif isinstance(item, list):
+            pending.extend(reversed(item))
+
+
 def _validate_evidence_inputs(value, manifest):
     identities = {(item["path"], item["sha256"]) for item in manifest["inputs"]}
-
-    def visit(item):
-        if isinstance(item, dict):
-            if "input_ref" in item:
-                reference = item["input_ref"]
-                records.require(
-                    type(reference) is dict
-                    and set(reference) == {"path", "sha256"}
-                    and (reference["path"], reference["sha256"]) in identities,
-                    "prepared/evidence",
-                    "source locator is not bound by manifest inputs",
-                )
-            for child in item.values():
-                visit(child)
-        elif isinstance(item, list):
-            for child in item:
-                visit(child)
-
-    visit(value)
+    for item in _record_objects(value):
+        if "input_ref" in item:
+            reference = item["input_ref"]
+            records.require(
+                type(reference) is dict
+                and set(reference) == {"path", "sha256"}
+                and (reference["path"], reference["sha256"]) in identities,
+                "prepared/evidence",
+                "source locator is not bound by manifest inputs",
+            )
 
 
 def read_prepared_game(manifest, season, game_id):
@@ -1109,31 +1112,24 @@ def _validate_bound_sources(game, manifest):
                 "source body is not bound by manifest",
             )
 
-    def source_fields(item):
-        if isinstance(item, dict):
-            if set(item) == {"field", "source", "path", "input_index"}:
-                index = item["input_index"]
-                if item["source"] in REFERENCE_SOURCES:
-                    records.require(
-                        0 <= index < len(REFERENCE_SOURCES)
-                        and REFERENCE_SOURCES[index] == item["source"],
-                        "game/source_fields",
-                        "reference source input link differs",
-                    )
-                else:
-                    records.require(
-                        0 <= index < len(game["game"]["inputs"])
-                        and game["game"]["inputs"][index]["source"] == item["source"],
-                        "game/source_fields",
-                        "game source input link differs",
-                    )
-            for child in item.values():
-                source_fields(child)
-        elif isinstance(item, list):
-            for child in item:
-                source_fields(child)
-
-    source_fields(game)
+    for item in _record_objects(game):
+        if set(item) != {"field", "source", "path", "input_index"}:
+            continue
+        index = item["input_index"]
+        if item["source"] in REFERENCE_SOURCES:
+            records.require(
+                0 <= index < len(REFERENCE_SOURCES)
+                and REFERENCE_SOURCES[index] == item["source"],
+                "game/source_fields",
+                "reference source input link differs",
+            )
+        else:
+            records.require(
+                0 <= index < len(game["game"]["inputs"])
+                and game["game"]["inputs"][index]["source"] == item["source"],
+                "game/source_fields",
+                "game source input link differs",
+            )
     for credit in game["credits"] or []:
         for reference in credit["evidence_refs"]:
             bound = sources.get(reference["source"])
@@ -1254,3 +1250,192 @@ def read_prepared_coverage(manifest):
                 "physical/team/slot accounting differs",
             )
     return value
+
+
+def _usage_inputs(prepared, season):
+    records.require(isinstance(prepared, PreparedManifest), "reported usage", "read_prepared required")
+    selected = next((row for row in prepared["seasons"] if row["season"] == season), None)
+    records.require(selected is not None, "reported usage", "season not selected")
+    selection = _selection(_read(prepared.directory / "selection.json"))
+    chosen = next(row for row in selection["seasons"] if row["season"] == season)
+    source_bindings = {}
+    for row in prepared["inputs"]:
+        if row["kind"] in ("game", "corpus"):
+            key = row["kind"], input_path(row["path"])
+            records.require(key not in source_bindings or row["sha256"] == source_bindings[key]["sha256"],
+                            "reported usage", "conflicting bindings for native source")
+            source_bindings[key] = {"path": row["path"], "sha256": row["sha256"]}
+    corpus_path = input_path(prepared.directory / chosen["corpus_manifest"], strict=True)
+    corpus_binding = source_bindings.get(("corpus", corpus_path))
+    records.require(corpus_binding is not None and corpus_binding["sha256"] == chosen["sha256"],
+                    str(corpus_path), "corpus selection is not bound by preparation")
+    prepared_path = prepared.directory / "manifest.json"
+    inputs = dict(prepared=dict(path=str(prepared_path), sha256=_sha(prepared_path)), corpus=corpus_binding)
+    return selected, chosen, corpus_path, inputs, source_bindings
+
+
+def _usage_inventory(corpus_path, selected, chosen):
+    consumed = []
+    corpus, inventory, ledger = load_corpus(corpus_path, consumed)
+    records.require(consumed[0]["sha256"] == chosen["sha256"], str(corpus_path), "corpus digest differs")
+    game_ids = selected["selected_game_ids"]
+    records.require(corpus["reference"]["requested_season"] == selected["season"]
+                    and len(inventory) == selected["inventory_games"]
+                    and set(game_ids) <= inventory.keys()
+                    and (chosen["game_ids"] is None or set(chosen["game_ids"]) == set(game_ids)),
+                    str(corpus_path), "admitted season inventory differs")
+
+    return inventory, ledger
+
+
+def read_reported_usage(prepared, season):
+    """Read the prepared selection's bound, native regular-season usage inputs."""
+    from .corpus_inputs import IDENTITY_FIELDS, schema, validate_provenance
+    from .descriptive import summarize_reported_usage
+
+    selected, chosen, corpus_path, inputs, source_bindings = _usage_inputs(prepared, season)
+    inventory, ledger = _usage_inventory(corpus_path, selected, chosen)
+    game_ids = selected["selected_game_ids"]
+
+    games = []
+    for game_id in sorted(game_ids):
+        entry = inventory[game_id]
+        ledger_row = ledger[game_id]
+        game = dict(game_id=game_id, game_date=entry["game_date"],
+                    team_ids=[str(entry["away_team_id"]), str(entry["home_team_id"])],
+                    corpus_status=ledger_row["status"], corpus_reason=ledger_row["reason"],
+                    envelope=None, source_issues=[], boxscore=None, roster=None,
+                    boxscore_players=None, roster_records=None)
+        games.append(game)
+        if ledger_row["output_path"] is None:
+            continue
+
+        path = input_path(corpus_path.parent / ledger_row["output_path"], strict=True)
+        binding = source_bindings.get(("game", path))
+        records.require(binding is not None, str(path), "native game is not bound by preparation")
+        consumed = []
+        envelope = read_document(path, "game", consumed)
+        records.require(consumed[0]["sha256"] == binding["sha256"], str(path), "native game digest differs")
+        schema(envelope, str(path), 4, ("interpreted",))
+        source = envelope["interpreted"]
+        schema(source, f"{path}/interpreted", 4,
+               ("game", "requested_game_id", "inputs", "issues", "boxscore_players", "roster_records"))
+        records.require(source["requested_game_id"] == game_id, str(path), "requested game differs")
+        validate_provenance(source["inputs"], f"{path}/interpreted/inputs", SOURCES)
+        game["envelope"] = binding
+        game["boxscore"] = next(row for row in source["inputs"] if row["source"] == "boxscore")
+        game["roster"] = next(row for row in source["inputs"] if row["source"] == "play-by-play")
+        game["source_issues"] = [
+            issue for issue in source["issues"]
+            if (issue["source"] == "boxscore" and issue["path"].startswith("/playerByGameStats"))
+            or (issue["source"] == "play-by-play" and issue["path"].startswith("/rosterSpots"))
+        ]
+        identity = source["game"]
+        matches = identity is not None and all(identity[field] == entry[field] for field in IDENTITY_FIELDS)
+        records.require(matches == (ledger_row["status"] == "reconstructed"),
+                        str(path), "native identity does not reconcile with the corpus disposition")
+        if not matches:
+            continue
+        if game["boxscore"]["status"] == "parsed" and source["boxscore_players"] is not None:
+            game["boxscore_players"] = [
+                {key: row[key] for key in ("player_id", "team_id", "source_path", "reported_position", "toi_seconds")}
+                for row in source["boxscore_players"]
+            ]
+        if game["roster"]["status"] == "parsed" and source["roster_records"] is not None:
+            game["roster_records"] = [
+                {key: row[key] for key in ("player_id", "team_id", "source_index", "reported_position")}
+                for row in source["roster_records"]
+            ]
+
+    positions, groups = summarize_reported_usage(games)
+    return dict(schema_version=1, kind="reported_usage_reduction", purpose=prepared["purpose"], season=season,
+                inputs=inputs, games=games, positions=positions, groups=groups)
+
+
+def validate_reported_usage(receipt, prepared, season):
+    """Check an explicitly bound saved usage reduction without reopening native games."""
+    from .artifacts import require_fields
+    from .corpus_inputs import validate_provenance
+    from .descriptive import summarize_reported_usage
+    from .input_locations import same_input_reference
+
+    selected, chosen, corpus_path, inputs, bindings = _usage_inputs(prepared, season)
+    require_fields(receipt, ("schema_version", "kind", "purpose", "season", "inputs", "games",
+                             "positions", "groups"), "usage reduction")
+    records.require(type(receipt["schema_version"]) is int and receipt["schema_version"] == 1
+                    and receipt["kind"] == "reported_usage_reduction"
+                    and receipt["purpose"] == prepared["purpose"] and receipt["season"] == season,
+                    "usage reduction", "schema, purpose or season differs")
+    require_fields(receipt["inputs"], inputs, "usage reduction bindings")
+    records.require(all(same_input_reference(receipt["inputs"][key], binding) for key, binding in inputs.items()),
+                    "usage reduction", "prepared or corpus binding differs")
+
+    games = receipt["games"]
+    records.require(type(games) is list, "usage reduction", "expected game list")
+    inventory, ledger = _usage_inventory(corpus_path, selected, chosen)
+    projected_games = []
+    for game in games:
+        location = "usage reduction game"
+        require_fields(game, ("game_id", "game_date", "team_ids", "corpus_status", "corpus_reason",
+                              "envelope", "source_issues", "boxscore", "roster", "boxscore_players",
+                              "roster_records", "players", "team_reasons"), location)
+    records.require([game["game_id"] for game in games] == sorted(selected["selected_game_ids"]),
+                    "usage reduction", "selected inventory differs")
+    for game in games:
+        entry = inventory[game["game_id"]]
+        ledger_row = ledger[game["game_id"]]
+        records.require(game["game_date"] == entry["game_date"]
+                        and game["team_ids"] == [str(entry["away_team_id"]), str(entry["home_team_id"])]
+                        and game["corpus_status"] == ledger_row["status"]
+                        and game["corpus_reason"] == ledger_row["reason"],
+                        location, "native inventory identity or disposition differs")
+        envelope = game["envelope"]
+        if ledger_row["output_path"] is None:
+            records.require(envelope is None, location, "unexpected native envelope")
+        else:
+            path = input_path(corpus_path.parent / ledger_row["output_path"])
+            records.require(same_input_reference(envelope, bindings.get(("game", path))),
+                            location, "selected native game envelope differs")
+
+        for source_key, projected_key, source_name, locator in (
+            ("boxscore", "boxscore_players", "boxscore", "source_path"),
+            ("roster", "roster_records", "play-by-play", "source_index"),
+        ):
+            source = game[source_key]
+            rows = game[projected_key]
+            if source is not None:
+                validate_provenance([source], location, (source_name,))
+            records.require((source is not None) == (envelope is not None), location, "source disposition omitted")
+            if rows is None:
+                continue
+            records.require(type(rows) is list and source is not None and source["status"] == "parsed"
+                            and game["corpus_status"] == "reconstructed", location, "unadmitted source rows")
+            for row in rows:
+                fields = ("player_id", "team_id", "reported_position", locator)
+                require_fields(row, (*fields, "toi_seconds") if source_key == "boxscore" else fields, location)
+                records.require(all(row[key] is None or type(row[key]) is int and row[key] > 0
+                                    for key in ("player_id", "team_id"))
+                                and (row["reported_position"] is None or type(row["reported_position"]) is str),
+                                location, "invalid dated identity or position")
+                if source_key == "boxscore":
+                    seconds = row["toi_seconds"]
+                    records.require(type(row[locator]) is str
+                                    and (seconds is None or type(seconds) is int and seconds >= 0),
+                                    location, "invalid dated boxscore time")
+                else:
+                    records.require(type(row[locator]) is int and row[locator] >= 0, location, "invalid roster index")
+
+        records.require(type(game["source_issues"]) is list, location, "invalid source dispositions")
+        for issue in game["source_issues"]:
+            require_fields(issue, ("source", "path", "code", "message"), location)
+            records.require(all(type(value) is str for value in issue.values())
+                            and issue["source"] in ("boxscore", "play-by-play"),
+                            location, "invalid source issue")
+        projected_games.append(dict(game))
+
+    positions, groups = summarize_reported_usage(projected_games)
+    records.require(receipt["positions"] == positions and receipt["groups"] == groups
+                    and all(a["players"] == b["players"] and a["team_reasons"] == b["team_reasons"]
+                            for a, b in zip(games, projected_games)),
+                    "usage reduction", "saved dated position/time or group accounting differs")
+    return receipt

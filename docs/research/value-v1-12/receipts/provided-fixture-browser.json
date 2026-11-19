@@ -1,0 +1,85 @@
+{
+  "status": "passed",
+  "purpose": "fixture",
+  "publication_id": "a17e4e57-8bea-43c9-b187-b2d00adce55b",
+  "season": "20232024",
+  "selected_player": "9000001",
+  "pending_comparison_player": "9000002",
+  "normal_layout": {
+    "viewport": 375,
+    "document": 375
+  },
+  "native200_layout": {
+    "outer": 1280,
+    "viewport": 640,
+    "document": 640,
+    "dpr": 2
+  },
+  "selected_detail_bytes": 94537,
+  "csv_terms": 12,
+  "csv_states": 7,
+  "csv_team_rank_rows": 8,
+  "csv_weighted_rows": 0,
+  "files": [
+    {
+      "file": "hockey-stats-20232024-9000001-analytical.png",
+      "bytes": 880893,
+      "sha256": "6db18319b1835c0a89371a276287f40e99823e923e56141552184222c0e0b408",
+      "dimensions": [
+        1200,
+        3102
+      ],
+      "native200_same": true
+    },
+    {
+      "file": "hockey-stats-20232024-9000001-ledger-construction.csv",
+      "bytes": 79299,
+      "sha256": "c1ddc30ab032c71e851e28749226bb38ae9e70acf59e72071a4cae02eba670b0",
+      "dimensions": null,
+      "native200_same": true
+    },
+    {
+      "file": "hockey-stats-20232024-9000001-microstats.csv",
+      "bytes": 63495,
+      "sha256": "8bf3043af870cf98b0b9c1ac84a8dbc14018aa6d5faf6666b0e0516e9d060d52",
+      "dimensions": null,
+      "native200_same": true
+    },
+    {
+      "file": "hockey-stats-9000001-20232024-a17e4e57-8bea-43c9-b187-b2d00adce55b-comparative.png",
+      "bytes": 2232154,
+      "sha256": "cee0093ffbd4a305fa3fd18fcce1a9a6a7b99cc0acd905c6e1c71ceed13fb4af",
+      "dimensions": [
+        1200,
+        6750
+      ],
+      "native200_same": true
+    },
+    {
+      "file": "hockey-stats-9000001-ledger.league_total-20232024-20252026-history-raw.png",
+      "bytes": 984186,
+      "sha256": "c566eb8e610cd9ff1e20e9fa5c8ba9c1323a387cd9b9857d9bb51652363cb0de",
+      "dimensions": [
+        1200,
+        3641
+      ],
+      "native200_same": true
+    },
+    {
+      "file": "hockey-stats-9000001-ledger.league_total-20232024-20252026-history.csv",
+      "bytes": 12194,
+      "sha256": "0d62c52a9b4a7c5447fd38555f1c1fdf6d3d4c49a3790410c3cd8a12c6421280",
+      "dimensions": null,
+      "native200_same": true
+    }
+  ],
+  "limits": "synthetic fixture with no depth members; real analytical acceptance remains separate",
+  "selector_counts": {
+    "20232024": 24,
+    "20242025": 24,
+    "20252026": 24
+  },
+  "pre_refactor_comparative_png_height": 9995,
+  "post_refactor_comparative_png_height": 6750,
+  "frontend_handoff": "fresh vite-served branch after compact evidence refactor against the same strict compiled backend"
+}

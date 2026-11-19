@@ -32,6 +32,6 @@ this prints an existing location; it does not certify content without its record
 
 ## serving
 
-the active schema-8 publication is `~/Documents/hockey-stats/local/publication/active.sqlite`; its schema-7 predecessor is `previous.sqlite`. the 2026-11-18 restart uses the same compiled app and the same database bytes. current source reads schema11, so rebuilding the primary app would replace the older compatible serving build. use a separate checkout for candidate review. the accepted schema11 territory candidate remains inactive on the external drive; cleanup does not rotate publications or admit a model.
+the active schema-8 publication is `~/Documents/hockey-stats/local/publication/active.sqlite`; its schema-7 predecessor is `previous.sqlite`. the 2026-11-18 restart uses the same compiled app and the same database bytes. the v1-12 worktree reads schema12, so rebuilding the primary app would replace the older compatible serving build. use a separate checkout for candidate review. the accepted schema11 territory candidate remains inactive on the external drive; cleanup does not rotate publications or admit a model.
 
 [consolidation verification](research/storage-consolidation-20261118/verification.md) records preservation, native reader checks, the deliberate restart and its measured interruption. [the plan](plan.md) owns subsequent assignments; activation remains separate.

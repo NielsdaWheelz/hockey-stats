@@ -443,6 +443,9 @@ def _season(facts, annual, prepared, year, execution_method, xg_method, output, 
         if family in ('execution','evidence','microstats'):
             yield dict(season=year,family=family,availability='provided',explanation=None,
                        tables=tables if family == 'execution' else evidence if family == 'evidence' else dict(skater_microstats=microstats()))
+        elif family == 'ledger' and original['availability'] == 'not_computed':
+            # The exchange writer materializes the required annual pending envelope.
+            yield dict(original,tables={})
         else:
             yield dict(original,tables={table:_rows(facts,year,family,table) for table in original['tables']})
 

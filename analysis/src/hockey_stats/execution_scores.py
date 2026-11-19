@@ -3,6 +3,7 @@
 from collections import Counter
 from dataclasses import dataclass, replace
 from datetime import date
+import hashlib
 from math import fsum, isclose, isfinite, log
 from pathlib import Path
 import re
@@ -610,6 +611,113 @@ def _event(row, games, people, coaches, season):
                                 656 if row['outcome'] == 'block' else 1), f'{name} differs from its integrated prefixes')
 
 
+def _score_members(manifest):
+    files = manifest["files"]
+    require(type(files) is list, "invalid score members")
+    expected = dict(SINGLE_MEMBERS)
+    for row in manifest["panels"]:
+        expected[row["events_path"]] = "panel_events"
+        expected[row["arrays_path"]] = "panel_arrays"
+    bound = {}
+    for row in files:
+        require_fields(row, ("path", "sha256", "role"), "member binding")
+        digest(row["sha256"])
+        name = row["path"]
+        require(name not in bound and expected.get(name) == row["role"],
+                "duplicate, unknown or cross-wired score member")
+        bound[name] = row["sha256"]
+    require(bound.keys() == expected.keys(), "score members omitted")
+    return bound
+
+
+def _score_member(root, name, sha256, *, check_digest=True):
+    member = (root / name).resolve(strict=True)
+    require(root in member.parents and member.is_file(), "score member escapes its artifact")
+    if check_digest:
+        require(identity(member)["sha256"] == sha256, f"{name}: score member digest differs")
+    return member
+
+
+def _score_people(path, season):
+    people, previous = {}, None
+    for row in read_jsonl(path):
+        require_fields(row, ("season", "player_id", "kind", "position_group", "name"), "person")
+        pid = row["player_id"]
+        require(row["season"] == season and type(pid) is str and pid.isdigit()
+                and (previous is None or previous < pid)
+                and row["position_group"] in ("F", "D", "G", None)
+                and row["kind"] == {"F": "skater", "D": "skater", "G": "goalie"}.get(row["position_group"])
+                and (row["name"] is None or type(row["name"]) is str), "invalid or unordered selected-year person")
+        people[pid] = row
+        previous = pid
+    return people
+
+
+def _score_coaches(path):
+    coaches = {}
+    for row in read_jsonl(path):
+        require_fields(row, ("coach_id", "display_name"), "coach")
+        cid = row["coach_id"]
+        require(type(cid) is str and cid and cid not in coaches
+                and type(row["display_name"]) is str and row["display_name"], "invalid bound coach")
+        coaches[cid] = row
+    return coaches
+
+
+@dataclass(frozen=True)
+class ExecutionScoreEvents:
+    path: Path
+    manifest: dict
+    event_path: Path
+    event_sha256: str
+    people: dict
+    coaches: dict
+
+    def events(self):
+        """Validate the ordered event body and its digest before stream exhaustion."""
+        season = self.manifest["season"]
+        games = set(self.manifest["coaches"]["selected_game_ids"])
+        previous = None
+        recognized = complete = 0
+        digest = hashlib.sha256()
+        with self.event_path.open("rb") as source:
+            for line_number, line in enumerate(source, 1):
+                digest.update(line)
+                row = decode_jsonl_line(self.event_path, line_number, line)
+                _event(row, games, self.people, self.coaches, season)
+                key = row["game_id"], row["source_index"]
+                require(previous is None or previous < key, "events duplicate or are not ordered by source key")
+                previous = key
+                recognized += 1
+                complete += row["status"] == "complete"
+                yield row
+        require(digest.hexdigest() == self.event_sha256, "events.jsonl: score member digest differs")
+        resources = self.manifest["resources"]
+        require((recognized, complete) == (resources["recognized_events"], resources["complete_events"]),
+                "score stream counts differ")
+
+
+def read_execution_score_events(path, expected_purpose):
+    """Read the event projection of an accepted score artifact without replaying its panels."""
+    try:
+        path = input_path(path, strict=True)
+        path = path / "manifest.json" if path.is_dir() else path
+        require(path.name == "manifest.json", "execution scores locator must be manifest.json")
+        manifest = read_json(path)
+        _manifest(manifest, expected_purpose)
+        bindings = _score_members(manifest)
+        root = path.parent
+        event_digest = bindings["events.jsonl"]
+        event_path = _score_member(root, "events.jsonl", event_digest, check_digest=False)
+        people = _score_people(_score_member(root, "people.jsonl", bindings["people.jsonl"]), manifest["season"])
+        coaches = _score_coaches(_score_member(root, "coach_ids.jsonl", bindings["coach_ids.jsonl"]))
+        return ExecutionScoreEvents(path, manifest, event_path, event_digest, people, coaches)
+    except (KeyError, TypeError, ValueError, IndexError, AttributeError) as error:
+        if isinstance(error, InputContractError):
+            raise
+        raise InputContractError(f"malformed execution score events: {error}") from error
+
+
 def _validate(path, manifest, expected_purpose, *, physical_state=None):
     """check one complete artifact from an in-memory manifest before or after it is written."""
     from .execution import ExecutionPanel, neutral_panel_event_masses, neutral_panel_masses
@@ -617,42 +725,14 @@ def _validate(path, manifest, expected_purpose, *, physical_state=None):
     root = path.parent
     _manifest(manifest, expected_purpose)
     season = manifest['season']
-    files = manifest['files']
-    require(type(files) is list, 'invalid score members')
-    expected = dict(SINGLE_MEMBERS)
-    for row in manifest['panels']:
-        expected[row['events_path']] = 'panel_events'
-        expected[row['arrays_path']] = 'panel_arrays'
-    bound = {}
-    for row in files:
-        require_fields(row, ('path', 'sha256', 'role'), 'member binding')
-        digest(row['sha256'])
-        require(row['path'] not in bound and expected.get(row['path']) == row['role'], 'duplicate, unknown or cross-wired score member')
-        member = (root / row['path']).resolve(strict=True)
-        require(root in member.parents and member.is_file(), 'score member escapes its artifact')
-        require(identity(member)['sha256'] == row['sha256'], f"{row['path']}: score member digest differs")
-        bound[row['path']] = member
-    require(set(bound) == set(expected), 'score members omitted')
+    bindings = _score_members(manifest)
+    bound = {name: _score_member(root, name, sha) for name, sha in bindings.items()}
     actual = {str(p.relative_to(root)) for p in root.rglob('*') if p.is_file() and p != path}
     require(actual == set(bound), 'unbound files in execution scores')
     require(manifest['resources']['output_bytes'] == sum(p.stat().st_size for p in bound.values()), 'saved output bytes differ')
     games = set(manifest['coaches']['selected_game_ids'])
-    people, previous = {}, None
-    for row in read_jsonl(root / 'people.jsonl'):
-        require_fields(row, ('season', 'player_id', 'kind', 'position_group', 'name'), 'person')
-        require(row['season'] == season and type(row['player_id']) is str and row['player_id'].isdigit()
-                and (previous is None or previous < row['player_id'])
-                and row['kind'] in ('skater', 'goalie', None) and row['position_group'] in ('F', 'D', 'G', None)
-                and row['kind'] == {'F': 'skater', 'D': 'skater', 'G': 'goalie'}.get(row['position_group'])
-                and (row['name'] is None or type(row['name']) is str), 'invalid or unordered selected-year person')
-        people[row['player_id']] = row
-        previous = row['player_id']
-    coaches = {}
-    for row in read_jsonl(root / 'coach_ids.jsonl'):
-        require_fields(row, ('coach_id', 'display_name'), 'coach')
-        require(type(row['coach_id']) is str and row['coach_id'] and row['coach_id'] not in coaches
-                and type(row['display_name']) is str and row['display_name'], 'invalid bound coach')
-        coaches[row['coach_id']] = row
+    people = _score_people(bound['people.jsonl'], season)
+    coaches = _score_coaches(bound['coach_ids.jsonl'])
     complete, previous, events = {}, None, []
     for row in read_jsonl(root / 'events.jsonl'):
         _event(row, games, people, coaches, season)

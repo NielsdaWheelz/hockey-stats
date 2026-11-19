@@ -453,6 +453,7 @@ export const Method = Schema.Struct({
         "derivation",
         "successor_panel",
         "territory_reference",
+        "execution_score",
       ]),
       sha256: Digest,
       seasons: Schema.Array(Season).check(Schema.makeFilter(sortedStrings)),
@@ -1945,10 +1946,10 @@ export const territoryReferenceBody = (
     successor_data: e.successor_reference.data,
   };
 };
-export const territoryDigestRepresentation = (value: unknown): unknown => {
+export const binary64DigestRepresentation = (value: unknown): unknown => {
   if (typeof value === "number") {
     if (!Number.isFinite(value))
-      throw new Error("nonfinite territory digest input");
+      throw new Error("nonfinite reference digest input");
     const bytes = new Uint8Array(8);
     new DataView(bytes.buffer).setFloat64(0, value === 0 ? 0 : value, false);
     return [
@@ -1956,12 +1957,12 @@ export const territoryDigestRepresentation = (value: unknown): unknown => {
       Array.from(bytes, (x) => x.toString(16).padStart(2, "0")).join(""),
     ];
   }
-  if (Array.isArray(value)) return value.map(territoryDigestRepresentation);
+  if (Array.isArray(value)) return value.map(binary64DigestRepresentation);
   if (value !== null && typeof value === "object")
     return Object.fromEntries(
       Object.entries(value)
         .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
-        .map(([key, item]) => [key, territoryDigestRepresentation(item)]),
+        .map(([key, item]) => [key, binary64DigestRepresentation(item)]),
     );
   return value;
 };
@@ -2523,7 +2524,7 @@ export const GoalieObserved = Schema.Struct({
   ),
 }).check(Schema.makeFilter(validGoalieStates));
 const component = Schema.Struct({ league_goals: Estimate, replacement_goals: Estimate });
-export const ValueLedger = Schema.Struct({
+const ledgerFields = {
   reference_minutes: Schema.Struct({
     five_on_five: Schema.Literal(1000),
     power_play: Schema.Literal(100),
@@ -2545,28 +2546,147 @@ export const ValueLedger = Schema.Struct({
   replacement_total: Estimate,
   penalties_combined: component,
   method_id: Text,
-}).check(
-  Schema.makeFilter((value) =>
-    (["league", "replacement"] as const).every((reference) => {
-      const components = Object.values(value.components).map(
-        (component) => component[`${reference}_goals`].value,
-      );
-      const total = value[`${reference}_total`].value;
-      const drawn = value.components.penalties_drawn[`${reference}_goals`].value;
-      const taken = value.components.penalties_taken[`${reference}_goals`].value;
-      const combined = value.penalties_combined[`${reference}_goals`].value;
-      return (
-        (total === null ||
-          (components.every((component) => component !== null) &&
-            close(
-              total,
-              components.reduce<number>((sum, component) => sum + (component ?? 0), 0),
-            ))) &&
-        (combined === null || (drawn !== null && taken !== null && close(combined, drawn + taken)))
-      );
-    }),
-  ),
-);
+};
+export const LedgerTerm = Schema.Literals(Object.keys(ledgerFields.components.fields) as (keyof typeof ledgerFields.components.fields)[]);
+const ledgerEstimate = Estimate.check(Schema.makeFilter((value) => value.uncertainty.kind === "not_estimated"));
+export const ledgerClose = (value: number, terms: readonly number[]) => {
+  const expected = stableSum(terms);
+  return Number.isFinite(value) && Number.isFinite(expected) &&
+    Math.abs(value - expected) <= 1e-9 + 1e-9 * Math.max(Math.abs(value), Math.abs(expected)) +
+      64 * 2 ** -52 * stableSum(terms.map(Math.abs));
+};
+const ledgerTotal = (value: Estimate, terms: readonly Estimate[]) => {
+  const missing = terms.find((term) => term.value === null);
+  if (missing)
+    return value.value === null && value.unavailable_reason === missing.unavailable_reason &&
+      JSON.stringify(value.reason_detail) === JSON.stringify(missing.reason_detail);
+  return value.value !== null && ledgerClose(value.value, terms.map((term) => term.value!));
+};
+const validLedgerTotals = (value: Pick<ValueLedgerSummary, "components" | "league_total" | "replacement_total" | "penalties_combined">) =>
+  (["league", "replacement"] as const).every((reference) => {
+    const term = `${reference}_goals` as const;
+    return ledgerTotal(value[`${reference}_total`], LedgerTerm.literals.map((key) => value.components[key][term])) &&
+      ledgerTotal(value.penalties_combined[term], [
+        value.components.penalties_drawn[term], value.components.penalties_taken[term],
+      ]);
+  });
+const depthGroup = Schema.Literals(["F", "D"]);
+const depthPosition = Schema.Literals(["F", "D", "unknown"]);
+const inputRef = Schema.Struct({
+  strength: Schema.NullOr(SpatialStrength),
+  availability: Schema.Literals(["provided", "not_computed"]),
+  explanation: Schema.NullOr(Text),
+  method_id: Schema.NullOr(Text),
+  reference_id: Schema.NullOr(Text),
+  support_policy_id: Schema.NullOr(Text),
+}).check(Schema.makeFilter((value) =>
+  value.availability === "provided"
+    ? value.explanation === null && value.method_id !== null && value.reference_id !== null && value.support_policy_id !== null
+    : value.explanation !== null && value.method_id === null && value.reference_id === null && value.support_policy_id === null));
+const executionState = Schema.Struct({
+  strength: ExecutionStrength,
+  use: Schema.Literals(["active", "omitted_zero_weight"]),
+  shooter_probability: ledgerEstimate,
+  setter_share: ledgerEstimate,
+  finishing_per100: ledgerEstimate,
+  setting_per100: ledgerEstimate,
+  finishing_goals: ledgerEstimate,
+  setting_goals: ledgerEstimate,
+});
+const ledgerEvidence = Schema.Struct({
+  annual_reference_id: Digest,
+  depth_position: Schema.Struct({
+    group: depthPosition, mixed: Schema.Boolean, forward_seconds: Count,
+    defense_seconds: Count, unknown_seconds: Count, missing_time_records: Count,
+  }),
+  unit_position: depthPosition,
+  inputs: Schema.Struct({
+    spatial: Schema.Array(inputRef),
+    execution: Schema.Array(inputRef),
+    shootiness: Schema.Array(inputRef),
+    penalties: inputRef,
+    territory: inputRef,
+  }),
+  execution_states: Schema.Array(executionState),
+  dependency_support: Schema.Struct({
+    spatial: Schema.Array(Schema.Struct({
+      strength: SpatialStrength, support: Schema.NullOr(Support),
+      roles: Schema.NullOr(Schema.Array(Schema.Struct({
+        role: Schema.Literals(["offense", "defense"]),
+        coefficient_support: Schema.Struct({volume: spatialHeadSupport, shape: spatialHeadSupport, quality: spatialHeadSupport}),
+      }))),
+    })),
+    execution: Schema.Array(Schema.Struct({
+      strength: ExecutionStrength, finishing: Schema.NullOr(Support), setting: Schema.NullOr(Support),
+      coefficient_support: Schema.NullOr(ExecutionCoefficientSupport), panel_id: Schema.NullOr(Text),
+    })),
+    shootiness: Schema.Array(Schema.Struct({
+      strength: ExecutionStrength, support: Schema.NullOr(Support),
+      coefficient_support: Schema.NullOr(mechanismCoefficientSupport),
+    })),
+    penalties: Schema.NullOr(Schema.Struct({ support: Support, coefficient_support: mechanismCoefficientSupport })),
+    territory: Schema.NullOr(Schema.Struct({ support: Support, roles: TerritoryEvidence.fields.roles })),
+  }),
+});
+const validLedgerEstimates = (value: { readonly components: typeof ledgerFields.components.Type;
+  readonly league_total: Estimate; readonly replacement_total: Estimate; readonly penalties_combined: typeof component.Type;
+}) => [value.league_total, value.replacement_total, ...Object.values(value.components).flatMap(Object.values),
+  ...Object.values(value.penalties_combined)].every((estimate) => estimate.uncertainty.kind === "not_estimated");
+
+export const ValueLedgerSummary = Schema.Struct({
+  ...ledgerFields,
+  annual_reference_id: Digest,
+  depth_position_group: depthPosition,
+  depth_reference_coverage: Schema.NullOr(Schema.Struct({
+    available: Schema.Boolean, complete_groups: Count, excluded_groups: Count, member_count: Count, total_seconds: Count,
+  })),
+});
+export const ValueLedger = Schema.Struct({ ...ledgerFields, evidence: ledgerEvidence });
+export type ValueLedger = typeof ValueLedger.Type;
+export type ValueLedgerSummary = typeof ValueLedgerSummary.Type;
+const depthReference = Schema.Struct({
+  available: Schema.Boolean,
+  reason: Schema.NullOr(Text),
+  members: Schema.Array(Schema.Struct({
+    player_id: Id, seconds: Count, teams: Schema.Array(Schema.Struct({ team_id: Id, seconds: Count })),
+  })),
+  total_seconds: Count, member_count: Count,
+  components: Schema.NullOr(Schema.Record(LedgerTerm, Schema.Finite)),
+  missing_vectors: Schema.Array(Schema.Struct({ player_id: Id, terms: Schema.Array(LedgerTerm) })),
+});
+export const LedgerReference = Schema.Struct({
+  season: Season, method_id: Text, reference_id: Digest,
+  inputs: Schema.Struct({prepared: Receipt, source_results: Receipt, usage_reduction: Receipt,
+    shorthanded_reduction: Receipt, shootiness_state: Receipt}),
+  state_references: Schema.Array(Schema.Struct({
+    strength: ExecutionStrength, hours: Rate, mixture_weight: Rate, attempts_per_hour: ledgerEstimate,
+    attempt_reference: Schema.Union([
+      Schema.Struct({ kind: Schema.Literal("spatial"), strength: ExecutionStrength,
+        method_id: Schema.NullOr(Text), quantity: Schema.Literal("offense_attempts_per60_neutral") }),
+      Schema.Struct({ kind: Schema.Literal("source_pool"), strength: ExecutionStrength, reduction: Receipt,
+        attempts: Count, included_seconds: Rate, neutral_goal_mass: Rate, known_excluded_seconds: Rate,
+        unquantified_gap: Schema.Boolean }),
+    ]),
+    unit: Schema.Struct({ forwards: Count, defenders: Count }),
+    neutral_slot_logits: Schema.NullOr(Schema.Struct({ F: Schema.Finite, D: Schema.Finite })),
+    setting_K: Schema.Struct({ F: ledgerEstimate, D: ledgerEstimate }),
+    shootiness_reference_id: Schema.NullOr(Digest),
+    execution_panel: Schema.NullOr(Schema.Struct({ panel_id: Text, opportunities: Count, setup_weight: Rate })),
+  })),
+  groups: Schema.Array(Schema.Struct({
+    team_id: Id, position: depthGroup, status: Schema.Literals(["complete", "excluded"]),
+    reasons: Schema.Array(Schema.Literals(["schedule_unavailable", "team_boxscore_unavailable",
+      "player_enumeration_unresolved", "identity_conflict", "missing_toi", "position_conflict",
+      "position_unavailable", "annual_position_tie", "annual_position_incomplete"])),
+    inventory_games: Count, supported_games: Count, known_seconds: Count, missing_time_records: Count,
+    unquantified_gap: Schema.Boolean, affected_games: Schema.Array(Id), affected_players: Schema.Array(Id),
+    cutoff_seconds: Schema.NullOr(Count),
+    members: Schema.Array(Schema.Struct({ player_id: Id, known_team_seconds: Count, complete: Schema.Boolean,
+      rank: Schema.NullOr(Count), depth: Schema.NullOr(Schema.Boolean) })),
+  })),
+  positions: Schema.Struct({ F: depthReference, D: depthReference }),
+});
+export type LedgerReference = typeof LedgerReference.Type;
 export const per60 = (mass: number, seconds: number): number | null =>
   seconds === 0 ? null : (3600 * mass) / seconds;
 export const close = (a: number, b: number) =>
@@ -2905,7 +3025,15 @@ export const SkaterTerritoryResult = result(SkaterTerritory);
 export const GoalieResultEnvelope = result(GoalieResult);
 export const GoalieObservedResult = result(GoalieObserved);
 export const GoalieObservedSummaryResult = result(GoalieObservedSummary);
-export const ValueLedgerResult = result(ValueLedger);
+export const ValueLedgerResult = result(ValueLedger.check(Schema.makeFilter(
+  (value) => validLedgerEstimates(value) && validLedgerTotals(value),
+)));
+export const ValueLedgerSummaryResult = result(ValueLedgerSummary.check(Schema.makeFilter(
+  (value) => validLedgerEstimates(value) && validLedgerTotals(value) &&
+    (value.depth_position_group === "unknown") === (value.depth_reference_coverage === null),
+)));
+export const LedgerReferenceResult = result(LedgerReference);
+export const LedgerEvidenceData = Schema.Struct({ ledger: ValueLedgerResult, reference: LedgerReferenceResult });
 export const AnalysisMapResult = result(AnalysisMap);
 export const SkaterExecutionBreakdownResult = result(SkaterExecutionBreakdown);
 export const GoalieExecutionBreakdownResult = result(GoalieExecutionBreakdown);
@@ -3232,7 +3360,7 @@ export const SkaterFamilies = Schema.Struct({
   shootiness: shootinessSummaries,
   penalties: SkaterPenaltiesResult,
   territory: SkaterTerritoryResult,
-  ledger: ValueLedgerResult,
+  ledger: ValueLedgerSummaryResult,
 });
 export const GoalieFamilies = Schema.Struct({
   kind: Schema.Literal("goalie"),
@@ -3249,7 +3377,7 @@ export const PlayerFamilies = Schema.Union([SkaterFamilies, GoalieFamilies, Abse
 export type PlayerFamilies = typeof PlayerFamilies.Type;
 const skaterOverview = Schema.Struct({
   reported_usage: result(ReportedUsage),
-  ledger: ValueLedgerResult,
+  ledger: ValueLedgerSummaryResult,
   spatial: Schema.Struct({
     five_on_five: SkaterSpatialResult,
     pp: SkaterSpatialResult,
@@ -3558,6 +3686,7 @@ export const EvidenceSelection = Schema.Struct({
     "penalties",
     "territory",
     "microstats",
+    "ledger",
   ]),
   strength: Schema.NullOr(Schema.Union([EvidenceStrength, SpatialStrength])),
   population: Schema.NullOr(EvidencePopulation),
@@ -3591,6 +3720,12 @@ const breakdownRow = <S extends Schema.Top>(schema: S) => Schema.Struct({
   result: schema,
 });
 export const EvidenceResponse = Schema.Union([
+  Schema.Struct({
+    ...Envelope.fields,
+    family: Schema.Literal("ledger"),
+    selection: EvidenceSelection,
+    result: ApiResult(LedgerEvidenceData),
+  }),
   Schema.Struct({
     ...Envelope.fields,
     family: Schema.Literal("spatial"),

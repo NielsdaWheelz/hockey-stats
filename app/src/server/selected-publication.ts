@@ -7,6 +7,7 @@ import {
   absent,
   decode,
   factFromRow,
+  ledgerReferenceFromRow,
   pending,
   per60,
   provided,
@@ -225,6 +226,19 @@ export const readEvidence = (sql: SqliteClient, selection: A.EvidenceSelection, 
           result: pending(disposition.explanation!),
         }),
       );
+    if (family === "ledger") {
+      const ledger = yield* queries.readSummary("value_ledger", season, player_id);
+      const rows = yield* sql.unsafe<Record<string, unknown>>(
+        "SELECT * FROM ledger_reference WHERE season=?", [season],
+      );
+      return yield* Effect.try(() => {
+        if (rows.length !== 1) throw new Error("missing selected annual ledger reference");
+        const reference = ledgerReferenceFromRow(rows[0]);
+        return decode(A.EvidenceResponse, {
+          ...base, family, selection, result: provided({ledger, reference}),
+        });
+      });
+    }
     if (family === "penalties" || family === "territory" || family === "microstats") {
       const result = yield* queries.readSummary(
         `skater_${family}` as SummaryTable,

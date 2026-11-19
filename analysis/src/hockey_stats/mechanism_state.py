@@ -694,7 +694,10 @@ def _read_minor_reference(path,purpose,season,*,expected_inputs=None):
     for key in ('execution_score','ev_state','st_state'):
         require(receipt['inputs'][key]==dict(path=valuation['inputs'][key]['uri'],sha256=valuation['inputs'][key]['sha256']),
                 'minor reference/reduction lineage differs')
-    if expected_inputs is not None:require(receipt['inputs']==expected_inputs,'minor reduction selected source lineage differs')
+    if expected_inputs is not None:
+        require(receipt['inputs'].keys() == expected_inputs.keys() and all(
+            same_input_reference(binding, expected_inputs[key]) for key,binding in receipt['inputs'].items()),
+            'minor reduction selected source lineage differs')
     support=valuation['sh_support']
     require_fields(support,('included_seconds','attempts','neutral_goal_mass','known_excluded_seconds','unquantified_gap'),'minor sh support')
     for key in ('included_seconds','neutral_goal_mass','known_excluded_seconds'):require_number(support[key],'minor support',low=0)

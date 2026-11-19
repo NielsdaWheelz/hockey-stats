@@ -84,7 +84,7 @@ _METRICS = """
 _SCHEMA = """
 CREATE TABLE publication (
     id INTEGER PRIMARY KEY CHECK(id=1),
-    schema_version INTEGER NOT NULL CHECK(schema_version=11),
+    schema_version INTEGER NOT NULL CHECK(schema_version=12),
     kind TEXT NOT NULL CHECK(kind='player_analysis'),
     publication_id TEXT NOT NULL,
     purpose TEXT NOT NULL CHECK(purpose IN ('real','fixture')),
@@ -576,7 +576,7 @@ def build_publication(selection_path: Path, results_path: Path, output: Path) ->
     }
     publication_id = str(uuid.uuid4())
     metadata = {
-        "id": 1, "schema_version": 11, "kind": "player_analysis", "publication_id": publication_id,
+        "id": 1, "schema_version": 12, "kind": "player_analysis", "publication_id": publication_id,
         "purpose": selection["purpose"], "game_type": 2,
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "population_version": "matched_attempts_v2", "personal_population_version": "matched_personal_credits_v2",
@@ -592,7 +592,7 @@ def build_publication(selection_path: Path, results_path: Path, output: Path) ->
         connection.execute("PRAGMA foreign_keys=ON")
         connection.execute("PRAGMA journal_mode=DELETE")
         connection.executescript(_SCHEMA + _SPATIAL_SCHEMA + analysis.SCHEMA)
-        connection.execute("PRAGMA user_version=11")
+        connection.execute("PRAGMA user_version=12")
         with connection:
             _insert(connection, "publication", metadata)
         for item, corpus_path in zip(selection["corpora"], paths):
@@ -661,7 +661,7 @@ def build_publication(selection_path: Path, results_path: Path, output: Path) ->
         require([tuple(r) for r in connection.execute("PRAGMA integrity_check")] == [("ok",)], "sqlite integrity check failed")
         require(not connection.execute("PRAGMA foreign_key_check").fetchall(), "sqlite foreign key check failed")
         require(connection.execute("PRAGMA journal_mode").fetchone()[0] == "delete", "publication requires delete journal mode")
-        require(connection.execute("PRAGMA user_version").fetchone()[0] == 11, "publication requires schema 11")
+        require(connection.execute("PRAGMA user_version").fetchone()[0] == 12, "publication requires schema 12")
         require(dict(connection.execute("SELECT * FROM publication").fetchone()) == metadata, "publication metadata read-back differs")
         require([r[0] for r in connection.execute("SELECT season FROM season ORDER BY season")] == [r["season"] for r in selection["corpora"]],
                 "stored season catalog differs")

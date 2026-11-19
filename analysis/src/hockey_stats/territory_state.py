@@ -8,7 +8,7 @@ import numpy as np
 from scipy.sparse import csr_matrix
 
 from .input_locations import input_path, same_input_reference
-from .artifacts import (require,require_fields,require_number,require_season_label,digest,
+from .artifacts import (require,require_fields,require_number,require_season_label,digest,linked_path,
     write_json,write_jsonl,write_arrays,load_arrays,ordered_array_digest,json_values,rows,implementation)
 from .chance_cli import identity,read_json
 from .territory_design import TerritoryDesign,TerritoryHeadDesign,TERRITORY_RECIPE,CONTEXT_AXES
@@ -222,12 +222,13 @@ def _validate_head(head,manifest,name,*,diagnostic=False):
     _finite(head)
 
 
-def _read_arrays(document,member):
+def _read_arrays(document,member,*,names=None):
     require_fields(document,('arrays','array_shapes'),'territory array descriptor')
     require_fields(document['arrays'],('path','sha256'),'territory array binding')
-    require(same_input_reference(document['arrays'],identity(member)),'territory array descriptor member differs')
+    require(same_input_reference(document['arrays'],dict(path=str(member),sha256=document['arrays']['sha256'])),
+            'territory array descriptor member differs')
     for row in document['array_shapes']:require_fields(row,('name','shape','dtype'),'territory array axis')
-    return load_arrays(document)
+    return load_arrays(document,names=names)
 
 
 def _validate_fitted(design,name,head,beta,incoming):
@@ -432,21 +433,102 @@ def write_territory_reference(root,state,panel,*,ev_binding=None,panel_problem=N
     return dict(path=root/'reference.json',manifest=manifest,panel=panel,variants=variants,diagnostics=diagnostics)
 
 
-def read_territory_reference(path,state,ev_binding):
-    """reuse an exact projection; validate native accounting without source replay."""
-    from .artifacts import linked_path
-    from .territory import successor_reference,successor_value,project_hazards
-    path=input_path(path, strict=True);document=read_json(path)
+def _reference_metadata(path, purpose, season, annual_state, ev_binding, expected_variants):
+    document=read_json(path)
     require_fields(document,('schema_version','kind','purpose','season','annual_state','ev_state','panel','panel_problem','projections','diagnostics',
         'resources','implementation'),'territory successor reference')
     require(type(document['schema_version']) is int and document['schema_version']==1 and document['kind']=='territory_successor_reference'
-        and document['purpose']==state.manifest['purpose'] and document['season']==state.manifest['season']
-        and same_input_reference(document['annual_state'],identity(state.path/'manifest.json'))
+        and document['purpose']==purpose and document['season']==season
+        and same_input_reference(document['annual_state'],annual_state)
         and same_input_reference(document['ev_state'],ev_binding),
             'territory successor reference lineage differs')
-    panel=None
     require((document['panel'] is None)==(type(document['panel_problem']) is str and bool(document['panel_problem'].strip())),
             'territory saved panel unavailable reason differs')
+    if document['panel'] is not None:
+        require_fields(document['panel'],('path','sha256'),'territory successor panel binding')
+        require_state_reference(document['panel'],'territory successor panel binding')
+    require(type(document['projections']) is dict and set(document['projections'])==set(expected_variants),
+            'territory successor diagnostic variant set differs')
+    return document
+
+
+def _projection_metadata(binding, name, panel_available, expected_players):
+    result=read_json(linked_path(binding));_finite(result)
+    require(type(result['shift_available']) is bool and type(result['successor_available']) is bool
+            and (not result['successor_available'] or result['shift_available']) and result['variant']==name,
+            'territory projection availability flags or variant differ')
+    keys=('status','reason','variant','shift_available','successor_available','successor_reference','players','values_arrays')
+    if not result['shift_available']:
+        required=(*keys,'hazards','support') if result['status']=='unavailable' else keys
+        require_fields(result,required,'unavailable territory projection')
+        require(result['status'] in ('unavailable','unassessed') and type(result['reason']) is str
+                and bool(result['reason'].strip()) and result['successor_reference'] is None
+                and result['values_arrays'] is None and result['players']==[],
+                'invalid unavailable territory projection')
+        return result, {}
+
+    require_fields(result,(*keys,'hazards','support','neutral'),'completed territory projection')
+    players=result['players']
+    require(type(players) is list and all(type(player) is str and player for player in players)
+            and players==sorted(set(players)) and (expected_players is None or players==expected_players),
+            'territory projection player axes differ')
+    shapes=dict(end_probabilities=(4,),end_probability_difference=(4,))
+    if result['successor_available']:
+        require(panel_available and result['status']=='complete' and result['reason'] is None,
+                'territory complete successor prerequisite differs')
+        require_fields(result['successor_reference'],('G_maps','G','absolute_term_scales'),
+                'territory successor numerical projection')
+        shapes.update(maps=(2,656),values=(2,),raw_G_values=(2,),raw_G_allowance=(2,),map_sum_allowance=(2,))
+    else:
+        require(result['status']=='unavailable' and type(result['reason']) is str and bool(result['reason'].strip())
+                and result['successor_reference'] is None,'territory unavailable successor reason differs')
+    require_fields(result['values_arrays'],('arrays','array_shapes'),'territory value arrays descriptor')
+    descriptors=result['values_arrays']['array_shapes']
+    require(type(descriptors) is list and [row['name'] for row in descriptors]==list(shapes)
+            and all(row['shape']==[len(players),*shape] for row,shape in zip(descriptors,shapes.values(),strict=True)),
+            'territory projection native axes differ')
+    return result, shapes
+
+
+def read_saved_territory_values(reference, expected_bindings):
+    """read accepted final scalar variants without loading maps, panels or designs."""
+    path=linked_path(reference)
+    purpose, season=expected_bindings['purpose'], expected_bindings['season']
+    require(purpose in ('real','fixture') and (purpose!='real' or season=='20252026'),
+            'territory ledger diagnostic purpose/season differs')
+    names=('baseline','entry','exit','joint')
+    document=_reference_metadata(path,purpose,season,expected_bindings['annual_state'],
+                                 expected_bindings['ev_state'],names)
+    panel=document['panel']
+    expected_panel=expected_bindings['panel']
+    require((panel is None and expected_panel is None) or same_input_reference(panel,expected_panel),
+            'territory ledger panel binding differs')
+    variants={}
+    players=None
+    for name in names:
+        result,_=_projection_metadata(document['projections'][name],name,panel is not None,players)
+        if result['shift_available']:
+            players=result['players']
+            arrays=_read_arrays(result['values_arrays'],path.parent/(name+'-values.npz'),
+                                names=('values',) if result['successor_available'] else ())
+        values=None
+        if result['successor_available']:
+            require(arrays['values'].dtype == np.dtype('float64'), 'territory scalar values must be native float64')
+            values={player:(float(won),float(lost))
+                    for player,(won,lost) in zip(result['players'],arrays['values'],strict=True)}
+        require(purpose!='real' or values is not None,'accepted real territory scalar diagnostic unavailable')
+        variants[name]=values
+    return variants
+
+
+def read_territory_reference(path,state,ev_binding):
+    """reuse an exact projection; validate native accounting without source replay."""
+    from .territory import successor_reference,successor_value,project_hazards
+    path=input_path(path, strict=True)
+    expected_variants=('baseline','entry','exit','joint') if state.probes else ('baseline',)
+    document=_reference_metadata(path,state.manifest['purpose'],state.manifest['season'],
+                                 identity(state.path/'manifest.json'),ev_binding,expected_variants)
+    panel=None
     if document['panel'] is not None:
         panel_doc=read_json(linked_path(document['panel']))
         require_fields(panel_doc,('schema_version','kind','purpose','season','ev_state','units','axes','arrays','resources','implementation'),
@@ -464,16 +546,9 @@ def read_territory_reference(path,state,ev_binding):
             and np.allclose(panel['complete_xg']-panel['neutral_xg'],panel['contrast_xg'],rtol=1e-9,atol=1e-9),
                 'territory successor panel domains/arithmetic differ')
     variants={}
-    expected_variants=('baseline','entry','exit','joint') if state.probes else ('baseline',)
-    require(set(document['projections'])==set(expected_variants),'territory successor diagnostic variant set differs')
     for name,binding in document['projections'].items():
-        result=read_json(linked_path(binding));_finite(result)
-        require(type(result['shift_available']) is bool and type(result['successor_available']) is bool
-            and (not result['successor_available'] or result['shift_available']), 'territory projection availability flags differ')
+        result,expected_shapes=_projection_metadata(binding,name,panel is not None,list(state.design.players))
         if result['shift_available']:
-            require_fields(result,('status','reason','variant','shift_available','successor_available','hazards','support','neutral','successor_reference','players','values_arrays'),
-                'completed territory projection')
-            require(result['variant']==name and result['players']==list(state.design.players),'territory projection player/variant axes differ')
             projected_heads=dict(state.heads);projected_coefficients=dict(state.coefficients)
             for head in HEADS:
                 if name in (head,'joint'):
@@ -495,22 +570,13 @@ def read_territory_reference(path,state,ev_binding):
             require_number(neutral['survival_at_90'],'territory neutral survival',low=0,high=1)
             require_number(neutral['tail_time_fraction'],'territory neutral tail fraction',low=0,high=1)
             arrays=_read_arrays(result.pop('values_arrays'),path.parent/(name+'-values.npz'))
-            expected_shapes=dict(end_probabilities=(4,),end_probability_difference=(4,))
-            if result['successor_available']:
-                expected_shapes.update(maps=(2,656),values=(2,),raw_G_values=(2,),raw_G_allowance=(2,),map_sum_allowance=(2,))
-            require(set(arrays)==set(expected_shapes),'territory projection value fields differ')
-            for key,shape in expected_shapes.items():
-                require(arrays[key].shape==(len(state.design.players),*shape),'territory projection native axes differ')
             reference=None
             if result['successor_available']:
-                require(panel is not None and result['status']=='complete' and result['reason'] is None,'territory complete successor prerequisite differs')
                 reference=successor_reference(result['neutral'],panel)
-                require_fields(result['successor_reference'],('G_maps','G','absolute_term_scales'),'territory successor numerical projection')
                 for key in ('G_maps','G','absolute_term_scales'):
                     require(np.asarray(result['successor_reference'][key]).shape==reference[key].shape
                         and np.allclose(reference[key],result['successor_reference'][key],rtol=1e-9,atol=1e-9),
                         'territory saved successor reference arithmetic differs')
-            else:require(result['status']=='unavailable' and result['reason'] and result['successor_reference'] is None,'territory unavailable successor reason differs')
             values=[]
             for index,player in enumerate(result.pop('players')):
                 focal=dict(end_probabilities=arrays['end_probabilities'][index])
@@ -523,12 +589,6 @@ def read_territory_reference(path,state,ev_binding):
                 values.append(dict(player_id=player,season=document['season'],**{key:arrays[key][index] for key in expected_shapes}))
             result['values']=values;result['successor_reference']=reference
         else:
-            expected=('status','reason','variant','shift_available','successor_available','successor_reference','players','values_arrays')
-            if result['status']=='unavailable':expected=(*expected,'hazards','support')
-            require_fields(result,expected,'unavailable territory projection')
-            require(result['variant']==name and result['status'] in ('unavailable','unassessed')
-                and result['successor_reference'] is None and result['values_arrays'] is None and result['players']==[],
-                    'invalid unavailable territory projection')
             result.pop('values_arrays');result.pop('players')
         result['nuisance']=smooth_nuisance(state.design.nuisance);variants[name]=result
     from .territory import compare_territory_variants

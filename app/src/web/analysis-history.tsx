@@ -1,3 +1,4 @@
+import { isReplacementLedger, ledgerCoverage, ledgerWorkload } from "./ledger-presentation";
 import { TerritoryDetail, territoryNotes } from "./territory-detail";
 import { MechanismDetail } from "./mechanism-detail";
 import { useId, useRef, useState } from "react";
@@ -152,6 +153,7 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
           : `${datum.qualificationSeconds} seconds`}{" "}
         · {datum.qualificationBasis}
       </p>
+      {datum.ledger_detail && <p>{ledgerCoverage(datum)}. qualification uses the named viewing population.</p>}
       {datum.original?.reason_detail && (
         <p>{datum.original.reason_detail.explanation}</p>
       )}
@@ -269,7 +271,7 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
       )}
       {Object.keys(datum.componentSupport).length > 0 && (
         <div>
-          <p>constituent support (separate from qualification):</p>
+          <p>component viewing support</p>
           <pre>{JSON.stringify(datum.componentSupport, null, 2)}</pre>
         </div>
       )}
@@ -383,11 +385,14 @@ export const analysisCsvHeaders = [
   "method_evidence",
   "goalie_detail",
   "territory_detail",
+  "ledger_detail",
+  "history_break_reason",
 ] as const;
 export function analysisCsvRow(
   publication: Publication,
   season: SeasonEvidence,
   row: AnalysisRow,
+  historyBreakReason: string | null = null,
 ): readonly CsvCell[] {
   const { datum, standing } = row;
   const uncertainty =
@@ -474,6 +479,8 @@ export function analysisCsvRow(
     JSON.stringify(datum.methods.map(method => ({ method_id: method.method_id, evidence: method.evidence }))),
     datum.goalie_detail === null ? null : JSON.stringify(datum.goalie_detail),
     datum.territory_detail === null ? null : JSON.stringify(datum.territory_detail),
+    datum.ledger_detail === null ? null : JSON.stringify(datum.ledger_detail),
+    historyBreakReason,
   ];
 }
 
@@ -489,6 +496,11 @@ function breakReason(
   current: HistoryPoint,
   scale: HistoryScale,
 ) {
+  const priorDepth = previous.datum.ledger_detail?.depth_position_group;
+  const depth = current.datum.ledger_detail?.depth_position_group;
+  if (isReplacementLedger(current.datum.metric) &&
+      (priorDepth === "F" && depth === "D" || priorDepth === "D" && depth === "F"))
+    return `depth reference changed (${priorDepth}→${depth})`;
   if (previous.datum.value === null || current.datum.value === null)
     return "value unavailable";
   if (
@@ -903,6 +915,11 @@ function historySvg(view: HistoryView): string {
         `methods: ${datum.methods.map((m) => m.method_id).join(", ") || "unlinked"}; sources: ${datum.sources.map((s) => s.source_id).join(", ") || "unlinked"}; reference ${datum.referenceId ?? "none"}; support policy ${datum.supportPolicyId}`,
         20,
       );
+      if (datum.ledger_detail) {
+        text(ledgerWorkload, 20);
+        const coverage = ledgerCoverage(datum);
+        if (coverage) text(coverage, 20);
+      }
       const limitations = datum.methods.flatMap(method => method.limitations);
       const methodNotes = new Map<string, Set<string>>();
       for (const limitation of limitations)
@@ -1109,8 +1126,8 @@ export default function AnalysisHistory({
             try {
               downloadCsv(
                 analysisCsvHeaders,
-                snapshot.points.map((point) =>
-                  analysisCsvRow(snapshot.publication, point.season, point),
+                prepareHistory(snapshot.points, snapshot.scale).map(({ point, breakBefore }) =>
+                  analysisCsvRow(snapshot.publication, point.season, point, breakBefore),
                 ),
                 `${filename}.csv`,
               );

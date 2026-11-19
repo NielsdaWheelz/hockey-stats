@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "purpose": "fixture",
+  "kind": "provided_ledger_temporary_verification",
+  "red": {
+    "converter": "computed ledger needs attributed reconstruction",
+    "partial_spatial": "ledger neutral attempt reference differs from exact spatial method",
+    "current_writer": "expected exact fields",
+    "startup_group_sort": "ledger: annual team/group axes differ"
+  },
+  "green": "green: the ordinary writer reproduces unchanged pending annual reference and current candidate readback passes",
+  "scripts": {
+    "convert-exchange6.py": "b290f515af84be97b8566ba9f67ec314c618cebbdcc65fe3a2eb51dc6dd89f91",
+    "fixture-ledger.py": "c3a4f028ce4b5e5e5fc4a20f29abaa23dbcf36f028a18a80baf073f0552fb096",
+    "verify-provided-fixture.py": "2ddff85cbe12eb2c98ca21ef980ac0bbbabc6aeb8e92b2107eb4123bcdde21b6",
+    "verify-pending-carry.py": "8f8d111f96d2680f75e8269209f7feac04265505247f2b7bfadaa123e2c42e26"
+  }
+}

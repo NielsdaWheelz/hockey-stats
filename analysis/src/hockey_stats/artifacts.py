@@ -223,19 +223,22 @@ def write_arrays(output: Path, name: str, arrays: dict) -> dict:
                 for key, value in arrays.items()])
 
 
-def load_arrays(document: dict) -> dict:
+def load_arrays(document: dict, *, names=None) -> dict:
     import numpy as np
 
     shapes = document["array_shapes"]
     require(isinstance(shapes, list) and len({row["name"] for row in shapes}) == len(shapes),
             "array order contains duplicate names")
+    ordered = [row["name"] for row in shapes]
+    selected = ordered if names is None else names
+    require(set(selected) <= set(ordered), "artifact array member is missing")
     with np.load(linked_path(document["arrays"]), allow_pickle=False) as arrays:
-        require(arrays.files == [row["name"] for row in shapes], "artifact array order differs")
-        values = {name: arrays[name] for name in arrays.files}
+        require(arrays.files == ordered, "artifact array order differs")
+        values = {name: arrays[name] for name in selected}
     require(all(list(values[row["name"]].shape) == row["shape"]
                 and values[row["name"]].dtype.str == row["dtype"]
                 and values[row["name"]].dtype.kind in "biuf"
-                and np.isfinite(values[row["name"]]).all() for row in shapes),
+                and np.isfinite(values[row["name"]]).all() for row in shapes if row["name"] in values),
             "artifact arrays differ from ordered shape/dtype contract")
     return values
 

@@ -20,6 +20,7 @@ import {
   absent,
   decode,
   pending,
+  parseObject,
   provided,
   readCatalogs,
   resultFromRow,
@@ -49,7 +50,7 @@ const Producer = Schema.Struct({
 const PublicationRow = Schema.Struct({
   prepared_sha256: Schema.NullOr(A.Digest),
   id: Schema.Literal(1),
-  schema_version: Schema.Literal(11),
+  schema_version: Schema.Literal(12),
   kind: Schema.Literal("player_analysis"),
   publication_id: A.Publication.fields.publication_id,
   purpose: A.Purpose,
@@ -135,7 +136,7 @@ export const publicationLayer = (filename: string) =>
       const metadata = yield* Effect.try(() =>
         decode(A.Publication, {
           publication_id: stored.publication_id,
-          schema_version: 11,
+          schema_version: 12,
           kind: stored.kind,
           purpose: stored.purpose,
           generated_at: stored.generated_at,
@@ -147,7 +148,7 @@ export const publicationLayer = (filename: string) =>
           families: catalogs.families,
         }),
       );
-      const analysis = yield* validateAnalysis(sql, catalogs);
+      const analysis = yield* validateAnalysis(sql, catalogs, stored.prepared_sha256);
       const observed = yield* validateObserved(sql, seasons, stored.purpose);
       const envelope = (season: Season) => {
         const evidence = seasons.find((row) => row.season === season);
@@ -200,6 +201,33 @@ export const publicationLayer = (filename: string) =>
               new Error(`${table}: required selected row missing or ambiguous`),
             );
           return yield* Effect.try(() => resultFromRow(table, rows[0], person(season, id)!.kind));
+        });
+      const readLedgerSummary = (season: Season, id: string) =>
+        Effect.gen(function* () {
+          const disposition = catalogs.families.find(row => row.season === season && row.family === "ledger")!;
+          if (disposition.availability === "not_computed") return pending(disposition.explanation!);
+          const rows = yield* sql.unsafe<Record<string, unknown>>(`
+            SELECT method_id, availability, explanation, json_remove(payload_json,'$.evidence') AS payload_json,
+                   json_extract(payload_json,'$.evidence.annual_reference_id') AS annual_reference_id,
+                   json_extract(payload_json,'$.evidence.depth_position.group') AS depth_position_group
+              FROM value_ledger WHERE season=? AND player_id=?`, [season,id]);
+          if (rows.length !== 1)
+            return yield* Effect.fail(new Error("ledger summary required"));
+          return yield* Effect.try(() => {
+            const { method_id, availability, explanation, payload_json, annual_reference_id, depth_position_group } = rows[0];
+            if (availability === "not_computed")
+              return decode(A.ValueLedgerSummaryResult, { availability, explanation, data: null });
+            const reference = analysis.ledgerReferences.get(season);
+            if (!reference) throw new Error("ledger annual coverage required");
+            const group = depth_position_group;
+            return decode(A.ValueLedgerSummaryResult, provided({
+              ...parseObject(payload_json),
+              method_id,
+              annual_reference_id,
+              depth_position_group,
+              depth_reference_coverage: group === "F" || group === "D" ? reference[group] : null,
+            }));
+          });
         });
       const goalieObservedSummary = (result: ReturnType<typeof resultFromRow>) => {
         if (result.availability !== "provided") return result;
@@ -271,7 +299,7 @@ export const publicationLayer = (filename: string) =>
             shootiness: yield* collection("skater_shootiness", A.ExecutionStrength.literals),
             penalties: yield* readSummary("skater_penalties", season, id),
             territory: yield* readSummary("skater_territory", season, id),
-            ledger: yield* readSummary("value_ledger", season, id),
+            ledger: yield* readLedgerSummary(season, id),
           };
           return yield* Effect.try(() => decode(A.PlayerFamilies, data));
         });

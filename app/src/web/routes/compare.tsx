@@ -41,6 +41,7 @@ import { buildDescriptiveCard } from "../descriptive-values";
 import AnalyticalCard, { prepareAnalyticalCards } from "../analytical-card";
 import AnalyticalDetails from "../analytical-details";
 import ExecutionEvidence from "../execution-evidence";
+import LedgerDetail from "../ledger-detail";
 import PeerDistributions, { PeerControls } from "../peer-distributions";
 import {
   selectLeagueValues,
@@ -122,7 +123,8 @@ export default function Compare() {
     for (const key of ["evidenceStrength", "population", "evidenceView", "type"])
       if (search.has(key)) viewQuery.set(key, search.get(key)!);
   }
-  viewQuery.set("metric", metric.id);
+  if (metric.publicationFamily !== "ledger" || search.get("metric") === metric.id)
+    viewQuery.set("metric", metric.id);
   if (scale !== "raw") viewQuery.set("history", scale);
   if (settings.specialtyMin !== 50)
     viewQuery.set("specialtyMin", String(settings.specialtyMin));
@@ -131,6 +133,12 @@ export default function Compare() {
   if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
   if (settings.peerMin !== 300)
     viewQuery.set("peerMin", String(settings.peerMin));
+  const detailLink = (id: string) => {
+    const next = seasonSearch(search, data.season.season);
+    next.set("metric", id);
+    const anchor = id.startsWith("ledger.") ? "#ledger-detail" : "";
+    return { to: `${location.pathname}?${next}${anchor}`, state: location.state };
+  };
   const changePeers = (nextSettings: Partial<PeerSettings>) => {
     const next = viewSearch(location, navigation.location);
     const previous = next.toString();
@@ -424,11 +432,7 @@ export default function Compare() {
       {view === "goalie" && navigation.state !== "idle" && <p role="status">exports unavailable while the requested selection loads.</p>}
       {goalieCards && data.profiles && <section className="goalie-pair" aria-label="complete goalie sheet comparison">
         {goalieCards.map((model, index) => <fieldset className="goalie-export-snapshot" key={model.playerId} disabled={navigation.state !== "idle"}>
-          <GoalieCard model={model} detailLink={id => {
-            const next = seasonSearch(search, data.season.season);
-            next.set("metric", id);
-            return { to: `${location.pathname}?${next}`, state: location.state };
-          }} />
+          <GoalieCard model={model} detailLink={detailLink} />
           <GoalieDetails profile={data.profiles![index]} settings={settings} render={render} />
         </fieldset>)}
       </section>}
@@ -446,14 +450,7 @@ export default function Compare() {
             <ComparativeCard
               key={card.playerId}
               model={card}
-              detailLink={(id) => {
-                const next = seasonSearch(search, data.season.season);
-                next.set("metric", id);
-                return {
-                  to: `${location.pathname}?${next}`,
-                  state: location.state,
-                };
-              }}
+              detailLink={detailLink}
             />
           ))}
         </div>
@@ -486,11 +483,7 @@ export default function Compare() {
               <MicrostatCard
                 key={model.playerId}
                 model={model}
-                detailLink={id => {
-                  const next = seasonSearch(search, data.season.season);
-                  next.set("metric", id);
-                  return { to: `${location.pathname}?${next}`, state: location.state };
-                }}
+                detailLink={detailLink}
               />
             ))}
           </div>
@@ -499,15 +492,14 @@ export default function Compare() {
       {analyticalCards && data.profiles && <section aria-label="analytical sheet comparison">
         <PeerControls settings={settings} onChange={changePeers} allCutoffs />
         <div className="analytical-pair">{analyticalCards.map((model, index) => <div key={model.playerId}>
-          <AnalyticalCard model={model} detailLink={id => {
-            const next = seasonSearch(search, data.season.season);
-            next.set("metric", id);
-            return { to: `${location.pathname}?${next}`, state: location.state };
-          }} />
+          <AnalyticalCard model={model} detailLink={detailLink} />
           <AnalyticalDetails profile={data.profiles![index]} metric={metric} render={render} mode={mode}
             onRenderChange={changeRender} onModeChange={changeMode} onMetricChange={changeMetric} />
         </div>)}</div>
       </section>}
+      {data.profiles?.some(profile => profile.ledgerEvidence) && <div id="ledger-detail">
+        {data.profiles.map(profile => <LedgerDetail key={profile.player_id} profile={profile} exportPending={navigation.state !== "idle"} />)}
+      </div>}
       {data.profiles?.map(profile => profile.executionEvidence && <ExecutionEvidence key={profile.player_id} evidence={profile.executionEvidence} playerId={profile.player_id} />)}
       {view === "observed" && comparison && (
         <section aria-label="included player comparison">

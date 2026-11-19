@@ -23,7 +23,7 @@ import {
 } from "./analysis-history";
 import { downloadBlob, svgPng } from "./export";
 import { playerName, seasonLabel, teamName } from "./presentation";
-import { ledgerPresentation } from "./ledger-presentation";
+import { ledgerCoverage, ledgerLimits, ledgerPresentation, ledgerWorkload } from "./ledger-presentation";
 
 const tilePresentation = {
   "ledger.five_on_five_offense.league_goals": [
@@ -98,7 +98,6 @@ type ComparativeCardModel = {
     readonly label: string;
     readonly league: AnalysisRow;
     readonly replacement: AnalysisRow;
-    readonly detail: string;
   }[];
 };
 
@@ -169,7 +168,7 @@ export function prepareComparativeCard(
     replacement: {
       label: "replacement-relative value",
       construction:
-        "roster-depth proxy outside each team's top 12 forwards / 6 defensemen by regular-season usage, pooled by position",
+        ledgerCoverage(row("ledger.replacement_total").datum) ?? "reported-usage depth reference",
       row: row("ledger.replacement_total"),
     },
     tiles: comparativeTiles.map(([label, id, construction]) => ({
@@ -183,6 +182,12 @@ export function prepareComparativeCard(
         color: "#17696b",
         dash: "",
         points: history("ledger.league_total"),
+      },
+      {
+        label: "depth-replacement value",
+        color: "#6e4e8b",
+        dash: "7 4",
+        points: history("ledger.replacement_total"),
       },
     ],
     componentHistory: [
@@ -205,9 +210,8 @@ export function prepareComparativeCard(
         points: history("ledger.finishing.league_goals"),
       },
     ],
-    ledger: ledgerPresentation.map(([label, term, detail]) => ({
+    ledger: ledgerPresentation.map(([label, term]) => ({
       label,
-      detail,
       league: row(`ledger.${term}.league_goals`),
       replacement: row(`ledger.${term}.replacement_goals`),
     })),
@@ -532,9 +536,7 @@ export default function ComparativeCard({
         )}
       </header>
       <p className="comparative-workload">
-        common workload: 1,000 5v5 + 100 pp + 100 pk minutes · favorable goals;
-        higher is more of the named quantity. specialty minutes are
-        hypothetical.
+        {ledgerWorkload}. {ledgerLimits}
       </p>
       <div className="comparative-totals">
         <Field field={model.headline} detailLink={detailLink} headline />
@@ -551,7 +553,7 @@ export default function ComparativeCard({
       </div>
       <div className="comparative-histories">
         <EmbeddedHistory
-          title="league-relative value history"
+          title="league and replacement value history"
           series={model.headlineHistory}
           selectedSeason={model.season.season}
         />
@@ -561,53 +563,9 @@ export default function ComparativeCard({
           selectedSeason={model.season.season}
         />
       </div>
-      <details className="comparative-ledger">
-        <summary>ten signed ledger terms, references and evidence</summary>
-        <p>
-          the ten visible tiles are not ten additive terms. penalties groups
-          drawing and taking; the totals below are published, never recomputed
-          here. no aggregate ledger exposure or prior-only flag is inferred.
-          support and methods are specific to each term.
-        </p>
-        <div
-          className="table-scroll"
-          tabIndex={0}
-          role="region"
-          aria-label="signed ledger detail"
-        >
-          <table>
-            <thead>
-              <tr>
-                <th>term / standalone detail</th>
-                <th>league goals / common workload</th>
-                <th>replacement goals / common workload</th>
-              </tr>
-            </thead>
-            <tbody>
-              {model.ledger.map((term) => (
-                <tr key={term.label}>
-                  <th scope="row">
-                    <Link {...detailLink(term.detail)}>{term.label}</Link>
-                  </th>
-                  <td>
-                    {magnitude(term.league)}
-                    <DatumEvidence datum={term.league.datum} />
-                  </td>
-                  <td>
-                    {magnitude(term.replacement)}
-                    <DatumEvidence datum={term.replacement.datum} />
-                  </td>
-                </tr>
-              ))}
-              <tr>
-                <th scope="row">published total</th>
-                <td>{magnitude(model.headline.row)}</td>
-                <td>{magnitude(model.replacement.row)}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
+      <p className="comparative-ledger">
+        <Link {...detailLink("ledger.league_total")}>ten signed ledger terms and evidence</Link>
+      </p>
       <footer>
         <p>
           percentiles describe annual standing, not confidence or causal
@@ -842,7 +800,7 @@ function comparativeCardSvg(model: ComparativeCardModel): string {
     );
     identityLines(model).forEach((line) => paragraph(line));
     paragraph(
-      "common workload: 1,000 5v5 + 100 pp + 100 pk minutes · favorable goals; specialty minutes are hypothetical.",
+      `${ledgerWorkload}. ${ledgerLimits}`,
       22,
     );
     top = Math.max(
@@ -857,7 +815,7 @@ function comparativeCardSvg(model: ComparativeCardModel): string {
     }
     top =
       Math.max(
-        chart("league-relative value history", model.headlineHistory, 48, top),
+        chart("league and replacement value history", model.headlineHistory, 48, top),
         chart("component history", model.componentHistory, 626, top),
       ) + 20;
     // compact evidence keys are shared only for identical supplied content.
@@ -877,6 +835,14 @@ function comparativeCardSvg(model: ComparativeCardModel): string {
       );
     const refs = (row: AnalysisRow) => {
       const datum = row.datum;
+      if (datum.metric.publicationFamily === "ledger") {
+        const qualification = key("q", `viewing qualification ${datum.qualificationSeconds ?? "unavailable"} seconds · ${datum.metric.qualificationLabel}${datum.reason ? ` · ${datum.reason}` : ""}`);
+        const reference = key("r", datum.numericReference);
+        const method = datum.methods[0];
+        const methodKey = method && key("m", `ledger method ${method.method_id} · recipe ${method.recipe_id} · support policy ${method.support_policy_id}`);
+        const findings = datum.findings.map(finding => key("f", finding.summary));
+        return [qualification, reference, methodKey, ...findings].filter(Boolean).join(" · ");
+      }
       return `${quantityKey(row)}; ${key("s", supportText(row))}; ${key("m", `construction ${datum.construction}; population ${datum.population}; numerical reference ${datum.numericReference}; reference ${datum.referenceId}; support policy ${datum.supportPolicyId}; methods ${datum.methods.map((method) => `${method.method_id}; recipe ${method.recipe_id}; reference ${method.reference_id}: ${method.reference}; support policy ${method.support_policy_id}; limitations ${method.limitations.join("; ") || "none supplied"}`).join(" / ") || "unlinked"}; sources ${datum.sources.map((source) => `${source.source_id}: ${source.definition}; limitations ${source.limitations.join("; ") || "none supplied"}`).join(" / ") || "unlinked"}; findings ${datum.findings.map((finding) => `${finding.population}: ${finding.summary}`).join(" / ") || "none supplied"}`)}`;
     };
     paragraph(
@@ -908,12 +874,12 @@ function comparativeCardSvg(model: ComparativeCardModel): string {
       25,
     );
     paragraph(
-      "the ten tiles are not the ten additive terms. penalties groups drawing and taking. totals are supplied by the publisher.",
+      "the ten additive terms appear below. the combined penalty tile groups drawing and taking.",
       18,
     );
     for (const term of model.ledger)
       paragraph(
-        `${term.label}: ${magnitude(term.league)} / ${magnitude(term.replacement)} · league evidence ${refs(term.league)}; replacement evidence ${refs(term.replacement)} · standalone ${term.detail}`,
+        `${term.label}: ${magnitude(term.league)} / ${magnitude(term.replacement)} · league evidence ${refs(term.league)}; replacement evidence ${refs(term.replacement)}`,
         18,
       );
     paragraph(
@@ -934,7 +900,7 @@ function comparativeCardSvg(model: ComparativeCardModel): string {
         `reported usage original envelope: ${JSON.stringify(model.usage.data.reported_usage)}`,
       );
     paragraph(
-      "evidence key · exact matching support and method records share a key",
+      "evidence keys · full ledger construction, upstream support and members are available in the selected detail and csv",
       25,
     );
     for (const note of notes.values())

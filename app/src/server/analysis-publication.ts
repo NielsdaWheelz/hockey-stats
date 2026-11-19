@@ -6,6 +6,7 @@ import * as A from "../shared/player-analysis.js";
 import { Season } from "../shared/observed.js";
 import { forEachRow, strictJson } from "./sql-rows.js";
 import { physicalSchema } from "./physical-schema.js";
+import { validateLedgerYear } from "./ledger-publication.js";
 
 export const decode = <S extends Schema.ConstraintDecoder<unknown, never>>(
   schema: S,
@@ -117,27 +118,30 @@ const validateSpatialMixtures = (rows: ReadonlyMap<string, Spatial>) => {
   }
 };
 
-export const resultFromRow = <T extends SummaryTable>(
-  table: T,
-  row: Record<string, unknown>,
-  personKind?: A.Person["kind"],
-): (typeof summarySchemas)[T]["Type"] => {
+const payloadFromRow = <S extends Schema.ConstraintDecoder<unknown, never>>(
+  schema: S, row: Record<string, unknown>,
+) => {
   let data: Record<string, unknown> | null = null;
   if (row.payload_json !== null) {
     data = parseObject(row.payload_json);
     if ("method_id" in data) throw new Error("method identity must have one stored owner");
     if (row.method_id !== null) data = { ...data, method_id: row.method_id };
   }
+  return decode(schema, { availability: row.availability, explanation: row.explanation, data });
+};
+export const ledgerReferenceFromRow = (row: Record<string, unknown>) =>
+  payloadFromRow(A.LedgerReferenceResult, row);
+export const resultFromRow = <T extends SummaryTable>(
+  table: T,
+  row: Record<string, unknown>,
+  personKind?: A.Person["kind"],
+): (typeof summarySchemas)[T]["Type"] => {
   if (table === "execution_breakdown" && personKind === undefined)
     throw new Error("execution breakdown requires a checked person kind");
   const schema = table === "execution_breakdown"
     ? personKind === "goalie" ? A.GoalieExecutionBreakdownResult : A.SkaterExecutionBreakdownResult
     : summarySchemas[table];
-  const result = decode(schema, {
-    availability: row.availability,
-    explanation: row.explanation,
-    data,
-  });
+  const result = payloadFromRow(schema, row);
   if (table === "skater_spatial" && result.availability === "provided") {
     const value = result.data as Spatial;
     const expected = row.strength === "pp" ? ["5v4", "5v3", "4v3"]
@@ -193,9 +197,9 @@ export const validatePhysical = (sql: SqliteClient) =>
     yield* Effect.try(() => {
       if (JSON.stringify(integrity) !== '[{"integrity_check":"ok"}]' || foreign.length !== 0)
         throw new Error("publication integrity or foreign-key check failed");
-      if (JSON.stringify(version) !== '[{"user_version":11}]')
+      if (JSON.stringify(version) !== '[{"user_version":12}]')
         throw new Error(
-          "incompatible publication version; schema 11 is required",
+          "incompatible publication version; schema 12 is required",
         );
       if (JSON.stringify(journal) !== '[{"journal_mode":"delete"}]')
         throw new Error("publication requires delete journal mode");
@@ -210,7 +214,7 @@ export const validatePhysical = (sql: SqliteClient) =>
             !(table.name in physicalSchema),
         )
       )
-        throw new Error("publication requires the fixed strict schema-11 tables");
+        throw new Error("publication requires the fixed strict schema-12 tables");
     });
     for (const [table, expected] of Object.entries(physicalSchema)) {
       const columns = yield* sql.unsafe<{
@@ -500,6 +504,7 @@ const validateGoalieStates = (
 export const validateAnalysis = (
   sql: SqliteClient,
   catalogs: Effect.Success<ReturnType<typeof readCatalogs>>,
+  prepared: string | null,
 ) =>
   Effect.gen(function* () {
     const people = new Map<string, A.Person>();
@@ -854,7 +859,7 @@ export const validateAnalysis = (
           method.recipe_id,
         );
         const hash = createHash("sha256")
-          .update(JSON.stringify(A.territoryDigestRepresentation(body)))
+          .update(JSON.stringify(A.binary64DigestRepresentation(body)))
           .digest("hex");
         if (e.reference_id !== hash)
           throw new Error("territory numerical reference digest differs");
@@ -907,7 +912,68 @@ export const validateAnalysis = (
         territoryReferences.set(year, fixed);
       }),
     );
-    return { people, grids };
+    const ledgerReferences = new Map<string, ReturnType<typeof validateLedgerYear>>();
+    for (const family of catalogs.families.filter(entry => entry.family === "ledger")) {
+      const year = family.season;
+      const rows = yield* sql.unsafe<Record<string, unknown>>("SELECT * FROM ledger_reference WHERE season=?", [year]);
+      if (rows.length !== 1) return yield* Effect.fail(new Error("one annual ledger reference is required"));
+      const reference = yield* Effect.try(() => ledgerReferenceFromRow(rows[0]));
+      if (family.availability === "not_computed") {
+        if (reference.availability !== "not_computed" || reference.explanation !== family.explanation)
+          return yield* Effect.fail(new Error("pending annual ledger reference differs from family"));
+        continue;
+      }
+      const peopleInYear = [...people.values()].filter(person => person.season === year && person.kind === "skater");
+      const source = <T extends SummaryTable>(table: T, strengths?: readonly string[]) =>
+        Effect.gen(function* () {
+          const data = new Map<string, (typeof summarySchemas)[T]["Type"]>();
+          const disposition = catalogs.families.find(entry => entry.season === year &&
+            entry.family === tableFamily(table, {}, "skater"))!;
+          if (disposition.availability === "not_computed") {
+            for (const {player_id} of peopleInYear)
+              for (const strength of strengths ?? [null])
+                data.set(strength === null ? player_id : `${player_id}:${strength}`, pending(disposition.explanation!));
+            return data;
+          }
+          yield* forEachRow(sql, table, row => Effect.try(() => {
+            if (row.season !== year) return;
+            const key = strengths ? `${row.player_id}:${row.strength}` : String(row.player_id);
+            data.set(key, resultFromRow(table, row));
+          }));
+          return data;
+        });
+      const ledgers = yield* source("value_ledger");
+      const providedLedgers = new Map([...ledgers].flatMap(([id,row]) =>
+        row.availability === "provided" ? [[id,row.data] as const] : []));
+      if (reference.availability !== "provided") {
+        if (providedLedgers.size !== 0)
+          return yield* Effect.fail(new Error("provided ledger lacks its annual reference"));
+        continue;
+      }
+      if (reference.data.season !== year)
+        return yield* Effect.fail(new Error("ledger reference season differs"));
+      const upstream = {
+        spatial: yield* source("skater_spatial", A.SpatialStrength.literals),
+        spatialEvidence: yield* source("spatial_evidence", A.SpatialStrength.literals),
+        execution: yield* source("skater_execution", A.ExecutionStrength.literals),
+        shootiness: yield* source("skater_shootiness", A.ExecutionStrength.literals),
+        penalties: yield* source("skater_penalties"),
+        territory: yield* source("skater_territory"),
+      };
+      const games = yield* sql.unsafe<{game_id: string; away_team_id: string; home_team_id: string}>(
+        "SELECT game_id,away_team_id,home_team_id FROM game WHERE season=?", [year]);
+      const inventory = new Map<string, Set<string>>();
+      for (const game of games)
+        for (const team of [game.away_team_id, game.home_team_id]) {
+          const ids = inventory.get(team) ?? new Set<string>();
+          ids.add(game.game_id);
+          inventory.set(team, ids);
+        }
+      const coverage = yield* Effect.try(() =>
+        validateLedgerYear(reference.data, providedLedgers, upstream, catalogs.methods, inventory, prepared));
+      ledgerReferences.set(year, coverage);
+    }
+    return { people, grids, ledgerReferences };
   });
 
 const mapKinds = (family: A.Family) =>
@@ -1605,36 +1671,5 @@ const validateRepeatedFacts = (sql: SqliteClient) =>
         });
       }),
     );
-    yield* forEachRow(sql, "value_ledger", (row) =>
-      Effect.gen(function* () {
-        if (row.availability !== "provided") return;
-        const methods = yield* sql.unsafe<{ payload_json: string }>(
-          "SELECT payload_json FROM analysis_method WHERE method_id=?",
-          [String(row.method_id)],
-        );
-        if (methods.length !== 1) return yield* Effect.fail(new Error("ledger method is missing"));
-        const ledger = yield* Effect.try(() => parseObject(methods[0].payload_json));
-        for (const table of [
-          "skater_spatial",
-          "skater_execution",
-          "skater_penalties",
-          "skater_territory",
-        ]) {
-          const components = yield* sql.unsafe<{ payload_json: string }>(
-            `SELECT m.payload_json FROM ${table} r JOIN analysis_method m USING(method_id) WHERE r.season=? AND r.player_id=? AND r.availability='provided'`,
-            [String(row.season), String(row.player_id)],
-          );
-          yield* Effect.try(() => {
-            for (const row of components) {
-              const component = parseObject(row.payload_json);
-              if (
-                component.reference_id !== ledger.reference_id ||
-                component.support_policy_id !== ledger.support_policy_id
-              )
-                throw new Error("ledger and component policies differ");
-            }
-          });
-        }
-      }),
-    );
+
   });

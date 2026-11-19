@@ -42,7 +42,7 @@ node --version
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /absolute/schema-11-candidate/player-analysis.sqlite --port 3067
+npm run serve -- --publication /absolute/schema-12-candidate/player-analysis.sqlite --port 3067
 ```
 
 to review another revision, build a separate checkout with the pinned node path above and serve it on a separate port:
@@ -52,10 +52,10 @@ cd /absolute/review-checkout/app
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /absolute/schema-11-candidate/player-analysis.sqlite --port 3067
+npm run serve -- --publication /absolute/schema-12-candidate/player-analysis.sqlite --port 3067
 ```
 
-open `http://127.0.0.1:3067/`. current source reads schema 11 only; the running schema-8 service still uses its unchanged compatible compiled build. build candidate reviews in a separate checkout. the active schema-8 publication and previous schema-7 rollback are tracked in [the current activation record](docs/research/execution-v1-06/activation.md), with their compatible builds. the normal application serves the local active database at `http://localhost:3000/`. use a separately built checkout and unused port to inspect another schema-8 candidate without replacing the active files. only its sqlite file is needed for browsing. rebuild compatible applications from git; no archived build is needed.
+open `http://127.0.0.1:3067/`. current source reads schema 12 only; the running schema-8 service still uses its unchanged compatible compiled build. build candidate reviews in a separate checkout. the active schema-8 publication and previous schema-7 rollback are tracked in [the current activation record](docs/research/execution-v1-06/activation.md), with their compatible builds. the normal application serves the local active database at `http://localhost:3000/`. use a separately built checkout and unused port to inspect another schema-8 candidate without replacing the active files. only its sqlite file is needed for browsing. rebuild compatible applications from git; no archived build is needed.
 
 the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python and external network are unnecessary for browsing. the selected sqlite file must remain accessible; an external drive is needed only when that file is stored there. stop it with ctrl-c before replacing the publication. no lan host option is provided.
 
@@ -88,7 +88,7 @@ the peer minute cutoff is a viewing rule, not evidence of reliability. each elig
 development’s api uses port 3000, so stop its existing server before that development workflow; separate built-candidate review leaves it running. development uses two terminals, each in `app/` with the pinned node executable first:
 
 ```sh
-npm run dev:api -- --publication /absolute/schema-11-candidate/player-analysis.sqlite
+npm run dev:api -- --publication /absolute/schema-12-candidate/player-analysis.sqlite
 ```
 
 ```sh
@@ -142,12 +142,12 @@ the typed api has five endpoints:
 for an explicitly assigned activation, check the candidate, stop serving, then copy/rotate explicitly:
 
 ```sh
-npm run publication -- check --candidate /absolute/schema-11-candidate/player-analysis.sqlite
-npm run publication -- activate --candidate /absolute/schema-11-candidate/player-analysis.sqlite --directory /absolute/publication
+npm run publication -- check --candidate /absolute/schema-12-candidate/player-analysis.sqlite
+npm run publication -- activate --candidate /absolute/schema-12-candidate/player-analysis.sqlite --directory /absolute/publication
 npm run serve -- --publication /absolute/publication/active.sqlite
 ```
 
-activation validates an exclusive incoming copy and reports its digest. it preserves an existing active file as opaque predecessor bytes and reports that byte identity; an incompatible predecessor is checked using its matching git build. exactly one `previous.sqlite` remains. to restore a schema-11 previous publication with current source, stop serving, run the following, restart and reload:
+activation validates an exclusive incoming copy and reports its digest. it preserves an existing active file as opaque predecessor bytes and reports that byte identity; an incompatible predecessor is checked using its matching git build. exactly one `previous.sqlite` remains. to restore a schema-12 previous publication with current source, stop serving, run the following, restart and reload:
 
 ```sh
 npm run publication -- restore --directory /absolute/publication

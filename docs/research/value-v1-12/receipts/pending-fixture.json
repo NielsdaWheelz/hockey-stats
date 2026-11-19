@@ -1,0 +1,29 @@
+{
+  "purpose": "fixture",
+  "publication_id": "8f04b817-b48f-4dce-b50c-8054762f57a6",
+  "path": ".tmp/ledger-pending/candidate-04/player-analysis.sqlite",
+  "bytes": 16744448,
+  "sha256": "6143502e4b8c1246d978735af3e4e2462755656e47b30a506ba3398bdf0a34dc",
+  "runtime": "24.21.0",
+  "proof": {
+    "red_missing_annual_ref": "strict startup fails with one annual ledger reference is required",
+    "green_start": "strict reader accepts byte-exact sqlite copy with no adjacent inputs, launched from /private/tmp",
+    "http": {
+      "overview_bytes": {"20232024": 280941, "20242025": 286750, "20252026": 278644},
+      "pending_evidence_bytes": 52232,
+      "absent_evidence_bytes": 52223,
+      "all_three_overviews_pending": true,
+      "pending_summary_evidence_equal": true,
+      "absent_season_retained": true,
+      "selectors_rejected": ["strength", "type", "population", "map"]
+    },
+    "chrome_375": {
+      "default_profile_ledger_requests": 0,
+      "explicit_pending_ledger_requests": 1,
+      "explicit_absent_ledger_requests": 1,
+      "scroll_width": 375,
+      "page_errors": 0
+    }
+  },
+  "limitation": "pending-only fixture reused observed selection, people, catalogs and factual evidence. analytical families pending. real provided ledger acceptance remains separate."
+}

@@ -1,8 +1,6 @@
 """finite detached territory evidence, support and accounting contracts."""
 
 import math
-import hashlib
-import struct
 
 from . import analysis_publication as p
 from .artifacts import require
@@ -67,25 +65,11 @@ def reference_body(evidence, season, purpose, recipe_id):
         successor_data=evidence['successor_reference']['data'])
 
 
-def reference_digest(body):
-    """canonical json with numeric leaves tagged by their exact binary64 bytes."""
-    def canonical(value):
-        if type(value) in (int,float):
-            p.number(value)
-            return ['f64',struct.pack('>d',0. if value==0 else float(value)).hex()]
-        if type(value) is dict:
-            return {key:canonical(item) for key,item in value.items()}
-        if type(value) is list:
-            return [canonical(item) for item in value]
-        return value
-    return hashlib.sha256(p.json_bytes(canonical(body))).hexdigest()
-
-
 def validate_binding(data, row, catalogs, references):
     evidence = data['evidence']
     method = catalogs['method'][data['method_id']]
     require(method['family']=='territory' and method['recipe_id']=='territory-v1-11-1','territory method family/recipe differs')
-    require(evidence['reference_id']==reference_digest(reference_body(evidence,row['season'],method['purpose'],method['recipe_id'])),
+    require(evidence['reference_id']==p.reference_digest(reference_body(evidence,row['season'],method['purpose'],method['recipe_id'])),
         'territory numerical reference digest differs')
     require(any(item['role']=='territory_reference' and item['sha256']==evidence['reference_id'] and item['seasons']==[row['season']]
         for item in method['inputs']) and any(item['sha256']==evidence['reference_id'] for item in method['evidence']),

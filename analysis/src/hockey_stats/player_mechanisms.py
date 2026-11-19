@@ -22,6 +22,7 @@ from .chance_cli import identity
 
 from .mechanism_design import STATES,ROLES
 UNITS = ((3,2),(4,1),(4,1),(3,1),(2,2),(1,2),(1,2))
+SHOOTER_ROLE_MASS = (2/3, 1/3)
 SOLVER = dict(maxiter=10000,ftol=1e-15,gtol=1e-6,maxcor=10)
 CONTINUATION = dict(maxiter=10000,ftol=1e-16,gtol=1e-7,maxcor=10)
 
@@ -108,7 +109,7 @@ def _choice_logits(beta, design, start, end):
     roles = design.candidate_roles[begin:finish]
     counts = np.bincount(choices*3+roles,minlength=(end-start)*3).reshape(-1,3)
     weight = np.empty(len(roles))
-    for role,mass in ((0,2/3),(1,1/3)):
+    for role,mass in enumerate(SHOOTER_ROLE_MASS):
         selected = roles == role
         weight[selected] = mass/counts[choices[selected],role]
     unknown = roles == 2
@@ -279,6 +280,10 @@ def _center(design,family,beta,log_rate):
     return centers,reference,centered
 
 
+def unit_shooter_base_logits(forwards, defenders):
+    return tuple(math.log(mass/count) for mass,count in zip(SHOOTER_ROLE_MASS,(forwards,defenders),strict=True))
+
+
 def project_mechanism(design,family,head,beta=None):
     complete=head['status']=='complete'
     centers,reference,centered=(_center(design,family,beta,head['reference']['log_rate'] if family=='penalties' else None) if complete
@@ -320,7 +325,7 @@ def project_mechanism(design,family,head,beta=None):
                 if complete and position!='unknown':
                     role=ROLES.index(position)
                     unit_roles=np.array([0]*forwards+[1]*defenders)
-                    logits=np.array([math.log((2/3)/forwards)]*forwards+[math.log((1/3)/defenders)]*defenders)
+                    logits=np.asarray(unit_shooter_base_logits(forwards,defenders))[unit_roles]
                     logits+=np.asarray(reference['role_offsets'])[STATES.index(state),unit_roles]
                     slot=0 if role==0 else forwards
                     p0=float(math.exp(logits[slot]-logsumexp(logits)))
@@ -520,29 +525,359 @@ def fit_mechanism(design,previous,output,*,final_year=False):
     return write_mechanism_state(Path(output),design,family,previous_state,head,arrays,projections,support,reference,probe,resources)
 
 
+def _shorthanded_inputs(prepared, scores):
+    from .analysis_data import PreparedManifest
+    from .execution_scores import ExecutionScoreEvents, ExecutionScores
+
+    require(isinstance(prepared, PreparedManifest) and isinstance(scores, (ExecutionScoreEvents, ExecutionScores)),
+            "checked preparation and execution score events required for shorthanded reduction")
+    season = scores.manifest["season"]
+    selected = next((row for row in prepared["seasons"] if row["season"] == season), None)
+    require(selected is not None and scores.manifest["purpose"] == prepared["purpose"],
+            "score/prepared shorthanded season or purpose differs")
+    expected = dict(purpose=prepared["purpose"], **identity(prepared.directory / "manifest.json"),
+                    members=[row for row in prepared["files"] if row["season"] == season])
+    require(same_input_reference(scores.manifest["prepared"], expected)
+            and scores.manifest["coaches"]["selected_game_ids"] == selected["selected_game_ids"],
+            "score preparation or game membership differs")
+    return season, selected, expected
+
+
+_LEDGER_SHORTHANDED_CONSTRUCTION = "matched-exact-shorthanded-segments-v1"
+
+
+def reduce_shorthanded_reference(prepared, scores, strengths=("3v5", "3v4")):
+    """Reduce the missing shorthanded opportunities from two bound saved inputs."""
+    strengths = tuple(strengths)
+    require(strengths == ("3v5", "3v4"), "ledger shorthanded strengths differ")
+    season, selected, prepared_ref = _shorthanded_inputs(prepared, scores)
+    return dict(schema_version=1, kind="ledger_shorthanded_reduction", construction=_LEDGER_SHORTHANDED_CONSTRUCTION,
+                purpose=prepared["purpose"],
+                season=season, inputs=dict(prepared={k: prepared_ref[k] for k in ("path", "sha256")},
+                                           execution_score=identity(scores.path)),
+                strengths=_shorthanded_games(prepared, scores, selected, strengths))
+
+
+def validate_shorthanded_reference(receipt, prepared, scores):
+    """Validate a saved selected-state reduction using only its bound evidence."""
+    from .artifacts import require_count, require_fields, require_number
+
+    purpose = prepared["purpose"]
+    season, selected, prepared_ref = _shorthanded_inputs(prepared, scores)
+    require_fields(receipt, ("schema_version", "kind", "construction", "purpose", "season", "inputs", "strengths"),
+                   "ledger shorthanded reduction")
+    require(type(receipt["schema_version"]) is int and receipt["schema_version"] == 1
+            and receipt["kind"] == "ledger_shorthanded_reduction"
+            and (receipt["purpose"], receipt["season"]) == (purpose, season),
+            "ledger shorthanded schema, purpose or season differs")
+    require(receipt["construction"] == _LEDGER_SHORTHANDED_CONSTRUCTION,
+            "ledger shorthanded construction differs")
+    bindings = dict(prepared={k: prepared_ref[k] for k in ("path", "sha256")}, execution_score=identity(scores.path))
+    require_fields(receipt["inputs"], bindings, "shorthanded bindings")
+    require(all(same_input_reference(receipt["inputs"][key], binding) for key, binding in bindings.items()),
+            "shorthanded prepared or execution score binding differs")
+    require_fields(receipt["strengths"], ("3v5", "3v4"), "ledger shorthanded states")
+
+    retained_by_strength = set()
+    for strength, result in receipt["strengths"].items():
+        require_fields(result, ("sh_support", "games"), strength)
+        games = result["games"]
+        require(type(games) is list and all(type(game) is dict for game in games)
+                and [game.get("game_id") for game in games] == selected["selected_game_ids"],
+                f"{strength}: selected shorthanded games differ")
+        for game in games:
+            game_id = game["game_id"]
+            label = f"{game_id}/{strength}"
+            require_fields(game, ("game_id", "included_seconds", "known_excluded_seconds", "excluded_segments",
+                                  "attempts", "neutral_goal_mass", "retained_keys", "dispositions",
+                                  "unquantified_gap", "segment_seconds", "retained_masses"), label)
+            require(type(game["segment_seconds"]) is list, f"{label}: invalid segment durations")
+            segment_seconds = {}
+            for row in game["segment_seconds"]:
+                require_fields(row, ("segment_index", "seconds"), label)
+                index = row["segment_index"]
+                require_count(index, label)
+                require(index not in segment_seconds, f"{label}: duplicate physical segment")
+                seconds = require_number(row["seconds"], label, low=0)
+                require(seconds > 0, f"{label}: empty segment")
+                segment_seconds[index] = seconds
+            excluded = game["excluded_segments"]
+            require(type(excluded) is list and all(type(index) is int and index in segment_seconds for index in excluded)
+                    and excluded == sorted(set(excluded)), f"{label}: invalid excluded segment union")
+            excluded = set(excluded)
+            require(type(game["unquantified_gap"]) is bool and list(segment_seconds) == sorted(segment_seconds),
+                    f"{label}: unordered physical segment or invalid gap")
+            require(require_number(game["included_seconds"], label, low=0) ==
+                    math.fsum(seconds for index, seconds in segment_seconds.items() if index not in excluded)
+                    and require_number(game["known_excluded_seconds"], label, low=0) ==
+                    math.fsum(segment_seconds[index] for index in excluded), f"{label}: time union differs")
+
+            require(type(game["dispositions"]) is list, f"{label}: expected dispositions")
+            expected, seen = [], set()
+            for row in game["dispositions"]:
+                require(type(row) is dict, f"{label}: invalid disposition")
+                status = row.get("status")
+                locator = "report_source_index" if status == "unmatched_possible_sh_report" else "source_index"
+                require_fields(row, (locator, "status", "segments"), label)
+                index = row[locator]
+                require_count(index, label)
+                key = locator, index
+                require(key not in seen and type(row["segments"]) is list and bool(row["segments"])
+                        and all(type(i) is int and i in segment_seconds for i in row["segments"])
+                        and row["segments"] == sorted(set(row["segments"])),
+                        f"{label}: duplicate or unbound attempt disposition")
+                seen.add(key)
+                if status == "matched_neutral":
+                    require(len(row["segments"]) == 1, f"{label}: ambiguous matched attempt segment")
+                    if row["segments"][0] not in excluded:
+                        expected.append(f"{game_id}:{index}")
+                else:
+                    require(status in ("unmatched_possible_sh_report", "unresolved_possible_attempt",
+                                        "ambiguous_potential_shorthanded", "membership_assignment_unresolved",
+                                        "neutral_score_unavailable")
+                            and all(i in excluded for i in row["segments"]),
+                            f"{label}: unresolved attempt retained in matched time")
+            require(game["retained_keys"] == expected and not retained_by_strength.intersection(expected),
+                    f"{label}: retained attempt identity differs")
+            retained_by_strength.update(expected)
+            require_count(game["attempts"], label)
+            weights = game["retained_masses"]
+            require(type(weights) is list and len(weights) == len(expected) == game["attempts"],
+                    f"{label}: retained attempt count differs")
+            require(require_number(game["neutral_goal_mass"], label, low=0) ==
+                    math.fsum(require_number(weight, label, low=0, high=1) for weight in weights),
+                    f"{label}: retained neutral mass differs")
+
+        support = result["sh_support"]
+        expected = _shorthanded_support(games)
+        require_fields(support, expected, strength)
+        require_count(support["attempts"], strength)
+        for field in ("included_seconds", "known_excluded_seconds", "neutral_goal_mass"):
+            require_number(support[field], strength, low=0)
+        require(type(support["unquantified_gap"]) is bool and support == expected,
+                f"{strength}: saved shorthanded accounting differs")
+    return receipt
+
+
+def _shorthanded_games(prepared, scores, selected, strengths):
+    from itertools import groupby
+    from operator import itemgetter
+
+    from .analysis_data import read_prepared_game
+
+    season = selected["season"]
+    game_ids = selected["selected_game_ids"]
+    receipts = {state: {} for state in strengths}
+    stream = groupby(scores.events(), key=itemgetter("game_id"))
+    next_scored = next(stream, None)
+    for game_id in sorted(game_ids):
+        scored = {}
+        if next_scored is not None:
+            score_game, rows = next_scored
+            require(score_game >= game_id, f"{score_game}: score game outside selected reduction")
+            if score_game == game_id:
+                previous = -1
+                for row in rows:
+                    index = row["source_index"]
+                    require(previous < index and row["key"] == f"{game_id}:{index}"
+                            and row["season"] == season, f"{game_id}: unordered or foreign score key")
+                    scored[index] = row
+                    previous = index
+                next_scored = next(stream, None)
+        game = read_prepared_game(prepared, season, game_id)
+        for strength, receipt in _shorthanded_game(game, scored, strengths).items():
+            receipts[strength][game_id] = receipt
+    require(next_scored is None, "unconsumed game in shorthanded execution score stream")
+
+    result = {}
+    for strength, by_game in receipts.items():
+        games = [by_game[game_id] for game_id in game_ids]
+        support = _shorthanded_support(games)
+        if strength == "4v5":
+            # Preserve the accepted minor-reference accrual in its original date order.
+            for field in ("included_seconds", "known_excluded_seconds", "neutral_goal_mass"):
+                value = 0.
+                for row in games:
+                    value += row[field]
+                support[field] = value
+        result[strength] = dict(sh_support=support, games=games)
+    return result
+
+
+def _shorthanded_support(games):
+    return dict(included_seconds=math.fsum(row["included_seconds"] for row in games),
+                known_excluded_seconds=math.fsum(row["known_excluded_seconds"] for row in games),
+                neutral_goal_mass=math.fsum(row["neutral_goal_mass"] for row in games),
+                attempts=sum(row["attempts"] for row in games),
+                unquantified_gap=any(row["unquantified_gap"] for row in games))
+
+
+def _shorthanded_game(game, scored, strengths):
+    from .execution_history import _value
+    from .mechanism_design import _affected, choice_population, mechanism_membership
+    from .reconstruct import report_membership, roster_identities
+
+    game_id = game["game_id"]
+    source = game["game"]
+    support = game["ordinary_attempt_support"]
+    segments = {row["segment_index"]: row for row in game["segments"] or ()}
+    attempts = {row["source_index"]: row for row in game["attempts"] or ()}
+    require(scored.keys() <= attempts.keys(), f"{game_id}: score key absent from native attempt population")
+    membership = mechanism_membership(game)
+    physical = {}
+    for index, segment in segments.items():
+        members = segment["membership"]
+        if len(members["home_goalies"]) == len(members["away_goalies"]) == 1:
+            physical[index] = tuple(sorted(len(members[side + "_skaters"]) for side in ("home", "away")))
+    unsupported = set(membership["excluded_segments"])
+    for reason in support["reasons"]:
+        if reason["code"] in ("source_unavailable", "count_accounting_conflict"):
+            unsupported.update(reason["affected_segment_indices"])
+    if game["attempts"] is None or game["events"] is None:
+        unsupported.update(segments)
+
+    assignments = {row["source_index"]: row for row in support["events"] or ()}
+    events = {row["source"]["source_index"]: row for row in game["events"] or ()}
+    unassigned = {}
+    for index, assignment in assignments.items():
+        if index not in attempts and assignment["disposition"] != "not_applicable":
+            event_source = events.get(index, {}).get("source", {})
+            unassigned[index] = _affected(list(segments.values()), event_source.get("period_number"),
+                                           event_source.get("elapsed_seconds"))
+
+    report_index = {row["source_index"]: row for row in source["report_rows"] or ()}
+    roster = roster_identities([row for person in (game["people"] or {}).values() for row in person["roster"]])
+    identity = source["identity"] or source["inventory"]
+    unmatched = []
+    for report_only in support["report_only"] or ():
+        report = report_index[report_only["report_source_index"]]
+        if report["period_number"] == 5 or report["penalty_shot"] is True:
+            continue
+        members, invalid = report_membership(report, identity, roster, [])
+        side = next((side for side in ("home", "away") if report["shooting_team_id"] == identity[side + "_team_id"]), None)
+        state = None
+        if not invalid and side is not None and all(len(members[s + "_goalies"]) == 1 for s in ("home", "away")):
+            other = "away" if side == "home" else "home"
+            state = (len(members[side + "_skaters"]), len(members[other + "_skaters"]))
+        unmatched.append((report["source_index"], state, set(report_only["affected_segment_indices"])))
+
+    exact_states = {strength: tuple(map(int, strength.split("v"))) for strength in strengths}
+    complete_trace = strengths == ("4v5",)
+    choices = choice_population(game) if complete_trace or set(physical.values()) & set(exact_states.values()) else ()
+    result = {}
+    for strength, counts in exact_states.items():
+        short = {index for index, state in physical.items() if state == counts}
+        excluded = unsupported & short
+        dispositions, retained = [], []
+        for index, state, implicated in unmatched:
+            other_state = state is not None and state != counts
+            affected = [] if other_state else sorted(implicated & short)
+            excluded.update(affected)
+            if complete_trace or affected:
+                dispositions.append(dict(report_source_index=index, segments=affected,
+                    status="proved_nonsh_report" if other_state else "unmatched_possible_sh_report"))
+        for index, implicated in unassigned.items():
+            affected = sorted(set(implicated) & short)
+            excluded.update(affected)
+            if complete_trace or affected:
+                dispositions.append(dict(source_index=index, status="unresolved_possible_attempt", segments=affected))
+        for choice in choices:
+            index = choice["source_index"]
+            attempt = attempts[index]
+            details = attempt["details"]
+            physical_status = _value(details, "physical_status")
+            if physical_status == "outside_population":
+                continue
+            if complete_trace and choice["strength"] not in (None, strength):
+                dispositions.append(dict(source_index=index, status="outside_shorthanded_population", segments=[]))
+                continue
+            assignment = assignments.get(index)
+            segment_index = None if assignment is None else assignment["segment_index"]
+            if segment_index is None:
+                event_source = events.get(index, {}).get("source", {})
+                implicated = set(_affected(list(segments.values()), event_source.get("period_number"),
+                                           event_source.get("elapsed_seconds"))) & short
+            else:
+                require(segment_index in segments, "shorthanded attempt segment absent")
+                implicated = {segment_index} & short
+            state = attempt["feature_facts"]["state"]
+            side = choice["attacking_side"]
+            if complete_trace:
+                if not implicated and choice["strength"] is None:
+                    continue
+            else:
+                # Event lineup counts can conflict with native time. Only a
+                # proved team on the long side can clear an implicated segment.
+                if (physical_status == "ordinary" and side in ("away", "home")
+                        and _value(details, "shooting_team_id") == _value(state, "shooting_team_id")
+                        == identity[side + "_team_id"]):
+                    implicated = {i for i in implicated
+                                  if len(segments[i]["membership"][side + "_skaters"]) == counts[0]}
+                if not implicated:
+                    continue
+
+            key = f"{game_id}:{index}"
+            if ((choice["status"] != "included" and choice["reason"] != "goalie_attempt")
+                    or choice["strength"] != strength or segment_index not in short):
+                status = "ambiguous_potential_shorthanded"
+            else:
+                members = segments[segment_index]["membership"]
+                other = "away" if side == "home" else "home"
+                require((len(members[side + "_skaters"]), len(members[other + "_skaters"])) == counts,
+                        f"{key}: shorthanded source/segment strength contradicts")
+                if any(sorted(_value(state, k) or []) != sorted(members[k]) for k in members):
+                    status = "membership_assignment_unresolved"
+                else:
+                    score = scored.get(index)
+                    if score is not None:
+                        require(score["physical_state"] is None or tuple(score["physical_state"]) == (*counts, 1, 1),
+                                f"{key}: execution score state lineage differs")
+                        require(score["shooter_id"] is None or score["shooter_id"] == choice["shooter_id"],
+                                f"{key}: execution score shooter lineage differs")
+                        require(score["outcome"] is None or score["outcome"] == _value(details, "outcome"),
+                                f"{key}: execution score outcome lineage differs")
+                    if score is None or score["status"] != "complete":
+                        status = "neutral_score_unavailable"
+                    else:
+                        value = score["prefixes"]["neutral"]["uqrg"]
+                        require(type(value) in (int, float) and math.isfinite(value) and 0 <= value <= 1,
+                                f"{key}: invalid saved neutral mass")
+                        retained.append((segment_index, key, float(value)))
+                        status = "matched_neutral"
+            if status != "matched_neutral":
+                excluded.update(implicated)
+            dispositions.append(dict(source_index=index, status=status, segments=sorted(implicated)))
+
+        kept = [(key, value) for index, key, value in retained if index not in excluded]
+        duration = {index: segments[index]["end_seconds"] - segments[index]["start_seconds"] for index in short}
+        add = sum if complete_trace else math.fsum
+        receipt = dict(game_id=game_id, included_seconds=add(duration[i] for i in short - excluded),
+            known_excluded_seconds=add(duration[i] for i in excluded), excluded_segments=sorted(excluded),
+            attempts=len(kept), neutral_goal_mass=math.fsum(value for _, value in kept),
+            retained_keys=[key for key, _ in kept], dispositions=dispositions,
+            unquantified_gap=membership["unquantified_gap"])
+        if not complete_trace:
+            receipt["segment_seconds"] = [dict(segment_index=i, seconds=duration[i]) for i in sorted(short)]
+            receipt["retained_masses"] = [value for _, value in kept]
+        result[strength] = receipt
+    return result
+
+
 def reduce_minor_reference(prepared,execution_score,ev_saved,st_saved,*,output):
-    """reduce matched shorthanded neutral mass; no rescoring or advantage-mask reuse."""
-    from .analysis_data import PreparedManifest,read_prepared,read_prepared_game
+    """Reduce matched shorthanded neutral mass for the isolated-minor reference."""
+    from .analysis_data import PreparedManifest,read_prepared
     from .artifacts import write_json
     from .chance_cli import read_json
-    from .execution_history import _value
     from .execution_scores import ExecutionScores,read_execution_scores
-    from .mechanism_design import mechanism_membership,choice_population,_affected
-    from .reconstruct import report_membership,roster_identities
     from .spatial_rates import ST_RECIPE
     from .spatial_state import SavedSpatialEvidence,read_saved_spatial_evidence
     if not isinstance(prepared,PreparedManifest):
         p=input_path(prepared,strict=True);purpose=read_json(p/'manifest.json' if p.is_dir() else p)['purpose'];prepared=read_prepared(p,purpose)
     purpose=prepared['purpose']
     scores=execution_score if isinstance(execution_score,ExecutionScores) else read_execution_scores(execution_score,purpose)
-    season=scores.manifest['season']
+    season,selected,expected_prepared=_shorthanded_inputs(prepared,scores)
     ev=ev_saved if isinstance(ev_saved,SavedSpatialEvidence) else read_saved_spatial_evidence(ev_saved,purpose)
     st=st_saved if isinstance(st_saved,SavedSpatialEvidence) else read_saved_spatial_evidence(st_saved,purpose,expected_family='st',expected_recipe=ST_RECIPE)
-    selected=next((r for r in prepared['seasons'] if r['season']==season),None)
-    require(selected is not None,'minor reference prepared season absent')
-    expected_prepared=dict(purpose=purpose,**identity(prepared.directory/'manifest.json'),
-                          members=[r for r in prepared['files'] if r['season']==season])
-    require(same_input_reference(scores.manifest['prepared'],expected_prepared),'minor reference score preparation differs')
     score_binding=identity(scores.path)
     for saved in (ev,st):
         require(saved.manifest['season']==season and saved.manifest['purpose']==purpose
@@ -558,102 +893,13 @@ def reduce_minor_reference(prepared,execution_score,ev_saved,st_saved,*,output):
                 'minor reference repeated neutral rates differ')
         return float(values[0])
     a=neutral(st,'offense','5v4');e_f=neutral(ev,'offense');e_a=neutral(ev,'defense')
-    scored={r['key']:r for r in scores.events()}
-    game_receipts=[];included_seconds=0.;excluded_seconds=0.;mass=0.;attempt_count=0;gap=False
-    for game_id in selected['selected_game_ids']:
-        game=read_prepared_game(prepared,season,game_id)
-        membership=mechanism_membership(game)
-        segments={r['segment_index']:r for r in game['segments'] or []}
-        short_segments={index:segment for index,segment in segments.items()
-            if len(segment['membership']['home_goalies'])==len(segment['membership']['away_goalies'])==1
-            and sorted((len(segment['membership']['home_skaters']),len(segment['membership']['away_skaters'])))==[4,5]}
-        excluded=set(membership['excluded_segments'])&set(short_segments)
-        # these source gaps cannot establish zero short-handed responses; shot-value defects do not enter.
-        for reason_record in game['ordinary_attempt_support']['reasons']:
-            if reason_record['code'] in ('source_unavailable','count_accounting_conflict'):
-                excluded.update(set(reason_record['affected_segment_indices'])&set(short_segments))
-        assignments={r['source_index']:r for r in game['ordinary_attempt_support']['events'] or []}
-        attempts={r['source_index']:r for r in game['attempts'] or []}
-        events={r['source']['source_index']:r for r in game['events'] or []}
-        retained=[];dispositions=[]
-        reports={row['source_index']:row for row in game['game']['report_rows'] or []}
-        roster=roster_identities([row for person in (game['people'] or {}).values() for row in person['roster']])
-        game_identity=game['game']['identity'] or game['game']['inventory']
-        for report_only in game['ordinary_attempt_support']['report_only'] or []:
-            report=reports[report_only['report_source_index']]
-            if report['period_number']==5 or report['penalty_shot'] is True:continue
-            reported_members,invalid=report_membership(report,game_identity,roster,[])
-            shooting_side=next((side for side in ('home','away') if report['shooting_team_id']==game_identity[side+'_team_id']),None)
-            proven_other=False
-            if not invalid and shooting_side is not None and all(len(reported_members[s+'_goalies'])==1 for s in ('home','away')):
-                other='away' if shooting_side=='home' else 'home'
-                proven_other=(len(reported_members[shooting_side+'_skaters']),len(reported_members[other+'_skaters']))!=(4,5)
-            implicated=set(report_only['affected_segment_indices'])&set(short_segments)
-            if not proven_other:excluded.update(implicated)
-            dispositions.append(dict(report_source_index=report['source_index'],status='proved_nonsh_report' if proven_other else 'unmatched_possible_sh_report',
-                segments=[] if proven_other else sorted(implicated)))
-        for assigned in game['ordinary_attempt_support']['events'] or []:
-            index=assigned['source_index']
-            if index in attempts or assigned['disposition']=='not_applicable':continue
-            event=events.get(index)
-            implicated=set(_affected(list(segments.values()),None if event is None else event['source']['period_number'],
-                None if event is None else event['source']['elapsed_seconds']))&set(short_segments)
-            excluded.update(implicated)
-            dispositions.append(dict(source_index=index,status='unresolved_possible_attempt',segments=sorted(implicated)))
-        for choice in choice_population(game):
-            index=choice['source_index'];attempt=attempts[index];details=attempt['details'];key=f'{game_id}:{index}'
-            if _value(details,'physical_status')=='outside_population':continue
-            if choice['strength'] is not None and choice['strength']!='4v5':
-                dispositions.append(dict(source_index=index,status='outside_shorthanded_population',segments=[]));continue
-            assignment=assignments.get(index);segment_index=None if assignment is None else assignment['segment_index']
-            if segment_index is not None:
-                require(segment_index in segments,'minor reference attempt segment absent')
-                implicated={segment_index}&set(short_segments)
-            else:
-                event=events.get(index)
-                period=None if event is None else event['source']['period_number']
-                clock=None if event is None else event['source']['elapsed_seconds']
-                implicated=set(_affected(list(segments.values()),period,clock))&set(short_segments)
-            if not implicated and choice['strength'] is None:continue
-            if (choice['status']!='included' and choice['reason']!='goalie_attempt') or choice['strength']!='4v5' or segment_index not in short_segments:
-                excluded.update(implicated);dispositions.append(dict(source_index=index,status='ambiguous_potential_shorthanded',segments=sorted(implicated)));continue
-            segment=segments[segment_index];side=choice['attacking_side'];other='away' if side=='home' else 'home'
-            require(len(segment['membership'][side+'_skaters'])==4 and len(segment['membership'][other+'_skaters'])==5,
-                    f'{key}: shorthanded source/segment strength contradict')
-            state=attempt['feature_facts']['state']
-            consistent=all(sorted(_value(state,k) or [])==sorted(segment['membership'][k])
-                           for k in ('home_skaters','away_skaters','home_goalies','away_goalies'))
-            if not consistent:
-                excluded.update(implicated);dispositions.append(dict(source_index=index,status='membership_assignment_unresolved',segments=sorted(implicated)));continue
-            score=scored.get(key);outcome=_value(details,'outcome')
-            if score is not None:
-                require(score['key']==key and score['game_id']==game_id and score['source_index']==index,
-                        f'{key}: execution score key lineage differs')
-                require(score['physical_state'] is None or tuple(score['physical_state'])==(4,5,1,1),f'{key}: execution score state lineage differs')
-                require(score['shooter_id'] is None or score['shooter_id']==choice['shooter_id'],f'{key}: execution score shooter lineage differs')
-                require(score['outcome'] is None or score['outcome']==outcome,f'{key}: execution score outcome lineage differs')
-            if score is None or score['status']!='complete':
-                excluded.update(implicated);dispositions.append(dict(source_index=index,status='neutral_score_unavailable',segments=sorted(implicated)));continue
-            value=score['prefixes']['neutral']['uqrg']
-            require(type(value) in (int,float) and math.isfinite(value) and 0<=value<=1,f'{key}: invalid saved neutral mass')
-            retained.append((segment_index,key,float(value)))
-            dispositions.append(dict(source_index=index,status='matched_neutral',segments=[segment_index]))
-        # missing collections cannot prove zero events for a known shorthanded interval.
-        if game['attempts'] is None or game['events'] is None:
-            excluded.update(short_segments)
-        seconds=sum(s['end_seconds']-s['start_seconds'] for i,s in short_segments.items() if i not in excluded)
-        removed=sum(s['end_seconds']-s['start_seconds'] for i,s in short_segments.items() if i in excluded)
-        kept=[(key,v) for segment,key,v in retained if segment not in excluded]
-        subtotal=math.fsum(v for key,v in kept)
-        included_seconds+=seconds;excluded_seconds+=removed;mass+=subtotal;attempt_count+=len(kept);gap|=membership['unquantified_gap']
-        game_receipts.append(dict(game_id=game_id,included_seconds=seconds,known_excluded_seconds=removed,
-            excluded_segments=sorted(excluded),attempts=len(kept),neutral_goal_mass=subtotal,
-            retained_keys=[key for key,v in kept],dispositions=dispositions,unquantified_gap=membership['unquantified_gap']))
+    reduction=_shorthanded_games(prepared,scores,selected,('4v5',))['4v5']
+    sh_support=reduction['sh_support']
+    game_receipts=reduction['games']
+    mass=sh_support['neutral_goal_mass'];included_seconds=sh_support['included_seconds']
     b=mass/(included_seconds/3600) if included_seconds>0 else None
     bindings=dict(prepared=identity(prepared.directory/'manifest.json'),execution_score=score_binding,
                   ev_state=identity(ev.path/'manifest.json'),st_state=identity(st.path/'manifest.json'))
-    sh_support=dict(included_seconds=float(included_seconds),attempts=attempt_count,neutral_goal_mass=float(mass),
-                    known_excluded_seconds=float(excluded_seconds),unquantified_gap=bool(gap))
     receipt=dict(schema_version=1,kind='shorthanded_neutral_reduction',purpose=purpose,season=season,inputs=bindings,
         sh_support=sh_support,games=game_receipts,construction='proved shooting-side 4v5; independent native membership; whole maximal-segment exclusion for ambiguous potential response or missing neutral score; zero-event time retained')
     root=Path(output).resolve();root.mkdir(parents=True,exist_ok=False)

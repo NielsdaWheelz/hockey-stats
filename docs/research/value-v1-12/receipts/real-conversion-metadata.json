@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/exchange6/manifest.json",
+    "sha256": "10daf08b2018abca8566295bd7aa38c7e8dca3bc3caf1018a0ceea6aa45d9087"
+  },
+  "conversion": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/exchange6/exchange6-conversion.json",
+    "sha256": "99cdecb5c944b5e79141c62bca443e2b104e21452021861a7b87eaa25800f568"
+  },
+  "schema": 6,
+  "checked_catalogs": [
+    "methods",
+    "people",
+    "sources",
+    "supports"
+  ],
+  "pending_annual_envelopes": [
+    "20232024",
+    "20242025",
+    "20252026"
+  ]
+}

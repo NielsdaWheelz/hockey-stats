@@ -470,10 +470,15 @@ function withLedgerEvidence(profile: ProfileView, evidence: EvidenceResponse): P
     const { depth_reference_coverage: coverage, depth_position_group: group,
       annual_reference_id: referenceId, ...expectedScalars } = expected.data;
     const position = group === "unknown" ? null : reference.positions[group];
+    const groups = reference.groups.filter(entry => entry.position === group);
+    const completeGroups = groups.filter(entry => entry.status === "complete").length;
+    const detailCoverage = position === null ? null : {
+      available: position.available, complete_groups: completeGroups,
+      excluded_groups: groups.length - completeGroups,
+      member_count: position.member_count, total_seconds: position.total_seconds,
+    };
     if (referenceId !== detail.annual_reference_id || referenceId !== reference.reference_id ||
-        group !== detail.depth_position.group ||
-        (position !== null && (coverage?.available !== position.available ||
-          coverage?.member_count !== position.member_count || coverage.total_seconds !== position.total_seconds)) ||
+        group !== detail.depth_position.group || !equal(coverage, detailCoverage) ||
         !equal(expectedScalars, scalars))
       throw new Error("ledger evidence scalars or reference identity differ from its annual summary");
   }

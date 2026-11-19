@@ -219,10 +219,13 @@ export const validateLedgerYear = (
     return missing ? same(actual, missing) : near(actual.value, estimates.map(estimate => estimate.value));
   };
   const evidenceByMethod = new Set<string>();
-  const stateRows = <T>(rows: ReadonlyMap<string, T>, strength: string) =>
-    [...rows].filter(([key]) => key.endsWith(`:${strength}`))
+  const stateRows = <T>(rows: ReadonlyMap<string, T>, strength: string) => {
+    const suffix = `:${strength}`;
+    return [...rows].flatMap(([key, row]) =>
+      key.endsWith(suffix) ? [[key.slice(0, -suffix.length), row] as const] : [])
       .sort(([left], [right]) => left < right ? -1 : left > right ? 1 : 0)
       .map(([, row]) => row);
+  };
 
   for (const [strength, indices] of [["pp", [1,2,3]], ["pk", [4,5,6]]] as const) {
     for (const { data } of stateRows(source.spatial, strength))

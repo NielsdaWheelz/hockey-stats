@@ -11,8 +11,25 @@ const csvHeaders = [
   "row_type", "publication_id", "season", "subject_player_id", "annual_reference_id",
   "term", "strength", "depth_group", "team_id", "member_player_id", "rank",
   "seconds", "unit", "league_value", "depth_mean", "replacement_value",
-  "league_reason", "replacement_reason", "evidence",
+  "league_reason", "replacement_reason",
+  "execution_use", "unit_position", "workload_hours", "mixture_weight_fraction",
+  "neutral_team_attempts_per_hour", "attempt_rate_unavailable_reason",
+  "panel_id", "panel_opportunities_count", "panel_unavailable_reason",
+  "focal_shooter_probability_fraction", "focal_shooter_probability_unavailable_reason",
+  "setter_share_fraction", "setter_share_unavailable_reason",
+  "finishing_goals_per_100_attempts", "finishing_rate_unavailable_reason",
+  "setting_goals_per_100_setup_opportunities", "setting_rate_unavailable_reason",
+  "finishing_goals_per_reference_basket", "finishing_value_unavailable_reason",
+  "setting_goals_per_reference_basket", "setting_value_unavailable_reason",
+  "team_group_status", "team_group_exclusion_reasons", "rank_status",
+  "rank_member_complete", "rank_member_depth", "depth_reference_status",
+  "depth_reference_unavailable_reason", "member_vector_status", "member_missing_terms",
+  "evidence",
 ] as const;
+
+type ConstructionRow = {
+  readonly row_type: "term" | "execution_state" | "team_rank" | "weighted_member";
+} & Partial<Record<typeof csvHeaders[number], CsvCell>>;
 
 const constructionRows = (
   response: LedgerEvidence,
@@ -22,60 +39,97 @@ const constructionRows = (
 ): readonly (readonly CsvCell[])[] => {
   const { evidence } = ledger;
   const group = evidence.depth_position.group;
-  const prefix = [
-    response.publication.publication_id, response.season.season,
-    response.selection.player_id, reference.reference_id,
-  ] as const;
+  const identity = {
+    publication_id: response.publication.publication_id, season: response.season.season,
+    subject_player_id: response.selection.player_id, annual_reference_id: reference.reference_id,
+  };
   const means = group === "unknown" ? null : reference.positions[group].components;
-  return [
-    ...ledgerPresentation.map(([, term]) => {
-      const { league_goals, replacement_goals } = ledger.components[term];
-      return ["term", ...prefix, term, null, group, null, null, null, null,
-        "goals_per_reference_basket", league_goals.value, means?.[term], replacement_goals.value,
-        league_goals.unavailable_reason, replacement_goals.unavailable_reason,
-        JSON.stringify({ league: league_goals, replacement: replacement_goals })];
+  const rows: readonly ConstructionRow[] = [
+    ...ledgerPresentation.map(([, term]): ConstructionRow => {
+      const { league_goals: league, replacement_goals: replacement } = ledger.components[term];
+      return {
+        row_type: "term", term, depth_group: group, unit: "goals_per_reference_basket",
+        league_value: league.value, depth_mean: means?.[term], replacement_value: replacement.value,
+        league_reason: league.unavailable_reason, replacement_reason: replacement.unavailable_reason,
+        evidence: JSON.stringify({ league, replacement }),
+      };
     }),
     ...([
       ["total", ledger.league_total, ledger.replacement_total],
       ["penalties_combined", ledger.penalties_combined.league_goals, ledger.penalties_combined.replacement_goals],
-    ] as const).map(([term, league, replacement]) => [
-      "term", ...prefix, term, null, group, null, null, null, null,
-      "goals_per_reference_basket", league.value, null, replacement.value, league.unavailable_reason,
-      replacement.unavailable_reason,
-      JSON.stringify(term === "total" ? {
-        workload: ledger.reference_minutes, depth_position: evidence.depth_position,
+    ] as const).map(([term, league, replacement]): ConstructionRow => ({
+      row_type: "term", term, depth_group: group, unit: "goals_per_reference_basket",
+      league_value: league.value, replacement_value: replacement.value,
+      league_reason: league.unavailable_reason, replacement_reason: replacement.unavailable_reason,
+      evidence: JSON.stringify(term === "total" ? {
+        league, replacement, workload: ledger.reference_minutes, depth_position: evidence.depth_position,
         unit_position: evidence.unit_position, inputs: evidence.inputs,
         support: evidence.dependency_support, annual_inputs: reference.inputs,
         references: { F: reference.positions.F.reason, D: reference.positions.D.reason },
         methods, sources: response.sources, uncertainty: "not_estimated",
         conventions: [ledgerInteractions, ledgerLimits, termScaling, ...executionNotes],
       } : { league, replacement }),
-    ]),
-    ...evidence.execution_states.map((state, index) => [
-      "execution_state", ...prefix, null, state.strength, group, null, null, null, null,
-      "goals_per_reference_basket", null, null, null, null, null,
-      JSON.stringify({ state, common_reference: reference.state_references[index],
-        execution: evidence.dependency_support.execution[index],
-        shootiness: evidence.dependency_support.shootiness[index] }),
-    ]),
+    })),
+    ...evidence.execution_states.map((state, index): ConstructionRow => {
+      const common = reference.state_references[index];
+      const panel = common.execution_panel;
+      return {
+        row_type: "execution_state", strength: state.strength, depth_group: group,
+        execution_use: state.use, unit_position: evidence.unit_position,
+        workload_hours: common.hours, mixture_weight_fraction: common.mixture_weight,
+        neutral_team_attempts_per_hour: common.attempts_per_hour.value,
+        attempt_rate_unavailable_reason: common.attempts_per_hour.unavailable_reason,
+        panel_id: panel?.panel_id, panel_opportunities_count: panel?.opportunities,
+        panel_unavailable_reason: panel === null ? evidence.inputs.execution[index].explanation : null,
+        focal_shooter_probability_fraction: state.shooter_probability.value,
+        focal_shooter_probability_unavailable_reason: state.shooter_probability.unavailable_reason,
+        setter_share_fraction: state.setter_share.value,
+        setter_share_unavailable_reason: state.setter_share.unavailable_reason,
+        finishing_goals_per_100_attempts: state.finishing_per100.value,
+        finishing_rate_unavailable_reason: state.finishing_per100.unavailable_reason,
+        setting_goals_per_100_setup_opportunities: state.setting_per100.value,
+        setting_rate_unavailable_reason: state.setting_per100.unavailable_reason,
+        finishing_goals_per_reference_basket: state.finishing_goals.value,
+        finishing_value_unavailable_reason: state.finishing_goals.unavailable_reason,
+        setting_goals_per_reference_basket: state.setting_goals.value,
+        setting_value_unavailable_reason: state.setting_goals.unavailable_reason,
+        evidence: JSON.stringify({ state, common_reference: common,
+          execution: evidence.dependency_support.execution[index],
+          shootiness: evidence.dependency_support.shootiness[index] }),
+      };
+    }),
     ...reference.groups.flatMap(({ members, ...team }) => (
       members.length ? members : [null]
-    ).map(member => [
-      "team_rank", ...prefix, null, null, team.position, team.team_id, member?.player_id,
-      member?.rank, member?.known_team_seconds ?? team.known_seconds, "reported_seconds",
-      null, null, null, null, null, JSON.stringify({ team, member }),
-    ])),
+    ).map((member): ConstructionRow => ({
+      row_type: "team_rank", depth_group: team.position, team_id: team.team_id, member_player_id: member?.player_id,
+      rank: member?.rank, seconds: member?.known_team_seconds ?? team.known_seconds, unit: "reported_seconds",
+      team_group_status: team.status, team_group_exclusion_reasons: team.reasons.join("|"),
+      rank_status: team.status === "excluded" ? "group_excluded" : member === null ? "no_member" : "ranked",
+      rank_member_complete: member?.complete, rank_member_depth: member?.depth,
+      evidence: JSON.stringify({ team, member }),
+    }))),
     ...(["F", "D"] as const).flatMap(position => {
       const depth = reference.positions[position];
       const missing = new Map(depth.missing_vectors.map(member => [member.player_id, member.terms]));
-      return depth.members.map(member => [
-        "weighted_member", ...prefix, null, null, position, null, member.player_id, null, member.seconds,
-        "reported_seconds", null, null, null, null, depth.reason,
-        JSON.stringify({ teams: member.teams, reference_seconds: depth.total_seconds,
-          missing_terms: missing.get(member.player_id) ?? [] }),
-      ]);
+      return depth.members.map((member): ConstructionRow => {
+        const terms = missing.get(member.player_id);
+        return {
+          row_type: "weighted_member", depth_group: position, member_player_id: member.player_id,
+          seconds: member.seconds, unit: "reported_seconds",
+          depth_reference_status: depth.available ? "available" : "unavailable",
+          depth_reference_unavailable_reason: depth.reason,
+          member_vector_status: terms === undefined ? "complete" : "missing_terms",
+          member_missing_terms: terms?.join("|"),
+          evidence: JSON.stringify({ teams: member.teams, reference_seconds: depth.total_seconds,
+            missing_terms: terms ?? [] }),
+        };
+      });
     }),
   ];
+  return rows.map(row => {
+    const record = { ...identity, ...row };
+    return csvHeaders.map(field => record[field]);
+  });
 };
 
 const estimateText = (estimate: Estimate): string => estimate.value === null

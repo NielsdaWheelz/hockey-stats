@@ -1,0 +1,194 @@
+{
+  "20232024": {
+    "original_boxscore_games": 27,
+    "trade": {
+      "player_id": "8474145",
+      "original_team_seconds": {
+        "19": 2494,
+        "2": 19750
+      },
+      "depth_weight": {
+        "player_id": "8474145",
+        "seconds": 22244,
+        "teams": [
+          {
+            "team_id": "19",
+            "seconds": 2494
+          },
+          {
+            "team_id": "2",
+            "seconds": 19750
+          }
+        ]
+      }
+    },
+    "matched_samples": {
+      "3v5": [
+        {
+          "game_id": "2023020037",
+          "attempts": 1,
+          "included_seconds": 120.0,
+          "known_excluded_seconds": 0.0
+        },
+        {
+          "game_id": "2023020010",
+          "attempts": 0,
+          "included_seconds": 11.0,
+          "known_excluded_seconds": 0.0
+        }
+      ],
+      "3v4": [
+        {
+          "game_id": "2023020107",
+          "attempts": 1,
+          "included_seconds": 123.0,
+          "known_excluded_seconds": 0.0
+        },
+        {
+          "game_id": "2023020005",
+          "attempts": 0,
+          "included_seconds": 107.0,
+          "known_excluded_seconds": 0.0
+        },
+        {
+          "game_id": "2023020350",
+          "attempts": 0,
+          "included_seconds": 0.0,
+          "known_excluded_seconds": 120.0
+        }
+      ]
+    }
+  },
+  "20242025": {
+    "original_boxscore_games": 36,
+    "trade": {
+      "player_id": "8473446",
+      "original_team_seconds": {
+        "4": 17562,
+        "21": 13948
+      },
+      "depth_weight": {
+        "player_id": "8473446",
+        "seconds": 31510,
+        "teams": [
+          {
+            "team_id": "21",
+            "seconds": 13948
+          },
+          {
+            "team_id": "4",
+            "seconds": 17562
+          }
+        ]
+      }
+    },
+    "matched_samples": {
+      "3v5": [
+        {
+          "game_id": "2024020063",
+          "attempts": 1,
+          "included_seconds": 42.0,
+          "known_excluded_seconds": 0.0
+        },
+        {
+          "game_id": "2024020006",
+          "attempts": 0,
+          "included_seconds": 93.0,
+          "known_excluded_seconds": 0.0
+        },
+        {
+          "game_id": "2024020647",
+          "attempts": 0,
+          "included_seconds": 0.0,
+          "known_excluded_seconds": 86.0
+        }
+      ],
+      "3v4": [
+        {
+          "game_id": "2024020038",
+          "attempts": 1,
+          "included_seconds": 51.0,
+          "known_excluded_seconds": 0.0
+        },
+        {
+          "game_id": "2024020007",
+          "attempts": 0,
+          "included_seconds": 110.0,
+          "known_excluded_seconds": 0.0
+        },
+        {
+          "game_id": "2024021100",
+          "attempts": 0,
+          "included_seconds": 0.0,
+          "known_excluded_seconds": 47.0
+        }
+      ]
+    }
+  },
+  "20252026": {
+    "original_boxscore_games": 54,
+    "trade": {
+      "player_id": "8473422",
+      "original_team_seconds": {
+        "16": 28423,
+        "30": 12562
+      },
+      "depth_weight": {
+        "player_id": "8473422",
+        "seconds": 40985,
+        "teams": [
+          {
+            "team_id": "16",
+            "seconds": 28423
+          },
+          {
+            "team_id": "30",
+            "seconds": 12562
+          }
+        ]
+      }
+    },
+    "matched_samples": {
+      "3v5": [
+        {
+          "game_id": "2025020123",
+          "attempts": 1,
+          "included_seconds": 117.0,
+          "known_excluded_seconds": 0.0
+        },
+        {
+          "game_id": "2025020003",
+          "attempts": 0,
+          "included_seconds": 30.0,
+          "known_excluded_seconds": 0.0
+        },
+        {
+          "game_id": "2025020282",
+          "attempts": 0,
+          "included_seconds": 0.0,
+          "known_excluded_seconds": 39.0
+        }
+      ],
+      "3v4": [
+        {
+          "game_id": "2025020113",
+          "attempts": 1,
+          "included_seconds": 27.0,
+          "known_excluded_seconds": 0.0
+        },
+        {
+          "game_id": "2025020006",
+          "attempts": 0,
+          "included_seconds": 112.0,
+          "known_excluded_seconds": 0.0
+        },
+        {
+          "game_id": "2025020470",
+          "attempts": 0,
+          "included_seconds": 0.0,
+          "known_excluded_seconds": 131.0
+        }
+      ]
+    }
+  }
+}

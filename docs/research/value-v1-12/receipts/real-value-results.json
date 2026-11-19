@@ -1,0 +1,1569 @@
+{
+  "schema_version": 1,
+  "kind": "value_results",
+  "purpose": "real",
+  "input_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/selection-with-reductions.json",
+    "sha256": "8570bc063eb192bd07557081a25debe14336f6fe3ab3dedf386acdd679675939"
+  },
+  "source_results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/exchange6/manifest.json",
+    "sha256": "10daf08b2018abca8566295bd7aa38c7e8dca3bc3caf1018a0ceea6aa45d9087"
+  },
+  "output": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/results/manifest.json",
+    "sha256": "6d05679d3fcfdb0eca3ba9cae414a12dcb2f4699d037719c953aa200c6896389"
+  },
+  "annuals": {
+    "20232024": {
+      "reference_id": "6a3336ca4a2c2aa159c3436deaca9573aae2d861ae06d04df582bf1607708c78",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/results/value/20232024-reference.json",
+        "sha256": "78ea1a6c934ff7bf06ed9c2e0d134ae1d0c99ea5560668f39a9055e57d5af0f8"
+      },
+      "tables": {
+        "ledger_reference": {
+          "path": "20232024-ledger-reference.jsonl",
+          "sha256": "60967d12df446dda5d4bbbf64f706ddbcf3045ff7537b95bd90be45814669265",
+          "rows": 1
+        },
+        "value_ledger": {
+          "path": "20232024-value-ledger.jsonl",
+          "sha256": "fa417e95a4e2de292eeb3fee5f0a18755c1e7c25f1ec35858bf1d92e4e39c012",
+          "rows": 924
+        }
+      },
+      "depth": {
+        "F": {
+          "available": true,
+          "members": 229,
+          "seconds": 2633623,
+          "excluded_groups": [
+            "1",
+            "21"
+          ],
+          "missing_vectors": []
+        },
+        "D": {
+          "available": true,
+          "members": 132,
+          "seconds": 2318947,
+          "excluded_groups": [
+            "1",
+            "21"
+          ],
+          "missing_vectors": []
+        }
+      },
+      "diagnostics": {
+        "status": "unassessed",
+        "reason": "earlier annual"
+      },
+      "source_seconds": 4.152898292057216,
+      "total_seconds": 7.496605208143592
+    },
+    "20242025": {
+      "reference_id": "2ed97e607fecbab6119610d5bd4d6bcb845284f38e380cd34ed039fdf709a354",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/results/value/20242025-reference.json",
+        "sha256": "8af9810dc3403ff97e0c9b3cbc1b477c1acd592d62f68d6bc9c50d605a7c6567"
+      },
+      "tables": {
+        "ledger_reference": {
+          "path": "20242025-ledger-reference.jsonl",
+          "sha256": "03711d737893970a29d518f10eec78f7ceab6b4892d60440840da49453714251",
+          "rows": 1
+        },
+        "value_ledger": {
+          "path": "20242025-value-ledger.jsonl",
+          "sha256": "8541c72d54712151ad48c8b5f92e9532a293244cf0a7c874ce7f25649a282e8d",
+          "rows": 920
+        }
+      },
+      "depth": {
+        "F": {
+          "available": true,
+          "members": 256,
+          "seconds": 2942925,
+          "excluded_groups": [],
+          "missing_vectors": []
+        },
+        "D": {
+          "available": true,
+          "members": 146,
+          "seconds": 2595904,
+          "excluded_groups": [],
+          "missing_vectors": []
+        }
+      },
+      "diagnostics": {
+        "status": "unassessed",
+        "reason": "earlier annual"
+      },
+      "source_seconds": 3.5816030418500304,
+      "total_seconds": 7.371686833910644
+    },
+    "20252026": {
+      "reference_id": "dcac9f906579872623d23e0e4540171dd6f21f445d878e1dfcda3edec0dbfa6b",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/results/value/20252026-reference.json",
+        "sha256": "b54765297211436a1ca59577b0a99cbc328b0ae7541e67d9806d4d0d49a131f2"
+      },
+      "tables": {
+        "ledger_reference": {
+          "path": "20252026-ledger-reference.jsonl",
+          "sha256": "9431a2bbea596b1c53067bb06c09389f926af4b25d5808014f7b5e58f06bc23d",
+          "rows": 1
+        },
+        "value_ledger": {
+          "path": "20252026-value-ledger.jsonl",
+          "sha256": "d100134913573ee4a05335cc005eae119af928619157a7ed8b3d1d47a959e76e",
+          "rows": 940
+        }
+      },
+      "depth": {
+        "F": {
+          "available": true,
+          "members": 261,
+          "seconds": 3238496,
+          "excluded_groups": [],
+          "missing_vectors": []
+        },
+        "D": {
+          "available": true,
+          "members": 152,
+          "seconds": 2460494,
+          "excluded_groups": [],
+          "missing_vectors": []
+        }
+      },
+      "diagnostics": {
+        "penalties": {
+          "status": "within_budget",
+          "reason": null,
+          "budget_goals": 0.001,
+          "quantities": {
+            "five_on_five_offense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_offense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_defense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_defense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "power_play_offense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "power_play_offense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalty_kill_defense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalty_kill_defense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "finishing.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "finishing.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "setting.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "setting.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_drawn.league_goals": {
+              "maximum_goals": 7.139540847411752e-09,
+              "worst": "8477492",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_drawn.replacement_goals": {
+              "maximum_goals": 7.2653760785357235e-09,
+              "worst": "8477492",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_taken.league_goals": {
+              "maximum_goals": 7.602221463454129e-09,
+              "worst": "8484762",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_taken.replacement_goals": {
+              "maximum_goals": 7.50627587864372e-09,
+              "worst": "8484762",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_won.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_won.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_lost.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_lost.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_combined.league_goals": {
+              "maximum_goals": 8.995847733395124e-09,
+              "worst": "8475169",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_combined.replacement_goals": {
+              "maximum_goals": 8.774067028483046e-09,
+              "worst": "8475169",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "league_total": {
+              "maximum_goals": 8.995847622372821e-09,
+              "worst": "8475169",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "replacement_total": {
+              "maximum_goals": 8.7740694709737e-09,
+              "worst": "8475169",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "F.reference.five_on_five_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.five_on_five_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.power_play_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalty_kill_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.finishing": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.setting": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalties_drawn": {
+              "maximum_goals": 1.2583524413439795e-10,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalties_taken": {
+              "maximum_goals": 9.59455986881963e-11,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.ice_won": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.ice_lost": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.total": {
+              "maximum_goals": 2.2178081593438037e-10,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.five_on_five_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.five_on_five_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.power_play_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalty_kill_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.finishing": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.setting": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalties_drawn": {
+              "maximum_goals": 2.2144584777006315e-10,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalties_taken": {
+              "maximum_goals": 1.499143881950049e-10,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.ice_won": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.ice_lost": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.total": {
+              "maximum_goals": 3.7135983177449816e-10,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            }
+          }
+        },
+        "shootiness": {
+          "status": "within_budget",
+          "reason": null,
+          "budget_goals": 0.001,
+          "quantities": {
+            "five_on_five_offense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_offense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_defense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_defense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "power_play_offense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "power_play_offense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalty_kill_defense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalty_kill_defense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "finishing.league_goals": {
+              "maximum_goals": 2.3296913855830326e-06,
+              "worst": "8477406",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "finishing.replacement_goals": {
+              "maximum_goals": 2.2708102465074376e-06,
+              "worst": "8477406",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "setting.league_goals": {
+              "maximum_goals": 1.195064274650548e-06,
+              "worst": "8474149",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "setting.replacement_goals": {
+              "maximum_goals": 1.2061312268940583e-06,
+              "worst": "8474149",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_drawn.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_drawn.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_taken.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_taken.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_won.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_won.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_lost.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_lost.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_combined.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_combined.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "league_total": {
+              "maximum_goals": 2.2517617304096404e-06,
+              "worst": "8482726",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "replacement_total": {
+              "maximum_goals": 2.203947544465734e-06,
+              "worst": "8482726",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "F.reference.five_on_five_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.five_on_five_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.power_play_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalty_kill_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.finishing": {
+              "maximum_goals": 5.8881139075595e-08,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.setting": {
+              "maximum_goals": 1.1066952687599496e-08,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalties_drawn": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalties_taken": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.ice_won": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.ice_lost": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.total": {
+              "maximum_goals": 4.7814186387995505e-08,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.five_on_five_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.five_on_five_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.power_play_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalty_kill_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.finishing": {
+              "maximum_goals": 3.738186388213549e-08,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.setting": {
+              "maximum_goals": 1.0794164645444582e-08,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalties_drawn": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalties_taken": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.ice_won": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.ice_lost": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.total": {
+              "maximum_goals": 4.81760284998245e-08,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            }
+          }
+        },
+        "territory_upstream": {
+          "status": "exceeded"
+        },
+        "territory_entry": {
+          "status": "within_budget",
+          "reason": null,
+          "budget_goals": 0.001,
+          "quantities": {
+            "five_on_five_offense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_offense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_defense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_defense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "power_play_offense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "power_play_offense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalty_kill_defense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalty_kill_defense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "finishing.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "finishing.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "setting.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "setting.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_drawn.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_drawn.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_taken.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_taken.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_won.league_goals": {
+              "maximum_goals": 3.60457289834068e-07,
+              "worst": "8484148",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_won.replacement_goals": {
+              "maximum_goals": 3.678405337843166e-07,
+              "worst": "8484148",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_lost.league_goals": {
+              "maximum_goals": 4.7226672172939743e-07,
+              "worst": "8484148",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_lost.replacement_goals": {
+              "maximum_goals": 4.809325294414385e-07,
+              "worst": "8484148",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_combined.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_combined.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "league_total": {
+              "maximum_goals": 8.327240115235668e-07,
+              "worst": "8484148",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "replacement_total": {
+              "maximum_goals": 8.487730633888191e-07,
+              "worst": "8484148",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "F.reference.five_on_five_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.five_on_five_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.power_play_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalty_kill_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.finishing": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.setting": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalties_drawn": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalties_taken": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.ice_won": {
+              "maximum_goals": 4.842796238677116e-09,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.ice_lost": {
+              "maximum_goals": 5.665756015391099e-09,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.total": {
+              "maximum_goals": 1.0508552250598768e-08,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.five_on_five_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.five_on_five_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.power_play_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalty_kill_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.finishing": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.setting": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalties_drawn": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalties_taken": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.ice_won": {
+              "maximum_goals": 7.383243949814905e-09,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.ice_lost": {
+              "maximum_goals": 8.665807713342105e-09,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.total": {
+              "maximum_goals": 1.6049051865252295e-08,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            }
+          }
+        },
+        "territory_exit": {
+          "status": "within_budget",
+          "reason": null,
+          "budget_goals": 0.001,
+          "quantities": {
+            "five_on_five_offense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_offense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_defense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_defense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "power_play_offense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "power_play_offense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalty_kill_defense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalty_kill_defense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "finishing.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "finishing.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "setting.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "setting.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_drawn.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_drawn.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_taken.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_taken.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_won.league_goals": {
+              "maximum_goals": 6.624172411732673e-07,
+              "worst": "8482781",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_won.replacement_goals": {
+              "maximum_goals": 6.599857226051789e-07,
+              "worst": "8482781",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_lost.league_goals": {
+              "maximum_goals": 7.453155702157044e-07,
+              "worst": "8482781",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_lost.replacement_goals": {
+              "maximum_goals": 7.425116146098087e-07,
+              "worst": "8482781",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_combined.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_combined.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "league_total": {
+              "maximum_goals": 1.4077328112094278e-06,
+              "worst": "8482781",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "replacement_total": {
+              "maximum_goals": 1.4024973378212735e-06,
+              "worst": "8482781",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "F.reference.five_on_five_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.five_on_five_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.power_play_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalty_kill_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.finishing": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.setting": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalties_drawn": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalties_taken": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.ice_won": {
+              "maximum_goals": 3.038992172493815e-09,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.ice_lost": {
+              "maximum_goals": 3.6692478517369453e-09,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.total": {
+              "maximum_goals": 6.708240185560044e-09,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.five_on_five_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.five_on_five_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.power_play_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalty_kill_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.finishing": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.setting": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalties_drawn": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalties_taken": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.ice_won": {
+              "maximum_goals": 2.431518568088431e-09,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.ice_lost": {
+              "maximum_goals": 2.8039556050282743e-09,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.total": {
+              "maximum_goals": 5.235474276332752e-09,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            }
+          }
+        },
+        "territory_joint": {
+          "status": "within_budget",
+          "reason": null,
+          "budget_goals": 0.001,
+          "quantities": {
+            "five_on_five_offense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_offense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_defense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "five_on_five_defense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "power_play_offense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "power_play_offense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalty_kill_defense.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalty_kill_defense.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "finishing.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "finishing.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "setting.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "setting.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_drawn.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_drawn.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_taken.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_taken.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_won.league_goals": {
+              "maximum_goals": 7.428491894875822e-07,
+              "worst": "8483760",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_won.replacement_goals": {
+              "maximum_goals": 7.378974645685932e-07,
+              "worst": "8483760",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_lost.league_goals": {
+              "maximum_goals": 9.474566132136597e-07,
+              "worst": "8483760",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "ice_lost.replacement_goals": {
+              "maximum_goals": 9.415947615568077e-07,
+              "worst": "8483760",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_combined.league_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "penalties_combined.replacement_goals": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "league_total": {
+              "maximum_goals": 1.6903058028816531e-06,
+              "worst": "8483760",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "replacement_total": {
+              "maximum_goals": 1.679492226180912e-06,
+              "worst": "8483760",
+              "compared": 940,
+              "exceeds_budget": false
+            },
+            "F.reference.five_on_five_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.five_on_five_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.power_play_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalty_kill_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.finishing": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.setting": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalties_drawn": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.penalties_taken": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.ice_won": {
+              "maximum_goals": 1.803804277819565e-09,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.ice_lost": {
+              "maximum_goals": 1.9965082538597745e-09,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "F.reference.total": {
+              "maximum_goals": 3.800312509127934e-09,
+              "worst": "F",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.five_on_five_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.five_on_five_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.power_play_offense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalty_kill_defense": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.finishing": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.setting": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalties_drawn": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.penalties_taken": {
+              "maximum_goals": 0.0,
+              "worst": null,
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.ice_won": {
+              "maximum_goals": 4.951724918555306e-09,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.ice_lost": {
+              "maximum_goals": 5.861851655551004e-09,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            },
+            "D.reference.total": {
+              "maximum_goals": 1.0813577588919543e-08,
+              "worst": "D",
+              "compared": 1,
+              "exceeds_budget": false
+            }
+          }
+        }
+      },
+      "source_seconds": 3.0139671659562737,
+      "total_seconds": 8.364735916024074
+    }
+  },
+  "resources": {
+    "wall_seconds": 3563.735607832903,
+    "peak_memory_bytes": 2543452160,
+    "output_bytes": 32827369104
+  }
+}

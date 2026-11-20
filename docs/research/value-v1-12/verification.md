@@ -1,6 +1,6 @@
 # v1-12 value ledger verification
 
-implemented on `implement/v1-12-value-ledger` in the isolated `~/Documents/code/.worktrees/hockey-stats/v1-12` checkout. source, real exchange and detached fixture acceptance passed. the user stopped the inactive sqlite build and asked to eject expansion. real candidate and live acceptance remain pending. [the specification](../../specs/v1-12-value-ledger.md) controls the acceptance boundary. [the plan](../../plan.md#current-boundary) owns assignment and status.
+implemented on `implement/v1-12-value-ledger` in the isolated `~/Documents/code/.worktrees/hockey-stats/v1-12` checkout. real source-to-screen acceptance and temporary campaign cleanup are complete. the single schema 12 candidate is inactive. [the specification](../../specs/v1-12-value-ledger.md) controls the acceptance boundary. [the plan](../../plan.md#current-boundary) owns assignment and status.
 
 ## design and trade-offs
 
@@ -19,7 +19,7 @@ implemented on `implement/v1-12-value-ledger` in the isolated `~/Documents/code/
 - schema 12 fixture publication and strict server startup passed with pending ledger/reference envelopes. a disposable copy missing the annual reference failed strict startup. the live fixture verified year selection, pending and absent results, and rejection of unrelated evidence selectors. [pending fixture](receipts/pending-fixture.json), [selector checks](receipts/pending-fixture-selectors.json).
 - the attributed successor for the provided synthetic fixture preserves 50 inherited members and all 15 original method bodies. two supplied ledger rows were reconstructed from checked prerequisite formulas. missing terms withhold their totals. the compiled detached server and actual narrow browser passed, including scalar equality and real downloads. [provided fixture](receipts/provided-fixture.json), [browser download receipts](receipts/provided-fixture-browser.json).
 - the schema-paired disposable rollback served both matched pairs and rejected both mismatched pairs. it restored the original fixture bytes. [rollback](receipts/disposable-rollback.json).
-- synthetic browser fixtures passed narrow and native 200% inspection, seven-state construction, ten signed terms and all four construction csv row types. actual real-candidate journeys, payload sizes, and operation still require verification.
+- synthetic browser fixtures passed narrow and native 200% inspection, seven-state construction, ten signed terms and all four construction csv row types.
 
 ## implementation review
 
@@ -31,7 +31,7 @@ the application review followed the conversion, physical schema, lazy profile/de
 
 the attribution audit binds the accepted donor, the one-time conversion receipt and the composed exchange. an annual method binds its immediate donor for detached arithmetic. the converter's exact member copies and current metadata/envelopes were checked before composition, and final strict readback checks the complete carried exchange. [conversion metadata proof](receipts/real-conversion-metadata.json).
 
-one bounded dry run propagated all five pinned final-year variants for an actual donor focal row with synthetic shorthanded opportunities. it exercised native saved-state and scalar archive reads in 2.76 seconds. the full annual sensitivity verdict awaits real shorthanded and depth inputs.
+one bounded dry run propagated all five pinned final-year variants for an actual donor focal row with synthetic shorthanded opportunities. it exercised native saved-state and scalar archive reads in 2.76 seconds. the real run below supplies the full annual check.
 
 ## real run
 
@@ -73,4 +73,18 @@ the ordinary publisher ran for 7,414.57 seconds and reached numerical result ins
 
 the original active and previous database identifiers, sizes, inodes, modification times and header hashes match the storage delivery receipt. the compatible service is still on port 3000 under pid `91302`. the primary checkout is clean.
 
-candidate startup, all-season real api and browser acceptance, and final campaign-test cleanup remain pending. the next ordinary build uses the checked exchange and pinned observed selection in a fresh candidate directory after the drive is available. [open candidate issue](../../issues/v1-12-candidate-publication.md).
+## real candidate and live acceptance
+
+the remounted drive supplied the same checked exchange and observed selection. the ordinary publisher rebuilt in `candidate-02` and passed integrity, foreign keys, stored-result readback and three seasonal conservation checks. publication `35ce39e0-5a28-4582-8b98-e7973b0e8045` contains a 32,039,075,840-byte database. the publisher consumed 41,878,614,908 input bytes, took 18,011.25 native seconds and peaked at 3,328,000,000 resident bytes. the interrupted directory remains evidence of the earlier attempt. [real candidate receipt](receipts/real-candidate.json).
+
+the compiled app became ready in 3,361 seconds on port 3133 with original data reads denied. the deny probe failed with an operating-system permission error while the original data remained mounted. peak server rss across startup and live checks was 3,018,899,456 bytes. acquisition, fitting and scoring were unnecessary because the checked inputs were reused.
+
+all 24 selectors agree with the published row values and annual reference ids in all three years. overview, profile, history and selected evidence agree on each checked value. the real cases cover forwards, defenders, trades, specialty qualification and players below the general time cutoff. the raw overview responses include inherited families and were 44,480,005, 44,609,885 and 45,286,689 bytes by season, each about five seconds on the test host. the prebuild table above isolates the ledger addition. selected detail loads only when requested. [live selector and browser receipts](receipts/real-candidate.json).
+
+chrome checked table-to-profile navigation, both comparative and analytical totals, the six microstat strip values, both execution-contribution links, the pooled f/d replacement standings, seven state rows, and the final-year sensitivity copy. all three normal-width journeys and the final-season 375 px and native 200% journeys passed. each downloaded three csvs and three pngs. the construction csv carries term, exact-state, team-rank and weighted-member rows plus dependency methods. the first browser assertion counted nested evidence headings. its corrected selector counted the actual pooled peer table.
+
+the six narrow downloads match the normal downloads byte for byte. at native 200%, five match exactly. the history png has the same dimensions and differs at 1,104 of 6,526,800 pixels inside the plot. the chart raster varies with zoom and the evidence and quantities agree. the initial byte comparison and the localized difference are both recorded. [download identities and comparison receipt](receipts/real-candidate.json).
+
+## cleanup and preservation
+
+the temporary converter, campaign tests, runners and disposable worktree fixture copies were removed after verification. the checked source fixtures, durable receipts and external candidate remain. the two schema-matched fixture pairs and rejected crossed pairs are recorded in the rollback receipt. the live acceptance server was stopped and port 3133 closed. the 38 original serving-build files matched their recorded hashes, inodes, sizes and modification times. the active schema 8 and previous schema 7 databases matched their recorded identities, sizes, inodes, modification times and header hashes. the primary checkout and its service on port 3000 remained in use. [rollback proof](receipts/disposable-rollback.json), [preservation evidence](receipts/real-candidate.json).

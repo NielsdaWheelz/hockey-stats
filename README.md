@@ -153,7 +153,9 @@ activation validates an exclusive incoming copy and reports its digest. it prese
 npm run publication -- restore --directory /absolute/publication
 ```
 
-a cross-schema previous file requires the manual procedure below. the current source reads schema **11** only; it retains the authoritative observed reducers and their population/display versions. building/checking a candidate does not activate it, admit a model or complete real player cards. the currently active schema-8 pages present the supported observed journeys and [checked experimental execution views](docs/research/execution-v1-06/verification.md); direct goalie profiles show identity/history and the explicit unfinished-presentation message.
+a cross-schema previous file requires the manual procedure below. the current source reads schema **12** only; it retains the authoritative observed reducers and their population/display versions. building/checking a candidate does not activate it, admit a model or complete real player cards. the currently active schema-8 pages present the supported observed journeys and [checked experimental execution views](docs/research/execution-v1-06/verification.md); direct goalie profiles show identity/history and the explicit unfinished-presentation message.
+
+prospective change only: [v1-20](docs/specs/v1-20-whole-card-closure.md) specifies whole-card delivery, compact comparative png/full csv, lean overview reads and receipt-bound startup. its eventual implementation includes explicit local staging, rollback rehearsal and activation. the commands above describe current code; the new check/stage/activate contract is not implemented yet. the active schema8 service and schema7 rollback remain unchanged by the specification.
 
 ### manual cross-version cutover and rollback
 

@@ -1,3 +1,4 @@
+import { ledgerLimits, ledgerWorkload } from "./ledger-presentation";
 import { useId, useRef, useState } from "react";
 import { Link } from "react-router";
 import type { AnalysisMetricId } from "./analysis-values";
@@ -189,12 +190,18 @@ export default function MicrostatCard({ model, detailLink }: {
     </div>
     <section className="microstat-components">
       <h4>modeled component context</h4>
-      <p>league-relative goals per common workload: 1,000 minutes at 5v5; 100 power-play minutes; 100 penalty-kill minutes. finishing and penalties use the published common workload. these six terms are a subset, never a total.</p>
+      <p>{ledgerWorkload}. {ledgerLimits} six selected league-relative contributions.</p>
       <div className="microstat-component-grid">{model.components.map(row => <div key={row.datum.metric.id} className="microstat-component" data-metric={row.datum.metric.id}>
         <h5>{detailLink ? <Link {...detailLink(row.datum.metric.id)}>{row.datum.metric.label}</Link> : row.datum.metric.label}</h5>
         <p>{row.datum.value === null ? `${row.datum.status === "absent" ? "absent season" : row.datum.status === "not_computed" || row.datum.original?.unavailable_reason === "not_computed" ? "pending computation" : row.datum.reason?.replaceAll("_", " ") ?? "unavailable"} · ledger` : `${valueText(row.datum)} ${row.datum.metric.displayUnit}`}</p>
         <p>{standingText(row.standing)}{row.standing.kind === "ranked" && ` · n=${row.standing.n}`}</p>
-        {Object.entries(row.datum.componentSupport).map(([role, component]) => <p key={role}>{role.replaceAll("_", " ")}: {component.support ? component.support.prior_only ? "prior-only role" : component.support.current_season_information ? "current-season information" : "no current-season information" : component.reason}</p>)}
+        <p>{row.datum.metric.qualificationLabel} · viewing cutoff {row.standing.cutoffMinutes ?? "unavailable"} min</p>
+        {Object.entries(row.datum.componentSupport).map(([role, component]) => (
+          <p key={role}>{role === "finishing" ? "5v5 finishing skill support" : role.replaceAll("_", " ")} · {component.support
+            ? component.support.prior_only ? "prior-only role" : component.support.current_season_information
+              ? "current-season information" : "no current-season information"
+            : component.reason}</p>
+        ))}
         <DatumEvidence datum={row.datum}/>
       </div>)}</div>
     </section>

@@ -69,6 +69,7 @@ export type ObservedMaps = {
 };
 export type ExecutionEvidence = Extract<EvidenceResponse, { family: "execution" }>;
 export type SpatialEvidence = Extract<EvidenceResponse, { family: "spatial" }>;
+export type LedgerEvidence = Extract<EvidenceResponse, { family: "ledger" }>;
 export type MicrostatsEvidence = Extract<EvidenceResponse, { family: "microstats" }>;
 export type MicrostatsCohort = Extract<LeagueResponse, { family: "microstats" }>;
 export type ProfileView = Release & {
@@ -81,6 +82,7 @@ export type ProfileView = Release & {
   readonly spatialEvidence: SpatialEvidence | null;
   readonly coreMaps: readonly MapsResponse[];
   readonly selectedMap: MapsResponse | null;
+  readonly ledgerEvidence: LedgerEvidence | null;
   readonly microstatsEvidence: MicrostatsEvidence | null;
   readonly microstatsCohort: MicrostatsCohort | null;
   readonly detail: PlayerResponse;
@@ -443,6 +445,50 @@ function withMicrostatsEvidence(profile: ProfileView, evidence: EvidenceResponse
   return { ...profile, microstatsEvidence: evidence };
 }
 
+function withLedgerEvidence(profile: ProfileView, evidence: EvidenceResponse): ProfileView {
+  sameRelease(profile.detail, evidence);
+  if (evidence.family !== "ledger" ||
+      evidence.selection.player_id !== profile.player_id ||
+      evidence.selection.season !== profile.season.season ||
+      evidence.selection.strength !== null || evidence.selection.population !== null ||
+      evidence.selection.type !== null || evidence.selection.outcome !== null ||
+      evidence.selection.shot_type !== null || evidence.selection.blocked_contacts)
+    throw new Error("ledger evidence differs from the selected player or season");
+  catalogs([profile.detail, evidence]);
+  const families = profile.detail.families;
+  if (!("availability" in families) && families.kind !== "skater")
+    throw new Error("ledger evidence requires skater families");
+  const expected = "availability" in families ? families : families.ledger;
+  const ledger = evidence.result.availability === "provided" ? evidence.result.data.ledger : evidence.result;
+  if (ledger.availability !== expected.availability || ledger.explanation !== expected.explanation)
+    throw new Error("ledger evidence status differs from its annual summary");
+  if (ledger.availability === "provided" && expected.availability === "provided") {
+    if (evidence.result.availability !== "provided" || evidence.result.data.reference.availability !== "provided")
+      throw new Error("provided ledger evidence requires its annual reference");
+    const reference = evidence.result.data.reference.data;
+    const { evidence: detail, ...scalars } = ledger.data;
+    const { depth_reference_coverage: coverage, depth_position_group: group,
+      annual_reference_id: referenceId, ...expectedScalars } = expected.data;
+    const position = group === "unknown" ? null : reference.positions[group];
+    const groups = reference.groups.filter(entry => entry.position === group);
+    const completeGroups = groups.filter(entry => entry.status === "complete").length;
+    const detailCoverage = position === null ? null : {
+      available: position.available, complete_groups: completeGroups,
+      excluded_groups: groups.length - completeGroups,
+      member_count: position.member_count, total_seconds: position.total_seconds,
+    };
+    if (referenceId !== detail.annual_reference_id || referenceId !== reference.reference_id ||
+        group !== detail.depth_position.group || !equal(coverage, detailCoverage) ||
+        !equal(expectedScalars, scalars))
+      throw new Error("ledger evidence scalars or reference identity differ from its annual summary");
+  }
+  return { ...profile, ledgerEvidence: evidence };
+}
+
+const selectedLedgerDetail = (query: URLSearchParams, metric: AnalysisMetric) =>
+  metric.publicationFamily === "ledger" && query.getAll("metric").length === 1 &&
+  query.get("metric") === metric.id;
+
 function withExecutionEvidence(profile: ProfileView, evidence: EvidenceResponse): ProfileView {
   sameRelease(profile.detail, evidence);
   const strength = profile.selectedMetric.selectionStrength!;
@@ -775,6 +821,7 @@ function composeProfile(
     spatialEvidence: null,
     coreMaps: [],
     selectedMap: null,
+    ledgerEvidence: null,
     microstatsEvidence: null,
     microstatsCohort,
     overviewCohorts,
@@ -924,6 +971,13 @@ export const loadProfile = (
       });
       profile = yield* compose(() => withExecutionEvidence(profile, evidence));
     }
+    if (selectedLedgerDetail(query, metric)) {
+      const evidence = yield* api.analysis.evidence({
+        params: { playerId },
+        query: { season: profile.season.season, family: "ledger" },
+      });
+      profile = yield* compose(() => withLedgerEvidence(profile, evidence));
+    }
     if (view === "goalie") return (yield* loadGoalie([profile], query))[0];
     if (view === "analytical") return (yield* loadAnalytical([profile], query))[0];
     if (view !== "observed" || !profile.player) return profile;
@@ -1060,6 +1114,17 @@ export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
       comparison = yield* compose((): ComparisonView => {
         catalogs([comparison.overview, ...evidence]);
         return { ...comparison, profiles: [withExecutionEvidence(profiles[0], evidence[0]), withExecutionEvidence(profiles[1], evidence[1])] };
+      });
+    }
+    if (comparison.profiles && selectedLedgerDetail(query, metric)) {
+      const profiles = comparison.profiles;
+      const evidence = yield* Effect.all(profiles.map(profile => api.analysis.evidence({
+        params: { playerId: profile.player_id },
+        query: { season: comparison.season.season, family: "ledger" },
+      })), { concurrency: "unbounded" });
+      comparison = yield* compose((): ComparisonView => {
+        catalogs([comparison.overview, ...evidence]);
+        return { ...comparison, profiles: [withLedgerEvidence(profiles[0], evidence[0]), withLedgerEvidence(profiles[1], evidence[1])] };
       });
     }
     if (comparison.profiles && view === "analytical") {

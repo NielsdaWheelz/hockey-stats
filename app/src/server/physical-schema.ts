@@ -1,4 +1,4 @@
-// fixed schema-11 storage contract; changes require coordinated writer/reader review.
+// fixed schema-12 storage contract; changes require coordinated writer/reader review.
 export const physicalSchema = {
   adjustment_decomposition: {
     columns: [
@@ -605,6 +605,16 @@ export const physicalSchema = {
       { name: "league_density", type: "REAL", notnull: 0, pk: 0 },
     ],
     foreignKeys: ["season:season:season"],
+  },
+  ledger_reference: {
+    columns: [
+      { name: "season", type: "TEXT", notnull: 1, pk: 1 },
+      { name: "method_id", type: "TEXT", notnull: 0, pk: 0 },
+      { name: "availability", type: "TEXT", notnull: 1, pk: 0 },
+      { name: "explanation", type: "TEXT", notnull: 0, pk: 0 },
+      { name: "payload_json", type: "TEXT", notnull: 0, pk: 0 },
+    ],
+    foreignKeys: ["analysis_method:method_id:method_id", "season:season:season"],
   },
   value_ledger: {
     columns: [

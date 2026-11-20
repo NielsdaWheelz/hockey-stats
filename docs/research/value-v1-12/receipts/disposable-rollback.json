@@ -1,0 +1,188 @@
+{
+  "kind": "value_ledger_disposable_schema_paired_rollback",
+  "purpose": "fixture",
+  "port": 3131,
+  "old_source": "477caf2e9358d267fe724e2f05e6b54d99f94ab6",
+  "source_databases": [
+    {
+      "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/old-candidate/player-analysis.sqlite",
+      "bytes": 29360128,
+      "sha256": "0643ffd125d86684af7589c74fe8802fcab4f2b524b7029cae94cb636b70d8af"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/new.sqlite",
+      "bytes": 16744448,
+      "sha256": "6143502e4b8c1246d978735af3e4e2462755656e47b30a506ba3398bdf0a34dc"
+    }
+  ],
+  "source_builds": [
+    {
+      "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/old-source/app/dist/node/server/main.js",
+      "bytes": 8073,
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/current-source/dist/node/server/main.js",
+      "bytes": 8073,
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+    }
+  ],
+  "denial_checks": [
+    {
+      "path": "/Users/nnandal/Documents/hockey-stats/local/application-v1-18-20261109-01/fixture/candidate-03/selection.json",
+      "exit_status": 1,
+      "detail": "cat: /Users/nnandal/Documents/hockey-stats/local/application-v1-18-20261109-01/fixture/candidate-03/selection.json: Operation not permitted"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "exit_status": 1,
+      "detail": "cat: /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json: Operation not permitted"
+    }
+  ],
+  "steps": [
+    {
+      "step": "old-build-old-fixture",
+      "schema": 11,
+      "publication_id": "270fbc53-e97f-48d8-a524-0c9399c643d1",
+      "api_status": 200,
+      "page_status": 200,
+      "overview_bytes": 285886,
+      "cache_control": "no-store",
+      "startup_seconds": 1.2760533748660237,
+      "shutdown_status": 130,
+      "database": {
+        "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/active.sqlite",
+        "bytes": 29360128,
+        "sha256": "0643ffd125d86684af7589c74fe8802fcab4f2b524b7029cae94cb636b70d8af"
+      },
+      "command": [
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/old-source/app/dist/node/server/main.js",
+        "--publication",
+        "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/active.sqlite",
+        "--port",
+        "3131"
+      ],
+      "log": {
+        "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/old-build-old-fixture.log",
+        "bytes": 320,
+        "sha256": "03b9e684a600b867d745ccf98152a772ab58076db5004ad45211c2bd500eac76"
+      }
+    },
+    {
+      "step": "new-build-rejects-old-fixture",
+      "exit_status": 1,
+      "rejection": "schema 12 is required",
+      "wall_seconds": 0.26531212497502565,
+      "database": {
+        "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/active.sqlite",
+        "bytes": 29360128,
+        "sha256": "0643ffd125d86684af7589c74fe8802fcab4f2b524b7029cae94cb636b70d8af"
+      },
+      "command": [
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/current-source/dist/node/server/main.js",
+        "--publication",
+        "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/active.sqlite",
+        "--port",
+        "3131"
+      ],
+      "log": {
+        "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/new-build-rejects-old-fixture.log",
+        "bytes": 453,
+        "sha256": "771436c9e447ca9e916a826fb86aea0f6a4ae8db034bbbb27ebd9f9057fc659f"
+      }
+    },
+    {
+      "step": "new-build-new-fixture-detached",
+      "schema": 12,
+      "publication_id": "8f04b817-b48f-4dce-b50c-8054762f57a6",
+      "api_status": 200,
+      "page_status": 200,
+      "overview_bytes": 278644,
+      "cache_control": "no-store",
+      "startup_seconds": 0.827569916145876,
+      "shutdown_status": 130,
+      "database": {
+        "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/active.sqlite",
+        "bytes": 16744448,
+        "sha256": "6143502e4b8c1246d978735af3e4e2462755656e47b30a506ba3398bdf0a34dc"
+      },
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-f",
+        "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/fixture-detached.sb",
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/current-source/dist/node/server/main.js",
+        "--publication",
+        "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/active.sqlite",
+        "--port",
+        "3131"
+      ],
+      "log": {
+        "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/new-build-new-fixture-detached.log",
+        "bytes": 320,
+        "sha256": "6db4f9e835bf46ca6d9280f650a7ff869a2d5eee46f9b48c68167fa0a1aa8d0e"
+      }
+    },
+    {
+      "step": "old-build-rejects-new-fixture",
+      "exit_status": 1,
+      "rejection": "schema 11 is required",
+      "wall_seconds": 0.23708150000311434,
+      "database": {
+        "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/active.sqlite",
+        "bytes": 16744448,
+        "sha256": "6143502e4b8c1246d978735af3e4e2462755656e47b30a506ba3398bdf0a34dc"
+      },
+      "command": [
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/old-source/app/dist/node/server/main.js",
+        "--publication",
+        "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/active.sqlite",
+        "--port",
+        "3131"
+      ],
+      "log": {
+        "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/old-build-rejects-new-fixture.log",
+        "bytes": 453,
+        "sha256": "097a47a488cb4a89e6f82f1e26b3acc7870006685bed6270aae370a09b05e8d3"
+      }
+    },
+    {
+      "step": "restored-old-build-old-fixture",
+      "schema": 11,
+      "publication_id": "270fbc53-e97f-48d8-a524-0c9399c643d1",
+      "api_status": 200,
+      "page_status": 200,
+      "overview_bytes": 285886,
+      "cache_control": "no-store",
+      "startup_seconds": 1.3248558749910444,
+      "shutdown_status": 130,
+      "database": {
+        "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/active.sqlite",
+        "bytes": 29360128,
+        "sha256": "0643ffd125d86684af7589c74fe8802fcab4f2b524b7029cae94cb636b70d8af"
+      },
+      "command": [
+        "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+        "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/old-source/app/dist/node/server/main.js",
+        "--publication",
+        "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/active.sqlite",
+        "--port",
+        "3131"
+      ],
+      "log": {
+        "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/restored-old-build-old-fixture.log",
+        "bytes": 320,
+        "sha256": "93f4a40746069a33af7315ea47b1ea4a7ec44ee18d4ed0a64dfdddae9d4dfbde"
+      }
+    }
+  ],
+  "final_active": {
+    "path": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12/.scratch/v1-12/rollback/active.sqlite",
+    "bytes": 29360128,
+    "sha256": "0643ffd125d86684af7589c74fe8802fcab4f2b524b7029cae94cb636b70d8af"
+  },
+  "port_free": true
+}

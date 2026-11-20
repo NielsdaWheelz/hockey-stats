@@ -1612,3 +1612,173 @@ def build_factual_results(prepared: Path, observed: Path, output: Path) -> dict:
     # exchange binds only season and corpus digest.
     result_selection['observed_bindings'] = [dict(season=r['season'],corpus_sha256=r['sha256']) for r in selection['corpora']]
     return write_results(result_selection,catalogs,families(),Path(output))
+
+
+_DEPTH_POSITIONS = {"C": "F", "L": "F", "R": "F", "F": "F", "D": "D", "G": "G"}
+_DEPTH_ARRAYS = {"forwards": "F", "defense": "D", "goalies": "G"}
+_DEPTH_BOX_PATH = re.compile(r"/playerByGameStats/(away|home)Team/(forwards|defense|goalies)/([0-9]+)")
+
+
+def _dated_usage(game):
+    """Attribute one game's projected source rows without losing original locators."""
+    teams = dict(zip(("away", "home"), game["team_ids"]))
+    boxscore = game["boxscore_players"]
+    roster = game["roster_records"]
+    team_reasons = {team: set() for team in teams.values()}
+    if boxscore is None:
+        reason = "identity_conflict" if game["corpus_status"] == "identity_mismatch" else "team_boxscore_unavailable"
+        for reasons in team_reasons.values():
+            reasons.add(reason)
+    structural = {row["path"] for row in game["source_issues"] if row["source"] == "boxscore"
+                  and row["code"] in ("unavailable_collection", "invalid_object")}
+    for side, team in teams.items():
+        path = f"/playerByGameStats/{side}Team"
+        if "/playerByGameStats" in structural or path in structural:
+            team_reasons[team].add("team_boxscore_unavailable")
+        elif {path + "/forwards", path + "/defense"} & structural:
+            team_reasons[team].add("player_enumeration_unresolved")
+
+    players = defaultdict(lambda: {"boxscore": [], "roster": []})
+    appearances = defaultdict(set)
+    indices = defaultdict(list)
+    for row in boxscore or ():
+        match = _DEPTH_BOX_PATH.fullmatch(row["source_path"])
+        require(match is not None, "unrecognized native boxscore player locator")
+        side, group, index = match.groups()
+        team = teams[side]
+        require(team == str(row["team_id"]), "boxscore player team differs from its array")
+        indices[team, group].append(int(index))
+        member = str(row["player_id"]) if row["player_id"] is not None else None
+        players[member, team]["boxscore"].append(row)
+        if member is not None:
+            appearances[member].add(team)
+    for (team, group), locations in indices.items():
+        if group != "goalies" and sorted(locations) != list(range(len(locations))):
+            team_reasons[team].add("player_enumeration_unresolved")
+    for row in roster or ():
+        team = str(row["team_id"]) if row["team_id"] is not None else None
+        require(team is None or team in teams.values(), "unrecognized native roster team")
+        member = str(row["player_id"]) if row["player_id"] is not None else None
+        players[member, team]["roster"].append(row)
+        if member is not None:
+            appearances[member].add(team)
+
+    dated = []
+    for (member, team), evidence in sorted(players.items(), key=lambda item: tuple(x or "" for x in item[0])):
+        box = evidence["boxscore"]
+        spots = evidence["roster"]
+        roles = {_DEPTH_ARRAYS[_DEPTH_BOX_PATH.fullmatch(row["source_path"])[2]] for row in box}
+        roles.update(_DEPTH_POSITIONS.get(row["reported_position"]) for row in box + spots)
+        roles.discard(None)
+        group = next(iter(roles)) if len(roles) == 1 else "unknown"
+        identity_conflict = (
+            len(box) > 1 or len(spots) > 1 or len(appearances[member]) > 1
+        )
+        seconds = box[0]["toi_seconds"] if len(box) == 1 and not identity_conflict else None
+        reasons = []
+        if not box or member is None or team is None:
+            reasons.append("player_enumeration_unresolved")
+        if identity_conflict:
+            reasons.append("identity_conflict")
+        if seconds != 0 and group == "unknown":
+            reasons.append("position_conflict" if roles else "position_unavailable")
+        if seconds is None and box and not identity_conflict:
+            reasons.append("missing_toi")
+        dated.append(dict(player_id=member, team_id=team, group=group, seconds=seconds,
+                          reasons=sorted(reasons),
+                          boxscore_paths=[row["source_path"] for row in box],
+                          roster_indices=[row["source_index"] for row in spots]))
+    game["players"] = dated
+    game["team_reasons"] = {team: sorted(reasons) for team, reasons in team_reasons.items()}
+
+
+def summarize_reported_usage(games):
+    """Reduce dated identity/TOI into unranked complete or excluded team-position groups."""
+    for game in games:
+        _dated_usage(game)
+
+    totals = {}
+    for game in games:
+        for row in game["players"]:
+            pid, seconds, group = row["player_id"], row["seconds"], row["group"]
+            if pid is None or group == "G":
+                continue
+            total = totals.setdefault(pid, dict(F=0, D=0, unknown=0, missing=0, roles=set()))
+            if seconds == 0:
+                continue
+            total["roles"].add(group)
+            if seconds is None:
+                total["missing"] += 1
+            else:
+                total[group] += seconds
+
+    positions, annual_reasons = {}, {}
+    for pid, total in sorted(totals.items()):
+        roles = total["roles"]
+        mixed = "F" in roles and "D" in roles
+        if len(roles) == 1 and "unknown" not in roles:
+            group = next(iter(roles))
+        elif mixed and "unknown" not in roles and total["missing"] == 0 and total["F"] != total["D"]:
+            group = "F" if total["F"] > total["D"] else "D"
+        else:
+            group = "unknown"
+            if roles:
+                tie = mixed and roles == {"F", "D"} and total["missing"] == 0 and total["F"] == total["D"]
+                annual_reasons[pid] = "annual_position_tie" if tie else "annual_position_incomplete"
+        positions[pid] = dict(group=group, mixed=mixed, forward_seconds=total["F"],
+                              defense_seconds=total["D"], unknown_seconds=total["unknown"],
+                              missing_time_records=total["missing"])
+
+    groups = {}
+    for game in games:
+        gid, teams = game["game_id"], game["team_ids"]
+        for team in teams:
+            for position in ("F", "D"):
+                group = groups.setdefault((team, position), dict(
+                    team_id=team, position=position, inventory_games=0, known_seconds=0,
+                    missing_time_records=0, unquantified_gap=False, affected_games=set(),
+                    affected_players=set(), reasons=set(), members={}))
+                group["inventory_games"] += 1
+                if reasons := game["team_reasons"][team]:
+                    group["reasons"].update(reasons)
+                    group["affected_games"].add(gid)
+                    group["unquantified_gap"] = True
+        for row in game["players"]:
+            pid, team, dated, seconds = (row[k] for k in ("player_id", "team_id", "group", "seconds"))
+            if dated == "G" or (seconds == 0 and pid is not None and team is not None):
+                continue
+            annual = positions[pid]["group"] if pid is not None else "unknown"
+            reasons = set(row["reasons"])
+            if annual_reason := annual_reasons.get(pid):
+                reasons.add(annual_reason)
+            wide = "player_enumeration_unresolved" in reasons or annual == "unknown"
+            assigned = annual if annual != "unknown" else dated
+            for affected_team in teams if team is None else (team,):
+                for position in ("F", "D") if wide else (assigned,):
+                    group = groups[affected_team, position]
+                    if reasons:
+                        group["reasons"].update(reasons)
+                        group["affected_games"].add(gid)
+                        group["unquantified_gap"] |= "player_enumeration_unresolved" in reasons
+                        if pid is not None:
+                            group["affected_players"].add(pid)
+                    if seconds is None:
+                        group["missing_time_records"] += 1
+                    if pid is None or position != assigned or affected_team != team:
+                        continue
+                    member = group["members"].setdefault(pid, dict(
+                        player_id=pid, known_team_seconds=0, complete=True))
+                    member["complete"] &= not reasons
+                    if seconds is not None:
+                        member["known_team_seconds"] += seconds
+                        group["known_seconds"] += seconds
+
+    results = []
+    for group in sorted(groups.values(), key=lambda row: (row["team_id"], row["position"])):
+        group["status"] = "excluded" if group["reasons"] else "complete"
+        group["supported_games"] = group["inventory_games"] - len(group["affected_games"])
+        for field in ("reasons", "affected_games", "affected_players"):
+            group[field] = sorted(group[field])
+        group["members"] = [member for _, member in sorted(group["members"].items())]
+        results.append(group)
+    return positions, results

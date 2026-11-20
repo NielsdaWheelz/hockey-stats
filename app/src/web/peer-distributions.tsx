@@ -1,3 +1,4 @@
+import { ledgerCoverage, ledgerLimits, ledgerWorkload } from "./ledger-presentation";
 import { useId, useState } from "react";
 import { Link } from "react-router";
 import { parseMinutes, type PeerSettings } from "./explorer";
@@ -314,6 +315,11 @@ export function distributionSvg(cohort: AnalysisCohort, metric: AnalysisMetric, 
       text(`method ${method.method_id}; recipe ${method.recipe_id}; reference ${method.reference_id}; support ${method.support_policy_id}`);
     }
     for (const finding of datum.findings) text(finding.summary);
+    if (datum.ledger_detail) {
+      text(`${ledgerWorkload}. ${ledgerLimits}`);
+      const coverage = ledgerCoverage(datum);
+      if (coverage) text(coverage);
+    }
     if (datum.territory_detail)
       for (const note of territoryNotes(datum.territory_detail)) text(note);
   }
@@ -469,6 +475,7 @@ export default function PeerDistributions({
               {datum.construction} · {datum.population} ·{" "}
               {datum.numericReference}
             </p>
+            {datum.ledger_detail && <p>{ledgerCoverage(datum)}</p>}
             <p>
               qualification: {datum.qualificationSeconds ?? "unavailable"}{" "}
               matching seconds · {datum.qualificationBasis}

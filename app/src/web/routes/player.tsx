@@ -31,6 +31,7 @@ import GoalieCard, { prepareGoalieCard } from "../goalie-card";
 import GoalieDetails from "../goalie-details";
 import GoalieControls from "../goalie-controls";
 import ExecutionEvidence from "../execution-evidence";
+import LedgerDetail from "../ledger-detail";
 import PeerDistributions, { PeerControls } from "../peer-distributions";
 import { microstatMetricIds, microstatComponentIds, type AnalysisMetric } from "../analysis-values";
 import AnalysisHistory, {
@@ -159,7 +160,8 @@ export default function Player() {
     for (const key of ["evidenceStrength", "population", "evidenceView", "type"])
       if (search.has(key)) viewQuery.set(key, search.get(key)!);
   }
-  viewQuery.set("metric", metric.id);
+  if (metric.publicationFamily !== "ledger" || search.get("metric") === metric.id)
+    viewQuery.set("metric", metric.id);
   if (scale !== "raw") viewQuery.set("history", scale);
   if (settings.specialtyMin !== 50)
     viewQuery.set("specialtyMin", String(settings.specialtyMin));
@@ -168,6 +170,12 @@ export default function Player() {
   if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
   if (settings.peerMin !== 300)
     viewQuery.set("peerMin", String(settings.peerMin));
+  const detailLink = (id: string) => {
+    const next = seasonSearch(search, season.season);
+    next.set("metric", id);
+    const anchor = id.startsWith("ledger.") ? "#ledger-detail" : "";
+    return { to: `${location.pathname}?${next}${anchor}`, state: location.state };
+  };
   const changePeers = (nextSettings: Partial<PeerSettings>) => {
     const next = viewSearch(location, navigation.location);
     const previous = next.toString();
@@ -353,11 +361,7 @@ export default function Player() {
         <PeerControls settings={settings} onChange={changePeers} metric={metric} allCutoffs />
         {navigation.state !== "idle" && <p role="status">exports unavailable while the requested selection loads.</p>}
         <fieldset className="goalie-export-snapshot" disabled={navigation.state !== "idle"}>
-        <GoalieCard model={goalieCard} detailLink={id => {
-          const next = seasonSearch(search, season.season);
-          next.set("metric", id);
-          return { to: `${location.pathname}?${next}`, state: location.state };
-        }} />
+        <GoalieCard model={goalieCard} detailLink={detailLink} />
         <GoalieDetails profile={data} settings={settings} render={render} />
         </fieldset>
       </>}
@@ -372,14 +376,7 @@ export default function Player() {
       {card && (
         <ComparativeCard
           model={card}
-          detailLink={(id) => {
-            const next = seasonSearch(search, season.season);
-            next.set("metric", id);
-            return {
-              to: `${location.pathname}?${next}`,
-              state: location.state,
-            };
-          }}
+          detailLink={detailLink}
         />
       )}
       {descriptive && (
@@ -406,24 +403,19 @@ export default function Player() {
           </section>
           <MicrostatCard
             model={microstats}
-            detailLink={id => {
-              const next = seasonSearch(search, season.season);
-              next.set("metric", id);
-              return { to: `${location.pathname}?${next}`, state: location.state };
-            }}
+            detailLink={detailLink}
           />
         </>
       )}
       {analytical && <>
         <PeerControls settings={settings} onChange={changePeers} allCutoffs />
-        <AnalyticalCard model={analytical} detailLink={id => {
-          const next = seasonSearch(search, season.season);
-          next.set("metric", id);
-          return { to: `${location.pathname}?${next}`, state: location.state };
-        }} />
+        <AnalyticalCard model={analytical} detailLink={detailLink} />
         <AnalyticalDetails profile={data} metric={metric} render={render} mode={mode}
           onRenderChange={changeRender} onModeChange={changeMode} onMetricChange={changeMetric} />
       </>}
+      {data.ledgerEvidence && <div id="ledger-detail">
+        <LedgerDetail profile={data} exportPending={navigation.state !== "idle"} />
+      </div>}
       <PeerDistributions
         exportPending={navigation.state !== "idle"}
         exportValues={view === "analytical" || view === "goalie"}

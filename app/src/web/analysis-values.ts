@@ -15,7 +15,7 @@ import type {
   SkaterShootiness,
   SkaterPenalties,
   SkaterTerritory,
-  ValueLedger,
+  ValueLedgerSummary,
   GoalieResult,
   GoalieStrength,
   SkaterContext,
@@ -27,6 +27,7 @@ import type {
 import { preservesObservedAffiliations } from "../shared/player-analysis";
 import type { Family, Publication } from "../shared/publication";
 import type { PlayerSummary } from "../shared/observed";
+import { ledgerPresentation } from "./ledger-presentation";
 import { observedMetrics, type ObservedRateKey } from "./observed-comparison";
 
 type Spatial = typeof SkaterSpatial.Type;
@@ -34,7 +35,7 @@ type Execution = typeof SkaterExecution.Type;
 type Shootiness = typeof SkaterShootiness.Type;
 type Penalties = typeof SkaterPenalties.Type;
 type Territory = typeof SkaterTerritory.Type;
-type Ledger = typeof ValueLedger.Type;
+type Ledger = typeof ValueLedgerSummary.Type;
 type Goalie = typeof GoalieResult.Type;
 type Result<T> =
   | {
@@ -135,6 +136,7 @@ export type AnalysisDatum = {
   readonly spatial_detail: SpatialDetail | null;
   readonly mechanism_detail: Shootiness["evidence"] | Penalties["evidence"] | null;
   readonly territory_detail: Territory["evidence"] | null;
+  readonly ledger_detail: LedgerDetail | null;
   readonly goalie_detail: Goalie["evidence"] | null;
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
@@ -153,6 +155,8 @@ export type AnalysisDatum = {
   readonly reasonCodes: readonly string[];
   readonly observedSupport: PlayerSummary["personal"] | PlayerSummary["metrics"] | null;
 };
+
+type LedgerDetail = Pick<Ledger, "annual_reference_id" | "depth_position_group" | "depth_reference_coverage">;
 
 export type SpatialDetail = {
   readonly difference: Estimate;
@@ -191,6 +195,7 @@ type SelectedValue = {
   readonly spatial_detail?: SpatialDetail;
   readonly mechanism_detail?: Shootiness["evidence"] | Penalties["evidence"];
   readonly territory_detail?: Territory["evidence"];
+  readonly ledger_detail?: LedgerDetail;
   readonly goalie_detail?: Goalie["evidence"];
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
@@ -895,21 +900,10 @@ const goalie = (["ev", "pk"] as const).flatMap(strength =>
 export const goalieDetailMetric = (strength: typeof GoalieStrength.Type, field: GoalieField): AnalysisMetric =>
   goalieMetric(strength, field, "raw_only");
 
-const ledgerTerms = [
-  "five_on_five_offense",
-  "five_on_five_defense",
-  "power_play_offense",
-  "penalty_kill_defense",
-  "finishing",
-  "setting",
-  "penalties_drawn",
-  "penalties_taken",
-  "ice_won",
-  "ice_lost",
-] as const;
+const ledgerTerms = ledgerPresentation.map(([, term]) => term);
 type LedgerTerm = typeof ledgerTerms[number];
 
-function ledgerSupport(inputs: ValueInputs, term: LedgerTerm): {
+function ledgerViewingSupport(inputs: ValueInputs, term: LedgerTerm): {
   support: Support | null;
   reason: string | null;
 } {
@@ -980,9 +974,9 @@ const ledger = (["league", "replacement"] as const).flatMap(reference =>
     group: `ledger ${reference}`,
     label: `${reference} ${title(term)}`,
     unit: "goals_per_reference_basket",
-    population: "published standardized workload basket",
+    population: "published common-workload skater estimates",
     qualificationLabel: term === "total" || term === "finishing"
-      ? "matched on-ice 5v5 attempts"
+      ? "included observed 5v5 minutes"
       : term === "five_on_five_offense" || term === "five_on_five_defense"
         ? "5v5 spatial support"
         : term === "power_play_offense"
@@ -994,8 +988,10 @@ const ledger = (["league", "replacement"] as const).flatMap(reference =>
               : term === "ice_won" || term === "ice_lost"
                 ? "known-path 5v5 participation"
                 : "modeled penalty support",
-    construction: "model_valued",
-    numericReference: reference === "league" ? "published league reference" : "published replacement reference",
+    construction: "experimental favorable goals over a common workload",
+    numericReference: reference === "league"
+      ? "league reference"
+      : "each player minus their own F/D depth reference",
     cutoff: term === "power_play_offense" || term === "penalty_kill_defense" ? "specialty" : "general",
     select: inputs => fromResult(inputs.ledger, data => {
       const value = term === "total"
@@ -1016,7 +1012,7 @@ const ledger = (["league", "replacement"] as const).flatMap(reference =>
         reason: string;
       }> = {};
       for (const component of terms) {
-        const selected = ledgerSupport(inputs, component);
+        const selected = ledgerViewingSupport(inputs, component);
         componentSupport[component] = selected.support
           ? {
               support: selected.support,
@@ -1029,10 +1025,10 @@ const ledger = (["league", "replacement"] as const).flatMap(reference =>
       }
       const headline = term === "total" || term === "finishing";
       const support = term === "penalties_combined"
-        ? ledgerSupport(inputs, "penalties_drawn").support
+        ? ledgerViewingSupport(inputs, "penalties_drawn").support
         : term === "total"
           ? null
-          : ledgerSupport(inputs, term).support;
+          : ledgerViewingSupport(inputs, term).support;
       return {
         original: value,
         value: value.value,
@@ -1057,7 +1053,12 @@ const ledger = (["league", "replacement"] as const).flatMap(reference =>
                   : term === "ice_won" || term === "ice_lost"
                     ? "territory.support.included_seconds"
                     : "penalties.support.included_seconds",
-        workload: data.reference_minutes
+        workload: data.reference_minutes,
+        ledger_detail: {
+          annual_reference_id: data.annual_reference_id,
+          depth_position_group: data.depth_position_group,
+          depth_reference_coverage: data.depth_reference_coverage,
+        },
       };
     })
   })),
@@ -1194,7 +1195,7 @@ function datum(
   const population = metric.kind === "goalie"
     ? metric.population
     : source?.population ?? method?.population ?? metric.population;
-  const numericReference = metric.kind === "goalie"
+  const numericReference = metric.kind === "goalie" || metric.publicationFamily === "ledger"
     ? metric.numericReference
     : method?.reference ?? metric.numericReference;
   const semanticKey = JSON.stringify([
@@ -1208,7 +1209,7 @@ function datum(
     ...(metric.observedPopulation ? [supportPolicyId] : []),
   ]);
   for (const reference of selected.original?.reason_detail?.evidence ?? []) {
-    if (reference.kind === "method" && !methods.some(entry => entry.method_id === reference.id)) {
+    if (reference.kind === "method" && metric.publicationFamily !== "ledger" && !methods.some(entry => entry.method_id === reference.id)) {
       const evidence = catalogs.methods[reference.id];
       if (!evidence) throw new Error(`unresolved method ${reference.id}`);
       methods.push(evidence);
@@ -1242,6 +1243,7 @@ function datum(
     spatial_detail: selected.spatial_detail ?? null,
     mechanism_detail: selected.mechanism_detail ?? null,
     territory_detail: selected.territory_detail ?? null,
+    ledger_detail: selected.ledger_detail ?? null,
     goalie_detail: selected.goalie_detail ?? null,
     qualificationSeconds: selected.qualificationSeconds,
     qualificationBasis: selected.qualificationBasis,

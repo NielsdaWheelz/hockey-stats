@@ -200,6 +200,7 @@ export const parseEvidenceSelection = (
       "penalties",
       "territory",
       "microstats",
+      "ledger",
     ] as const,
     "evidence family",
   );

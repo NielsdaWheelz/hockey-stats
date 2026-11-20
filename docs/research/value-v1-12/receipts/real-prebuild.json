@@ -1,0 +1,139 @@
+{
+  "donor_sha256": "ec5349f1f019a9ccfbac908be26dd34b350f26085a890904b6048de0da1d2829",
+  "conversion_sha256": "10daf08b2018abca8566295bd7aa38c7e8dca3bc3caf1018a0ceea6aa45d9087",
+  "conversion_receipt_sha256": "99cdecb5c944b5e79141c62bca443e2b104e21452021861a7b87eaa25800f568",
+  "composition_receipt_sha256": "bd711c4fa6f6b437cb882b065064090daf01951903e86107093b928b14c9271a",
+  "composition_sha256": "6d05679d3fcfdb0eca3ba9cae414a12dcb2f4699d037719c953aa200c6896389",
+  "inherited_members": 90,
+  "inherited_rows": 38080022,
+  "inherited_bytes": 32684886370,
+  "inherited_method_bodies": 27,
+  "inherited_member_bytes_rehashed": false,
+  "annuals": {
+    "20232024": {
+      "skater_rows": 924,
+      "league_totals": 923,
+      "replacement_totals": 923,
+      "reference_sha256": "6a3336ca4a2c2aa159c3436deaca9573aae2d861ae06d04df582bf1607708c78",
+      "depth": {
+        "D": {
+          "available": true,
+          "member_count": 132,
+          "total_seconds": 2318947,
+          "complete_groups": 30,
+          "excluded_groups": 2,
+          "reason": null,
+          "excluded_team_ids": [
+            "1",
+            "21"
+          ],
+          "missing_vectors": []
+        },
+        "F": {
+          "available": true,
+          "member_count": 229,
+          "total_seconds": 2633623,
+          "complete_groups": 30,
+          "excluded_groups": 2,
+          "reason": null,
+          "excluded_team_ids": [
+            "1",
+            "21"
+          ],
+          "missing_vectors": []
+        }
+      },
+      "examples": {
+        "D": "8470600",
+        "F": "8470604",
+        "traded": "8470621"
+      },
+      "compact_ledger_overview_bytes": 3553972,
+      "selected_ledger_detail_bytes": {
+        "minimum": 193332,
+        "maximum": 207166,
+        "sample": 198217
+      }
+    },
+    "20242025": {
+      "skater_rows": 920,
+      "league_totals": 920,
+      "replacement_totals": 920,
+      "reference_sha256": "2ed97e607fecbab6119610d5bd4d6bcb845284f38e380cd34ed039fdf709a354",
+      "depth": {
+        "D": {
+          "available": true,
+          "member_count": 146,
+          "total_seconds": 2595904,
+          "complete_groups": 32,
+          "excluded_groups": 0,
+          "reason": null,
+          "excluded_team_ids": [],
+          "missing_vectors": []
+        },
+        "F": {
+          "available": true,
+          "member_count": 256,
+          "total_seconds": 2942925,
+          "complete_groups": 32,
+          "excluded_groups": 0,
+          "reason": null,
+          "excluded_team_ids": [],
+          "missing_vectors": []
+        }
+      },
+      "examples": {
+        "D": "8470600",
+        "F": "8470621",
+        "traded": "8473419"
+      },
+      "compact_ledger_overview_bytes": 3537954,
+      "selected_ledger_detail_bytes": {
+        "minimum": 198819,
+        "maximum": 205600,
+        "sample": 204259
+      }
+    },
+    "20252026": {
+      "skater_rows": 940,
+      "league_totals": 940,
+      "replacement_totals": 940,
+      "reference_sha256": "dcac9f906579872623d23e0e4540171dd6f21f445d878e1dfcda3edec0dbfa6b",
+      "depth": {
+        "D": {
+          "available": true,
+          "member_count": 152,
+          "total_seconds": 2460494,
+          "complete_groups": 32,
+          "excluded_groups": 0,
+          "reason": null,
+          "excluded_team_ids": [],
+          "missing_vectors": []
+        },
+        "F": {
+          "available": true,
+          "member_count": 261,
+          "total_seconds": 3238496,
+          "complete_groups": 32,
+          "excluded_groups": 0,
+          "reason": null,
+          "excluded_team_ids": [],
+          "missing_vectors": []
+        }
+      },
+      "examples": {
+        "D": "8470613",
+        "F": "8470621",
+        "traded": "8470621"
+      },
+      "compact_ledger_overview_bytes": 3614559,
+      "selected_ledger_detail_bytes": {
+        "minimum": 199018,
+        "maximum": 206351,
+        "sample": 205228
+      }
+    }
+  },
+  "payload_scope": "compact json of ledger payload additions; response envelope and inherited fields excluded",
+  "wall_seconds": 4.047542209038511
+}

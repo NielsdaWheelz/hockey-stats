@@ -1,0 +1,622 @@
+{
+  "schema_version": 1,
+  "kind": "real_value_ledger_acceptance",
+  "recorded_at": "2026-11-20T11:19:46.146448+00:00",
+  "run_root": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw",
+  "publication_id": "35ce39e0-5a28-4582-8b98-e7973b0e8045",
+  "purpose": "real",
+  "exchange_version": 6,
+  "database_schema": 12,
+  "source": {
+    "commit": "a71387321827d2fc4b202d21d967e384b2ff173c",
+    "app_tree": "a4c9d51c147ffc4f01b21044ca0f5b3061e18f52",
+    "analysis_tree": "a5de3e1f5df338e8b9b85fb543f2f6066ce99a01"
+  },
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/candidate-02/player-analysis.sqlite",
+    "sha256": "d73cb8bacc4fb290884e0c3007e3722f1c3a93e7b52bb9463281f521d0623054",
+    "size": 32039075840,
+    "inode": 512529,
+    "mtime_ns": 1795167183127097317
+  },
+  "publication": {
+    "verification": {
+      "path": "candidate-02/verification.json",
+      "bytes": 14065,
+      "sha256": "551fdafcbc7003fa84b8adbcaad6e31bf5d10adb6af9faa1514e3693cbf4c935"
+    },
+    "results": {
+      "path": "candidate-02/results/manifest.json",
+      "bytes": 25854,
+      "sha256": "6d05679d3fcfdb0eca3ba9cae414a12dcb2f4699d037719c953aa200c6896389"
+    },
+    "observed": {
+      "path": "candidate-02/selection.json",
+      "bytes": 711,
+      "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9"
+    },
+    "checks": {
+      "integrity": "passed",
+      "foreign_keys": "passed",
+      "read_back": "passed",
+      "per_season_conservation": "passed"
+    },
+    "command_log": {
+      "path": "publication-02.log",
+      "bytes": 979,
+      "sha256": "17fba3bdde35d8d6c5cc14f23a306e08aa069034db367d710e9b1010dba976f6"
+    },
+    "exit_code": 0,
+    "costs": {
+      "wall_seconds": 18009.994486958953,
+      "peak_rss_bytes": 3328000000,
+      "consumed_bytes": 41878614908,
+      "database_bytes": 32039075840
+    },
+    "native": {
+      "wall_seconds": 18011.25,
+      "user_seconds": 13850.61,
+      "system_seconds": 864.25,
+      "peak_rss_bytes": 3328000000
+    }
+  },
+  "detached": {
+    "port": 3133,
+    "stopped": true,
+    "first_http_seconds": 3361,
+    "app_build": {
+      "wall_seconds": 1.39,
+      "user_seconds": 2.25,
+      "system_seconds": 0.58,
+      "peak_rss_bytes": 616398848
+    },
+    "startup_log": {
+      "path": "live/startup.log",
+      "bytes": 86598,
+      "sha256": "7ab6e110216d0ebbe3344e32a4ad2a45f80641c910b71ee08cad680857bc4b23"
+    },
+    "peak_rss_including_live_checks_bytes": 3018899456,
+    "guard": {
+      "path": "live/detached.sb",
+      "bytes": 309,
+      "sha256": "58e4df6fb4821968e9ea08e815cf361752c8958266f322bfbbe6cccfcd8b9852"
+    },
+    "denied_read": {
+      "path": "live/detachment-red.log",
+      "bytes": 104,
+      "sha256": "f8d2e14672bdd8d4e1b0c3275a88edd91d412c75d5a15eb967eb063ef23832fa"
+    },
+    "allowed_data": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/candidate-02/player-analysis.sqlite",
+    "original_data_volume_physically_mounted": true
+  },
+  "selectors": {
+    "report": {
+      "path": "live/selectors.json",
+      "bytes": 4875,
+      "sha256": "70a3730fb2f857b8097457697a5006f91b55c23db24388559f95a199de62be14"
+    },
+    "seasons": [
+      {
+        "season": "20232024",
+        "skaters": 924,
+        "selectors": 24,
+        "leagueAvailable": 923,
+        "replacementAvailable": 923,
+        "overview_bytes": 44480005,
+        "overview_ms": 5158.378375,
+        "checked": [
+          {
+            "case": "D",
+            "id": "8470600",
+            "player_name": "Ryan Suter",
+            "profile_bytes": 979829,
+            "profile_ms": 56.01408399999946,
+            "detail_bytes": 492430,
+            "detail_ms": 9.826500000000124
+          },
+          {
+            "case": "specialist",
+            "id": "8470600",
+            "player_name": "Ryan Suter",
+            "profile_bytes": 979829,
+            "profile_ms": 24.495832999999948,
+            "detail_bytes": 492430,
+            "detail_ms": 9.721457999999984
+          },
+          {
+            "case": "F",
+            "id": "8470604",
+            "player_name": "Jeff Carter",
+            "profile_bytes": 784827,
+            "profile_ms": 18.642667000000074,
+            "detail_bytes": 492697,
+            "detail_ms": 9.12145799999962
+          },
+          {
+            "case": "traded",
+            "id": "8470621",
+            "player_name": "Corey Perry",
+            "profile_bytes": 1137176,
+            "profile_ms": 80.70575000000008,
+            "detail_bytes": 491529,
+            "detail_ms": 8.645292000000154
+          },
+          {
+            "case": "low-time",
+            "id": "8473473",
+            "player_name": "Milan Lucic",
+            "profile_bytes": 660254,
+            "profile_ms": 12.438750000000255,
+            "detail_bytes": 491030,
+            "detail_ms": 8.099500000000262
+          }
+        ]
+      },
+      {
+        "season": "20242025",
+        "skaters": 920,
+        "selectors": 24,
+        "leagueAvailable": 920,
+        "replacementAvailable": 920,
+        "overview_bytes": 44609885,
+        "overview_ms": 5177.001125,
+        "checked": [
+          {
+            "case": "D",
+            "id": "8470600",
+            "player_name": "Ryan Suter",
+            "profile_bytes": 977621,
+            "profile_ms": 31.41320799999994,
+            "detail_bytes": 498504,
+            "detail_ms": 9.439000000000306
+          },
+          {
+            "case": "specialist",
+            "id": "8470600",
+            "player_name": "Ryan Suter",
+            "profile_bytes": 977621,
+            "profile_ms": 24.320165999999517,
+            "detail_bytes": 498504,
+            "detail_ms": 8.794959000000745
+          },
+          {
+            "case": "F",
+            "id": "8470621",
+            "player_name": "Corey Perry",
+            "profile_bytes": 1166095,
+            "profile_ms": 36.97620800000004,
+            "detail_bytes": 497632,
+            "detail_ms": 9.013249999999971
+          },
+          {
+            "case": "low-time",
+            "id": "8471817",
+            "player_name": "Ryan Reaves",
+            "profile_bytes": 1072389,
+            "profile_ms": 29.156165999998848,
+            "detail_bytes": 496967,
+            "detail_ms": 9.002459000001181
+          },
+          {
+            "case": "traded",
+            "id": "8473419",
+            "player_name": "Brad Marchand",
+            "profile_bytes": 1186194,
+            "profile_ms": 40.81866599999921,
+            "detail_bytes": 498906,
+            "detail_ms": 9.406917000000249
+          }
+        ]
+      },
+      {
+        "season": "20252026",
+        "skaters": 940,
+        "selectors": 24,
+        "leagueAvailable": 940,
+        "replacementAvailable": 940,
+        "overview_bytes": 45286689,
+        "overview_ms": 5006.653833999999,
+        "checked": [
+          {
+            "case": "D",
+            "id": "8470613",
+            "player_name": "Brent Burns",
+            "profile_bytes": 1195584,
+            "profile_ms": 48.5389159999977,
+            "detail_bytes": 499380,
+            "detail_ms": 9.086750000002212
+          },
+          {
+            "case": "F",
+            "id": "8470621",
+            "player_name": "Corey Perry",
+            "profile_bytes": 1162586,
+            "profile_ms": 31.13550000000032,
+            "detail_bytes": 498340,
+            "detail_ms": 9.055209000001923
+          },
+          {
+            "case": "traded",
+            "id": "8470621",
+            "player_name": "Corey Perry",
+            "profile_bytes": 1162586,
+            "profile_ms": 31.39787499999875,
+            "detail_bytes": 498340,
+            "detail_ms": 8.79991599999994
+          },
+          {
+            "case": "specialist",
+            "id": "8470621",
+            "player_name": "Corey Perry",
+            "profile_bytes": 1162586,
+            "profile_ms": 31.220791000003373,
+            "detail_bytes": 498340,
+            "detail_ms": 8.875749999999243
+          },
+          {
+            "case": "low-time",
+            "id": "8474090",
+            "player_name": "Brendan Smith",
+            "profile_bytes": 1058705,
+            "profile_ms": 27.512666000002355,
+            "detail_bytes": 497895,
+            "detail_ms": 9.61933400000271
+          }
+        ]
+      }
+    ]
+  },
+  "browser": [
+    {
+      "mode": "normal",
+      "report": {
+        "path": "live/20232024-browser.json",
+        "bytes": 307,
+        "sha256": "d1254a19736b960b88043b466e656296d3fa1eb7098c3b7600f5fbc06ca880c0"
+      },
+      "first": "8470604",
+      "second": "8470600",
+      "season": "20232024",
+      "viewport": {
+        "width": 1280,
+        "dpr": 1,
+        "client": 1280,
+        "scroll": 1280
+      },
+      "native": false,
+      "narrow": false,
+      "counts": {
+        "term": 12,
+        "execution_state": 7,
+        "team_rank": 994,
+        "weighted_member": 361
+      },
+      "selectedDetailBytes": 492697,
+      "constructionBytes": 982756,
+      "historyBytes": 29655,
+      "downloads": [
+        {
+          "path": "live/20232024-normal-downloads/hockey-stats-20232024-8470604-analytical.png",
+          "bytes": 1108253,
+          "sha256": "e7d442cd124631745a0fb027a54820c228053a7e481fe56c572185c9acc6dd94"
+        },
+        {
+          "path": "live/20232024-normal-downloads/hockey-stats-20232024-8470604-ledger-construction.csv",
+          "bytes": 982756,
+          "sha256": "b7a3666466782d9e3d7f1448d3e011d7d33b3c3ff544d3c25f588c9c8923e631"
+        },
+        {
+          "path": "live/20232024-normal-downloads/hockey-stats-20232024-8470604-microstats.csv",
+          "bytes": 154364,
+          "sha256": "9c41d31605ab9674c3456de83a0d99805d3cb802996d5f98d16a21e7fc593f24"
+        },
+        {
+          "path": "live/20232024-normal-downloads/hockey-stats-8470604-20232024-35ce39e0-5a28-4582-8b98-e7973b0e8045-comparative.png",
+          "bytes": 2481015,
+          "sha256": "a961cdb055a9bc17bedd5e82d7e44c08e870279f75037e9cf55865aad0793868"
+        },
+        {
+          "path": "live/20232024-normal-downloads/hockey-stats-8470604-ledger.league_total-20232024-20252026-history-raw.png",
+          "bytes": 1135551,
+          "sha256": "127eeb7df547c2b5c7793a5f624eedef9039aa3099b3b4ad7490ea4ba646a4e4"
+        },
+        {
+          "path": "live/20232024-normal-downloads/hockey-stats-8470604-ledger.league_total-20232024-20252026-history.csv",
+          "bytes": 29655,
+          "sha256": "93e7ea247bdca41e431979aaad18c37016794fdec17229fad08385b02395aa4b"
+        }
+      ]
+    },
+    {
+      "mode": "normal",
+      "report": {
+        "path": "live/20242025-browser.json",
+        "bytes": 308,
+        "sha256": "13b141ff035a7ddcb8742a705e1f0ceda9fc4b5df781fd4037cafaf38f16ed0f"
+      },
+      "first": "8470621",
+      "second": "8470600",
+      "season": "20242025",
+      "viewport": {
+        "width": 1280,
+        "dpr": 1,
+        "client": 1280,
+        "scroll": 1280
+      },
+      "native": false,
+      "narrow": false,
+      "counts": {
+        "term": 12,
+        "execution_state": 7,
+        "team_rank": 1027,
+        "weighted_member": 402
+      },
+      "selectedDetailBytes": 497632,
+      "constructionBytes": 997461,
+      "historyBytes": 92546,
+      "downloads": [
+        {
+          "path": "live/20242025-normal-downloads/hockey-stats-20242025-8470621-analytical.png",
+          "bytes": 1104450,
+          "sha256": "5978a348a339fd7405673d2d8f59796557401c63430d1c374a4e77fb29902f8d"
+        },
+        {
+          "path": "live/20242025-normal-downloads/hockey-stats-20242025-8470621-ledger-construction.csv",
+          "bytes": 997461,
+          "sha256": "d8e41d0881f9c24b65393b3fe13774df11ebfb8e195e4abd968b786e17206b8c"
+        },
+        {
+          "path": "live/20242025-normal-downloads/hockey-stats-20242025-8470621-microstats.csv",
+          "bytes": 162057,
+          "sha256": "c522cde1fa6e79c74cabb2563a79cb9b303107abcfb801477bceb7ada2458366"
+        },
+        {
+          "path": "live/20242025-normal-downloads/hockey-stats-8470621-20242025-35ce39e0-5a28-4582-8b98-e7973b0e8045-comparative.png",
+          "bytes": 2537072,
+          "sha256": "59172e5f3a75250e85e8a901bdfb9a491b76c665c8a09a0f9fbfc507da82800f"
+        },
+        {
+          "path": "live/20242025-normal-downloads/hockey-stats-8470621-ledger.league_total-20232024-20252026-history-raw.png",
+          "bytes": 1799074,
+          "sha256": "d421858aa16eab8f5b19281310b0e62911bf89f116fedf66526a153be57d7c19"
+        },
+        {
+          "path": "live/20242025-normal-downloads/hockey-stats-8470621-ledger.league_total-20232024-20252026-history.csv",
+          "bytes": 92546,
+          "sha256": "df2edeb38850d3e42d6dc90219bd98e3399cf587393908201ad9418ed3ec54ff"
+        }
+      ]
+    },
+    {
+      "mode": "normal",
+      "report": {
+        "path": "live/20252026-browser.json",
+        "bytes": 309,
+        "sha256": "88ef306ce32b77df6f909dac5f2d11829bf5b7e6a790da2c7ab5c4f3b5203444"
+      },
+      "first": "8470621",
+      "second": "8470613",
+      "season": "20252026",
+      "viewport": {
+        "width": 1280,
+        "dpr": 1,
+        "client": 1280,
+        "scroll": 1280
+      },
+      "native": false,
+      "narrow": false,
+      "counts": {
+        "term": 12,
+        "execution_state": 7,
+        "team_rank": 1023,
+        "weighted_member": 413
+      },
+      "selectedDetailBytes": 498340,
+      "constructionBytes": 1018524,
+      "historyBytes": 92546,
+      "downloads": [
+        {
+          "path": "live/20252026-normal-downloads/hockey-stats-20252026-8470621-analytical.png",
+          "bytes": 1231423,
+          "sha256": "6fb00896b340c1dc2f442341594e8b7e0f557a9bf999a8c7bd6bec36055d6b3d"
+        },
+        {
+          "path": "live/20252026-normal-downloads/hockey-stats-20252026-8470621-ledger-construction.csv",
+          "bytes": 1018524,
+          "sha256": "874bbd1eb5b34422ef195e7d1af77e6b74768dfb6249119b183863fd537da5c7"
+        },
+        {
+          "path": "live/20252026-normal-downloads/hockey-stats-20252026-8470621-microstats.csv",
+          "bytes": 194092,
+          "sha256": "21b1e1ed450c2ef7d30aaf281bc615cc5b02e8564d243c4da74e19f830e01351"
+        },
+        {
+          "path": "live/20252026-normal-downloads/hockey-stats-8470621-20252026-35ce39e0-5a28-4582-8b98-e7973b0e8045-comparative.png",
+          "bytes": 2595522,
+          "sha256": "3b049baf48c785bec824ae24a4e1393f0dc38165b13682be783cc3b0a97c47ff"
+        },
+        {
+          "path": "live/20252026-normal-downloads/hockey-stats-8470621-ledger.league_total-20232024-20252026-history-raw.png",
+          "bytes": 1799606,
+          "sha256": "8a00c5b0c77ae1a7993630bbe3b8c457133d8fee4237f999439aa2af224efa75"
+        },
+        {
+          "path": "live/20252026-normal-downloads/hockey-stats-8470621-ledger.league_total-20232024-20252026-history.csv",
+          "bytes": 92546,
+          "sha256": "df2edeb38850d3e42d6dc90219bd98e3399cf587393908201ad9418ed3ec54ff"
+        }
+      ]
+    },
+    {
+      "mode": "narrow",
+      "report": {
+        "path": "live/20252026-narrow.json",
+        "bytes": 305,
+        "sha256": "250f944c071f4bb97ab981b35cf52fe1528484397b41e5cdb7cf78f9f3913306"
+      },
+      "first": "8470621",
+      "second": "8470613",
+      "season": "20252026",
+      "viewport": {
+        "width": 375,
+        "dpr": 1,
+        "client": 375,
+        "scroll": 375
+      },
+      "native": false,
+      "narrow": true,
+      "counts": {
+        "term": 12,
+        "execution_state": 7,
+        "team_rank": 1023,
+        "weighted_member": 413
+      },
+      "selectedDetailBytes": 498340,
+      "constructionBytes": 1018524,
+      "historyBytes": 92546,
+      "downloads": [
+        {
+          "path": "live/20252026-narrow-downloads/hockey-stats-20252026-8470621-analytical.png",
+          "bytes": 1231423,
+          "sha256": "6fb00896b340c1dc2f442341594e8b7e0f557a9bf999a8c7bd6bec36055d6b3d"
+        },
+        {
+          "path": "live/20252026-narrow-downloads/hockey-stats-20252026-8470621-ledger-construction.csv",
+          "bytes": 1018524,
+          "sha256": "874bbd1eb5b34422ef195e7d1af77e6b74768dfb6249119b183863fd537da5c7"
+        },
+        {
+          "path": "live/20252026-narrow-downloads/hockey-stats-20252026-8470621-microstats.csv",
+          "bytes": 194092,
+          "sha256": "21b1e1ed450c2ef7d30aaf281bc615cc5b02e8564d243c4da74e19f830e01351"
+        },
+        {
+          "path": "live/20252026-narrow-downloads/hockey-stats-8470621-20252026-35ce39e0-5a28-4582-8b98-e7973b0e8045-comparative.png",
+          "bytes": 2595522,
+          "sha256": "3b049baf48c785bec824ae24a4e1393f0dc38165b13682be783cc3b0a97c47ff"
+        },
+        {
+          "path": "live/20252026-narrow-downloads/hockey-stats-8470621-ledger.league_total-20232024-20252026-history-raw.png",
+          "bytes": 1799606,
+          "sha256": "8a00c5b0c77ae1a7993630bbe3b8c457133d8fee4237f999439aa2af224efa75"
+        },
+        {
+          "path": "live/20252026-narrow-downloads/hockey-stats-8470621-ledger.league_total-20232024-20252026-history.csv",
+          "bytes": 92546,
+          "sha256": "df2edeb38850d3e42d6dc90219bd98e3399cf587393908201ad9418ed3ec54ff"
+        }
+      ]
+    },
+    {
+      "mode": "native200",
+      "report": {
+        "path": "live/20252026-native200.json",
+        "bytes": 305,
+        "sha256": "52026c824e2f04f9e6b7876f2fca5464b213e91ac99177952b931fa89685427d"
+      },
+      "first": "8470621",
+      "second": "8470613",
+      "season": "20252026",
+      "viewport": {
+        "width": 640,
+        "dpr": 2,
+        "client": 640,
+        "scroll": 640
+      },
+      "native": true,
+      "narrow": false,
+      "counts": {
+        "term": 12,
+        "execution_state": 7,
+        "team_rank": 1023,
+        "weighted_member": 413
+      },
+      "selectedDetailBytes": 498340,
+      "constructionBytes": 1018524,
+      "historyBytes": 92546,
+      "downloads": [
+        {
+          "path": "live/20252026-native200-downloads/hockey-stats-20252026-8470621-analytical.png",
+          "bytes": 1231423,
+          "sha256": "6fb00896b340c1dc2f442341594e8b7e0f557a9bf999a8c7bd6bec36055d6b3d"
+        },
+        {
+          "path": "live/20252026-native200-downloads/hockey-stats-20252026-8470621-ledger-construction.csv",
+          "bytes": 1018524,
+          "sha256": "874bbd1eb5b34422ef195e7d1af77e6b74768dfb6249119b183863fd537da5c7"
+        },
+        {
+          "path": "live/20252026-native200-downloads/hockey-stats-20252026-8470621-microstats.csv",
+          "bytes": 194092,
+          "sha256": "21b1e1ed450c2ef7d30aaf281bc615cc5b02e8564d243c4da74e19f830e01351"
+        },
+        {
+          "path": "live/20252026-native200-downloads/hockey-stats-8470621-20252026-35ce39e0-5a28-4582-8b98-e7973b0e8045-comparative.png",
+          "bytes": 2595522,
+          "sha256": "3b049baf48c785bec824ae24a4e1393f0dc38165b13682be783cc3b0a97c47ff"
+        },
+        {
+          "path": "live/20252026-native200-downloads/hockey-stats-8470621-ledger.league_total-20232024-20252026-history-raw.png",
+          "bytes": 1799726,
+          "sha256": "513e098883b75844448330407ac405f338586545f449e6b91d696df80a0c2dac"
+        },
+        {
+          "path": "live/20252026-native200-downloads/hockey-stats-8470621-ledger.league_total-20232024-20252026-history.csv",
+          "bytes": 92546,
+          "sha256": "df2edeb38850d3e42d6dc90219bd98e3399cf587393908201ad9418ed3ec54ff"
+        }
+      ]
+    }
+  ],
+  "export_comparison": {
+    "path": "live/download-comparison.json",
+    "bytes": 1628,
+    "sha256": "7a5bd5523dd5d9fbcba9e1dcac904467f638c3e26bcce3758e5b8cf9a82e3b1c"
+  },
+  "historical_checker_failures": [
+    {
+      "log": {
+        "path": "live/browser-first-attempt/20232024-browser.log",
+        "bytes": 406,
+        "sha256": "f478b2ba97881e760b8887a7a8fe0cb4a88318021b0bfab326301144a1712e0f"
+      },
+      "correction": "count direct peer-table headings"
+    },
+    {
+      "log": {
+        "path": "live/download-comparison.log",
+        "bytes": 366,
+        "sha256": "61aef5ad9951b267317ec67bfb7dcc17cef1c71ed7aa983eeb1bc9c00892a2fc"
+      },
+      "correction": "verify export content, exact csv bytes, and bounded chart raster differences"
+    }
+  ],
+  "preservation": {
+    "baseline": "/Users/nnandal/Documents/hockey-stats/maintenance/consolidation-20261118/delivery-before.json",
+    "original_build_files": 38,
+    "primary_head": "477caf2e9358d267fe724e2f05e6b54d99f94ab6",
+    "serving_port": 3000,
+    "serving_pid": 91302,
+    "protected": {
+      "active.sqlite": {
+        "path": "/Users/nnandal/Documents/hockey-stats/local/publication/active.sqlite",
+        "schema_version": 8,
+        "publication_id": "9a5b4061-f909-4c1b-b624-5729e5acb6bf",
+        "size": 11310997504,
+        "inode": 191950541,
+        "mtime_ns": 1793431198154070471,
+        "first_64k_sha256": "16f52f7921694079dd0ec6ae649cb99c121d710ad0e31543a716dfd7cfba4eda"
+      },
+      "previous.sqlite": {
+        "path": "/Users/nnandal/Documents/hockey-stats/local/publication/previous.sqlite",
+        "schema_version": 7,
+        "publication_id": "eb4e31ab-a35c-4df6-be34-9bccceb4fe3d",
+        "size": 4635877376,
+        "inode": 173454037,
+        "mtime_ns": 1793080727502487829,
+        "first_64k_sha256": "e916c37c385022c1acc6ea13056f9123dcb4a23d202d6bc6192ed75ebf14f883"
+      }
+    }
+  },
+  "scientific_admission": "not_performed"
+}

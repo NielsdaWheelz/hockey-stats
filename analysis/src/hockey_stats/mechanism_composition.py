@@ -247,7 +247,7 @@ def _territory_datum(value,status,method,person):
 
 def _territory_rows(year,state,reference,people,method_id):
     from .territory import ROLES
-    from .territory_evidence import reference_body,reference_digest
+    from .territory_evidence import reference_body
     from .artifacts import json_values
     baseline=reference['variants']['baseline'];computed=baseline['successor_available'];shift_computed=baseline['shift_available']
     hazards={row['player_id']:row for row in state.projections};support={row['player_id']:row for row in state.support}
@@ -302,7 +302,7 @@ def _territory_rows(year,state,reference,people,method_id):
             nuisance_coverage=coverage,shift_reference=dict(available=shift_computed,reason=None if shift_computed else reason,receipt=bind(identity(reference['path'])),data=shift),
             successor_reference=dict(available=computed,reason=reason,ev_state=bind(manifest['ev_state']),
                 panel=None if manifest['panel'] is None else bind(manifest['panel']),data=successor)))
-        evidence['reference_id']=reference_digest(reference_body(evidence,year,state.manifest['purpose'],'territory-v1-11-1'))
+        evidence['reference_id']=publication.reference_digest(reference_body(evidence,year,state.manifest['purpose'],'territory-v1-11-1'))
         if reference_id is None:reference_id=evidence['reference_id']
         require(reference_id==evidence['reference_id'],'territory common reference varies across players')
         data=dict(**role_data,support=main_support,method_id=method_id,evidence=evidence)

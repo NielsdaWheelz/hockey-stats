@@ -1,0 +1,137 @@
+{
+  "usage_wall_seconds": 4.934992209076881,
+  "usage": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/source-checked-20232024/usage.json",
+    "sha256": "e01d66e401f4d79fb83bdcc94848ba4cd32f792d892f80f8b18b9de6fec844bf"
+  },
+  "usage_bytes": 20881566,
+  "depth_coverage": {
+    "F": {
+      "complete_groups": 30,
+      "excluded_groups": 2,
+      "members": 229,
+      "total_seconds": 2633623
+    },
+    "D": {
+      "complete_groups": 30,
+      "excluded_groups": 2,
+      "members": 132,
+      "total_seconds": 2318947
+    }
+  },
+  "complete_usage_agreement_players": 923,
+  "traded_depth_examples": [
+    {
+      "player_id": "8470621",
+      "original_team_seconds": {
+        "16": 14067,
+        "22": 29291
+      },
+      "depth_weight": {
+        "player_id": "8470621",
+        "seconds": 14067,
+        "teams": [
+          {
+            "team_id": "16",
+            "seconds": 14067
+          }
+        ]
+      }
+    },
+    {
+      "player_id": "8473446",
+      "original_team_seconds": {
+        "7": 41424,
+        "4": 16759
+      },
+      "depth_weight": {
+        "player_id": "8473446",
+        "seconds": 16759,
+        "teams": [
+          {
+            "team_id": "4",
+            "seconds": 16759
+          }
+        ]
+      }
+    },
+    {
+      "player_id": "8473449",
+      "original_team_seconds": {
+        "7": 49827,
+        "13": 3851
+      },
+      "depth_weight": {
+        "player_id": "8473449",
+        "seconds": 3851,
+        "teams": [
+          {
+            "team_id": "13",
+            "seconds": 3851
+          }
+        ]
+      }
+    },
+    {
+      "player_id": "8474034",
+      "original_team_seconds": {
+        "30": 37542,
+        "6": 1754
+      },
+      "depth_weight": {
+        "player_id": "8474034",
+        "seconds": 1754,
+        "teams": [
+          {
+            "team_id": "6",
+            "seconds": 1754
+          }
+        ]
+      }
+    },
+    {
+      "player_id": "8474145",
+      "original_team_seconds": {
+        "19": 2494,
+        "2": 19750
+      },
+      "depth_weight": {
+        "player_id": "8474145",
+        "seconds": 22244,
+        "teams": [
+          {
+            "team_id": "19",
+            "seconds": 2494
+          },
+          {
+            "team_id": "2",
+            "seconds": 19750
+          }
+        ]
+      }
+    }
+  ],
+  "shorthanded_wall_seconds": 5145.631711208029,
+  "shorthanded": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/source-checked-20232024/shorthanded.json",
+    "sha256": "0f9270fecf3f2d45840dfbcdb0354434859214e6fc02c7f484807a42d4896448"
+  },
+  "shorthanded_bytes": 665382,
+  "shorthanded_support": {
+    "3v5": {
+      "included_seconds": 10695.0,
+      "known_excluded_seconds": 0.0,
+      "neutral_goal_mass": 0.7547530245849731,
+      "attempts": 14,
+      "unquantified_gap": true
+    },
+    "3v4": {
+      "included_seconds": 9209.0,
+      "known_excluded_seconds": 120.0,
+      "neutral_goal_mass": 0.8250986038211544,
+      "attempts": 19,
+      "unquantified_gap": true
+    }
+  },
+  "peak_memory_bytes": 2938863616
+}

@@ -38,7 +38,7 @@ def main(argv=None) -> int:
     score.add_argument("--valued", action=Once, metavar="DIRECTORY")
     score.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     summarize = commands.add_parser("summarize", allow_abbrev=False)
-    summarize.add_argument("--family", required=True, choices=("execution", "spatial", "spatial-st", "goalie", "mechanisms", "territory"), action=Once)
+    summarize.add_argument("--family", required=True, choices=("execution", "spatial", "spatial-st", "goalie", "mechanisms", "territory", "ledger"), action=Once)
     summarize.add_argument("--prepared", action=Once, metavar="DIRECTORY")
     summarize.add_argument("--facts", action=Once, metavar="DIRECTORY")
     summarize.add_argument("--scores", action=Once, metavar="FILE")
@@ -77,6 +77,7 @@ def main(argv=None) -> int:
             "goalie": ("prepared", "results", "scores"),
             "mechanisms": ("results", "states"),
             "territory": ("results", "states"),
+            "ledger": ("results", "states"),
         }[args.family]
         forbidden = {
             "spatial": ("prepared", "facts", "scores"),
@@ -85,6 +86,7 @@ def main(argv=None) -> int:
             "goalie": ("facts", "states", "product_admission"),
             "mechanisms": ("prepared", "facts", "scores", "product_admission"),
             "territory": ("prepared", "facts", "scores", "product_admission"),
+            "ledger": ("prepared", "facts", "scores", "product_admission"),
         }[args.family]
         for flag in forbidden:
             if getattr(args, flag) is not None:
@@ -292,6 +294,11 @@ def main(argv=None) -> int:
 
             manifest = compose_special_teams(Path(args.results), Path(args.states), Path(args.out))
             print(f"special-teams results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
+        elif args.command == "summarize" and args.family == "ledger":
+            from .value_composition import compose_value
+
+            manifest = compose_value(Path(args.results), Path(args.states), Path(args.out))
+            print(f"value ledger results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
         elif args.command == "summarize" and args.family == "territory":
             from .mechanism_composition import compose_territory
 

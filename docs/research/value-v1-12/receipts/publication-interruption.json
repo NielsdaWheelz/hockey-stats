@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-19T16:07:41Z",
+  "reason": "user requested stop and safe eject",
+  "worktree": "/Users/nnandal/Documents/code/.worktrees/hockey-stats/v1-12",
+  "branch": "implement/v1-12-value-ledger",
+  "code_commit": "4703e6d",
+  "publisher": {
+    "pid": 64932,
+    "signal": "SIGINT",
+    "exit": 130,
+    "native_wall_seconds": 7414.57,
+    "peak_resident_bytes": 3337191424,
+    "stack": "insert_results -> validate_payload -> _goalie_distribution",
+    "log": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/publication.log",
+    "completed_candidate": false,
+    "partial_candidate": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/candidate/player-analysis.sqlite.incomplete",
+    "partial_bytes_after_close": 622530560,
+    "journal_present_after_close": false
+  },
+  "preserved_exchange": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/value-v1-12-20261119-yVPgGFSw/results/manifest.json",
+    "sha256": "6d05679d3fcfdb0eca3ba9cae414a12dcb2f4699d037719c953aa200c6896389"
+  },
+  "detach": {
+    "volume": "/Volumes/Expansion",
+    "device_before_eject": "disk5s1",
+    "container": "disk5",
+    "physical_device": "disk4",
+    "diskutil_results": ["Disk disk5 ejected", "Disk disk4 ejected"],
+    "volume_device_after_eject": "Could not find disk: disk5s1",
+    "mount_after_eject": false,
+    "volume_path_after_eject": false,
+    "visible_volume_file_handles_after_eject": 0,
+    "physical_device_entry_visible_immediately_after_eject": true
+  },
+  "other_stages": {
+    "source_workflow_exit": 0,
+    "composition_and_prebuild_exit": 0,
+    "queued_startup_exit": 1,
+    "real_strict_startup": "not_run",
+    "real_live_api_and_browser": "not_run",
+    "temporary_campaign_check_cleanup": "pending"
+  },
+  "primary": {
+    "listener_pid": 91302,
+    "port": 3000,
+    "active_and_previous": "size, inode, mtime and first 64 KiB SHA-256 match the storage delivery receipt",
+    "checkout": "main clean",
+    "activation": "not_run"
+  }
+}

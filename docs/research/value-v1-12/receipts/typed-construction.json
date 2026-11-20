@@ -1,0 +1,16 @@
+{
+  "fixture": "synthetic browser export",
+  "bytes": 29214,
+  "sha256": "ff439a8328fafb17814a65adad4c712d236d46a44b9b81dca62a2aafc51b8199",
+  "columns": 49,
+  "row_types": {
+    "term": 12,
+    "execution_state": 7,
+    "team_rank": 2,
+    "weighted_member": 1
+  },
+  "numeric_columns_match_evidence": true,
+  "reason_columns_match_evidence": true,
+  "excluded_group_and_unavailable_member_dispositions": true,
+  "byte_identical_narrow_native200": true
+}

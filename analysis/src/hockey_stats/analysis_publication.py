@@ -9,6 +9,7 @@ import math
 from pathlib import Path
 import re
 import shutil
+import struct
 
 from .input_locations import input_path
 from .artifacts import digest, implementation_identity, require, write_json
@@ -32,7 +33,7 @@ FAMILY_TABLES = {
     "penalties": ("skater_penalties",),
     "territory": ("skater_territory", "analysis_map"),
     "goalie": ("goalie_result", "goalie_observed", "goalie_evidence_map", "goalie_danger", "analysis_map", "execution_breakdown"),
-    "ledger": ("value_ledger",),
+    "ledger": ("value_ledger", "ledger_reference"),
     "evidence": ("attempt_fact", "dressed_game", "interval_fact", "interval_player", "interval_location", "context_coverage"),
 }
 KEYS = {
@@ -42,7 +43,7 @@ KEYS = {
     "skater_shootiness": ("season", "player_id", "strength"), "skater_penalties": ("season", "player_id"), "skater_territory": ("season", "player_id"),
     "goalie_result": ("season", "player_id", "strength"), "goalie_observed": ("season", "player_id", "strength"),
     "goalie_evidence_map": ("season", "player_id", "strength", "population", "type"), "goalie_danger": ("season", "player_id", "strength", "population"),
-    "value_ledger": ("season", "player_id"), "analysis_map": ("season", "player_id", "map_kind", "strength", "view"),
+    "value_ledger": ("season", "player_id"), "ledger_reference": ("season",), "analysis_map": ("season", "player_id", "map_kind", "strength", "view"),
     "execution_breakdown": ("season", "player_id", "strength", "kind", "stratum"),
     "adjustment_decomposition": ("season", "player_id", "strength", "target"),
     "spatial_evidence": ("season", "player_id", "strength"),
@@ -374,7 +375,7 @@ def validate_catalog(table, row, purpose, catalogs, prepared):
         require(type(row["inputs"]) is list, "missing method inputs")
         for item in row["inputs"]:
             fields(item, ("role", "sha256", "seasons"))
-            require(item["role"] in ("prepared", "coaches", "annual_state", "opportunity_panel", "source_results", "predecessor", "ev_state", "derivation", "successor_panel", "territory_reference"), "invalid method input role")
+            require(item["role"] in ("prepared", "coaches", "annual_state", "opportunity_panel", "source_results", "predecessor", "ev_state", "derivation", "successor_panel", "territory_reference", "execution_score"), "invalid method input role")
             digest(item["sha256"])
             strings(item["seasons"], ordered=True)
             for year in item["seasons"]:
@@ -466,6 +467,20 @@ def game_id(value, year):
 
 def json_bytes(value):
     return json.dumps(value, ensure_ascii=False, allow_nan=False, sort_keys=True, separators=(",", ":")).encode()
+
+
+def reference_digest(body):
+    """canonical json with numeric leaves tagged by their exact binary64 bytes."""
+    def canonical(value):
+        if type(value) in (int,float):
+            number(value)
+            return ['f64',struct.pack('>d',0. if value==0 else float(value)).hex()]
+        if type(value) is dict:
+            return {key:canonical(item) for key,item in value.items()}
+        if type(value) is list:
+            return [canonical(item) for item in value]
+        return value
+    return hashlib.sha256(json_bytes(canonical(body))).hexdigest()
 
 
 PERSON_SCHEMA = """
@@ -684,6 +699,15 @@ CREATE TABLE goalie_danger (
     PRIMARY KEY(season,player_id,strength,population),
     FOREIGN KEY(season,player_id) REFERENCES person(season,player_id),
     CHECK((availability='provided' AND explanation IS NULL AND payload_json IS NOT NULL) OR
+          (availability='not_computed' AND length(trim(explanation))>0 AND payload_json IS NULL AND method_id IS NULL))
+) STRICT;
+CREATE TABLE ledger_reference (
+    season TEXT NOT NULL PRIMARY KEY REFERENCES season(season),
+    method_id TEXT REFERENCES analysis_method(method_id),
+    availability TEXT NOT NULL CHECK(availability IN ('provided','not_computed')),
+    explanation TEXT,
+    payload_json TEXT CHECK(payload_json IS NULL OR json_valid(payload_json)),
+    CHECK((availability='provided' AND explanation IS NULL AND payload_json IS NOT NULL AND method_id IS NOT NULL) OR
           (availability='not_computed' AND length(trim(explanation))>0 AND payload_json IS NULL AND method_id IS NULL))
 ) STRICT;
 CREATE TABLE value_ledger (
@@ -1717,26 +1741,9 @@ def validate_payload(table, value, row, catalogs, *, person_kind=None):
         _actual_selection(value['actual_states'],row['strength'])
         for game in value['games']:
             _actual_selection(game['actual_states'],row['strength'])
-    elif table == 'value_ledger':
-        fields(value, ('reference_minutes','components','league_total','replacement_total','penalties_combined','method_id'))
-        fields(value['reference_minutes'], ('five_on_five','power_play','penalty_kill'))
-        require(value['reference_minutes'] == dict(five_on_five=1000,power_play=100,penalty_kill=100), 'wrong reference workload')
-        fields(value['components'], LEDGER_COMPONENTS)
-        _method(value['method_id'], catalogs)
-        for item in (*value['components'].values(),value['penalties_combined']):
-            fields(item, ('league_goals','replacement_goals'))
-            for item in item.values():
-                estimate(item, catalogs)
-        for reference_name in ('league','replacement'):
-            total = value[reference_name+'_total']
-            estimate(total, catalogs)
-            components = [item[reference_name+'_goals']['value'] for item in value['components'].values()]
-            if total['value'] is not None:
-                require(all(item is not None for item in components) and close(total['value'],sum(components)), 'ledger total differs')
-            penalties = value['penalties_combined'][reference_name+'_goals']['value']
-            parts = [value['components'][key][reference_name+'_goals']['value'] for key in ('penalties_drawn','penalties_taken')]
-            if penalties is not None:
-                require(all(item is not None for item in parts) and close(penalties,sum(parts)), 'combined penalties differ')
+    elif table in ('value_ledger', 'ledger_reference'):
+        from .value_evidence import validate_ledger_payload
+        validate_ledger_payload(table,value,row,catalogs)
     elif table == 'analysis_map':
         _map(value, row, catalogs)
     elif table == 'execution_breakdown':
@@ -2005,10 +2012,12 @@ def validate_row(table, row, family, catalogs, people):
         return
     fields(row,(*KEYS[table],'result'))
     season(row['season'])
-    identifier(row['player_id'])
-    require((row['season'],row['player_id']) in people, 'unknown analytical person')
-    kind = people[(row['season'],row['player_id'])]['kind']
-    require((kind == 'goalie') == (family == 'goalie'), 'analytical row person kind differs')
+    kind = None
+    if table != 'ledger_reference':
+        identifier(row['player_id'])
+        require((row['season'],row['player_id']) in people, 'unknown analytical person')
+        kind = people[(row['season'],row['player_id'])]['kind']
+        require((kind == 'goalie') == (family == 'goalie'), 'analytical row person kind differs')
     if 'strength' in row:
         allowed = (*GOALIE_STRENGTHS,'covered_all') if table in ('goalie_observed','goalie_evidence_map','goalie_danger') else GOALIE_STRENGTHS if family == 'goalie' else SPATIAL_STRENGTHS if family == 'spatial' else EXECUTION_STRENGTHS if family == 'execution' or table == 'skater_shootiness' else ('5v5',)
         require(row['strength'] in allowed, 'invalid analytical strength')
@@ -2187,12 +2196,12 @@ def _check_territory_map(scalar, mapped, kind):
                 'territory map/scalar integral differs')
 
 
-def read_results(directory: Path, manifest_name='manifest.json') -> Results:
-    """validate one named complete or staged manifest and all result members."""
+def read_result_catalogs(directory: Path, manifest_name='manifest.json') -> Results:
+    """validate the header and catalogs prior to a bounded read of selected tables."""
     directory = input_path(directory, strict=True)
     manifest = strict_json((directory/manifest_name).read_bytes())
     fields(manifest,('schema_version','kind','purpose','seasons','observed_bindings','prepared_sha256','producer','catalogs','families'))
-    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 5 and manifest['kind'] == 'player_analysis_results' and manifest['purpose'] in ('real','fixture'), 'invalid result manifest')
+    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 6 and manifest['kind'] == 'player_analysis_results' and manifest['purpose'] in ('real','fixture'), 'invalid result manifest')
     strings(manifest['seasons'],ordered=True)
     require(manifest['seasons'] and set(manifest['seasons']) <= set(SEASONS) and (manifest['purpose'] != 'real' or manifest['seasons'] == list(SEASONS)), 'invalid display seasons')
     require(type(manifest['observed_bindings']) is list and len(manifest['observed_bindings']) == len(manifest['seasons']), 'missing observed bindings')
@@ -2225,15 +2234,29 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:
                 catalogs[key][row[KEYS[table][0]]] = row
     require(type(manifest['families']) is list, 'missing family dispositions')
     inventory = []
-    mechanism_references = {}
     for family in manifest['families']:
         fields(family,('season','family','availability','explanation','tables'))
         text(family['family'])
         require(family['season'] in manifest['seasons'] and family['family'] in FAMILY_TABLES, 'invalid family disposition')
         disposition(family)
-        fields(family['tables'],FAMILY_TABLES[family['family']] if family['availability'] == 'provided' else ())
+        fields(family['tables'],FAMILY_TABLES[family['family']] if family['availability'] == 'provided'
+               else ('ledger_reference',) if family['family'] == 'ledger' else ())
         require(family['availability'] != 'provided' or manifest['prepared_sha256'] is not None, 'provided family lacks prepared identity')
         inventory.append((family['season'],family['family']))
+        for member in family['tables'].values():
+            path = member_path(directory,member)
+            require(path not in paths, 'member reused across tables')
+            paths.add(path)
+    require(inventory == sorted(set(inventory)) and set(inventory) == {(year,family) for year in manifest['seasons'] for family in FAMILY_TABLES}, 'missing/duplicate/unordered family dispositions')
+    return result
+
+
+def read_results(directory: Path, manifest_name='manifest.json') -> Results:
+    """validate one named complete or staged manifest and all result members."""
+    result = read_result_catalogs(directory,manifest_name)
+    manifest,catalogs,people = result.manifest,result.catalogs,result.people
+    mechanism_references = {}
+    for family in manifest['families']:
         spatial, spatial_rows, reference_weights, territory = {}, {}, {}, {}
         tables = family['tables']
         if family['family'] == 'spatial':
@@ -2242,12 +2265,12 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:
             tables = sorted(tables, key=lambda table: table != 'skater_territory')
         for table in tables:
             member = family['tables'][table]
-            path = member_path(directory,member)
-            require(path not in paths, 'member reused across tables')
-            paths.add(path)
             map_player, maps = None, {}
             for row in result.rows(member,table,family['family']):
                 require(row['season'] == family['season'], 'row season differs from family')
+                if table == 'ledger_reference' and family['availability'] == 'not_computed':
+                    require(row['result'] == dict(availability='not_computed',explanation=family['explanation'],data=None),
+                            'pending annual ledger reference differs from family')
                 if table in ('skater_penalties','skater_shootiness') and row['result']['availability'] == 'provided':
                     _mechanism_binding(table,row['result']['data'],row,catalogs,mechanism_references)
                 if table == 'skater_territory' and row['result']['availability'] == 'provided':
@@ -2279,7 +2302,9 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:
                     _validate_spatial_mixtures(rows)
             if map_player is not None:
                 _validate_spatial_map_mixtures(spatial_rows.get(map_player, {}), maps)
-            if table not in FACT_TABLES:
+            if table == 'ledger_reference':
+                require(member['rows'] == 1, 'ledger requires one reference envelope per year')
+            elif table not in FACT_TABLES:
                 people_count = sum(person['season'] == family['season'] and ((person['kind'] == 'goalie') == (family['family'] == 'goalie')) for person in people.values())
                 require(member['rows'] == people_count * len(required_keys(table,family['family'])), f'{table}: missing promised person/selector rows')
         if spatial:
@@ -2292,8 +2317,42 @@ def read_results(directory: Path, manifest_name='manifest.json') -> Results:
                 validate_spatial_evidence_selection(summary,evidence,adjustments,dict(season=year,strength=strength),catalogs)
                 if evidence['availability'] == 'provided':
                     _spatial_evidence_binding(evidence['data'],references,baselines)
-    require(inventory == sorted(set(inventory)) and set(inventory) == {(year,family) for year in manifest['seasons'] for family in FAMILY_TABLES}, 'missing/duplicate/unordered family dispositions')
+    for family in manifest['families']:
+        if family['family'] == 'ledger' and family['availability'] == 'provided':
+            from .value_evidence import validate_ledger_year
+            year = family['season']
+            reference, = result.rows(family['tables']['ledger_reference'],'ledger_reference','ledger')
+            players = {row['player_id']:row['result'] for row in result.rows(family['tables']['value_ledger'],'value_ledger','ledger')}
+            validate_ledger_year(reference['result'],players,ledger_sources(result,year),catalogs)
     return result
+
+
+LEDGER_SOURCES = dict(spatial=('skater_spatial','spatial_evidence'), execution=('skater_execution',),
+                      shootiness=('skater_shootiness',), penalties=('skater_penalties',), territory=('skater_territory',))
+
+
+def ledger_sources(results, year):
+    """read only the same-year scalar dependencies of the ledger."""
+    sources = {}
+    for family in results.manifest['families']:
+        name = family['family']
+        if family['season'] != year or name not in LEDGER_SOURCES:
+            continue
+        for table in LEDGER_SOURCES[name]:
+            if family['availability'] == 'provided':
+                sources[table] = {
+                    (row['player_id'],row['strength']) if 'strength' in row else row['player_id']:row['result']
+                    for row in results.rows(family['tables'][table],table,name)
+                }
+                continue
+            pending = dict(availability='not_computed',explanation=family['explanation'],data=None)
+            sources[table] = {
+                (pid,*selector) if selector else pid:pending
+                for (season,pid),person in results.people.items()
+                if season == year and person['kind'] == 'skater'
+                for selector in required_keys(table,name)
+            }
+    return sources
 
 
 def copy_result_member(source_directory, member, output):
@@ -2332,7 +2391,7 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
     fields(catalogs,('people','sources','methods','supports'))
     require(not output.exists() and not output.is_symlink(), 'result output exists')
     output.mkdir()
-    manifest = dict(schema_version=5,kind='player_analysis_results',**selection,producer=implementation_identity(),catalogs={},families=[])
+    manifest = dict(schema_version=6,kind='player_analysis_results',**selection,producer=implementation_identity(),catalogs={},families=[])
     def member(path, rows, table):
         return write_result_member(output,path,rows,table)
     for family in family_rows:
@@ -2344,6 +2403,10 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
         require(not streamed_evidence or family['availability'] == 'provided', 'streamed evidence must be provided')
         fields(family['tables'],('context_coverage',) if streamed_evidence else
                FAMILY_TABLES[family['family']] if family['availability'] == 'provided' else ())
+        if family['family'] == 'ledger' and family['availability'] == 'not_computed':
+            family = {**family, 'tables':{'ledger_reference':[dict(
+                season=family['season'],result=dict(availability='not_computed',explanation=family['explanation'],data=None)
+            )]}}
         record = {key:family[key] for key in ('season','family','availability','explanation')}
         if streamed_evidence:
             game_ids = family['game_ids']
@@ -2571,6 +2634,10 @@ def check_results(connection, results):
                 where = ' AND '.join('"'+key+'"=?' for key in KEYS[table])
                 actual = connection.execute(f'SELECT * FROM {table} WHERE {where}',tuple(expected[key] for key in KEYS[table])).fetchone()
                 require(actual is not None and stored_result(actual) == expected['result'], f'{table}: scalar read-back differs')
+            if table == 'ledger_reference':
+                require(connection.execute('SELECT count(*) FROM ledger_reference WHERE season=?',
+                                           (family['season'],)).fetchone()[0] == 1, 'missing annual ledger reference')
+                continue
             expected_count = 0
             if family['availability'] == 'provided':
                 for (year,player_id),person in results.people.items():
@@ -2632,6 +2699,19 @@ def check_results(connection, results):
     from .territory_evidence import validate_binding
     for row in connection.execute("SELECT * FROM skater_territory WHERE availability='provided'"):
         validate_binding(stored_result(row)['data'],row,results.catalogs,mechanism_references)
+
+    for family in results.manifest['families']:
+        if family['family'] != 'ledger' or family['availability'] != 'provided':
+            continue
+        from .value_evidence import validate_ledger_year
+        year = family['season']
+        reference = stored_result(connection.execute('SELECT * FROM ledger_reference WHERE season=?',(year,)).fetchone())
+        players = {row['player_id']:stored_result(row) for row in connection.execute('SELECT * FROM value_ledger WHERE season=?',(year,))}
+        inventory = {}
+        for game_id,away,home in connection.execute('SELECT game_id,away_team_id,home_team_id FROM game WHERE season=?',(year,)):
+            for team in (away,home):
+                inventory.setdefault(team,set()).add(game_id)
+        validate_ledger_year(reference,players,ledger_sources(results,year),results.catalogs,inventory)
 
 
 def _check_spatial_evidence(connection, catalogs):
@@ -2768,12 +2848,6 @@ def _check_repeated_facts(connection):
         scoring = strict_json(row['descriptive'].encode())['scoring_by_strength']['five_on_five']
         for key,count in (('goals_per60','goals'),('primary_assists_per60','primary_assists')):
             require(microstats[key]['value'] == scoring[key]['value'] and microstats[key]['numerator'] == scoring[count] and microstats[key]['denominator'] == scoring['seconds'], 'repeated descriptive personal facts differ')
-    for row in connection.execute("SELECT l.season,l.player_id,m.payload_json FROM value_ledger l JOIN analysis_method m USING(method_id) WHERE l.availability='provided'"):
-        ledger = strict_json(row['payload_json'].encode())
-        for table in ('skater_spatial','skater_execution','skater_penalties','skater_territory'):
-            for method in connection.execute(f"SELECT m.payload_json FROM {table} r JOIN analysis_method m USING(method_id) WHERE r.season=? AND r.player_id=? AND r.availability='provided'",(row['season'],row['player_id'])):
-                component = strict_json(method[0].encode())
-                require(component['reference_id'] == ledger['reference_id'] and component['support_policy_id'] == ledger['support_policy_id'], 'ledger and component policies differ')
 
 
 def _actual_selection(rows, strength):

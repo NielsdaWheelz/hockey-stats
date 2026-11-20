@@ -6,7 +6,7 @@ import * as Schema from "effect/Schema";
 import * as Reactivity from "effect/reactivity/Reactivity";
 import { createHash, randomUUID } from "node:crypto";
 import type { BigIntStats } from "node:fs";
-import { lstat, open, readdir, readFile, rename, rm, stat } from "node:fs/promises";
+import { lstat, open, readdir, readFile, rename, rm } from "node:fs/promises";
 import { join, relative } from "node:path";
 import { performance } from "node:perf_hooks";
 import { fileURLToPath } from "node:url";
@@ -91,14 +91,14 @@ const sameFile = (a: BigIntStats, b: BigIntStats) =>
 
 const assertNamedFile = async (filename: string, identity: BigIntStats) => {
   await assertNoSqliteCompanions(filename);
-  if (!sameFile(identity, await stat(filename, { bigint: true })))
+  if (!sameFile(identity, await lstat(filename, { bigint: true })))
     throw new Error(`publication file changed at ${filename}`);
 };
 
 const fileIdentity = async (filename: string) => {
   await assertNoSqliteCompanions(filename);
   // Check before open as well; special files may block an ordinary read open.
-  if (!(await stat(filename)).isFile())
+  if (!(await lstat(filename)).isFile())
     throw new Error(`publication must be a standalone regular file: ${filename}`);
   const handle = await open(filename, "r");
   try {

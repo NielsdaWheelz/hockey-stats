@@ -422,7 +422,8 @@ def _territory_diagnostic_sources(method, year):
         require(type(doc) is dict and type(doc.get('schema_version')) is int and doc['schema_version'] == 1
                 and doc.get('kind') == kind and doc.get('season') == year and doc.get('purpose') == method['purpose'],
                 f'{year}: territory {kind} identity differs')
-    require(reference['annual_state'] == bindings['annual_state'] and annual['recipe'] == territory_recipe(TERRITORY_RECIPE)
+    require(same_input_reference(reference['annual_state'], bindings['annual_state'])
+            and annual['recipe'] == territory_recipe(TERRITORY_RECIPE)
             and method['recipe_id'] == annual['recipe']['id'] and method['training_cutoff'] == annual['training_cutoff']
             and method['design_sha256'] == hashlib.sha256(publication.json_bytes(annual['design_identity'])).hexdigest(),
             f'{year}: territory diagnostic lineage differs')
@@ -515,6 +516,8 @@ def correct_territory_metadata(results, output):
         require(publication.json_bytes(receipt) == publication.json_bytes(expected_receipt), 'territory correction receipt differs')
     else:
         output = output_path(str(output), [str(source.directory)])
+        if source.manifest['purpose'] == 'real':
+            require(output.is_relative_to('/Volumes/Expansion/hockey-stats'), 'real territory outputs must be external')
         receipt_path = output.with_name(output.name + '-territory-correction.json')
         write_json(receipt_path, expected_receipt)
         binding = dict(uri=str(receipt_path), sha256=identity(receipt_path)['sha256'])

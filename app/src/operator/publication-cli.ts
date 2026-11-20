@@ -14,6 +14,9 @@ const stage = async (source: string, directory: string) => {
   await mkdir(directory, { recursive: true });
   const incoming = join(directory, "incoming.sqlite");
   const sidecar = validationFilename(incoming);
+  await assertNoSqliteCompanions(incoming);
+  if (await present(incoming) || await present(sidecar))
+    throw new Error("incoming publication or receipt already exists");
   await copyFile(source, incoming, constants.COPYFILE_EXCL);
   let copiedReceipt = false;
   try {
@@ -45,19 +48,23 @@ const activate = async (directory: string) => {
   const checked = await verifyAdmittedPublication(incoming);
   const active = join(directory, "active.sqlite");
   const previous = join(directory, "previous.sqlite");
+  const activeReceipt = validationFilename(active);
+  const previousReceipt = validationFilename(previous);
   await assertNoSqliteCompanions(active);
   await assertNoSqliteCompanions(previous);
   const hasActive = await present(active);
-  const hasReceipt = await present(validationFilename(active));
+  const hasReceipt = await present(activeReceipt);
+  if (!hasActive && hasReceipt)
+    throw new Error("active receipt has no database; repair the pair before activation");
   await present(previous);
-  await present(validationFilename(previous));
+  await present(previousReceipt);
   if (hasActive) {
+    await rm(previousReceipt, { force: true });
     await rename(active, previous);
-    if (hasReceipt) await rename(validationFilename(active), validationFilename(previous));
-    else await rm(validationFilename(previous), { force: true });
+    if (hasReceipt) await rename(activeReceipt, previousReceipt);
   }
   await rename(incoming, active);
-  await rename(validationFilename(incoming), validationFilename(active));
+  await rename(validationFilename(incoming), activeReceipt);
   return {
     ...checked,
     path: active,
@@ -96,17 +103,9 @@ try {
   } else {
     if (candidate !== undefined || directory === undefined)
       throw new Error(`${command} requires --directory only`);
-    if (command === "restore") {
-      try {
-        await stage(join(resolve(directory), "previous.sqlite"), resolve(directory));
-      } catch (error) {
-        console.error(
-          "to restore a previous database from another schema, use the documented manual rollback with its matching build",
-        );
-        throw error;
-      }
-    }
-    report = await activate(resolve(directory));
+    const target = resolve(directory);
+    if (command === "restore") await stage(join(target, "previous.sqlite"), target);
+    report = await activate(target);
   }
   console.log(JSON.stringify({ ...report, action: command }, null, 2));
 } catch (error) {

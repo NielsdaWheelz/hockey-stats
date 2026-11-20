@@ -12,7 +12,8 @@ import { resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import * as A from "../shared/player-analysis.js";
-import { Publication, publicationLayer } from "./publication.js";
+import { Publication } from "./publication.js";
+import { admittedPublicationLayer } from "./publication-admission.js";
 
 try {
   const { values, tokens } = parseArgs({
@@ -188,7 +189,7 @@ try {
         Layer.provide(NodeHttpServer.layer(createServer, { host: "127.0.0.1", port })),
       ),
     );
-  }).pipe(Effect.provide(publicationLayer(filename)));
+  }).pipe(Effect.provide(admittedPublicationLayer(filename)));
   NodeRuntime.runMain(program);
 } catch (error) {
   console.error("local server arguments failed", error);

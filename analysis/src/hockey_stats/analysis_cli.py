@@ -46,6 +46,9 @@ def main(argv=None) -> int:
     summarize.add_argument("--states", action=Once, metavar="FILE")
     summarize.add_argument("--product-admission", action=Once, metavar="FILE")
     summarize.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
+    correct_territory = commands.add_parser("correct-territory-metadata", allow_abbrev=False)
+    correct_territory.add_argument("--results", required=True, action=Once, metavar="DIRECTORY")
+    correct_territory.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     publish = commands.add_parser("publish", allow_abbrev=False)
     publish.add_argument("--observed", required=True, action=Once, metavar="FILE")
     publish.add_argument("--results", required=True, action=Once, metavar="DIRECTORY")
@@ -319,6 +322,11 @@ def main(argv=None) -> int:
 
             manifest = compose_results(Path(args.prepared), Path(args.facts), Path(args.scores), Path(args.out))
             print(f"composed results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
+        elif args.command == "correct-territory-metadata":
+            from .mechanism_composition import correct_territory_metadata
+
+            manifest = correct_territory_metadata(Path(args.results), Path(args.out))
+            print(f"verified territory metadata: {manifest}")
         else:
             from .publication import build_publication
 

@@ -13,6 +13,8 @@ import {
 } from "./analysis-values";
 import { buildAnalysisCohort } from "./analysis-cohorts";
 import {
+  analysisCsvHeaders,
+  analysisCsvRow,
   DatumEvidence,
   displayNumber,
   prepareHistory,
@@ -21,9 +23,9 @@ import {
   type AnalysisRow,
   type HistoryPoint,
 } from "./analysis-history";
-import { downloadBlob, svgPng } from "./export";
+import { csvText, downloadBlob, svgPng } from "./export";
 import { playerName, seasonLabel, teamName } from "./presentation";
-import { ledgerCoverage, ledgerLimits, ledgerPresentation, ledgerWorkload } from "./ledger-presentation";
+import { ledgerCoverage, ledgerLimits, ledgerWorkload } from "./ledger-presentation";
 
 const tilePresentation = {
   "ledger.five_on_five_offense.league_goals": [
@@ -77,7 +79,7 @@ type CardSeries = {
   readonly label: string;
   readonly color: string;
   readonly dash: string;
-  readonly points: readonly HistoryPoint[];
+  readonly points: ReturnType<typeof prepareHistory>;
 };
 type ComparativeCardModel = {
   readonly playerId: string;
@@ -94,11 +96,6 @@ type ComparativeCardModel = {
   readonly tiles: readonly CardField[];
   readonly headlineHistory: readonly CardSeries[];
   readonly componentHistory: readonly CardSeries[];
-  readonly ledger: readonly {
-    readonly label: string;
-    readonly league: AnalysisRow;
-    readonly replacement: AnalysisRow;
-  }[];
 };
 
 export function prepareComparativeCard(
@@ -146,7 +143,7 @@ export function prepareComparativeCard(
   };
   const row = (id: AnalysisMetricId) => point(selected, id);
   const history = (id: AnalysisMetricId) =>
-    annual.map((year) => point(year, id));
+    prepareHistory(annual.map((year) => point(year, id)), "percentile");
   return {
     playerId: profile.player_id,
     person: selected.person,
@@ -210,11 +207,6 @@ export function prepareComparativeCard(
         points: history("ledger.finishing.league_goals"),
       },
     ],
-    ledger: ledgerPresentation.map(([label, term]) => ({
-      label,
-      league: row(`ledger.${term}.league_goals`),
-      replacement: row(`ledger.${term}.replacement_goals`),
-    })),
   };
 }
 
@@ -222,19 +214,6 @@ const peersText = ({ standing, datum }: AnalysisRow) =>
   `${standingText(standing)} · ${standing.peerGroup ?? "reference unavailable"} · n=${standing.n ?? "unavailable"} · cutoff ${standing.cutoffMinutes ?? "unavailable"} min · qualification ${datum.qualificationSeconds ?? "unavailable"} s (${datum.metric.qualificationLabel})`;
 const magnitude = ({ datum }: AnalysisRow) =>
   `${valueText(datum)} ${datum.metric.displayUnit}`;
-const supportText = ({ datum }: AnalysisRow) => {
-  const support = datum.support ?? datum.observedSupport;
-  const direct = support
-    ? `${support.included_seconds ?? "unknown"} included seconds; ${support.known_excluded_seconds ?? "unknown"} excluded seconds; ${"prior_only" in support ? `prior-only ${support.prior_only}; gap ${support.unquantified_gap}` : `recorded coverage ${support.coverage_status}`}`
-    : "no aggregate support supplied";
-  const components = Object.entries(datum.componentSupport)
-    .map(
-      ([term, component]) =>
-        `${term}: ${component.support ? `${component.support.included_seconds ?? "unknown"} included seconds; ${component.support.known_excluded_seconds ?? "unknown"} excluded seconds; prior-only ${component.support.prior_only}; gap ${component.support.unquantified_gap}; inferred ${component.support.inferred_inputs.join(", ") || "none"}; reasons ${JSON.stringify(component.support.reason_counts)}` : component.reason}`,
-    )
-    .join("; ");
-  return `${direct}${components ? `; constituent support: ${components}` : ""}${datum.reason ? `; ${datum.reason}` : ""}`;
-};
 function identityLines(model: ComparativeCardModel): readonly string[] {
   const person = model.person;
   if (!person)
@@ -295,10 +274,6 @@ function EmbeddedHistory({
   readonly series: readonly CardSeries[];
   readonly selectedSeason: string;
 }) {
-  const prepared = series.map((line) => ({
-    ...line,
-    prepared: prepareHistory(line.points, "percentile"),
-  }));
   const years = series[0].points;
   const x = (i: number) => 52 + i * 176;
   const y = (value: number) => 164 - value * 1.36;
@@ -324,7 +299,7 @@ function EmbeddedHistory({
             </text>
           </g>
         ))}
-        {years.map((point, i) => (
+        {years.map(({ point }, i) => (
           <g key={point.season.season}>
             {point.season.season === selectedSeason && (
               <rect
@@ -345,18 +320,18 @@ function EmbeddedHistory({
             )}
           </g>
         ))}
-        {prepared.map((line) => (
+        {series.map((line) => (
           <g key={line.label} stroke={line.color} fill={line.color}>
-            {line.prepared.map(({ point, value, breakBefore }, i) => (
+            {line.points.map(({ point, value, breakBefore }, i) => (
               <g key={point.season.season}>
                 {i > 0 &&
                   value !== null &&
-                  line.prepared[i - 1].value !== null &&
+                  line.points[i - 1].value !== null &&
                   !breakBefore && (
                     <line
                       x1={x(i - 1)}
                       x2={x(i)}
-                      y1={y(line.prepared[i - 1].value!)}
+                      y1={y(line.points[i - 1].value!)}
                       y2={y(value)}
                       strokeWidth="2.5"
                       strokeDasharray={line.dash}
@@ -407,8 +382,8 @@ function EmbeddedHistory({
               </tr>
             </thead>
             <tbody>
-              {prepared.flatMap((line) =>
-                line.prepared.map(({ point, value, breakBefore }) => (
+              {series.flatMap((line) =>
+                line.points.map(({ point, value, breakBefore }) => (
                   <tr key={`${line.label}-${point.season.season}`}>
                     <th scope="row">
                       {line.label}
@@ -491,6 +466,29 @@ export default function ComparativeCard({
   const id = useId();
   const busy = useRef(false);
   const [status, setStatus] = useState("idle");
+  const save = async (format: "png" | "csv") => {
+    if (busy.current) return;
+    busy.current = true;
+    const snapshot = model;
+    setStatus("preparing download");
+    try {
+      const blob = format === "png"
+        ? await svgPng(comparativeCardSvg(
+            snapshot,
+            new URL(detailLink("ledger.league_total").to, window.location.href).href,
+          ))
+        : new Blob([comparativeCardCsv(snapshot)], { type: "text/csv;charset=utf-8" });
+      downloadBlob(
+        blob,
+        `hockey-stats-${snapshot.playerId}-${snapshot.season.season}-${snapshot.publication.publication_id}-comparative.${format}`,
+      );
+      setStatus("saved");
+    } catch {
+      setStatus("download failed; retry available");
+    } finally {
+      busy.current = false;
+    }
+  };
   return (
     <article className="comparative-card" aria-labelledby={`${id}-title`}>
       <header>
@@ -575,45 +573,46 @@ export default function ComparativeCard({
           publication {model.publication.publication_id} ·{" "}
           {model.publication.purpose}
         </p>
-        <button
-          type="button"
-          disabled={status === "rendering"}
-          onClick={async () => {
-            if (busy.current) return;
-            busy.current = true;
-            setStatus("rendering");
-            // capture this immutable prepared view before awaiting image rendering.
-            const snapshot = model;
-            try {
-              const blob = await svgPng(comparativeCardSvg(snapshot));
-              downloadBlob(
-                blob,
-                `hockey-stats-${snapshot.playerId}-${snapshot.season.season}-${snapshot.publication.publication_id}-comparative.png`,
-              );
-              setStatus("saved");
-            } catch {
-              setStatus("download failed; retry available");
-            } finally {
-              busy.current = false;
-            }
-          }}
-        >
-          {status === "rendering"
-            ? "rendering png…"
-            : "download complete comparative png"}
-        </button>
-        <p role="status">{status === "idle" ? "" : status}</p>
+        <div className="card-actions">
+          {(["png", "csv"] as const).map((format) => (
+            <button
+              key={format}
+              type="button"
+              disabled={status === "preparing download"}
+              onClick={() => void save(format)}
+            >
+              download comparative {format}
+            </button>
+          ))}
+          <p role="status">{status === "idle" ? "" : status}</p>
+        </div>
       </footer>
     </article>
   );
 }
 
-// complete svg composition; measured wrapping gives long evidence content its own height.
-function comparativeCardSvg(model: ComparativeCardModel): string {
+function comparativeCardCsv(model: ComparativeCardModel): string {
+  return csvText(["card_section", "series", ...analysisCsvHeaders], [
+    ...[model.headline, model.replacement, ...model.tiles].map(({ row }) => [
+      "current", row.datum.metric.id,
+      ...analysisCsvRow(model.publication, model.season, row),
+    ]),
+    ...[...model.headlineHistory, ...model.componentHistory].flatMap((series) =>
+      series.points.map(({ point, breakBefore }) => [
+        "history", point.datum.metric.id,
+        ...analysisCsvRow(model.publication, point.season, point, breakBefore),
+      ]),
+    ),
+  ]);
+}
+
+function comparativeCardSvg(model: ComparativeCardModel, detailLocation: string): string {
   const ns = "http://www.w3.org/2000/svg";
+  const font = "system-ui, sans-serif";
+  const graphemes = new Intl.Segmenter(undefined, { granularity: "grapheme" });
   const svg = document.createElementNS(ns, "svg");
   svg.setAttribute("width", "1200");
-  svg.setAttribute("font-family", "system-ui, sans-serif");
+  svg.setAttribute("font-family", font);
   svg.setAttribute("fill", "#242b2d");
   const element = (tag: string, attrs: Record<string, string | number>) => {
     const node = document.createElementNS(ns, tag);
@@ -622,13 +621,14 @@ function comparativeCardSvg(model: ComparativeCardModel): string {
     svg.append(node);
     return node;
   };
-  const bg = element("rect", { width: 1200, fill: "#fbfaf6" });
+  const background = element("rect", { width: 1200, fill: "#fbfaf6" });
   const measurement = document.createElementNS(ns, "svg");
   measurement.style.position = "fixed";
   measurement.setAttribute("width", "0");
   measurement.setAttribute("height", "0");
   measurement.setAttribute("aria-hidden", "true");
   const probe = document.createElementNS(ns, "text");
+  probe.setAttribute("font-family", font);
   measurement.append(probe);
   document.body.append(measurement);
   const text = (
@@ -636,17 +636,16 @@ function comparativeCardSvg(model: ComparativeCardModel): string {
     x: number,
     top: number,
     width: number,
-    size = 20,
+    size = 18,
     color = "#242b2d",
   ) => {
-    probe.setAttribute("font-family", "system-ui, sans-serif");
     probe.setAttribute("font-size", String(size));
     const fits = (candidate: string) => {
       probe.textContent = candidate;
       return probe.getComputedTextLength() <= width;
     };
-    const lines: string[] = [];
     for (const paragraph of value.split("\n")) {
+      const lines: string[] = [];
       let line = "";
       for (const word of paragraph.split(/\s+/)) {
         const joined = line ? `${line} ${word}` : word;
@@ -656,271 +655,233 @@ function comparativeCardSvg(model: ComparativeCardModel): string {
         }
         if (line) lines.push(line);
         line = "";
-        for (const char of word) {
-          if (line && !fits(line + char)) {
+        for (const { segment } of graphemes.segment(word)) {
+          if (line && !fits(line + segment)) {
             lines.push(line);
             line = "";
           }
-          line += char;
+          line += segment;
         }
       }
       if (line) lines.push(line);
+      for (const content of lines) {
+        const node = element("text", { x, y: top + size, "font-size": size, fill: color });
+        node.textContent = content;
+        top += size * 1.28;
+      }
     }
-    for (const line of lines) {
-      const node = element("text", {
-        x,
-        y: top + size,
-        "font-size": size,
-        fill: color,
-      });
-      node.textContent = line;
-      top += size * 1.4;
-    }
-    return top + 8;
+    return top;
   };
-  let top = 38;
-  const paragraph = (value: string, size = 20) => {
-    top = text(value, 48, top, 1104, size);
+  let top = 30;
+  const ink = "#17696b";
+  const muted = "#4f605b";
+  const paragraph = (value: string, size = 18, color?: string) => {
+    top = text(value, 42, top, 1116, size, color) + 3;
   };
-  const field = (
-    item: CardField,
-    x: number,
-    y: number,
-    width: number,
-    dominant = false,
-  ) => {
-    let bottom = text(item.label, x, y, width, dominant ? 29 : 22);
+  const rule = () => {
+    top += 7;
+    element("line", { x1: 42, x2: 1158, y1: top, y2: top, stroke: "#aebcb5" });
+    top += 10;
+  };
+  const cohort = ({ standing }: AnalysisRow) => {
+    const group = standing.peerGroup === "reported forwards" ? "F"
+      : standing.peerGroup === "reported defense" ? "D"
+      : standing.peerGroup === "all skaters" ? "all"
+      : standing.peerGroup ?? "—";
+    return `${group} n=${standing.n ?? "—"}`;
+  };
+  const field = (item: CardField, x: number, y: number, width: number, size = 34) => {
+    const { datum, standing } = item.row;
+    const isLedger = datum.metric.publicationFamily === "ledger";
+    const label = standingText(standing);
+    const standingLabel = label === datum.original?.unavailable_reason ? label.replaceAll("_", " ") : label;
+    let bottom = text(item.label, x, y, width, 22);
+    bottom = text(valueText(datum), x, bottom, width, size, ink);
+    bottom = text(isLedger ? "goals / workload" : datum.metric.displayUnit, x, bottom, width);
+    bottom = text(`${standingLabel} · ${cohort(item.row)}`, x, bottom, width);
+    const seconds = datum.qualificationSeconds;
     bottom = text(
-      valueText(item.row.datum),
-      x,
-      bottom,
-      width,
-      dominant ? 54 : 36,
-      "#17696b",
+      `q ${seconds === null ? "—" : `${seconds} s`} · ${standing.cutoffMinutes === null ? "cutoff —" : `≥${standing.cutoffMinutes} min`}`,
+      x, bottom, width, 18, muted,
     );
-    bottom = text(item.row.datum.metric.displayUnit, x, bottom, width, 18);
-    bottom = text(peersText(item.row), x, bottom, width, 17);
-    bottom = text(item.construction, x, bottom, width, 17);
-    if (item.row.datum.reason)
-      bottom = text(item.row.datum.reason, x, bottom, width, 17);
-    return bottom;
+    return item === model.replacement ? text(item.construction, x, bottom, width, 18, muted) : bottom;
   };
-  const chart = (
-    title: string,
-    series: readonly CardSeries[],
-    left: number,
-    chartTop: number,
-  ) => {
-    let bottom = text(
-      `${title} · annual percentile 0–100`,
-      left,
-      chartTop,
-      526,
-      23,
-    );
-    const base = bottom + 160,
-      x = (i: number) => left + 54 + i * 198,
-      y = (value: number) => base - value * 1.4;
+  const chart = (title: string, series: readonly CardSeries[], left: number, chartTop: number) => {
+    const axisTop = text(title, left, chartTop, 534, 22) + 3;
+    const base = axisTop + 107;
+    const x = (index: number) => left + 63 + index * 201;
+    const y = (value: number) => base - value;
+    series[0].points.forEach(({ point }, index) => {
+      if (point.season.season === model.season.season) {
+        element("rect", {
+          x: x(index) - 17, y: axisTop, width: 34, height: 113, fill: "#d8e8e1",
+        });
+      }
+    });
     for (const value of [0, 50, 100]) {
       element("line", {
-        x1: left + 54,
-        x2: left + 450,
-        y1: y(value),
-        y2: y(value),
-        stroke: "#cbd2ce",
+        x1: left + 47, x2: left + 489, y1: y(value), y2: y(value), stroke: "#cbd2ce",
       });
-      text(String(value), left + 4, y(value) - 12, 46, 16);
+      text(String(value), left, y(value) - 12, 45, 18, muted);
     }
-    series[0].points.forEach((point, index) => {
-      if (point.season.season === model.season.season)
-        element("rect", {
-          x: x(index) - 8,
-          y: base - 144,
-          width: 16,
-          height: 150,
-          fill: "#d8e8e1",
-        });
-      text(seasonLabel(point.season.season), x(index) - 46, base + 12, 110, 18);
-      if (point.season.season === model.season.season)
-        text("selected", x(index) - 38, base + 38, 100, 16);
+    series[0].points.forEach(({ point }, index) => {
+      text(seasonLabel(point.season.season), x(index) - 33, base + 7, 108);
+      text(
+        point.datum.person ? point.datum.person.reported_position ?? "position —" : "absent",
+        x(index) - 7, base + 30, 108, 18, muted,
+      );
     });
-    for (const line of series) {
-      const prepared = prepareHistory(line.points, "percentile");
-      prepared.forEach(({ value, breakBefore }, index) => {
-        if (
-          index > 0 &&
-          value !== null &&
-          prepared[index - 1].value !== null &&
-          !breakBefore
-        )
+    let bottom = base + 55;
+    for (const [seriesIndex, line] of series.entries()) {
+      // Keep tied dots visible within the same annual tick.
+      const px = (index: number) => x(index) + (seriesIndex - (series.length - 1) / 2) * 10;
+      line.points.forEach(({ value, breakBefore }, index) => {
+        if (value === null) return;
+        const previous = line.points[index - 1]?.value;
+        if (previous != null && !breakBefore)
           element("line", {
-            x1: x(index - 1),
-            x2: x(index),
-            y1: y(prepared[index - 1].value!),
-            y2: y(value),
-            stroke: line.color,
-            "stroke-width": 3,
-            "stroke-dasharray": line.dash,
+            x1: px(index - 1), x2: px(index), y1: y(previous), y2: y(value),
+            stroke: line.color, "stroke-width": 3, "stroke-dasharray": line.dash,
           });
-        if (value !== null)
-          element("circle", {
-            cx: x(index),
-            cy: y(value),
-            r: 5,
-            fill: line.color,
-          });
+        element("circle", { cx: px(index), cy: y(value), r: 4.5, fill: line.color });
       });
-    }
-    bottom = base + 70;
-    for (const line of series) {
       element("line", {
-        x1: left,
-        x2: left + 28,
-        y1: bottom + 13,
-        y2: bottom + 13,
-        stroke: line.color,
-        "stroke-width": 3,
-        "stroke-dasharray": line.dash,
+        x1: left, x2: left + 24, y1: bottom + 13, y2: bottom + 13,
+        stroke: line.color, "stroke-width": 3, "stroke-dasharray": line.dash,
       });
-      bottom = text(line.label, left + 38, bottom, 480, 18, line.color);
+      bottom = text(
+        `${line.label} · ${line.points.map(({ point }) => cohort(point)).join(" / ")}`,
+        left + 33, bottom, 501, 18, line.color,
+      );
     }
     return bottom;
   };
   try {
-    paragraph("experimental seasonal level · comparative skater", 23);
+    paragraph("experimental seasonal level · comparative skater", 22, ink);
     if (model.publication.purpose === "fixture")
-      paragraph("fixture publication · development evidence", 23);
+      paragraph("fixture publication · development evidence", 18, muted);
+    paragraph(model.person ? playerName(model.person) : `player ${model.playerId}`, 44);
+    const identity = identityLines(model);
     paragraph(
-      model.person ? playerName(model.person) : `player ${model.playerId}`,
-      40,
-    );
-    paragraph(
-      `${seasonLabel(model.season.season)} · player ${model.playerId}`,
-      24,
-    );
-    identityLines(model).forEach((line) => paragraph(line));
-    paragraph(
-      `${ledgerWorkload}. ${ledgerLimits}`,
+      `${seasonLabel(model.season.season)} · player ${model.playerId}${model.person ? ` · ${identity[0]}` : ""}`,
       22,
     );
+    identity.slice(model.person ? 1 : 0).forEach((line) => paragraph(line));
+
+    rule();
     top = Math.max(
-      field(model.headline, 48, top, 536, true),
-      field(model.replacement, 616, top, 536),
+      field(model.headline, 42, top, 537, 54),
+      field(model.replacement, 618, top, 540),
     );
+    rule();
     for (let start = 0; start < model.tiles.length; start += 5) {
-      const bottoms = model.tiles
-        .slice(start, start + 5)
-        .map((item, index) => field(item, 48 + index * 225, top + 20, 204));
-      top = Math.max(...bottoms) + 22;
+      top = Math.max(...model.tiles.slice(start, start + 5).map(
+        (item, index) => field(item, 42 + index * 225, top, 216),
+      )) + 10;
     }
-    top =
-      Math.max(
-        chart("league and replacement value history", model.headlineHistory, 48, top),
-        chart("component history", model.componentHistory, 626, top),
-      ) + 20;
-    // compact evidence keys are shared only for identical supplied content.
-    const notes = new Map<string, { key: string; value: string }>();
-    const key = (prefix: string, value: string) => {
-      const identity = `${prefix}:${value}`;
-      const existing = notes.get(identity);
-      if (existing) return existing.key;
-      const label = `${prefix}${notes.size + 1}`;
-      notes.set(identity, { key: label, value });
-      return label;
+
+    rule();
+    top = Math.max(
+      chart("league and depth-replacement history", model.headlineHistory, 42, top),
+      chart("component history", model.componentHistory, 618, top),
+    );
+    rule();
+    paragraph("annual percentile · 0–100 · shaded year selected · gaps or changes in reference or definition break lines");
+    paragraph(`annual peers · ${model.settings.peers === "position" ? "by reported position" : "all skaters"} · F = reported forwards · D = reported defense · n = field cohort size`);
+    paragraph(`${ledgerWorkload}. ${ledgerLimits}`);
+    paragraph("goals and primary assists are recorded personal 5v5 rates. usage weights all-strength minutes per appearance by shared 5v5 time.");
+    paragraph("the depth baseline is an annual weighted mean for each skater's own F/D group, using complete team-position groups.");
+
+    const fields = [model.headline, model.replacement, ...model.tiles];
+    const labelsByQualification = new Map<string, string[]>();
+    for (const { row, label } of fields) {
+      const basis = row.datum.metric.qualificationLabel;
+      const scopes = labelsByQualification.get(basis) ?? [];
+      scopes.push(label);
+      labelsByQualification.set(basis, scopes);
+    }
+    paragraph(`qualifying exposure (q) · ${[...labelsByQualification].map(
+      ([basis, scopes]) => `${basis} (${scopes.join(", ")})`,
+    ).join(" · ")}`, 18, muted);
+    const labels = new Map(fields.map(({ row, label }) => [row.datum.metric.id, label]));
+    const annual = [...model.headlineHistory, ...model.componentHistory].flatMap(
+      ({ points }) => points.map(({ point }) => ({
+        row: point,
+        year: seasonLabel(point.season.season),
+      })),
+    );
+    const selectedYear = seasonLabel(model.season.season);
+    const entries = [...fields.map(({ row }) => ({ row, year: selectedYear })), ...annual];
+    type Scopes = Map<string, Set<string>>;
+    const findings = new Map<string, Scopes>();
+    const warnings = new Map<string, Scopes>();
+    const modeled = new Map<string, Set<string>>();
+    const methodYears = new Map<string, Set<string>>();
+    const record = (notes: Map<string, Scopes>, summary: string, label: string, year: string) => {
+      const scopes = notes.get(summary) ?? new Map<string, Set<string>>();
+      const fields = scopes.get(year) ?? new Set<string>();
+      fields.add(label);
+      scopes.set(year, fields);
+      notes.set(summary, scopes);
     };
-    const quantityKey = ({ datum }: AnalysisRow) =>
-      key(
-        "q",
-        `native value ${datum.value ?? "unavailable"} ${datum.metric.unit}; qualification basis ${datum.qualificationBasis}; status ${datum.status}; reason ${datum.reason ?? "none"}; uncertainty ${JSON.stringify(datum.original && "uncertainty" in datum.original ? datum.original.uncertainty : null)}; field detail ${JSON.stringify(datum.original?.reason_detail ?? null)}; workload ${JSON.stringify(datum.workload)}; original observed support ${JSON.stringify(datum.observedSupport)}; original fact ${datum.original && "denominator_kind" in datum.original ? JSON.stringify(datum.original) : "not applicable"}`,
-      );
-    const refs = (row: AnalysisRow) => {
-      const datum = row.datum;
+    for (const { row: { datum }, year } of entries) {
+      const label = labels.get(datum.metric.id)!;
       if (datum.metric.publicationFamily === "ledger") {
-        const qualification = key("q", `viewing qualification ${datum.qualificationSeconds ?? "unavailable"} seconds · ${datum.metric.qualificationLabel}${datum.reason ? ` · ${datum.reason}` : ""}`);
-        const reference = key("r", datum.numericReference);
-        const method = datum.methods[0];
-        const methodKey = method && key("m", `ledger method ${method.method_id} · recipe ${method.recipe_id} · support policy ${method.support_policy_id}`);
-        const findings = datum.findings.map(finding => key("f", finding.summary));
-        return [qualification, reference, methodKey, ...findings].filter(Boolean).join(" · ");
+        const yearFields = modeled.get(year) ?? new Set<string>();
+        yearFields.add(label);
+        modeled.set(year, yearFields);
       }
-      return `${quantityKey(row)}; ${key("s", supportText(row))}; ${key("m", `construction ${datum.construction}; population ${datum.population}; numerical reference ${datum.numericReference}; reference ${datum.referenceId}; support policy ${datum.supportPolicyId}; methods ${datum.methods.map((method) => `${method.method_id}; recipe ${method.recipe_id}; reference ${method.reference_id}: ${method.reference}; support policy ${method.support_policy_id}; limitations ${method.limitations.join("; ") || "none supplied"}`).join(" / ") || "unlinked"}; sources ${datum.sources.map((source) => `${source.source_id}: ${source.definition}; limitations ${source.limitations.join("; ") || "none supplied"}`).join(" / ") || "unlinked"}; findings ${datum.findings.map((finding) => `${finding.population}: ${finding.summary}`).join(" / ") || "none supplied"}`)}`;
+      for (const method of datum.methods) {
+        const years = methodYears.get(method.method_id) ?? new Set<string>();
+        years.add(year);
+        methodYears.set(method.method_id, years);
+      }
+      for (const { summary } of datum.findings) record(findings, summary, label, year);
+      for (const [term, { support }] of Object.entries(datum.componentSupport)) {
+        const name = term.replaceAll("_", " ");
+        if (support?.prior_only) record(warnings, "prior-only ledger constituents", name, year);
+        if (support?.unquantified_gap || (support?.known_excluded_seconds ?? 0) > 0)
+          record(warnings, "ledger constituents with excluded or unquantified coverage", name, year);
+      }
+      if (datum.support?.unquantified_gap || (datum.support?.known_excluded_seconds ?? 0) > 0)
+        record(warnings, "excluded or unquantified coverage", label, year);
+      if (datum.observedSupport?.coverage_status === "partial")
+        record(warnings, "partial recorded coverage", label, year);
+      if (year === selectedYear && datum.original?.reason_detail)
+        record(warnings, datum.original.reason_detail.explanation, label, year);
+    }
+
+    const scopeText = (scopes: Scopes) => {
+      const yearsByFields = new Map<string, string[]>();
+      const totals = [model.headline.label, model.replacement.label];
+      for (const [year, fields] of scopes) {
+        const ledgerFields = modeled.get(year);
+        const allModeled = ledgerFields?.size === fields.size && [...fields].every((field) => ledgerFields.has(field));
+        const scope = allModeled ? "all modeled values shown"
+          : (totals.every((label) => fields.has(label))
+              ? ["both totals", ...[...fields].filter((label) => !totals.includes(label))]
+              : [...fields]).join(", ");
+        const years = yearsByFields.get(scope) ?? [];
+        years.push(year);
+        yearsByFields.set(scope, years);
+      }
+      return [...yearsByFields].map(([scope, years]) => `${scope} (${years.sort().join(", ")})`).join(" · ");
     };
-    paragraph(
-      "annual history evidence · raw values, annual peers and gap reasons",
-      25,
-    );
-    for (const series of [
-      ...model.headlineHistory,
-      ...model.componentHistory,
-    ]) {
-      paragraph(series.label, 22);
-      for (const { point, value, breakBefore } of prepareHistory(
-        series.points,
-        "percentile",
-      )) {
-        paragraph(
-          `${seasonLabel(point.season.season)}${point.season.season === model.season.season ? " · selected" : ""}: ${magnitude(point)} · ${peersText(point)}`,
-          18,
-        );
-        paragraph(
-          `${point.datum.person ? `${playerName(point.datum.person)} · ${point.datum.person.reported_position ?? "position unavailable"} · ${point.datum.person.teams.map(teamName).join(" / ") || "teams unavailable"}` : "absent annual identity"} · evidence ${refs(point)}${value === null ? ` · plot gap: ${point.standing.kind === "ranked" ? "unavailable" : point.standing.reason}` : ""}${breakBefore ? ` · line break: ${breakBefore}` : ""}`,
-          17,
-        );
-        paragraph(`corpus ${point.season.corpus_sha256}`, 15);
-      }
+    for (const [warning, scope] of warnings)
+      paragraph(`${warning} · ${scopeText(scope)}`);
+    if (findings.size) {
+      paragraph("modeled value: construction and numerical limits", 22, ink);
+      for (const [summary, scopes] of findings) paragraph(`${summary} [${scopeText(scopes)}]`);
     }
-    paragraph(
-      "ten signed ledger terms · league / replacement goals per common workload",
-      25,
-    );
-    paragraph(
-      "the ten additive terms appear below. the combined penalty tile groups drawing and taking.",
-      18,
-    );
-    for (const term of model.ledger)
-      paragraph(
-        `${term.label}: ${magnitude(term.league)} / ${magnitude(term.replacement)} · league evidence ${refs(term.league)}; replacement evidence ${refs(term.replacement)}`,
-        18,
-      );
-    paragraph(
-      `published totals: ${magnitude(model.headline.row)} league / ${magnitude(model.replacement.row)} replacement`,
-      22,
-    );
-    paragraph("selected-year quantity evidence", 25);
-    for (const item of [model.headline, model.replacement, ...model.tiles]) {
-      const datum = item.row.datum;
-      paragraph(
-        `${item.label}: ${magnitude(item.row)} · status ${datum.status}; ${datum.reason ?? "published value available"} · evidence ${refs(item.row)}`,
-        18,
-      );
-    }
-    if (model.usage?.availability === "provided")
-      key(
-        "usage",
-        `reported usage original envelope: ${JSON.stringify(model.usage.data.reported_usage)}`,
-      );
-    paragraph(
-      "evidence keys · full ledger construction, upstream support and members are available in the selected detail and csv",
-      25,
-    );
-    for (const note of notes.values())
-      paragraph(`${note.key}: ${note.value}`, 16);
-    paragraph(
-      `peer viewing choices: ${model.settings.peers}; general ${model.settings.peerMin} min; specialty ${model.settings.specialtyMin} min. cohort n is field- and year-specific.`,
-      19,
-    );
-    paragraph(
-      "percentiles describe standing of the published quantity, not confidence or causal isolation. no forecast or calibrated interval is implied. unavailable uncertainty is not a zero-width interval.",
-      19,
-    );
-    paragraph(
-      `publication ${model.publication.publication_id} · ${model.publication.purpose} · generated ${model.publication.generated_at} · selected corpus ${model.season.corpus_sha256}`,
-      18,
-    );
-    const height = Math.ceil(top + 40);
+    if (methodYears.size)
+      paragraph(`methods · ${[...methodYears].map(([id, years]) => `${id} (${[...years].sort().join(", ")})`).join(" · ")}`, 18, muted);
+    paragraph(`publication ${model.publication.publication_id} · ${model.publication.purpose}`, 18, muted);
+    paragraph(`current localhost detail · ${detailLocation}`, 18, muted);
+
+    const height = Math.ceil(top + 27);
     svg.setAttribute("height", String(height));
     svg.setAttribute("viewBox", `0 0 1200 ${height}`);
-    bg.setAttribute("height", String(height));
+    background.setAttribute("height", String(height));
     return new XMLSerializer().serializeToString(svg);
   } finally {
     measurement.remove();

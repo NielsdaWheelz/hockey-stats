@@ -6,7 +6,7 @@ import { Link } from "react-router";
 import type { Publication, SeasonEvidence } from "../shared/observed";
 import type { Estimate } from "../shared/player-analysis";
 import { selectHistoryValue, selectLeagueValues, type AnalysisCatalogs, type AnalysisDatum, type AnalysisMetric } from "./analysis-values";
-import type { ScalarHistoryRow } from "./client";
+import { loadLeagueEvidence, type EvidenceRelease, type ScalarHistoryRow } from "./client";
 import type { PeerSettings } from "./explorer";
 import { buildAnalysisCohort, positionGroup, rawOnlyStanding, type AnalysisStanding } from "./analysis-cohorts";
 import { formatPercentile } from "./observed-comparison";
@@ -106,7 +106,7 @@ export const datumName = (datum: AnalysisDatum): string =>
 const groupName = (group: string | null): string =>
   group ?? "reference unavailable";
 
-function executionCoefficientRows(coefficients: NonNullable<AnalysisDatum["coefficient_support"]>) {
+function executionCoefficientRows(coefficients: NonNullable<Extract<AnalysisDatum["evidence"], { state: "loaded" }>["coefficient_support"]>) {
   return [
     ...(["u", "q", "r", "g"] as const).map(head => ({ label: `shooter ${head}`, coefficient: coefficients.shooter[head] })),
     { label: "setter g", coefficient: coefficients.setter.g },
@@ -135,17 +135,49 @@ function uncertaintyText(value: Estimate | null, scale: number, unit: string): s
   return `${displayNumber(100 * uncertainty.level)}% interval: ${displayNumber(scale * uncertainty.lower)} to ${displayNumber(scale * uncertainty.upper)} ${unit}; method ${uncertainty.method}; conditional on ${uncertainty.conditional_on.join(", ")}`;
 }
 
-export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
+export function DatumEvidence({
+  datum: scalar,
+  release,
+}: {
+  readonly datum: AnalysisDatum;
+  readonly release?: EvidenceRelease;
+}) {
   const [hasOpened, setHasOpened] = useState(false);
+  const [load, setLoad] = useState<{
+    readonly scalar: AnalysisDatum;
+    readonly state: "loading" | "failed" | AnalysisDatum;
+  } | null>(null);
+  const state = load?.scalar === scalar ? load.state : null;
+  const datum = state && typeof state !== "string" ? state : scalar;
+  const evidence = datum.evidence.state === "loaded" ? datum.evidence : null;
+  async function loadEvidence() {
+    if (!release || state === "loading" || evidence) return;
+    setLoad({ scalar, state: "loading" });
+    try {
+      const [full] = await loadLeagueEvidence(release, [scalar]);
+      setLoad(current => current?.scalar === scalar ? { scalar, state: full } : current);
+    } catch {
+      setLoad(current => current?.scalar === scalar ? { scalar, state: "failed" } : current);
+    }
+  }
   return (
     <details
       className="analysis-evidence"
       onToggle={(event) => {
-        if (event.currentTarget.open) setHasOpened(true);
+        if (!event.currentTarget.open) return;
+        setHasOpened(true);
+        if (state === null) void loadEvidence();
       }}
     >
       <summary>support, sources and method</summary>
       {hasOpened && <>
+      {state === "loading" && <p role="status">loading full published evidence…</p>}
+      {state === "failed" && <p role="alert">published evidence could not be loaded.</p>}
+      {!evidence && release && state !== "loading" && (
+        <button type="button" onClick={loadEvidence}>
+          {state === "failed" ? "retry evidence" : "load full evidence"}
+        </button>
+      )}
       <p>
         {datum.reason ?? "published value available"} · qualification:{" "}
         {datum.qualificationSeconds === null
@@ -200,14 +232,14 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
           : "this exact-state reference has weight one."}</p>
         <p>{spatialSupportMeaning(datum)}. selected spatial detail exposes structured head information and actual-context adjustments from the same publication.</p>
       </div>}
-      {datum.mechanism_detail && <MechanismDetail evidence={datum.mechanism_detail} />}
-      {datum.territory_detail && <TerritoryDetail evidence={datum.territory_detail} />}
-      {datum.reference_panel && (
+      {evidence?.mechanism_detail && <MechanismDetail evidence={evidence.mechanism_detail} />}
+      {evidence?.territory_detail && <TerritoryDetail evidence={evidence.territory_detail} />}
+      {evidence?.reference_panel && (
         <div>
           <p>
-            common reference panel: {datum.reference_panel.opportunities}{" "}
+            common reference panel: {evidence.reference_panel.opportunities}{" "}
             physical opportunities; setup weight{" "}
-            {displayNumber(datum.reference_panel.setup_weight)}. these are mathematical
+            {displayNumber(evidence.reference_panel.setup_weight)}. these are mathematical
             denominators, separate from viewing qualification.
           </p>
           <p>
@@ -216,7 +248,7 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
             differences use percentage points. setting is inferred setup credit,
             not recorded shot assists.
           </p>
-          {datum.coefficient_support && <>
+          {evidence.coefficient_support && <>
             <p>coefficients are shared across strengths. zero participation in this strength can mean extrapolation despite current-season information elsewhere. partial prior dependence is shown by head.</p>
             {datum.qualificationSeconds === 0 && datum.value !== null && (
               <p>this magnitude extrapolates shared-strength coefficients to a strength with zero current-season on-ice participation. current likelihood evidence may come from other strengths; this is not necessarily prior-only.</p>
@@ -225,7 +257,7 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
               <table>
                 <caption>distinct current likelihood events; setter union includes mean-coupled events and is not an observed pass count</caption>
                 <thead><tr><th scope="col">coefficient</th><th scope="col">available</th><th scope="col">likelihood union</th><th scope="col">setter candidate</th><th scope="col">setter mean-coupled</th><th scope="col">prior only</th><th scope="col">carried seasons / reason</th></tr></thead>
-                <tbody>{executionCoefficientRows(datum.coefficient_support).map(({label, coefficient}) => <tr key={label}>
+                <tbody>{executionCoefficientRows(evidence.coefficient_support).map(({label, coefficient}) => <tr key={label}>
                   <th scope="row">{label}</th><td>{String(coefficient.available)}</td><td>{coefficient.likelihood_events ?? "unavailable"}</td>
                   <td>{"candidate_events" in coefficient ? String(coefficient.candidate_events ?? "unavailable") : "not applicable"}</td>
                   <td>{"mean_coupled_events" in coefficient ? String(coefficient.mean_coupled_events ?? "unavailable") : "not applicable"}</td>
@@ -241,9 +273,9 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
             <pre>
               {JSON.stringify(
                 {
-                  reference_panel: datum.reference_panel,
-                  coefficient_support: datum.coefficient_support,
-                  paired_evidence: datum.paired_evidence,
+                  reference_panel: evidence.reference_panel,
+                  coefficient_support: evidence.coefficient_support,
+                  paired_evidence: evidence.paired_evidence,
                 },
                 null,
                 2,
@@ -251,6 +283,12 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
             </pre>
           </details>
         </div>
+      )}
+      {evidence?.goalie_detail && (
+        <details>
+          <summary>goalie panel masses and coefficient support</summary>
+          <pre>{JSON.stringify(evidence.goalie_detail, null, 2)}</pre>
+        </details>
       )}
       {datum.original && "denominator_kind" in datum.original && (
         <p>
@@ -395,6 +433,8 @@ export function analysisCsvRow(
   historyBreakReason: string | null = null,
 ): readonly CsvCell[] {
   const { datum, standing } = row;
+  if (datum.evidence.state !== "loaded") throw new Error("full evidence required for csv");
+  const evidence = datum.evidence;
   const uncertainty =
     datum.original && "uncertainty" in datum.original
       ? datum.original.uncertainty
@@ -468,17 +508,17 @@ export function analysisCsvRow(
     datum.observedSupport?.coverage_status ?? null,
     JSON.stringify(datum.sources.map((source) => source.definition)),
     JSON.stringify(datum.sources.flatMap((source) => source.limitations)),
-    JSON.stringify(datum.reference_panel),
-    JSON.stringify(datum.coefficient_support),
-    JSON.stringify(datum.paired_evidence),
+    JSON.stringify(evidence.reference_panel),
+    JSON.stringify(evidence.coefficient_support),
+    JSON.stringify(evidence.paired_evidence),
     JSON.stringify(datum.spatial_detail),
-    datum.mechanism_detail === null ? null : JSON.stringify(datum.mechanism_detail),
+    evidence.mechanism_detail === null ? null : JSON.stringify(evidence.mechanism_detail),
     datum.metric.publicationFamily === "spatial" ? datum.metric.id.split(".")[1] : null,
     spatialDirection(datum),
     datum.metric.publicationFamily === "spatial" ? spatialSupportMeaning(datum) : null,
     JSON.stringify(datum.methods.map(method => ({ method_id: method.method_id, evidence: method.evidence }))),
-    datum.goalie_detail === null ? null : JSON.stringify(datum.goalie_detail),
-    datum.territory_detail === null ? null : JSON.stringify(datum.territory_detail),
+    evidence.goalie_detail === null ? null : JSON.stringify(evidence.goalie_detail),
+    evidence.territory_detail === null ? null : JSON.stringify(evidence.territory_detail),
     datum.ledger_detail === null ? null : JSON.stringify(datum.ledger_detail),
     historyBreakReason,
   ];
@@ -809,6 +849,8 @@ function historySvg(view: HistoryView): string {
     top += 370;
     for (const [i, point] of view.points.entries()) {
       const { datum, standing } = point;
+      if (datum.evidence.state !== "loaded") throw new Error("history requires full evidence");
+      const evidence = datum.evidence;
       text(
         `${seasonLabel(point.season.season)}${point.season.season === view.selectedSeason ? " · selected" : ""}: ${valueText(datum)} ${view.metric.displayUnit}; ${standingText(standing)}`,
         25,
@@ -842,36 +884,36 @@ function historySvg(view: HistoryView): string {
         }
         note("conditional seasonal estimate with historical borrowing and inferred blocked origins; no calibrated uncertainty", point.season.season);
       }
-      if (datum.mechanism_detail) {
-        const evidence = datum.mechanism_detail;
+      if (evidence.mechanism_detail) {
+        const mechanism = evidence.mechanism_detail;
         note("conditional experimental mechanism; no causal credit or calibrated uncertainty; optimizer accuracy unknown", point.season.season);
-        text(`reference ${evidence.reference_id}; prior ${evidence.coefficient_support.prior_kind ?? "unavailable"}; anchor ${evidence.coefficient_support.prior_anchor_season ?? "none"}; prior-only ${evidence.coefficient_support.prior_only}`, 20);
-        if ("valuation" in evidence) {
-          text(`ordinary-minor team awards: neutral ${evidence.neutral_per60}; complete drawing ${evidence.drawn_complete_per60}; complete taking ${evidence.taken_complete_per60} per60. positive taking difference means more penalties`, 20);
-          text(`isolated-minor value ${evidence.valuation.V_goals ?? "unavailable"} goals; taking value = −taking difference × V; V can be negative. source-pooled sh circumstances differ from hypothetical ev/pp references`, 20);
-        } else text(`share of team attempts; ${evidence.reference_unit.forwards}F/${evidence.reference_unit.defenders}D unit. exact-state qualifying minutes differ from pooled seven-state candidate information; neither is observed shot share`, 20);
+        text(`reference ${mechanism.reference_id}; prior ${mechanism.coefficient_support.prior_kind ?? "unavailable"}; anchor ${mechanism.coefficient_support.prior_anchor_season ?? "none"}; prior-only ${mechanism.coefficient_support.prior_only}`, 20);
+        if ("valuation" in mechanism) {
+          text(`ordinary-minor team awards: neutral ${mechanism.neutral_per60}; complete drawing ${mechanism.drawn_complete_per60}; complete taking ${mechanism.taken_complete_per60} per60. positive taking difference means more penalties`, 20);
+          text(`isolated-minor value ${mechanism.valuation.V_goals ?? "unavailable"} goals; taking value = −taking difference × V; V can be negative. source-pooled sh circumstances differ from hypothetical ev/pp references`, 20);
+        } else text(`share of team attempts; ${mechanism.reference_unit.forwards}F/${mechanism.reference_unit.defenders}D unit. exact-state qualifying minutes differ from pooled seven-state candidate information; neither is observed shot share`, 20);
       }
-      if (datum.territory_detail) {
-        for (const line of territoryNotes(datum.territory_detail)) text(line, 20);
-        const shift = datum.territory_detail.shift_reference.data;
+      if (evidence.territory_detail) {
+        for (const line of territoryNotes(evidence.territory_detail)) text(line, 20);
+        const shift = evidence.territory_detail.shift_reference.data;
         if (shift) text(`successor ends: neutral ${shift.neutral_end_probabilities.join(", ")}; focal ${shift.focal_end_probabilities.join(", ")}; difference ${shift.end_difference.join(", ")}`, 20);
       }
-      if (datum.reference_panel) {
-        const panel = datum.reference_panel;
+      if (evidence.reference_panel) {
+        const panel = evidence.reference_panel;
         text(`common reference panel ${panel.panel_id}: ${panel.opportunities} physical opportunities; setup weight ${panel.setup_weight}`, 20);
         for (const [label, masses] of [["neutral", panel.neutral], ["focal shooter", panel.focal_shooter]] as const)
           text(`${label} prefix masses: u ${masses.u ?? "unavailable"}; uq ${masses.uq ?? "unavailable"}; uqr ${masses.uqr ?? "unavailable"}; uqrg ${masses.uqrg ?? "unavailable"}`, 20);
         text(`setting setup goal masses: neutral ${panel.setting_setup.neutral_goal_mass}; focal ${panel.setting_setup.focal_goal_mass ?? "unavailable"}`, 20);
-        if (datum.coefficient_support)
-          for (const { label, coefficient } of executionCoefficientRows(datum.coefficient_support))
+        if (evidence.coefficient_support)
+          for (const { label, coefficient } of executionCoefficientRows(evidence.coefficient_support))
             text(
               `${label}: available ${coefficient.available}; likelihood union ${coefficient.likelihood_events ?? "unavailable"}` +
               ("candidate_events" in coefficient && "mean_coupled_events" in coefficient ? `; candidate events ${coefficient.candidate_events ?? "unavailable"}; mean-coupled events ${coefficient.mean_coupled_events ?? "unavailable"}` : "") +
               `; prior only ${coefficient.prior_only ?? "unavailable"}; carried seasons ${coefficient.prior_seasons.join(", ") || "none"}; absence reason ${coefficient.reason ?? "none"}`,
               20,
             );
-        if (datum.paired_evidence) {
-          const paired = datum.paired_evidence;
+        if (evidence.paired_evidence) {
+          const paired = evidence.paired_evidence;
           text(`paired personal attempts: source ${paired.source_attempts}; paired ${paired.paired_attempts}; unvalued source ${paired.unvalued_source_attempts}`, 20);
           text(`danger unavailable: ${paired.danger_unavailable.events} paired attempts; ${paired.danger_unavailable.observed_goals} recorded goals; reference expected goals ${paired.danger_unavailable.reference_expected_goals}; actor expected goals ${paired.danger_unavailable.actor_expected_goals}`, 20);
         }

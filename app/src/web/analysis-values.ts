@@ -12,6 +12,11 @@ import type {
   SkaterSpatial,
   SpatialStrength,
   SkaterExecution,
+  ExecutionSummary,
+  ShootinessSummary,
+  PenaltySummary,
+  TerritorySummary,
+  GoalieSummary,
   SkaterShootiness,
   SkaterPenalties,
   SkaterTerritory,
@@ -130,14 +135,9 @@ export type AnalysisDatum = {
   readonly original: Estimate | FactValue | null;
   readonly support: Support | null;
   readonly componentSupport: ComponentSupport;
-  readonly reference_panel: Execution["reference_panel"] | null;
-  readonly coefficient_support: Execution["coefficient_support"] | null;
-  readonly paired_evidence: Execution["paired_evidence"] | null;
+  readonly evidence: { readonly state: "not_loaded" } | ({ readonly state: "loaded" } & FamilyEvidence);
   readonly spatial_detail: SpatialDetail | null;
-  readonly mechanism_detail: Shootiness["evidence"] | Penalties["evidence"] | null;
-  readonly territory_detail: Territory["evidence"] | null;
   readonly ledger_detail: LedgerDetail | null;
-  readonly goalie_detail: Goalie["evidence"] | null;
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
   readonly methods: readonly Method[];
@@ -156,6 +156,14 @@ export type AnalysisDatum = {
   readonly observedSupport: PlayerSummary["personal"] | PlayerSummary["metrics"] | null;
 };
 
+type FamilyEvidence = {
+  readonly reference_panel: Execution["reference_panel"] | null;
+  readonly coefficient_support: Execution["coefficient_support"] | null;
+  readonly paired_evidence: Execution["paired_evidence"] | null;
+  readonly mechanism_detail: Shootiness["evidence"] | Penalties["evidence"] | null;
+  readonly territory_detail: Territory["evidence"] | null;
+  readonly goalie_detail: Goalie["evidence"] | null;
+};
 type LedgerDetail = Pick<Ledger, "annual_reference_id" | "depth_position_group" | "depth_reference_coverage">;
 
 export type SpatialDetail = {
@@ -170,16 +178,16 @@ export type SpatialDetail = {
 type ValueInputs = {
   observed: Result<PlayerSummary>;
   spatial: (strength: typeof SpatialStrength.Type) => Result<Spatial>;
-  execution: Result<Execution>;
-  shootiness: Result<Shootiness>;
-  penalties: Result<Penalties>;
-  territory: Result<Territory>;
+  execution: Result<Execution | typeof ExecutionSummary.Type>;
+  shootiness: Result<Shootiness | typeof ShootinessSummary.Type>;
+  penalties: Result<Penalties | typeof PenaltySummary.Type>;
+  territory: Result<Territory | typeof TerritorySummary.Type>;
   ledger: Result<Ledger>;
   context: Result<SkaterContext>;
   descriptive: Result<SkaterDescriptive>;
   reportedUsage: Result<typeof ReportedUsage.Type>;
   microstats: Result<SkaterMicrostats>;
-  goalie: (strength: typeof GoalieStrength.Type) => Result<Goalie>;
+  goalie: (strength: typeof GoalieStrength.Type) => Result<Goalie | typeof GoalieSummary.Type>;
 };
 
 type SelectedValue = {
@@ -189,6 +197,7 @@ type SelectedValue = {
   readonly reason: string | null;
   readonly support: Support | null;
   readonly componentSupport?: ComponentSupport;
+  readonly evidenceNotLoaded?: true;
   readonly reference_panel?: Execution["reference_panel"];
   readonly coefficient_support?: Execution["coefficient_support"];
   readonly paired_evidence?: Execution["paired_evidence"];
@@ -419,9 +428,11 @@ const execution = strengths.flatMap(strength =>
       data => ({
         ...estimate(data[field], data.support[field], data.method_id,
           `${strength} current-season exact-strength focal on-ice participation with both goalies; cohort qualification, not panel or likelihood exposure`),
-        reference_panel: data.reference_panel,
-        coefficient_support: data.coefficient_support,
-        paired_evidence: data.paired_evidence,
+        ...("reference_panel" in data ? {
+          reference_panel: data.reference_panel,
+          coefficient_support: data.coefficient_support,
+          paired_evidence: data.paired_evidence,
+        } : { evidenceNotLoaded: true }),
       })
     )
   })),
@@ -446,7 +457,7 @@ const shootiness = strengths.flatMap(strength =>
     cutoff: strength === "5v5" ? "general" : "specialty",
     select: inputs => fromResult(inputs.shootiness, data => ({
       ...estimate(data[field], data.support, data.method_id, `shootiness.${strength}.support.included_seconds`),
-      mechanism_detail: data.evidence,
+      ...("evidence" in data ? { mechanism_detail: data.evidence } : { evidenceNotLoaded: true }),
     })),
   })),
 );
@@ -464,7 +475,7 @@ const penalties = (["drawn_per60", "taken_per60", "drawn_value_per60", "taken_va
   numericReference: field.includes("value") ? "isolated two-minute opportunity; drawing value = drawing difference × V; taking value = −taking difference × V; V can be negative" : "complete focal rate minus the neutral team-award rate",
   select: inputs => fromResult(inputs.penalties, data => ({
     ...estimate(data[field], data.support, data.method_id, "penalties.support.included_seconds"),
-    mechanism_detail: data.evidence,
+    ...("evidence" in data ? { mechanism_detail: data.evidence } : { evidenceNotLoaded: true }),
   })),
 }));
 
@@ -487,7 +498,7 @@ const territory = [
         data.support,
         data.method_id,
         "territory.support.included_seconds"
-      ), territory_detail: data.evidence})
+      ), ...("evidence" in data ? { territory_detail: data.evidence } : { evidenceNotLoaded: true })})
     )
   })),
   ...(["exit_offense", "entry_offense", "zone_retention", "entry_prevention"] as const).map(field => definition({
@@ -509,7 +520,7 @@ const territory = [
         data[field].support,
         data.method_id,
         `territory.${field}.support.included_seconds`
-      ), territory_detail: data.evidence})
+      ), ...("evidence" in data ? { territory_detail: data.evidence } : { evidenceNotLoaded: true })})
     )
   })),
   ...(["exit_offense", "entry_offense", "zone_retention", "entry_prevention"] as const).map(field => {
@@ -532,7 +543,7 @@ const territory = [
         const value = "hazard_per_second" in transition ? transition.hazard_per_second
           : "opponent_exit_hazard_per_second" in transition ? transition.opponent_exit_hazard_per_second
           : transition.opponent_entry_hazard_per_second;
-        return {...estimate(value, transition.support, data.method_id, `territory.${field}.support.included_seconds`), territory_detail: data.evidence};
+        return {...estimate(value, transition.support, data.method_id, `territory.${field}.support.included_seconds`), ...("evidence" in data ? { territory_detail: data.evidence } : { evidenceNotLoaded: true })};
       }),
     });
   }),
@@ -887,7 +898,7 @@ function goalieMetric(strength: typeof GoalieStrength.Type, field: GoalieField, 
       data => ({
         ...estimate(data[field], data.support[field], data.method_id,
           `goalie.${strength}.support.${field}.included_seconds`),
-        goalie_detail: data.evidence,
+        ...("evidence" in data ? { goalie_detail: data.evidence } : { evidenceNotLoaded: true }),
       })
     )
   });
@@ -1237,14 +1248,17 @@ function datum(
     original: selected.original,
     support: selected.support,
     componentSupport: selected.componentSupport ?? {},
-    reference_panel: selected.reference_panel ?? null,
-    coefficient_support: selected.coefficient_support ?? null,
-    paired_evidence: selected.paired_evidence ?? null,
+    evidence: selected.evidenceNotLoaded ? { state: "not_loaded" } : {
+      state: "loaded",
+      reference_panel: selected.reference_panel ?? null,
+      coefficient_support: selected.coefficient_support ?? null,
+      paired_evidence: selected.paired_evidence ?? null,
+      mechanism_detail: selected.mechanism_detail ?? null,
+      territory_detail: selected.territory_detail ?? null,
+      goalie_detail: selected.goalie_detail ?? null,
+    },
     spatial_detail: selected.spatial_detail ?? null,
-    mechanism_detail: selected.mechanism_detail ?? null,
-    territory_detail: selected.territory_detail ?? null,
     ledger_detail: selected.ledger_detail ?? null,
-    goalie_detail: selected.goalie_detail ?? null,
     qualificationSeconds: selected.qualificationSeconds,
     qualificationBasis: selected.qualificationBasis,
     methods,
@@ -1288,6 +1302,26 @@ export function checkObservedIdentity(person: Person, summary: PlayerSummary): v
     throw new Error(`player ${person.player_id}: observed summary identity differs from its overview person`);
 }
 
+export function overviewEvidenceSelection(metric: AnalysisMetric) {
+  if (metric.family !== "overview") return null;
+  switch (metric.publicationFamily) {
+    case "execution": return { kind: "skater", family: "execution", strength: "5v5" } as const;
+    case "shootiness": return { kind: "skater", family: "shootiness", strength: "5v5" } as const;
+    case "penalties": return { kind: "skater", family: "penalties", strength: null } as const;
+    case "territory": return { kind: "skater", family: "territory", strength: null } as const;
+    case "goalie": {
+      const strength = metric.selectionStrength;
+      if (strength !== "ev" && strength !== "pk") throw new Error("invalid pooled goalie strength");
+      return { kind: "goalie", family: "goalie", strength } as const;
+    }
+    default: return null;
+  }
+}
+
+export function scalarDatum({ evidence, ...scalar }: AnalysisDatum) {
+  return scalar;
+}
+
 export function selectLeagueValues(
   response: LeagueResponse,
   metric: AnalysisMetric,
@@ -1300,9 +1334,12 @@ export function selectLeagueValues(
     response.strength === null && metric.kind === "skater" &&
     metric.family === "observed" && metric.strength === "5v5" &&
     observed.some(field => field.id === metric.id);
+  const detail = overviewEvidenceSelection(metric);
+  const fullEvidence = detail !== null && response.family === detail.family && response.strength === detail.strength;
   if (
     response.kind !== metric.kind ||
-    !observedOverview && !usageOverview && (response.family !== metric.family || response.strength !== metric.strength)
+    !observedOverview && !usageOverview && !fullEvidence &&
+      (response.family !== metric.family || response.strength !== metric.strength)
   )
     throw new Error("league response does not match the selected quantity request");
   const make = (person: Person, inputs: ValueInputs) => {
@@ -1379,6 +1416,24 @@ export function selectLeagueValues(
       return response.players.map(row => make(row.person, {
         ...emptyInputs(),
         shootiness: row.result
+      }));
+    case "penalties":
+      return response.players.map(row => make(row.person, {
+        ...emptyInputs(),
+        penalties: row.result
+      }));
+    case "territory":
+      return response.players.map(row => make(row.person, {
+        ...emptyInputs(),
+        territory: row.result
+      }));
+    case "goalie":
+      return response.players.map(row => make(row.person, {
+        ...emptyInputs(),
+        goalie: strength => {
+          if (strength !== response.strength) throw new Error("goalie strength differs from its selected family");
+          return row.result;
+        }
       }));
     case "microstats":
       return response.players.map(row => make(row.person, {

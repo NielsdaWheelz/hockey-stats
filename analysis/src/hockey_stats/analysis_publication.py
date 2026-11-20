@@ -2451,7 +2451,7 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
 
 
 def _write_method_successor(source, methods, output):
-    """replace only the method catalog, preserving inherited member bytes."""
+    """replace owned method rows, preserving exact bytes of every other row."""
     require(not output.exists() and not output.is_symlink(), 'result output exists')
     output.mkdir()
     manifest = dict(source.manifest, producer=implementation_identity(), catalogs=dict(source.manifest['catalogs']))
@@ -2462,19 +2462,24 @@ def _write_method_successor(source, methods, output):
         destination.parent.mkdir(parents=True, exist_ok=True)
         with member_path(source.directory, member).open('rb') as original, destination.open('xb') as copied:
             shutil.copyfileobj(original, copied)
-    path = manifest['catalogs']['methods']['path']
+    original_methods = manifest['catalogs']['methods']
+    path = original_methods['path']
     (output/path).parent.mkdir(parents=True, exist_ok=True)
-    previous = None
     count = 0
     sha = hashlib.sha256()
-    with (output/path).open('xb') as destination:
-        for row in methods:
-            require(previous is None or previous < row['method_id'], 'method successor rows must be sorted and unique')
-            previous = row['method_id']
-            data = json_bytes(row)+b'\n'
+    original_sha = hashlib.sha256()
+    with member_path(source.directory, original_methods).open('rb') as original, (output/path).open('xb') as destination:
+        for line, row in zip(original, methods, strict=True):
+            original_sha.update(line)
+            old = strict_json(line)
+            require(old['method_id'] == row['method_id'], 'method successor changes catalog identity or order')
+            encoded = json_bytes(row)
+            data = line if encoded == json_bytes(old) else encoded+b'\n'
             destination.write(data)
             sha.update(data)
             count += 1
+    require(count == original_methods['rows'] and original_sha.hexdigest() == original_methods['sha256'],
+            'method successor donor catalog changed')
     manifest['catalogs']['methods'] = dict(path=path, rows=count, sha256=sha.hexdigest())
     staging = output/'manifest.json.incomplete'
     write_json(staging, manifest)

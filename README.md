@@ -42,6 +42,7 @@ node --version
 npm ci --include=dev
 npm run typecheck
 npm run build
+npm run publication -- check --candidate /absolute/schema-12-candidate/player-analysis.sqlite
 npm run serve -- --publication /absolute/schema-12-candidate/player-analysis.sqlite --port 3067
 ```
 
@@ -52,12 +53,13 @@ cd /absolute/review-checkout/app
 npm ci --include=dev
 npm run typecheck
 npm run build
+npm run publication -- check --candidate /absolute/schema-12-candidate/player-analysis.sqlite
 npm run serve -- --publication /absolute/schema-12-candidate/player-analysis.sqlite --port 3067
 ```
 
-open `http://127.0.0.1:3067/`. current source reads schema 12 only; the running schema-8 service still uses its unchanged compatible compiled build. build candidate reviews in a separate checkout. the active schema-8 publication and previous schema-7 rollback are tracked in [the current activation record](docs/research/execution-v1-06/activation.md), with their compatible builds. the normal application serves the local active database at `http://localhost:3000/`. use a separately built checkout and unused port to inspect another schema-8 candidate without replacing the active files. only its sqlite file is needed for browsing. rebuild compatible applications from git; no archived build is needed.
+open `http://127.0.0.1:3067/`. current source reads schema 12. serve the database and its matching `.validation.json` receipt using the compiled application that checked them. when the pair was already admitted by a compatible build, run `serve` directly.
 
-the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python and external network are unnecessary for browsing. the selected sqlite file must remain accessible; an external drive is needed only when that file is stored there. stop it with ctrl-c before replacing the publication. no lan host option is provided.
+startup verifies the receipt, hashes the read-only database and loads its indexes before listening. selected reads still validate their payloads. source roots, python and network access are unnecessary for browsing. the database and receipt must stay at their selected paths throughout serving. stop with ctrl-c before replacing either file. the application binds to loopback.
 
 discovery filters intersect and start with every published player, including low-minute names. choose a reported forward/defense group or a listed season team; type a nonnegative whole-minute minimum, then press enter or apply. the team filter matches season membership and keeps whole-season values, including other teams. `clear filters` preserves sorting. invalid minute drafts leave displayed results unchanged.
 
@@ -95,7 +97,7 @@ npm run dev:api -- --publication /absolute/schema-12-candidate/player-analysis.s
 npm run dev:web
 ```
 
-open `http://127.0.0.1:5173/`; `/api` proxies to `http://127.0.0.1:3000`. development api mode omits asset serving. both listeners bind only to loopback. browser and server have separate type checks; the build rejects browser imports of node/sqlite or server/operator implementations.
+open `http://127.0.0.1:5173/`; `/api` proxies to `http://127.0.0.1:3000`. build the backend and admit the candidate with that build before starting the development api. this mode omits asset serving. both listeners bind only to loopback. browser and server have separate type checks; the build rejects browser imports of node/sqlite or server/operator implementations.
 
 to build a new candidate, prepare the locked python environment from the repository root and choose a new output directory whose parent exists:
 
@@ -127,7 +129,7 @@ recovery performs no acquisition; its capture directory must already contain the
 
 `publish` requires both the observed selection and an explicitly selected result bundle. [v1-13](docs/specs/v1-13-typed-publication.md) defines the fixed manifest, catalogs, family tables and missing states; producers call `write_results` to serialize them. an observed-only candidate supplies explicit pending-family dispositions. fixtures remain fixtures, including captured-game examples. no fit, discovery, acquisition or real-model activation is implied.
 
-argument errors exit 2, help exits 0, and contract/i/o failures exit 1. the builder aggregates and independently reads back observed facts, streams strict family members, validates source/method/support identities and cross-record closure, then writes receipts before renaming `player-analysis.sqlite.incomplete` to `player-analysis.sqlite`. existing output is refused. only a completed database is needed for serving; reads never open preparation, fit or receipt paths.
+argument errors exit 2, help exits 0, and contract/i/o failures exit 1. the builder aggregates and independently reads back observed facts, streams strict family members, validates source/method/support identities and cross-record closure, then writes receipts before renaming `player-analysis.sqlite.incomplete` to `player-analysis.sqlite`. existing output is refused. the completed database needs a matching admission receipt for serving. selected reads use only the database.
 
 the typed api has five endpoints:
 
@@ -139,72 +141,31 @@ the typed api has five endpoints:
 
 [v1-13's selector matrix](docs/specs/v1-13-typed-publication.md#reader-and-api-contract) fixes analytical families and compatible selectors. invalid/duplicate/unknown selectors return typed 400; unknown season/person returns 404. a known person absent this season returns 200 with null selected identity and an explicit API `absent` state. unfinished work returns `not_computed`, not zero; ordinary read failures return 500 with retry copy. every response carries publication/season identity and resolving source/method/support catalogs. the old `spatial=` query is removed.
 
-for an explicitly assigned activation, check the candidate, stop serving, then copy/rotate explicitly:
+check and stage from the compatible task build while the active site remains usable:
 
 ```sh
 npm run publication -- check --candidate /absolute/schema-12-candidate/player-analysis.sqlite
-npm run publication -- activate --candidate /absolute/schema-12-candidate/player-analysis.sqlite --directory /absolute/publication
+npm run publication -- stage --candidate /absolute/schema-12-candidate/player-analysis.sqlite --directory /absolute/publication
+```
+
+`check` runs full semantic admission and issues a receipt bound to the database bytes, compiled server/shared files, node version and application lockfile. a changed identity requires an explicit check with the compatible build. `stage` copies and verifies both files at exclusive incoming paths. stage space must accommodate the extra pair.
+
+after stopping the current server, activate the staged pair using the task build. install the checked application, its matching manifests and locked dependencies, then start it from the serving location. confirm the publication identity and reload existing tabs.
+
+```sh
+npm run publication -- activate --directory /absolute/publication
 npm run serve -- --publication /absolute/publication/active.sqlite
 ```
 
-activation validates an exclusive incoming copy and reports its digest. it preserves an existing active file as opaque predecessor bytes and reports that byte identity; an incompatible predecessor is checked using its matching git build. exactly one `previous.sqlite` remains. to restore a schema-12 previous publication with current source, stop serving, run the following, restart and reload:
-
-```sh
-npm run publication -- restore --directory /absolute/publication
-```
-
-a cross-schema previous file requires the manual procedure below. the current source reads schema **12** only; it retains the authoritative observed reducers and their population/display versions. building/checking a candidate does not activate it, admit a model or complete real player cards. the currently active schema-8 pages present the supported observed journeys and [checked experimental execution views](docs/research/execution-v1-06/verification.md); direct goalie profiles show identity/history and the explicit unfinished-presentation message.
-
-prospective change only: [v1-20](docs/specs/v1-20-whole-card-closure.md) specifies whole-card delivery, compact comparative png/full csv, lean overview reads and receipt-bound startup. its eventual implementation includes explicit local staging, rollback rehearsal and activation. the commands above describe current code; the new check/stage/activate contract is not implemented yet. the active schema8 service and schema7 rollback remain unchanged by the specification.
+the previous slot holds the former active database and its receipt when one exists. for a compatible schema-12 previous pair, stop serving, run `npm run publication -- restore --directory /absolute/publication`, start and reload. restore stages a copy before rotating, so it uses space for one more pair. [whole-card delivery and admission](docs/specs/v1-20-whole-card-closure.md#admission-and-startup-contract).
 
 ### manual cross-version cutover and rollback
 
-the historical schema-3 → schema-6 activation is complete. its schema-6 publication `24e41fa7-256c-4f0a-9876-e8d7f8f42056` uses application code `cb13d99`; its then-previous schema-3 publication `84a9da75-2cdf-44e7-a463-21e79a02929e` requires code `d3dee76`. recreate it with `git worktree add --detach <old-checkout> d3dee76`; install its pinned lockfile and rebuild. the old schema-2 backup was replaced by that validated schema-3 active. the separate checked schema-5 baseline still uses `523a4d4`.
+prepare and smoke-start the previous publication using its exact compatible git revision, pinned dependencies and build on a separate port. for schema 8, the [activation record](docs/research/execution-v1-06/activation.md) pins its source. retain the ready runtime during the switch. an installed identity mismatch or live failure calls for rollback. [storage and retained identities](docs/storage.md#serving).
 
-the forward example below describes the completed schema-3 → schema-6 procedure. the completed schema-7 activation used the operator above, which preserves its predecessor opaquely; [its record](docs/research/application-v1-16/activation.md) retains that historical cutover. [schema-8 activation](docs/research/execution-v1-06/activation.md) owns current identities and rollback to schema7. cross-schema rollback always uses manual copies and each database's matching build. build and preflight compatible code on a separate port first, then set paths and stop serving. the subshell aborts on any failed check; an existing incoming file is an error. `cmp` requires exact copy equality before rotation. the completed activation staged and validated the incoming copy before stopping, reducing the interruption.
+with port 3000 stopped and both byte identities verified, restore a schema-8 previous database by moving the schema-12 active data and its receipt to unused temporary names, moving the schema-8 previous database to active, then putting the displaced schema-12 pair in the previous slot. schema 8 has no admission receipt. preserve exact known sources until both filenames and the previous receipt agree with their bytes. start the historical build against the restored active file and verify its publication id and a representative read. schema 8 repeats its original strict startup on restart.
 
-```sh
-(
-set -eu
-old_app=/absolute/schema-3-checkout/app
-new_app=/absolute/schema-6-checkout/app
-publication_directory=/absolute/publication
-candidate=/absolute/candidate/observed.sqlite
-(cd "$old_app" && npm run publication -- check --candidate "$publication_directory/active.sqlite")
-(cd "$new_app" && npm run publication -- check --candidate "$candidate")
-test ! -e "$publication_directory/incoming.sqlite"
-cp "$candidate" "$publication_directory/incoming.sqlite"
-cmp -s "$candidate" "$publication_directory/incoming.sqlite"
-(cd "$new_app" && npm run publication -- check --candidate "$publication_directory/incoming.sqlite")
-mv "$publication_directory/active.sqlite" "$publication_directory/previous.sqlite"
-mv "$publication_directory/incoming.sqlite" "$publication_directory/active.sqlite"
-(cd "$new_app" && npm run serve -- --publication "$publication_directory/active.sqlite")
-)
-```
-
-this replaces the previous backup with the validated old active. if interrupted, retain intact files and repair their names manually; do not rerun blind. rollback also stops serving and validates **both** current active and previous with their compatible code before overwriting either backup. use the same filled paths:
-
-```sh
-(
-set -eu
-old_app=/absolute/schema-3-checkout/app
-new_app=/absolute/schema-6-checkout/app
-publication_directory=/absolute/publication
-(cd "$new_app" && npm run publication -- check --candidate "$publication_directory/active.sqlite")
-(cd "$old_app" && npm run publication -- check --candidate "$publication_directory/previous.sqlite")
-test ! -e "$publication_directory/incoming.sqlite"
-cp "$publication_directory/previous.sqlite" "$publication_directory/incoming.sqlite"
-cmp -s "$publication_directory/previous.sqlite" "$publication_directory/incoming.sqlite"
-(cd "$old_app" && npm run publication -- check --candidate "$publication_directory/incoming.sqlite")
-mv "$publication_directory/active.sqlite" "$publication_directory/previous.sqlite"
-mv "$publication_directory/incoming.sqlite" "$publication_directory/active.sqlite"
-(cd "$old_app" && npm run serve -- --publication "$publication_directory/active.sqlite")
-)
-```
-
-rebuild the old checkout from git and its pinned lockfile before serving when needed; reload the browser after either restart. same-version activation/restore continue to use the existing commands above. there is no migration or historical-schema reader.
-
-if replacement is interrupted, inspect the intact `active.sqlite`, `previous.sqlite` and `incoming.sqlite` with their matching build's `publication check`, repair the names manually, then restart. an existing incoming file stops another copy. use compatible code from git when needed. there is no hot switching, release manager or automatic cleanup.
+if a rotation stops partway, keep the server stopped and reconcile the intact files against their known hashes before correcting filenames. the historical [schema-6 activation](docs/research/observed-05h/verification.md#explicit-activation) and [schema-7 activation](docs/research/application-v1-16/activation.md) retain their exact procedures.
 
 matched counts and time lose the same uncertain segments. valid zero-event time survives; missing counts remain missing, while supported zero counts remain zero. incomplete player associations limit every season summary and are listed in coverage details. included minutes are not official full ice time; `covered` means no known relevant gap in source-supported listed evidence. conservative exclusions, source selection and manual publication interruptions are accepted costs. source/model verdicts are unchanged by website completion.
 

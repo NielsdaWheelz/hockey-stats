@@ -129,110 +129,120 @@ const PlayerSeasonRow = Schema.Struct({
   ...spatialColumns,
 });
 
+const metrics = (row: typeof PlayerGameRow.Type | typeof PlayerSeasonRow.Type): Metrics => ({
+  included_seconds: row.included_seconds,
+  known_excluded_seconds: row.known_excluded_seconds,
+  attempts_for: row.attempts_for,
+  attempts_against: row.attempts_against,
+  for_per60: row.for_per60,
+  against_per60: row.against_per60,
+  coverage_status: row.coverage_status,
+  reason_codes: row.reason_codes_json,
+});
+const personal = (
+  row: typeof PlayerGameRow.Type | typeof PlayerSeasonRow.Type,
+): PersonalMetrics => ({
+  included_seconds: row.personal_included_seconds,
+  known_excluded_seconds: row.personal_known_excluded_seconds,
+  shots_on_goal: row.personal_shots_on_goal,
+  goals: row.personal_goals,
+  primary_assists: row.personal_primary_assists,
+  shots_on_goal_per60: row.personal_shots_on_goal_per60,
+  goals_per60: row.personal_goals_per60,
+  primary_assists_per60: row.personal_primary_assists_per60,
+  coverage_status: row.personal_coverage_status,
+  reason_codes: row.personal_reason_codes_json,
+});
+
+export const readObserved = (sql: SqliteClient) => {
+  const JoinedPlayer = Schema.Struct({
+    ...PlayerSeasonRow.fields,
+    display_name: PlayerRow.fields.display_name,
+    reported_position: PlayerRow.fields.reported_position,
+  });
+  const JoinedGame = Schema.Struct({
+    ...PlayerGameRow.fields,
+    game_date: DateString,
+    away_team_id: HockeyId,
+    home_team_id: HockeyId,
+    away_abbreviation: Schema.NullOr(Schema.String),
+    home_abbreviation: Schema.NullOr(Schema.String),
+  });
+  const readPlayers = (season: Season, playerId?: string) =>
+    Effect.gen(function* () {
+      const rows = yield* sql.unsafe(
+        `SELECT s.*, p.display_name, p.reported_position FROM player_season s JOIN person p USING(season,player_id) WHERE s.season=?${playerId === undefined ? "" : " AND s.player_id=?"} ORDER BY s.player_id`,
+        playerId === undefined ? [season] : [season, playerId],
+      );
+      return yield* Effect.try(() =>
+        rows.map((input) => {
+          const row = decode(JoinedPlayer, input);
+          return Schema.decodeUnknownSync(
+            PlayerSummary,
+            strict,
+          )({
+            player_id: row.player_id,
+            display_name: row.display_name,
+            reported_position: row.reported_position,
+            teams: row.teams_json,
+            listed_games: row.listed_games,
+            games_with_included_time: row.games_with_included_time,
+            partial_games: row.partial_games,
+            unavailable_games: row.unavailable_games,
+            metrics: metrics(row),
+            personal: personal(row),
+          });
+        }),
+      );
+    });
+  const readGames = (season: Season, playerId?: string) =>
+    Effect.gen(function* () {
+      const rows = yield* sql.unsafe(
+        `SELECT p.*, g.game_date, g.away_team_id, g.home_team_id, g.away_abbreviation, g.home_abbreviation FROM player_game p JOIN game g USING(season,game_id) WHERE p.season=?${playerId === undefined ? "" : " AND p.player_id=?"} ORDER BY g.game_date, g.game_id, p.player_id`,
+        playerId === undefined ? [season] : [season, playerId],
+      );
+      return yield* Effect.try(() =>
+        rows.map((input) => {
+          const row = decode(JoinedGame, input);
+          if (row.team_id !== row.home_team_id && row.team_id !== row.away_team_id)
+            throw new Error("player game team absent from matchup");
+          const home = row.team_id === row.home_team_id;
+          return Schema.decodeUnknownSync(
+            PlayerGame,
+            strict,
+          )({
+            game_id: row.game_id,
+            game_date: row.game_date,
+            venue: home ? "home" : "away",
+            team: {
+              id: row.team_id,
+              abbreviation: home ? row.home_abbreviation : row.away_abbreviation,
+            },
+            opponent: {
+              id: home ? row.away_team_id : row.home_team_id,
+              abbreviation: home ? row.away_abbreviation : row.home_abbreviation,
+            },
+            metrics: metrics(row),
+            personal: personal(row),
+            spatial: spatialMetrics(row),
+          });
+        }),
+      );
+    });
+  return {
+    readPlayers,
+    readGames,
+    readDeployment: (season: Season, id: string) => readDeployment(sql, season, id),
+  };
+};
+
 export const validateObserved = (
   sql: SqliteClient,
   seasons: readonly SeasonEvidence[],
   purpose: "real" | "fixture",
 ) =>
   Effect.gen(function* () {
-    const JoinedPlayer = Schema.Struct({
-      ...PlayerSeasonRow.fields,
-      display_name: PlayerRow.fields.display_name,
-      reported_position: PlayerRow.fields.reported_position,
-    });
-    const JoinedGame = Schema.Struct({
-      ...PlayerGameRow.fields,
-      game_date: DateString,
-      away_team_id: HockeyId,
-      home_team_id: HockeyId,
-      away_abbreviation: Schema.NullOr(Schema.String),
-      home_abbreviation: Schema.NullOr(Schema.String),
-    });
-    const metrics = (row: typeof PlayerGameRow.Type | typeof PlayerSeasonRow.Type): Metrics => ({
-      included_seconds: row.included_seconds,
-      known_excluded_seconds: row.known_excluded_seconds,
-      attempts_for: row.attempts_for,
-      attempts_against: row.attempts_against,
-      for_per60: row.for_per60,
-      against_per60: row.against_per60,
-      coverage_status: row.coverage_status,
-      reason_codes: row.reason_codes_json,
-    });
-    const personal = (
-      row: typeof PlayerGameRow.Type | typeof PlayerSeasonRow.Type,
-    ): PersonalMetrics => ({
-      included_seconds: row.personal_included_seconds,
-      known_excluded_seconds: row.personal_known_excluded_seconds,
-      shots_on_goal: row.personal_shots_on_goal,
-      goals: row.personal_goals,
-      primary_assists: row.personal_primary_assists,
-      shots_on_goal_per60: row.personal_shots_on_goal_per60,
-      goals_per60: row.personal_goals_per60,
-      primary_assists_per60: row.personal_primary_assists_per60,
-      coverage_status: row.personal_coverage_status,
-      reason_codes: row.personal_reason_codes_json,
-    });
-    const readPlayers = (season: Season, playerId?: string) =>
-      Effect.gen(function* () {
-        const rows = yield* sql.unsafe(
-          `SELECT s.*, p.display_name, p.reported_position FROM player_season s JOIN person p USING(season,player_id) WHERE s.season=?${playerId === undefined ? "" : " AND s.player_id=?"} ORDER BY s.player_id`,
-          playerId === undefined ? [season] : [season, playerId],
-        );
-        return yield* Effect.try(() =>
-          rows.map((input) => {
-            const row = decode(JoinedPlayer, input);
-            return Schema.decodeUnknownSync(
-              PlayerSummary,
-              strict,
-            )({
-              player_id: row.player_id,
-              display_name: row.display_name,
-              reported_position: row.reported_position,
-              teams: row.teams_json,
-              listed_games: row.listed_games,
-              games_with_included_time: row.games_with_included_time,
-              partial_games: row.partial_games,
-              unavailable_games: row.unavailable_games,
-              metrics: metrics(row),
-              personal: personal(row),
-            });
-          }),
-        );
-      });
-    const readGames = (season: Season, playerId?: string) =>
-      Effect.gen(function* () {
-        const rows = yield* sql.unsafe(
-          `SELECT p.*, g.game_date, g.away_team_id, g.home_team_id, g.away_abbreviation, g.home_abbreviation FROM player_game p JOIN game g USING(season,game_id) WHERE p.season=?${playerId === undefined ? "" : " AND p.player_id=?"} ORDER BY g.game_date, g.game_id, p.player_id`,
-          playerId === undefined ? [season] : [season, playerId],
-        );
-        return yield* Effect.try(() =>
-          rows.map((input) => {
-            const row = decode(JoinedGame, input);
-            if (row.team_id !== row.home_team_id && row.team_id !== row.away_team_id)
-              throw new Error("player game team absent from matchup");
-            const home = row.team_id === row.home_team_id;
-            return Schema.decodeUnknownSync(
-              PlayerGame,
-              strict,
-            )({
-              game_id: row.game_id,
-              game_date: row.game_date,
-              venue: home ? "home" : "away",
-              team: {
-                id: row.team_id,
-                abbreviation: home ? row.home_abbreviation : row.away_abbreviation,
-              },
-              opponent: {
-                id: home ? row.away_team_id : row.home_team_id,
-                abbreviation: home ? row.away_abbreviation : row.home_abbreviation,
-              },
-              metrics: metrics(row),
-              personal: personal(row),
-              spatial: spatialMetrics(row),
-            });
-          }),
-        );
-      });
+    const { readPlayers, readGames } = readObserved(sql);
     for (const evidence of seasons) {
       const season = evidence.season,
         coverage = evidence.coverage;
@@ -448,9 +458,4 @@ export const validateObserved = (
         coverage.games_with_unassigned_player_associations,
       );
     }
-    return {
-      readPlayers,
-      readGames,
-      readDeployment: (season: Season, id: string) => readDeployment(sql, season, id),
-    };
   });

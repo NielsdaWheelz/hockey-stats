@@ -1,5 +1,6 @@
 import { ledgerCoverage, ledgerLimits, ledgerWorkload } from "./ledger-presentation";
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
+import { loadLeagueEvidence, type EvidenceRelease } from "./client";
 import { Link } from "react-router";
 import { parseMinutes, type PeerSettings } from "./explorer";
 import type { Publication, SeasonEvidence } from "../shared/observed";
@@ -218,8 +219,9 @@ export function PeerControls({
 }
 
 function distributionRows(group: AnalysisPeerGroup): readonly AnalysisRow[] {
+  const selected = new Map(group.selected.map(({ datum }) => [datum.playerId, datum]));
   const members = group.members.map((datum): AnalysisRow => ({
-    datum,
+    datum: selected.get(datum.playerId) ?? datum,
     member: true,
     incompatiblePeerCount: group.incompatiblePeerCount,
     standing: {
@@ -320,8 +322,8 @@ export function distributionSvg(cohort: AnalysisCohort, metric: AnalysisMetric, 
       const coverage = ledgerCoverage(datum);
       if (coverage) text(coverage);
     }
-    if (datum.territory_detail)
-      for (const note of territoryNotes(datum.territory_detail)) text(note);
+    if (datum.evidence.state === "loaded" && datum.evidence.territory_detail)
+      for (const note of territoryNotes(datum.evidence.territory_detail)) text(note);
   }
   text(`publication ${publication.publication_id}; season ${season.season}; calibrated uncertainty unknown; exact values/support retained in distribution csv`);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="${y+30}" viewBox="0 0 1200 ${y+30}" font-family="system-ui,sans-serif" fill="#242b2d"><rect width="1200" height="${y+30}" fill="#fbfaf6"/>${parts.join("")}</svg>`;
@@ -333,8 +335,7 @@ export default function PeerDistributions({
   onMetricChange,
   settings,
   onPeerChange,
-  publication,
-  season,
+  release,
   profileLink,
   exportValues = false,
   exportPending = false,
@@ -346,8 +347,7 @@ export default function PeerDistributions({
   readonly onMetricChange: (metric: AnalysisMetric) => void;
   readonly settings: PeerSettings;
   readonly onPeerChange: (settings: Partial<PeerSettings>) => void;
-  readonly publication: Publication;
-  readonly season: SeasonEvidence;
+  readonly release: EvidenceRelease;
   readonly profileLink: (playerId: string) => {
     readonly to: string;
     readonly state: unknown;
@@ -358,7 +358,25 @@ export default function PeerDistributions({
   readonly metricIds?: readonly AnalysisMetricId[];
 }) {
   const id = useId();
+  const { publication, season } = release;
   const [status, setStatus] = useState("");
+  const [exporting, setExporting] = useState(false);
+  const busy = useRef(false);
+  async function runExport(action: () => Promise<void>, label: string) {
+    if (busy.current) return;
+    busy.current = true;
+    setExporting(true);
+    setStatus("");
+    try {
+      await action();
+      setStatus(`distribution ${label} prepared`);
+    } catch {
+      setStatus("export failed; retry the download.");
+    } finally {
+      busy.current = false;
+      setExporting(false);
+    }
+  }
   const selected = cohort.groups.flatMap((group) => group.selected);
   const mismatch = !compatibleAnalysisCohort(cohort);
   const selectedFamily = publication.families.find(
@@ -688,7 +706,7 @@ export default function PeerDistributions({
                       {row.standing.cutoffMinutes ?? "unavailable"} min
                     </td>
                     <td>
-                      <DatumEvidence datum={row.datum} />
+                      <DatumEvidence datum={row.datum} release={release} />
                     </td>
                   </tr>
                 ))}
@@ -699,32 +717,25 @@ export default function PeerDistributions({
       ))}
       {exportValues && !rawOnly && (
         <div className="card-actions">
-          <button type="button" disabled={exportPending} onClick={async () => {
-            const snapshot = { cohort, metric, publication, season, players: selected.map(({ datum }) => datum.playerId) };
-            try {
-              const svg = distributionSvg(snapshot.cohort, snapshot.metric, snapshot.publication, snapshot.season);
-              const blob = await svgPng(svg);
-              downloadBlob(blob, `hockey-stats-${snapshot.players.join("-")}-${snapshot.metric.id}-${snapshot.season.season}-distribution.png`);
-              setStatus("distribution png prepared");
-            } catch { setStatus("export failed; retry the download."); }
+          <button type="button" disabled={exportPending || exporting} onClick={() => {
+            const filename = `hockey-stats-${selected.map(({ datum }) => datum.playerId).join("-")}-${metric.id}-${season.season}-distribution.png`;
+            void runExport(async () => downloadBlob(
+              await svgPng(distributionSvg(cohort, metric, publication, season)), filename,
+            ), "png");
           }}>download distribution png</button>
           <button
             type="button"
-            disabled={exportPending}
+            disabled={exportPending || exporting}
             onClick={() => {
-              const snapshot = { publication, season, metric, rows: allRows };
-              try {
+              const filename = `hockey-stats-${selected.map(({ datum }) => datum.playerId).join("-")}-${metric.id}-${season.season}-distribution.csv`;
+              void runExport(async () => {
+                const datums = await loadLeagueEvidence(release, allRows.map(row => row.datum));
                 downloadCsv(
                   analysisCsvHeaders,
-                  snapshot.rows.map((row) =>
-                    analysisCsvRow(snapshot.publication, snapshot.season, row),
-                  ),
-                  `hockey-stats-${selected.map(({ datum }) => datum.playerId).join("-")}-${snapshot.metric.id}-${snapshot.season.season}-distribution.csv`,
+                  allRows.map((row, index) => analysisCsvRow(publication, season, { ...row, datum: datums[index]! })),
+                  filename,
                 );
-                setStatus("distribution csv prepared");
-              } catch {
-                setStatus("export failed; retry the download.");
-              }
+              }, "csv");
             }}
           >
             download distribution csv

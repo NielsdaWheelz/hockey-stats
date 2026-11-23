@@ -1231,8 +1231,9 @@ footer {
 .comparative-view-nav [aria-current="page"] { font-weight: 700; text-decoration-thickness: 3px; }
 @media (max-width: 1350px) { .comparative-pair { grid-template-columns: 1fr; } }
 @media (max-width: 700px) {
-  .comparative-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .comparative-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: min(.8rem, 3vw); }
   .comparative-pair .comparative-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .comparative-tile .comparative-magnitude { font-size: clamp(1.125rem, 5.5vw, 1.8rem); }
   .comparative-totals, .comparative-histories { grid-template-columns: 1fr; }
 }
 

@@ -426,8 +426,7 @@ export default function Player() {
         onMetricChange={changeMetric}
         settings={settings}
         onPeerChange={changePeers}
-        publication={publication}
-        season={season}
+        release={data.detail}
         profileLink={profileLink}
       />
       {data.executionEvidence && (

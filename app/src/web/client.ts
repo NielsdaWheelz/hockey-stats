@@ -15,6 +15,12 @@ import type {
 import {
   ApiError,
   close,
+  ExecutionSummaryResult,
+  GoalieSummaryResult,
+  PenaltySummaryResult,
+  ShootinessSummaryResult,
+  TerritorySummaryResult,
+  projectOverviewResult,
   PlayerAnalysisApi,
   type LeagueResponse,
   type EvidenceResponse,
@@ -37,6 +43,9 @@ import {
 import {
   checkObservedIdentity,
   analysisMetric,
+  overviewEvidenceSelection,
+  scalarDatum,
+  type AnalysisDatum,
   selectHistoryValue,
   selectLeagueValues,
   type AnalysisMetric,
@@ -128,7 +137,7 @@ const headers = { "content-type": "application/json" };
 
 async function read<A, E>(
   effect: Effect.Effect<A, E>,
-  signal: AbortSignal,
+  signal?: AbortSignal,
 ): Promise<A> {
   const result = await Effect.runPromise(Effect.result(effect), { signal });
   if (Result.isSuccess(result)) return result.success;
@@ -237,6 +246,53 @@ function checkRequest(response: LeagueResponse, request: ScalarRequest) {
     throw new Error("league response does not match its requested field population");
 }
 
+export type EvidenceRelease = Release & Envelope;
+
+// hydrate only the requested rows and preserve their click-time order. the
+// originating scalar is the contract even when running after navigation.
+export function loadLeagueEvidence(release: EvidenceRelease, datums: readonly AnalysisDatum[]) {
+  const requests = new Map<string, ScalarRequest>();
+  const metricRequests = new Map<AnalysisMetric, string>();
+  for (const datum of datums) {
+    if (datum.evidence.state === "loaded") continue;
+    const selection = overviewEvidenceSelection(datum.metric);
+    if (!selection || datum.season !== release.season.season)
+      throw new Error("overview evidence differs from the requested season or quantity");
+    const request = { ...selection, season: datum.season };
+    const key = requestKey(request);
+    requests.set(key, request);
+    metricRequests.set(datum.metric, key);
+  }
+  if (requests.size === 0) return Promise.resolve(datums);
+
+  return read(Effect.gen(function* () {
+    const api = yield* client;
+    const responses = yield* Effect.forEach(requests, ([key, request]) =>
+      api.analysis.league({ query: scalarQuery(request) }).pipe(
+        Effect.map(response => [key, response] as const),
+      ), { concurrency: "unbounded" });
+    return yield* compose(() => {
+      const byRequest = new Map(responses);
+      for (const [key, response] of responses) {
+        sameRelease(release, response);
+        checkRequest(response, requests.get(key)!);
+      }
+      catalogs([release, ...byRequest.values()]);
+      const lookup = new Map([...metricRequests].map(([metric, key]) => [
+        metric,
+        new Map(selectLeagueValues(byRequest.get(key)!, metric).map(datum => [datum.playerId, datum])),
+      ]));
+      return datums.map(datum => {
+        if (datum.evidence.state === "loaded") return datum;
+        const full = lookup.get(datum.metric)?.get(datum.playerId);
+        if (!full || full.evidence.state !== "loaded" || !equal(scalarDatum(datum), scalarDatum(full)))
+          throw new Error(`player ${datum.playerId}: full family evidence differs from its overview quantity`);
+        return { ...datum, evidence: full.evidence };
+      });
+    });
+  }));
+}
+
 const overviewRequest = (season: string, kind: "skater" | "goalie" = "skater"): ScalarRequest => ({
   season,
   kind,
@@ -337,9 +393,9 @@ function checkOverview(row: AnnualRow, cohort: SkaterOverview, playerId: string)
   const member = cohort.players.find(({ person }) => person.player_id === playerId);
   if (!equal(row.person, member?.person ?? null))
     throw new Error(`player ${playerId}: annual identity differs from its overview row`);
-  if (!member || member.result.availability !== "provided") return;
+  if (!member) return;
   const families = row.families;
-  if ("availability" in families || families.kind !== "skater")
+  if (member.result.availability !== "provided" || "availability" in families || families.kind !== "skater")
     throw new Error(`player ${playerId}: provided overview has no annual skater families`);
   const data = member.result.data;
   const strengthResult = <T>(
@@ -354,17 +410,20 @@ function checkOverview(row: AnnualRow, cohort: SkaterOverview, playerId: string)
           readonly explanation: string;
         },
     strength: string,
-  ) => collection.availability === "provided"
-    ? collection.data.find(value => value.strength === strength)?.result
-    : collection;
+  ) => {
+    if (collection.availability !== "provided") return collection;
+    const value = collection.data.find(value => value.strength === strength);
+    if (!value) throw new Error(`player ${playerId}: annual family lacks strength ${strength}`);
+    return value.result;
+  };
   const checks = [
     [data.observed, families.observed],
     [data.ledger, families.ledger],
-    [data.penalties, families.penalties],
-    [data.territory, families.territory],
+    [data.penalties, projectOverviewResult(PenaltySummaryResult, families.penalties)],
+    [data.territory, projectOverviewResult(TerritorySummaryResult, families.territory)],
     [data.context, families.context],
-    [data.execution, strengthResult(families.execution, "5v5")],
-    [data.shootiness, strengthResult(families.shootiness, "5v5")],
+    [data.execution, projectOverviewResult(ExecutionSummaryResult, strengthResult(families.execution, "5v5"))],
+    [data.shootiness, projectOverviewResult(ShootinessSummaryResult, strengthResult(families.shootiness, "5v5"))],
     [data.spatial.five_on_five, strengthResult(families.spatial, "5v5")],
     [data.spatial.pp, strengthResult(families.spatial, "pp")],
     [data.spatial.pk, strengthResult(families.spatial, "pk")],
@@ -734,9 +793,12 @@ function scalarRows(
       const peer = selectLeagueValues(cohort, metric).find(value => value.playerId === detail.player_id);
       // an absent strength can have a family-envelope explanation instead of a
       // strength-envelope explanation; original per-field reasons remain exact.
-      const agrees = selected.status === "not_computed" && peer?.status === "not_computed"
-        ? equal({ ...selected, reason: null }, { ...peer, reason: null })
-        : equal(selected, peer);
+      const summary = selected.evidence.state === "not_loaded" || peer?.evidence.state === "not_loaded";
+      const focal = summary ? scalarDatum(selected) : selected;
+      const ranked = summary && peer ? scalarDatum(peer) : peer;
+      const agrees = focal.status === "not_computed" && ranked?.status === "not_computed"
+        ? equal({ ...focal, reason: null }, { ...ranked, reason: null })
+        : equal(focal, ranked);
       if (!agrees)
         throw new Error(`player ${detail.player_id}: selected scalar or support differs from its annual cohort row`);
     } else if (selected.value !== null) {
@@ -762,13 +824,16 @@ function composeProfile(
     sameRelease({ ...detail, season: row.season }, cohort);
     const member = cohort.players.find(member => member.person.player_id === detail.player_id);
     if (!equal(row.person, member?.person ?? null)) throw new Error("goalie annual identity differs from its cohort row");
-    if (member?.result.availability === "provided") {
+    if (member) {
       const families = row.families;
-      if ("availability" in families || families.kind !== "goalie") throw new Error("goalie overview has no annual goalie families");
+      if (member.result.availability !== "provided" || "availability" in families || families.kind !== "goalie")
+        throw new Error("goalie overview has no annual goalie families");
       for (const strength of ["ev", "pk"] as const) {
         const modeled = families.goalie.availability === "provided" ? families.goalie.data.find(row => row.strength === strength)?.result : families.goalie;
         const observed = families.goalie_observed.availability === "provided" ? families.goalie_observed.data.find(row => row.strength === strength)?.result : families.goalie_observed;
-        if (!equal(modeled, member.result.data.goalie[strength]) || !equal(observed, member.result.data.observed[strength])) throw new Error("goalie annual estimate, evidence or support differs from its overview");
+        if (!equal(projectOverviewResult(GoalieSummaryResult, modeled), member.result.data.goalie[strength]) ||
+            !equal(observed, member.result.data.observed[strength]))
+          throw new Error("goalie annual estimate, status or support differs from its overview");
       }
     }
   }

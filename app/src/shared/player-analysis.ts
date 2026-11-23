@@ -1,4 +1,5 @@
 import * as Schema from "effect/Schema";
+import * as Struct from "effect/Struct";
 import * as HttpApi from "effect/http-api/HttpApi";
 import * as HttpApiEndpoint from "effect/http-api/HttpApiEndpoint";
 import * as HttpApiGroup from "effect/http-api/HttpApiGroup";
@@ -3013,6 +3014,7 @@ export const AbsentResult = Schema.Struct({
 export const ApiResult = <S extends Schema.Top>(data: S) =>
   Schema.Union([result(data), AbsentResult]);
 export const ObservedResult = result(PlayerSummary);
+export const ReportedUsageResult = result(ReportedUsage);
 export const SkaterDescriptiveResult = result(SkaterDescriptive);
 export const SkaterContextResult = result(SkaterContext);
 export const SkaterMicrostatsResult = result(SkaterMicrostats);
@@ -3375,24 +3377,58 @@ export const AbsentFamilies = Schema.Struct({
 });
 export const PlayerFamilies = Schema.Union([SkaterFamilies, GoalieFamilies, AbsentFamilies]);
 export type PlayerFamilies = typeof PlayerFamilies.Type;
+// the overview carries the same estimates and support as full results, with
+// evidence-bearing bodies available through their named family endpoints.
+export const ExecutionSummary = Schema.Struct({
+  ...executionFields,
+  support: SkaterExecution.fields.support,
+  method_id: SkaterExecution.fields.method_id,
+});
+export const ShootinessSummary = SkaterShootiness.mapFields(Struct.pick([
+  "probability", "neutral_probability", "difference", "support", "method_id",
+]));
+export const PenaltySummary = SkaterPenalties.mapFields(Struct.pick([
+  "drawn_per60", "taken_per60", "drawn_value_per60", "taken_value_per60", "support", "method_id",
+]));
+export const TerritorySummary = SkaterTerritory.mapFields(Struct.pick([
+  "ice_won_goals_per_basket", "ice_lost_goals_per_basket", "exit_offense", "entry_offense",
+  "zone_retention", "entry_prevention", "support", "method_id",
+]));
+export const GoalieSummary = Schema.Struct({
+  ...goalieFields,
+  support: GoalieResult.fields.support,
+  method_id: GoalieResult.fields.method_id,
+});
+export const ExecutionSummaryResult = result(ExecutionSummary);
+export const ShootinessSummaryResult = result(ShootinessSummary);
+export const PenaltySummaryResult = result(PenaltySummary);
+export const TerritorySummaryResult = result(TerritorySummary);
+export const GoalieSummaryResult = result(GoalieSummary);
+
+// project already decoded full results. the summary decoder selects only the
+// declared fields and retains the original availability envelope.
+export const projectOverviewResult = <S extends Schema.ConstraintDecoder<unknown, never>>(
+  schema: S, full: unknown,
+): S["Type"] => Schema.decodeUnknownSync(schema)(full);
+
 const skaterOverview = Schema.Struct({
-  reported_usage: result(ReportedUsage),
+  reported_usage: ReportedUsageResult,
   ledger: ValueLedgerSummaryResult,
   spatial: Schema.Struct({
     five_on_five: SkaterSpatialResult,
     pp: SkaterSpatialResult,
     pk: SkaterSpatialResult,
   }),
-  execution: SkaterExecutionResult,
-  shootiness: SkaterShootinessResult,
-  penalties: SkaterPenaltiesResult,
-  territory: SkaterTerritoryResult,
+  execution: ExecutionSummaryResult,
+  shootiness: ShootinessSummaryResult,
+  penalties: PenaltySummaryResult,
+  territory: TerritorySummaryResult,
   observed: ObservedResult,
   context: SkaterContextResult,
 });
 const goalieOverview = Schema.Struct({
-  reported_usage: result(ReportedUsage),
-  goalie: Schema.Struct({ ev: GoalieResultEnvelope, pk: GoalieResultEnvelope }),
+  reported_usage: ReportedUsageResult,
+  goalie: Schema.Struct({ ev: GoalieSummaryResult, pk: GoalieSummaryResult }),
   observed: Schema.Struct({ ev: GoalieObservedSummaryResult, pk: GoalieObservedSummaryResult }),
 });
 export const SkaterOverviewResult = result(skaterOverview);

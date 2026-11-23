@@ -15,6 +15,7 @@ import {
   type AnalysisMetricId,
 } from "./analysis-values";
 import { buildAnalysisCohort } from "./analysis-cohorts";
+import { loadLeagueEvidence, type EvidenceRelease } from "./client";
 import {
   analysisCsvHeaders,
   analysisCsvRow,
@@ -557,24 +558,27 @@ function metadataCsvRow(
   return analysisCsvHeaders.map(header => fields[header] ?? null);
 }
 
-export function discoveryCsvRows(
-  publication: Publication,
-  season: SeasonEvidence,
+export async function discoveryCsvRows(
+  release: EvidenceRelease,
   rows: readonly DiscoveryRow[],
   preset: ReturnType<typeof discoveryPreset>,
-): readonly (readonly CsvCell[])[] {
-  return rows.flatMap((row, rowIndex) => preset.columns.map((column, columnIndex) => {
-    const cell = row.cells[column.id]!;
-    return [
-      ...(cell.kind === "metric"
-        ? analysisCsvRow(publication, season, cell.row)
-        : metadataCsvRow(publication, season, row.person, cell)),
-      preset.table,
-      preset.strength,
-      rowIndex + 1,
-      columnIndex + 1,
-      column.id,
-      cell.kind === "metric" ? "" : JSON.stringify(cell.evidence),
-    ];
-  }));
+): Promise<readonly (readonly CsvCell[])[]> {
+  const entries = rows.flatMap((row, rowIndex) => preset.columns.map((column, columnIndex) => ({
+    person: row.person, cell: row.cells[column.id]!, rowIndex, column, columnIndex,
+  })));
+  const datums = await loadLeagueEvidence(release, entries.flatMap(({ cell }) =>
+    cell.kind === "metric" ? [cell.row.datum] : [],
+  ));
+  let index = 0;
+  return entries.map(({ person, cell, rowIndex, column, columnIndex }) => [
+    ...(cell.kind === "metric"
+      ? analysisCsvRow(release.publication, release.season, { ...cell.row, datum: datums[index++]! })
+      : metadataCsvRow(release.publication, release.season, person, cell)),
+    preset.table,
+    preset.strength,
+    rowIndex + 1,
+    columnIndex + 1,
+    column.id,
+    cell.kind === "metric" ? "" : JSON.stringify(cell.evidence),
+  ]);
 }

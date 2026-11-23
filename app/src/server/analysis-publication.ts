@@ -118,7 +118,7 @@ const validateSpatialMixtures = (rows: ReadonlyMap<string, Spatial>) => {
   }
 };
 
-const payloadFromRow = <S extends Schema.ConstraintDecoder<unknown, never>>(
+export const payloadFromRow = <S extends Schema.ConstraintDecoder<unknown, never>>(
   schema: S, row: Record<string, unknown>,
 ) => {
   let data: Record<string, unknown> | null = null;
@@ -185,24 +185,31 @@ export const personFromRow = (row: Record<string, unknown>) =>
     identity_support: strictJson(String(row.identity_support_json)),
   });
 
-export const validatePhysical = (sql: SqliteClient) =>
+export const validateDatabaseHeader = (sql: SqliteClient) =>
   Effect.gen(function* () {
-    const integrity = yield* sql.unsafe<Record<string, unknown>>("PRAGMA integrity_check"),
-      foreign = yield* sql.unsafe<Record<string, unknown>>("PRAGMA foreign_key_check");
     const version = yield* sql.unsafe<Record<string, unknown>>("PRAGMA user_version"),
       journal = yield* sql.unsafe<Record<string, unknown>>("PRAGMA journal_mode");
+    yield* Effect.try(() => {
+      if (JSON.stringify(version) !== '[{"user_version":12}]')
+        throw new Error("incompatible publication version; schema 12 is required");
+      if (JSON.stringify(journal) !== '[{"journal_mode":"delete"}]')
+        throw new Error("publication requires delete journal mode");
+    });
+  });
+
+export const validatePhysical = (sql: SqliteClient) =>
+  Effect.gen(function* () {
+    yield* validateDatabaseHeader(sql);
+    const integrity = yield* sql.unsafe<Record<string, unknown>>("PRAGMA integrity_check"),
+      foreign = yield* sql.unsafe<Record<string, unknown>>("PRAGMA foreign_key_check");
+    yield* Effect.try(() => {
+      if (JSON.stringify(integrity) !== '[{"integrity_check":"ok"}]' || foreign.length !== 0)
+        throw new Error("publication integrity or foreign-key check failed");
+    });
     const tables = yield* sql.unsafe<{ name: string; type: string; strict: number; wr: number }>(
       "PRAGMA table_list",
     );
     yield* Effect.try(() => {
-      if (JSON.stringify(integrity) !== '[{"integrity_check":"ok"}]' || foreign.length !== 0)
-        throw new Error("publication integrity or foreign-key check failed");
-      if (JSON.stringify(version) !== '[{"user_version":12}]')
-        throw new Error(
-          "incompatible publication version; schema 12 is required",
-        );
-      if (JSON.stringify(journal) !== '[{"journal_mode":"delete"}]')
-        throw new Error("publication requires delete journal mode");
       const actual = tables.filter((table) => !table.name.startsWith("sqlite_"));
       if (
         actual.length !== Object.keys(physicalSchema).length ||
@@ -501,10 +508,9 @@ const validateGoalieStates = (
   }
 };
 
-export const validateAnalysis = (
+export const readAnalysisIndexes = (
   sql: SqliteClient,
   catalogs: Effect.Success<ReturnType<typeof readCatalogs>>,
-  prepared: string | null,
 ) =>
   Effect.gen(function* () {
     const people = new Map<string, A.Person>();
@@ -524,6 +530,44 @@ export const validateAnalysis = (
         people.set(`${person.season}:${person.player_id}`, person);
       }),
     );
+    const gridRows = yield* sql.unsafe<Record<string, unknown>>(
+      "SELECT * FROM analysis_grid ORDER BY grid_id",
+    );
+    const grids = yield* Effect.try(() =>
+      gridRows.map((row) => decode(A.AnalysisGrid, factFromRow(row))),
+    );
+    yield* Effect.try(() => {
+      if (grids.length !== 2 || new Set(grids.map((row) => row.kind)).size !== 2)
+        throw new Error("both fixed grids are required");
+    });
+    const ledgerReferences = new Map<Season, ReturnType<typeof ledgerReferenceFromRow>>();
+    for (const family of catalogs.families.filter(row => row.family === "ledger")) {
+      const year = family.season;
+      const rows = yield* sql.unsafe<Record<string, unknown>>(
+        "SELECT * FROM ledger_reference WHERE season=?", [year],
+      );
+      if (rows.length !== 1)
+        return yield* Effect.fail(new Error("one annual ledger reference is required"));
+      const reference = yield* Effect.try(() => ledgerReferenceFromRow(rows[0]));
+      if (family.availability === "not_computed" &&
+          (reference.availability !== "not_computed" || reference.explanation !== family.explanation))
+        return yield* Effect.fail(new Error("pending annual ledger reference differs from family"));
+      if (reference.availability === "provided" && reference.data.season !== year)
+        return yield* Effect.fail(new Error("ledger reference season differs"));
+      ledgerReferences.set(year, reference);
+    }
+    return { people, grids, ledgerReferences };
+  });
+
+export type AnalysisIndexes = Effect.Success<ReturnType<typeof readAnalysisIndexes>>;
+
+export const validateAnalysis = (
+  sql: SqliteClient,
+  catalogs: Effect.Success<ReturnType<typeof readCatalogs>>,
+  { people, grids, ledgerReferences }: AnalysisIndexes,
+  prepared: string | null,
+) =>
+  Effect.gen(function* () {
     const present = (season: unknown, id: unknown, kind?: string) => {
       const person = people.get(`${season}:${id}`);
       if (person === undefined || (kind !== undefined && person.kind !== kind))
@@ -764,16 +808,6 @@ export const validateAnalysis = (
         }),
       );
     }
-    const gridRows = yield* sql.unsafe<Record<string, unknown>>(
-      "SELECT * FROM analysis_grid ORDER BY grid_id",
-    );
-    const grids = yield* Effect.try(() =>
-      gridRows.map((row) => decode(A.AnalysisGrid, factFromRow(row))),
-    );
-    yield* Effect.try(() => {
-      if (grids.length !== 2 || new Set(grids.map((row) => row.kind)).size !== 2)
-        throw new Error("both fixed grids are required");
-    });
     yield* validateRequiredRows(sql, people, catalogs.families);
     yield* validateCrossRecords(sql, grids);
     yield* validateRepeatedFacts(sql);
@@ -912,17 +946,10 @@ export const validateAnalysis = (
         territoryReferences.set(year, fixed);
       }),
     );
-    const ledgerReferences = new Map<string, ReturnType<typeof validateLedgerYear>>();
-    for (const family of catalogs.families.filter(entry => entry.family === "ledger")) {
-      const year = family.season;
-      const rows = yield* sql.unsafe<Record<string, unknown>>("SELECT * FROM ledger_reference WHERE season=?", [year]);
-      if (rows.length !== 1) return yield* Effect.fail(new Error("one annual ledger reference is required"));
-      const reference = yield* Effect.try(() => ledgerReferenceFromRow(rows[0]));
-      if (family.availability === "not_computed") {
-        if (reference.availability !== "not_computed" || reference.explanation !== family.explanation)
-          return yield* Effect.fail(new Error("pending annual ledger reference differs from family"));
+    for (const [year, reference] of ledgerReferences) {
+      const family = catalogs.families.find(row => row.season === year && row.family === "ledger")!;
+      if (family.availability === "not_computed")
         continue;
-      }
       const peopleInYear = [...people.values()].filter(person => person.season === year && person.kind === "skater");
       const source = <T extends SummaryTable>(table: T, strengths?: readonly string[]) =>
         Effect.gen(function* () {
@@ -950,8 +977,6 @@ export const validateAnalysis = (
           return yield* Effect.fail(new Error("provided ledger lacks its annual reference"));
         continue;
       }
-      if (reference.data.season !== year)
-        return yield* Effect.fail(new Error("ledger reference season differs"));
       const upstream = {
         spatial: yield* source("skater_spatial", A.SpatialStrength.literals),
         spatialEvidence: yield* source("spatial_evidence", A.SpatialStrength.literals),
@@ -969,11 +994,9 @@ export const validateAnalysis = (
           ids.add(game.game_id);
           inventory.set(team, ids);
         }
-      const coverage = yield* Effect.try(() =>
+      yield* Effect.try(() =>
         validateLedgerYear(reference.data, providedLedgers, upstream, catalogs.methods, inventory, prepared));
-      ledgerReferences.set(year, coverage);
     }
-    return { people, grids, ledgerReferences };
   });
 
 const mapKinds = (family: A.Family) =>

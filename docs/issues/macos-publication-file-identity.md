@@ -1,0 +1,7 @@
+# macbook file metadata changes after publication rotation
+
+two schema 12 starts on 2026-11-23 rejected the exact admitted candidate during hashing after promotion into `~/Documents/hockey-stats/local/publication/active.sqlite`. the postfailure ctime fell inside both hash windows. the recorded inode, size and mtime agreed, and an independent restage verified the exact bytes. both attempts failed before binding and the exact schema 8 service recovered. each interruption lasted about ten minutes. [failure and recovery evidence](../research/application-v1-20/verification.md#first-switch-and-actual-rollback).
+
+the kernel logged macl restoration before each start. the later ctime writer remains unidentified. a safe isolated rename and startup passed, and 6.566 seconds of metadata stability before the second live start still preceded a failure. the new local serving path reproduced the failure once in preview, then passed two exact-path starts and went live without further file moves. [final activation](/Users/nnandal/Documents/hockey-stats/local/application-v1-20-20261122/cutover.json) · [reproduced ctime change](/Users/nnandal/Documents/hockey-stats/local/application-v1-20-20261122/final-path-observed.json).
+
+resolution requires explaining or removing the recurring change during a reproduced in-place promotion while retaining the exact hash and file identity guards. a bounded host trace of the failing preview can identify the metadata writer.

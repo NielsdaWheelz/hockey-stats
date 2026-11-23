@@ -128,6 +128,8 @@ the comparative renderer consumes a prepared fixed model of these values, standi
 
 ## content and export acceptance
 
+prospective amendment, 2026-11-20: [v1-20](v1-20-whole-card-closure.md#comparative-card-and-downloads) replaces the exhaustive expanding png footer below with compact interpretation and full page/csv evidence, including a 27-row comparative csv. the delivered v1-15 acceptance and original contract below remain historical; this is a new assigned-scope decision, not a retrospective failure.
+
 | feature / content owner | what good means |
 |---|---|
 | compact card designer | recognizable single comparative composition; legible identity/headline/ten tiles/two histories; quantity class, scale, season and workload survive saving |

@@ -604,8 +604,7 @@ export default function Compare() {
           onMetricChange={changeMetric}
           settings={settings}
           onPeerChange={changePeers}
-          publication={data.publication}
-          season={data.season}
+          release={data.scalarCohort}
           profileLink={profileLink}
           exportValues
         />

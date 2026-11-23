@@ -436,6 +436,9 @@ export const validateLedgerYear = (
       (upstream.training_cutoff === null || method.training_cutoff !== null && upstream.training_cutoff <= method.training_cutoff),
       "ledger method drops upstream fitting history");
   }
+};
+
+export const ledgerReferenceCoverage = (reference: Reference) => {
   const coverage = (role: Group) => {
     const {available, member_count, total_seconds} = reference.positions[role];
     const selected = reference.groups.filter(group => group.position === role);

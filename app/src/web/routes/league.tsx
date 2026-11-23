@@ -1,4 +1,4 @@
-import { Fragment, useMemo, useState } from "react";
+import { Fragment, useMemo, useRef, useState } from "react";
 import {
   Link,
   useLoaderData,
@@ -105,6 +105,8 @@ export default function League() {
   const sortGroupCount = sort === "name"
     ? 0 : new Set(rows.map(row => row.cells[sort]!.semanticKey)).size;
   const [exportError, setExportError] = useState("");
+  const [exporting, setExporting] = useState(false);
+  const busy = useRef(false);
   const commit = (next: URLSearchParams, replace = false) => {
     if (next.toString() !== viewSearch(location, navigation.location).toString())
       setSearch(next, {
@@ -393,17 +395,24 @@ export default function League() {
       </p>
       <button
         type="button"
-        disabled={!players.length}
-        onClick={() => {
+        disabled={!players.length || exporting || navigation.state !== "idle"}
+        onClick={async () => {
+          if (busy.current) return;
+          busy.current = true;
+          setExporting(true);
           setExportError("");
+          const filename = `${preset.table}${preset.strength ? `-${preset.strength}` : ""}-${data.season.season}-${data.publication.publication_id}.csv`;
           try {
             downloadCsv(
               discoveryCsvHeaders,
-              discoveryCsvRows(data.publication, data.season, players, preset),
-              `${preset.table}${preset.strength ? `-${preset.strength}` : ""}-${data.season.season}-${data.publication.publication_id}.csv`,
+              await discoveryCsvRows(data.overview, players, preset),
+              filename,
             );
           } catch {
             setExportError("table export failed; retry the download.");
+          } finally {
+            busy.current = false;
+            setExporting(false);
           }
         }}
       >
@@ -486,7 +495,7 @@ export default function League() {
                                 </span>}
                                 <details>
                                   <summary>field evidence</summary>
-                                  <DatumEvidence datum={cell.row.datum} />
+                                  <DatumEvidence datum={cell.row.datum} release={data.overview} />
                                 </details>
                               </>
                             ) : (

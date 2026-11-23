@@ -24,6 +24,12 @@ accepted costs: broader provisional code, more source/model work, visible scient
 
 ## experimental specification choices — 2026-10-22
 
+### whole-card delivery choices — 2026-11-20
+
+the comparative png carries a compact interpretation footer; full field/annual evidence remains on the page and in csv. retain season, workload/reference, cohorts, material missingness/prior/numerical caveats and publication identity. this makes the image useful as a card at the cost of no longer carrying the complete audit trail by itself.
+
+the eventual [v1-20 implementation](specs/v1-20-whole-card-closure.md) includes final localhost activation after acceptance and rollback rehearsal. the current schema8 publication becomes the single previous database, replacing schema7. the user also selected startup-validation redesign: retain full explicit validation and bind its receipt to exact database/compiled-validator identities; ordinary startup verifies that binding rather than repeating the 56-minute semantic scan. this adds a small receipt and staged operator contract; compatible-code changes can require fresh validation. these are specification choices, not execution or activation now. [the plan](plan.md#current-boundary) owns assignment.
+
 ### completeness clarification
 
 **v1 boundary, clarified after reviewing the supplied images:** deliver the complete hockeyviz-style player-card families and their components/subskills, plus both jfresh-style skater cards: the compact comparative card and the microstat card with every field we can honestly construct. retain dedicated goalie analysis, existing tables/comparisons and the settled three-season scope. hockeyviz-style completeness includes the numerical component bodies, not just empty panels. our independent seasonal estimators need not reproduce private formulas. [v1 checklist](product-inventory.md#v1-card-completion-boundary--2026-10-22) · [eight inspected samples](research/visual-references/README.md)

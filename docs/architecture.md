@@ -441,6 +441,10 @@ failed work leaves the last valid publication available. retain the inputs and i
 
 ## storage and publication
 
+the [v1-20 admission boundary](specs/v1-20-whole-card-closure.md#admission-and-startup-contract) separates full semantic validation from serving immutable accepted bytes. one backend owner issues a strict sidecar bound to database hash and compiled server/shared validation identity; normal startup verifies that identity and loads small indexes. existing full validation remains the explicit check command, and selected readers remain strict. missing/stale receipts fail instead of triggering a silent expensive scan. the compiled publication/dev-api/server entry points share one implementation. this conservative identity invalidates receipts on server/runtime/lockfile changes; it adds no response cache, hot switching or scientific-admission claim.
+
+v1-20 also narrows the existing overview read to explicit scalar summaries before json parsing. full selected-person/family evidence remains authoritative and loads on demand for affected peer-detail/csv actions. transport omission is distinct from unavailable source evidence. the [concrete contract](specs/v1-20-whole-card-closure.md#scalar-overview-and-explicit-evidence-loading) owns the finite mapping; cohort/history/value computation stays in its existing modules.
+
 status: revised engineering selection on 2026-09-29 after the user's challenge and two independent reviews. use one completed, immutable sqlite database per publication. this supersedes the json-directory selection; it is an engineering judgment, not a database preference attributed to the user. explicit activation and one previous valid publication are settled. concrete schemas and runtime compatibility belong to the relevant specifications and verification.
 
 | data role | representation | benefit and material cost |

@@ -16,7 +16,7 @@ retain the existing two recent local seasons, the fixed third-season exception a
 
 new retained outputs use these permanent roots directly. a worktree contains source and disposable scratch; its removal must not remove the only copy of an input, result, receipt or fitted state. source revisions belong in git; protect necessary refs before deleting a checkout. no cleanup daemon or storage service is required.
 
-the local and origin branches named `implement/v1-09-special-teams` retain the original special-teams source at `77d9627`. pr #63 landed the same tree in a squash commit. the retained branch preserves the intermediate producer revisions that the delivery evidence cites. [pr #63](https://github.com/NielsdaWheelz/hockey-stats/pull/63) · [retention record](research/storage-consolidation-20261118/verification.md)
+the annotated tag `archive/v1-09-source` pins the original special-teams history at `77d9627`. pr #63 squash-merged its final tree at `ff290da`. fetch the tag with `git fetch origin tag archive/v1-09-source` to recover the intermediate producer commits cited in the verification record. [pr #63](https://github.com/NielsdaWheelz/hockey-stats/pull/63) · [producer verification](research/spatial-st-v1-09/verification.md)
 
 ## historical input locators
 

@@ -1,6 +1,6 @@
 # final spatial volume sensitivity
 
-the real `20252026` volume continuation exceeds v1-08's original fixed numerical budgets. that verdict remains failed and remaining optimizer accuracy is unknown. the separate [private experimental-use decision](../research/spatial-v1-08/experimental-use-decision.md) admits the saved baseline after a bounded consequence review, with disclosure; it does not certify numerical resolution. the inactive real candidate and detached api integration are accepted; actual browser, layout and download acceptance is deferred and not passed. all fifteen baseline heads, three continuations and earlier accepted annuals remain preserved.
+the real `20252026` volume continuation exceeded v1-08's original fixed numerical budgets. remaining optimizer accuracy is unknown. a bounded consequence review permitted private experimental use of that saved baseline with disclosure. v1-08 deferred its own browser/layout/download checks. later whole-card acceptance verifies the shipped application under its own contract. [experimental-use decision](../research/spatial-v1-08/experimental-use-decision.md) · [v1 product delivery](../research/application-v1-20/verification.md)
 
 ## evidence
 

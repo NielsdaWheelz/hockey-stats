@@ -1,0 +1,5 @@
+# estimating a player's level within a season
+
+the published spatial fit has one skater state per season. even on a partial-season game selection, that model assigns one level to the included span. it cannot distinguish the player's january and march levels within one fit. [volume fit](../specs/v1-08-positive-attribution.md) · [annual histories](../specs/v1-14-history-cohorts-exports.md)
+
+for the first dated skill, trace real 5v5 attempts and matched minutes through one fitted trajectory to two dates in the same season on the card and export. check a stable simulated player, a sustained change and an unsupported gap. in a controlled case, vary only games after the target date but before the evidence cutoff and verify their declared influence. games after the cutoff must have none. reproduce a selected point from the same inputs, including its reference and support. a paired comparison uses the same target date and fit cutoff. record which changes the data can resolve. [model target](../research/model-direction.md#retrospective-player-ability) · [pr handoff](../plan.md#remaining-v2-pr-boundaries)

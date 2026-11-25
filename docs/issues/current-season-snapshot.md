@@ -8,6 +8,8 @@ at the first assigned acquisition, preserve the dated schedule, season reference
 
 bind the selected ids, source revisions and exact derived game digests. later revisions can change an earlier game's facts. identify that change separately from newly played games and retain both selections. keep unplayed and postponed games in the schedule. a completed game with missing shifts belongs in the completed count and can supply boxscore fields. exclude counts and time together where interval evidence fails. supported ice time with zero shots still enters the rate. [member identity](corpus-member-identity.md)
 
+at the first capture assignment, coordinate with the assessment owner so future games can serve the v2-03 comparison. capture and observed publication can proceed independently of model fitting or scoring. [prospective game cutoff](production-model-assessment.md#prospective-game-cutoff)
+
 ## two-cutoff acceptance
 
 1. build two real observed candidates. a game completed between cutoffs enters the later selection exactly once. reconcile its game log, counts and included minutes with the change in player-season totals, accounting for any other new or revised games. replay the first selection after the second and recover its membership, facts and denominators. newly built candidates have their own publication ids.
